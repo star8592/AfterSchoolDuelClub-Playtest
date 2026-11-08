@@ -320,13 +320,375 @@
  .performance-stage[data-phase="impact"] .performance-opponent{opacity:1;transform:none}
  .performance-stage[data-phase="impact"] .performance-shield{opacity:1}
 }
+
+/* V0.7 integrated 2.5D theater.
+   Art images are NOT fabricated in CSS: these geometric actor silhouettes are
+   explicit placeholders pending approved separate native-image assets. */
+.cinematic-arena[hidden]{display:none!important}
+body[data-theater="on"]{
+  --gold:#efcc98;
+  background:radial-gradient(ellipse at 50% -25%,#435a70 0%,#141f30 49%,#0b1420 100%);
+}
+body[data-theater="on"] .app{max-width:1320px}
+body[data-theater="on"] .intro{display:none}
+body[data-theater="on"] .mast{padding-bottom:7px;margin-bottom:8px}
+body[data-theater="on"] .mast h1{font-size:clamp(22px,2.5vw,32px);margin:0;line-height:1.15}
+body[data-theater="on"] .mast .eyebrow{font-size:8px;letter-spacing:.12em}
+body[data-theater="on"] .mast p{margin:3px 0;font-size:10px}
+body[data-theater="on"] .battle{padding:11px 12px;background:linear-gradient(150deg,#283a50 0%,#15283b 54%,#131c2a 100%);border-color:rgba(239,208,159,.45);box-shadow:0 20px 45px rgba(0,0,0,.22)}
+body[data-theater="on"] .ribbon{padding:3px 7px 9px;min-height:43px}
+body[data-theater="on"] .ribbon .player-identity{min-width:0;gap:8px}
+body[data-theater="on"] .ribbon .own-identity{flex-direction:row;text-align:left}
+body[data-theater="on"] .ribbon .enemy-identity{flex-direction:row-reverse;text-align:right}
+body[data-theater="on"] .ribbon .avatar{height:34px;width:34px;font-size:15px}
+body[data-theater="on"] .ribbon .player-identity strong{font-size:22px}
+body[data-theater="on"] .ribbon .round-num{font-size:22px;line-height:1}
+body[data-theater="on"] .ribbon .mini-caption{font-size:9px;letter-spacing:.07em}
+body[data-theater="on"] .board-caption,
+body[data-theater="on"] #lanes{display:none}
+body[data-theater="on"] .prompt{font-size:11px;min-height:20px;padding:5px 6px 0}
+.cinematic-arena{position:relative;z-index:1}
+.arena-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 5px;font-size:12px;color:#f7e4c5}
+.arena-head strong{display:flex;align-items:center;gap:9px}
+.arena-stage-chip{border:1px solid rgba(250,225,174,.42);font-size:9px;color:#f2d5aa;border-radius:30px;padding:3px 7px;background:#182a3e}
+#arena-scene-status{font-size:10px;color:#c7d4e2}
+.arena-scene{
+  --ground:#29334a;
+  position:relative;isolation:isolate;overflow:hidden;min-height:345px;
+  display:grid;grid-template-columns:minmax(0,31%) minmax(0,38%) minmax(0,31%);
+  align-items:stretch;border-radius:15px;
+  border:1px solid rgba(251,218,168,.45);
+  background:linear-gradient(180deg,#425976 0%,#516078 34%,#635c60 68%,#292a35 100%);
+  box-shadow:inset 0 3px 19px rgba(3,11,21,.38),0 8px 30px rgba(0,0,0,.23);
+  perspective:900px;transform-style:preserve-3d;
+}
+.arena-depth{position:absolute;inset:0;pointer-events:none;z-index:0;transform-style:preserve-3d}
+.arena-depth-far{background:linear-gradient(175deg,rgba(194,202,206,.23) 0%,rgba(128,118,119,.24) 62%,rgba(55,54,67,.17) 62%),
+radial-gradient(ellipse at 12% 13%,rgba(255,228,182,.4),transparent 43%);
+transform:translateZ(-40px) scale(1.07)}
+.arena-windows{position:absolute;left:4%;top:8%;width:29%;height:49%;border:7px solid #423f44;box-shadow:inset 0 0 20px #ffead4,0 0 20px rgba(255,210,161,.12);background:
+linear-gradient(90deg,transparent 46%,rgba(66,72,81,.75) 47% 53%,transparent 54%),
+linear-gradient(transparent 47%,rgba(66,72,81,.75) 48% 52%,transparent 53%),
+linear-gradient(160deg,#d6d3c6,#bba996 69%,#766e6c)}
+.arena-windows:after{content:"";position:absolute;inset:-12% -30%;background:linear-gradient(114deg,rgba(255,240,199,.28),transparent 61%);transform:skewX(-15deg)}
+.arena-blackboard{position:absolute;top:15%;right:8%;width:36%;height:36%;border:8px solid #76604b;background:linear-gradient(135deg,#354b4c,#2f3e47 75%);box-shadow:0 9px 17px rgba(5,10,15,.25),inset 0 0 12px rgba(0,0,0,.3)}
+.arena-blackboard:after{content:"";position:absolute;inset:16% 13%;background:linear-gradient(2deg,transparent 48%,rgba(217,220,192,.19) 49% 50%,transparent 51%);opacity:.45}
+.arena-depth-mid{top:61%;background:repeating-linear-gradient(90deg,rgba(12,19,27,.08) 0 2px,transparent 3px 100px),linear-gradient(180deg,rgba(150,109,76,.35),rgba(35,35,46,.24));transform:rotateX(45deg) translateZ(-28px) scale(1.13);transform-origin:50% 0}
+.arena-desks{position:absolute;left:5%;right:5%;top:14%;height:36%;opacity:.42;background:repeating-linear-gradient(90deg,#5f4d44 0 44px,#9c7958 44px 49px,transparent 50px 154px);clip-path:polygon(0 27%,100% 16%,96% 67%,0 86%)}
+.arena-depth-near{inset:auto 0 0;height:35%;z-index:1;background:linear-gradient(0deg,rgba(16,20,30,.75),rgba(23,28,40,.23),transparent)}
+.arena-scene[data-focus="1"] .arena-depth-far{transform:translateZ(-40px) scale(1.12) translateX(-1.8%);filter:saturate(.79)}
+.arena-scene[data-focus="2"] .arena-depth-far{transform:translateZ(-40px) scale(1.13) translateX(2%);filter:saturate(1.07)}
+.arena-cast{position:relative;z-index:3;align-self:end;display:grid;justify-items:center;gap:4px;min-width:0;padding:0 6px 16px;filter:drop-shadow(0 12px 17px rgba(0,0,0,.46));transition:opacity .18s ease}
+.arena-cast-player{grid-column:1}
+.arena-cast-enemy{grid-column:3}
+.arena-side-tag{font-size:10px;letter-spacing:.13em;font-weight:850;color:#ffefcc;text-shadow:0 2px 8px #182331}
+.arena-cast strong{display:block;max-width:98%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-align:center;background:rgba(11,24,40,.89);border:1px solid #d6ba86;border-radius:7px;padding:5px 10px;font-size:13px}
+.arena-cast small{font-size:10px;color:#f1e5d2;text-align:center;line-height:1.3;text-shadow:0 2px 5px #111}
+.arena-figure{position:relative;width:min(165px,68%);height:199px;display:block;transform-origin:50% 100%;animation:arena-idle 3.4s ease-in-out infinite alternate}
+.arena-figure-head{position:absolute;top:18%;left:31%;width:38%;height:35%;border:2px solid rgba(245,216,173,.55);border-radius:42% 44% 45% 43%;background:linear-gradient(105deg,#ffd6ae,#b78a80);z-index:3;box-shadow:inset -5px -2px 9px rgba(82,54,68,.28)}
+.arena-figure-hair{position:absolute;top:8%;left:22%;width:54%;height:34%;border-radius:48% 47% 24% 12%;background:linear-gradient(140deg,#302e43,#605066 69%,#292c43);z-index:4;clip-path:polygon(8% 30%,23% 17%,38% 27%,45% 4%,57% 21%,78% 13%,82% 37%,94% 44%,83% 72%,70% 81%,62% 59%,45% 63%,29% 88%,24% 65%,4% 64%)}
+.arena-figure-body{position:absolute;left:14%;top:48%;height:48%;width:74%;border:2px solid #c1b4b0;border-radius:25% 25% 9% 9%;background:linear-gradient(124deg,#3a547a 0%,#213b60 62%,#1b2840 100%);box-shadow:inset 7px 3px 12px rgba(215,226,250,.12)}
+.arena-figure-body:after{content:"";position:absolute;top:3%;left:43%;width:17%;height:70%;background:linear-gradient(145deg,#d4e4e9,#8e9eb4);clip-path:polygon(0 0,100% 0,70% 100%,50% 82%,25% 100%)}
+.arena-figure-arm{position:absolute;z-index:5;top:56%;left:6%;width:36%;height:16%;border-radius:35px;background:linear-gradient(130deg,#38577f,#243b62);border:2px solid #aebcd0;transform:rotate(27deg);transform-origin:85% 50%}
+.arena-cast-enemy .arena-figure{transform:scaleX(-1)}
+.arena-cast-enemy .arena-figure-body{background:linear-gradient(125deg,#574252,#382d43 67%,#302c3f)}
+.arena-cast-enemy .arena-figure-arm{background:#49394e}
+.arena-cast-enemy .arena-figure-hair{background:linear-gradient(135deg,#2b2a42,#51414c)}
+.arena-figure[data-card] .arena-portrait,.arena-portrait{width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:6}
+.arena-cast[data-unit-state="ready"] .arena-figure{animation-duration:2.6s}
+.arena-conflict{position:relative;z-index:2;grid-column:2;align-self:center;display:grid;justify-items:center;gap:8px;text-align:center;pointer-events:none;text-shadow:0 2px 10px #101a29}
+.arena-conflict-top{font-size:10px;letter-spacing:.17em;color:#f5d7a6}
+.arena-conflict strong{font-family:serif;font-size:clamp(25px,3vw,42px);font-weight:850;color:#fff5d9}
+#arena-focus-description{max-width:240px;font-size:11px;color:#e7e0d3;line-height:1.45}
+.arena-focus-spark{font-size:37px;color:#f7dfa8;opacity:.52;animation:arena-glow 2.9s ease-in-out infinite alternate}
+.arena-lane-selector{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}
+.arena-lane-chip{min-width:0;display:flex;justify-content:space-between;gap:8px;align-items:center;padding:10px 12px;border-radius:9px;border:1px solid #596b7b;background:linear-gradient(145deg,#26384d,#182b41);color:#e5eaf0;min-height:47px}
+.arena-lane-chip strong{font-size:13px}
+.arena-lane-chip span{font-size:10px;color:#adbfce;white-space:nowrap}
+.arena-lane-chip[data-focused="true"]{border-color:#f6cb8c;box-shadow:inset 0 0 0 1px rgba(245,210,165,.5),0 0 15px rgba(229,188,118,.13);background:linear-gradient(140deg,#534338,#233c50)}
+.arena-lane-chip.arena-lane-target{border-style:dashed;border-color:#f3c57c}
+.arena-lane-chip.arena-lane-ready:not(:disabled){cursor:pointer}
+.arena-lane-chip:disabled{opacity:.54}
+.arena-quality-note{color:#a8b7c7;font-size:9px;text-align:center;letter-spacing:.02em;margin:5px 0 0}
+body[data-theater="on"] .action-bar{padding:7px 4px;margin-top:3px}
+body[data-theater="on"] .energy{font-size:20px}
+body[data-theater="on"] .action-bar .eyebrow{font-size:9px}
+body[data-theater="on"] .combo-hint{font-size:10px}
+body[data-theater="on"] .hand-section{margin-top:7px;padding:10px 12px}
+body[data-theater="on"] .hand-section .section-heading{margin-bottom:5px}
+body[data-theater="on"] .hand-section .section-heading h2{font-size:16px;margin:2px 0}
+body[data-theater="on"] .card{min-height:155px;flex-basis:126px;padding:7px;gap:4px}
+body[data-theater="on"] .card-art{height:46px}
+body[data-theater="on"] .card-glyph{font-size:31px}
+body[data-theater="on"] .card-flavor{display:none}
+body[data-theater="on"] .card-title{font-size:12px}
+body[data-theater="on"] .card-cost{font-size:10px;padding:3px 5px}
+@keyframes arena-idle{0%{translate:0 0;rotate:-1deg}100%{translate:0 -5px;rotate:1deg}}
+@keyframes arena-glow{0%{opacity:.25;scale:.85}100%{opacity:.8;scale:1.1}}
+
+/* The real event-driven character performance is now contained in this SAME
+   battlefield; stage controls remain keyboard/touch accessible. */
+.cinematic-arena .performance-stage{position:absolute;inset:0;z-index:8;display:grid;place-items:stretch;padding:0;width:100%;height:100%;overflow:hidden;pointer-events:none}
+.cinematic-arena .performance-stage[hidden]{display:none!important}
+.cinematic-arena .performance-backdrop{background:rgba(13,20,32,.43);backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px)}
+.cinematic-arena .performance-panel{width:100%;max-height:none;height:100%;min-height:0;overflow:hidden;border:0;border-radius:0;background:transparent;box-shadow:none;padding:5px 11px 7px;grid-template-rows:auto minmax(90px,1fr) auto auto;gap:3px;pointer-events:none}
+.cinematic-arena .performance-panel:before{display:none}
+.cinematic-arena .performance-header strong{font-size:clamp(15px,2.1vw,22px)}
+.cinematic-arena .performance-header .performance-eyebrow{font-size:8px}
+.cinematic-arena .performance-scene{min-height:90px;overflow:visible;border:0;background:transparent!important;box-shadow:none}
+.cinematic-arena .performance-scene:before,.cinematic-arena .performance-scene:after{display:none}
+.cinematic-arena .performance-dialogue-box{padding:6px 11px;gap:2px;border-color:rgba(250,223,174,.4);background:rgba(13,22,38,.88)}
+.cinematic-arena #performance-dialogue{font-size:clamp(12px,1.5vw,16px);line-height:1.2}
+.cinematic-arena .performance-actor{gap:2px;padding:0 0 5px}
+.cinematic-arena .performance-art{min-height:65px}
+.cinematic-arena .performance-art-placeholder{width:min(85px,12vw);font-size:37px;border-width:1px}
+.cinematic-arena .performance-actor>strong{font-size:11px}
+.cinematic-arena .performance-opponent{width:64px;height:108px}
+.cinematic-arena .performance-opponent>span{font-size:40px}
+.cinematic-arena .performance-bottom{gap:3px}
+.cinematic-arena .performance-prototype{font-size:8px}
+.cinematic-arena .performance-controls{pointer-events:auto}
+.cinematic-arena .performance-controls button{font-size:10px;padding:5px 9px;min-height:34px}
+.arena-scene:has(.performance-stage:not([hidden])) .arena-cast,.arena-scene:has(.performance-stage:not([hidden])) .arena-conflict{opacity:.17}
+@media(max-width:760px){
+  body[data-theater="on"] .app{padding:8px 8px 20px;display:flex;flex-direction:column}
+  body[data-theater="on"] .mast{padding:2px 1px 4px;margin:0;flex-direction:row;align-items:center}
+  body[data-theater="on"] .mast h1{font-size:21px}
+  body[data-theater="on"] .mast .eyebrow,body[data-theater="on"] .mast p{display:none}
+  body[data-theater="on"] .mast-actions{width:auto;margin:0}
+  body[data-theater="on"] .mast-actions label,body[data-theater="on"] .mast-actions select{display:none}
+  body[data-theater="on"] .mast-actions .minor{padding:5px 8px;font-size:10px}
+  body[data-theater="on"] .tutorial-panel{margin:4px 0;padding:5px 7px;gap:6px}
+  body[data-theater="on"] .tutorial-insignia{width:28px;min-width:28px;height:28px;font-size:11px}
+  body[data-theater="on"] .tutorial-copy h2{font-size:13px;margin:0 0 2px}
+  body[data-theater="on"] .tutorial-copy p{font-size:10px;line-height:1.2}
+  body[data-theater="on"] .tutorial-actions .minor{font-size:9px;padding:4px 6px}
+  body[data-theater="on"] .battle{padding:5px}
+  body[data-theater="on"] .ribbon{padding:1px 2px 4px;min-height:40px}
+  body[data-theater="on"] .ribbon .avatar{width:26px;height:26px;font-size:12px}
+  body[data-theater="on"] .ribbon .who{font-size:9px}
+  body[data-theater="on"] .ribbon .player-identity strong{font-size:18px}
+  body[data-theater="on"] .ribbon .mini-caption{font-size:7px}
+  body[data-theater="on"] .ribbon .round-num{font-size:19px}
+  .arena-head{font-size:9px;padding:3px}
+  .arena-stage-chip{font-size:7px;padding:2px 4px}
+  #arena-scene-status{font-size:8px}
+  .arena-scene{min-height:238px;grid-template-columns:31% 38% 31%;border-radius:9px}
+  .arena-cast{padding:0 2px 10px;gap:1px}
+  .arena-figure{height:121px;width:min(99px,80%)}
+  .arena-side-tag{font-size:8px;letter-spacing:.07em}
+  .arena-cast strong{font-size:10px;padding:3px 4px;border-radius:5px}
+  .arena-cast small{font-size:8px;line-height:1.2}
+  .arena-conflict{gap:4px}
+  .arena-conflict strong{font-size:25px}
+  .arena-conflict-top{font-size:7px}
+  #arena-focus-description{font-size:8px}
+  .arena-focus-spark{font-size:21px}
+  .arena-lane-selector{gap:4px;margin-top:4px}
+  .arena-lane-chip{padding:5px 6px;min-height:42px;display:grid;justify-items:center;gap:2px}
+  .arena-lane-chip strong{font-size:11px}
+  .arena-lane-chip span{font-size:9px}
+  .arena-quality-note{font-size:7px;margin:3px 0 0}
+  .cinematic-arena .performance-panel{padding:3px 5px;grid-template-rows:auto minmax(70px,1fr) auto auto;gap:2px}
+  .cinematic-arena .performance-header strong{font-size:13px}
+  .cinematic-arena .performance-header .performance-eyebrow{font-size:6px}
+  .cinematic-arena .performance-scene{min-height:70px}
+  .cinematic-arena .performance-art-placeholder{width:61px;font-size:28px}
+  .cinematic-arena .performance-actor>strong{font-size:8px}
+  .cinematic-arena .performance-opponent{width:42px;height:71px}
+  .cinematic-arena .performance-opponent>span{font-size:26px}
+  .cinematic-arena .performance-dialogue-box{padding:4px 6px}
+  .cinematic-arena #performance-dialogue{font-size:11px}
+  .cinematic-arena #performance-speaker{font-size:9px}
+  .cinematic-arena .performance-controls button{font-size:8px;min-height:32px;padding:4px 5px}
+  .cinematic-arena .performance-prototype{font-size:7px}
+  body[data-theater="on"] .action-bar{order:4;margin-top:0;padding:4px 1px;gap:4px}
+  body[data-theater="on"] .hand-section{order:3;margin-top:4px;padding:5px 7px}
+  body[data-theater="on"] .hand-section .eyebrow,body[data-theater="on"] .hand-section .helper{display:none}
+  body[data-theater="on"] .hand-section .section-heading h2{font-size:12px;margin:0}
+  body[data-theater="on"] .hand{gap:5px;padding:2px 0 4px}
+  body[data-theater="on"] .card{flex-basis:112px;min-height:114px;padding:5px;gap:2px}
+  body[data-theater="on"] .card-art{height:27px}
+  body[data-theater="on"] .card-glyph{font-size:22px}
+  body[data-theater="on"] .card-title{font-size:11px}
+  body[data-theater="on"] .card-top,.card-bottom{font-size:9px}
+  body[data-theater="on"] .action-bar .eyebrow{display:none}
+  body[data-theater="on"] .action-bar .energy{font-size:17px}
+  body[data-theater="on"] .combo-hint{font-size:9px}
+  body[data-theater="on"] #end-turn{padding:7px 10px;font-size:11px}
+  body[data-theater="on"] .action-controls .minor{display:none}
+  body[data-theater="on"] .journal{order:5}
+  body[data-theater="on"] footer{order:6}
+}
+@media(prefers-reduced-motion:reduce){
+  .arena-figure,.arena-focus-spark{animation:none!important}
+  .arena-depth{transform:none!important}
+}
+
+/* In-scene cut-ins are directed at the SAME standing cast. The actual target
+   from the combat event briefly replaces the opponent side's static portrait,
+   avoiding a false 'enemy commander died' visual when a unit left the board. */
+.cinematic-arena .performance-actor{visibility:hidden}
+.cinematic-arena .performance-target{visibility:visible}
+.cinematic-arena .performance-target .performance-opponent{background:linear-gradient(155deg,#526b83,#28364e);border-color:#f2d1a6}
+.cinematic-arena .performance-stage[data-side="ai"] .performance-target .performance-opponent{background:linear-gradient(145deg,#314d79,#253551)}
+.arena-scene:has(.performance-stage:not([hidden])) .arena-cast-player{opacity:.88}
+.arena-scene:has(.performance-stage:not([hidden])) .arena-cast-enemy{opacity:.08}
+.arena-scene:has(.performance-stage[data-side="ai"]:not([hidden])) .arena-cast-player{opacity:.08}
+.arena-scene:has(.performance-stage[data-side="ai"]:not([hidden])) .arena-cast-enemy{opacity:.88}
+.arena-scene:has(.performance-stage[data-phase="action"][data-side="player"]:not([hidden])) .arena-cast-player{
+  animation:arena-attack-lunge .77s cubic-bezier(.2,.6,.25,1) both
+}
+.arena-scene:has(.performance-stage[data-phase="action"][data-side="ai"]:not([hidden])) .arena-cast-enemy{
+  animation:arena-attack-lunge-ai .77s cubic-bezier(.2,.6,.25,1) both
+}
+.arena-scene:has(.performance-stage[data-phase="impact"]:not([hidden])) .arena-depth-far{filter:brightness(1.12) saturate(1.04)}
+@keyframes arena-attack-lunge{
+  0%{transform:translateX(0) rotate(0)}
+  25%{transform:translateX(-8px) rotate(-4deg)}
+  53%{transform:translateX(29px) rotate(9deg)}
+  100%{transform:translateX(0) rotate(0)}
+}
+@keyframes arena-attack-lunge-ai{
+  0%{transform:translateX(0) rotate(0)}
+  25%{transform:translateX(8px) rotate(4deg)}
+  53%{transform:translateX(-29px) rotate(-9deg)}
+  100%{transform:translateX(0) rotate(0)}
+}
+.cinematic-arena .performance-action-mark{position:relative}
+.cinematic-arena .performance-projectile{top:49%;left:8%;font-size:clamp(24px,4vw,42px)}
+.cinematic-arena .performance-stage[data-phase="action"][data-effect^="chalk"] .performance-projectile{
+  animation:arena-chalk-shoot .78s cubic-bezier(.12,.43,.26,1) both
+}
+.cinematic-arena .performance-stage[data-side="ai"][data-phase="action"][data-effect^="chalk"] .performance-projectile{
+  animation-name:arena-chalk-shoot-ai
+}
+@keyframes arena-chalk-shoot{
+  0%{left:-24%;opacity:0;transform:translateY(-22px) rotate(-15deg) scale(.65)}
+  15%{opacity:1}
+  82%{opacity:1;transform:translateY(-50%) rotate(540deg) scale(1.18)}
+  100%{left:138%;opacity:0;transform:translateY(-50%) rotate(670deg) scale(.75)}
+}
+@keyframes arena-chalk-shoot-ai{
+  0%{left:125%;opacity:0;transform:translateY(-22px) rotate(15deg) scale(.65)}
+  15%{opacity:1}
+  82%{opacity:1;transform:translateY(-50%) rotate(-540deg) scale(1.18)}
+  100%{left:-26%;opacity:0;transform:translateY(-50%) rotate(-670deg) scale(.75)}
+}
+@media(prefers-reduced-motion:reduce){
+  .arena-scene .arena-cast{animation:none!important}
+}
+
+/* Reciprocal attacks use the same combat zone, not a new pop-up or invented HP. */
+.cinematic-arena .performance-stage[data-phase="action"][data-effect="exchange"] .performance-projectile,
+.cinematic-arena .performance-stage[data-phase="action"][data-effect="direct_hit"] .performance-projectile{
+  animation:arena-chalk-shoot .65s cubic-bezier(.2,.6,.28,1) both;
+}
+.cinematic-arena .performance-stage[data-side="ai"][data-phase="action"][data-effect="exchange"] .performance-projectile{
+  animation-name:arena-chalk-shoot-ai;
+}
+.cinematic-arena .performance-stage[data-phase="counter"] .performance-opponent{
+  animation:arena-counter-swing .55s cubic-bezier(.22,.65,.35,1) both;
+}
+.cinematic-arena .performance-stage[data-phase="counter"] .performance-projectile{
+  animation:arena-chalk-shoot-ai .58s ease-out both;
+}
+.cinematic-arena .performance-stage[data-phase="counter"] .performance-hit-value{
+  opacity:1;transform:none;background:#8c3841;border-color:#f6c6b3;
+}
+.arena-scene:has(.performance-stage[data-phase="counter"][data-side="player"]:not([hidden])) .arena-cast-player{
+  animation:arena-recoil .55s ease-out both;
+}
+.arena-scene:has(.performance-stage[data-phase="counter"][data-side="ai"]:not([hidden])) .arena-cast-enemy{
+  animation:arena-recoil .55s ease-out both;
+}
+@keyframes arena-counter-swing{
+  0%{transform:translateX(0) rotate(0)}
+  47%{transform:translateX(-27px) rotate(-12deg)}
+  100%{transform:translateX(0) rotate(0)}
+}
+@keyframes arena-recoil{
+  0%{transform:translateX(0)}
+  36%{transform:translateX(-10px) rotate(-3deg)}
+  100%{transform:translateX(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .cinematic-arena .performance-stage[data-phase="counter"] .performance-opponent,
+  .arena-scene:has(.performance-stage[data-phase="counter"]) .arena-cast{animation:none!important}
+}
+
+/* Real phone screenshot QA found legacy hand-first flex order. Override only
+   the new theater: mission -> fight -> hand -> action, all in one viewport. */
+@media(max-width:760px){
+  body[data-theater="on"] .mast{order:0}
+  body[data-theater="on"] .tutorial-panel{order:1}
+  body[data-theater="on"] .battle{order:2;margin-top:4px}
+  body[data-theater="on"] .hand-section{order:3}
+  body[data-theater="on"] .action-bar{order:4}
+  body[data-theater="on"] .journal{order:5}
+  body[data-theater="on"] footer{order:6}
+}
+
+/* Laptop 1366x768 QA: BOTH actors, the actual attack and the hand must be
+   visible together. Preserve a taller theater on large/high-DPI displays. */
+@media(min-width:761px) and (max-height:850px){
+  body[data-theater="on"] .app{padding:9px 18px 18px}
+  body[data-theater="on"] .mast{height:51px;margin:0 0 5px;padding:1px 0 5px}
+  body[data-theater="on"] .mast h1{font-size:27px;line-height:1.1;margin:0}
+  body[data-theater="on"] .mast .eyebrow,body[data-theater="on"] .mast p{display:none}
+  body[data-theater="on"] .mast-actions select,body[data-theater="on"] .mast-actions .minor{padding:6px 9px;font-size:11px}
+  body[data-theater="on"] .tutorial-panel{min-height:0;margin:5px 0;padding:7px 11px;gap:11px}
+  body[data-theater="on"] .tutorial-insignia{height:32px;width:32px;min-width:32px;font-size:13px}
+  body[data-theater="on"] .tutorial-copy h2{font-size:17px;margin:0 0 3px}
+  body[data-theater="on"] .tutorial-copy p{font-size:12px;line-height:1.25;margin:0}
+  body[data-theater="on"] .tutorial-actions .minor{padding:6px 9px;font-size:10px}
+  body[data-theater="on"] .battle{padding:7px 9px}
+  body[data-theater="on"] .ribbon{padding:0 5px 4px;min-height:38px}
+  body[data-theater="on"] .ribbon .avatar{height:28px;width:28px}
+  body[data-theater="on"] .ribbon .player-identity strong{font-size:20px}
+  body[data-theater="on"] .ribbon .round-num{font-size:20px}
+  .arena-head{padding:3px 5px}
+  .arena-scene{height:224px;min-height:224px}
+  .arena-figure{height:134px;width:min(114px,65%)}
+  .arena-cast{padding:0 5px 6px;gap:2px}
+  .arena-side-tag{font-size:9px}
+  .arena-cast strong{font-size:11px;padding:3px 8px}
+  .arena-cast small{font-size:9px}
+  .arena-lane-selector{gap:7px;margin-top:4px}
+  .arena-lane-chip{min-height:36px;padding:5px 11px}
+  .arena-lane-chip strong{font-size:12px}
+  .arena-lane-chip span{font-size:9px}
+  .arena-quality-note{margin:2px 0 0;font-size:8px}
+  body[data-theater="on"] .prompt{padding:3px 5px 0;min-height:17px;font-size:10px}
+  body[data-theater="on"] .action-bar{padding:3px 4px;gap:6px}
+  body[data-theater="on"] .action-bar .energy{font-size:17px}
+  body[data-theater="on"] .action-bar .eyebrow{font-size:8px}
+  body[data-theater="on"] .combo-hint{font-size:10px}
+  body[data-theater="on"] .action-bar .primary{padding:9px 14px;font-size:12px}
+  body[data-theater="on"] .action-bar .minor{padding:7px 10px;font-size:10px}
+  body[data-theater="on"] .hand-section{margin-top:4px;padding:6px 9px}
+  body[data-theater="on"] .hand-section .section-heading{margin-bottom:2px}
+  body[data-theater="on"] .hand-section .section-heading h2{font-size:13px;margin:1px 0}
+  body[data-theater="on"] .hand-section .eyebrow{display:none}
+  body[data-theater="on"] .hand{padding:2px 0 4px}
+  body[data-theater="on"] .card{min-height:119px;flex-basis:122px;padding:5px;gap:3px}
+  body[data-theater="on"] .card-art{height:37px}
+  body[data-theater="on"] .card-glyph{font-size:24px}
+  body[data-theater="on"] .card-title{font-size:11px}
+  body[data-theater="on"] .card-flavor{display:none}
+  body[data-theater="on"] .card-bottom{font-size:9px;padding-top:4px}
+  .cinematic-arena .performance-panel{grid-template-rows:auto minmax(50px,1fr) auto auto;padding:3px 8px}
+  .cinematic-arena .performance-art{min-height:46px}
+  .cinematic-arena .performance-art-placeholder{width:65px;font-size:30px}
+  .cinematic-arena .performance-opponent{height:80px;width:49px}
+}
 </style>
 </head>
 <body>
   <div class="app">
     <header class="mast">
       <div class="identity">
-        <div class="eyebrow">PLAYMORU LAB · PRIVATE PLAYTEST · V0.5</div>
+        <div class="eyebrow">PLAYMORU LAB · 2.5D THEATER · V0.7</div>
         <h1 id="game-title">放学后决斗社</h1>
         <p id="game-subtitle">三线决斗 · 乌龙连携 · 原创轻策略</p>
       </div>
@@ -365,20 +727,105 @@
       <!-- Background art is strictly separate from real hit targets and HUD. -->
       <div id="battle-art-layer" class="battle-art-layer" aria-hidden="true" hidden></div>
       <div class="ribbon">
-        <div class="player-identity enemy-identity">
-          <span class="avatar enemy-avatar" aria-hidden="true">令</span>
-          <div><span class="who">挑战者 · AI</span><strong id="ai-hp">20</strong><span class="unit"> 人气</span></div>
+        <div class="player-identity own-identity">
+          <span class="avatar own-avatar" aria-hidden="true">社</span>
+          <div><span class="who">决斗社 · 你</span><strong id="player-hp">20</strong><span class="unit"> 人气</span></div>
         </div>
         <div class="score-middle">
           <div class="mini-caption">BATTLE ROUND</div><div class="round-num" id="round-num">01</div>
           <div class="mini-caption" id="turn-banner">你的回合</div>
         </div>
-        <div class="player-identity own-identity">
-          <span class="avatar own-avatar" aria-hidden="true">社</span>
-          <div><span class="who">决斗社 · 你</span><strong id="player-hp">20</strong><span class="unit"> 人气</span></div>
+        <div class="player-identity enemy-identity">
+          <span class="avatar enemy-avatar" aria-hidden="true">令</span>
+          <div><span class="who">挑战者 · AI</span><strong id="ai-hp">20</strong><span class="unit"> 人气</span></div>
         </div>
       </div>
 
+      <div id="cinematic-arena" class="cinematic-arena" aria-label="左右对峙的同屏战斗舞台" hidden>
+        <div class="arena-head">
+          <strong>社团对决 <span class="arena-stage-chip">2.5D 演出测试</span></strong>
+          <span id="arena-scene-status">双方就位 · 点击战线部署</span>
+        </div>
+        <div id="arena-scene" class="arena-scene" data-focus="0" role="group" aria-label="左侧我方、右侧对手、中间交锋">
+          <div class="arena-depth arena-depth-far" aria-hidden="true"><span class="arena-windows"></span><span class="arena-blackboard"></span></div>
+          <div class="arena-depth arena-depth-mid" aria-hidden="true"><span class="arena-desks"></span></div>
+          <div class="arena-depth arena-depth-near" aria-hidden="true"></div>
+          <div id="arena-player-actor" class="arena-cast arena-cast-player" data-style="ember" aria-label="我方站位">
+            <span class="arena-side-tag">我方 · 左侧</span>
+            <div id="arena-player-visual" class="arena-figure" aria-hidden="true">
+              <span class="arena-figure-hair"></span><span class="arena-figure-head"></span>
+              <span class="arena-figure-body"></span><span class="arena-figure-arm"></span>
+            </div>
+            <strong id="arena-player-name">决斗社</strong>
+            <small id="arena-player-stats">等待召唤</small>
+          </div>
+          <div class="arena-conflict">
+            <span class="arena-conflict-top">当前交战区域</span>
+            <strong id="arena-focus-name">教室</strong>
+            <span id="arena-focus-description">选择一张牌，再点击下方目标区域</span>
+            <span class="arena-focus-spark" aria-hidden="true">✦</span>
+          </div>
+          <div id="arena-enemy-actor" class="arena-cast arena-cast-enemy" data-style="tide" aria-label="对手站位">
+            <span class="arena-side-tag">对手 · 右侧</span>
+            <div id="arena-enemy-visual" class="arena-figure" aria-hidden="true">
+              <span class="arena-figure-hair"></span><span class="arena-figure-head"></span>
+              <span class="arena-figure-body"></span><span class="arena-figure-arm"></span>
+            </div>
+            <strong id="arena-enemy-name">风纪社</strong>
+            <small id="arena-enemy-stats">等待出阵</small>
+          </div>
+  <!-- Original, rule-driven performance preview. This is not prerecorded footage.
+       Official production art and expressive voice clips still require approval. -->
+  <section id="performance-stage" class="performance-stage" role="region"
+           aria-label="卡牌召唤与战斗演出预览" aria-live="polite" hidden>
+    <div class="performance-backdrop"></div>
+    <div class="performance-panel">
+      <div class="performance-header">
+        <div><span class="performance-eyebrow">CARD PERFORMANCE / 原创演出</span>
+          <strong id="performance-heading">人物登场</strong></div>
+        <span id="performance-count">1 / 3</span>
+      </div>
+      <div class="performance-scene">
+        <div class="performance-actor">
+          <div id="performance-art" class="performance-art" aria-hidden="true"></div>
+          <strong id="performance-role">角色</strong>
+        </div>
+        <div class="performance-action-mark" aria-hidden="true">
+          <span class="action-beam"></span><span class="action-ring"></span><span class="action-flash"></span>
+          <span id="performance-projectile" class="performance-projectile"></span>
+          <span class="performance-trail"></span>
+        </div>
+        <div id="performance-target" class="performance-target" aria-hidden="true">
+          <span class="target-ring"></span>
+          <span class="performance-opponent"><span id="performance-opponent-glyph">◉</span></span>
+          <span class="target-flash">!</span>
+          <span id="performance-hit-value" class="performance-hit-value"></span>
+          <span id="performance-shield" class="performance-shield">格挡</span>
+        </div>
+      </div>
+      <div class="performance-dialogue-box">
+        <span id="performance-speaker">角色</span>
+        <p id="performance-dialogue">动作演出</p>
+        <small id="performance-lane">教室</small>
+      </div>
+      <div class="performance-bottom">
+        <span id="performance-prototype" class="performance-prototype">演出系统样机 · 正式角色原画和配音尚未接入</span>
+        <div class="performance-controls">
+          <button type="button" id="performance-voice" aria-pressed="false">试音：关闭</button>
+          <button type="button" id="performance-speed" aria-pressed="false">演出：完整</button>
+          <button type="button" id="performance-skip">跳过演出</button>
+        </div>
+      </div>
+    </div>
+  </section>
+        </div>
+        <div class="arena-lane-selector" aria-label="选择三个实际战术战线">
+          <button type="button" class="arena-lane-chip" id="arena-lane-0" data-lane="0" aria-label="在教室部署所选卡牌"><strong>教室</strong><span id="arena-lane-count-0">我 0 · 敌 0</span></button>
+          <button type="button" class="arena-lane-chip" id="arena-lane-1" data-lane="1" aria-label="在走廊部署所选卡牌"><strong>走廊</strong><span id="arena-lane-count-1">我 0 · 敌 0</span></button>
+          <button type="button" class="arena-lane-chip" id="arena-lane-2" data-lane="2" aria-label="在操场部署所选卡牌"><strong>操场</strong><span id="arena-lane-count-2">我 0 · 敌 0</span></button>
+        </div>
+        <p class="arena-quality-note">同屏演出测试 · 分层与动作已接入 · 正式人物原画和配音尚未获批</p>
+      </div>
       <div class="board-caption"><span>AI 阵地</span><span>三条战线</span><span>你的阵地</span></div>
       <div id="lanes" class="lanes" aria-label="三条战线，选牌后点击对应战线"></div>
       <div id="prompt" class="prompt" role="status" aria-live="polite">先点击一张手牌，再点击想要部署的战线。</div>
@@ -427,50 +874,6 @@
       <button type="button" class="primary" id="play-again">再来一局</button>
     </div>
   </dialog>
-  <!-- Original, rule-driven performance preview. This is not prerecorded footage.
-       Official production art and expressive voice clips still require approval. -->
-  <section id="performance-stage" class="performance-stage" role="region"
-           aria-label="卡牌召唤与战斗演出预览" aria-live="polite" hidden>
-    <div class="performance-backdrop"></div>
-    <div class="performance-panel">
-      <div class="performance-header">
-        <div><span class="performance-eyebrow">CARD PERFORMANCE / 原创演出</span>
-          <strong id="performance-heading">人物登场</strong></div>
-        <span id="performance-count">1 / 3</span>
-      </div>
-      <div class="performance-scene">
-        <div class="performance-actor">
-          <div id="performance-art" class="performance-art" aria-hidden="true"></div>
-          <strong id="performance-role">角色</strong>
-        </div>
-        <div class="performance-action-mark" aria-hidden="true">
-          <span class="action-beam"></span><span class="action-ring"></span><span class="action-flash"></span>
-          <span id="performance-projectile" class="performance-projectile"></span>
-          <span class="performance-trail"></span>
-        </div>
-        <div id="performance-target" class="performance-target" aria-hidden="true">
-          <span class="target-ring"></span>
-          <span class="performance-opponent"><span id="performance-opponent-glyph">◉</span></span>
-          <span class="target-flash">!</span>
-          <span id="performance-hit-value" class="performance-hit-value"></span>
-          <span id="performance-shield" class="performance-shield">格挡</span>
-        </div>
-      </div>
-      <div class="performance-dialogue-box">
-        <span id="performance-speaker">角色</span>
-        <p id="performance-dialogue">动作演出</p>
-        <small id="performance-lane">教室</small>
-      </div>
-      <div class="performance-bottom">
-        <span id="performance-prototype" class="performance-prototype">演出系统样机 · 正式角色原画和配音尚未接入</span>
-        <div class="performance-controls">
-          <button type="button" id="performance-voice" aria-pressed="false">试音：关闭</button>
-          <button type="button" id="performance-speed" aria-pressed="false">演出：完整</button>
-          <button type="button" id="performance-skip">跳过演出</button>
-        </div>
-      </div>
-    </div>
-  </section>
   <div id="combo-stage" class="combo-stage" aria-live="polite" hidden>
     <span class="combo-icon" aria-hidden="true">✳</span>
     <div><strong id="combo-title"></strong><small id="combo-subtitle"></small></div>
@@ -662,7 +1065,7 @@ function endTurn(g) {
         const dmg=atk.attack+atk.buff+(COUNTER[atk.style]===target.style?1:0);
         const reply=target.attack+(COUNTER[target.style]===atk.style?1:0);
         const dealt=hitUnit(target,dmg),retaliation=hitUnit(atk,reply);
-        event(g,'exchange',{lane,from:atk.id,to:target.id,damage:dealt.applied,blocked:dealt.blocked,retaliation:retaliation.applied,retaliation_blocked:retaliation.blocked});
+        event(g,'exchange',{lane,from:atk.id,to:target.id,damage:dealt.applied,blocked:dealt.blocked,retaliation:retaliation.applied,retaliation_blocked:retaliation.blocked,target_uid:target.uid,attacker_uid:atk.uid,target_defeated:target.hp<=0,attacker_defeated:atk.hp<=0,target_hp_after:target.hp,attacker_hp_after:atk.hp});
       } else {
         const dmg=atk.attack+atk.buff;g.hp[other]=Math.max(0,g.hp[other]-dmg);
         event(g,'direct_hit',{lane,from:atk.id,damage:dmg});
@@ -1098,6 +1501,16 @@ function describeReaction(scene) {
   if(!scene?.effect)return Object.freeze({kind:'summon',primary:'',secondary:''});
   const damage=Math.max(0,Number(scene.damage)||0);
   const blocked=Math.max(0,Number(scene.blocked)||0);
+  if(scene.effect==='exchange'){
+    const note=scene.retaliation>0?' · 反击 '+scene.retaliation:'';
+    if(scene.target_defeated)
+      return Object.freeze({kind:'defeated',primary:'−'+damage,secondary:'击倒'+note,target:scene.target_name||'敌方前排'});
+    if(damage===0&&blocked>0)
+      return Object.freeze({kind:'blocked',primary:'护盾',secondary:'格挡 '+blocked+note,target:scene.target_name||'敌方前排'});
+    return Object.freeze({kind:'hurt',primary:'−'+damage,secondary:(blocked?'格挡 '+blocked:'受到伤害')+note,target:scene.target_name||'敌方前排'});
+  }
+  if(scene.effect==='direct_hit')
+    return Object.freeze({kind:'direct',primary:'−'+damage,secondary:'对方人气',target:'对方人气'});
   if(scene.effect==='chalk_hit'){
     if(scene.target_defeated)
       return Object.freeze({kind:'defeated',primary:'−'+damage,secondary:'击倒',target:scene.target_name||'敌方前排'});
@@ -1114,6 +1527,57 @@ function describeReaction(scene) {
   if(scene.effect==='broadcast_draw'||scene.effect==='poster_draw')
     return Object.freeze({kind:'draw',primary:'+'+Math.max(0,Number(scene.draw)||0),secondary:'抽牌',target:'己方手牌'});
   return Object.freeze({kind:'unknown',primary:'',secondary:''});
+}
+
+/**
+ * The regular end-of-turn duel also plays on the same stage:
+ * first strike, real impact, and then a counterattack when one actually occurs.
+ */
+function compileTurnPerformances(events,{theme='campus'}={}) {
+  if(theme!=='campus'||!Array.isArray(events))return [];
+  const result=[];
+  for(const e of events){
+    if(!e||!['exchange','direct_hit'].includes(e.type)||!['player','ai'].includes(e.side))continue;
+    if(!Number.isInteger(e.lane)||e.lane<0||e.lane>2||!BY_ID[e.from])continue;
+    const actor=CAST[e.from]||null;
+    const actorName=actor?.name||BY_ID[e.from].name;
+    const target=e.type==='exchange'&&BY_ID[e.to]?BY_ID[e.to]:null;
+    if(e.type==='exchange'&&!target)continue;
+    const counter=Math.max(0,Number(e.retaliation)||0);
+    const counterBlocked=Math.max(0,Number(e.retaliation_blocked)||0);
+    const beats=[{
+      phase:'action',motion:'duel-strike',caption:actorName+' · 普通攻击',
+      speaker:actorName,voice:actor?.voice||'narrator',
+      line:'我的回合！进攻——',duration_ms:520
+    },{
+      phase:'impact',motion:'exchange',caption:'正式交锋 · '+LANES[e.lane],
+      speaker:'战场播报',voice:'narrator',
+      line:e.type==='exchange'?
+        '命中！实际造成 '+e.damage+' 点伤害'+(e.blocked?'，护盾抵消 '+e.blocked+' 点':''):
+        '突破！对方人气实际减少 '+e.damage+' 点',
+      duration_ms:580
+    }];
+    if(e.type==='exchange'&&(counter>0||counterBlocked>0)){
+      beats.push({
+        phase:'counter',motion:'retaliation',caption:'对手反击',
+        speaker:target.name,voice:CAST[target.id]?.voice||'narrator',
+        line:'看招！反击实际造成 '+counter+' 点伤害'+(counterBlocked?'，己方护盾抵消 '+counterBlocked+' 点':''),
+        duration_ms:520
+      });
+    }
+    result.push(Object.freeze({
+      event_serial:e.serial,actor_id:e.from,actor_name:actorName,
+      side:e.side,lane:e.lane,kind:e.type==='exchange'?'exchange':'direct',
+      tier:'ordinary',effect:e.type,target_card_id:target?.id||null,
+      target_name:target?.name||null,target_style:target?.style||null,
+      target_uid:e.target_uid||null,target_defeated:e.target_defeated===true,
+      damage:Math.max(0,Number(e.damage)||0),blocked:Math.max(0,Number(e.blocked)||0),
+      retaliation:counter,retaliation_blocked:counterBlocked,
+      attacker_defeated:e.attacker_defeated===true,
+      beats:Object.freeze(beats.map(b=>Object.freeze(b)))
+    }));
+  }
+  return result;
 }
 
 function sceneRuntimeMs(scene,{reducedMotion=false,fast=false}={}){
@@ -1170,19 +1634,25 @@ function createPerformanceDirector({documentRef=document,win=globalThis,onEvent=
     stage.dataset.reaction=reaction.kind;
     target.dataset.reaction=reaction.kind;
     const styles={ember:'✦',grove:'◆',tide:'◈'};
-    el('performance-opponent-glyph').textContent=styles[scene.target_style]||'◉';
+    el('performance-opponent-glyph').textContent=styles[scene.target_style]||(scene.effect==='direct_hit'?'♥':'◉');
     el('performance-hit-value').textContent=reaction.primary;
     el('performance-shield').textContent=reaction.secondary;
     el('performance-target').setAttribute('aria-label',
       (reaction.target||'战线')+' · '+reaction.primary+' '+reaction.secondary);
     el('performance-projectile').textContent=scene.effect?.startsWith('chalk')?'▰':
-      scene.effect?.startsWith('broadcast')?'≋':scene.effect?.startsWith('poster')?'▱':'';
+      scene.effect?.startsWith('broadcast')?'≋':scene.effect?.startsWith('poster')?'▱':
+      ['exchange','direct_hit'].includes(scene.effect)?'✦':'';
   }
   function writeBeat(beat){
     stage.hidden=false;
     stage.dataset.phase=beat.phase;
     stage.dataset.motion=beat.motion;
     stage.dataset.effect=scene.effect||'none';
+    if(beat.phase==='counter'){
+      stage.dataset.reaction='counter';
+      el('performance-hit-value').textContent='↶ −'+scene.retaliation;
+      el('performance-shield').textContent=scene.retaliation_blocked?'格挡 '+scene.retaliation_blocked:'真实反击';
+    }
     stage.dataset.side=scene.side;
     el('performance-heading').textContent=beat.caption;
     el('performance-speaker').textContent=beat.speaker;
@@ -1234,7 +1704,7 @@ function createPerformanceDirector({documentRef=document,win=globalThis,onEvent=
     // Full-performance for each player play; one brief AI highlight at a
     // time avoids swamping the player with six back-to-back opponent clips.
     const forPlayer=fresh.filter(item=>item.side==='player');
-    const aiHighlight=fresh.find(item=>item.side==='ai'&&item.tier==='major');
+    const aiHighlight=fresh.find(item=>item.side==='ai'&&(item.tier==='major'||item.kind==='exchange'||item.kind==='direct'));
     queue.push(...forPlayer,...(aiHighlight?[aiHighlight]:[]));
     if(queue.length>5)queue=queue.slice(-5);
     startNext();
@@ -1277,7 +1747,57 @@ function createPerformanceDirector({documentRef=document,win=globalThis,onEvent=
 }
 
 ;
+// src/presence.mjs
+/**
+ * Pure projection of persistent on-board units.
+ * Reads canonical board snapshots, never changes combat rules or HP.
+ * All visual motion is derived from measured state changes.
+ */
+function takeSnapshot(board) {
+  const out=new Map();
+  for(const side of ['player','ai']){
+    for(let lane=0;lane<3;lane++){
+      for(const unit of board[side][lane]){
+        out.set(side+':'+unit.uid,Object.freeze({
+          key:side+':'+unit.uid,side,lane,uid:unit.uid,id:unit.id,
+          hp:unit.hp,shield:unit.shield||0,
+          attack:unit.attack+(unit.buff||0),
+          summonedAt:unit.summonedAt
+        }));
+      }
+    }
+  }
+  return out;
+}
+function createPresenceTracker(){
+  let previous=new Map();
+  function reset(){previous=new Map();}
+  function reconcile(board){
+    const current=takeSnapshot(board);
+    const changes=[];
+    for(const [key,now] of current){
+      const old=previous.get(key);
+      if(!old){
+        changes.push(Object.freeze({kind:'summon',key,...now}));
+        continue;
+      }
+      if(old.lane!==now.lane)changes.push(Object.freeze({kind:'relocate',key,from:old.lane,to:now.lane,side:now.side,uid:now.uid}));
+      if(old.hp>now.hp)changes.push(Object.freeze({kind:'hurt',key,amount:old.hp-now.hp,side:now.side,uid:now.uid,lane:now.lane}));
+      if(old.shield>now.shield)changes.push(Object.freeze({kind:'block',key,amount:old.shield-now.shield,side:now.side,uid:now.uid,lane:now.lane}));
+      if(old.shield<now.shield)changes.push(Object.freeze({kind:'shield',key,amount:now.shield-old.shield,side:now.side,uid:now.uid,lane:now.lane}));
+      if(old.attack<now.attack)changes.push(Object.freeze({kind:'powerup',key,amount:now.attack-old.attack,side:now.side,uid:now.uid,lane:now.lane}));
+    }
+    for(const [key,old] of previous)if(!current.has(key))
+      changes.push(Object.freeze({kind:'leave',key,side:old.side,uid:old.uid,id:old.id,lane:old.lane}));
+    previous=current;
+    return Object.freeze(changes);
+  }
+  return {reconcile,reset,get size(){return previous.size;}};
+}
+
+;
 // src/app.mjs
+
 
 
 
@@ -1293,6 +1813,7 @@ let currentTutorialLevel=Number(params.get('level'));
 if(!Number.isInteger(currentTutorialLevel)||currentTutorialLevel<1||currentTutorialLevel>EPISODES.length)currentTutorialLevel=1;
 let game;
 let selected = null;
+let focusedLane=0;
 let observedSerial = 0;
 let comboTimer;
 let lastVisualCue=null;
@@ -1302,6 +1823,30 @@ let graduationVisible=false;
 let startedAt = performance.now();
 let clicks = [];
 const stageDirector=createPerformanceDirector({documentRef:document,win:globalThis,onEvent:track});
+const presenceTracker=createPresenceTracker();
+const stableUnits=new Map();
+const stableLanes=[];
+const MOTION_PRIORITY=['hurt','block','shield','relocate','summon','powerup'];
+function sameChildren(container,children){
+  const actual=container.children;
+  if(actual.length===children.length&&children.every((child,i)=>actual[i]===child))return;
+  container.replaceChildren(...children);
+}
+function animateUnit(actor,changes){
+  const motion=MOTION_PRIORITY.find(name=>changes.some(change=>change.kind===name));
+  if(!motion)return;
+  actor.dataset.motion=motion;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||typeof actor.animate!=='function')return;
+  const frames={
+    summon:[{transform:'translateY(-26px) scale(.7)',opacity:0},{transform:'translateY(4px) scale(1.07)',opacity:1},{transform:'translateY(0) scale(1)',opacity:1}],
+    hurt:[{transform:'translateX(0)',filter:'brightness(1)'},{transform:'translateX(9px) rotate(6deg)',filter:'brightness(2)'},{transform:'translateX(-5px) rotate(-3deg)',filter:'brightness(1.3)'},{transform:'translateX(0)',filter:'brightness(1)'}],
+    block:[{transform:'scale(1)'},{transform:'scale(.86)',filter:'brightness(1.8)'},{transform:'scale(1)',filter:'brightness(1)'}],
+    shield:[{transform:'scale(.94)',filter:'brightness(1)'},{transform:'scale(1.12)',filter:'brightness(1.65)'},{transform:'scale(1)',filter:'brightness(1)'}],
+    relocate:[{transform:'translateX(-15px)',opacity:.5},{transform:'translateX(0)',opacity:1}],
+    powerup:[{transform:'scale(1)'},{transform:'scale(1.08)',filter:'brightness(1.5)'},{transform:'scale(1)',filter:'brightness(1)'}]
+  };
+  actor.animate(frames[motion],{duration:motion==='summon'?650:480,easing:'cubic-bezier(.22,.9,.26,1)'});
+}
 
 const STYLE_ICONS = {ember:'✦',grove:'◆',tide:'◈'};
 const STORIES = {
@@ -1330,19 +1875,35 @@ function node(tag,cls,text) {
 }
 function addText(parent,tag,cls,text){const el=node(tag,cls,text);parent.append(el);return el;}
 function setMessage(text){$('prompt').textContent=text;}
-function renderUnit(unit,side) {
+function renderUnit(unit,side,lane,changes) {
+  const key=side+':'+unit.uid;
   const c=presentation(BY_ID[unit.id],theme);
-  const root=node('div','unit-card '+unit.style);
-  const art=node('span','unit-art '+c.style);
-  if(!appendApprovedArtwork(art,'portrait:'+theme+':'+unit.id,'','unit-art-image')){
-    art.textContent=STYLE_ICONS[c.style];
+  let root=stableUnits.get(key);
+  if(!root){
+    root=node('div','unit-card '+unit.style);
+    root.dataset.unitUid=unit.uid;
+    root.dataset.cardId=unit.id;
+    root.dataset.side=side;
+    root.setAttribute('role','group');
+    const art=node('span','unit-art '+c.style);
+    if(!appendApprovedArtwork(art,'portrait:'+theme+':'+unit.id,'','unit-art-image'))
+      art.textContent=STYLE_ICONS[c.style];
+    art.setAttribute('aria-hidden','true');
+    root.append(art);
+    const name=addText(root,'strong','unit-name',c.name);
+    name.title=c.name;
+    root._stats=addText(root,'span','unit-stats','');
+    root._waiting=addText(root,'span','unit-wait','待命');
+    stableUnits.set(key,root);
   }
-  art.setAttribute('aria-hidden','true');
-  root.append(art);
-  const name=addText(root,'strong','unit-name',c.name);
-  name.title=c.name;
-  addText(root,'span','unit-stats','⚔ '+(unit.attack+unit.buff)+' / ♥ '+unit.hp+(unit.shield>0?' / 🛡 '+unit.shield:''));
-  if(game.turns[side]<=unit.summonedAt)addText(root,'span','unit-wait','待命');
+  const attack=unit.attack+unit.buff;
+  root._stats.textContent='⚔ '+attack+' / ♥ '+unit.hp+(unit.shield>0?' / 🛡 '+unit.shield:'');
+  root._waiting.hidden=game.turns[side]>unit.summonedAt;
+  root.dataset.lane=String(lane);
+  root.dataset.readiness=root._waiting.hidden?'ready':'waiting';
+  root.setAttribute('aria-label',c.name+'，攻击 '+attack+'，生命 '+unit.hp+
+    (unit.shield>0?'，护盾 '+unit.shield:'')+(root._waiting.hidden?'，可战斗':'，本回合待命'));
+  animateUnit(root,changes.get(key)||[]);
   return root;
 }
 function renderSceneArtwork() {
@@ -1352,35 +1913,131 @@ function renderSceneArtwork() {
   stage.hidden=!appendApprovedArtwork(stage,slot,'','scene-art-image');
 }
 function renderLanes() {
-  const root=$('lanes');root.replaceChildren();
+  const root=$('lanes');
+  const changes=presenceTracker.reconcile(game.board);
+  const grouped=new Map();
+  for(const change of changes){
+    const list=grouped.get(change.key)||[];
+    list.push(change);
+    grouped.set(change.key,list);
+  }
+  const liveKeys=new Set();
+  const lines=[];
   for(let lane=0;lane<3;lane++){
-    const line=node('button','lane');line.type='button';line.dataset.lane=String(lane);
-    line.setAttribute('aria-label','在'+LANES[lane]+'部署所选卡牌');
-    const enemy=node('div','formation enemy-formation');
-    for(const unit of game.board.ai[lane])enemy.append(renderUnit(unit,'ai'));
-    if(!game.board.ai[lane].length)addText(enemy,'span','empty-slot','对手空位');
-    const center=node('div','lane-center');
-    addText(center,'strong','lane-name',LANES[lane]);
-    addText(center,'span','lane-arrow','↓');
-    const own=node('div','formation player-formation');
-    for(const unit of game.board.player[lane])own.append(renderUnit(unit,'player'));
-    if(!game.board.player[lane].length)addText(own,'span','empty-slot','点击这里部署');
-    line.append(enemy,center,own);
+    let shell=stableLanes[lane];
+    if(!shell){
+      const line=node('button','lane');
+      line.type='button';
+      line.dataset.lane=String(lane);
+      line.setAttribute('aria-label','在'+LANES[lane]+'部署所选卡牌');
+      const enemy=node('div','formation enemy-formation');
+      const center=node('div','lane-center');
+      addText(center,'strong','lane-name',LANES[lane]);
+      addText(center,'span','lane-arrow','↓');
+      const own=node('div','formation player-formation');
+      line.addEventListener('click',()=>deploy(lane));
+      shell={line,enemy,center,own};
+      stableLanes[lane]=shell;
+    }
+    const {line,enemy,center,own}=shell;
+    const enemies=game.board.ai[lane].map(unit=>{
+      liveKeys.add('ai:'+unit.uid);
+      return renderUnit(unit,'ai',lane,grouped);
+    });
+    if(!enemies.length)enemies.push(node('span','empty-slot','对手空位'));
+    const allies=game.board.player[lane].map(unit=>{
+      liveKeys.add('player:'+unit.uid);
+      return renderUnit(unit,'player',lane,grouped);
+    });
+    if(!allies.length)allies.push(node('span','empty-slot','点击这里部署'));
+    sameChildren(enemy,enemies);
+    sameChildren(own,allies);
+    let cue=null;
     if(lastVisualCue?.lane===lane){
       line.dataset.effect=lastVisualCue.kind;
-      const cue=node('span','battle-cue battle-cue-'+lastVisualCue.kind);
+      cue=node('span','battle-cue battle-cue-'+lastVisualCue.kind);
       cue.setAttribute('aria-label',lastVisualCue.title+' '+lastVisualCue.subtitle);
       addText(cue,'strong','battle-cue-title',lastVisualCue.title);
       if(lastVisualCue.subtitle)addText(cue,'span','battle-cue-impact',lastVisualCue.subtitle);
-      line.append(cue);
-    }
+    }else delete line.dataset.effect;
+    sameChildren(line,cue?[enemy,center,own,cue]:[enemy,center,own]);
     line.classList.toggle('lane-ready',selected!==null&&game.active==='player');
     const teaching=tutorialStep(game);
     line.classList.toggle('tutorial-target',!!teaching&&teaching.lane===lane);
     line.disabled=game.phase!=='playing'||game.active!=='player';
-    line.addEventListener('click',()=>deploy(lane));
-    root.append(line);
+    lines.push(line);
   }
+  sameChildren(root,lines);
+  for(const key of stableUnits.keys())if(!liveKeys.has(key))stableUnits.delete(key);
+}
+function updateArenaActor(side,lane) {
+  const unit=game.board[side][lane][0]||null;
+  const prefix=side==='player'?'arena-player':'arena-enemy';
+  const root=$(prefix+'-actor');
+  const visual=$(prefix+'-visual');
+  const name=$(prefix+'-name');
+  const stats=$(prefix+'-stats');
+  const id=unit?.id||null;
+  const card=id?presentation(BY_ID[id],theme):null;
+  root.dataset.unitId=id||'director';
+  root.dataset.style=card?.style||(side==='player'?'ember':'tide');
+  root.dataset.unitState=unit?(game.turns[side]<=unit.summonedAt?'waiting':'ready'):'director';
+  name.textContent=card?.name||(side==='player'?'决斗社队长':'风纪社队长');
+  stats.textContent=unit?
+    '⚔ '+(unit.attack+unit.buff)+' · ♥ '+unit.hp+(unit.shield>0?' · 🛡 '+unit.shield:'')+
+      (root.dataset.unitState==='waiting'?' · 待命':' · 迎战'):
+    '指挥位 · '+(side==='player'?'召唤人物即可出战':'等待对手出牌');
+  root.setAttribute('aria-label',(side==='player'?'我方':'敌方')+'，'+name.textContent+'，'+stats.textContent);
+  if(visual.dataset.card!==String(id)){
+    visual.dataset.card=String(id);
+    visual.replaceChildren();
+    if(!id||!appendApprovedArtwork(visual,'portrait:'+theme+':'+id,'','arena-portrait')){
+      for(const className of ['arena-figure-hair','arena-figure-head','arena-figure-body','arena-figure-arm']){
+        visual.append(node('span',className));
+      }
+    }
+  }
+}
+function renderArena() {
+  const active=theme==='campus';
+  $('cinematic-arena').hidden=!active;
+  document.body.dataset.theater=active?'on':'off';
+  if(!active)return;
+  const teaching=tutorialStep(game);
+  $('arena-scene').dataset.focus=String(focusedLane);
+  $('arena-focus-name').textContent=LANES[focusedLane];
+  $('arena-focus-description').textContent=
+    selected!==null?'当前已选牌 · 点击下方对应战点部署':
+    teaching?'本步目标：'+LANES[teaching.lane]+' · 先选择手牌':
+      '选择手牌，再点击下方战点完成部署';
+  $('arena-scene-status').textContent=game.phase==='ended'?'战斗结束 · 双方仍在舞台':
+    game.active==='ai'?'对手行动中':
+      '双方面对面 · 当前焦点 '+LANES[focusedLane];
+  updateArenaActor('player',focusedLane);
+  updateArenaActor('ai',focusedLane);
+  for(let lane=0;lane<3;lane++){
+    const button=$('arena-lane-'+lane);
+    const nPlayer=game.board.player[lane].length;
+    const nAI=game.board.ai[lane].length;
+    $('arena-lane-count-'+lane).textContent='我 '+nPlayer+' · 敌 '+nAI;
+    button.dataset.focused=String(lane===focusedLane);
+    button.classList.toggle('arena-lane-ready',selected!==null&&game.active==='player');
+    button.classList.toggle('arena-lane-target',!!teaching&&lane===teaching.lane);
+    button.disabled=game.phase!=='playing'||game.active!=='player';
+    button.setAttribute('aria-pressed',String(lane===focusedLane));
+    button.title=LANES[lane]+'：我方'+nPlayer+'人，对方'+nAI+'人'+(lane===focusedLane?'，当前观察':'');
+  }
+}
+function focusOrDeploy(lane){
+  if(!Number.isInteger(lane)||lane<0||lane>2)return;
+  if(theme==='campus'&&stageDirector.busy){
+    setMessage('动作演出中：等待这一招完成，或点击「跳过演出」后继续出牌。');
+    return;
+  }
+  focusedLane=lane;
+  if(selected!==null){deploy(lane);return;}
+  renderArena();
+  setMessage('正在观察'+LANES[lane]+'：选一张手牌后，点击这个战点即可出牌。');
 }
 function createCard(id,index,available) {
   const c=presentation(BY_ID[id],theme);
@@ -1407,11 +2064,17 @@ function createCard(id,index,available) {
   addText(bottom,'span','card-stats',c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'效果牌');
   card.append(bottom);
   card.addEventListener('click',()=>{
+    if(theme==='campus'&&stageDirector.busy){
+      setMessage('角色正在表演，等结束或点击「跳过演出」即可继续。');
+      return;
+    }
     selected=selected===index?null:index;
+    if(selected!==null&&theme==='campus'&&tutorialStep(game))
+      focusedLane=tutorialStep(game).lane;
     track('card_selected',{card_id:id,hand_index:index});
     render();setMessage(selected===null?'请重新选择一张手牌。':'已选择「'+c.name+'」，请点击战线。');
     if(selected!==null && matchMedia('(max-width: 760px)').matches)
-      $('lanes').scrollIntoView?.({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});
+      $(theme==='campus'?'cinematic-arena':'lanes').scrollIntoView?.({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});
   });
   return card;
 }
@@ -1494,7 +2157,7 @@ function checkEvents(){
     if(e.type==='game_end')track('game_complete',{winner:e.winner,reason:e.reason});
   }
   observedSerial=game.serial;
-  stageDirector.enqueue(compilePerformances(fresh,{theme}));
+  stageDirector.enqueue([...compilePerformances(fresh,{theme}),...compileTurnPerformances(fresh,{theme})].sort((a,b)=>a.event_serial-b.event_serial));
 }
 function renderTutorial() {
   const status=tutorialStatus(game);
@@ -1535,7 +2198,7 @@ function render() {
   const played=game.stylesPlayed.player.map(s=>THEMES[theme].styles[s]);
   $('combo-hint').textContent=game.comboTriggered.player?'本回合连携已完成。':
     played.length?'本回合已打出：'+played.join('、')+'。再打一种风格可连携。':'本回合出两种不同风格，可返还 1 能量。';
-  renderSceneArtwork();renderLanes();renderHand();renderJournal();
+  renderSceneArtwork();renderLanes();renderArena();renderHand();renderJournal();
   if(game.phase==='ended'&&!finishedShown){
     finishedShown=true;
     $('result-title').textContent=game.winner==='player'?'社团挑战成功！':game.winner==='ai'?'这回被风纪社压制了':'不分胜负，再试一次！';
@@ -1545,6 +2208,11 @@ function render() {
   }
 }
 function deploy(lane) {
+  if(theme==='campus'&&stageDirector.busy){
+    setMessage('当前招式正在演出，可等待或点击「跳过演出」。');
+    return;
+  }
+  focusedLane=lane;
   if(selected===null){setMessage('请先点击手牌，再点击战线。');return;}
   const cardId=game.hand.player[selected];
   const r=game.tutorial?playTutorialCard(game,selected,lane):playCard(game,selected,lane);
@@ -1571,10 +2239,15 @@ function nextTurn() {
 }
 function restart(seed=Date.now()) {
   stageDirector.reset();
+  presenceTracker.reset();
+  stableUnits.clear();
+  stableLanes.length=0;
+  focusedLane=0;
   hideCombo();
   clearTimeout(visualTimer);
   lastVisualCue=null;
   game=tutorialEnabled?createGuidedEpisode(currentTutorialLevel,seed):createGame(seed);
+  focusedLane=tutorialStep(game)?.lane??0;
   selected=null;observedSerial=0;finishedShown=false;startedAt=performance.now();clicks=[];
   $('result-dialog').close();
   track('game_started',{seed:game.seed});
@@ -1629,6 +2302,7 @@ $('export').addEventListener('click',exportJournal);
 $('show-rules').addEventListener('click',()=>$('rules-dialog').showModal());
 $('close-rules').addEventListener('click',()=>$('rules-dialog').close());
 $('play-again').addEventListener('click',()=>{graduationVisible=false;tutorialEnabled=false;restart();});
+for(let lane=0;lane<3;lane++)$('arena-lane-'+lane).addEventListener('click',()=>focusOrDeploy(lane));
 $('skip-combo').addEventListener('click',hideCombo);
 restart(Number(params.get('seed'))||Date.now());
 
