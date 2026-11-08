@@ -731,6 +731,125 @@ body[data-theater="on"] .hand{justify-content:center}
     animation:none!important
   }
 }
+
+
+/* V0.8 FULL-BLEED FACING DUEL — desktop width is never capped.
+   Layout only. CSS geometric figures remain explicitly UNAPPROVED placeholders.
+   Final character/background art MUST come from approved independent assets. */
+body[data-theater="on"] .app{
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:clamp(8px,1.15vw,28px);
+}
+body[data-theater="on"] .battle,
+body[data-theater="on"] .hand-section,
+body[data-theater="on"] .mast,
+body[data-theater="on"] .tutorial-panel{
+  width:100%;
+  max-width:none;
+}
+body[data-theater="on"] .battle{
+  border-radius:clamp(9px,.8vw,16px);
+}
+body[data-theater="on"] .hand{justify-content:center;gap:clamp(6px,.85vw,19px)}
+.arena-scene{
+  grid-template-columns:minmax(0,25%) minmax(0,50%) minmax(0,25%);
+}
+.arena-cast-player{justify-self:start;width:100%;max-width:none;padding-left:clamp(8px,1.7vw,48px)}
+.arena-cast-enemy{justify-self:end;width:100%;max-width:none;padding-right:clamp(8px,1.7vw,48px)}
+.arena-cast .arena-side-tag,.arena-cast strong,.arena-cast small{max-width:96%}
+.arena-conflict{max-width:100%}
+#arena-focus-description{max-width:clamp(180px,24vw,550px)}
+@media(min-width:1440px){
+  .arena-scene{
+    min-height:clamp(280px,37vh,560px);
+    height:clamp(280px,37vh,560px);
+  }
+  .arena-figure{
+    width:clamp(160px,14vw,290px);
+    height:clamp(215px,30vh,420px);
+  }
+  .arena-figure-head{border-width:3px}
+  .arena-cast strong{font-size:clamp(13px,1.08vw,21px);padding:5px 15px}
+  .arena-cast small{font-size:clamp(10px,.8vw,15px)}
+  .arena-side-tag{font-size:clamp(10px,.8vw,15px)}
+  .arena-conflict strong{font-size:clamp(31px,3.2vw,58px)}
+  .arena-conflict-top{font-size:clamp(11px,.75vw,16px)}
+  .arena-scene .arena-windows{left:3%;width:29%}
+  .arena-scene .arena-blackboard{right:4%;width:30%}
+  .arena-lane-selector{gap:clamp(8px,.8vw,20px)}
+  .arena-lane-chip{padding:clamp(9px,.75vw,17px) clamp(12px,1vw,25px)}
+  .arena-lane-chip strong{font-size:clamp(13px,.85vw,18px)}
+  .arena-lane-chip span{font-size:clamp(10px,.7vw,16px)}
+  .cinematic-arena .performance-opponent{width:clamp(64px,6vw,160px);height:clamp(108px,13vh,210px)}
+  body[data-theater="on"] .card{flex-basis:clamp(130px,8.2vw,188px)}
+  body[data-theater="on"] .card-art{height:clamp(46px,6vh,94px)}
+}
+@media(min-width:1440px) and (max-height:900px){
+  .arena-scene{height:clamp(250px,33vh,310px);min-height:clamp(250px,33vh,310px)}
+  .arena-figure{height:clamp(158px,22vh,250px)}
+  body[data-theater="on"] .card{min-height:115px}
+  body[data-theater="on"] .card-art{height:36px}
+}
+@media(min-width:761px) and (max-width:1439px){
+  .arena-scene{grid-template-columns:minmax(0,27%) minmax(0,46%) minmax(0,27%)}
+  .arena-figure{width:clamp(120px,13vw,190px)}
+}
+@media(max-width:760px){
+  body[data-theater="on"] .app{width:100%;padding:8px}
+  .arena-scene{grid-template-columns:minmax(0,31%) minmax(0,38%) minmax(0,31%)}
+  .arena-cast-player{padding-left:2px}
+  .arena-cast-enemy{padding-right:2px}
+  .arena-figure{width:min(99px,80%);height:121px}
+  #arena-focus-description{max-width:110px}
+}
+
+/* V0.8 laptop-height crop fix: keep BOTH the stage and card hand visible.
+   This does not restrict desktop width; only vertical chrome is compressed. */
+@media(min-width:1440px) and (min-height:901px) and (max-height:1200px){
+  body[data-theater="on"] .mast{height:52px;margin:0 0 5px;padding:0 0 5px}
+  body[data-theater="on"] .mast .eyebrow,body[data-theater="on"] .mast p{display:none}
+  body[data-theater="on"] .mast h1{font-size:30px}
+  body[data-theater="on"] .tutorial-panel{min-height:0;margin:5px 0;padding:8px 12px;gap:10px}
+  body[data-theater="on"] .tutorial-insignia{height:36px;width:36px;min-width:36px}
+  body[data-theater="on"] .tutorial-copy h2{font-size:17px;margin:0 0 3px}
+  body[data-theater="on"] .tutorial-copy p{font-size:12px;line-height:1.2;margin:0}
+  body[data-theater="on"] .tutorial-actions .minor{padding:6px 10px;font-size:11px}
+  body[data-theater="on"] .battle{padding:7px 10px}
+  body[data-theater="on"] .ribbon{padding:0 4px 5px;min-height:39px}
+  body[data-theater="on"] .ribbon .avatar{height:28px;width:28px}
+  body[data-theater="on"] .ribbon .player-identity strong{font-size:21px}
+  body[data-theater="on"] .ribbon .round-num{font-size:21px}
+  .arena-head{padding:4px 6px}
+  .arena-scene{min-height:clamp(255px,31vh,360px);height:clamp(255px,31vh,360px)}
+  .arena-figure{height:clamp(185px,24vh,280px)}
+  .arena-cast{padding-bottom:8px}
+  .arena-lane-selector{gap:10px;margin-top:5px}
+  .arena-lane-chip{min-height:39px;padding:7px 13px}
+  .arena-quality-note{margin:2px 0 0;font-size:8px}
+  body[data-theater="on"] .prompt{min-height:16px;padding:3px 5px 0}
+  body[data-theater="on"] .action-bar{margin-top:2px;padding:4px 5px;gap:6px}
+  body[data-theater="on"] .action-bar .eyebrow{display:none}
+  body[data-theater="on"] .action-bar .energy{font-size:20px}
+  body[data-theater="on"] .action-bar .primary{padding:8px 13px}
+  body[data-theater="on"] .action-bar .minor{padding:6px 9px}
+  body[data-theater="on"] .hand-section{margin-top:4px;padding:7px 11px}
+  body[data-theater="on"] .hand-section .section-heading{margin-bottom:3px}
+  body[data-theater="on"] .hand-section .section-heading h2{font-size:15px;margin:0}
+  body[data-theater="on"] .hand-section .eyebrow,
+  body[data-theater="on"] .hand-section .helper{display:none}
+  body[data-theater="on"] .hand{padding:2px 0 4px}
+  body[data-theater="on"] .card{min-height:126px;flex-basis:clamp(130px,7.5vw,158px);padding:6px}
+  body[data-theater="on"] .card-art{height:42px}
+  body[data-theater="on"] .card-glyph{font-size:27px}
+  body[data-theater="on"] .card-title{font-size:12px}
+}
+@media(min-width:761px) and (max-width:1439px) and (max-height:850px){
+  body[data-theater="on"] .mast{height:47px}
+  .arena-scene{height:218px;min-height:218px}
+  body[data-theater="on"] .hand-section{padding-bottom:4px}
+}
 </style>
 </head>
 <body>
@@ -792,7 +911,7 @@ body[data-theater="on"] .hand{justify-content:center}
 
       <div id="cinematic-arena" class="cinematic-arena" aria-label="左右对峙的同屏战斗舞台" hidden>
         <div class="arena-head">
-          <strong>社团对决 <span class="arena-stage-chip">2.5D 演出测试</span></strong>
+          <strong>社团对决 <span class="arena-stage-chip">全宽屏 2.5D · 美术占位原型</span></strong>
           <span id="arena-scene-status">双方就位 · 点击战线部署</span>
         </div>
         <div id="arena-scene" class="arena-scene" data-focus="0" role="group" aria-label="左侧我方、右侧对手、中间交锋">
