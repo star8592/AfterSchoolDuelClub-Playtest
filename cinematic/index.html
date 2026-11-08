@@ -1,0 +1,1496 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101b2a">
+  <meta name="description" content="《放学后决斗社》原创校园喜剧卡牌游戏——本地研发试玩版。">
+  <title>放学后决斗社 · 原创卡牌试玩</title>
+  <style>:root{color-scheme:dark;--bg:#0b1725;--panel:#132237;--ink:#f4eee2;--muted:#aebed0;--gold:#ebc680;--line:rgba(240,210,154,.25);--ember:#f5a47d;--grove:#98d9ac;--tide:#8ec1f9;font-family:system-ui,"Noto Sans SC","PingFang SC",sans-serif}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 45% -5%,#293e56,transparent 45%),var(--bg);color:var(--ink)}body[data-theme=star]{--gold:#c9b7ff;--panel:#1c2745}body[data-theme=wuxia]{--gold:#eab98c;--panel:#28262c}button,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.48;cursor:default}button:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.app{width:min(1250px,100%);margin:auto;padding:24px 26px 36px}.mast,.mast-actions,.intro,.ribbon,.action-bar,.section-heading,.card-top,.card-bottom,.dialog-content .buttons{display:flex;align-items:center;justify-content:space-between;gap:15px}.mast{border-bottom:1px solid var(--line);padding-bottom:20px}.eyebrow,.mini-caption{font-size:10px;letter-spacing:.17em;color:var(--gold);font-weight:700}.mast h1{font-family:serif;font-size:clamp(30px,3vw,46px);letter-spacing:.06em;margin:6px 0}.mast p,.helper,.unit,.who,.mini-caption{color:var(--muted);font-size:12px}.mast-actions{flex-wrap:wrap}.mast-actions label{font-size:12px;color:var(--muted)}select,.minor{border:1px solid var(--line);background:#1a3046;color:var(--ink);border-radius:10px;padding:11px 13px}.primary{border:0;background:linear-gradient(120deg,#f9d99d,#dcaf74);color:#251b0f;font-weight:800;border-radius:10px;padding:13px 22px}.text-button{background:none;color:var(--gold);border:0;text-decoration:underline;white-space:nowrap}.intro{border:1px solid var(--line);border-radius:12px;padding:15px 20px;margin:22px 0;background:rgba(235,195,126,.09);font-size:13px;line-height:1.6}.chapter{font-size:11px;font-weight:800;color:var(--gold);white-space:nowrap}.battle{padding:18px;background:linear-gradient(150deg,#182a42,#0f2236);border:1px solid var(--line);border-radius:18px}.ribbon{padding:10px 8px 24px}.player-identity{display:flex;gap:12px;align-items:center;min-width:150px}.own-identity{flex-direction:row-reverse;text-align:right}.player-identity strong{font-size:35px;margin-left:8px}.avatar{display:grid;place-items:center;border:2px solid var(--line);border-radius:50%;width:50px;height:50px;font-size:22px;background:#344c63}.enemy-avatar{background:#574049}.own-avatar{background:#35595a}.score-middle{text-align:center}.round-num{font-size:38px;font-family:Georgia,serif;color:var(--gold)}.board-caption{display:grid;grid-template-columns:1fr 1fr 1fr;text-align:center;color:var(--muted);font-size:10px;letter-spacing:.12em;padding:0 0 12px}.lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.lane{background:linear-gradient(145deg,#244060,#182c45);border:1px solid rgba(196,214,236,.24);color:var(--ink);border-radius:15px;padding:12px;min-height:250px;display:grid;grid-template-rows:1fr 46px 1fr;gap:10px;text-align:center}.lane-ready{border-color:var(--gold);box-shadow:0 0 0 1px rgba(235,198,128,.5)}.lane-center{display:flex;align-items:center;justify-content:space-between;gap:4px;padding:0 10px}.lane-name{color:var(--gold);font-size:16px}.lane-arrow{font-size:23px;color:var(--muted)}.formation{display:flex;gap:6px;align-items:stretch;justify-content:center;min-height:80px}.empty-slot{border:1px dashed #4e6580;display:grid;place-items:center;border-radius:9px;width:100%;font-size:12px;color:#899fb4}.unit-card{flex:1;min-width:0;max-width:110px;padding:7px 5px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:#324358;border:1px solid rgba(255,255,255,.2);gap:4px}.unit-card.ember{border-color:var(--ember)}.unit-card.grove{border-color:var(--grove)}.unit-card.tide{border-color:var(--tide)}.unit-art{font-size:25px}.unit-name{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.unit-stats,.unit-wait{font-size:10px;color:var(--muted)}.prompt{padding:15px 8px 3px;color:var(--gold);text-align:center;font-size:13px;min-height:40px}.action-bar{padding:18px 4px;gap:10px}.energy{font-size:26px;font-weight:800;color:var(--gold)}.combo-hint{color:var(--muted);font-size:12px;max-width:600px}.action-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.hand-section,.journal{background:rgba(19,34,55,.75);border:1px solid var(--line);border-radius:15px;padding:18px;margin-top:18px}.section-heading{margin-bottom:14px}.section-heading h2{font-size:18px;margin:6px 0}.hand{display:flex;gap:11px;overflow-x:auto;padding:5px 0 12px;scroll-snap-type:x mandatory}.card{flex:0 0 158px;min-height:232px;border:1px solid var(--line);border-radius:12px;background:#283953;color:var(--ink);padding:11px;text-align:left;display:flex;flex-direction:column;gap:8px;scroll-snap-align:start}.card.selected{border:2px solid var(--gold);box-shadow:0 0 0 2px rgba(235,198,128,.22)}.card.ember{background:linear-gradient(160deg,#664b54,#27324b)}.card.grove{background:linear-gradient(160deg,#3b5d54,#27334b)}.card.tide{background:linear-gradient(160deg,#395775,#27334b)}.card-top,.card-bottom{font-size:11px}.card-cost{border-radius:16px;background:rgba(0,0,0,.24);padding:5px 8px}.card-art{height:80px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-radius:9px}.card-glyph{font-size:46px}.card-title{font-size:15px}.card-flavor{color:var(--muted);font-size:11px;line-height:1.4;flex:1}.card-bottom{border-top:1px solid var(--line);padding-top:8px}.journal-lines{display:grid;gap:7px}.log-entry{display:flex;gap:16px;padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px}.log-num{font-family:monospace;color:var(--gold)}.combo-log{color:var(--gold)}footer{text-align:center;padding:24px;color:var(--muted);font-size:11px}dialog{color:var(--ink);background:#192b40;border:1px solid var(--gold);border-radius:16px;max-width:560px;width:calc(100% - 30px);line-height:1.6}dialog::backdrop{background:rgba(0,8,18,.8)}.dialog-content{padding:13px}.dialog-content h2{font-size:25px}.dialog-content p{font-size:14px}.combo-stage{position:fixed;z-index:10;bottom:26px;left:50%;transform:translateX(-50%);width:min(520px,calc(100% - 30px));background:linear-gradient(125deg,#644867,#344d65);border:2px solid var(--gold);border-radius:16px;padding:19px;display:flex;gap:17px;align-items:center;box-shadow:0 12px 65px #000a}.combo-stage[hidden]{display:none}.combo-icon{font-size:34px;color:var(--gold)}.combo-stage strong,.combo-stage small{display:block}.combo-stage small{font-size:12px;margin-top:4px}.combo-stage .text-button{margin-left:auto}@media(max-width:760px){.app{padding:13px}.mast{flex-direction:column;align-items:flex-start}.mast-actions{width:100%}.intro{flex-wrap:wrap;padding:12px}.battle{padding:9px}.ribbon{gap:7px}.player-identity{min-width:0;gap:5px}.player-identity strong{font-size:22px}.avatar{width:32px;height:32px;font-size:16px}.round-num{font-size:27px}.lanes{gap:5px}.lane{padding:5px;min-height:206px;border-radius:9px;grid-template-rows:1fr 32px 1fr;gap:5px}.lane-center{padding:0 1px}.lane-name{font-size:12px}.unit-card{padding:4px 2px}.unit-art{font-size:18px}.unit-name,.unit-stats,.unit-wait{font-size:8px}.formation{min-height:60px;gap:2px}.empty-slot{font-size:9px}.action-bar{align-items:flex-start;flex-direction:column}.action-controls{width:100%;justify-content:space-between}.hand-section,.journal{padding:11px}.section-heading{gap:10px}.helper{font-size:10px}.card{flex-basis:145px}.score-middle .mini-caption{font-size:8px}}@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+/* First-episode onboarding; intentionally shares the normal duel controls. */
+.tutorial-panel{display:flex;align-items:center;gap:18px;margin:18px 0;padding:16px 20px;background:linear-gradient(120deg,#334361,#28374a 60%,#4b3855);border:2px solid var(--gold);border-radius:17px;box-shadow:0 8px 36px rgba(0,0,0,.2)}
+.tutorial-panel[hidden]{display:none}
+.tutorial-insignia{height:56px;min-width:56px;display:grid;place-items:center;border-radius:50%;background:#f6d8a4;color:#402b1c;font-size:25px;font-weight:900;font-family:Georgia,serif}
+.tutorial-copy{flex:1;min-width:0}
+.tutorial-copy h2{margin:3px 0 5px;font-size:20px}
+.tutorial-copy p{margin:0;font-size:13px;line-height:1.5;color:var(--ink)}
+.tutorial-actions{display:grid;gap:8px;justify-items:end}
+.tutorial-actions strong{font-size:16px;color:var(--gold);white-space:nowrap}
+.tutorial-panel.tutorial-completed{border-color:#a3e5bb;background:linear-gradient(120deg,#284c4c,#27435d)}
+.card.tutorial-card:not(:disabled){border:2px solid #fae5a5;box-shadow:0 0 0 3px rgba(235,198,128,.24),0 8px 20px rgba(0,0,0,.16)}
+.lane.tutorial-target:not(:disabled){border:2px solid #fae5a5;box-shadow:inset 0 0 30px rgba(244,218,151,.08),0 0 12px rgba(245,208,136,.25)}
+@media(max-width:760px){.tutorial-panel{padding:11px;gap:9px;flex-wrap:wrap;margin:10px 0}.tutorial-insignia{min-width:37px;height:37px;font-size:17px}.tutorial-copy h2{font-size:16px}.tutorial-copy p{font-size:12px}.tutorial-actions{display:flex;width:100%;align-items:center;justify-content:space-between}.tutorial-actions .minor{padding:8px 9px;font-size:11px}}
+
+/* Mobile vertical-first playflow: hand before board with no dead space. */
+@media(max-width:760px){
+  .app{display:flex;flex-direction:column}
+  .mast{order:0;padding-bottom:11px}
+  .intro{order:1;margin:9px 0;font-size:12px}
+  .tutorial-panel{order:2}
+  .hand-section{order:3;margin:4px 0 0;padding:9px 10px}
+  .battle{order:4;margin-top:9px}
+  .action-bar{order:5;padding:11px 0}
+  .journal{order:6;margin-top:8px}
+  footer{order:7}
+  .hand-section .section-heading{margin-bottom:7px}
+  .hand-section .section-heading h2{margin:2px 0;font-size:15px}
+  .hand-section .helper{display:none}
+  .hand{gap:7px;padding:0 0 4px}
+  .card{flex:0 0 122px;min-height:158px;padding:7px;gap:5px}
+  .card-art{height:42px}
+  .card-glyph{font-size:30px}
+  .card-title{font-size:12px}
+  .card-flavor{font-size:9px;max-height:27px;overflow:hidden;line-height:1.3}
+  .card-top,.card-bottom{font-size:9px}
+  .card-cost{padding:3px 6px}
+  .card-bottom{padding-top:4px}
+  .lane{min-height:181px;grid-template-rows:1fr 27px 1fr}
+  .prompt{padding:9px 4px 2px;font-size:12px;min-height:28px}
+}
+
+/* Temporary tactical UI feedback. These are code-driven indicators, NOT final AI art.
+   Each visible cue comes only from a real validated combo_effect event. */
+.lane{position:relative;isolation:isolate;overflow:hidden}
+.battle-cue{pointer-events:none;position:absolute;z-index:3;left:7px;right:7px;top:48%;transform:translateY(-50%);padding:8px 7px;border-radius:11px;border:1px solid var(--gold);display:grid;justify-items:center;gap:2px;box-shadow:0 6px 22px rgba(0,0,0,.45);background:rgba(19,27,51,.94);color:#fff;animation:cue-arrival 260ms ease-out both}
+.battle-cue-title{font-size:13px;letter-spacing:.04em}
+.battle-cue-impact{font-size:11px;text-align:center;line-height:1.3}
+.battle-cue-chalk{border-color:#f5dfad;box-shadow:0 0 22px rgba(245,223,173,.32);background:rgba(78,61,52,.95)}
+.battle-cue-broadcast{border-color:#b9b3ff;box-shadow:0 0 22px rgba(152,134,255,.36);background:rgba(45,40,90,.95)}
+.battle-cue-poster{border-color:#9ee7c2;box-shadow:0 0 22px rgba(158,231,194,.28);background:rgba(27,78,62,.95)}
+@keyframes cue-arrival{from{opacity:0;transform:translateY(-42%) scale(.88)}to{opacity:1;transform:translateY(-50%) scale(1)}}
+@media(max-width:760px){.battle-cue{left:2px;right:2px;padding:6px 2px;top:50%}.battle-cue-title{font-size:9px}.battle-cue-impact{font-size:8px;overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){.battle-cue{animation:none!important}}
+
+/* S22 real-Chrome 2026-11-08: guided screen was taller than a mobile viewport.
+   A lesson must present: action card + target lane WITHOUT scrolling from the title.
+   Free duel remains full-featured; no CSS pixel images or canvas fakery. */
+@media(max-width:760px){
+  body[data-guide="active"] .mast,
+  body[data-guide="done"] .mast{padding:3px 0 4px;border-bottom:1px solid var(--line)}
+  body[data-guide="active"] .mast .eyebrow,
+  body[data-guide="done"] .mast .eyebrow{display:none}
+  body[data-guide="active"] .mast h1,
+  body[data-guide="done"] .mast h1{font-size:23px;line-height:1.15;letter-spacing:.01em;margin:0}
+  body[data-guide="active"] .mast p,
+  body[data-guide="done"] .mast p,
+  body[data-guide="active"] .mast-actions,
+  body[data-guide="done"] .mast-actions{display:none}
+  body[data-guide="active"] .intro,
+  body[data-guide="done"] .intro{display:none}
+  body[data-guide="active"] .tutorial-panel,
+  body[data-guide="done"] .tutorial-panel{margin:6px 0 4px;padding:7px 9px;gap:7px;border-radius:10px}
+  body[data-guide="active"] .tutorial-copy h2,
+  body[data-guide="done"] .tutorial-copy h2{font-size:14px;margin:1px 0 2px}
+  body[data-guide="active"] .tutorial-copy .eyebrow,
+  body[data-guide="done"] .tutorial-copy .eyebrow{font-size:8px}
+  body[data-guide="active"] .tutorial-copy p,
+  body[data-guide="done"] .tutorial-copy p{font-size:11px;line-height:1.32}
+  body[data-guide="active"] .tutorial-insignia,
+  body[data-guide="done"] .tutorial-insignia{min-width:30px;width:30px;height:30px;font-size:13px}
+  body[data-guide="active"] .tutorial-actions,
+  body[data-guide="done"] .tutorial-actions{gap:5px}
+  body[data-guide="active"] .tutorial-actions .minor,
+  body[data-guide="done"] .tutorial-actions .minor{font-size:10px;padding:5px 7px}
+  body[data-guide="active"] .hand-section,
+  body[data-guide="done"] .hand-section{margin:3px 0 0;padding:5px 8px}
+  body[data-guide="active"] .hand-section .eyebrow,
+  body[data-guide="done"] .hand-section .eyebrow{display:none}
+  body[data-guide="active"] .hand-section h2,
+  body[data-guide="done"] .hand-section h2{font-size:12px;margin:0}
+  body[data-guide="active"] .hand-section .section-heading,
+  body[data-guide="done"] .hand-section .section-heading{margin-bottom:4px}
+  body[data-guide="active"] .hand,
+  body[data-guide="done"] .hand{justify-content:flex-start;overflow:visible}
+  body[data-guide="active"] .card,
+  body[data-guide="done"] .card{flex:0 0 142px;min-height:110px;padding:5px 8px;gap:3px}
+  body[data-guide="active"] .card-art,
+  body[data-guide="done"] .card-art{height:31px}
+  body[data-guide="active"] .card-glyph,
+  body[data-guide="done"] .card-glyph{font-size:25px}
+  body[data-guide="active"] .card-flavor,
+  body[data-guide="done"] .card-flavor{display:none}
+  body[data-guide="active"] .card-bottom,
+  body[data-guide="done"] .card-bottom{font-size:9px}
+  body[data-guide="active"] .battle,
+  body[data-guide="done"] .battle{margin-top:5px;padding:6px}
+  body[data-guide="active"] .ribbon,
+  body[data-guide="done"] .ribbon{padding:0 3px 8px}
+  body[data-guide="active"] .lane,
+  body[data-guide="done"] .lane{min-height:150px;grid-template-rows:1fr 24px 1fr}
+  body[data-guide="active"] .prompt,
+  body[data-guide="done"] .prompt{padding:5px 2px 1px;min-height:20px}
+  body[data-guide="active"] .action-bar,
+  body[data-guide="done"] .action-bar{padding:5px 0}
+}
+
+/* Graduation is deliberately distinct from free duel: visible confirmation of
+   the real 3/3 teaching flow, without pushing controls out of first viewport. */
+@media(max-width:760px){
+  body[data-guide="graduated"] .mast{padding:3px 0 4px}
+  body[data-guide="graduated"] .mast .eyebrow,
+  body[data-guide="graduated"] .mast p,
+  body[data-guide="graduated"] .intro{display:none}
+  body[data-guide="graduated"] .mast h1{font-size:23px;line-height:1.15;margin:0}
+  body[data-guide="graduated"] .tutorial-panel{margin:5px 0;padding:8px 9px;gap:7px;border-radius:10px}
+  body[data-guide="graduated"] .tutorial-copy h2{font-size:14px;margin:1px 0 3px}
+  body[data-guide="graduated"] .tutorial-copy p{font-size:11px;line-height:1.3}
+  body[data-guide="graduated"] .tutorial-insignia{width:30px;height:30px;min-width:30px;font-size:13px}
+  body[data-guide="graduated"] .tutorial-actions{width:auto}
+  body[data-guide="graduated"] .hand-section{margin:3px 0 0;padding:6px}
+  body[data-guide="graduated"] .battle{margin-top:5px}
+}
+
+/* Future art-layers: image files remain separate from click targets and values.
+   Zero production art is approved as of 2026-11-08, so these styles are dormant. */
+.battle{position:relative;isolation:isolate;overflow:hidden}
+.battle-art-layer{position:absolute;inset:0;z-index:0;pointer-events:none}
+.battle-art-layer[hidden]{display:none}
+.battle-art-layer .scene-art-image{width:100%;height:100%;display:block;object-fit:cover;object-position:center 47%;opacity:.33;filter:saturate(.85);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 15%,#000 82%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0%,#000 15%,#000 82%,transparent 100%)}
+.battle>.ribbon,.battle>.board-caption,.battle>.lanes,.battle>.prompt{position:relative;z-index:1}
+.card-art{overflow:hidden}
+.card-art-image{width:100%;height:100%;display:block;object-fit:cover;object-position:center 25%;border-radius:6px}
+.unit-art{display:grid;place-items:center;overflow:hidden}
+.unit-art-image{display:block;width:100%;height:42px;object-fit:contain;object-position:center}
+@media(max-width:760px){.unit-art-image{height:28px}}
+
+/* V0.6 animated scene director: functionally testable preview, not final artwork.
+   GPU-friendly transforms and opacity; CSS NEVER changes combat outcomes. */
+.performance-stage[hidden]{display:none!important}
+.performance-stage{position:fixed;inset:0;z-index:1700;display:grid;place-items:center;padding:18px;isolation:isolate;color:#f9f5e9;font-family:inherit}
+.performance-backdrop{position:absolute;inset:0;background:rgba(8,13,25,.87);backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px)}
+.performance-panel{position:relative;width:min(850px,100%);max-height:min(800px,94dvh);overflow:auto;display:grid;grid-template-rows:auto minmax(170px,1fr) auto auto;background:linear-gradient(154deg,#1b2737 0%,#17283d 42%,#242735 100%);border-radius:22px;border:1px solid rgba(255,225,176,.5);box-shadow:0 24px 80px rgba(0,0,0,.65);padding:20px 22px 13px;gap:10px}
+.performance-panel:before{content:"";pointer-events:none;position:absolute;inset:0;border-radius:inherit;border-top:3px solid #f1ce92;background:radial-gradient(ellipse at 19% 36%,rgba(242,196,112,.14),transparent 44%)}
+.performance-header{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.performance-header>div{display:grid;gap:5px}
+.performance-eyebrow{font-size:9px;letter-spacing:.16em;color:#d5c4aa}
+.performance-header strong{font-family:inherit;font-weight:850;font-size:clamp(20px,3vw,30px);letter-spacing:.02em}
+#performance-count{font-size:12px;border:1px solid #a8987a;border-radius:30px;padding:4px 10px;color:#f0dfba;white-space:nowrap}
+.performance-scene{position:relative;min-height:260px;display:grid;grid-template-columns:36% 28% 36%;align-items:center;overflow:hidden;border-radius:14px;border:1px solid rgba(219,230,250,.18);background:linear-gradient(165deg,#375976,#192c49 55%,#213854);box-shadow:inset 0 1px 18px rgba(0,0,0,.35)}
+.performance-scene:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(168deg,transparent 0 40px,rgba(255,255,255,.025) 42px 43px);pointer-events:none}
+.performance-scene:after{content:"";position:absolute;inset:auto 0 0;height:32%;background:linear-gradient(0deg,rgba(7,16,32,.7),transparent);pointer-events:none}
+.performance-actor{position:relative;z-index:3;display:grid;justify-items:center;gap:10px;align-self:end;padding:8px 0 16px;filter:drop-shadow(0 10px 12px rgba(0,0,0,.5));animation:performance-enter .5s cubic-bezier(.2,1,.3,1) both}
+.performance-art{display:grid;place-items:center;min-height:145px;width:min(188px,78%);overflow:hidden;transform-origin:bottom center}
+.performance-art-placeholder{display:grid;place-items:center;width:clamp(100px,18vw,165px);aspect-ratio:.8;border:2px solid rgba(255,232,192,.65);border-radius:43% 38% 22% 24%;transform:skew(-6deg);font-size:clamp(53px,11vw,100px);font-weight:900;color:#f9e3bd;background:linear-gradient(165deg,#34597b,#e0a365);box-shadow:inset -12px -12px 22px rgba(11,24,44,.35),0 8px 24px rgba(0,0,0,.25)}
+.performance-art-image{height:180px;max-width:100%;object-fit:contain}
+.performance-actor>strong{padding:3px 11px;border:1px solid #f1d3a1;border-radius:30px;background:rgba(21,35,56,.92);font-size:13px}
+.performance-action-mark{position:relative;height:100%;z-index:2}
+.action-beam{position:absolute;top:49%;left:-35%;right:-45%;height:5px;transform:scaleX(.15) rotate(-9deg);transform-origin:left center;opacity:0;background:linear-gradient(90deg,transparent,#fbe0a6,#fff,transparent);box-shadow:0 0 14px #fff4ca}
+.action-ring{position:absolute;left:27%;top:50%;width:90px;aspect-ratio:1;border:3px solid #f7d88b;border-radius:50%;opacity:0;transform:translateY(-50%) scale(.25);box-shadow:0 0 18px rgba(255,229,157,.55)}
+.action-flash{position:absolute;left:45%;top:48%;width:18px;aspect-ratio:1;background:white;filter:blur(2px);opacity:0;border-radius:50%}
+.performance-target{position:relative;z-index:1;display:grid;place-items:center;height:100%}
+.target-ring{width:35%;max-width:125px;aspect-ratio:1;border-radius:50%;border:2px dashed rgba(224,240,253,.4);transform:rotate(45deg);box-shadow:0 0 26px rgba(128,168,225,.2)}
+.target-flash{position:absolute;opacity:0;font-size:72px;color:#ffdfaf;filter:drop-shadow(0 0 12px #facb8f)}
+.performance-dialogue-box{position:relative;display:grid;grid-template-columns:1fr auto;gap:3px 10px;border-radius:11px;background:rgba(6,16,31,.8);border:1px solid rgba(224,235,255,.19);padding:11px 15px}
+#performance-speaker{grid-column:1;font-size:12px;font-weight:750;color:#f8cd83}
+#performance-dialogue{grid-column:1;margin:2px 0;font-size:clamp(14px,2vw,20px);font-weight:650;line-height:1.4}
+#performance-lane{grid-column:2;grid-row:1 / span 2;align-self:center;border:1px solid #69798d;border-radius:20px;padding:4px 9px;color:#d4e3f4;font-size:11px}
+.performance-bottom{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.performance-prototype{font-size:10px;color:#c3c9d3}
+.performance-controls{display:flex;justify-content:flex-end;gap:7px;flex-wrap:wrap;margin-left:auto}
+.performance-controls button{cursor:pointer;background:#2c415a;border:1px solid rgba(217,229,248,.42);color:#fff;border-radius:20px;padding:7px 11px;font:inherit;font-size:11px}
+.performance-controls button:focus-visible{outline:3px solid #fcdca9;outline-offset:2px}
+#performance-skip{border-color:#efc78b;color:#ffdc9d;background:#392e34}
+@keyframes performance-enter{from{opacity:0;transform:translateX(-130%) rotate(-8deg) scale(.87)}to{opacity:1;transform:translateX(0) rotate(0) scale(1)}}
+@keyframes performance-strike{0%{opacity:0;transform:scaleX(.2) rotate(-9deg)}34%{opacity:1}100%{opacity:1;transform:scaleX(1.6) rotate(-9deg)}}
+@keyframes performance-ring{0%{opacity:0;transform:translateY(-50%) scale(.25)}50%{opacity:1}100%{opacity:0;transform:translateY(-50%) scale(2.1)}}
+@keyframes performance-impact{0%{opacity:0;transform:scale(.2)}65%{opacity:1;transform:scale(1.4)}100%{opacity:0;transform:scale(1.7)}}
+.performance-stage[data-phase="action"] .action-beam{animation:performance-strike .65s ease-out both}
+.performance-stage[data-phase="action"] .action-ring{animation:performance-ring .9s ease-out both}
+.performance-stage[data-phase="impact"] .target-flash{animation:performance-impact .65s ease-out both}
+.performance-stage[data-phase="impact"] .action-ring{animation:performance-ring .7s ease-out both}
+.performance-stage[data-effect^="broadcast"] .performance-scene{background:linear-gradient(160deg,#263f62,#2d376a 60%,#222d4c)}
+.performance-stage[data-effect^="broadcast"] .action-beam{height:3px;box-shadow:0 0 0 8px rgba(149,172,255,.15),0 0 24px #90b6ff}
+.performance-stage[data-effect^="poster"] .performance-scene{background:linear-gradient(155deg,#29584e,#1b4142 60%,#1b3540)}
+.performance-stage[data-effect^="poster"] .action-ring{border-color:#b8e9ba;box-shadow:0 0 20px #b8e9ba}
+.performance-stage[data-side="ai"] .performance-actor{order:3;animation-name:performance-enter-ai}
+.performance-stage[data-side="ai"] .performance-target{order:1}
+@keyframes performance-enter-ai{from{opacity:0;transform:translateX(130%) rotate(8deg) scale(.87)}to{opacity:1;transform:translateX(0) rotate(0) scale(1)}}
+@media(max-width:760px){
+ .performance-stage{padding:10px}
+ .performance-panel{padding:12px 12px 10px;gap:8px;border-radius:13px;max-height:90dvh;grid-template-rows:auto minmax(150px,1fr) auto auto}
+ .performance-eyebrow{font-size:8px}
+ .performance-header strong{font-size:19px}
+ .performance-scene{min-height:205px}
+ .performance-art{min-height:110px}
+ .performance-art-placeholder{width:88px;font-size:55px}
+ .performance-art-image{height:125px}
+ .performance-actor>strong{font-size:9px;padding:2px 6px;max-width:104px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .performance-dialogue-box{padding:9px 11px}
+ #performance-dialogue{font-size:14px}
+ #performance-lane{font-size:9px}
+ .performance-prototype{font-size:8px;flex-basis:100%}
+ .performance-controls{width:100%;justify-content:space-between;gap:5px}
+ .performance-controls button{padding:9px 7px;flex:1;min-height:42px;font-size:10px}
+ .action-ring{width:56px}
+ .target-flash{font-size:42px}
+}
+@media(prefers-reduced-motion:reduce){
+ .performance-stage *,.performance-stage *:before,.performance-stage *:after{animation:none!important;transition:none!important}
+ .performance-stage[data-phase="impact"] .target-flash{opacity:1;font-size:34px}
+}
+</style>
+</head>
+<body>
+  <div class="app">
+    <header class="mast">
+      <div class="identity">
+        <div class="eyebrow">PLAYMORU LAB · PRIVATE PLAYTEST · V0.5</div>
+        <h1 id="game-title">放学后决斗社</h1>
+        <p id="game-subtitle">三线决斗 · 乌龙连携 · 原创轻策略</p>
+      </div>
+      <div class="mast-actions">
+        <label for="theme-select">题材实验</label>
+        <select id="theme-select" aria-label="选择同规则主题">
+          <option value="campus">C · 校园奇想</option>
+          <option value="star">A · 星兽奇想</option>
+          <option value="wuxia">B · 刀盾江湖</option>
+        </select>
+        <button id="reset" class="minor" type="button">新对局</button>
+      </div>
+    </header>
+
+    <div class="intro" id="story">
+      <span class="chapter">序章 / 001</span>
+      <span id="story-text">校长把社团申请表误印成食堂菜单。想拿回活动室？先打赢三条战线。</span>
+      <button id="show-rules" type="button" class="text-button">规则说明 <span aria-hidden="true">↗</span></button>
+    </div>
+
+    <section id="tutorial-panel" class="tutorial-panel" aria-label="第一关引导" aria-live="polite" hidden>
+      <div class="tutorial-insignia" aria-hidden="true">01</div>
+      <div class="tutorial-copy">
+        <div class="eyebrow">STORY MISSION · 第1关</div>
+        <h2 id="tutorial-title">第一步：派出活力社员</h2>
+        <p id="tutorial-description">点选指定卡牌，再点击目标战线。</p>
+      </div>
+      <div class="tutorial-actions">
+        <strong id="tutorial-progress">1 / 2</strong>
+        <button id="tutorial-next" class="primary" type="button" hidden>下一关 →</button>
+        <button id="tutorial-skip" class="minor" type="button">跳过教学 · 自由对战</button>
+      </div>
+    </section>
+
+    <section class="battle" aria-label="卡牌对战">
+      <!-- Background art is strictly separate from real hit targets and HUD. -->
+      <div id="battle-art-layer" class="battle-art-layer" aria-hidden="true" hidden></div>
+      <div class="ribbon">
+        <div class="player-identity enemy-identity">
+          <span class="avatar enemy-avatar" aria-hidden="true">令</span>
+          <div><span class="who">挑战者 · AI</span><strong id="ai-hp">20</strong><span class="unit"> 人气</span></div>
+        </div>
+        <div class="score-middle">
+          <div class="mini-caption">BATTLE ROUND</div><div class="round-num" id="round-num">01</div>
+          <div class="mini-caption" id="turn-banner">你的回合</div>
+        </div>
+        <div class="player-identity own-identity">
+          <span class="avatar own-avatar" aria-hidden="true">社</span>
+          <div><span class="who">决斗社 · 你</span><strong id="player-hp">20</strong><span class="unit"> 人气</span></div>
+        </div>
+      </div>
+
+      <div class="board-caption"><span>AI 阵地</span><span>三条战线</span><span>你的阵地</span></div>
+      <div id="lanes" class="lanes" aria-label="三条战线，选牌后点击对应战线"></div>
+      <div id="prompt" class="prompt" role="status" aria-live="polite">先点击一张手牌，再点击想要部署的战线。</div>
+    </section>
+
+    <section class="action-bar">
+      <div>
+        <div class="eyebrow">本回合剩余能量</div>
+        <div id="energy" class="energy">✧ 2</div>
+        <div id="combo-hint" class="combo-hint">两种不同风格的牌，可触发一次乌龙连携，返还 1 能量</div>
+      </div>
+      <div class="action-controls">
+        <button id="export" type="button" class="minor">导出本局记录</button>
+        <button id="end-turn" class="primary" type="button">结束回合 <span aria-hidden="true">➜</span></button>
+      </div>
+    </section>
+
+    <section class="hand-section" aria-label="我的手牌">
+      <div class="section-heading"><div><span class="eyebrow">YOUR HAND</span><h2>选择你的下一张牌 <span id="hand-count"></span></h2></div><span class="helper">选牌 → 选择教室／走廊／操场</span></div>
+      <div id="hand" class="hand"></div>
+    </section>
+
+    <section class="journal" aria-label="对局进程">
+      <div class="section-heading"><div><span class="eyebrow">DUEL JOURNAL</span><h2>本局发生了什么</h2></div><span id="combo-counter" class="helper"></span></div>
+      <div id="journal-lines" class="journal-lines" aria-live="polite"></div>
+    </section>
+    <footer>独立原创研发样机 · 无付费随机抽卡 · 不联网收集信息 · 美术尚处占位阶段</footer>
+  </div>
+
+  <dialog id="rules-dialog" aria-label="游戏规则">
+    <div class="dialog-content">
+      <span class="eyebrow">RULEBOOK / 卡牌规则</span><h2>赢回我们的社团活动室</h2>
+      <p>双方各有 20 点人气。每回合获得能量并抽 1 张牌；部署人物到教室、走廊或操场，或者释放事件牌。</p>
+      <p>人物入场后，要等到下一次自己的回合才会攻击。同战线有敌人则先互相交锋；没有敌人则直接扣对方人气。</p>
+      <p><strong>风格克制：</strong>活力克创意、创意克默契、默契克活力，克制时对单位额外造成 1 点伤害。</p>
+      <p><strong>乌龙连携：</strong>在同一回合打出两种不同风格，会在第二张牌所在战线触发一次乌龙：粉笔伤害、广播移位或海报护盾；同时返还1点能量。每方每回合最多一次，AI遵守同样规则。</p>
+      <p>先将对方人气降到 0 获胜。12 次 AI 回合后会根据人气结算，避免无休止对局。</p>
+      <button type="button" class="primary" id="close-rules">开始决斗</button>
+    </div>
+  </dialog>
+  <dialog id="result-dialog" aria-label="对局结果">
+    <div class="dialog-content">
+      <span class="eyebrow">MATCH COMPLETE</span>
+      <h2 id="result-title">对局结束</h2>
+      <p id="result-detail"></p>
+      <button type="button" class="primary" id="play-again">再来一局</button>
+    </div>
+  </dialog>
+  <!-- Original, rule-driven performance preview. This is not prerecorded footage.
+       Official production art and expressive voice clips still require approval. -->
+  <section id="performance-stage" class="performance-stage" role="region"
+           aria-label="卡牌召唤与战斗演出预览" aria-live="polite" hidden>
+    <div class="performance-backdrop"></div>
+    <div class="performance-panel">
+      <div class="performance-header">
+        <div><span class="performance-eyebrow">CARD PERFORMANCE / 原创演出</span>
+          <strong id="performance-heading">人物登场</strong></div>
+        <span id="performance-count">1 / 3</span>
+      </div>
+      <div class="performance-scene">
+        <div class="performance-actor">
+          <div id="performance-art" class="performance-art" aria-hidden="true"></div>
+          <strong id="performance-role">角色</strong>
+        </div>
+        <div class="performance-action-mark" aria-hidden="true">
+          <span class="action-beam"></span><span class="action-ring"></span><span class="action-flash"></span>
+        </div>
+        <div class="performance-target" aria-hidden="true">
+          <span class="target-ring"></span><span class="target-flash">!</span>
+        </div>
+      </div>
+      <div class="performance-dialogue-box">
+        <span id="performance-speaker">角色</span>
+        <p id="performance-dialogue">动作演出</p>
+        <small id="performance-lane">教室</small>
+      </div>
+      <div class="performance-bottom">
+        <span id="performance-prototype" class="performance-prototype">演出系统样机 · 正式角色原画和配音尚未接入</span>
+        <div class="performance-controls">
+          <button type="button" id="performance-voice" aria-pressed="false">试音：关闭</button>
+          <button type="button" id="performance-speed" aria-pressed="false">演出：完整</button>
+          <button type="button" id="performance-skip">跳过演出</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="combo-stage" class="combo-stage" aria-live="polite" hidden>
+    <span class="combo-icon" aria-hidden="true">✳</span>
+    <div><strong id="combo-title"></strong><small id="combo-subtitle"></small></div>
+    <button type="button" id="skip-combo" class="text-button">跳过</button>
+  </div>
+  <script>(()=>{
+"use strict";
+// src/core.mjs
+/**
+ * After School Duel Club — original deterministic 18-card rules engine.
+ * Pure module: no browser, network, user identifiers, or storage.
+ */
+const STYLES = Object.freeze(['ember', 'grove', 'tide']);
+const COUNTER = Object.freeze({ember: 'grove', grove: 'tide', tide: 'ember'});
+const LANES = Object.freeze(['教室', '走廊', '操场']);
+const MAX_HP = 20;
+const MAX_TURNS = 12;
+const CARDS = Object.freeze([
+  {id:'E01',style:'ember',kind:'unit',cost:1,attack:1,hp:2,name:'铃声追不上',line:'迟到是铃声跑得太快。'},
+  {id:'E02',style:'ember',kind:'unit',cost:2,attack:2,hp:2,name:'拐弯纸飞机',line:'本来送纸条，结果绕操场三圈。'},
+  {id:'E03',style:'ember',kind:'unit',cost:3,attack:3,hp:3,name:'加油过头的队长',line:'她喊加油，隔壁班以为放暑假。'},
+  {id:'E04',style:'ember',kind:'unit',cost:5,attack:5,hp:4,name:'食堂接力冠军',line:'最后一棒跑去打饭。'},
+  {id:'G01',style:'grove',kind:'unit',cost:1,attack:1,hp:3,name:'橡皮筋建筑师',line:'一根橡皮筋撑起半间教室。'},
+  {id:'G02',style:'grove',kind:'unit',cost:2,attack:2,hp:3,name:'黑板密码专家',line:'答案原来就写在黑板上。'},
+  {id:'G03',style:'grove',kind:'unit',cost:3,attack:2,hp:5,name:'反向实验学长',line:'按下红钮，蓝钮先自己按了。'},
+  {id:'G04',style:'grove',kind:'unit',cost:5,attack:4,hp:5,name:'社团计划总监',line:'连校长都看不懂计划表。'},
+  {id:'T01',style:'tide',kind:'unit',cost:1,attack:1,hp:2,name:'迟到的播音员',line:'赛后宣布：比赛马上开始。'},
+  {id:'T02',style:'tide',kind:'unit',cost:2,attack:2,hp:3,name:'食堂隐藏菜单',line:'今天的套餐叫胜利。'},
+  {id:'T03',style:'tide',kind:'unit',cost:3,attack:3,hp:3,name:'默契收发员',line:'把吵架变成排队。'},
+  {id:'T04',style:'tide',kind:'unit',cost:5,attack:4,hp:6,name:'活动室守门人',line:'门锁都不知道自己锁了谁。'},
+  {id:'E05',style:'ember',kind:'spell',cost:1,effect:'buff',name:'超速呐喊',line:'声音撞墙后，队友反而更快。'},
+  {id:'E06',style:'ember',kind:'spell',cost:3,effect:'blast',name:'飞来的巨大黑板擦',line:'老师没扔，黑板擦自己飞走了。'},
+  {id:'G05',style:'grove',kind:'spell',cost:1,effect:'repair',name:'课桌紧急修补',line:'桌子变得比原来还结实。'},
+  {id:'G06',style:'grove',kind:'spell',cost:2,effect:'draw',name:'翻到第二页的方案',line:'被涂掉的计划居然更好用。'},
+  {id:'T05',style:'tide',kind:'spell',cost:1,effect:'heal',name:'食堂暖心加餐',line:'一碗汤可以解决社团矛盾。'},
+  {id:'T06',style:'tide',kind:'spell',cost:3,effect:'confuse',name:'误播的放学广播',line:'一半人回家，一半继续比赛。'}
+]);
+const BY_ID = Object.freeze(Object.fromEntries(CARDS.map(c => [c.id,Object.freeze(c)])));
+const THEMES = Object.freeze({
+  campus:{title:'放学后决斗社',desc:'校园喜剧',styles:{ember:'活力',grove:'创意',tide:'默契'}},
+  star:{title:'星野守护团',desc:'原创奇幻星兽',styles:{ember:'焰',grove:'森',tide:'潮'}},
+  wuxia:{title:'青山刀盾社',desc:'原创刀盾武侠',styles:{ember:'刀',grove:'盾',tide:'策'}}
+});
+const NAMES = {
+  star: {
+    ember:['赤角幼兽','星焰冲锋者','烈阳翼兽','熔辉巨角'],
+    grove:['苔石小卫士','树根守望者','森海甲兽','苍木守护者'],
+    tide:['水纹信使','潮音使者','月湾游灵','深蓝巨鲸'],
+    spells:['流火一闪','烈星冲击','苔纹修复','星图重排','温泉回响','潮声迷航']
+  },
+  wuxia: {
+    ember:['入门快刀','折柳刀客','狂风疾刀','长街刀王'],
+    grove:['方圆步护卫','执盾行者','沉山重盾','古城镇关将'],
+    tide:['驿站信使','酒肆奇谋','合击谋士','平川总教头'],
+    spells:['疾风破阵','刀光留痕','盾甲缝合','重定阵图','侠义热汤','虚实迷阵']
+  }
+};
+const SPELL_INDEX = {E05:0,E06:1,G05:2,G06:3,T05:4,T06:5};
+function presentation(card,theme='campus') {
+  if(!THEMES[theme])throw new Error('Unknown theme');
+  if(theme==='campus')return card;
+  const group=NAMES[theme];
+  return {...card,name:card.kind==='spell'?group.spells[SPELL_INDEX[card.id]]:group[card.style][Number(card.id.slice(1))-1],
+    line:'原创题材演示卡；所有费用、规则和效果均与另外两组相同。'};
+}
+function rand(g) {let x=g.rng|0;x^=x<<13;x^=x>>>17;x^=x<<5;g.rng=x>>>0;return g.rng/4294967296;}
+function shuffle(g,arr) {for(let i=arr.length-1;i>0;i--){const j=Math.floor(rand(g)*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+function draw(g,side,n=1) {for(let k=0;k<n;k++){if(g.hand[side].length>=8)break;if(!g.deck[side].length){if(!g.discard[side].length)break;g.deck[side]=shuffle(g,g.discard[side].splice(0));}g.hand[side].push(g.deck[side].pop());}}
+function event(g,type,data={}){g.serial++;g.events.push({serial:g.serial,type,side:g.active,...data});if(g.events.length>160)g.events.shift();}
+const opponent = side => side==='player'?'ai':'player';
+function createGame(seed=20261108) {
+  if(!Number.isFinite(seed))throw new Error('Invalid seed');
+  const g={version:'0.5',seed:seed>>>0,rng:(seed>>>0)||0xA11CE,serial:0,active:'player',phase:'playing',
+    winner:null,round:1,turns:{player:1,ai:0},hp:{player:MAX_HP,ai:MAX_HP},
+    energy:{player:2,ai:0},deck:{player:[],ai:[]},hand:{player:[],ai:[]},discard:{player:[],ai:[]},
+    board:{player:[[],[],[]],ai:[[],[],[]]},stylesPlayed:{player:[],ai:[]},
+    comboTriggered:{player:false,ai:false},comboSerial:0,comboCounts:{player:0,ai:0},events:[]};
+  for(const side of ['player','ai']){g.deck[side]=shuffle(g,CARDS.flatMap(c=>[c.id,c.id]));draw(g,side,5);}
+  event(g,'start',{seed:g.seed});return g;
+}
+function legalMoves(g) {
+  if(g.phase!=='playing')return [];
+  const side=g.active,moves=[];
+  g.hand[side].forEach((id,index)=>{
+    const c=BY_ID[id];if(c.cost>g.energy[side])return;
+    for(let lane=0;lane<3;lane++){if(c.kind==='unit'&&g.board[side][lane].length>=3)continue;moves.push({index,lane,id});}
+  });
+  return moves;
+}
+// All combat and event damage uses the same two-stage shield resolution.
+function hitUnit(unit, amount) {
+  const shieldBefore=unit.shield||0;
+  const blocked=Math.min(shieldBefore,amount);
+  unit.shield=shieldBefore-blocked;
+  const applied=amount-blocked;
+  unit.hp=Math.max(0,unit.hp-applied);
+  return {applied,blocked};
+}
+function applyComboEffect(g,side,lane,styles) {
+  const other=opponent(side);
+  const pair=[...styles].sort().join(',');
+  if(pair==='ember,grove'){
+    const front=g.board[other][lane][0];
+    if(front){
+      const hit=hitUnit(front,2);
+      g.board[other][lane]=g.board[other][lane].filter(unit=>unit.hp>0);
+      event(g,'combo_effect',{lane,effect:'chalk_hit',target:front.uid,card:front.id,damage:hit.applied,blocked:hit.blocked});
+    } else {
+      g.hp[other]=Math.max(0,g.hp[other]-1);
+      event(g,'combo_effect',{lane,effect:'chalk_direct',damage:1});
+    }
+  } else if(pair==='ember,tide'){
+    const destination=(lane+1)%3;
+    const from=g.board[other][lane];
+    const to=g.board[other][destination];
+    if(from.length&&to.length<3){
+      const moved=from.shift();
+      to.push(moved);
+      event(g,'combo_effect',{lane,effect:'broadcast_move',to_lane:destination,target:moved.uid,card:moved.id});
+    } else {
+      draw(g,side,1);
+      event(g,'combo_effect',{lane,effect:'broadcast_draw',draw:1});
+    }
+  } else if(pair==='grove,tide'){
+    const ally=g.board[side][lane][0];
+    if(ally){
+      ally.shield=(ally.shield||0)+2;
+      event(g,'combo_effect',{lane,effect:'poster_shield',target:ally.uid,card:ally.id,shield:2});
+    } else {
+      draw(g,side,1);
+      event(g,'combo_effect',{lane,effect:'poster_draw',draw:1});
+    }
+  } else {
+    throw new Error('Unknown combo style pair');
+  }
+}
+function settle(g) {
+  if(g.phase!=='playing'||(g.hp.player>0&&g.hp.ai>0))return;
+  g.phase='ended';g.winner=g.hp.player<=0&&g.hp.ai<=0?'draw':g.hp.player<=0?'ai':'player';
+  event(g,'game_end',{winner:g.winner,reason:'hp'});
+}
+function playCard(g,index,lane) {
+  const side=g.active,other=opponent(side);
+  if(g.phase!=='playing')return {ok:false,reason:'game ended'};
+  if(!Number.isInteger(index)||index<0||index>=g.hand[side].length)return {ok:false,reason:'invalid index'};
+  if(!Number.isInteger(lane)||lane<0||lane>2)return {ok:false,reason:'invalid lane'};
+  const id=g.hand[side][index],c=BY_ID[id];
+  if(c.cost>g.energy[side])return {ok:false,reason:'insufficient energy'};
+  if(c.kind==='unit'&&g.board[side][lane].length>=3)return {ok:false,reason:'lane full'};
+  g.hand[side].splice(index,1);g.energy[side]-=c.cost;
+  if(c.kind==='unit') {
+    g.board[side][lane].push({uid:'U'+(g.serial+1),id,style:c.style,attack:c.attack,hp:c.hp,buff:0,shield:0,summonedAt:g.turns[side]});
+  } else {
+    g.discard[side].push(id);
+    const ally=g.board[side][lane],enemy=g.board[other][lane];
+    switch(c.effect) {
+      case 'buff': if(ally.length)ally[0].buff+=2;break;
+      case 'blast':g.hp[other]=Math.max(0,g.hp[other]-3);break;
+      case 'repair':for(const u of ally)u.hp+=2;break;
+      case 'draw':draw(g,side,2);break;
+      case 'heal':g.hp[side]=Math.min(MAX_HP,g.hp[side]+3);break;
+      case 'confuse':for(const u of enemy)hitUnit(u,2);g.board[other][lane]=enemy.filter(u=>u.hp>0);break;
+      default:throw new Error('Unknown effect');
+    }
+  }
+  event(g,'card_play',{card:id,lane});
+  if(!g.stylesPlayed[side].includes(c.style))g.stylesPlayed[side].push(c.style);
+  if(!g.comboTriggered[side]&&g.stylesPlayed[side].length>=2){
+    g.comboTriggered[side]=true;g.comboSerial++;g.comboCounts[side]++;
+    g.energy[side]=Math.min(9,g.energy[side]+1);
+    event(g,'combo',{comboSerial:g.comboSerial,styles:g.stylesPlayed[side].slice(0,2),refund:1,lane});
+    applyComboEffect(g,side,lane,g.stylesPlayed[side].slice(0,2));
+  }
+  settle(g);return {ok:true,card:id,lane};
+}
+function limitResult(g) {
+  g.phase='ended';g.winner=g.hp.player===g.hp.ai?'draw':g.hp.player>g.hp.ai?'player':'ai';
+  event(g,'game_end',{winner:g.winner,reason:'turn_limit'});
+}
+function endTurn(g) {
+  if(g.phase!=='playing')return {ok:false,reason:'game ended'};
+  const side=g.active,other=opponent(side);
+  for(let lane=0;lane<3&&g.phase==='playing';lane++){
+    for(const atk of g.board[side][lane].slice()){
+      if(g.phase==='ended')break;
+      if(!g.board[side][lane].some(u=>u.uid===atk.uid)||g.turns[side]<=atk.summonedAt)continue;
+      const target=g.board[other][lane][0];
+      if(target){
+        const dmg=atk.attack+atk.buff+(COUNTER[atk.style]===target.style?1:0);
+        const reply=target.attack+(COUNTER[target.style]===atk.style?1:0);
+        const dealt=hitUnit(target,dmg),retaliation=hitUnit(atk,reply);
+        event(g,'exchange',{lane,from:atk.id,to:target.id,damage:dealt.applied,blocked:dealt.blocked,retaliation:retaliation.applied,retaliation_blocked:retaliation.blocked});
+      } else {
+        const dmg=atk.attack+atk.buff;g.hp[other]=Math.max(0,g.hp[other]-dmg);
+        event(g,'direct_hit',{lane,from:atk.id,damage:dmg});
+      }
+      atk.buff=0;
+      g.board[side][lane]=g.board[side][lane].filter(u=>u.hp>0);
+      g.board[other][lane]=g.board[other][lane].filter(u=>u.hp>0);
+      settle(g);
+    }
+  }
+  if(g.phase==='ended')return {ok:true,ended:true};
+  if(side==='ai'&&g.turns.ai>=MAX_TURNS){limitResult(g);return {ok:true,ended:true};}
+  g.active=other;if(other==='player')g.round++;
+  g.turns[other]++;g.energy[other]=Math.min(9,g.turns[other]+1);
+  g.stylesPlayed[other]=[];g.comboTriggered[other]=false;draw(g,other,1);
+  event(g,'turn_start',{round:g.round});return {ok:true,ended:false};
+}
+/**
+ * Deterministic tactical value of completing a style combo in a given lane.
+ * Evaluation is only used to choose AI actions; the real state transition
+ * is still exclusively playCard -> applyComboEffect.
+ */
+function comboOpportunityScore(g,side,style,lane,kind='unit') {
+  if(g.phase!=='playing'||g.comboTriggered[side])return 0;
+  const played=g.stylesPlayed[side];
+  if(played.length!==1||played.includes(style))return 0;
+  if(!Number.isInteger(lane)||lane<0||lane>2)return 0;
+  const pair=[played[0],style].sort().join(',');
+  const foe=opponent(side);
+  const front=g.board[foe][lane][0];
+  const ally=g.board[side][lane][0];
+  const energyRefund=2.5;
+  if(pair==='ember,grove'){
+    if(!front)return energyRefund+1.4;
+    const damage=Math.min(front.hp,Math.max(0,2-(front.shield||0)));
+    return energyRefund+1.5+damage*1.1+(damage>=front.hp?1.0:0);
+  }
+  if(pair==='ember,tide'){
+    const next=(lane+1)%3;
+    if(front&&g.board[foe][next].length<3){
+      const friendlyPressure=g.board[side][lane].length;
+      const blockedPressure=g.board[side][next].length;
+      return energyRefund+2.1+friendlyPressure*0.9-blockedPressure*0.4;
+    }
+    return energyRefund+1.2; // fallback draw
+  }
+  if(pair==='grove,tide'){
+    // A newly played unit also becomes shield-eligible.
+    if(ally||kind==='unit')
+      return energyRefund+1.1+(g.board[foe][lane].length?1.6:0.4);
+    return energyRefund+1.2; // fallback draw
+  }
+  return 0;
+}
+function aiTurn(g) {
+  if(g.phase!=='playing'||g.active!=='ai')return {ok:false,reason:'not AI turn'};
+  let plays=0;
+  while(plays<7&&g.phase==='playing'){
+    const moves=legalMoves(g);if(!moves.length)break;
+    const rated=moves.map(m=>{
+      const c=BY_ID[m.id],allies=g.board.ai[m.lane],enemies=g.board.player[m.lane];
+      let score=c.kind==='unit'?5+c.attack*.7+enemies.length*.9-allies.length*.6:
+        c.effect==='blast'?7:c.effect==='draw'?(g.hand.ai.length<5?7:1):
+        c.effect==='confuse'?(enemies.length?6+enemies.length:0):
+        c.effect==='heal'?(g.hp.ai<14?6:1):allies.length?5:0;
+      score+=comboOpportunityScore(g,'ai',c.style,m.lane,c.kind);
+      return {m,score:score-c.cost*.13};
+    }).sort((a,b)=>b.score-a.score||a.m.index-b.m.index||a.m.lane-b.m.lane);
+    if(rated[0].score<.5)break;
+    const result=playCard(g,rated[0].m.index,rated[0].m.lane);
+    if(!result.ok)break;plays++;
+  }
+  if(g.phase==='playing')endTurn(g);
+  return {ok:true,plays};
+}
+function simulate(seed=1,strategy='first') {
+  const g=createGame(seed);let guard=0;
+  while(g.phase==='playing'&&guard++<200){
+    if(g.active==='ai'){aiTurn(g);continue;}
+    for(let i=0;i<7&&g.phase==='playing';i++){
+      const m=legalMoves(g);if(!m.length)break;
+      const next=strategy==='last'?m[m.length-1]:m[0];
+      playCard(g,next.index,next.lane);
+    }
+    if(g.phase==='playing')endTurn(g);
+  }
+  if(g.phase!=='ended')throw new Error('Simulation did not finish');
+  return g;
+}
+
+;
+// src/tutorial.mjs
+/**
+ * Three concise ORIGINAL campus episodes, all using canonical card rules.
+ * Tutorials are deterministic staging only; no made-up cards or combat state.
+ */
+
+const EPISODES=Object.freeze([
+  Object.freeze({
+    id:'campus-recruitment-01',title:'第1关 · 社团招新战',
+    story:'风纪委员抢先占领走廊。两张不同风格的牌，能把一次意外变成你的反击！',
+    steps:Object.freeze([
+      Object.freeze({card:'E01',lane:0,title:'第一步：派出活力社员',instruction:'选择「铃声追不上」，部署到教室。',progress:'1 / 2'}),
+      Object.freeze({card:'G01',lane:1,title:'第二步：制造粉笔弹射',instruction:'选择「橡皮筋建筑师」，部署到走廊。不同风格组合将命中对方前排。',progress:'2 / 2'})
+    ]),
+    foe:Object.freeze({card:'T01',lane:1}),
+    expectedEffect:'chalk_hit',
+    conclusion:'粉笔弹射成功！',
+    successText:'两种风格组成了粉笔弹射，把走廊的阻挡清除了。'
+  }),
+  Object.freeze({
+    id:'campus-broadcast-02',title:'第2关 · 广播室串台',
+    story:'广播员把校内通知播错频道。正好把对手从走廊调离，为进攻打开空间。',
+    steps:Object.freeze([
+      Object.freeze({card:'E01',lane:0,title:'第一步：抢占教室',instruction:'选择「铃声追不上」，部署到教室。',progress:'1 / 2'}),
+      Object.freeze({card:'T01',lane:1,title:'第二步：触发广播调度',instruction:'选择「迟到的播音员」，部署到走廊，让敌方前排移动到操场。',progress:'2 / 2'})
+    ]),
+    foe:Object.freeze({card:'G01',lane:1}),
+    expectedEffect:'broadcast_move',
+    conclusion:'广播串台成功！',
+    successText:'走廊的敌方人物已被调往操场。重新部署改变了阻挡和进攻路线。'
+  }),
+  Object.freeze({
+    id:'campus-poster-03',title:'第3关 · 招新海报',
+    story:'社团招新海报突然贴满走廊。趁乱为前排筑起护盾，再决定下一步。',
+    steps:Object.freeze([
+      Object.freeze({card:'G01',lane:1,title:'第一步：在走廊建立防线',instruction:'选择「橡皮筋建筑师」，部署到走廊。',progress:'1 / 2'}),
+      Object.freeze({card:'T01',lane:1,title:'第二步：海报支援',instruction:'选择「迟到的播音员」，也部署到走廊，使前排获得2点护盾。',progress:'2 / 2'})
+    ]),
+    foe:Object.freeze({card:'E01',lane:1}),
+    expectedEffect:'poster_shield',
+    conclusion:'招新海报成功！',
+    successText:'走廊的己方前排得到了2点护盾。你已经掌握三种不同的连携后果。'
+  })
+]);
+const FIRST_EPISODE=EPISODES[0];
+
+function extractCard(game,side,id) {
+  for(const bucket of [game.hand[side],game.deck[side]]) {
+    const index=bucket.indexOf(id);
+    if(index>=0){bucket.splice(index,1);return id;}
+  }
+  throw new Error('Tutorial deck missing required card '+id);
+}
+function episodeOf(game){
+  const id=game.tutorial?.id;
+  return EPISODES.find(episode=>episode.id===id)||null;
+}
+
+/** Get one of the three tutorial chapters (1-based). */
+function createGuidedEpisode(level=1,seed=20261108) {
+  if(!Number.isInteger(level)||level<1||level>EPISODES.length)
+    throw new Error('Invalid tutorial episode');
+  const episode=EPISODES[level-1];
+  const game=createGame(seed);
+  const cards=episode.steps.map(step=>extractCard(game,'player',step.card));
+  game.hand.player.unshift(...cards);
+  const foe=extractCard(game,'ai',episode.foe.card);
+  const stats=BY_ID[foe];
+  game.board.ai[episode.foe.lane].push({
+    uid:'TUTORIAL-FOE-'+level,id:foe,style:stats.style,
+    attack:stats.attack,hp:stats.hp,buff:0,shield:0,summonedAt:0
+  });
+  game.energy.player=2;
+  game.tutorial={id:episode.id,level,stage:0,completed:false};
+  return game;
+}
+function createRecruitmentTutorial(seed=20261108){
+  return createGuidedEpisode(1,seed);
+}
+function tutorialStep(game){
+  if(!game.tutorial||game.tutorial.completed)return null;
+  return episodeOf(game)?.steps[game.tutorial.stage]||null;
+}
+function tutorialStatus(game){
+  const episode=episodeOf(game);
+  if(!episode)return null;
+  const step=tutorialStep(game);
+  return step?{...step,completed:false,stage:game.tutorial.stage,level:game.tutorial.level}:{
+    title:episode.conclusion,instruction:episode.successText+' 可以继续自由出牌，或结束回合。',
+    completed:true,stage:2,level:game.tutorial.level,progress:'完成'
+  };
+}
+function playTutorialCard(game,index,lane){
+  const step=tutorialStep(game);
+  if(!step)return playCard(game,index,lane);
+  const id=game.hand[game.active]?.[index];
+  if(id!==step.card||lane!==step.lane)
+    return {ok:false,reason:'本关教学：请将「'+BY_ID[step.card].name+'」部署到'+['教室','走廊','操场'][step.lane]+'。'};
+  const result=playCard(game,index,lane);
+  if(!result.ok)return result;
+  game.tutorial.stage+=1;
+  const episode=episodeOf(game);
+  if(game.tutorial.stage===episode.steps.length){
+    const effect=game.events.findLast(event=>event.type==='combo_effect');
+    if(!effect||effect.effect!==episode.expectedEffect||effect.lane!==step.lane)
+      throw new Error('Tutorial invariant: expected actual '+episode.expectedEffect+' on lane '+step.lane);
+    game.tutorial.completed=true;
+  }
+  return result;
+}
+
+;
+// src/vfx.mjs
+/**
+ * Rule-event-driven, presentation-only cue projection.
+ *
+ * Never modifies game state. Animation may be skipped, reduced, or absent.
+ * Never infer a skill from title/description text.
+ */
+const SPEC = Object.freeze({
+  chalk_hit:{kind:'chalk',title:'粉笔弹射！',motion:'impact'},
+  chalk_direct:{kind:'chalk',title:'粉笔突破！',motion:'direct'},
+  broadcast_move:{kind:'broadcast',title:'广播串台！',motion:'relocate'},
+  broadcast_draw:{kind:'broadcast',title:'广播补牌！',motion:'draw'},
+  poster_shield:{kind:'poster',title:'海报护卫！',motion:'shield'},
+  poster_draw:{kind:'poster',title:'招新灵感！',motion:'draw'}
+});
+const ANIMATION_PHASES=Object.freeze(['windup','impact','aftermath']);
+function projectComboCue(event) {
+  if(!event||event.type!=='combo_effect')return null;
+  const visual=SPEC[event.effect];
+  if(!visual)return null;
+  if(!Number.isInteger(event.lane)||event.lane<0||event.lane>2)
+    return null;
+  const amount=event.effect==='chalk_hit'?event.damage:
+    event.effect==='chalk_direct'?event.damage:
+    event.effect==='poster_shield'?event.shield:
+    event.draw||0;
+  const suffix=event.effect==='broadcast_move'?' → 战线'+(event.to_lane+1):
+    event.effect==='chalk_hit'?' −'+event.damage+' HP'+(event.blocked?'（格挡'+event.blocked+'）':''):
+    event.effect==='chalk_direct'?' 人气 −'+event.damage:
+    event.effect==='poster_shield'?' 护盾 +'+event.shield:
+    event.draw?' 手牌 +'+event.draw:'';
+  return Object.freeze({
+    sourceSerial:event.serial,
+    lane:event.lane,
+    side:event.side,
+    kind:visual.kind,
+    motion:visual.motion,
+    title:visual.title,
+    subtitle:suffix.trim(),
+    amount,
+    phases:ANIMATION_PHASES
+  });
+}
+
+;
+// src/art-approved.mjs
+/**
+ * Production image registry. Intentionally EMPTY until independently reviewed.
+ * Image generation in this chat produced composited battle UI mockups, not
+ * usable game sprites/backgrounds. Never paste them here as "approved art".
+ *
+ * Future approved records must be immutable, contain verified native-model
+ * provenance and a self-contained data:image/* URL for offline/browser parity.
+ */
+const APPROVED_ART = Object.freeze({});
+
+;
+// src/art-runtime.mjs
+
+const HEX64=/^[0-9a-f]{64}$/i;
+const SAFE_DATA=/^data:image\/(?:png|webp|avif);base64,[A-Za-z0-9+/=]+$/;
+
+/**
+ * Slots follow "scene:campus:classroom", "portrait:campus:E01",
+ * and "effect:campus:chalk". Never load a generic full UI mockup.
+ */
+function approvedArtwork(slot) {
+  if(typeof slot!=='string'||!/^(?:scene|portrait|effect):[a-z0-9:-]+$/.test(slot))
+    return null;
+  const item=APPROVED_ART[slot];
+  if(!item||item.review_status!=='APPROVED')return null;
+  if(item.slot!==slot||item.is_composite_ui===true)return null;
+  if(item.source!=='ChatGPT-native'||
+     item.model_verified!==true||
+     typeof item.model_version!=='string'||
+     !item.model_version.toLowerCase().includes('gpt-image-2.6'))return null;
+  if(!HEX64.test(item.sha256)||!SAFE_DATA.test(item.data_uri))return null;
+  return item;
+}
+function appendApprovedArtwork(parent,slot,alt='',className='art-image') {
+  const asset=approvedArtwork(slot);
+  if(!asset)return false;
+  const img=document.createElement('img');
+  img.className=className;
+  img.src=asset.data_uri;
+  img.alt=alt;
+  img.loading='lazy';
+  img.decoding='async';
+  img.setAttribute('data-approved-slot',slot);
+  parent.append(img);
+  return true;
+}
+const ART_SLOT_NAMES=Object.freeze([
+  'scene:campus:classroom',
+  'portrait:campus:E01',
+  'portrait:campus:G01',
+  'portrait:campus:T01',
+  'effect:campus:chalk',
+  'effect:campus:broadcast',
+  'effect:campus:poster'
+]);
+function auditArtRuntime() {
+  return {
+    required_slots:ART_SLOT_NAMES.length,
+    approved_slots:ART_SLOT_NAMES.filter(slot=>approvedArtwork(slot)).length,
+    rejected_or_missing_slots:ART_SLOT_NAMES.filter(slot=>!approvedArtwork(slot)),
+    isolated_assets_only:true,
+    used_as_public_art:ART_SLOT_NAMES.filter(slot=>approvedArtwork(slot)).length>0
+  };
+}
+
+;
+// src/performance.mjs
+/**
+ * Original performance scripts for a card-game CUT-IN prototype.
+ *
+ * Compiles events that have ALREADY happened in the canonical engine.
+ * This module cannot deal damage, summon a unit, change turns, draw cards
+ * or affect victory. All consequences are copied from the source events.
+ *
+ * Real character frames / Qwen voice clips are not approved yet. Stage
+ * presentation is marked '演出样机' until both asset tracks pass review.
+ */
+
+const CAST=Object.freeze({
+  E01:Object.freeze({name:'铃声追不上',voice:'rush',pose:'dash',line:'放学铃一响，谁也别想追上我！'}),
+  G01:Object.freeze({name:'橡皮筋建筑师',voice:'inventor',pose:'calculate',line:'角度算好了……大概吧！'}),
+  T01:Object.freeze({name:'迟到的播音员',voice:'announcer',pose:'broadcast',line:'各位请注意！比赛……现在开始！'}),
+  E03:Object.freeze({name:'加油过头的队长',voice:'captain',pose:'charge',line:'全体注意！一、二、冲——！'})
+});
+const VOICE_PROFILES=Object.freeze({
+  rush:Object.freeze({role:'行动派',voice_description:'爽朗急切的年轻男声，快节奏，有突然拔高的情绪',pitch:1.13,rate:1.1}),
+  inventor:Object.freeze({role:'发明家',voice_description:'机灵谨慎、思考时停顿的年轻女声，结尾突然惊讶',pitch:1.16,rate:0.98}),
+  announcer:Object.freeze({role:'播音员',voice_description:'温和而认真、偏正式播报，偶尔反应慢半拍',pitch:0.9,rate:0.89}),
+  captain:Object.freeze({role:'队长',voice_description:'力量感十足、明亮坚定、带战斗呼喝',pitch:0.99,rate:1.06}),
+  narrator:Object.freeze({role:'旁白',voice_description:'温厚清晰的普通话叙述，节奏稳重',pitch:1,rate:0.95})
+});
+const EFFECT_SCRIPTS=Object.freeze({
+  chalk_hit:{kind:'chalk',move:'aim',name:'粉笔弹射',line:'看我的！粉笔弹射——糟糕，真的飞出去了！'},
+  chalk_direct:{kind:'chalk',move:'dash',name:'粉笔突破',line:'拦不住了！粉笔直接穿过去啦！'},
+  broadcast_move:{kind:'broadcast',move:'relocate',name:'广播串台',line:'紧急通知！走廊的同学，立刻转移阵地！'},
+  broadcast_draw:{kind:'broadcast',move:'broadcast',name:'广播补牌',line:'喂？频道串了？那就再来一张！'},
+  poster_shield:{kind:'poster',move:'defend',name:'海报护卫',line:'社团招新！贴住海报，守住阵线！'},
+  poster_draw:{kind:'poster',move:'reveal',name:'海报灵感',line:'海报背面居然还有新计划！'}
+});
+
+function impactText(e) {
+  if(e.effect==='chalk_hit')
+    return '命中！实际造成 '+e.damage+' 点伤害'+(e.blocked?'，护盾格挡 '+e.blocked+' 点':'');
+  if(e.effect==='chalk_direct')return '突破！对方人气实际减少 '+e.damage+' 点';
+  if(e.effect==='broadcast_move')return '调度成功：'+LANES[e.lane]+' → '+LANES[e.to_lane];
+  if(e.effect==='broadcast_draw'||e.effect==='poster_draw')
+    return '战术补充：实际抽取 '+e.draw+' 张手牌';
+  if(e.effect==='poster_shield')return '防线建立：实际获得 '+e.shield+' 点护盾';
+  throw new Error('Unknown engine effect');
+}
+const duration=(tier,phase)=>tier==='major'?
+  ({entrance:790,action:860,impact:1050}[phase]||800):
+  ({entrance:640,action:500,impact:570}[phase]||550);
+
+function compilePerformances(events,{theme='campus'}={}){
+  if(theme!=='campus'||!Array.isArray(events))return [];
+  const result=[];
+  const source=events.filter(e=>e&&e.type==='card_play'&&BY_ID[e.card]&&
+    (e.side==='player'||e.side==='ai')&&Number.isInteger(e.lane)&&e.lane>=0&&e.lane<3);
+  for(const played of source){
+    const actor=CAST[played.card]||null;
+    const card=BY_ID[played.card];
+    const effect=events.find(e=>e.type==='combo_effect'&&e.serial>played.serial&&
+      e.lane===played.lane&&e.side===played.side&&!events.some(other=>other.type==='card_play'&&other.serial>played.serial&&other.serial<e.serial));
+    const script=effect?EFFECT_SCRIPTS[effect.effect]:null;
+    const tier=effect?'major':'ordinary';
+    const actorName=actor?.name||card.name;
+    const greeting=actor?.line||card.line;
+    const beats=[{
+      phase:'entrance',motion:actor?.pose||'arrive',caption:card.kind==='unit'?'人物登场':'发动事件',
+      speaker:actorName,voice:actor?.voice||'narrator',
+      line:greeting,duration_ms:duration(tier,'entrance')
+    }];
+    if(script){
+      beats.push({
+        phase:'action',motion:script.move,caption:script.name,
+        speaker:actorName,voice:actor?.voice||'narrator',
+        line:script.line,duration_ms:duration(tier,'action')
+      });
+      beats.push({
+        phase:'impact',motion:effect.effect,caption:'战术结果 · '+LANES[effect.lane],
+        speaker:'战场播报',voice:'narrator',
+        line:impactText(effect),duration_ms:duration(tier,'impact')
+      });
+    } else if(card.kind==='unit'){
+      beats.push({
+        phase:'impact',motion:'summon',caption:'入场完成 · '+LANES[played.lane],
+        speaker:'战场播报',voice:'narrator',
+        line:actorName+'已经登场！等待下一次己方行动再发动攻击。',
+        duration_ms:duration(tier,'impact')
+      });
+    } else{
+      beats.push({
+        phase:'impact',motion:'spell',caption:'事件已发动 · '+LANES[played.lane],
+        speaker:'战场播报',voice:'narrator',
+        line:'卡牌效果已按正式战斗规则结算。',duration_ms:duration(tier,'impact')
+      });
+    }
+    result.push(Object.freeze({
+      event_serial:played.serial,
+      actor_id:card.id,actor_name:actorName,
+      side:played.side,lane:played.lane,
+      kind:card.kind==='unit'?'summon':'event',
+      tier,effect:effect?.effect||null,
+      target_uid:effect?.target||null,
+      to_lane:effect?.to_lane??null,
+      damage:effect?.damage??null,blocked:effect?.blocked??null,
+      shield:effect?.shield??null,draw:effect?.draw??null,
+      beats:Object.freeze(beats.map(beat=>Object.freeze(beat)))
+    }));
+  }
+  return result;
+}
+function sceneRuntimeMs(scene,{reducedMotion=false,fast=false}={}){
+  if(!scene||!Array.isArray(scene.beats))return 0;
+  if(reducedMotion)return 450;
+  return scene.beats.reduce((sum,beat)=>sum+Math.max(0,beat.duration_ms),0)*(fast?0.47:1);
+}
+
+;
+// src/director.mjs
+/**
+ * Original animation director: visible, skippable, deterministic acting CUES.
+ *
+ * Rules are already resolved by core.mjs. No fake damage/summons, no video
+ * downloads, and no third-party images. Production art is only loaded from
+ * the approved asset registry. Optional browser speech is a temporary
+ * accessibility preview, NOT expressive studio/Qwen audio.
+ */
+
+
+function createPerformanceDirector({documentRef=document,win=globalThis,onEvent=()=>{}}={}){
+  const el=id=>documentRef.getElementById(id);
+  const stage=el('performance-stage');
+  const controls={skip:el('performance-skip'),voice:el('performance-voice'),speed:el('performance-speed')};
+  let queue=[],scene=null,beatIndex=-1,timer=null,voiceEnabled=false,fast=false,epoch=0;
+  const speech=()=>win.speechSynthesis;
+  function stopVoice(){
+    const synth=speech();
+    try{synth?.cancel?.();}catch{} // OS/browser voices may be unavailable
+  }
+  function cancelTime(){if(timer!==null){win.clearTimeout(timer);timer=null;}}
+  function closeScene(){
+    cancelTime();stopVoice();scene=null;beatIndex=-1;stage.hidden=true;
+    stage.dataset.phase='off';stage.dataset.motion='none';
+  }
+  function reset(){epoch++;queue=[];closeScene();}
+  function say(beat){
+    if(!voiceEnabled||typeof win.SpeechSynthesisUtterance!=='function')return;
+    const synth=speech();
+    if(!synth?.speak)return;
+    try{
+      stopVoice();
+      const phrase=new win.SpeechSynthesisUtterance(beat.line);
+      const voice=VOICE_PROFILES[beat.voice]||VOICE_PROFILES.narrator;
+      phrase.lang='zh-CN';phrase.rate=voice.rate;phrase.pitch=voice.pitch;
+      phrase.volume=.8;
+      // Explicit opt-in: no generated or cloned sound and no network request.
+      synth.speak(phrase);
+    }catch{ /* keep visual/subtitle version even if platform speech fails */ }
+  }
+  function writeBeat(beat){
+    stage.hidden=false;
+    stage.dataset.phase=beat.phase;
+    stage.dataset.motion=beat.motion;
+    stage.dataset.effect=scene.effect||'none';
+    stage.dataset.side=scene.side;
+    el('performance-heading').textContent=beat.caption;
+    el('performance-speaker').textContent=beat.speaker;
+    el('performance-dialogue').textContent=beat.line;
+    el('performance-count').textContent=(beatIndex+1)+' / '+scene.beats.length;
+    el('performance-role').textContent=scene.actor_name;
+    el('performance-lane').textContent=['教室','走廊','操场'][scene.lane];
+    const art=el('performance-art');
+    art.replaceChildren();
+    if(!appendApprovedArtwork(art,'portrait:campus:'+scene.actor_id,'','performance-art-image')){
+      const glyph=documentRef.createElement('span');
+      glyph.className='performance-art-placeholder';
+      glyph.textContent=scene.actor_id.slice(0,1)==='E'?'✦':scene.actor_id.slice(0,1)==='G'?'◆':'◈';
+      art.append(glyph);
+      el('performance-prototype').hidden=false;
+    }else el('performance-prototype').hidden=true;
+    say(beat);
+  }
+  function step(){
+    if(!scene)return;
+    cancelTime();
+    beatIndex++;
+    if(beatIndex>=scene.beats.length){
+      closeScene();
+      startNext();
+      return;
+    }
+    const beat=scene.beats[beatIndex];
+    writeBeat(beat);
+    const reduce=win.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches===true;
+    const duration=reduce?150:Math.round(beat.duration_ms*(fast?.47:1));
+    const runEpoch=epoch;
+    timer=win.setTimeout(()=>{
+      if(runEpoch!==epoch)return;
+      step();
+    },duration);
+  }
+  function startNext(){
+    if(scene||queue.length===0)return;
+    scene=queue.shift();
+    beatIndex=-1;
+    onEvent('performance_started',{actor:scene.actor_id,effect:scene.effect});
+    step();
+  }
+  function enqueue(scenes){
+    if(!Array.isArray(scenes))return;
+    const fresh=scenes.filter(item=>item&&Array.isArray(item.beats));
+    // Full-performance for each player play; one brief AI highlight at a
+    // time avoids swamping the player with six back-to-back opponent clips.
+    const forPlayer=fresh.filter(item=>item.side==='player');
+    const aiHighlight=fresh.find(item=>item.side==='ai'&&item.tier==='major');
+    queue.push(...forPlayer,...(aiHighlight?[aiHighlight]:[]));
+    if(queue.length>5)queue=queue.slice(-5);
+    startNext();
+  }
+  function skip(){
+    if(!scene)return;
+    onEvent('performance_skipped',{actor:scene.actor_id,effect:scene.effect});
+    epoch++;queue=[];closeScene();
+  }
+  const browserSpeechSupported=typeof win.SpeechSynthesisUtterance==='function'&&typeof speech()?.speak==='function';
+  if(!browserSpeechSupported){
+    controls.voice.disabled=true;
+    controls.voice.textContent='试音：此设备不支持';
+  }
+  function toggleVoice(){
+    if(!browserSpeechSupported)return;
+    voiceEnabled=!voiceEnabled;
+    controls.voice.textContent=voiceEnabled?'试音：已开':'试音：关闭';
+    controls.voice.setAttribute('aria-pressed',String(voiceEnabled));
+    if(!voiceEnabled)stopVoice();
+    onEvent('performance_voice_toggled',{enabled:voiceEnabled});
+  }
+  function toggleSpeed(){
+    fast=!fast;
+    controls.speed.textContent=fast?'演出：快速':'演出：完整';
+    controls.speed.setAttribute('aria-pressed',String(fast));
+    onEvent('performance_speed_toggled',{fast});
+  }
+  controls.skip.addEventListener('click',skip);
+  controls.voice.addEventListener('click',toggleVoice);
+  controls.speed.addEventListener('click',toggleSpeed);
+  stage.hidden=true;
+  return {
+    enqueue,reset,skip,
+    get busy(){return scene!==null;},
+    get voiceEnabled(){return voiceEnabled;},
+    get fast(){return fast;},
+    get queued(){return queue.length;}
+  };
+}
+
+;
+// src/app.mjs
+
+
+
+
+
+
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+const availableThemes = Object.keys(THEMES);
+let theme = availableThemes.includes(params.get('theme')) ? params.get('theme') : 'campus';
+let tutorialEnabled = theme==='campus' && params.get('mode')!=='duel';
+let currentTutorialLevel=Number(params.get('level'));
+if(!Number.isInteger(currentTutorialLevel)||currentTutorialLevel<1||currentTutorialLevel>EPISODES.length)currentTutorialLevel=1;
+let game;
+let selected = null;
+let observedSerial = 0;
+let comboTimer;
+let lastVisualCue=null;
+let visualTimer;
+let finishedShown = false;
+let graduationVisible=false;
+let startedAt = performance.now();
+let clicks = [];
+const stageDirector=createPerformanceDirector({documentRef:document,win:globalThis,onEvent:track});
+
+const STYLE_ICONS = {ember:'✦',grove:'◆',tide:'◈'};
+const STORIES = {
+  campus:'校长把社团申请表误印成食堂菜单。想拿回活动室？先打赢三条战线。',
+  star:'星图被调换，守护团的入队挑战突然提前。穿过三处星域，赢回守护资格。',
+  wuxia:'门派的演武帖被错送到集市。三路同开，刀盾侠客必须合力守住招牌。'
+};
+const COMBO_NAMES = {
+  'ember,grove': ['粉笔弹射事故','第二张牌所在战线：击中敌方前排2点；空线则直击人气1点。'],
+  'ember,tide': ['广播串台调度','第二张牌所在战线：敌方前排调往下一线；无法移动则补抽1牌。'],
+  'grove,tide': ['秘密招新海报','第二张牌所在战线：己方前排获得2点护盾；空线则补抽1牌。']
+};
+const OTHER_COMBO = {
+  star:['星流共鸣','两种不同星力结合，返还一格能量。'],
+  wuxia:['刀盾合击','两门招式相合，返还一格真气。']
+};
+function names(side) {return side==='player'?'你':'AI';}
+function track(type,extra={}) {
+  clicks.push({type,elapsed_ms:Math.max(0,Math.round(performance.now()-startedAt)),turn:game?.round??0,theme,...extra});
+}
+function node(tag,cls,text) {
+  const el=document.createElement(tag);
+  if(cls)el.className=cls;
+  if(text!==undefined)el.textContent=String(text);
+  return el;
+}
+function addText(parent,tag,cls,text){const el=node(tag,cls,text);parent.append(el);return el;}
+function setMessage(text){$('prompt').textContent=text;}
+function renderUnit(unit,side) {
+  const c=presentation(BY_ID[unit.id],theme);
+  const root=node('div','unit-card '+unit.style);
+  const art=node('span','unit-art '+c.style);
+  if(!appendApprovedArtwork(art,'portrait:'+theme+':'+unit.id,'','unit-art-image')){
+    art.textContent=STYLE_ICONS[c.style];
+  }
+  art.setAttribute('aria-hidden','true');
+  root.append(art);
+  const name=addText(root,'strong','unit-name',c.name);
+  name.title=c.name;
+  addText(root,'span','unit-stats','⚔ '+(unit.attack+unit.buff)+' / ♥ '+unit.hp+(unit.shield>0?' / 🛡 '+unit.shield:''));
+  if(game.turns[side]<=unit.summonedAt)addText(root,'span','unit-wait','待命');
+  return root;
+}
+function renderSceneArtwork() {
+  const stage=$('battle-art-layer');
+  stage.replaceChildren();
+  const slot=theme==='campus'?'scene:campus:classroom':'scene:'+theme+':arena';
+  stage.hidden=!appendApprovedArtwork(stage,slot,'','scene-art-image');
+}
+function renderLanes() {
+  const root=$('lanes');root.replaceChildren();
+  for(let lane=0;lane<3;lane++){
+    const line=node('button','lane');line.type='button';line.dataset.lane=String(lane);
+    line.setAttribute('aria-label','在'+LANES[lane]+'部署所选卡牌');
+    const enemy=node('div','formation enemy-formation');
+    for(const unit of game.board.ai[lane])enemy.append(renderUnit(unit,'ai'));
+    if(!game.board.ai[lane].length)addText(enemy,'span','empty-slot','对手空位');
+    const center=node('div','lane-center');
+    addText(center,'strong','lane-name',LANES[lane]);
+    addText(center,'span','lane-arrow','↓');
+    const own=node('div','formation player-formation');
+    for(const unit of game.board.player[lane])own.append(renderUnit(unit,'player'));
+    if(!game.board.player[lane].length)addText(own,'span','empty-slot','点击这里部署');
+    line.append(enemy,center,own);
+    if(lastVisualCue?.lane===lane){
+      line.dataset.effect=lastVisualCue.kind;
+      const cue=node('span','battle-cue battle-cue-'+lastVisualCue.kind);
+      cue.setAttribute('aria-label',lastVisualCue.title+' '+lastVisualCue.subtitle);
+      addText(cue,'strong','battle-cue-title',lastVisualCue.title);
+      if(lastVisualCue.subtitle)addText(cue,'span','battle-cue-impact',lastVisualCue.subtitle);
+      line.append(cue);
+    }
+    line.classList.toggle('lane-ready',selected!==null&&game.active==='player');
+    const teaching=tutorialStep(game);
+    line.classList.toggle('tutorial-target',!!teaching&&teaching.lane===lane);
+    line.disabled=game.phase!=='playing'||game.active!=='player';
+    line.addEventListener('click',()=>deploy(lane));
+    root.append(line);
+  }
+}
+function createCard(id,index,available) {
+  const c=presentation(BY_ID[id],theme);
+  const card=node('button','card '+c.style);card.type='button';
+  card.dataset.cardId=c.id;card.dataset.handIndex=String(index);
+  const teaching=tutorialStep(game);
+  card.disabled=!available||(!!teaching&&teaching.card!==id);
+  card.classList.toggle('tutorial-card',!!teaching&&teaching.card===id);
+  card.setAttribute('aria-pressed',String(selected===index));
+  if(selected===index)card.classList.add('selected');
+  const top=node('div','card-top');
+  addText(top,'span','card-cost',String(c.cost)+' ✧');
+  addText(top,'span','card-kind',c.kind==='unit'?'人物':'事件');
+  card.append(top);
+  const art=node('div','card-art '+c.style);
+  if(!appendApprovedArtwork(art,'portrait:'+theme+':'+id,c.name,'card-art-image')){
+    addText(art,'span','card-glyph',STYLE_ICONS[c.style]);
+  }
+  card.append(art);
+  addText(card,'strong','card-title',c.name);
+  addText(card,'span','card-flavor',c.line);
+  const bottom=node('div','card-bottom');
+  addText(bottom,'span','style-label',THEMES[theme].styles[c.style]);
+  addText(bottom,'span','card-stats',c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'效果牌');
+  card.append(bottom);
+  card.addEventListener('click',()=>{
+    selected=selected===index?null:index;
+    track('card_selected',{card_id:id,hand_index:index});
+    render();setMessage(selected===null?'请重新选择一张手牌。':'已选择「'+c.name+'」，请点击战线。');
+    if(selected!==null && matchMedia('(max-width: 760px)').matches)
+      $('lanes').scrollIntoView?.({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});
+  });
+  return card;
+}
+function renderHand() {
+  const hand=$('hand');hand.replaceChildren();
+  const teaching=tutorialStep(game);
+  $('hand-count').textContent=teaching?'· 本步 1 张（总 '+game.hand.player.length+' 张）':String(game.hand.player.length);
+  const legal=new Set(legalMoves(game).map(m=>m.index));
+  for(let i=0;i<game.hand.player.length;i++){
+    if(teaching&&game.hand.player[i]!==teaching.card)continue;
+    hand.append(createCard(game.hand.player[i],i,game.active==='player'&&legal.has(i)));
+  }
+  if(!game.hand.player.length)addText(hand,'p','no-cards','手牌用完了。结束回合可再抽牌。');
+}
+function formatEvent(e) {
+  if(e.type==='start')return '序章：社团挑战开始。';
+  if(e.type==='turn_start')return '第 '+e.round+' 回合，轮到 '+names(e.side)+'。';
+  if(e.type==='card_play')return names(e.side)+'在'+LANES[e.lane]+'打出「'+presentation(BY_ID[e.card],theme).name+'」。';
+  if(e.type==='combo')return names(e.side)+'触发跨风格乌龙连携，能量 +1！';
+  if(e.type==='combo_effect'){
+    const where=LANES[e.lane];
+    const desc={
+      chalk_hit:'粉笔弹射，击中敌方人物，伤害 '+e.damage+(e.blocked?'（护盾吸收 '+e.blocked+'）':''),
+      chalk_direct:'粉笔飞过空线，敌方人气 -1',
+      broadcast_move:'广播串台，将敌方人物从'+where+'转移至'+LANES[e.to_lane],
+      broadcast_draw:'广播串台未能调度人物，额外抽1张牌',
+      poster_shield:'招新海报保护己方人物，获得2点护盾',
+      poster_draw:'招新海报揭晓新计划，额外抽1张牌'
+    };
+    return names(e.side)+'的'+where+'发生乌龙：'+(desc[e.effect]||e.effect)+'。';
+  }
+  if(e.type==='exchange')return names(e.side)+'在'+LANES[e.lane]+'交锋，造成 '+e.damage+' 伤害。';
+  if(e.type==='direct_hit')return names(e.side)+'突破'+LANES[e.lane]+'，直接造成 '+e.damage+' 伤害。';
+  if(e.type==='game_end')return '战斗结算：'+(e.winner==='draw'?'平局':names(e.winner)+'获胜')+'。';
+  return e.type;
+}
+function renderJournal() {
+  const lines=$('journal-lines');lines.replaceChildren();
+  for(const e of game.events.slice(-7).reverse()){
+    const row=node('div','log-entry');
+    row.append(node('span','log-num',String(e.serial).padStart(3,'0')));
+    row.append(node('span','log-text',formatEvent(e)));
+    if(e.type==='combo'||e.type==='combo_effect')row.classList.add('combo-log');
+    lines.append(row);
+  }
+}
+function hideCombo(){clearTimeout(comboTimer);$('combo-stage').hidden=true;}
+function celebrate(e) {
+  const pair=e.styles.slice().sort().join(',');
+  const [title,text]=theme==='campus'?(COMBO_NAMES[pair]||['乌龙连携','意外组合，返还1点能量！']):OTHER_COMBO[theme];
+  $('combo-title').textContent=title;
+  $('combo-subtitle').textContent=text;
+  $('combo-stage').hidden=false;
+  clearTimeout(comboTimer);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)comboTimer=setTimeout(hideCombo,400);
+  else comboTimer=setTimeout(hideCombo,1900);
+}
+function presentVisualEffect(event){
+  const cue=projectComboCue(event);
+  if(!cue)return;
+  lastVisualCue=cue;
+  clearTimeout(visualTimer);
+  const milliseconds=matchMedia('(prefers-reduced-motion: reduce)').matches?750:1650;
+  visualTimer=setTimeout(()=>{
+    lastVisualCue=null;
+    if(game?.phase==='playing'||game?.phase==='ended')renderLanes();
+  },milliseconds);
+}
+function checkEvents(){
+  const fresh=game.events.filter(e=>e.serial>observedSerial);
+  for(const e of fresh){
+    if(e.type==='combo'){
+      track('combo_triggered',{actor:e.side,styles:e.styles,combo_serial:e.comboSerial});
+      if(e.side==='player'&&theme!=='campus')celebrate(e);
+    }
+    if(e.type==='combo_effect'){
+      track('combo_effect',{actor:e.side,effect:e.effect,lane:e.lane});
+      presentVisualEffect(e);
+    }
+    if(e.type==='game_end')track('game_complete',{winner:e.winner,reason:e.reason});
+  }
+  observedSerial=game.serial;
+  stageDirector.enqueue(compilePerformances(fresh,{theme}));
+}
+function renderTutorial() {
+  const status=tutorialStatus(game);
+  document.body.dataset.guide=status?(status.completed?'done':'active'):(graduationVisible?'graduated':'free');
+  const panel=$('tutorial-panel');
+  panel.hidden=!status&&!graduationVisible;
+  $('tutorial-next').hidden=!status?.completed;
+  $('tutorial-skip').hidden=!status||!!status.completed;
+  if(!status&&graduationVisible){
+    $('tutorial-title').textContent='三关教学完成 · 自由对战已开启';
+    $('tutorial-description').textContent='粉笔攻击、广播调度和海报护盾都已掌握。现在双方从正式随机牌库开始自由对战。';
+    $('tutorial-progress').textContent='3 / 3 ✓';
+    panel.classList.toggle('tutorial-completed',true);
+    return;
+  }
+  if(!status)return;
+  $('tutorial-title').textContent=status.title;
+  $('tutorial-description').textContent=status.instruction;
+  $('tutorial-progress').textContent=status.progress;
+  $('tutorial-next').textContent=currentTutorialLevel<EPISODES.length?'下一关 →':'进入自由对战 →';
+  panel.classList.toggle('tutorial-completed',status.completed);
+}
+function render() {
+  renderTutorial();
+  $('game-title').textContent=THEMES[theme].title;
+  $('game-subtitle').textContent=THEMES[theme].desc+' · 三路策略 · 连携反转';
+  $('theme-select').value=theme;
+  $('story-text').textContent=game.tutorial?EPISODES[currentTutorialLevel-1].story:STORIES[theme];
+  document.body.dataset.theme=theme;
+  $('round-num').textContent=String(game.round).padStart(2,'0');
+  $('turn-banner').textContent=game.phase==='ended'?'对局结束':game.active==='player'?'你的回合':'AI 的回合';
+  $('player-hp').textContent=String(game.hp.player);
+  $('ai-hp').textContent=String(game.hp.ai);
+  $('energy').textContent='✧ '+String(game.energy.player);
+  $('combo-counter').textContent='已触发连携：你 '+game.comboCounts.player+' / AI '+game.comboCounts.ai;
+  const canAct=game.phase==='playing'&&game.active==='player';
+  $('end-turn').disabled=!canAct||!!tutorialStep(game);
+  const played=game.stylesPlayed.player.map(s=>THEMES[theme].styles[s]);
+  $('combo-hint').textContent=game.comboTriggered.player?'本回合连携已完成。':
+    played.length?'本回合已打出：'+played.join('、')+'。再打一种风格可连携。':'本回合出两种不同风格，可返还 1 能量。';
+  renderSceneArtwork();renderLanes();renderHand();renderJournal();
+  if(game.phase==='ended'&&!finishedShown){
+    finishedShown=true;
+    $('result-title').textContent=game.winner==='player'?'社团挑战成功！':game.winner==='ai'?'这回被风纪社压制了':'不分胜负，再试一次！';
+    $('result-detail').textContent='你 '+game.hp.player+' : AI '+game.hp.ai+' · 连携：你 '+game.comboCounts.player+' / AI '+game.comboCounts.ai+
+      '。真实玩家偏好须另行招募测试，本局仅是本地试玩。';
+    $('result-dialog').showModal();
+  }
+}
+function deploy(lane) {
+  if(selected===null){setMessage('请先点击手牌，再点击战线。');return;}
+  const cardId=game.hand.player[selected];
+  const r=game.tutorial?playTutorialCard(game,selected,lane):playCard(game,selected,lane);
+  if(!r.ok){setMessage('无法出牌：'+r.reason);return;}
+  track('card_played',{card_id:cardId,lane});
+  selected=null;checkEvents();render();
+  setMessage(game.tutorial?.completed?
+    EPISODES[game.tutorial.level-1].successText+' 点击「'+(game.tutorial.level<EPISODES.length?'下一关':'进入自由对战')+'」继续。':
+    '出牌成功。你可以继续出牌，或点击「结束回合」。');
+  if(tutorialStep(game) && matchMedia('(max-width: 760px)').matches)
+    $('hand').scrollIntoView?.({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'});
+}
+function nextTurn() {
+  if(game.phase!=='playing'||game.active!=='player')return;
+  if(tutorialStep(game)){
+    setMessage('先完成这两张牌的部署，再结束回合；也可以跳过教学。');
+    return;
+  }
+  track('turn_ended');
+  selected=null;endTurn(game);
+  if(game.phase==='playing'&&game.active==='ai')aiTurn(game);
+  checkEvents();render();
+  setMessage(game.phase==='ended'?'本局结束，请查看战报。':'AI 已行动，轮到你了。');
+}
+function restart(seed=Date.now()) {
+  stageDirector.reset();
+  hideCombo();
+  clearTimeout(visualTimer);
+  lastVisualCue=null;
+  game=tutorialEnabled?createGuidedEpisode(currentTutorialLevel,seed):createGame(seed);
+  selected=null;observedSerial=0;finishedShown=false;startedAt=performance.now();clicks=[];
+  $('result-dialog').close();
+  track('game_started',{seed:game.seed});
+  checkEvents();render();
+  setMessage(tutorialEnabled?'第'+currentTutorialLevel+'关：'+tutorialStatus(game).instruction:graduationVisible?'三关教学全部完成！现在开始正式自由对战。':'选择一张手牌，再点击教室、走廊或操场。');
+}
+function exportJournal() {
+  track('log_exported');
+  const payload={
+    schema:'asdc-local-pilot-1',game_version:game.version,variant:theme,
+    seed:game.seed,winner:game.winner,round:game.round,
+    hp:structuredClone(game.hp),combos:structuredClone(game.comboCounts),
+    timing_events:clicks,game_events:game.events
+  };
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement('a');
+  link.href=url;link.download='asdc-'+theme+'-'+game.seed+'.json';
+  document.body.append(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  setMessage('已导出本局本地操作日志（不包含玩家身份信息）。');
+}
+$('theme-select').addEventListener('change',e=>{
+  graduationVisible=false;
+  const next=e.target.value;
+  if(!availableThemes.includes(next))return;
+  theme=next;
+  tutorialEnabled=false;
+  const seed=game.seed;
+  restart(seed);track('theme_changed',{variant:theme});
+});
+$('reset').addEventListener('click',()=>{graduationVisible=false;tutorialEnabled=false;restart();});
+$('tutorial-skip').addEventListener('click',()=>{graduationVisible=false;tutorialEnabled=false;restart(game.seed);track('tutorial_skipped');});
+$('tutorial-next').addEventListener('click',()=>{
+  if(!game.tutorial?.completed)return;
+  const next=currentTutorialLevel+1;
+  if(next<=EPISODES.length){
+    currentTutorialLevel=next;
+    graduationVisible=false;
+    tutorialEnabled=true;
+    restart(game.seed);
+    track('tutorial_next_level',{level:currentTutorialLevel});
+  } else {
+    tutorialEnabled=false;
+    graduationVisible=true;
+    restart(game.seed);
+    track('tutorial_all_completed');
+  }
+});
+$('end-turn').addEventListener('click',nextTurn);
+$('export').addEventListener('click',exportJournal);
+$('show-rules').addEventListener('click',()=>$('rules-dialog').showModal());
+$('close-rules').addEventListener('click',()=>$('rules-dialog').close());
+$('play-again').addEventListener('click',()=>{graduationVisible=false;tutorialEnabled=false;restart();});
+$('skip-combo').addEventListener('click',hideCombo);
+restart(Number(params.get('seed'))||Date.now());
+
+})();</script>
+</body>
+</html>
