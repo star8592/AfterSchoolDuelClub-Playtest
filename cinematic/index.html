@@ -231,6 +231,95 @@
  .performance-stage *,.performance-stage *:before,.performance-stage *:after{animation:none!important;transition:none!important}
  .performance-stage[data-phase="impact"] .target-flash{opacity:1;font-size:34px}
 }
+
+/* V0.6 chalk choreography: projectile and opponent reaction are separate
+   real-time layers, not a prebaked promotional image. Render is event-sourced. */
+.performance-projectile{position:absolute;z-index:9;top:48%;left:-12%;font-size:38px;font-weight:900;color:#fff9e8;line-height:1;opacity:0;text-shadow:0 0 6px #fff,0 0 15px #f6d6a2;transform:translate(-60px,-50%) rotate(-30deg);pointer-events:none}
+.performance-trail{position:absolute;top:50%;left:-35%;height:4px;width:235%;z-index:5;pointer-events:none;opacity:0;transform:translateY(-50%) scaleX(.12);transform-origin:left center;background:linear-gradient(90deg,transparent,rgba(255,244,199,.95) 50%,transparent);filter:drop-shadow(0 0 7px #f2daa7)}
+.performance-opponent{width:clamp(62px,12vw,108px);height:clamp(106px,22vw,166px);display:grid;place-items:center;position:relative;border:2px solid #b7cadd;border-radius:48% 48% 17% 17%;background:linear-gradient(150deg,#5a7c9e,#304f76 58%,#283c5a);box-shadow:inset 7px 7px 17px rgba(255,255,255,.1),0 16px 16px rgba(3,10,24,.3);transform-origin:bottom center}
+.performance-opponent:after{content:"";position:absolute;inset:auto 14% 8px;height:10px;border-radius:50%;background:rgba(1,7,22,.36);filter:blur(8px)}
+.performance-opponent>span{font-size:clamp(35px,7vw,72px);color:#e9f2fb;filter:drop-shadow(0 0 9px #bad9fa)}
+.performance-hit-value{position:absolute;top:13%;right:8%;padding:4px 12px;border:2px solid rgba(255,235,193,.9);border-radius:14px;background:rgba(27,27,43,.94);font-size:clamp(20px,3vw,30px);font-weight:900;color:#fff2d4;opacity:0;transform:translateY(18px) scale(.66);z-index:8;pointer-events:none}
+.performance-shield{position:absolute;bottom:13%;right:2%;color:#e9ffd6;font-size:12px;font-weight:800;background:rgba(16,49,55,.87);border:1px solid #94d4d0;border-radius:20px;padding:3px 9px;opacity:0;z-index:9;pointer-events:none}
+.performance-stage[data-phase="action"][data-effect^="chalk"] .performance-projectile{animation:chalk-projectile-flight .76s cubic-bezier(.2,.32,.24,.94) both}
+.performance-stage[data-phase="action"][data-effect^="chalk"] .performance-trail{animation:chalk-projectile-trail .74s ease-out both}
+.performance-stage[data-side="ai"][data-phase="action"][data-effect^="chalk"] .performance-projectile{animation-name:chalk-projectile-reverse}
+.performance-stage[data-phase="impact"][data-reaction="hurt"] .performance-opponent,
+.performance-stage[data-phase="impact"][data-reaction="defeated"] .performance-opponent{animation:chalk-opponent-hit .55s cubic-bezier(.3,.5,.5,1.3) both}
+.performance-stage[data-phase="impact"][data-reaction="defeated"] .performance-opponent{animation:chalk-opponent-knockout .7s ease-in forwards}
+.performance-stage[data-phase="impact"][data-reaction="blocked"] .performance-opponent,
+.performance-stage[data-phase="impact"][data-reaction="protected"] .performance-opponent{animation:chalk-opponent-shield .7s ease-out both}
+.performance-stage[data-phase="impact"] .performance-hit-value{animation:chalk-result-pop .65s cubic-bezier(.2,1.4,.3,1) both}
+.performance-stage[data-phase="impact"][data-reaction="blocked"] .performance-shield,
+.performance-stage[data-phase="impact"][data-reaction="hurt"] .performance-shield,
+.performance-stage[data-phase="impact"][data-reaction="protected"] .performance-shield{animation:chalk-result-pop .6s ease-out both}
+.performance-stage[data-phase="impact"][data-reaction="blocked"] .performance-target:after,
+.performance-stage[data-phase="impact"][data-reaction="protected"] .performance-target:after{content:"";position:absolute;inset:20%;z-index:7;border:6px solid rgba(146,225,228,.8);border-radius:50%;box-shadow:0 0 30px rgba(125,222,223,.7);animation:chalk-shield-ring .72s ease-out both;pointer-events:none}
+.performance-stage[data-phase="impact"][data-reaction="moved"] .performance-opponent{animation:broadcast-opponent-shift .75s ease-in-out both}
+.performance-stage[data-phase="impact"][data-reaction="direct"] .performance-opponent{opacity:.2}
+.performance-stage[data-effect^="chalk"] .action-beam{background:linear-gradient(90deg,transparent,#fff9df,#f3e6b9,transparent)}
+@keyframes chalk-projectile-flight{
+  0%{opacity:0;left:-20%;transform:translate(-48px,-20px) rotate(-30deg) scale(.75)}
+  15%{opacity:1}
+  76%{opacity:1;transform:translate(28px,-50%) rotate(640deg) scale(1)}
+  100%{opacity:0;left:240%;transform:translate(40px,-55%) rotate(740deg) scale(.72)}
+}
+@keyframes chalk-projectile-reverse{
+  0%{opacity:0;left:210%;transform:translate(48px,-20px) rotate(30deg) scale(.75)}
+  15%{opacity:1}
+  80%{opacity:1}
+  100%{opacity:0;left:-35%;transform:translate(-40px,-50%) rotate(-740deg) scale(.72)}
+}
+@keyframes chalk-projectile-trail{
+  0%{opacity:0;transform:translateY(-50%) scaleX(.15)}
+  33%{opacity:.85;transform:translateY(-50%) scaleX(.75)}
+  100%{opacity:0;transform:translateY(-50%) scaleX(1.08)}
+}
+@keyframes chalk-opponent-hit{
+  0%{transform:translateX(0) rotate(0)}
+  20%{transform:translateX(14px) rotate(7deg)}
+  42%{transform:translateX(-8px) rotate(-5deg)}
+  65%{transform:translateX(5px) rotate(3deg)}
+  100%{transform:translateX(0) rotate(0)}
+}
+@keyframes chalk-opponent-knockout{
+  0%{opacity:1;transform:translateX(0) rotate(0)}
+  30%{opacity:1;transform:translateX(14px) rotate(12deg)}
+  100%{opacity:.08;transform:translate(75px,70px) rotate(63deg) scale(.6)}
+}
+@keyframes chalk-opponent-shield{
+  0%{transform:scale(1)}
+  35%{transform:scale(.86);filter:brightness(1.7)}
+  100%{transform:scale(1);filter:brightness(1)}
+}
+@keyframes broadcast-opponent-shift{
+  0%{opacity:1;transform:translateX(0)}
+  100%{opacity:.25;transform:translateX(90px)}
+}
+@keyframes chalk-result-pop{
+  0%{opacity:0;transform:translateY(20px) scale(.6)}
+  35%{opacity:1;transform:translateY(-9px) scale(1.17)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes chalk-shield-ring{
+  0%{opacity:0;transform:scale(.5)}
+  30%{opacity:1}
+  100%{opacity:0;transform:scale(1.7)}
+}
+@media(max-width:760px){
+ .performance-projectile{font-size:26px}
+ .performance-opponent{width:62px;height:93px}
+ .performance-opponent>span{font-size:38px}
+ .performance-hit-value{top:9%;right:0;padding:4px 7px;font-size:17px}
+ .performance-shield{right:0;bottom:7%;font-size:9px;padding:2px 6px}
+}
+@media(prefers-reduced-motion:reduce){
+ .performance-stage[data-phase="action"] .performance-projectile,
+ .performance-stage[data-phase="action"] .performance-trail{opacity:0}
+ .performance-stage[data-phase="impact"] .performance-hit-value{opacity:1;transform:none}
+ .performance-stage[data-phase="impact"] .performance-opponent{opacity:1;transform:none}
+ .performance-stage[data-phase="impact"] .performance-shield{opacity:1}
+}
 </style>
 </head>
 <body>
@@ -356,9 +445,15 @@
         </div>
         <div class="performance-action-mark" aria-hidden="true">
           <span class="action-beam"></span><span class="action-ring"></span><span class="action-flash"></span>
+          <span id="performance-projectile" class="performance-projectile"></span>
+          <span class="performance-trail"></span>
         </div>
-        <div class="performance-target" aria-hidden="true">
-          <span class="target-ring"></span><span class="target-flash">!</span>
+        <div id="performance-target" class="performance-target" aria-hidden="true">
+          <span class="target-ring"></span>
+          <span class="performance-opponent"><span id="performance-opponent-glyph">◉</span></span>
+          <span class="target-flash">!</span>
+          <span id="performance-hit-value" class="performance-hit-value"></span>
+          <span id="performance-shield" class="performance-shield">格挡</span>
         </div>
       </div>
       <div class="performance-dialogue-box">
@@ -482,7 +577,7 @@ function applyComboEffect(g,side,lane,styles) {
     if(front){
       const hit=hitUnit(front,2);
       g.board[other][lane]=g.board[other][lane].filter(unit=>unit.hp>0);
-      event(g,'combo_effect',{lane,effect:'chalk_hit',target:front.uid,card:front.id,damage:hit.applied,blocked:hit.blocked});
+      event(g,'combo_effect',{lane,effect:'chalk_hit',target:front.uid,card:front.id,damage:hit.applied,blocked:hit.blocked,defeated:front.hp<=0,hp_after:front.hp,shield_after:front.shield});
     } else {
       g.hp[other]=Math.max(0,g.hp[other]-1);
       event(g,'combo_effect',{lane,effect:'chalk_direct',damage:1});
@@ -982,6 +1077,11 @@ function compilePerformances(events,{theme='campus'}={}){
       kind:card.kind==='unit'?'summon':'event',
       tier,effect:effect?.effect||null,
       target_uid:effect?.target||null,
+      target_card_id:effect?.card||null,
+      target_name:effect?.card&&BY_ID[effect.card]?BY_ID[effect.card].name:null,
+      target_style:effect?.card&&BY_ID[effect.card]?BY_ID[effect.card].style:null,
+      target_defeated:effect?.defeated===true,
+      target_hp_after:Number.isFinite(effect?.hp_after)?effect.hp_after:null,
       to_lane:effect?.to_lane??null,
       damage:effect?.damage??null,blocked:effect?.blocked??null,
       shield:effect?.shield??null,draw:effect?.draw??null,
@@ -990,6 +1090,32 @@ function compilePerformances(events,{theme='campus'}={}){
   }
   return result;
 }
+/**
+ * Truth-preserving opponent reaction for the animated cut-in.
+ * No visual "defeat" is allowed unless the rules engine explicitly reports it.
+ */
+function describeReaction(scene) {
+  if(!scene?.effect)return Object.freeze({kind:'summon',primary:'',secondary:''});
+  const damage=Math.max(0,Number(scene.damage)||0);
+  const blocked=Math.max(0,Number(scene.blocked)||0);
+  if(scene.effect==='chalk_hit'){
+    if(scene.target_defeated)
+      return Object.freeze({kind:'defeated',primary:'−'+damage,secondary:'击倒',target:scene.target_name||'敌方前排'});
+    if(damage===0&&blocked>0)
+      return Object.freeze({kind:'blocked',primary:'护盾',secondary:'格挡 '+blocked,target:scene.target_name||'敌方前排'});
+    return Object.freeze({kind:'hurt',primary:'−'+damage,secondary:blocked?'格挡 '+blocked:'受到伤害',target:scene.target_name||'敌方前排'});
+  }
+  if(scene.effect==='chalk_direct')
+    return Object.freeze({kind:'direct',primary:'−'+damage,secondary:'人气',target:'对方人气'});
+  if(scene.effect==='broadcast_move')
+    return Object.freeze({kind:'moved',primary:'→',secondary:'转往'+LANES[scene.to_lane],target:scene.target_name||'敌方前排'});
+  if(scene.effect==='poster_shield')
+    return Object.freeze({kind:'protected',primary:'+'+Math.max(0,Number(scene.shield)||0),secondary:'护盾',target:scene.target_name||'己方前排'});
+  if(scene.effect==='broadcast_draw'||scene.effect==='poster_draw')
+    return Object.freeze({kind:'draw',primary:'+'+Math.max(0,Number(scene.draw)||0),secondary:'抽牌',target:'己方手牌'});
+  return Object.freeze({kind:'unknown',primary:'',secondary:''});
+}
+
 function sceneRuntimeMs(scene,{reducedMotion=false,fast=false}={}){
   if(!scene||!Array.isArray(scene.beats))return 0;
   if(reducedMotion)return 450;
@@ -1021,7 +1147,7 @@ function createPerformanceDirector({documentRef=document,win=globalThis,onEvent=
   function cancelTime(){if(timer!==null){win.clearTimeout(timer);timer=null;}}
   function closeScene(){
     cancelTime();stopVoice();scene=null;beatIndex=-1;stage.hidden=true;
-    stage.dataset.phase='off';stage.dataset.motion='none';
+    stage.dataset.phase='off';stage.dataset.motion='none';stage.dataset.reaction='none';
   }
   function reset(){epoch++;queue=[];closeScene();}
   function say(beat){
@@ -1037,6 +1163,20 @@ function createPerformanceDirector({documentRef=document,win=globalThis,onEvent=
       // Explicit opt-in: no generated or cloned sound and no network request.
       synth.speak(phrase);
     }catch{ /* keep visual/subtitle version even if platform speech fails */ }
+  }
+  function prepareOpponentReaction(){
+    const reaction=describeReaction(scene);
+    const target=el('performance-target');
+    stage.dataset.reaction=reaction.kind;
+    target.dataset.reaction=reaction.kind;
+    const styles={ember:'✦',grove:'◆',tide:'◈'};
+    el('performance-opponent-glyph').textContent=styles[scene.target_style]||'◉';
+    el('performance-hit-value').textContent=reaction.primary;
+    el('performance-shield').textContent=reaction.secondary;
+    el('performance-target').setAttribute('aria-label',
+      (reaction.target||'战线')+' · '+reaction.primary+' '+reaction.secondary);
+    el('performance-projectile').textContent=scene.effect?.startsWith('chalk')?'▰':
+      scene.effect?.startsWith('broadcast')?'≋':scene.effect?.startsWith('poster')?'▱':'';
   }
   function writeBeat(beat){
     stage.hidden=false;
@@ -1084,6 +1224,7 @@ function createPerformanceDirector({documentRef=document,win=globalThis,onEvent=
     if(scene||queue.length===0)return;
     scene=queue.shift();
     beatIndex=-1;
+    prepareOpponentReaction();
     onEvent('performance_started',{actor:scene.actor_id,effect:scene.effect});
     step();
   }
