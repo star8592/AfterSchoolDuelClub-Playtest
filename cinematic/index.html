@@ -682,6 +682,55 @@ body[data-theater="on"] .card-cost{font-size:10px;padding:3px 5px}
   .cinematic-arena .performance-art-placeholder{width:65px;font-size:30px}
   .cinematic-arena .performance-opponent{height:80px;width:49px}
 }
+
+/* V0.7.1 actual side actors stay visible during same-stage choreography.
+   A temporary event silhouette is shown ONLY for a unit the rules removed. */
+body[data-theater="on"] .hand{justify-content:center}
+.cinematic-arena .performance-backdrop{
+  background:linear-gradient(90deg,rgba(8,18,30,.09),rgba(12,21,34,.25) 50%,rgba(8,18,30,.09));
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+.arena-scene:has(.performance-stage:not([hidden])) .arena-cast-player,
+.arena-scene:has(.performance-stage:not([hidden])) .arena-cast-enemy{opacity:.91}
+.arena-scene:has(.performance-stage:not([hidden])) .arena-conflict{opacity:.17}
+.arena-scene:has(.performance-stage[data-side="player"]:not([hidden])) .arena-cast-player,
+.arena-scene:has(.performance-stage[data-side="ai"]:not([hidden])) .arena-cast-enemy{opacity:1}
+.arena-scene:has(.performance-stage[data-side="player"][data-target-defeated="true"]:not([hidden])) .arena-cast-enemy,
+.arena-scene:has(.performance-stage[data-side="ai"][data-target-defeated="true"]:not([hidden])) .arena-cast-player{opacity:.07}
+.cinematic-arena .performance-target .performance-opponent{opacity:0}
+.cinematic-arena .performance-stage[data-target-defeated="true"] .performance-target .performance-opponent{opacity:1}
+.cinematic-arena .performance-target .target-ring{border-style:solid;opacity:.5}
+.cinematic-arena .performance-stage[data-target-defeated="true"] .performance-target .target-ring{opacity:1;border-style:dashed}
+.cinematic-arena .performance-stage[data-side="player"][data-phase="action"] ~ .arena-cast-player .arena-figure-arm,
+.arena-scene:has(.performance-stage[data-side="player"][data-phase="action"]:not([hidden])) .arena-cast-player .arena-figure-arm{
+  animation:arena-actor-throw-arm .65s cubic-bezier(.22,.75,.32,1) both
+}
+.arena-scene:has(.performance-stage[data-side="ai"][data-phase="action"]:not([hidden])) .arena-cast-enemy .arena-figure-arm{
+  animation:arena-actor-throw-arm .65s cubic-bezier(.22,.75,.32,1) both
+}
+.arena-scene:has(.performance-stage[data-side="player"][data-phase="impact"]:not([hidden])) .arena-cast-enemy:not([data-unit-id="director"]),
+.arena-scene:has(.performance-stage[data-side="ai"][data-phase="impact"]:not([hidden])) .arena-cast-player:not([data-unit-id="director"]){
+  animation:arena-target-recoil .6s ease-out both
+}
+@keyframes arena-actor-throw-arm{
+  0%{transform:rotate(27deg)}
+  27%{transform:rotate(65deg)}
+  58%{transform:rotate(-48deg)}
+  100%{transform:rotate(27deg)}
+}
+@keyframes arena-target-recoil{
+  0%{transform:translateX(0) rotate(0)}
+  31%{transform:translateX(10px) rotate(5deg)}
+  58%{transform:translateX(-5px) rotate(-3deg)}
+  100%{transform:translateX(0) rotate(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .arena-scene:has(.performance-stage:not([hidden])) .arena-cast,
+  .arena-scene:has(.performance-stage:not([hidden])) .arena-figure-arm{
+    animation:none!important
+  }
+}
 </style>
 </head>
 <body>
@@ -1648,6 +1697,8 @@ function createPerformanceDirector({documentRef=document,win=globalThis,onEvent=
     stage.dataset.phase=beat.phase;
     stage.dataset.motion=beat.motion;
     stage.dataset.effect=scene.effect||'none';
+    stage.dataset.targetDefeated=String(scene.target_defeated===true);
+    stage.dataset.hasTarget=String(!!scene.target_card_id);
     if(beat.phase==='counter'){
       stage.dataset.reaction='counter';
       el('performance-hit-value').textContent='↶ −'+scene.retaliation;
