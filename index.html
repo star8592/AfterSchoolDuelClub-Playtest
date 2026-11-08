@@ -123,6 +123,23 @@
   body[data-guide="active"] .action-bar,
   body[data-guide="done"] .action-bar{padding:5px 0}
 }
+
+/* Graduation is deliberately distinct from free duel: visible confirmation of
+   the real 3/3 teaching flow, without pushing controls out of first viewport. */
+@media(max-width:760px){
+  body[data-guide="graduated"] .mast{padding:3px 0 4px}
+  body[data-guide="graduated"] .mast .eyebrow,
+  body[data-guide="graduated"] .mast p,
+  body[data-guide="graduated"] .intro{display:none}
+  body[data-guide="graduated"] .mast h1{font-size:23px;line-height:1.15;margin:0}
+  body[data-guide="graduated"] .tutorial-panel{margin:5px 0;padding:8px 9px;gap:7px;border-radius:10px}
+  body[data-guide="graduated"] .tutorial-copy h2{font-size:14px;margin:1px 0 3px}
+  body[data-guide="graduated"] .tutorial-copy p{font-size:11px;line-height:1.3}
+  body[data-guide="graduated"] .tutorial-insignia{width:30px;height:30px;min-width:30px;font-size:13px}
+  body[data-guide="graduated"] .tutorial-actions{width:auto}
+  body[data-guide="graduated"] .hand-section{margin:3px 0 0;padding:6px}
+  body[data-guide="graduated"] .battle{margin-top:5px}
+}
 </style>
 </head>
 <body>
@@ -686,6 +703,7 @@ let comboTimer;
 let lastVisualCue=null;
 let visualTimer;
 let finishedShown = false;
+let graduationVisible=false;
 let startedAt = performance.now();
 let clicks = [];
 
@@ -870,10 +888,18 @@ function checkEvents(){
 }
 function renderTutorial() {
   const status=tutorialStatus(game);
-  document.body.dataset.guide=!status?'free':status.completed?'done':'active';
+  document.body.dataset.guide=status?(status.completed?'done':'active'):(graduationVisible?'graduated':'free');
   const panel=$('tutorial-panel');
-  panel.hidden=!status;
+  panel.hidden=!status&&!graduationVisible;
   $('tutorial-next').hidden=!status?.completed;
+  $('tutorial-skip').hidden=!status||!!status.completed;
+  if(!status&&graduationVisible){
+    $('tutorial-title').textContent='三关教学完成 · 自由对战已开启';
+    $('tutorial-description').textContent='粉笔攻击、广播调度和海报护盾都已掌握。现在双方从正式随机牌库开始自由对战。';
+    $('tutorial-progress').textContent='3 / 3 ✓';
+    panel.classList.toggle('tutorial-completed',true);
+    return;
+  }
   if(!status)return;
   $('tutorial-title').textContent=status.title;
   $('tutorial-description').textContent=status.instruction;
@@ -915,7 +941,9 @@ function deploy(lane) {
   if(!r.ok){setMessage('无法出牌：'+r.reason);return;}
   track('card_played',{card_id:cardId,lane});
   selected=null;checkEvents();render();
-  setMessage(game.tutorial?.completed?'第1关达成：走廊阻挡已清除。可以继续出牌或结束回合。':'出牌成功。你可以继续出牌，或点击「结束回合」。');
+  setMessage(game.tutorial?.completed?
+    EPISODES[game.tutorial.level-1].successText+' 点击「'+(game.tutorial.level<EPISODES.length?'下一关':'进入自由对战')+'」继续。':
+    '出牌成功。你可以继续出牌，或点击「结束回合」。');
   if(tutorialStep(game) && matchMedia('(max-width: 760px)').matches)
     $('hand').scrollIntoView?.({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'});
 }
@@ -940,7 +968,7 @@ function restart(seed=Date.now()) {
   $('result-dialog').close();
   track('game_started',{seed:game.seed});
   checkEvents();render();
-  setMessage(tutorialEnabled?'第'+currentTutorialLevel+'关：'+tutorialStatus(game).instruction:'选择一张手牌，再点击教室、走廊或操场。');
+  setMessage(tutorialEnabled?'第'+currentTutorialLevel+'关：'+tutorialStatus(game).instruction:graduationVisible?'三关教学全部完成！现在开始正式自由对战。':'选择一张手牌，再点击教室、走廊或操场。');
 }
 function exportJournal() {
   track('log_exported');
@@ -959,6 +987,7 @@ function exportJournal() {
   setMessage('已导出本局本地操作日志（不包含玩家身份信息）。');
 }
 $('theme-select').addEventListener('change',e=>{
+  graduationVisible=false;
   const next=e.target.value;
   if(!availableThemes.includes(next))return;
   theme=next;
@@ -966,18 +995,20 @@ $('theme-select').addEventListener('change',e=>{
   const seed=game.seed;
   restart(seed);track('theme_changed',{variant:theme});
 });
-$('reset').addEventListener('click',()=>{tutorialEnabled=false;restart();});
-$('tutorial-skip').addEventListener('click',()=>{tutorialEnabled=false;restart(game.seed);track('tutorial_skipped');});
+$('reset').addEventListener('click',()=>{graduationVisible=false;tutorialEnabled=false;restart();});
+$('tutorial-skip').addEventListener('click',()=>{graduationVisible=false;tutorialEnabled=false;restart(game.seed);track('tutorial_skipped');});
 $('tutorial-next').addEventListener('click',()=>{
   if(!game.tutorial?.completed)return;
   const next=currentTutorialLevel+1;
   if(next<=EPISODES.length){
     currentTutorialLevel=next;
+    graduationVisible=false;
     tutorialEnabled=true;
     restart(game.seed);
     track('tutorial_next_level',{level:currentTutorialLevel});
   } else {
     tutorialEnabled=false;
+    graduationVisible=true;
     restart(game.seed);
     track('tutorial_all_completed');
   }
@@ -986,7 +1017,7 @@ $('end-turn').addEventListener('click',nextTurn);
 $('export').addEventListener('click',exportJournal);
 $('show-rules').addEventListener('click',()=>$('rules-dialog').showModal());
 $('close-rules').addEventListener('click',()=>$('rules-dialog').close());
-$('play-again').addEventListener('click',()=>{tutorialEnabled=false;restart();});
+$('play-again').addEventListener('click',()=>{graduationVisible=false;tutorialEnabled=false;restart();});
 $('skip-combo').addEventListener('click',hideCombo);
 restart(Number(params.get('seed'))||Date.now());
 
