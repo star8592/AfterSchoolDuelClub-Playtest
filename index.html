@@ -21,6 +21,6 @@
     <p><a href="./r19-game/">点击打开 R19 3D 可玩游戏</a></p>
     <p style="font-size:12px;color:#aebed0">研发试玩版 · 角色美术仍待最终原创化 · 不是 PlayMoru 商业正式上线</p>
   </main>
-  <script>location.replace(new URL('./r19-game/',location.href));</script>
+  <script>const dest=new URL('./r19-game/',location.href);dest.search=location.search;dest.hash=location.hash;location.replace(dest);</script>
 </body>
 </html>
