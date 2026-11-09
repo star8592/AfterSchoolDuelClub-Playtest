@@ -1,0 +1,81 @@
+{
+  "liveProof": [
+    {
+      "id": "E02",
+      "thumbnail": {
+        "src": "./assets/card-model-portraits/E02.png",
+        "loaded": true,
+        "status": "R23_GLTF_PROTOTYPE_NOT_FINAL_ART"
+      },
+      "uid": "U2",
+      "energyBefore": "✧ 2",
+      "energyAfter": "✧ 0",
+      "frames": 17,
+      "summonEvents": 1,
+      "meshes": 17,
+      "triangles": 17170
+    },
+    {
+      "id": "T02",
+      "thumbnail": {
+        "src": "./assets/card-model-portraits/T02.png",
+        "loaded": true,
+        "status": "R23_GLTF_PROTOTYPE_NOT_FINAL_ART"
+      },
+      "uid": "U2",
+      "energyBefore": "✧ 2",
+      "energyAfter": "✧ 0",
+      "frames": 20,
+      "summonEvents": 1,
+      "meshes": 41,
+      "triangles": 39216
+    }
+  ],
+  "stage": {
+    "revision": "R23",
+    "renderMode": "real_GLTF_meshes_on_actual_focused_lane",
+    "gameplayReadOnly": true,
+    "sourceCards": [
+      "E02",
+      "T02"
+    ],
+    "loaded": true,
+    "modelCount": 2,
+    "meshCounts": {
+      "E02": 17,
+      "T02": 41
+    },
+    "triangles": {
+      "E02": 17170,
+      "T02": 39216
+    },
+    "activeActualCards": [],
+    "preview": false,
+    "previewDistinctFromRules": true,
+    "actualCardFrames": 0,
+    "frames": 53,
+    "summonEvents": 0,
+    "damageEvents": 0,
+    "gpuRenderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "errors": [],
+    "status": "ready"
+  },
+  "previewReadOnly": true,
+  "url": "http://127.0.0.1:9933/r23-game/",
+  "state": {
+    "home": true,
+    "child": true,
+    "rigs": 3,
+    "cardGame": true,
+    "src": "http://127.0.0.1:9933/r22-depth/index.html?embedR22=1",
+    "errors": []
+  },
+  "battle": {
+    "playing": "playing",
+    "hp": "20",
+    "cards": 1,
+    "custom": true
+  },
+  "originalSwitchPassed": true,
+  "chromeRuntimeExceptions": []
+}
