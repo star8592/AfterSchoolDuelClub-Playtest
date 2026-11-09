@@ -8,7 +8,8 @@ const $=id=>document.getElementById(id);
 const section=$('home3d-r19'),frame=$('home3d-r19-iframe');
 const status=$('home3d-r19-status'),loading=$('home3d-r19-loading');
 const start=$('home3d-start'),models=$('home3d-models');
-const publicPath=location.pathname.startsWith('/r19-game/');
+// GitHub Pages serves this project under a repository path prefix.
+const publicPath=location.pathname.includes('/r19-game/');
 const source=publicPath?'../r18-premium/index.html?embedR19=1':'./labs/premium-character-r18/index.html?embedR19=1';
 const url=new URL(source,location.href);
 let loaded=false,failed=false,pending=[];
