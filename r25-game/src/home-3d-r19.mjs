@@ -134,10 +134,13 @@ summonsBtn.addEventListener('click',()=>{
  if(preview?.getAttribute('aria-pressed')!=='true')preview?.click();
 });
 
-// R25 additional music-teacher actor is a standalone original art preview;
-// do not leak M01 into the unchanged 18-card battle rule engine.
+// R33 avoids linking the unapproved, visually rejected R25/R30 M01 VRM.
+// The art-first 2.5D playable preview is separate from the intact 18-card game.
 const musicPreviewButton=document.getElementById('home3d-music');
+qa.musicArtFirstPreviewURL=new URL('../r32-art-first/',location.href).href;
+qa.musicArtFirstIsRealGLB=false;
+qa.musicArtFirstCharacterArtSource='ORIGINAL_ILLUSTRATION_2D';
 musicPreviewButton?.addEventListener('click',()=>{
- const url=new URL('../r25-music/',location.href);
- window.open(url.href,'_blank','noopener,noreferrer');
+ const target=new URL('../r32-art-first/',location.href);
+ window.open(target.href,'_blank','noopener,noreferrer');
 });
