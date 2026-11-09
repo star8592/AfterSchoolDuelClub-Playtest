@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="theme-color" content="#101b2a">
   <meta name="description" content="《放学后决斗社》可玩的校园奇想卡牌 Demo：18 张卡牌、三条战线、AI 对决与真实 3D 演示。">
-  <title>放学后决斗社 R40 · 可见战斗反馈 Demo</title>
+  <title>放学后决斗社 R41 · 3D 动作与战斗镜头 Demo</title>
   <link rel="stylesheet" href="./src/styles.css">
 </head>
 <body data-premium-home="on">
@@ -104,6 +104,9 @@
           <strong>社团对决 <span class="arena-stage-chip">E02/T02 原创GLB · 真卡牌召唤</span></strong>
           <span id="arena-r23-status" aria-live="polite">E02/T02上场时自动显示真实3D</span>
           <button type="button" id="arena-r23-preview" class="minor" aria-pressed="false" title="只演示模型，不改当前牌局">3D召唤物试演（不改牌局）</button>
+          <button type="button" class="minor arena-r41-camera" id="arena-r41-camera" aria-pressed="false" title="只调整舞台的镜头，不改变卡牌规则">镜头：全景</button>
+          <button type="button" class="minor" id="arena-r41-replay" disabled title="重播上一次真实战斗反馈，不影响牌局">回看上一招</button>
+          <span id="arena-r41-current" role="status" aria-live="polite">本局尚无交锋</span>
           <span id="arena-scene-status">双方就位 · 点击战线部署</span>
         </div>
         <div id="arena-scene" class="arena-scene" data-focus="0" role="group" aria-label="左侧我方、右侧对手、中间交锋">
@@ -251,7 +254,9 @@
     <div><strong id="combo-title"></strong><small id="combo-subtitle"></small></div>
     <button type="button" id="skip-combo" class="text-button">跳过</button>
   </div>
+  <!-- R41 loads the existing locally vendored Three.js modules directly, avoiding a stale R23 bundle. -->
+  <script type="importmap">{"imports":{"three":"../r34-music-3d/vendor/three/build/three.module.js","three/addons/":"../r34-music-3d/vendor/three/examples/jsm/"}}</script>
   <script type="module" src="./src/app.mjs"></script>
-  <script type="module" src="./src/home-3d-r19.mjs?v=r40"></script>
+  <script type="module" src="./src/home-3d-r19.mjs?v=r41"></script>
 </body>
 </html>
