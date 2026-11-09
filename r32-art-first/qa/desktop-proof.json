@@ -1,0 +1,83 @@
+{
+  "stage": "art-first playable prototype",
+  "realGLB": false,
+  "art3DAccepted": false,
+  "originalArtworkRetained": true,
+  "renderer": "Canvas2D+CSS compositing",
+  "viewport": [
+    1280,
+    820
+  ],
+  "skillButtonCount": 3,
+  "interactionProof": {
+    "beat": {
+      "version": "R32",
+      "type": "2.5D art-first playable prototype",
+      "realGLB": false,
+      "artSource": "M01 user-project concept art",
+      "currentHP": [
+        22,
+        32
+      ],
+      "mana": 5,
+      "turn": 2,
+      "actions": 1,
+      "particles": 13,
+      "frames": 115,
+      "skillButtons": 3,
+      "mode": "battle"
+    },
+    "fugue": {
+      "version": "R32",
+      "type": "2.5D art-first playable prototype",
+      "realGLB": false,
+      "artSource": "M01 user-project concept art",
+      "currentHP": [
+        20,
+        23
+      ],
+      "mana": 4,
+      "turn": 3,
+      "actions": 2,
+      "particles": 0,
+      "frames": 251,
+      "skillButtons": 3,
+      "mode": "battle"
+    },
+    "art": {
+      "version": "R32",
+      "type": "2.5D art-first playable prototype",
+      "realGLB": false,
+      "artSource": "M01 user-project concept art",
+      "currentHP": [
+        20,
+        23
+      ],
+      "mana": 4,
+      "turn": 3,
+      "actions": 2,
+      "particles": 0,
+      "frames": 289,
+      "skillButtons": 3,
+      "mode": "art"
+    },
+    "reset": {
+      "version": "R32",
+      "type": "2.5D art-first playable prototype",
+      "realGLB": false,
+      "artSource": "M01 user-project concept art",
+      "currentHP": [
+        24,
+        36
+      ],
+      "mana": 3,
+      "turn": 1,
+      "actions": 0,
+      "particles": 0,
+      "frames": 326,
+      "skillButtons": 3,
+      "mode": "battle"
+    }
+  },
+  "browserExceptions": []
+}
