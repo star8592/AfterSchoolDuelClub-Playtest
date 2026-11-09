@@ -1,0 +1,1 @@
+R20 research-only public playtest homepage. Playable original 18-card game retained, R20 E01/G01 character customization and R18 comparison in same WebGL camera. T01, original face sculpt, professional attack/root motion not completed. Not PlayMoru production; ART_APPROVED=false.

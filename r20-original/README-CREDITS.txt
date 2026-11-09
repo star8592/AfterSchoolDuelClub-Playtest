@@ -1,0 +1,1 @@
+R20 research sample. pixiv Inc./VRoid Project old beta CC0 licensed base VRM assets from ../r18-premium/assets/model/ reused without duplication. Sources and SHA256 at ../r18-premium/PROVENANCE.json. Only color/accessory prototype: distinctive face/hair/cloth still unfinished. No professional combat or production art approval.
