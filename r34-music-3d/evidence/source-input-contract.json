@@ -1,0 +1,17 @@
+{
+  "schema": "duel.m01.r31.input-gate.v1",
+  "checks": {
+    "original_native_width": 569,
+    "original_native_height": 940,
+    "original_short_side_ge_384": true,
+    "original_long_side_ge_768": true,
+    "render_is_rgba": true,
+    "render_min_side_ge_512": true,
+    "render_has_real_alpha_variation": true
+  },
+  "source_sha256": "517ea0f2e80021ace903d5176e320730fba7210124ef59b699fbfc934f43ba5d",
+  "model_input_sha256": "aceea8f15519bc922d3f3fb179b9b6fd23224889fa892cd1a6114a863f6dc60c",
+  "production_quality_input": true,
+  "art_approved": false,
+  "reason": "format_only_not_art_approved"
+}

@@ -1,0 +1,21 @@
+{
+  "source_size": [
+    569,
+    940
+  ],
+  "source_hash": "517ea0f2e80021ace903d5176e320730fba7210124ef59b699fbfc934f43ba5d",
+  "source_type": "R32_embedded_single_pose_NOT_original_concept_sheet",
+  "matte_backend": "rembg_u2net_cpu",
+  "output_size": [
+    1024,
+    1024
+  ],
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_zero_ratio": 0.6094,
+  "no_generated_detail": true,
+  "manual_mask_review_passed": false,
+  "art_approved": false
+}
