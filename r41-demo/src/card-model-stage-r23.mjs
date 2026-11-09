@@ -20,12 +20,12 @@ export function createCardModelStage(container,opts={}){
   actualCardFrames:0,frames:0,summonEvents:0,damageEvents:0,
   gpuRenderer:null,errors:[],status:'not-initialized',
   cameraMode:'wide',cameraZoom:1,activeAttackFrames:0,activeHitFrames:0,
-  visualAttackTriggers:0,visualHitTriggers:0,attackSerials:[],lastActorPose:null
+  visualAttackTriggers:0,visualHitTriggers:0,attackSerials:[],lastActorPose:null,deathActionFrames:0,retainedDefeated:0
  };
  if(new URLSearchParams(location.search).get('qaR23')==='1')
   Object.defineProperty(window,'__r23CardStageQA',{value:qa});
  let renderer=null,scene=null,camera=null,canvas=null,loaded=false,loading=null;
- let actual={player:null,ai:null},preview=false,visible=false;
+ let actual={player:null,ai:null},fading={player:null,ai:null},preview=false,visible=false;
  let viewEntries={player:null,ai:null},lastCue={player:null,ai:null};
  let mcache={},actors={},raf=0;
  let cameraMode='wide';const pendingMotion=[];const motionTTL=1400;
@@ -132,7 +132,8 @@ export function createCardModelStage(container,opts={}){
   return loading;
  }
  function modeFor(side){
-  return preview?(side==='player'?'E02':'T02'):actual[side]?.id||null;
+  return preview?(side==='player'?'E02':'T02'):
+   actual[side]?.id||(fading[side]?.until>now()?fading[side].id:null);
  }
  function updateVisibility(){
   if(!loaded)return;
@@ -146,7 +147,7 @@ export function createCardModelStage(container,opts={}){
     const x=(side==='player'?-1:1)*spread;
     root.userData.restX=x;
     root.position.set(x,id==='E02'?.33:0,0);
-    root.userData.uid=preview?null:actual[side]?.uid||null;
+    root.userData.uid=preview?null:actual[side]?.uid||fading[side]?.uid||null;
    }
   }
   for(const side of SIDES)rootActors[side].dataset.r23RealModel=
@@ -165,12 +166,24 @@ export function createCardModelStage(container,opts={}){
   if(visible&&!raf)raf=requestAnimationFrame(draw);
  }
  function setBoardState({player,ai,theme}={}){
-  if(theme!=='campus'){
-   actual={player:null,ai:null};preview=false;
-  }else{
-   actual={player:player&&supported(player.id)?{id:player.id,uid:player.uid}:null,
-    ai:ai&&supported(ai.id)?{id:ai.id,uid:ai.uid}:null};
+  const next=theme==='campus'?
+   {player:player&&supported(player.id)?{id:player.id,uid:player.uid}:null,
+    ai:ai&&supported(ai.id)?{id:ai.id,uid:ai.uid}:null}:
+   {player:null,ai:null};
+  if(theme!=='campus'){preview=false;fading={player:null,ai:null};}
+  for(const side of SIDES){
+   const prev=actual[side],incoming=next[side];
+   if(incoming){fading[side]=null;continue;}
+   if(!prev||theme!=='campus')continue;
+   const actor=actors[prev.id]?.[side];
+   const justHit=actor&&(actor.userData.attackUntil>now()||actor.userData.hitUntil>now());
+   const pending=pendingMotion.some(e=>e.side===side&&e.uid===prev.uid);
+   if(justHit||pending){
+    fading[side]={id:prev.id,uid:prev.uid,until:now()+1100};
+    qa.retainedDefeated++;
+   }
   }
+  actual=next;
   viewEntries={...actual};
   applyPendingMotions();
   if(loaded){refresh();return;}
@@ -217,6 +230,9 @@ export function createCardModelStage(container,opts={}){
    const obj=actors[id][side];
    if(!obj.visible)continue;
    const e=id==='E02',isPlayer=side==='player',d=obj.userData;
+   const isDefeatedEcho=!!fading[side]&&fading[side].uid===d.uid&&
+     fading[side].id===id&&fading[side].until>delta;
+   if(isDefeatedEcho)qa.deathActionFrames++;
    const atk=d.attackUntil>delta,hit=d.hitUntil>delta;
    const au=atk?Math.max(0,Math.min(1,(delta-d.attackStart)/720)):0;
    const hu=hit?Math.max(0,Math.min(1,(delta-d.hitStart)/640)):0;
@@ -231,11 +247,18 @@ export function createCardModelStage(container,opts={}){
    obj.rotation.x=(e?-.20:0)+Math.sin(t*.81)*.045+.17*lunge;
    obj.rotation.z=(e?Math.sin(t*1.45+(isPlayer?0:1))*.075:
       Math.sin(t*.9+(isPlayer?0:2))*.03)-direction*.17*lunge+direction*.20*recoil;
-   obj.scale.setScalar(d.baseScale*(1+Math.sin(t*1.9)*.014+.09*lunge-.075*recoil));
+   const exitProgress=isDefeatedEcho?Math.min(1,Math.max(0,(delta-(fading[side].until-1100))/1100)):0;
+   obj.scale.setScalar(d.baseScale*(1+Math.sin(t*1.9)*.014+.09*lunge-.075*recoil)*
+     (1-.45*exitProgress));
    obj.position.y=(e?.33:0)+Math.sin(t*(e?1.5:1))*(e?.10:.024)+.16*lunge-.08*recoil;
    qa.lastActorPose={id,side,x:Number(obj.position.x.toFixed(3)),z:Number(obj.position.z.toFixed(3)),
      lunge:Number(lunge.toFixed(3)),recoil:Number(recoil.toFixed(3)),serial:d.lastSerial};
   }
+  let expired=false;
+  for(const side of SIDES)if(fading[side]&&fading[side].until<=delta){
+   fading[side]=null;expired=true;
+  }
+  if(expired)updateVisibility();
   renderer.render(scene,camera);qa.frames++;
   if(qa.activeActualCards.length)qa.actualCardFrames++;
   raf=requestAnimationFrame(draw);
