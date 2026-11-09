@@ -15,7 +15,7 @@ export function createPerformanceDirector({documentRef=document,win=globalThis,o
   const stage=el('performance-stage');
   const controls={skip:el('performance-skip'),voice:el('performance-voice'),speed:el('performance-speed')};
   let queue=[],scene=null,beatIndex=-1,timer=null,voiceEnabled=false,fast=false,epoch=0;
-  let live3DEnabled=false,liveFrame=null,liveListener=null;
+  let live3DEnabled=true,liveFrame=null,liveListener=null;
   let stagePortalHome=null,stagePortalNext=null;
   const speech=()=>win.speechSynthesis;
   function stopVoice(){
@@ -73,7 +73,7 @@ export function createPerformanceDirector({documentRef=document,win=globalThis,o
     frame.setAttribute('aria-label','游戏规则事件驱动的原创3D战斗');
     frame.setAttribute('loading','eager');
     frame.setAttribute('referrerpolicy','no-referrer');
-    frame.src='./labs/duel-motion-r01/index.html?embedLiveR14=on&soleR13=on&fightFXR14=on&cameraR09=on&cameraSafetyR13=on&campusGymR07=on&lookR10=on&lightR11=on';
+    frame.src=new URL('../r14-3d/labs/duel-motion-r01/index.html?embedLiveR14=on&soleR13=on&fightFXR14=on&cameraR09=on&cameraSafetyR13=on&campusGymR07=on&lookR10=on&lightR11=on',win.location.href).href;
     slot.hidden=false;slot.append(frame);liveFrame=frame;
     const thisEpoch=epoch;
     liveListener=event=>{

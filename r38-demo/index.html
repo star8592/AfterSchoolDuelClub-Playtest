@@ -6,14 +6,14 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="theme-color" content="#101b2a">
   <meta name="description" content="《放学后决斗社》可玩的校园奇想卡牌 Demo：18 张卡牌、三条战线、AI 对决与真实 3D 演示。">
-  <title>放学后决斗社 · 玩家试玩 DEMO</title>
+  <title>放学后决斗社 R38 · 修复版3D对决 Demo</title>
   <link rel="stylesheet" href="./src/styles.css">
 </head>
 <body data-premium-home="on">
   <div class="app">
     <header class="mast">
       <div class="identity">
-        <div class="eyebrow">PLAYMORU · GAME DEMO</div>
+        <div class="eyebrow">PLAYMORU · REAL 3D COMBAT DEMO</div>
         <h1 id="game-title">放学后决斗社</h1>
         <p id="game-subtitle">三条战线 · 18 张卡牌 · 对抗 AI</p>
       </div>
@@ -25,8 +25,8 @@
           <option value="wuxia">B · 刀盾江湖</option>
         </select>
         <button id="reset" class="minor" type="button">新对局</button>
-        <button id="stage3d-mode" class="minor" type="button" aria-pressed="false">3D交锋：关闭</button>
-        <button id="stage3d-demo" class="minor" type="button">观看3D双人演示</button>
+        <button id="stage3d-mode" class="minor" type="button" aria-pressed="true">3D交锋：已开启</button>
+        <button id="stage3d-demo" class="minor" type="button">观看 E01/G01 骨骼对决</button>
       </div>
     </header>
 
@@ -35,13 +35,14 @@
         <div>
           <span class="home3d-kicker">AFTER SCHOOL DUEL CLUB · PLAYABLE DEMO</span>
           <h2>放学后，开打。</h2>
-          <p>先看已有 3D 角色演出，再用 18 张卡牌赢下三条战线。</p>
+          <p>想看两人真正出招？点击「观看双人3D战斗」。要玩卡牌，点「开始卡牌对决」。</p>
         </div>
         <div class="home3d-r19-buttons">
-          <button type="button" class="primary" id="home3d-start">开始对决</button>
+          <button type="button" class="primary" id="home3d-start">开始卡牌对决</button>
+          <button type="button" class="minor" id="home3d-r39-fight" title="E01 对 G01 的真GLB骨骼战斗示范，与当前牌局独立">▶ 观看双人3D战斗</button>
           <button type="button" class="minor" id="home3d-models">返回角色舞台</button>
           <button type="button" class="minor" id="home3d-depth" aria-pressed="true">立体光影：开启</button>
-          <button type="button" class="minor" id="home3d-summons">查看3D召唤战斗</button>
+          <button type="button" class="minor" id="home3d-summons">查看 E02/T02 召唤物（试演）</button>
         </div>
       </div>
       <div class="home3d-r19-scene">
@@ -55,11 +56,11 @@
       </div>
       <div class="home3d-r19-foot">
         <span id="home3d-r19-status">三维角色准备中</span>
-        <span>已收录 E01/G01/T01 的 3D 角色舞台和 E02/T02 召唤物演示；其他卡牌继续使用现有卡面。</span>
+        <span>E01 与 G01 有真实骨骼战斗演示；实际牌局仅对应角色交锋会自动播放该 3D 动作，其他卡牌用现有战斗演出。</span>
       </div>
     </section>
 
-    <div class="demo-at-a-glance" aria-label="试玩玩法摘要"><strong>你要做什么？</strong><span>选一张卡 → 部署到教室、走廊或操场 → 结束回合，看双方交锋</span><span>第一次玩可跟随引导；老玩家可直接跳过。</span></div>
+    <div class="demo-at-a-glance" aria-label="试玩玩法摘要"><strong>你要做什么？</strong><span>先选卡 → 点击教室／走廊／操场部署 → 结束回合。人物上场后要等到下一次己方行动才会攻击。</span><span>第一次玩可跟随引导；老玩家可直接跳过。</span></div>
     <div class="intro" id="story">
       <span class="chapter">序章 / 001</span>
       <span id="story-text">校长把社团申请表误印成食堂菜单。想拿回活动室？先打赢三条战线。</span>
@@ -240,6 +241,6 @@
     <button type="button" id="skip-combo" class="text-button">跳过</button>
   </div>
   <script type="module" src="./src/app.mjs"></script>
-  <script type="module" src="./src/home-3d-r19.mjs?v=r38"></script>
+  <script type="module" src="./src/home-3d-r19.mjs?v=r38-r39-fix"></script>
 </body>
 </html>
