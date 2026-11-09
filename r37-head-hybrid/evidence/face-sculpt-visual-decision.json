@@ -1,0 +1,21 @@
+{
+  "face": {
+    "rgb_mean_delta_0_to_255": 0.185,
+    "pixels_over_10pct": 0.254,
+    "resolution": [
+      540,
+      540
+    ]
+  },
+  "three": {
+    "rgb_mean_delta_0_to_255": 0.203,
+    "pixels_over_10pct": 0.288,
+    "resolution": [
+      540,
+      540
+    ]
+  },
+  "art_decision": "REJECTED_VISUAL_UPGRADE",
+  "face_concept_match": "NOT_APPROVED",
+  "why": "Both views remain visually dominated by the prior R30 face, hair, glasses and suit; morph too subtle"
+}

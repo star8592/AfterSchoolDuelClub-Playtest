@@ -1,0 +1,35 @@
+{
+  "model": "/home/master/projects/after-school-duel-r37-head-transfer-20261109/r37-head-hybrid/candidate/R37_parametric_face_v1_optimized_glasses.glb",
+  "source": "/home/master/projects/after-school-duel-r36-hybrid-20261109/r36-hybrid-3d/candidate/R36_parametric_rig_pixal_guided_torso.glb",
+  "163_bone_rig_retained": true,
+  "anatomy_sculpt_regions": [
+    "cheeks",
+    "lower_eyelids",
+    "brow",
+    "nasolabial",
+    "nose_bridge",
+    "jaw",
+    "chin"
+  ],
+  "morph_target_name": "R37_Mature_FacialPlanes_v1",
+  "modified_head_vertices": 22572,
+  "max_sculpt_mm": 5.23,
+  "mean_sculpt_mm": 2.09,
+  "glasses_decimation": [
+    {
+      "object": "R30_PRECISION_SPECTACLES_1",
+      "before_triangles": 31584,
+      "after_triangles": 6315
+    },
+    {
+      "object": "R30_PRECISION_SPECTACLES_-1",
+      "before_triangles": 31584,
+      "after_triangles": 6316
+    }
+  ],
+  "glasses_triangles_saved": 50537,
+  "facial_style_approved": false,
+  "concept_similarity_approved": false,
+  "facial_expressions_completed": false,
+  "not_final": true
+}
