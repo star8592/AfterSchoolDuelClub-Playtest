@@ -13,12 +13,14 @@ const now=()=>performance.now();
 const supported=id=>SUPPORTED.has(id);
 export function createCardModelStage(container,opts={}){
  const qa={
-  revision:'R23',renderMode:'real_GLTF_meshes_on_actual_focused_lane',
+  revision:'R41',renderMode:'real_GLTF_meshes_on_actual_focused_lane',
   gameplayReadOnly:true,sourceCards:['E02','T02'],
   loaded:false,modelCount:0,meshCounts:{},triangles:{},
   activeActualCards:[],preview:false,previewDistinctFromRules:true,
   actualCardFrames:0,frames:0,summonEvents:0,damageEvents:0,
-  gpuRenderer:null,errors:[],status:'not-initialized'
+  gpuRenderer:null,errors:[],status:'not-initialized',
+  cameraMode:'wide',cameraZoom:1,activeAttackFrames:0,activeHitFrames:0,
+  visualAttackTriggers:0,visualHitTriggers:0,attackSerials:[],lastActorPose:null
  };
  if(new URLSearchParams(location.search).get('qaR23')==='1')
   Object.defineProperty(window,'__r23CardStageQA',{value:qa});
@@ -26,6 +28,7 @@ export function createCardModelStage(container,opts={}){
  let actual={player:null,ai:null},preview=false,visible=false;
  let viewEntries={player:null,ai:null},lastCue={player:null,ai:null};
  let mcache={},actors={},raf=0;
+ let cameraMode='wide';const pendingMotion=[];const motionTTL=1400;
  const clock=new THREE.Clock();
  let frameSize={w:0,h:0};
  const dpr=Math.min(devicePixelRatio||1,1.5);
@@ -100,7 +103,9 @@ export function createCardModelStage(container,opts={}){
   root.scale.setScalar(fullHeight/divisor);
   clone.position.set(-center.x,-box.min.y,-center.z);
   root.add(clone);
-  root.userData={id,side,created:now(),attackUntil:0,hitUntil:0};
+  root.userData={id,side,created:now(),attackUntil:0,hitUntil:0,
+   attackStart:0,hitStart:0,baseScale:id==='E02'?1.62/2.4:1.88/2.6,
+   restX:0,lastSerial:0,lastKind:null,uid:null};
   scene.add(root);
   return root;
  }
@@ -121,6 +126,7 @@ export function createCardModelStage(container,opts={}){
    }
    loaded=true;qa.loaded=true;qa.modelCount=Object.keys(mcache).length;qa.status='ready';
    if(status)status.textContent='真实3D召唤物已载入 · 仅当前E02/T02单位显示';
+   applyPendingMotions();
    refresh();
   })().catch(error);
   return loading;
@@ -138,7 +144,9 @@ export function createCardModelStage(container,opts={}){
    root.visible=modeFor(side)===id;
    if(root.visible){
     const x=(side==='player'?-1:1)*spread;
+    root.userData.restX=x;
     root.position.set(x,id==='E02'?.33:0,0);
+    root.userData.uid=preview?null:actual[side]?.uid||null;
    }
   }
   for(const side of SIDES)rootActors[side].dataset.r23RealModel=
@@ -164,8 +172,34 @@ export function createCardModelStage(container,opts={}){
     ai:ai&&supported(ai.id)?{id:ai.id,uid:ai.uid}:null};
   }
   viewEntries={...actual};
+  applyPendingMotions();
   if(loaded){refresh();return;}
   if(preview||Object.values(actual).some(Boolean))loadModels();
+ }
+ function applyPendingMotions(){
+  const stamp=now();
+  for(let i=pendingMotion.length-1;i>=0;i--){
+   const e=pendingMotion[i];
+   if(stamp-e.timestamp>motionTTL){pendingMotion.splice(i,1);continue;}
+   if(!loaded||preview||actual[e.side]?.id!==e.id||actual[e.side]?.uid!==e.uid)continue;
+   const actor=actors[e.id]?.[e.side];
+   if(!actor||!actor.visible)continue;
+   if(actor.userData.lastSerial===e.serial&&actor.userData.lastKind===e.kind){pendingMotion.splice(i,1);continue;}
+   actor.userData.lastSerial=e.serial;actor.userData.lastKind=e.kind;
+   if(e.kind==='attack'){
+    actor.userData.attackStart=stamp;actor.userData.attackUntil=stamp+720;
+    qa.visualAttackTriggers++;qa.attackSerials.push(e.serial);
+   }else{
+    actor.userData.hitStart=stamp;actor.userData.hitUntil=stamp+640;
+    qa.visualHitTriggers++;
+   }
+   pendingMotion.splice(i,1);
+  }
+ }
+ function setCameraMode(mode){
+  cameraMode=mode==='close'?'close':'wide';
+  qa.cameraMode=cameraMode;
+  if(visible&&!raf)raf=requestAnimationFrame(draw);
  }
  function draw(){
   raf=0;
@@ -173,20 +207,34 @@ export function createCardModelStage(container,opts={}){
   size();
   const t=clock.getElapsedTime();
   const delta=now();
+  const aspect=(frameSize.w||1)/(frameSize.h||1);
+  const zoomTarget=cameraMode==='close'?(aspect<1.2?1.045:1.14):1;
+  const previousZoom=camera.zoom;
+  camera.zoom+=(zoomTarget-camera.zoom)*.095;
+  if(Math.abs(previousZoom-camera.zoom)>0.00005)camera.updateProjectionMatrix();
+  qa.cameraZoom=Number(camera.zoom.toFixed(3));qa.lastActorPose=null;
   for(const id of Object.keys(actors))for(const side of SIDES){
    const obj=actors[id][side];
    if(!obj.visible)continue;
-   const e=id==='E02',isPlayer=side==='player';
-   obj.rotation.y=(isPlayer?-.10:.10)+Math.sin(t*.65+(isPlayer?0:1))*.16;
-   obj.rotation.x=e?-.20+Math.sin(t*.81)*.06:Math.sin(t*.82)*.027;
-   obj.rotation.z=e?Math.sin(t*1.45+(isPlayer?0:1))*.08:
-     Math.sin(t*.9+(isPlayer?0:2))*.03;
-   const hurt=Math.max(0,(obj.userData.hitUntil-delta)/460);
-   const attack=Math.max(0,(obj.userData.attackUntil-delta)/600);
-   const size=(e?1:.94)*(1+Math.sin(t*1.9)*.014+attack*.16-hurt*.12);
-   obj.scale.setScalar((id==='E02'?1.62/2.4:1.88/2.6)*size);
-   obj.position.y=(e?.33:0)+Math.sin(t*(e?1.5:1))*(e?.10:.024)
-     +attack*.12-hurt*.06;
+   const e=id==='E02',isPlayer=side==='player',d=obj.userData;
+   const atk=d.attackUntil>delta,hit=d.hitUntil>delta;
+   const au=atk?Math.max(0,Math.min(1,(delta-d.attackStart)/720)):0;
+   const hu=hit?Math.max(0,Math.min(1,(delta-d.hitStart)/640)):0;
+   const lunge=atk?Math.sin(Math.PI*au)**2:0;
+   const recoil=hit?Math.sin(Math.PI*hu)**2:0;
+   if(lunge>.01)qa.activeAttackFrames++;
+   if(recoil>.01)qa.activeHitFrames++;
+   const direction=isPlayer?1:-1;
+   obj.position.x=d.restX+direction*(.65*lunge-.23*recoil);
+   obj.position.z=-.37*lunge+.17*recoil;
+   obj.rotation.y=(isPlayer?-.10:.10)+Math.sin(t*.65+(isPlayer?0:1))*.13-direction*.20*lunge;
+   obj.rotation.x=(e?-.20:0)+Math.sin(t*.81)*.045+.17*lunge;
+   obj.rotation.z=(e?Math.sin(t*1.45+(isPlayer?0:1))*.075:
+      Math.sin(t*.9+(isPlayer?0:2))*.03)-direction*.17*lunge+direction*.20*recoil;
+   obj.scale.setScalar(d.baseScale*(1+Math.sin(t*1.9)*.014+.09*lunge-.075*recoil));
+   obj.position.y=(e?.33:0)+Math.sin(t*(e?1.5:1))*(e?.10:.024)+.16*lunge-.08*recoil;
+   qa.lastActorPose={id,side,x:Number(obj.position.x.toFixed(3)),z:Number(obj.position.z.toFixed(3)),
+     lunge:Number(lunge.toFixed(3)),recoil:Number(recoil.toFixed(3)),serial:d.lastSerial};
   }
   renderer.render(scene,camera);qa.frames++;
   if(qa.activeActualCards.length)qa.actualCardFrames++;
@@ -202,11 +250,17 @@ export function createCardModelStage(container,opts={}){
    }
    if(e.type==='exchange'||e.type==='direct_hit'){
     qa.damageEvents++;
-    const actor=actors[e.from]?.[e.side];
-    if(actor)actor.userData.attackUntil=now()+600;
+    const stamp=now();
+    if(supported(e.from)&&e.attacker_uid){
+     pendingMotion.push({id:e.from,side:e.side,uid:e.attacker_uid,
+       kind:'attack',serial:e.serial,timestamp:stamp,lane:e.lane});
+    }
     const opponent=e.side==='player'?'ai':'player';
-    const impacted=actors[e.to]?.[opponent];
-    if(impacted)impacted.userData.hitUntil=now()+450;
+    if(e.type==='exchange'&&supported(e.to)&&e.target_uid){
+     pendingMotion.push({id:e.to,side:opponent,uid:e.target_uid,
+       kind:'hurt',serial:e.serial,timestamp:stamp,lane:e.lane});
+    }
+    applyPendingMotions();
    }
   }
  }
@@ -225,5 +279,5 @@ export function createCardModelStage(container,opts={}){
    state:()=>structuredClone({qa,preview,actual}),
    assets:()=>Object.keys(mcache)
   }});
- return {setBoardState,onCoreEvents,qa,togglePreview};
+ return {setBoardState,onCoreEvents,qa,togglePreview,setCameraMode};
 }
