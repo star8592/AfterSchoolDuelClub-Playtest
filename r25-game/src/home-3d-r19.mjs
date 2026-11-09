@@ -134,13 +134,13 @@ summonsBtn.addEventListener('click',()=>{
  if(preview?.getAttribute('aria-pressed')!=='true')preview?.click();
 });
 
-// R33 avoids linking the unapproved, visually rejected R25/R30 M01 VRM.
-// The art-first 2.5D playable preview is separate from the intact 18-card game.
+// R35 points to real Pixal3D GLB review (static, unrigged, not a live card).
+// Do not send the player into the former R32 2.5D character page by default.
 const musicPreviewButton=document.getElementById('home3d-music');
-qa.musicArtFirstPreviewURL=new URL('../r32-art-first/',location.href).href;
-qa.musicArtFirstIsRealGLB=false;
-qa.musicArtFirstCharacterArtSource='ORIGINAL_ILLUSTRATION_2D';
+qa.musicReal3DPreviewURL=new URL('../r34-music-3d/',location.href).href;
+qa.musicReal3DAssetKind='TRUE_GLTF2_GLB_STATIC_UNRIGGED';
+qa.musicReal3DReadyForCombat=false;
 musicPreviewButton?.addEventListener('click',()=>{
- const target=new URL('../r32-art-first/',location.href);
+ const target=new URL('../r34-music-3d/',location.href);
  window.open(target.href,'_blank','noopener,noreferrer');
 });
