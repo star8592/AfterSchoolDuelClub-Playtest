@@ -1,4 +1,6 @@
-R21 live research homepage: three real verified CC0 high-fidelity VRM bases, reversible R18-original source view, E01/G01/T01 custom accessories and async action blocking.
-Playable card game still uses exact original R19 18-card core (104/104 automated tests in private source).
-R21 standalone T01 research preview is at ../r21-trio/. Original face sculpt, hair/cloth full rebuild and professional root-motion NOT complete.
-Independent Playtest ONLY; PlayMoru production NOT deployed; ART_APPROVED=false.
+R22 CURRENT PUBLIC PLAYTEST — verified real WebGL2 first-screen 3D.
+- Game homepage /r22-game/ retains the full playable original 18-card core, same R21 mechanics.
+- Three E01/G01/T01 premium CC0 VRM actors retain original skinned meshes; R22 adds physically based materials, HDRI, shadows, grounded contact and same-camera R21 toon A/B.
+- Independent /r22-card-lab/ loads two brand-new original Blender GLB props E02 and T02. They are experimental and NOT approved as finished card models.
+- No card illustrations are claimed approved, custom faces/garments and professional Root Motion/Foot IK remain unfinished.
+- R18–R21 previous routes remain available. PlayMoru production NOT deployed. ART_APPROVED=false.
