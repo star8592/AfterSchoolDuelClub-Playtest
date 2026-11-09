@@ -1,0 +1,1 @@
+R22 playable homepage: same 18-card gameplay from R21, first-screen actual high-fidelity three VRM skinned actors upgraded to real PBR with HDRI, reversible same-camera material A/B. Card GLB experiments at ../r22-card-lab. No PlayMoru production deployment. ART_APPROVED=false.

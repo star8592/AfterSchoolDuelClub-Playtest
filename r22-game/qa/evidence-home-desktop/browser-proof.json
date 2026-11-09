@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:9933/r22-game/",
+  "state": {
+    "home": true,
+    "child": true,
+    "rigs": 3,
+    "cardGame": true,
+    "src": "http://127.0.0.1:9933/r22-depth/index.html?embedR22=1",
+    "errors": []
+  },
+  "battle": {
+    "playing": "playing",
+    "hp": "20",
+    "cards": 1,
+    "custom": true
+  },
+  "originalSwitchPassed": true,
+  "chromeRuntimeExceptions": []
+}

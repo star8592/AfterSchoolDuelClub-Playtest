@@ -1,0 +1,56 @@
+{
+  "url": "http://127.0.0.1:9973",
+  "viewport": [
+    1280,
+    820
+  ],
+  "actual": {
+    "q": {
+      "ready": true,
+      "riggedVRM": false,
+      "modelIds": [
+        "E02",
+        "T02"
+      ],
+      "drawFrames": 5,
+      "visible": "duo",
+      "spin": false,
+      "actualMeshes": [
+        17,
+        41
+      ],
+      "triangles": [
+        17170,
+        39216
+      ],
+      "sourceType": "BLENDER_ORIGINAL_PROTOTYPES",
+      "browserErrors": []
+    },
+    "realWebGL2": true,
+    "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+  },
+  "final": {
+    "ready": true,
+    "riggedVRM": false,
+    "modelIds": [
+      "E02",
+      "T02"
+    ],
+    "drawFrames": 130,
+    "visible": "menu",
+    "spin": false,
+    "actualMeshes": [
+      17,
+      41
+    ],
+    "triangles": [
+      17170,
+      39216
+    ],
+    "sourceType": "BLENDER_ORIGINAL_PROTOTYPES",
+    "browserErrors": []
+  },
+  "exceptions": [],
+  "licenses": "SELF_AUTHORED_BLENDER_GEOMETRY",
+  "productionArtApproved": false
+}

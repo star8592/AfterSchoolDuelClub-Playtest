@@ -1,0 +1,1 @@
+These are ORIGINAL Blender generated non-humanoid 3D prototype GLBs for the authored original game cards E02 (拐弯纸飞机) and T02 (食堂隐藏菜单). Source generator: private research branch research/duel-r22-depth-and-card-asset-factory-20261109/labs/card-asset-r22/build-prototypes.py. Still NO final asset art approval, no professionally rigged clips. Playable main game remains independent.

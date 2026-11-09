@@ -1,0 +1,28 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>放学后决斗社 · R22 真实 3D 卡牌建模实验</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#10192a;color:#f6f2e8;font-family:system-ui,"PingFang SC",sans-serif}
+main{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100dvh}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px clamp(10px,3vw,35px);background:#111e2f}
+h1{font-size:clamp(15px,2vw,23px);margin:0 0 4px}p{margin:0;color:#b5c4d5;font-size:12px}.buttons{display:flex;gap:7px;flex-wrap:wrap}
+button{background:#263953;border:1px solid #76879b;color:#f5f0dd;border-radius:8px;min-height:34px;padding:7px 11px;font-weight:700;cursor:pointer}
+button[aria-pressed=true]{background:#ddb780;color:#172338;border-color:#ffe5ac}
+section{position:relative;min-height:0;overflow:hidden}canvas{width:100%;height:100%;display:block}
+#status{position:absolute;bottom:12px;left:16px;right:16px;background:#111c2acc;padding:10px;border:1px solid #617183;font-size:12px;pointer-events:none}
+footer{background:#111e2f;padding:8px 20px;font-size:11px;color:#adbece}
+@media(max-width:720px){header{display:block;padding:8px}h1{font-size:16px}p{font-size:10px}.buttons{margin-top:7px}button{padding:6px;font-size:11px;min-height:30px}#status{font-size:10px}}
+</style></head><body>
+<main><header><div>
+<h1>R22 · 卡牌真实3D试验工坊</h1>
+<p>从原创18张卡牌提取角色；E02 折纸飞行器、T02 食堂隐藏菜单为 Blender 精建实物，不是平面插画。</p>
+</div><div class="buttons">
+<button id="duo" aria-pressed="true">双模型</button>
+<button id="paper" aria-pressed="false">E02 纸飞机</button>
+<button id="menu" aria-pressed="false">T02 菜单怪物</button>
+<button id="spin" aria-pressed="false">旋转观察</button>
+</div></header>
+<section><canvas id="stage"></canvas><div id="status">正在加载可编辑 Blender 导出的真实 GLB...</div></section>
+<footer>三维资产研发原型 · 不是产品级美术验收 · 原游戏卡牌玩法不会由展示样机替代</footer></main>
+<script type="module" src="./dist/main.js"></script></body></html>

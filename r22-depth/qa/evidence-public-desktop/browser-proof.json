@@ -1,0 +1,242 @@
+{
+  "url": "http://127.0.0.1:9972/r22-depth/index.html",
+  "viewport": [
+    1280,
+    820
+  ],
+  "realNvidiaGpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+  "sourceNames": [
+    "Sendagaya Shino",
+    "Sakurada Fumiriya",
+    "Sendagaya Shibu"
+  ],
+  "fullSourceModelState": {
+    "revision": "R22",
+    "customMode": true,
+    "originalSculptComplete": false,
+    "professionalActionApproved": false,
+    "contactIKApproved": false,
+    "characterIds": [
+      "E01",
+      "G01",
+      "T01"
+    ],
+    "ready": true,
+    "actualVRMCount": 3,
+    "realVRMRigs": [
+      {
+        "name": "E01 · 铃声追不上（原创试装）",
+        "bones": 148,
+        "skins": 67,
+        "triangles": 31211,
+        "materials": 27,
+        "geometryMeshes": 67,
+        "licenseURL": "https://vroid.pixiv.help/hc/en-us/articles/360013482714-Sendagaya-Shino"
+      },
+      {
+        "name": "G01 · 橡皮筋建筑师（原创试装）",
+        "bones": 107,
+        "skins": 102,
+        "triangles": 39548,
+        "materials": 27,
+        "geometryMeshes": 102,
+        "licenseURL": "https://vroid.pixiv.help/hc/en-us/articles/360014788554-Sakurada-Fumiriya"
+      },
+      {
+        "name": "T01 · 迟到的播音员（首次VRM试装）",
+        "bones": 129,
+        "skins": 65,
+        "triangles": 34395,
+        "materials": 27,
+        "geometryMeshes": 65,
+        "licenseURL": "https://vroid.pixiv.help/hc/en-us/articles/360012381793-%CE%B2-Ver-AvatarSample-1"
+      }
+    ],
+    "realMorphTargets": [
+      820,
+      780,
+      820
+    ],
+    "realMaterialCount": [
+      27,
+      27,
+      27
+    ],
+    "realTriangleCount": [
+      31211,
+      39548,
+      34395
+    ],
+    "externalLicensedModel": true,
+    "finishedOriginalGameCharacters": false,
+    "realFrameCount": 480,
+    "actionFrameCount": 464,
+    "gestureMode": true,
+    "view": "duo",
+    "turntable": false,
+    "currentAction": "attack",
+    "webgl2": true,
+    "browserErrors": [],
+    "depthMode": "pbr",
+    "pbrCharacterMeshCount": 246,
+    "shadowMapEnabled": true,
+    "compareSameCamera": true,
+    "sourceNames": [
+      "Sendagaya Shino",
+      "Sakurada Fumiriya",
+      "Sendagaya Shibu"
+    ],
+    "hdrEnvironmentLoaded": true,
+    "r20ActorDetails": [
+      {
+        "id": "E01",
+        "originalMorphs": 820,
+        "originalSkinnedMeshes": 67,
+        "recoloredMeshes": 53,
+        "accessoryGroups": 4,
+        "originalMeshRetained": true
+      },
+      {
+        "id": "G01",
+        "originalMorphs": 780,
+        "originalSkinnedMeshes": 102,
+        "recoloredMeshes": 88,
+        "accessoryGroups": 4,
+        "originalMeshRetained": true
+      },
+      {
+        "id": "T01",
+        "originalMorphs": 820,
+        "originalSkinnedMeshes": 65,
+        "recoloredMeshes": 51,
+        "accessoryGroups": 5,
+        "originalMeshRetained": true
+      }
+    ]
+  },
+  "firstPageNoClick": {
+    "qa": {
+      "revision": "R22",
+      "customMode": true,
+      "originalSculptComplete": false,
+      "professionalActionApproved": false,
+      "contactIKApproved": false,
+      "characterIds": [
+        "E01",
+        "G01",
+        "T01"
+      ],
+      "ready": true,
+      "actualVRMCount": 3,
+      "realVRMRigs": [
+        {
+          "name": "E01 · 铃声追不上（原创试装）",
+          "bones": 148,
+          "skins": 67,
+          "triangles": 31211,
+          "materials": 27,
+          "geometryMeshes": 67,
+          "licenseURL": "https://vroid.pixiv.help/hc/en-us/articles/360013482714-Sendagaya-Shino"
+        },
+        {
+          "name": "G01 · 橡皮筋建筑师（原创试装）",
+          "bones": 107,
+          "skins": 102,
+          "triangles": 39548,
+          "materials": 27,
+          "geometryMeshes": 102,
+          "licenseURL": "https://vroid.pixiv.help/hc/en-us/articles/360014788554-Sakurada-Fumiriya"
+        },
+        {
+          "name": "T01 · 迟到的播音员（首次VRM试装）",
+          "bones": 129,
+          "skins": 65,
+          "triangles": 34395,
+          "materials": 27,
+          "geometryMeshes": 65,
+          "licenseURL": "https://vroid.pixiv.help/hc/en-us/articles/360012381793-%CE%B2-Ver-AvatarSample-1"
+        }
+      ],
+      "realMorphTargets": [
+        820,
+        780,
+        820
+      ],
+      "realMaterialCount": [
+        27,
+        27,
+        27
+      ],
+      "realTriangleCount": [
+        31211,
+        39548,
+        34395
+      ],
+      "externalLicensedModel": true,
+      "finishedOriginalGameCharacters": false,
+      "realFrameCount": 20,
+      "actionFrameCount": 4,
+      "gestureMode": true,
+      "view": "duo",
+      "turntable": false,
+      "currentAction": "dodge",
+      "webgl2": true,
+      "browserErrors": [],
+      "depthMode": "pbr",
+      "pbrCharacterMeshCount": 246,
+      "shadowMapEnabled": true,
+      "compareSameCamera": true,
+      "sourceNames": [
+        "Sendagaya Shino",
+        "Sakurada Fumiriya",
+        "Sendagaya Shibu"
+      ],
+      "hdrEnvironmentLoaded": true,
+      "r20ActorDetails": [
+        {
+          "id": "E01",
+          "originalMorphs": 820,
+          "originalSkinnedMeshes": 67,
+          "recoloredMeshes": 53,
+          "accessoryGroups": 4,
+          "originalMeshRetained": true
+        },
+        {
+          "id": "G01",
+          "originalMorphs": 780,
+          "originalSkinnedMeshes": 102,
+          "recoloredMeshes": 88,
+          "accessoryGroups": 4,
+          "originalMeshRetained": true
+        },
+        {
+          "id": "T01",
+          "originalMorphs": 820,
+          "originalSkinnedMeshes": 65,
+          "recoloredMeshes": 51,
+          "accessoryGroups": 5,
+          "originalMeshRetained": true
+        }
+      ]
+    },
+    "loaded": true,
+    "frame": [
+      1280,
+      656.125
+    ],
+    "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "hasWebGL2": true
+  },
+  "strictReal3d": true,
+  "originalCampusCharacterCostumeReady": false,
+  "originalCampusCharacterFaceReady": false,
+  "officialSourceModelsCC0": true,
+  "screenshots": [
+    "first-load-real-vrm-duo.png",
+    "actual-female-face.png",
+    "actual-male-face.png",
+    "actual-full-bodies.png",
+    "two-real-vrm-animation.png"
+  ],
+  "browserExceptions": []
+}
