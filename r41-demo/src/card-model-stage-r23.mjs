@@ -161,7 +161,7 @@ export function createCardModelStage(container,opts={}){
  }
  function refresh(){
   if(!loaded)return;
-  size();updateVisibility();
+  size();updateVisibility();applyPendingMotions();
   if(visible&&!raf)raf=requestAnimationFrame(draw);
  }
  function setBoardState({player,ai,theme}={}){
@@ -256,6 +256,10 @@ export function createCardModelStage(container,opts={}){
        kind:'attack',serial:e.serial,timestamp:stamp,lane:e.lane});
     }
     const opponent=e.side==='player'?'ai':'player';
+    if(e.type==='exchange'&&e.retaliation>0&&supported(e.from)&&e.attacker_uid){
+     pendingMotion.push({id:e.from,side:e.side,uid:e.attacker_uid,
+       kind:'hurt',serial:e.serial,timestamp:stamp,lane:e.lane});
+    }
     if(e.type==='exchange'&&supported(e.to)&&e.target_uid){
      pendingMotion.push({id:e.to,side:opponent,uid:e.target_uid,
        kind:'hurt',serial:e.serial,timestamp:stamp,lane:e.lane});
