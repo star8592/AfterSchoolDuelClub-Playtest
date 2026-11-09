@@ -1,213 +1,117 @@
 <!doctype html>
 <html lang="zh-Hans">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#101b2a">
-  <meta name="description" content="《放学后决斗社》原创校园喜剧卡牌游戏——本地研发试玩版。">
-  <title>放学后决斗社 · 原创卡牌试玩 · R14 研发试玩</title>
-  <link rel="stylesheet" href="./src/styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090f1d">
 <meta name="robots" content="noindex,nofollow,noarchive">
+<title>放学后决斗社 · 真实 GLB 双人 3D 战斗预览</title>
+<style>
+:root{font-family:system-ui,"Noto Sans SC","PingFang SC",sans-serif;color:#f4f1ea;background:#080d17;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;overflow:hidden}
+body{background:#090f19}
+main{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100dvh;width:100vw}
+header{min-height:64px;padding:9px clamp(12px,2vw,30px);display:flex;align-items:center;gap:14px;justify-content:space-between;
+ border-bottom:1px solid #3a4555;background:#101a29}
+header h1{font-size:clamp(16px,2.3vw,27px);line-height:1.25;margin:0 0 2px}
+header p{font-size:clamp(10px,1vw,13px);color:#bbc6d7;margin:0}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button{border:1px solid #889bb0;background:#223449;color:#fff;min-height:38px;border-radius:8px;
+ padding:8px 14px;font:600 13px system-ui;cursor:pointer}
+button:focus-visible{outline:3px solid #efcc8b}
+button.primary{background:#dfb877;color:#1b2535;border-color:#dfb877}
+.stage{position:relative;width:100%;height:100%;min-height:0;isolation:isolate;background:#090f19}
+.stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#090f19}
+#loading{position:absolute;inset:0;display:grid;place-items:center;padding:20px;text-align:center;
+ background:#090f19;color:#d6e4f0;font-size:clamp(14px,1.6vw,21px);z-index:2}
+#loading[hidden]{display:none}
+#quality{position:absolute;left:12px;bottom:12px;z-index:1;
+ padding:6px 10px;font-size:11px;max-width:calc(100% - 24px);border-radius:7px;
+ background:rgba(4,9,17,.74);color:#d1e1ed;border:1px solid #5c718b;
+ pointer-events:none;text-shadow:0 1px 4px black}
+footer{display:flex;align-items:center;justify-content:space-between;gap:8px;
+ padding:7px clamp(12px,2vw,30px);background:#101a29;border-top:1px solid #3a4555;
+ font-size:11px;color:#aebccd;min-height:34px}
+#status{color:#bbe5d4;font-weight:700}
+@media(max-width:720px){
+ header{min-height:82px;align-items:flex-start;gap:5px;flex-direction:column;padding:7px 11px}
+ header h1{font-size:17px}header p{font-size:10px}
+ .controls{gap:6px}button{min-height:29px;font-size:11px;padding:5px 9px}
+ footer{padding:5px 9px;font-size:9px}
+ #quality{font-size:9px;bottom:5px;left:5px}
+}
+</style>
 </head>
 <body>
-<div style="padding:8px 12px;background:#483221;color:#ffe4b7;text-align:center;font:600 12px system-ui">R14 独立研究试玩 · 两位原创3D人物未获正式美术验收 · 点击上方「观看3D双人演示」直接看真实动画</div>
-  <div class="app">
-    <header class="mast">
-      <div class="identity">
-        <div class="eyebrow">PLAYMORU LAB · 2.5D THEATER · V0.7</div>
-        <h1 id="game-title">放学后决斗社</h1>
-        <p id="game-subtitle">三线决斗 · 乌龙连携 · 原创轻策略</p>
-      </div>
-      <div class="mast-actions">
-        <label for="theme-select">题材实验</label>
-        <select id="theme-select" aria-label="选择同规则主题">
-          <option value="campus">C · 校园奇想</option>
-          <option value="star">A · 星兽奇想</option>
-          <option value="wuxia">B · 刀盾江湖</option>
-        </select>
-        <button id="reset" class="minor" type="button">新对局</button>
-        <button id="stage3d-mode" class="minor" type="button" aria-pressed="false">3D交锋：关闭</button>
-        <button id="stage3d-demo" class="minor" type="button">观看3D双人演示</button>
-      </div>
-    </header>
-
-    <div class="intro" id="story">
-      <span class="chapter">序章 / 001</span>
-      <span id="story-text">校长把社团申请表误印成食堂菜单。想拿回活动室？先打赢三条战线。</span>
-      <button id="show-rules" type="button" class="text-button">规则说明 <span aria-hidden="true">↗</span></button>
-    </div>
-
-    <section id="tutorial-panel" class="tutorial-panel" aria-label="第一关引导" aria-live="polite" hidden>
-      <div class="tutorial-insignia" aria-hidden="true">01</div>
-      <div class="tutorial-copy">
-        <div class="eyebrow">STORY MISSION · 第1关</div>
-        <h2 id="tutorial-title">第一步：派出活力社员</h2>
-        <p id="tutorial-description">点选指定卡牌，再点击目标战线。</p>
-      </div>
-      <div class="tutorial-actions">
-        <strong id="tutorial-progress">1 / 2</strong>
-        <button id="tutorial-next" class="primary" type="button" hidden>下一关 →</button>
-        <button id="tutorial-skip" class="minor" type="button">跳过教学 · 自由对战</button>
-      </div>
-    </section>
-
-    <section class="battle" aria-label="卡牌对战">
-      <!-- Background art is strictly separate from real hit targets and HUD. -->
-      <div id="battle-art-layer" class="battle-art-layer" aria-hidden="true" hidden></div>
-      <div class="ribbon">
-        <div class="player-identity own-identity">
-          <span class="avatar own-avatar" aria-hidden="true">社</span>
-          <div><span class="who">决斗社 · 你</span><strong id="player-hp">20</strong><span class="unit"> 人气</span></div>
-        </div>
-        <div class="score-middle">
-          <div class="mini-caption">BATTLE ROUND</div><div class="round-num" id="round-num">01</div>
-          <div class="mini-caption" id="turn-banner">你的回合</div>
-        </div>
-        <div class="player-identity enemy-identity">
-          <span class="avatar enemy-avatar" aria-hidden="true">令</span>
-          <div><span class="who">挑战者 · AI</span><strong id="ai-hp">20</strong><span class="unit"> 人气</span></div>
-        </div>
-      </div>
-
-      <div id="cinematic-arena" class="cinematic-arena" aria-label="左右对峙的同屏战斗舞台" hidden>
-        <div class="arena-head">
-          <strong>社团对决 <span class="arena-stage-chip">全宽屏 2.5D · 美术占位原型</span></strong>
-          <span id="arena-scene-status">双方就位 · 点击战线部署</span>
-        </div>
-        <div id="arena-scene" class="arena-scene" data-focus="0" role="group" aria-label="左侧我方、右侧对手、中间交锋">
-          <div class="arena-depth arena-depth-far" aria-hidden="true"><span class="arena-windows"></span><span class="arena-blackboard"></span></div>
-          <div class="arena-depth arena-depth-mid" aria-hidden="true"><span class="arena-desks"></span></div>
-          <div class="arena-depth arena-depth-near" aria-hidden="true"></div>
-          <div id="arena-player-actor" class="arena-cast arena-cast-player" data-style="ember" aria-label="我方站位">
-            <span class="arena-side-tag">我方 · 左侧</span>
-            <div id="arena-player-visual" class="arena-figure" aria-hidden="true">
-              <span class="arena-figure-hair"></span><span class="arena-figure-head"></span>
-              <span class="arena-figure-body"></span><span class="arena-figure-arm"></span>
-            </div>
-            <strong id="arena-player-name">决斗社</strong>
-            <small id="arena-player-stats">等待召唤</small>
-          </div>
-          <div class="arena-conflict">
-            <span class="arena-conflict-top">当前交战区域</span>
-            <strong id="arena-focus-name">教室</strong>
-            <span id="arena-focus-description">选择一张牌，再点击下方目标区域</span>
-            <span class="arena-focus-spark" aria-hidden="true">✦</span>
-          </div>
-          <div id="arena-enemy-actor" class="arena-cast arena-cast-enemy" data-style="tide" aria-label="对手站位">
-            <span class="arena-side-tag">对手 · 右侧</span>
-            <div id="arena-enemy-visual" class="arena-figure" aria-hidden="true">
-              <span class="arena-figure-hair"></span><span class="arena-figure-head"></span>
-              <span class="arena-figure-body"></span><span class="arena-figure-arm"></span>
-            </div>
-            <strong id="arena-enemy-name">风纪社</strong>
-            <small id="arena-enemy-stats">等待出阵</small>
-          </div>
-  <!-- Original, rule-driven performance preview. This is not prerecorded footage.
-       Official production art and expressive voice clips still require approval. -->
-  <section id="performance-stage" class="performance-stage" role="region"
-           aria-label="卡牌召唤与战斗演出预览" aria-live="polite" hidden>
-    <div class="performance-backdrop"></div>
-    <div class="performance-panel">
-      <div class="performance-header">
-        <div><span class="performance-eyebrow">CARD PERFORMANCE / 原创演出</span>
-          <strong id="performance-heading">人物登场</strong></div>
-        <span id="performance-count">1 / 3</span>
-      </div>
-      <div class="performance-scene">
-        <div id="performance-3d-slot" class="performance-3d-slot" aria-label="真实GLB动画战斗预览" hidden></div>
-        <div class="performance-actor">
-          <div id="performance-art" class="performance-art" aria-hidden="true"></div>
-          <strong id="performance-role">角色</strong>
-        </div>
-        <div class="performance-action-mark" aria-hidden="true">
-          <span class="action-beam"></span><span class="action-ring"></span><span class="action-flash"></span>
-          <span id="performance-projectile" class="performance-projectile"></span>
-          <span class="performance-trail"></span>
-        </div>
-        <div id="performance-target" class="performance-target" aria-hidden="true">
-          <span class="target-ring"></span>
-          <span class="performance-opponent"><span id="performance-opponent-glyph">◉</span></span>
-          <span class="target-flash">!</span>
-          <span id="performance-hit-value" class="performance-hit-value"></span>
-          <span id="performance-shield" class="performance-shield">格挡</span>
-        </div>
-      </div>
-      <div class="performance-dialogue-box">
-        <span id="performance-speaker">角色</span>
-        <p id="performance-dialogue">动作演出</p>
-        <small id="performance-lane">教室</small>
-      </div>
-      <div class="performance-bottom">
-        <span id="performance-prototype" class="performance-prototype">演出系统样机 · 正式角色原画和配音尚未接入</span>
-        <div class="performance-controls">
-          <button type="button" id="performance-voice" aria-pressed="false">试音：关闭</button>
-          <button type="button" id="performance-speed" aria-pressed="false">演出：完整</button>
-          <button type="button" id="performance-skip">跳过演出</button>
-        </div>
-      </div>
-    </div>
-  </section>
-        </div>
-        <div class="arena-lane-selector" aria-label="选择三个实际战术战线">
-          <button type="button" class="arena-lane-chip" id="arena-lane-0" data-lane="0" aria-label="在教室部署所选卡牌"><strong>教室</strong><span id="arena-lane-count-0">我 0 · 敌 0</span></button>
-          <button type="button" class="arena-lane-chip" id="arena-lane-1" data-lane="1" aria-label="在走廊部署所选卡牌"><strong>走廊</strong><span id="arena-lane-count-1">我 0 · 敌 0</span></button>
-          <button type="button" class="arena-lane-chip" id="arena-lane-2" data-lane="2" aria-label="在操场部署所选卡牌"><strong>操场</strong><span id="arena-lane-count-2">我 0 · 敌 0</span></button>
-        </div>
-        <p class="arena-quality-note">同屏演出测试 · 分层与动作已接入 · 正式人物原画和配音尚未获批</p>
-      </div>
-      <div class="board-caption"><span>AI 阵地</span><span>三条战线</span><span>你的阵地</span></div>
-      <div id="lanes" class="lanes" aria-label="三条战线，选牌后点击对应战线"></div>
-      <div id="prompt" class="prompt" role="status" aria-live="polite">先点击一张手牌，再点击想要部署的战线。</div>
-    </section>
-
-    <section class="action-bar">
-      <div>
-        <div class="eyebrow">本回合剩余能量</div>
-        <div id="energy" class="energy">✧ 2</div>
-        <div id="combo-hint" class="combo-hint">两种不同风格的牌，可触发一次乌龙连携，返还 1 能量</div>
-      </div>
-      <div class="action-controls">
-        <button id="export" type="button" class="minor">导出本局记录</button>
-        <button id="end-turn" class="primary" type="button">结束回合 <span aria-hidden="true">➜</span></button>
-      </div>
-    </section>
-
-    <section class="hand-section" aria-label="我的手牌">
-      <div class="section-heading"><div><span class="eyebrow">YOUR HAND</span><h2>选择你的下一张牌 <span id="hand-count"></span></h2></div><span class="helper">选牌 → 选择教室／走廊／操场</span></div>
-      <div id="hand" class="hand"></div>
-    </section>
-
-    <section class="journal" aria-label="对局进程">
-      <div class="section-heading"><div><span class="eyebrow">DUEL JOURNAL</span><h2>本局发生了什么</h2></div><span id="combo-counter" class="helper"></span></div>
-      <div id="journal-lines" class="journal-lines" aria-live="polite"></div>
-    </section>
-    <footer>独立原创研发样机 · 无付费随机抽卡 · 不联网收集信息 · 美术尚处占位阶段</footer>
-  </div>
-
-  <dialog id="rules-dialog" aria-label="游戏规则">
-    <div class="dialog-content">
-      <span class="eyebrow">RULEBOOK / 卡牌规则</span><h2>赢回我们的社团活动室</h2>
-      <p>双方各有 20 点人气。每回合获得能量并抽 1 张牌；部署人物到教室、走廊或操场，或者释放事件牌。</p>
-      <p>人物入场后，要等到下一次自己的回合才会攻击。同战线有敌人则先互相交锋；没有敌人则直接扣对方人气。</p>
-      <p><strong>风格克制：</strong>活力克创意、创意克默契、默契克活力，克制时对单位额外造成 1 点伤害。</p>
-      <p><strong>乌龙连携：</strong>在同一回合打出两种不同风格，会在第二张牌所在战线触发一次乌龙：粉笔伤害、广播移位或海报护盾；同时返还1点能量。每方每回合最多一次，AI遵守同样规则。</p>
-      <p>先将对方人气降到 0 获胜。12 次 AI 回合后会根据人气结算，避免无休止对局。</p>
-      <button type="button" class="primary" id="close-rules">开始决斗</button>
-    </div>
-  </dialog>
-  <dialog id="result-dialog" aria-label="对局结果">
-    <div class="dialog-content">
-      <span class="eyebrow">MATCH COMPLETE</span>
-      <h2 id="result-title">对局结束</h2>
-      <p id="result-detail"></p>
-      <button type="button" class="primary" id="play-again">再来一局</button>
-    </div>
-  </dialog>
-  <div id="combo-stage" class="combo-stage" aria-live="polite" hidden>
-    <span class="combo-icon" aria-hidden="true">✳</span>
-    <div><strong id="combo-title"></strong><small id="combo-subtitle"></small></div>
-    <button type="button" id="skip-combo" class="text-button">跳过</button>
-  </div>
-  <script type="module" src="./src/app.mjs"></script>
+<main>
+<header>
+<div>
+<h1>放学后决斗社 · 双人真实 3D 战斗</h1>
+<p>E01「铃声追不上」 × G01「橡皮筋建筑师」 · 原创 GLB 骨骼动画 · WebGL2</p>
+</div>
+<div class="controls">
+<button class="primary" id="replay" type="button">重新播放</button>
+<button id="reload" type="button">重新加载 3D</button>
+</div>
+</header>
+<section class="stage" aria-label="实时3D骨骼动画场景">
+<iframe id="real3d" title="实际 E01 和 G01 两名校园 GLB 骨骼三维角色战斗" loading="eager"
+  referrerpolicy="no-referrer" src="about:blank"></iframe>
+<div id="loading" role="status">正在加载真实的两套 GLB 角色与 WebGL3D 场景…</div>
+<div id="quality">真实三维模型与骨骼动画 · 当前角色仍为程序化造型研发原型，未达到最终原画品质</div>
+</section>
+<footer><span id="status">检查 WebGL2 与角色资源…</span><span>3D 专用试玩 · 已移除旧 2.5D 卡牌画面 · 无背景音乐</span></footer>
+</main>
+<script type="module">
+const frame=document.getElementById('real3d');
+const loading=document.getElementById('loading');
+const status=document.getElementById('status');
+const btnReplay=document.getElementById('replay');
+const DEMO=Object.freeze({
+ type:'ASDC_R14_LIVE_EXCHANGE',mode:'demo',actor:'E01',target:'G01',
+ source:'INDEPENDENT_CORE_GENERATED_DEMO_NOT_CURRENT_MATCH',
+ autoplayVoice:false,previewArtApproved:false
+});
+const SCENE='./labs/duel-motion-r01/index.html?embedLiveR14=on&soleR13=on&fightFXR14=on&cameraR09=on&cameraSafetyR13=on&campusGymR07=on&lookR10=on&lightR11=on';
+let ready=false,accepted=false,generation=0,loop=null,deadline=null;
+const qa={realGLBReady:false,playing:false,rigs:0,artApproved:false,sceneReadySignal:false,loadErrors:[]};
+Object.defineProperty(window,'__r15Public3DQA',{value:qa});
+function report(msg){status.textContent=msg;}
+function play(){
+ if(!ready||!frame.contentWindow)return;
+ frame.contentWindow.postMessage(DEMO,location.origin);
+ report('实际 GLB 骨骼动画播放中…');
+}
+function load(){
+ generation++;ready=false;accepted=false;qa.playing=false;qa.realGLBReady=false;
+ loading.hidden=false;loading.textContent='正在加载真实 GLB 角色、骨骼与 Three.js WebGL…';
+ report('加载 3D 场景…');
+ clearTimeout(loop);clearTimeout(deadline);
+ const current=generation;
+ deadline=setTimeout(()=>{
+  if(generation===current&&!accepted){
+   const message='WebGL 3D 加载失败，请使用支持 WebGL2 的浏览器重试。';
+   loading.textContent=message;report(message);qa.loadErrors.push(message);
+  }
+ },20000);
+ frame.src=SCENE;
+}
+window.addEventListener('message',event=>{
+ if(event.origin!==location.origin||event.source!==frame.contentWindow)return;
+ const d=event.data;
+ if(d?.type==='ASDC_R14_3D_READY'&&d.originalGLBRigs===2&&d.artApproved===false){
+  ready=true;qa.sceneReadySignal=true;qa.rigs=2;qa.realGLBReady=true;play();
+ }else if(d?.type==='ASDC_R14_3D_ACCEPTED'&&d.mode==='demo'&&d.artApproved===false){
+  accepted=true;qa.playing=true;qa.artApproved=false;
+  loading.hidden=true;clearTimeout(deadline);clearTimeout(loop);
+  report('实时 WebGL 3D 演出进行中 · 两名 GLB 人物已加载');
+  loop=setTimeout(()=>{if(ready)play();},8000);
+ }
+});
+btnReplay.addEventListener('click',()=>ready?play():load());
+document.getElementById('reload').addEventListener('click',load);
+load();
+</script>
 </body>
 </html>
