@@ -25,10 +25,11 @@ input[type=file]{display:block;width:100%;font-size:13px;margin-top:15px}
 <dl><dt>模型类型</dt><dd id="type">—</dd><dt>三角面数</dt><dd id="tris">—</dd><dt>网格数</dt><dd id="meshes">—</dd><dt>骨骼数</dt><dd id="bones">—</dd><dt>蒙皮网格</dt><dd id="skinned">—</dd><dt>动画片段</dt><dd id="anims">—</dd><dt>贴图数</dt><dd id="tex">—</dd></dl>
 <label>本机 GLB 人工核验（可选）<input id="file" type="file" accept=".glb,model/gltf-binary"></label>
 <div class="notice">只有真实网格才可在本页展示。生成 GLB 不等于完成角色：尚需正侧背外观比对、骨骼蒙皮、指挥棒动作、战斗接入与美术批准。此页不使用 2.5D 图画代替模型。</div></aside></div>
+<script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
 <script type="module">
-import * as THREE from "https://esm.sh/three@0.165.0";
-import {OrbitControls} from "https://esm.sh/three@0.165.0/examples/jsm/controls/OrbitControls.js";
-import {GLTFLoader} from "https://esm.sh/three@0.165.0/examples/jsm/loaders/GLTFLoader.js";
+import * as THREE from "three";
+import {OrbitControls} from "three/addons/controls/OrbitControls.js";
+import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
 const el=document.getElementById('stage'),status=document.getElementById('status');
 const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(36,1,.01,400);
 const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.setPixelRatio(Math.min(devicePixelRatio,2));
