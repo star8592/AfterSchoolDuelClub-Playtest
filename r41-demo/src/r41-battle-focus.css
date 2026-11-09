@@ -1,0 +1,28 @@
+/* R41: controlled battle camera + compact, legible real-event feedback. */
+#arena-r41-camera,#arena-r41-replay{white-space:nowrap;font-size:11px;padding:6px 10px;min-height:32px}
+#arena-r41-camera[aria-pressed="true"]{background:#5b422e;color:#ffebc6;border-color:#e9c38b}
+#arena-r41-current{font-size:10px;color:#d5e3ec;flex:1 1 190px;min-width:0;
+  overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.arena-head{flex-wrap:wrap;align-items:center;row-gap:5px}
+.arena-head #arena-scene-status{flex:1 1 auto;text-align:right;white-space:nowrap}
+#arena-r40-feedback{top:8%;width:min(70%,490px);padding:9px 13px;
+  background:linear-gradient(135deg,rgba(11,28,47,.94),rgba(40,26,34,.88));
+  border-color:rgba(246,199,129,.72);box-shadow:0 6px 22px rgba(0,0,0,.3)}
+#arena-r40-feedback .arena-r40-lane{font-size:10px}
+#arena-r40-feedback .arena-r40-damage{font-size:clamp(15px,1.65vw,22px)}
+/* Real 3D canvas receives its zoom from the Three.js camera; CSS only refines
+   placeholder silhouettes, and never changes hit targets or gameplay. */
+#arena-scene[data-camera="close"] .arena-cast:not([data-r23-real-model="true"]) .arena-figure{
+  scale:1.08;transform-origin:center bottom;
+}
+#arena-scene[data-camera="close"] .arena-depth-mid{filter:saturate(1.08) contrast(1.07)}
+#arena-scene .arena-cast{will-change:transform}
+@media(max-width:760px){
+ #arena-r41-current{order:5;flex:1 1 100%;font-size:10px;white-space:normal;line-height:1.4}
+ #arena-r41-camera,#arena-r41-replay{font-size:10px;padding:5px 8px;min-height:34px}
+ .arena-head #arena-scene-status{flex:1 1 100%;text-align:left}
+ #arena-r40-feedback{top:9%;width:min(84%,330px);padding:7px 9px}
+}
+@media(prefers-reduced-motion:reduce){
+ #arena-scene[data-camera="close"] .arena-figure{transition:none}
+}
