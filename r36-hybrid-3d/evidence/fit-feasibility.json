@@ -1,0 +1,52 @@
+{
+  "asset_a": "R30 rigged param body 163 bones",
+  "asset_b": "R34 pixal static one-piece 934k-tris",
+  "uniform_stature_scale": 2.0479,
+  "target_foot_offset_z": 0.9305,
+  "distance_is_not_semantic_or_topology_matching": true,
+  "regions": [
+    {
+      "name": "base_male_body",
+      "samples": 1106,
+      "median_nearest_surface_distance_m": 0.069,
+      "p90_distance_m": 0.203,
+      "within_3cm_pct": 19.4,
+      "within_10cm_pct": 70.2
+    },
+    {
+      "name": "M01_ACTUAL_3D_SKINNED_PIANO_LINED_COAT_TAIL_LEFT",
+      "samples": 1160,
+      "median_nearest_surface_distance_m": 0.048,
+      "p90_distance_m": 0.139,
+      "within_3cm_pct": 32.3,
+      "within_10cm_pct": 79.2
+    },
+    {
+      "name": "M01_ACTUAL_3D_SKINNED_PIANO_LINED_COAT_TAIL_RIGHT",
+      "samples": 1160,
+      "median_nearest_surface_distance_m": 0.107,
+      "p90_distance_m": 0.191,
+      "within_3cm_pct": 15.5,
+      "within_10cm_pct": 47.0
+    },
+    {
+      "name": "M01_CC0_CulturaLibre_sculpted_short_wavy_hair",
+      "samples": 1102,
+      "median_nearest_surface_distance_m": 0.099,
+      "p90_distance_m": 0.175,
+      "within_3cm_pct": 18.9,
+      "within_10cm_pct": 50.7
+    },
+    {
+      "name": "M01_true_MakeHuman_CC0_formal_woven_suit_SKINNED",
+      "samples": 1116,
+      "median_nearest_surface_distance_m": 0.041,
+      "p90_distance_m": 0.132,
+      "within_3cm_pct": 41.0,
+      "within_10cm_pct": 83.0
+    }
+  ],
+  "data_transfer_can_use_nearest_face_only_after_local_part_correspondence": true,
+  "full_model_vertex_weight_transfer_approved": false,
+  "hybrid_merged": false
+}

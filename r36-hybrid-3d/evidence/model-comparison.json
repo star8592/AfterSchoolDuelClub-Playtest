@@ -1,0 +1,871 @@
+{
+  "r34_pixal": {
+    "file": "/home/master/projects/after-school-duel-r34-true3d-20261109/r34-music-3d/model/M01_candidate.glb",
+    "objects": 1,
+    "meshes": 1,
+    "arms": 0,
+    "bones": 0,
+    "total_triangles": 934492,
+    "bounds": [
+      [
+        -0.2826,
+        -0.3418,
+        -0.4544
+      ],
+      [
+        0.2737,
+        0.2959,
+        0.4539
+      ]
+    ],
+    "top_meshes": [
+      {
+        "name": "Mesh_0",
+        "tris": 934492,
+        "verts": 822984,
+        "bounds": [
+          [
+            -0.283,
+            -0.342,
+            -0.454
+          ],
+          [
+            0.274,
+            0.296,
+            0.454
+          ]
+        ],
+        "material": [
+          "Material_0"
+        ],
+        "modifiers": [],
+        "vertexgroups": 0,
+        "shapekeys": 0
+      }
+    ]
+  },
+  "r30_param": {
+    "file": "/home/master/projects/after-school-duel-r30-face-20261109/labs/music-teacher-r28/assets/model/M01_Adult_Suit3_Rigged_Prototype.glb",
+    "objects": 33,
+    "meshes": 32,
+    "arms": 1,
+    "bones": 163,
+    "total_triangles": 231201,
+    "bounds": [
+      [
+        -0.9511,
+        -1.0,
+        -1.0
+      ],
+      [
+        0.9511,
+        1.0,
+        1.8596
+      ]
+    ],
+    "top_meshes": [
+      {
+        "name": "base_male_body",
+        "tris": 96935,
+        "verts": 66337,
+        "bounds": [
+          [
+            -0.593,
+            -0.388,
+            0.001
+          ],
+          [
+            0.593,
+            0.1,
+            1.786
+          ]
+        ],
+        "material": [
+          "base_male clay"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_PRECISION_SPECTACLES_1",
+        "tris": 31584,
+        "verts": 17121,
+        "bounds": [
+          [
+            0.019,
+            -0.168,
+            1.665
+          ],
+          [
+            0.083,
+            -0.164,
+            1.701
+          ]
+        ],
+        "material": [
+          "R30_very_thin_gold_spectacles"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_PRECISION_SPECTACLES_-1",
+        "tris": 31584,
+        "verts": 17121,
+        "bounds": [
+          [
+            -0.083,
+            -0.168,
+            1.665
+          ],
+          [
+            -0.019,
+            -0.164,
+            1.701
+          ]
+        ],
+        "material": [
+          "R30_very_thin_gold_spectacles"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "M01_true_MakeHuman_CC0_formal_woven_suit_SKINNED",
+        "tris": 16250,
+        "verts": 32347,
+        "bounds": [
+          [
+            -0.58,
+            -0.32,
+            0.001
+          ],
+          [
+            0.583,
+            0.152,
+            1.79
+          ]
+        ],
+        "material": [
+          "M01_crafted_royal_claret_formal_suit_CC0"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "M01_CC0_CulturaLibre_sculpted_short_wavy_hair",
+        "tris": 14688,
+        "verts": 44052,
+        "bounds": [
+          [
+            -0.112,
+            -0.218,
+            1.58
+          ],
+          [
+            0.186,
+            0.076,
+            1.86
+          ]
+        ],
+        "material": [
+          "R30_aged_dramatic_ebony_ash_hair"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "M01_ACTUAL_3D_SKINNED_PIANO_LINED_COAT_TAIL_LEFT",
+        "tris": 3116,
+        "verts": 2320,
+        "bounds": [
+          [
+            0.157,
+            -0.195,
+            0.365
+          ],
+          [
+            0.451,
+            -0.073,
+            1.07
+          ]
+        ],
+        "material": [
+          "M01_wine_violet_brocade",
+          "M01_antique_gold_tailcoat_embroidered_edge",
+          "M01_ivory_keyboard_lining",
+          "M01_ebony_keyboard_lining"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "M01_ACTUAL_3D_SKINNED_PIANO_LINED_COAT_TAIL_RIGHT",
+        "tris": 3116,
+        "verts": 2320,
+        "bounds": [
+          [
+            -0.451,
+            -0.195,
+            0.365
+          ],
+          [
+            -0.157,
+            -0.073,
+            1.07
+          ]
+        ],
+        "material": [
+          "M01_wine_violet_brocade",
+          "M01_antique_gold_tailcoat_embroidered_edge",
+          "M01_ivory_keyboard_lining",
+          "M01_ebony_keyboard_lining"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "base_male_body.high-poly",
+        "tris": 2040,
+        "verts": 1076,
+        "bounds": [
+          [
+            -0.046,
+            -0.147,
+            1.661
+          ],
+          [
+            0.046,
+            -0.121,
+            1.691
+          ]
+        ],
+        "material": [
+          "base_male clay"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_ANGULAR_THICK_BROW_1",
+        "tris": 2016,
+        "verts": 1105,
+        "bounds": [
+          [
+            0.017,
+            -0.159,
+            1.714
+          ],
+          [
+            0.096,
+            -0.113,
+            1.738
+          ]
+        ],
+        "material": [
+          "R30_charcoal_swept_brows"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_ANGULAR_THICK_BROW_-1",
+        "tris": 2016,
+        "verts": 1105,
+        "bounds": [
+          [
+            -0.096,
+            -0.159,
+            1.714
+          ],
+          [
+            -0.017,
+            -0.113,
+            1.738
+          ]
+        ],
+        "material": [
+          "R30_charcoal_swept_brows"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_REAL_MOUSTACHE_1",
+        "tris": 2016,
+        "verts": 1105,
+        "bounds": [
+          [
+            -0.001,
+            -0.164,
+            1.602
+          ],
+          [
+            0.056,
+            -0.147,
+            1.622
+          ]
+        ],
+        "material": [
+          "R30_salt_pepper_moustache_goatee"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_REAL_MOUSTACHE_-1",
+        "tris": 2016,
+        "verts": 1105,
+        "bounds": [
+          [
+            -0.056,
+            -0.164,
+            1.602
+          ],
+          [
+            0.001,
+            -0.147,
+            1.622
+          ]
+        ],
+        "material": [
+          "R30_salt_pepper_moustache_goatee"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_UPPER_LID_1",
+        "tris": 2016,
+        "verts": 1105,
+        "bounds": [
+          [
+            0.024,
+            -0.162,
+            1.687
+          ],
+          [
+            0.078,
+            -0.138,
+            1.698
+          ]
+        ],
+        "material": [
+          "R30_skin_edge_shadows"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_UPPER_LID_-1",
+        "tris": 2016,
+        "verts": 1105,
+        "bounds": [
+          [
+            -0.078,
+            -0.162,
+            1.687
+          ],
+          [
+            -0.024,
+            -0.138,
+            1.698
+          ]
+        ],
+        "material": [
+          "R30_skin_edge_shadows"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_CHIN_BEARD_TIP",
+        "tris": 1344,
+        "verts": 741,
+        "bounds": [
+          [
+            -0.005,
+            -0.146,
+            1.493
+          ],
+          [
+            0.012,
+            -0.132,
+            1.541
+          ]
+        ],
+        "material": [
+          "R30_salt_pepper_moustache_goatee"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_GLASSES_TEMPLE_1",
+        "tris": 1344,
+        "verts": 741,
+        "bounds": [
+          [
+            0.079,
+            -0.164,
+            1.684
+          ],
+          [
+            0.121,
+            -0.09,
+            1.693
+          ]
+        ],
+        "material": [
+          "R30_very_thin_gold_spectacles"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_GLASSES_TEMPLE_-1",
+        "tris": 1344,
+        "verts": 741,
+        "bounds": [
+          [
+            -0.121,
+            -0.164,
+            1.684
+          ],
+          [
+            -0.079,
+            -0.09,
+            1.693
+          ]
+        ],
+        "material": [
+          "R30_very_thin_gold_spectacles"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_LOWER_LID_1",
+        "tris": 1344,
+        "verts": 741,
+        "bounds": [
+          [
+            0.025,
+            -0.162,
+            1.671
+          ],
+          [
+            0.072,
+            -0.142,
+            1.68
+          ]
+        ],
+        "material": [
+          "R30_mature_sculpted_warm_skin"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_LOWER_LID_-1",
+        "tris": 1344,
+        "verts": 741,
+        "bounds": [
+          [
+            -0.072,
+            -0.162,
+            1.671
+          ],
+          [
+            -0.025,
+            -0.142,
+            1.68
+          ]
+        ],
+        "material": [
+          "R30_mature_sculpted_warm_skin"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_NOSE_BRIDGE_GLASSES",
+        "tris": 1344,
+        "verts": 741,
+        "bounds": [
+          [
+            -0.015,
+            -0.175,
+            1.686
+          ],
+          [
+            0.015,
+            -0.165,
+            1.696
+          ]
+        ],
+        "material": [
+          "R30_very_thin_gold_spectacles"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_CHIN_GOATEE",
+        "tris": 1216,
+        "verts": 691,
+        "bounds": [
+          [
+            -0.022,
+            -0.143,
+            1.501
+          ],
+          [
+            0.022,
+            -0.121,
+            1.577
+          ]
+        ],
+        "material": [
+          "R30_salt_pepper_moustache_goatee"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_IRIS_1",
+        "tris": 1216,
+        "verts": 691,
+        "bounds": [
+          [
+            0.045,
+            -0.163,
+            1.673
+          ],
+          [
+            0.058,
+            -0.158,
+            1.686
+          ]
+        ],
+        "material": [
+          "R30_amber_iris"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_IRIS_-1",
+        "tris": 1216,
+        "verts": 691,
+        "bounds": [
+          [
+            -0.057,
+            -0.163,
+            1.673
+          ],
+          [
+            -0.044,
+            -0.158,
+            1.686
+          ]
+        ],
+        "material": [
+          "R30_amber_iris"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_PUPIL_1",
+        "tris": 1216,
+        "verts": 691,
+        "bounds": [
+          [
+            0.048,
+            -0.165,
+            1.676
+          ],
+          [
+            0.054,
+            -0.163,
+            1.684
+          ]
+        ],
+        "material": [
+          "R30_eye_pupil"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_PUPIL_-1",
+        "tris": 1216,
+        "verts": 691,
+        "bounds": [
+          [
+            -0.054,
+            -0.165,
+            1.676
+          ],
+          [
+            -0.048,
+            -0.163,
+            1.684
+          ]
+        ],
+        "material": [
+          "R30_eye_pupil"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_REAL_ADULT_EYE_WHITE_1",
+        "tris": 1216,
+        "verts": 691,
+        "bounds": [
+          [
+            0.031,
+            -0.159,
+            1.672
+          ],
+          [
+            0.071,
+            -0.145,
+            1.687
+          ]
+        ],
+        "material": [
+          "R30_eyeball_ivory"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_REAL_ADULT_EYE_WHITE_-1",
+        "tris": 1216,
+        "verts": 691,
+        "bounds": [
+          [
+            -0.071,
+            -0.159,
+            1.672
+          ],
+          [
+            -0.031,
+            -0.145,
+            1.687
+          ]
+        ],
+        "material": [
+          "R30_eyeball_ivory"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_SINGING_MOUTH_CAVITY",
+        "tris": 1216,
+        "verts": 691,
+        "bounds": [
+          [
+            -0.014,
+            -0.158,
+            1.561
+          ],
+          [
+            0.014,
+            -0.15,
+            1.593
+          ]
+        ],
+        "material": [
+          "R30_open_singing_mouth"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_VISIBLE_UPPER_TEETH",
+        "tris": 1216,
+        "verts": 691,
+        "bounds": [
+          [
+            -0.01,
+            -0.161,
+            1.581
+          ],
+          [
+            0.01,
+            -0.157,
+            1.587
+          ]
+        ],
+        "material": [
+          "R30_upper_teeth_pale"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_EYE_LIGHT_1",
+        "tris": 352,
+        "verts": 219,
+        "bounds": [
+          [
+            0.049,
+            -0.165,
+            1.682
+          ],
+          [
+            0.051,
+            -0.164,
+            1.684
+          ]
+        ],
+        "material": [
+          "R30_eyeball_ivory"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "R30_EYE_LIGHT_-1",
+        "tris": 352,
+        "verts": 219,
+        "bounds": [
+          [
+            -0.051,
+            -0.165,
+            1.682
+          ],
+          [
+            -0.049,
+            -0.164,
+            1.684
+          ]
+        ],
+        "material": [
+          "R30_eyeball_ivory"
+        ],
+        "modifiers": [
+          "ARMATURE"
+        ],
+        "vertexgroups": 163,
+        "shapekeys": 0
+      },
+      {
+        "name": "Icosphere",
+        "tris": 80,
+        "verts": 42,
+        "bounds": [
+          [
+            -0.951,
+            -1.0,
+            -1.0
+          ],
+          [
+            0.951,
+            1.0,
+            1.0
+          ]
+        ],
+        "material": [],
+        "modifiers": [],
+        "vertexgroups": 0,
+        "shapekeys": 0
+      }
+    ]
+  }
+}
