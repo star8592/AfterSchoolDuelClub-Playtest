@@ -7,7 +7,7 @@ import {createPerformanceDirector} from './director.mjs';
 import {createPresenceTracker} from './presence.mjs';
 import {createCombatFeedbackR40} from './combat-feedback-r40.mjs';
 import {ART_LAB_ACTOR} from './art-lab-stub.mjs';
-import {createCardModelStage} from './card-model-stage-r23.bundle.js';
+import {createCardModelStage} from './card-model-stage-r23.mjs';
 
 const $ = id => document.getElementById(id);
 const params = new URLSearchParams(location.search);
@@ -34,6 +34,30 @@ const stableUnits=new Map();
 const stableLanes=[];
 const cardModelsR23=createCardModelStage(document.getElementById('arena-scene'));
 const combatFeedbackR40=createCombatFeedbackR40({onFocus:lane=>{focusedLane=lane;renderArena();}});
+let closeBattleCamera=false;
+const cameraToggle=$('arena-r41-camera');
+cameraToggle?.addEventListener('click',()=>{
+ closeBattleCamera=!closeBattleCamera;
+ cardModelsR23.setCameraMode(closeBattleCamera?'close':'wide');
+ cameraToggle.setAttribute('aria-pressed',String(closeBattleCamera));
+ cameraToggle.textContent='镜头：'+(closeBattleCamera?'近景':'全景');
+ $('arena-scene').dataset.camera=closeBattleCamera?'close':'wide';
+});
+$('arena-r41-replay')?.addEventListener('click',()=>combatFeedbackR40.qa.replay());
+window.addEventListener('asdc:real-events-r19',()=>{
+ const history=combatFeedbackR40.qa.events;
+ if(!history.length)return;
+ $('arena-r41-current').textContent='最近：'+history[0].summary;
+ $('arena-r41-replay').disabled=false;
+});
+if(params.get('qaR41')==='1')Object.defineProperty(window,'__r41HUDQA',{
+ value:{get camera(){return cardModelsR23.qa.cameraMode},
+ get current(){return $('arena-r41-current').textContent},
+ get canReplay(){return !$('arena-r41-replay').disabled},
+ get motion(){return {attacks:cardModelsR23.qa.visualAttackTriggers,
+  hits:cardModelsR23.qa.visualHitTriggers,frames:cardModelsR23.qa.activeAttackFrames,
+  hitFrames:cardModelsR23.qa.activeHitFrames,serials:cardModelsR23.qa.attackSerials}}}
+});
 if(params.get('qaR40')==='1')Object.defineProperty(window,'__r40CombatQA',{value:combatFeedbackR40.qa});
 const MOTION_PRIORITY=['hurt','block','shield','relocate','summon','powerup'];
 function sameChildren(container,children){
@@ -510,6 +534,8 @@ function nextTurn() {
 function restart(seed=Date.now()) {
   stageDirector.reset();
   combatFeedbackR40.reset();
+  $('arena-r41-current').textContent='本局尚无交锋';
+  $('arena-r41-replay').disabled=true;
   presenceTracker.reset();
   stableUnits.clear();
   stableLanes.length=0;
