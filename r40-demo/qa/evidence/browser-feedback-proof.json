@@ -1,0 +1,126 @@
+[
+  {
+    "device": "desktop",
+    "seed": 5,
+    "http": 200,
+    "combat": {
+      "events": [
+        {
+          "serial": 9,
+          "summary": "教室 · 食堂隐藏菜单 → 对方人气 · 造成 2 点伤害",
+          "side": "ai",
+          "lane": 0,
+          "damage": 2,
+          "retaliation": 0
+        },
+        {
+          "serial": 6,
+          "summary": "教室 · 拐弯纸飞机 → 食堂隐藏菜单 · 造成 2 点伤害 · 反击 3",
+          "side": "player",
+          "lane": 0,
+          "damage": 2,
+          "retaliation": 3
+        }
+      ],
+      "shown": true,
+      "lastPlayed": 9,
+      "label": "食堂隐藏菜单 → 对方人气",
+      "damage": "造成 2 点伤害",
+      "retaliation": "",
+      "historyCount": 2,
+      "hiddenHistory": false,
+      "laneFocus": "0",
+      "viewportHeight": 850
+    },
+    "before": {
+      "round": "03",
+      "hp": "18",
+      "enemyHP": "20",
+      "energy": "✧ 4",
+      "hand": [
+        "E01",
+        "E06",
+        "T05",
+        "G01",
+        "G06",
+        "T05"
+      ]
+    },
+    "after": {
+      "round": "03",
+      "hp": "18",
+      "enemyHP": "20",
+      "energy": "✧ 4",
+      "hand": [
+        "E01",
+        "E06",
+        "T05",
+        "G01",
+        "G06",
+        "T05"
+      ]
+    },
+    "sameState": true,
+    "exact": true,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "mobile",
+    "seed": 4,
+    "http": 200,
+    "combat": {
+      "events": [
+        {
+          "serial": 6,
+          "summary": "教室 · 拐弯纸飞机 → 对方人气 · 造成 2 点伤害",
+          "side": "player",
+          "lane": 0,
+          "damage": 2,
+          "retaliation": 0
+        }
+      ],
+      "shown": true,
+      "lastPlayed": 6,
+      "label": "拐弯纸飞机 → 对方人气",
+      "damage": "造成 2 点伤害",
+      "retaliation": "",
+      "historyCount": 1,
+      "hiddenHistory": false,
+      "laneFocus": "0",
+      "viewportHeight": 900
+    },
+    "before": {
+      "round": "03",
+      "hp": "20",
+      "enemyHP": "18",
+      "energy": "✧ 4",
+      "hand": [
+        "E01",
+        "G02",
+        "E05",
+        "E05",
+        "T05",
+        "T04"
+      ]
+    },
+    "after": {
+      "round": "03",
+      "hp": "20",
+      "enemyHP": "18",
+      "energy": "✧ 4",
+      "hand": [
+        "E01",
+        "G02",
+        "E05",
+        "E05",
+        "T05",
+        "T04"
+      ]
+    },
+    "sameState": true,
+    "exact": true,
+    "errors": [],
+    "passed": true
+  }
+]
