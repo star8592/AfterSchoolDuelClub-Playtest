@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hans" data-model-base="../r18-premium/assets/model/" data-t01-base="./assets/model/"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#09101d">
+<title>R21 · E01/G01/T01 三角色原创试装</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#faf8f2}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#0b1421}
+main{height:100dvh;display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+header{background:#121e2d;padding:10px clamp(12px,2vw,32px);display:flex;align-items:center;justify-content:space-between;gap:15px;min-height:88px}
+h1{font-size:clamp(16px,2.1vw,25px);margin:0 0 5px}
+.sub{font-size:11px;line-height:1.45;color:#acbdd1}
+.controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+button{background:#233950;color:#eaf1f8;border:1px solid #60778d;border-radius:9px;padding:9px 13px;min-height:36px;font-weight:700;font-size:12px;cursor:pointer}
+button[aria-pressed="true"]{background:#d4b06f;color:#13202e;border-color:#efdaaa}
+button:focus-visible{outline:2px solid #f9dfa1;outline-offset:2px}
+.stage{position:relative;min-height:0;overflow:hidden}
+canvas{display:block;width:100%;height:100%}
+#loading{position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:#09101ddc;z-index:5;font-size:clamp(15px,2vw,21px);padding:20px}
+#loading[hidden]{display:none}
+#status{position:absolute;bottom:13px;left:13px;max-width:80%;padding:7px 12px;background:#091320d9;border:1px solid #60768a;border-radius:8px;font-size:12px;color:#f1eadb;z-index:2;pointer-events:none}
+#tag{position:absolute;right:14px;top:15px;padding:6px 11px;background:#14253fdb;border:1px solid #8ea6c0;border-radius:7px;font-size:11px;color:#e7efff;z-index:2}
+footer{display:flex;justify-content:space-between;gap:12px;background:#121e2d;min-height:35px;align-items:center;padding:8px 14px;font-size:11px;color:#afc2d3}
+footer a{color:#f4d392}
+@media(max-width:850px){header{display:block;padding:6px 9px;min-height:113px}h1{font-size:16px;margin:0} .sub{font-size:9px} .controls{margin-top:6px;justify-content:flex-start;gap:5px}button{padding:5px 8px;font-size:10px;min-height:30px}#status{font-size:9px;max-width:95%;bottom:6px;left:6px}footer{font-size:9px;padding:5px 9px;align-items:flex-start;flex-direction:column;gap:2px}}
+</style>
+</head><body>
+<main>
+<header>
+<div><h1>R21 · E01 / G01 / T01 三角色高精细试装</h1>
+<div class="sub">以 R18 原版 CC0 VRM 为基础：服装配色、头饰、装备差异与非同步动作试装；可同镜头一键切回 R18，尚未完成原创脸型与专业战斗动画</div></div>
+<div class="controls">
+<button id="compare" aria-pressed="true">三角色试装 / 官方原版对比</button>
+<button id="duo" aria-pressed="true">双人同屏</button>
+<button id="female" aria-pressed="false">女学生·脸部</button>
+<button id="male" aria-pressed="false">男学生·脸部</button>
+<button id="broadcaster" aria-pressed="false">T01 · 播音员近景</button>
+<button id="front" aria-pressed="false">全身</button>
+<button id="gesture" aria-pressed="true">肢体+表情</button>
+<button id="turn" aria-pressed="false">旋转展示</button>
+</div>
+</header>
+<section class="stage" aria-label="实时真实3D两名动漫人物演示">
+<canvas id="stage"></canvas>
+<div id="tag">R21 T01首版 · 三维VRM试装，未通过最终美术验收</div>
+<div id="loading" role="status">正在加载两名真正的动漫 VRM 三维角色模型…</div>
+<div id="status">正在核对 CC0 来源、全身骨骼、头发和表情</div>
+</section>
+<footer>
+<span>R18基础模型© pixiv/VRoid Project 旧版 CC0；R21为 E01/G01/T01 配色与道具试装，脸型、服装、发型网格、专业战斗动作仍未完成；不是最终原创角色。</span>
+<span><a href="https://vroid.pixiv.help/hc/en-us/articles/360013482714-Sendagaya-Shino" target="_blank" rel="noreferrer">女性官方许可</a> · <a href="https://vroid.pixiv.help/hc/en-us/articles/360014788554-Sakurada-Fumiriya" target="_blank" rel="noreferrer">男性官方许可</a></span>
+</footer>
+</main>
+<script type="module" src="./dist/main.js"></script>
+</body></html>
