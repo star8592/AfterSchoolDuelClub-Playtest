@@ -1,0 +1,38 @@
+{
+  "modelProof": [
+    {
+      "id": "E02",
+      "loaded": true,
+      "meshes": 17,
+      "triangles": 17170,
+      "active": [
+        {
+          "side": "player",
+          "id": "E02",
+          "uid": "U2"
+        }
+      ],
+      "frames": 1,
+      "summonEvents": 1,
+      "errors": []
+    },
+    {
+      "id": "T02",
+      "loaded": true,
+      "meshes": 41,
+      "triangles": 39216,
+      "active": [
+        {
+          "side": "player",
+          "id": "T02",
+          "uid": "U2"
+        }
+      ],
+      "frames": 1,
+      "summonEvents": 1,
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

@@ -1,0 +1,124 @@
+[
+  {
+    "device": "desktop",
+    "http": 200,
+    "launchBefore": {
+      "cardCount": 5,
+      "lanes": 3,
+      "previewButton": "▶ 观看双人3D战斗",
+      "liveButton": "3D交锋：已开启",
+      "performanceInitiallyHidden": true,
+      "musicButtonExists": false
+    },
+    "source": "http://127.0.0.1:10965/r14-3d/labs/duel-motion-r01/index.html?embedLiveR14=on&soleR13=on&fightFXR14=on&cameraR09=on&cameraSafetyR13=on&campusGymR07=on&lookR10=on&lightR11=on",
+    "playing": true,
+    "child": {
+      "ready": true,
+      "rigs": [
+        {
+          "name": "player",
+          "skins": 17,
+          "clips": 76
+        },
+        {
+          "name": "opponent",
+          "skins": 18,
+          "clips": 76
+        }
+      ],
+      "active": {
+        "active": true,
+        "mode": "demo",
+        "source": "INDEPENDENT_CORE_DEMO",
+        "damage": 3,
+        "blocked": 0,
+        "retaliation": 1,
+        "serial": 2,
+        "originalActors": 2,
+        "artApproved": false,
+        "voiceAutoplay": false
+      },
+      "draws": {
+        "calls": 259,
+        "triangles": 126740,
+        "drawUnits": 35,
+        "approved": false
+      }
+    },
+    "onstage": {
+      "hidden": false,
+      "phase": "live-3d",
+      "status": "playing",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 900
+      },
+      "aria": "卡牌召唤与战斗演出预览"
+    },
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "mobile",
+    "http": 200,
+    "launchBefore": {
+      "cardCount": 5,
+      "lanes": 3,
+      "previewButton": "▶ 观看双人3D战斗",
+      "liveButton": "3D交锋：已开启",
+      "performanceInitiallyHidden": true,
+      "musicButtonExists": false
+    },
+    "source": "http://127.0.0.1:10965/r14-3d/labs/duel-motion-r01/index.html?embedLiveR14=on&soleR13=on&fightFXR14=on&cameraR09=on&cameraSafetyR13=on&campusGymR07=on&lookR10=on&lightR11=on",
+    "playing": true,
+    "child": {
+      "ready": true,
+      "rigs": [
+        {
+          "name": "player",
+          "skins": 17,
+          "clips": 76
+        },
+        {
+          "name": "opponent",
+          "skins": 18,
+          "clips": 76
+        }
+      ],
+      "active": {
+        "active": true,
+        "mode": "demo",
+        "source": "INDEPENDENT_CORE_DEMO",
+        "damage": 3,
+        "blocked": 0,
+        "retaliation": 1,
+        "serial": 2,
+        "originalActors": 2,
+        "artApproved": false,
+        "voiceAutoplay": false
+      },
+      "draws": {
+        "calls": 202,
+        "triangles": 120596,
+        "drawUnits": 35,
+        "approved": false
+      }
+    },
+    "onstage": {
+      "hidden": false,
+      "phase": "live-3d",
+      "status": "playing",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 430,
+        "height": 900
+      },
+      "aria": "卡牌召唤与战斗演出预览"
+    },
+    "errors": [],
+    "passed": true
+  }
+]
