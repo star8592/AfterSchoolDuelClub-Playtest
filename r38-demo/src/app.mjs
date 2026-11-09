@@ -413,10 +413,13 @@ function checkEvents(){
       }))
     }}));
   }
-  // R19 home replaces the previous low-fidelity CSS/performance actors.
-  // Keep original art performance for standalone/offline fallback only.
-  if(typeof window==='undefined'||!document.getElementById('home3d-r19'))
-    stageDirector.enqueue([...compilePerformances(fresh,{theme}),...compileTurnPerformances(fresh,{theme})].sort((a,b)=>a.event_serial-b.event_serial));
+  // R39: DO NOT suppress battle performance just because the 3D hero exists.
+  // Only replay damage/exchange events actually emitted by the canonical core;
+  // source game state is NEVER mutated by the director.
+  if(theme==='campus'&&fresh.some(e=>e.type==='exchange'||e.type==='direct_hit'))
+    stageDirector.enqueue(compileTurnPerformances(fresh,{theme}));
+  else if(!document.getElementById('home3d-r19'))
+    stageDirector.enqueue(compilePerformances(fresh,{theme}));
 }
 function renderTutorial() {
   const status=tutorialStatus(game);
@@ -480,7 +483,9 @@ function deploy(lane) {
   selected=null;checkEvents();render();
   setMessage(game.tutorial?.completed?
     EPISODES[game.tutorial.level-1].successText+' 点击「'+(game.tutorial.level<EPISODES.length?'下一关':'进入自由对战')+'」继续。':
-    '出牌成功。你可以继续出牌，或点击「结束回合」。');
+    (BY_ID[cardId]?.kind==='unit'?
+      '「'+presentation(BY_ID[cardId],theme).name+'」已部署！人物本回合先待命。点击「结束回合」，等到下次轮到你时才会自动攻击同一战线的对手。':
+      '事件牌已生效。你可以继续出牌，或点击「结束回合」。'));
   if(tutorialStep(game) && matchMedia('(max-width: 760px)').matches)
     $('hand').scrollIntoView?.({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'});
 }
@@ -493,6 +498,8 @@ function nextTurn() {
   track('turn_ended');
   selected=null;endTurn(game);
   if(game.phase==='playing'&&game.active==='ai')aiTurn(game);
+  const lastCombat=[...game.events].reverse().find(e=>e.type==='exchange'||e.type==='direct_hit');
+  if(lastCombat?.lane!==undefined)focusedLane=lastCombat.lane;
   checkEvents();render();
   setMessage(game.phase==='ended'?'本局结束，请查看战报。':'AI 已行动，轮到你了。');
 }
@@ -613,4 +620,8 @@ if(params.get('qaLiveR14')==='1')globalThis.__asdcLiveR14QA={
  },
  get stageStatus(){return stageDirector.live3DStatus;}
 };
+// R39: game starts with true 3D combat enabled for eligible E01↔G01 exchanges.
+stageDirector.setLive3DEnabled(true);
+$('stage3d-mode').textContent='3D交锋：已开启';
+$('stage3d-mode').setAttribute('aria-pressed','true');
 restart(Number(params.get('seed'))||Date.now());

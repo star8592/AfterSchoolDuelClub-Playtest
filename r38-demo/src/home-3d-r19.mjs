@@ -9,7 +9,7 @@ const section=$('home3d-r19'),frame=$('home3d-r19-iframe');
 const status=$('home3d-r19-status'),loading=$('home3d-r19-loading');
 const start=$('home3d-start'),models=$('home3d-models');
 // GitHub Pages serves this project under a repository path prefix.
-const publicPath=(/\/(?:r25-game|r38-demo)\//.test(location.pathname));
+const publicPath=(/\/(?:r25-game|r38-demo|r39-demo)\//.test(location.pathname));
 const source=publicPath?'../r22-depth/index.html?embedR22=1':'./labs/premium-character-r22/index.html?embedR22=1';
 const url=new URL(source,location.href);
 let loaded=false,failed=false,pending=[];
@@ -57,8 +57,9 @@ function enterGame(){
  document.body.dataset.home3d='playing';
  qa.mode='playing';
  update(loaded?'对局可操作 · 3D人物仍在同一主页':'对局可操作 · 3D模型继续加载');
- const hand=document.querySelector('.hand-section');
- if(hand)hand.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+ const arena=document.getElementById('cinematic-arena');
+ if(arena)arena.scrollIntoView({behavior:'instant',block:'start'});
+ // The actual hand remains immediately below the arena for player actions.
 }
 start.addEventListener('click',enterGame);
 models.addEventListener('click',()=>{
@@ -132,4 +133,12 @@ summonsBtn.addEventListener('click',()=>{
  arena?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'});
  const preview=document.getElementById('arena-r23-preview');
  if(preview?.getAttribute('aria-pressed')!=='true')preview?.click();
+});
+
+// R39: prominent, independent E01 versus G01 real-GLB battle showcase.
+// This is deliberately NOT disguised as the outcome of the current match.
+const fightBtn=$('home3d-r39-fight');
+fightBtn?.addEventListener('click',()=>{
+ const demo=$('stage3d-demo');
+ demo?.click();
 });
