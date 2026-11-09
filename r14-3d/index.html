@@ -34,10 +34,11 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:8px;
  padding:7px clamp(12px,2vw,30px);background:#101a29;border-top:1px solid #3a4555;
  font-size:11px;color:#aebccd;min-height:34px}
 #status{color:#bbe5d4;font-weight:700}
+button[aria-pressed="true"]{outline:1px solid #dfb877}
 @media(max-width:720px){
  header{min-height:82px;align-items:flex-start;gap:5px;flex-direction:column;padding:7px 11px}
  header h1{font-size:17px}header p{font-size:10px}
- .controls{gap:6px}button{min-height:29px;font-size:11px;padding:5px 9px}
+ .controls{gap:5px}button{min-height:29px;font-size:10px;padding:5px 8px}
  footer{padding:5px 9px;font-size:9px}
  #quality{font-size:9px;bottom:5px;left:5px}
 }
@@ -51,6 +52,8 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:8px;
 <p>E01「铃声追不上」 × G01「橡皮筋建筑师」 · 原创 GLB 骨骼动画 · WebGL2</p>
 </div>
 <div class="controls">
+<button id="camera-close" type="button" class="primary" aria-pressed="true">人物近景</button>
+<button id="camera-wide" type="button" aria-pressed="false">双人全景</button>
 <button class="primary" id="replay" type="button">重新播放</button>
 <button id="reload" type="button">重新加载 3D</button>
 </div>
@@ -61,20 +64,23 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:8px;
 <div id="loading" role="status">正在加载真实的两套 GLB 角色与 WebGL3D 场景…</div>
 <div id="quality">真实三维模型与骨骼动画 · 当前角色仍为程序化造型研发原型，未达到最终原画品质</div>
 </section>
-<footer><span id="status">检查 WebGL2 与角色资源…</span><span>3D 专用试玩 · 已移除旧 2.5D 卡牌画面 · 无背景音乐</span></footer>
+<footer><span id="status">检查 WebGL2 与角色资源…</span><span>R16 实际骨骼近景 / 全景切换 · 仅研发美术 · 无背景音乐</span></footer>
 </main>
 <script type="module">
 const frame=document.getElementById('real3d');
 const loading=document.getElementById('loading');
 const status=document.getElementById('status');
 const btnReplay=document.getElementById('replay');
+const cameraClose=document.getElementById('camera-close');
+const cameraWide=document.getElementById('camera-wide');
 const DEMO=Object.freeze({
  type:'ASDC_R14_LIVE_EXCHANGE',mode:'demo',actor:'E01',target:'G01',
  source:'INDEPENDENT_CORE_GENERATED_DEMO_NOT_CURRENT_MATCH',
  autoplayVoice:false,previewArtApproved:false
 });
-const SCENE='./labs/duel-motion-r01/index.html?embedLiveR14=on&soleR13=on&fightFXR14=on&cameraR09=on&cameraSafetyR13=on&campusGymR07=on&lookR10=on&lightR11=on';
+const SCENE='./labs/duel-motion-r01/index.html?embedLiveR14=on&soleR13=on&fightFXR14=on&cameraR09=on&cameraSafetyR13=on&campusGymR07=on&lookR10=on&lightR11=on&actorFirstR16=on&sourceR16=144db49';
 let ready=false,accepted=false,generation=0,loop=null,deadline=null;
+let cameraMode='duo-close';
 const qa={realGLBReady:false,playing:false,rigs:0,artApproved:false,sceneReadySignal:false,loadErrors:[]};
 Object.defineProperty(window,'__r15Public3DQA',{value:qa});
 function report(msg){status.textContent=msg;}
@@ -83,6 +89,22 @@ function play(){
  frame.contentWindow.postMessage(DEMO,location.origin);
  report('实际 GLB 骨骼动画播放中…');
 }
+function chooseCamera(mode){
+ if(mode!=='duo-close'&&mode!=='wide')return;
+ cameraMode=mode;
+ cameraClose.setAttribute('aria-pressed',String(mode==='duo-close'));
+ cameraWide.setAttribute('aria-pressed',String(mode==='wide'));
+ cameraClose.classList.toggle('primary',mode==='duo-close');
+ cameraWide.classList.toggle('primary',mode==='wide');
+ if(ready&&frame.contentWindow?.__duelMotionQA?.setCameraStyleR16){
+  const result=frame.contentWindow.__duelMotionQA.setCameraStyleR16(mode);
+  if(!result?.realGLTF||result.artApproved!==false)
+    throw Error('R16 character-first camera must be actual 3D');
+  report(mode==='duo-close'?'人物近景 · 真实 GLB 镜头':'双人全景 · 真实 GLB 镜头');
+ }
+}
+cameraClose.addEventListener('click',()=>chooseCamera('duo-close'));
+cameraWide.addEventListener('click',()=>chooseCamera('wide'));
 function load(){
  generation++;ready=false;accepted=false;qa.playing=false;qa.realGLBReady=false;
  loading.hidden=false;loading.textContent='正在加载真实 GLB 角色、骨骼与 Three.js WebGL…';
@@ -101,7 +123,7 @@ window.addEventListener('message',event=>{
  if(event.origin!==location.origin||event.source!==frame.contentWindow)return;
  const d=event.data;
  if(d?.type==='ASDC_R14_3D_READY'&&d.originalGLBRigs===2&&d.artApproved===false){
-  ready=true;qa.sceneReadySignal=true;qa.rigs=2;qa.realGLBReady=true;play();
+  ready=true;qa.sceneReadySignal=true;qa.rigs=2;qa.realGLBReady=true;chooseCamera(cameraMode);play();
  }else if(d?.type==='ASDC_R14_3D_ACCEPTED'&&d.mode==='demo'&&d.artApproved===false){
   accepted=true;qa.playing=true;qa.artApproved=false;
   loading.hidden=true;clearTimeout(deadline);clearTimeout(loop);
