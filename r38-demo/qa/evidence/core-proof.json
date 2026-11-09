@@ -1,0 +1,15 @@
+{
+  "ruleEngine": "R25 unchanged core.mjs",
+  "count": 240,
+  "uniqueCardIDs": 18,
+  "cardTotal": 18,
+  "maxRound": 12,
+  "maxTurns": 12,
+  "winners": {
+    "player": 45,
+    "ai": 194,
+    "draw": 1
+  },
+  "methodology": "Deterministic first/last legal-move strategies; NOT evidence of balanced human matches.",
+  "passed": true
+}
