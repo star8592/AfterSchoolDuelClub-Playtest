@@ -28,6 +28,11 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
   // Wood grain expressed through actual individual plank geometry instead of
   // a photograph stretched across the scene.
   box([20,.32,12],[0,-.17,0],navy,'Court_Structure');
+  // Cover the near-floor region when looking back from 180 degrees.
+  // Reversible stands are behind the court from this viewpoint; without
+  // apron geometry R48 shows an empty dark void below the near sideline.
+  box([20,.032,6.55],[0,.004,-9.23],woodA,'R49_North_Court_Apron');
+  box([20,.032,6.55],[0,.004,9.23],woodA,'R49_South_Court_Apron');
   const numPlanks=detail==='low'?14:30;
   const plankGeometry=new THREE.BoxGeometry(20/numPlanks-.01,.036,11.65);
   const planks=new THREE.InstancedMesh(plankGeometry,woodA,numPlanks);
@@ -79,6 +84,40 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     locations.forEach((p,i)=>{tr.position.set(...p);tr.updateMatrix();seats.setMatrixAt(i,tr.matrix)});
     group.add(seats);stats.instancedObjects++;stats.seats+=locations.length;stats.meshCount++;
   }
+  // R49: a complete reverse-facing bank of seating for the 180-degree orbit.
+  // Kept hidden from the default entry camera, because that camera stands on
+  // this side of the court. Shown only when the camera moves behind the ring.
+  const reverse=new THREE.Group();
+  reverse.name='R49_Reverse_Grandstand';
+  reverse.visible=false;
+  group.add(reverse);
+  const rearBox=(size,pos,m,name)=>{
+    const mesh=new THREE.Mesh(new THREE.BoxGeometry(...size),m);
+    mesh.position.set(...pos);mesh.name=name;
+    mesh.receiveShadow=true;reverse.add(mesh);stats.meshCount++;
+    return mesh;
+  };
+  for(let row=0;row<6;row++){
+    const y=.31+row*.48,z=6.5+row*.80;
+    rearBox([19,.25,.90],[0,y,z],row%2?beam:navy,'Reverse_Grandstand_Tier_'+row);
+    rearBox([19,.45,.12],[0,y-.3,z+.43],dark,'Reverse_Grandstand_Riser_'+row);
+  }
+  const mirroredSeatGeo=new THREE.BoxGeometry(.43,.19,.16);
+  for(let j=0;j<3;j++){
+    const locations=[];
+    for(let row=0;row<6;row++)for(let col=0;col<33;col++){
+      if((row*17+col*11)%3!==j)continue;
+      locations.push([-8.85+col*.55,.56+row*.48,6.5+row*.8+.2]);
+    }
+    const seated=new THREE.InstancedMesh(mirroredSeatGeo,seatMat[j],locations.length);
+    seated.name='Reverse_Stadium_Seats_Instanced_'+j;
+    locations.forEach((a,i)=>{tr.position.set(...a);tr.updateMatrix();seated.setMatrixAt(i,tr.matrix)});
+    seated.receiveShadow=true;reverse.add(seated);
+    stats.instancedObjects++;stats.meshCount++;stats.seats+=locations.length;
+  }
+  rearBox([24,10,.46],[0,4.7,11.85],navy,'Reverse_Gym_Wall');
+  rearBox([5.2,1.45,.22],[0,6.04,11.34],dark,'Reverse_Scoreboard_Body');
+  rearBox([4.7,1.05,.08],[0,6.04,11.16],teal,'Reverse_Scoreboard_Display');
   // School-gym architecture, with actual volume: walls, beams and truss roof.
   box([24,10,.46],[0,4.7,-11.85],navy,'Gym_Back_Wall');
   for(const x of [-11.5,11.5])box([.5,11.8,24],[x,4.7,-.6],navy,'Gym_Side_Wall_'+x);

@@ -301,3 +301,91 @@ html,body{width:100%;height:100%;overflow:hidden}
 /* The old floating stage title overlaps the top HUD on several ratios. */
 .arena-title{display:none}
 #stadium:focus-visible{outline:2px solid #e9cb99}
+
+/* R49 visual correction: world is the hero; overlay scales with viewport, not browser zoom. */
+.game{background:#142638}
+.scoreboard{height:clamp(65px,8.7dvh,124px);top:max(7px,env(safe-area-inset-top));left:1.2vw;right:1.2vw;
+ border-radius:14px;background:#07192bc4;padding:clamp(8px,1.15dvh,17px) clamp(10px,1.5vw,26px)}
+.center-score>strong{font-size:max(21px,2.3dvh);letter-spacing:.04em}
+.center-score>span{font-size:max(12px,1.25dvh)}
+.duelist-name{font-size:max(13px,1.35dvh)}
+.hp strong{font-size:max(25px,2.7dvh)}
+.hp-track{height:max(6px,.6dvh)}
+.onboard{top:calc(max(7px,env(safe-area-inset-top)) + clamp(65px,8.7dvh,124px) + 10px);
+ left:1.2vw;background:#0a1f30bd;max-width:max-content}
+.onboard-primary{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);
+ white-space:nowrap}
+.onboard{min-height:0;padding:8px 12px}
+.help summary{font-size:max(12px,1.25dvh)}
+.camera-tools{top:calc(max(7px,env(safe-area-inset-top)) + clamp(65px,8.7dvh,124px) + 10px);
+ right:1.2vw;padding:8px 11px;gap:6px}
+.camera-tools button{font-size:max(12px,1.35dvh);padding:.75dvh 1.1vw;min-height:32px}
+.camera-tools .camera-caption,.camera-tools #camera-angle{font-size:max(12px,1.15dvh)}
+.controls{width:min(92vw,1350px);left:50%;right:auto;transform:translateX(-50%);
+ height:23dvh;min-height:170px;max-height:none;bottom:1.2dvh;
+ border:1px solid #87a2b17c;border-radius:19px;
+ background:linear-gradient(180deg,#0a1d2c9e,#091e2ce9 45%,#0b2334f2);
+ padding:1.1dvh 1.5vw;grid-template-rows:3.2dvh minmax(75px,1fr) 5.3dvh;
+ backdrop-filter:blur(14px)}
+.hand-caption strong{font-size:max(17px,1.9dvh)}
+.hand-caption span{font-size:max(12px,1.2dvh)}
+.energy-pill{font-size:max(13px,1.4dvh)}
+.energy-pill strong{font-size:max(17px,1.9dvh)}
+.hand{gap:clamp(7px,.75vw,18px);padding:4px 0!important}
+.card{flex:0 0 clamp(135px,16dvh,380px);padding:clamp(6px,.8dvh,15px)!important;
+ border-radius:12px}
+.card .card-name{font-size:max(14px,1.45dvh)!important}
+.card .card-type{font-size:max(11px,1.15dvh)!important}
+.card .card-desc,.card .card-stats{font-size:max(11px,1.15dvh)!important}
+.card .cost{width:max(25px,2.4dvh)!important;height:max(25px,2.4dvh)!important;font-size:max(14px,1.5dvh)}
+.actions button{font-size:max(15px,1.65dvh);min-height:42px}
+.selection strong{font-size:max(13px,1.45dvh)}
+.selection span{font-size:max(12px,1.2dvh)}
+.battle-history{bottom:calc(23dvh + 2.2dvh);max-width:1100px;left:50%;right:auto;
+ width:92vw;transform:translateX(-50%)}
+.battle-toast{font-size:max(13px,1.4dvh);padding:.75dvh 1.2vw}
+.field-side>strong{font-size:max(11px,1.1dvh)}
+.unit{font-size:max(10px,1.1dvh)}
+.arena-tint{background:linear-gradient(180deg,#06152668,transparent 25%,transparent 60%,#04101e80 100%)}
+@media(max-width:650px){
+ .scoreboard{height:64px;left:3px;right:3px}
+ .center-score>strong{font-size:12px}
+ .duelist-name{font-size:9px}
+ .hp strong{font-size:18px}
+ .onboard,.camera-tools{top:72px}
+ .controls{width:100%;bottom:0;min-height:0;height:205px;border-radius:14px 14px 0 0;
+  padding:6px;grid-template-rows:23px minmax(66px,1fr) 50px}
+ .card{flex-basis:125px}
+ .hand-caption strong{font-size:14px}
+ .card .card-name{font-size:12px!important}
+ .card .card-type{font-size:10px!important}
+ .card .card-desc{display:none}
+ .actions button{font-size:12px}
+ .battle-history{bottom:213px}
+}
+@media(max-height:580px) and (min-width:651px){
+ .scoreboard{height:54px}
+ .onboard,.camera-tools{top:65px}
+ .controls{height:30dvh;min-height:125px;grid-template-rows:20px minmax(40px,1fr) 40px}
+ .battle-history{bottom:31.5dvh}
+}
+
+/* R49 keep explanatory text and unit list out of the duel choreography. */
+.battle-history{inset:0!important;left:0!important;right:0!important;bottom:0!important;
+ transform:none!important;width:100%!important;max-width:none!important;display:block}
+.battle-toast{position:absolute;top:calc(9dvh + 2dvh);left:50%;transform:translateX(-50%);
+ bottom:auto;width:max-content;max-width:min(44vw,850px);max-height:11dvh;overflow:hidden;
+ padding:.65dvh 1.2vw;background:#081b2bc9;text-align:center;
+ box-shadow:0 4px 15px #0614264d;font-size:max(12px,1.35dvh)}
+.field-rows{position:absolute;left:1.2vw;bottom:calc(23dvh + 2.5dvh);
+ right:auto;width:min(29vw,440px);max-width:none;margin:0;
+ grid-template-columns:1fr 1fr;opacity:.90}
+@media(max-width:1000px){.battle-toast{max-width:45vw}}
+@media(max-width:650px){
+ .battle-toast{top:112px;max-width:90vw;font-size:11px;line-height:1.2}
+ .field-rows{display:none}
+}
+@media(max-height:580px) and (min-width:651px){
+ .field-rows{bottom:32dvh}
+ .battle-toast{top:64px}
+}

@@ -24,6 +24,7 @@ let currentPayload=null,activePhase='idle',ready=false,hadContact=false;
 let lastSourceIds=[],source3DAssetsVerified=false;
 let horizontalFov=0;
 let orbitYaw=0, orbitTargetYaw=0, orbitZoom=1, orbitBaseDistance=12;
+const CAMERA_LOOK_AT=new THREE.Vector3(0,.68,-1.65);
 const orbitBound=180;
 let pointerDrag=null;
 let lastOcclusionMode='';
@@ -65,11 +66,18 @@ function cameraFrameStats(){
   const v=new THREE.Vector3(x,1.76,camera.aspect<.85?.45:1.55).project(camera);
   return {x:Number(v.x.toFixed(3)),y:Number(v.y.toFixed(3)),front:v.z>-1&&v.z<1};
  };
- const edge=camera.aspect<.85?2.55:5.05;
+ const edge=camera.aspect<.85?2.55:4.45;
  return{yaw:Number(orbitYaw.toFixed(2)),targetYaw:orbitTargetYaw,
   distance:Number(camera.position.distanceTo(new THREE.Vector3(0,1.3,0)).toFixed(2)),
   aspect:Number(camera.aspect.toFixed(3)),
-  podiums:{player:ndc(-edge),ai:ndc(edge)}};
+  podiums:{player:ndc(-edge),ai:ndc(edge)},
+  composition:{
+   ring:new THREE.Vector3(0,.07,0).project(camera).toArray().map(v=>Number(v.toFixed(3))),
+   arenaBack:new THREE.Vector3(0,1.2,-7).project(camera).toArray().map(v=>Number(v.toFixed(3))),
+   stageFloor:new THREE.Vector3(0,.07,4).project(camera).toArray().map(v=>Number(v.toFixed(3))),
+   lookAt:CAMERA_LOOK_AT.toArray(),
+   cameraY:Number(camera.position.y.toFixed(2))
+  }};
 }
 function keepArenaVisible(){
  if(!stadiumEvidence?.group)return;
@@ -80,6 +88,16 @@ function keepArenaVisible(){
  lastOcclusionMode=mode;
  stadiumEvidence.group.traverse(obj=>{
   const n=obj.name||'';
+  if(n==='R49_Reverse_Grandstand'){
+   obj.visible=at>=115;
+   return;
+  }
+  // Rear-wall championship signage is beautiful from the front but turns
+  // into a giant opaque near-camera blocker at 180 degrees.
+  if(n.startsWith('3D_Championship_')){
+   obj.visible=at<100;
+   return;
+  }
   if(n.startsWith('Gym_Side_Wall_')){
    obj.visible=at<58||!n.endsWith(String(side*11.5));
   }
@@ -146,10 +164,10 @@ function onResize(){
  const narrow=camera.aspect<.85;
  camera.fov=narrow?48:42;
  const tan=Math.tan(camera.fov*Math.PI/360);
- const extent=narrow?3.05:6.50;
+ const extent=narrow?3.05:5.8;
  // Respect the visible safe region for BOTH card projections and side decks.
  // An orbit changes perspective but must never change the rules or actor IDs.
- orbitBaseDistance=Math.max(narrow?11.5:10.5,extent/(tan*camera.aspect*.87)+(narrow?.5:1.65));
+ orbitBaseDistance=Math.max(narrow?11.6:10.0,extent/(tan*camera.aspect*.94)+(narrow?.35:.85));
  camera.updateProjectionMatrix();
  horizontalFov=2*Math.atan(tan*camera.aspect)*180/Math.PI;
 }
@@ -361,11 +379,14 @@ function loop(){
  // A restrained, deterministic push maintains the R47 cinematic style.
  const distance=orbitBaseDistance*orbitZoom-push*(narrow?.10:.25);
  const arc=playing&&!reduced?Math.sin(Math.PI*clamp((t-1.5)/3.6,0,1))*(narrow?.035:.11):0;
+ // R49: elevate the camera and aim into the gym, not at empty sky.
+ // Orbit about the same center of action; pitch stays consistent as yaw changes.
+ const height=(narrow?7.65:Math.max(8.35,distance*.66));
  camera.position.set(Math.sin(angle)*distance+Math.cos(angle)*arc,
-  (narrow?3.35:3.4)+push*.055,Math.cos(angle)*distance-Math.sin(angle)*arc);
+  height+push*.055,CAMERA_LOOK_AT.z+Math.cos(angle)*distance-Math.sin(angle)*arc);
  choreographyQA.cameraOrbit=Number(arc.toFixed(4));
  choreographyQA.maxOrbit=Math.max(choreographyQA.maxOrbit,Math.abs(arc));
- camera.lookAt(0,(narrow?1.42:1.29)+push*.07,0);
+ camera.lookAt(CAMERA_LOOK_AT.x,CAMERA_LOOK_AT.y+push*.07,CAMERA_LOOK_AT.z);
  keepArenaVisible();
  const contact=t>=2.83&&t<3.11||t>=3.88&&t<4.15;
  $('impact').hidden=!playing||!contact;
@@ -434,6 +455,11 @@ function exposeQA(){
   get podiumCards(){return podiumCards?.stats||null},
   get cameraDistance(){return camera?.position.distanceTo(new THREE.Vector3(0,1.3,0))||null},
   get framing(){return cameraFrameStats()},
+  get occlusion(){
+    const sign=stadiumEvidence?.group?.getObjectByName('3D_Championship_Sign_Actual_Framed_Box');
+    const reverse=stadiumEvidence?.group?.getObjectByName('R49_Reverse_Grandstand');
+    return {championshipVisible:sign?.visible??null,reverseVisible:reverse?.visible??null};
+  },
   get choreography(){return {...choreographyQA}},
   get frameCount(){return frames},
   get actionFrameCount(){return actionFrames},
