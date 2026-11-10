@@ -24,10 +24,14 @@
         "crumple impact"
       ],
       "p0": true,
-      "p1": false,
+      "p1": true,
       "p2": false,
       "p3": false,
-      "approved": false
+      "approved": false,
+      "candidate_study": "character-studies/E02/E02-PaperPlane-R57-Refined-STUDY.glb",
+      "candidate_tech_verified": true,
+      "p1_detail": "Blender old-source GLB mesh/material refinement, not AI image-to-3D",
+      "animation_status": "browser object transform hover/bank/dart; GLB has 0 skins, 0 clips"
     },
     {
       "id": "T02",

@@ -1,0 +1,120 @@
+[
+  {
+    "name": "desktop",
+    "pass": true,
+    "refined": {
+      "active": true,
+      "loaded": true,
+      "meshes": 17,
+      "animations": 0,
+      "sourceBounds": {
+        "min": [
+          -1.179,
+          0.434,
+          -0.896
+        ],
+        "max": [
+          1.179,
+          0.854,
+          1.115
+        ],
+        "center": [
+          0,
+          0.644,
+          0.109
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "batch1/character-studies/E02/E02-PaperPlane-R57-Refined-STUDY.glb",
+      "error": null
+    },
+    "original": {
+      "loaded": true,
+      "meshes": 17,
+      "animations": 0,
+      "sourceBounds": {
+        "min": [
+          -1.179,
+          0.44,
+          -0.9
+        ],
+        "max": [
+          1.179,
+          0.854,
+          1.12
+        ],
+        "center": [
+          0,
+          0.647,
+          0.11
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "models/E02-paper-plane.glb",
+      "error": null,
+      "active": false
+    },
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "pass": true,
+    "refined": {
+      "active": true,
+      "loaded": true,
+      "meshes": 17,
+      "animations": 0,
+      "sourceBounds": {
+        "min": [
+          -1.179,
+          0.434,
+          -0.896
+        ],
+        "max": [
+          1.179,
+          0.854,
+          1.115
+        ],
+        "center": [
+          0,
+          0.644,
+          0.109
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "batch1/character-studies/E02/E02-PaperPlane-R57-Refined-STUDY.glb",
+      "error": null
+    },
+    "original": {
+      "loaded": true,
+      "meshes": 17,
+      "animations": 0,
+      "sourceBounds": {
+        "min": [
+          -1.179,
+          0.44,
+          -0.9
+        ],
+        "max": [
+          1.179,
+          0.854,
+          1.12
+        ],
+        "center": [
+          0,
+          0.647,
+          0.11
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "models/E02-paper-plane.glb",
+      "error": null,
+      "active": false
+    },
+    "errors": []
+  }
+]

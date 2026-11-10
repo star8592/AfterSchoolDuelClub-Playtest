@@ -1,0 +1,119 @@
+{
+  "source": "/home/master/projects/after-school-duel-r57-e02-paper-polish-20261110/r45-duel/art-lab/r55-audition/models/E02-paper-plane.glb",
+  "source_sha256": "cd42b912a098e91a32136ee6dd33007f7b4f0e448dfc45b7b01dfe2da507f843",
+  "output": "/home/master/projects/after-school-duel-r57-e02-paper-polish-20261110/r45-duel/art-lab/r55-audition/batch1/character-studies/E02/E02-PaperPlane-R57-Refined-STUDY.glb",
+  "output_sha256": "39ea3edd5e365210e94530c7f1b23cf0d490417a9b5f655be2dbf33e0b7a5478",
+  "kind": "authored paper wing geometry non-generative mesh refinement",
+  "refinements": [
+    {
+      "name": "E02 -1 embossed crease 1",
+      "source_faces": 1728,
+      "modifiers": []
+    },
+    {
+      "name": "E02 -1 eye catchlight",
+      "source_faces": 1216,
+      "modifiers": []
+    },
+    {
+      "name": "E02 -1 eyeball",
+      "source_faces": 1216,
+      "modifiers": [
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "E02 -1 iris",
+      "source_faces": 1216,
+      "modifiers": []
+    },
+    {
+      "name": "E02 -1 wing return lip",
+      "source_faces": 2,
+      "modifiers": [
+        "SOLIDIFY",
+        "BEVEL"
+      ]
+    },
+    {
+      "name": "E02 -1 wing-tip piping",
+      "source_faces": 1728,
+      "modifiers": []
+    },
+    {
+      "name": "E02 1 embossed crease 1",
+      "source_faces": 1728,
+      "modifiers": []
+    },
+    {
+      "name": "E02 1 eye catchlight",
+      "source_faces": 1216,
+      "modifiers": []
+    },
+    {
+      "name": "E02 1 eyeball",
+      "source_faces": 1216,
+      "modifiers": [
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "E02 1 iris",
+      "source_faces": 1216,
+      "modifiers": []
+    },
+    {
+      "name": "E02 1 wing return lip",
+      "source_faces": 2,
+      "modifiers": [
+        "SOLIDIFY",
+        "BEVEL"
+      ]
+    },
+    {
+      "name": "E02 1 wing-tip piping",
+      "source_faces": 1728,
+      "modifiers": []
+    },
+    {
+      "name": "E02 double ridge fuselage",
+      "source_faces": 6,
+      "modifiers": [
+        "SOLIDIFY",
+        "BEVEL"
+      ]
+    },
+    {
+      "name": "E02 left folded outer wing",
+      "source_faces": 4,
+      "modifiers": [
+        "SOLIDIFY",
+        "BEVEL"
+      ]
+    },
+    {
+      "name": "E02 right folded outer wing",
+      "source_faces": 4,
+      "modifiers": [
+        "SOLIDIFY",
+        "BEVEL"
+      ]
+    },
+    {
+      "name": "E02 smile stroke",
+      "source_faces": 1728,
+      "modifiers": []
+    },
+    {
+      "name": "E02 spring ring logo",
+      "source_faces": 1216,
+      "modifiers": []
+    }
+  ],
+  "source_faces": 17170,
+  "output_faces_blender": 22696,
+  "no_image_to_3d_generated": true,
+  "model_status": "MESH_POLISH_TECHNICAL_STUDY",
+  "original_art_fidelity_verified": false,
+  "production_approved": false
+}
