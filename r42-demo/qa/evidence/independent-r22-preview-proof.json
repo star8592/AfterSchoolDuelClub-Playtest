@@ -1,0 +1,88 @@
+[
+  {
+    "device": "desktop",
+    "http": 200,
+    "state": {
+      "source": "R22_E01_G01_VRM",
+      "mode": "demo",
+      "roles": [
+        {
+          "id": "E01",
+          "name": "铃声追不上",
+          "asset": "Shino-original-CC0.vrm",
+          "bones": 148,
+          "skinnedMeshes": 67,
+          "triangles": 31211,
+          "recoloredMeshes": 53,
+          "accessories": 6
+        },
+        {
+          "id": "G01",
+          "name": "橡皮筋建筑师",
+          "asset": "Fumiriya-original-CC0.vrm",
+          "bones": 107,
+          "skinnedMeshes": 102,
+          "triangles": 39548,
+          "recoloredMeshes": 88,
+          "accessories": 6
+        }
+      ],
+      "actionFrames": 3,
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+      "damageWrittenToGame": false,
+      "round": "01",
+      "selfHP": "20",
+      "oppHP": "20"
+    },
+    "after": {
+      "round": "01",
+      "selfHP": "20",
+      "oppHP": "20"
+    },
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "mobile",
+    "http": 200,
+    "state": {
+      "source": "R22_E01_G01_VRM",
+      "mode": "demo",
+      "roles": [
+        {
+          "id": "E01",
+          "name": "铃声追不上",
+          "asset": "Shino-original-CC0.vrm",
+          "bones": 148,
+          "skinnedMeshes": 67,
+          "triangles": 31211,
+          "recoloredMeshes": 53,
+          "accessories": 6
+        },
+        {
+          "id": "G01",
+          "name": "橡皮筋建筑师",
+          "asset": "Fumiriya-original-CC0.vrm",
+          "bones": 107,
+          "skinnedMeshes": 102,
+          "triangles": 39548,
+          "recoloredMeshes": 88,
+          "accessories": 6
+        }
+      ],
+      "actionFrames": 3,
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+      "damageWrittenToGame": false,
+      "round": "01",
+      "selfHP": "20",
+      "oppHP": "20"
+    },
+    "after": {
+      "round": "01",
+      "selfHP": "20",
+      "oppHP": "20"
+    },
+    "errors": [],
+    "passed": true
+  }
+]

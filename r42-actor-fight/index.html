@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>R42 · 实际卡牌角色 E01/G01 三维战斗</title>
+<link rel="stylesheet" href="./stage.css">
+<script type="importmap">{"imports":{"three":"../r34-music-3d/vendor/three/build/three.module.js","three/addons/":"../r34-music-3d/vendor/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <canvas id="battle-canvas" aria-label="E01和G01真实VRM模型在三维校园场景中交锋"></canvas>
+  <div class="vignette"></div>
+  <header class="fight-head">
+    <div class="mark"><small>AFTER SCHOOL DUEL CLUB · R42</small><strong>真正的卡牌角色交锋</strong><span>R22 同源高精细 VRM 人物 · 动作试演</span></div>
+    <div class="fight-state"><b id="phase">加载中</b><small id="details">准备角色模型与场景</small></div>
+  </header>
+  <section class="fight-hud" aria-live="polite">
+    <div class="fighter player"><small>我方 · E01</small><strong>铃声追不上</strong><span id="identity-left">R22 Shino VRM</span></div>
+    <div class="versus">VS</div>
+    <div class="fighter opponent"><small>对手 · G01</small><strong>橡皮筋建筑师</strong><span id="identity-right">R22 Fumiriya VRM</span></div>
+  </section>
+  <div class="impact" id="impact" hidden>命中</div>
+  <footer>
+    <span id="identity">角色源：R22 同一套 CC0 VRM 原始网格 · 非 R14 早期替身</span>
+    <span id="evidence">实际牌局伤害与回合仍由卡牌规则结算 · 未完成终版美术</span>
+    <button id="replay" type="button" hidden>重播交锋</button>
+  </footer>
+  <div id="loading" class="loading" role="status">正在加载 E01 / G01 原始人物网格与骨骼…</div>
+  <script type="module" src="./scene.mjs"></script>
+</body>
+</html>

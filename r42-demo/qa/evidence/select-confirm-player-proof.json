@@ -1,0 +1,604 @@
+[
+  {
+    "device": "desktop",
+    "http": 200,
+    "initial": {
+      "hand": [
+        "E01",
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "从下方手牌选卡，再按「召唤／发动」确认出牌；默认目标教室，可修改。",
+      "selected": [],
+      "bodyWidth": 1366,
+      "viewportWidth": 1366
+    },
+    "selected": {
+      "hand": [
+        "E01",
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "已选卡牌：铃声追不上 · 费用 1 ✧",
+      "target": "0",
+      "confirmDisabled": false,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "已选择「铃声追不上」；目标区域：教室。请按「召唤这张牌」确认。",
+      "selected": [
+        "E01"
+      ],
+      "bodyWidth": 1366,
+      "viewportWidth": 1366
+    },
+    "beforeConfirm": {
+      "hand": [
+        "E01",
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "已选卡牌：铃声追不上 · 费用 1 ✧",
+      "target": "0",
+      "confirmDisabled": false,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "已选择「铃声追不上」；目标区域：教室。请按「召唤这张牌」确认。",
+      "selected": [
+        "E01"
+      ],
+      "bodyWidth": 1366,
+      "viewportWidth": 1366
+    },
+    "deployed": {
+      "hand": [
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 1",
+      "round": "01",
+      "zones": [
+        "我 1 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "出牌成功：「铃声追不上」已打到 教室。角色已登场，下一次己方行动才能攻击。按「结束回合 → 对手行动」等待回应。",
+      "prompt": "「铃声追不上」已部署！人物本回合先待命。点击「结束回合」，等到下次轮到你时才会自动攻击同一战线的对手。",
+      "selected": [],
+      "bodyWidth": 1366,
+      "viewportWidth": 1366
+    },
+    "afterAI": {
+      "hand": [
+        "T06",
+        "T03",
+        "E02",
+        "T01",
+        "E03"
+      ],
+      "energy": "✧ 3",
+      "round": "02",
+      "zones": [
+        "我 1 · 敌 2",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "AI 已出牌：橡皮筋建筑师 → 教室，橡皮筋建筑师 → 教室；双方新召唤角色暂时待命，下一次自己行动才会攻击。 现在又轮到你了。",
+      "prompt": "AI 已出牌：橡皮筋建筑师 → 教室，橡皮筋建筑师 → 教室；双方新召唤角色暂时待命，下一次自己行动才会攻击。 现在又轮到你了。",
+      "selected": [],
+      "bodyWidth": 1366,
+      "viewportWidth": 1366
+    },
+    "realBattle": {
+      "source": "R22_E01_G01_VRM",
+      "mode": "live",
+      "event": {
+        "type": "exchange",
+        "from": "E01",
+        "to": "G01",
+        "side": "player",
+        "lane": 0,
+        "serial": 7,
+        "damage": 2,
+        "blocked": 0,
+        "retaliation": 1,
+        "retaliation_blocked": 0,
+        "target_defeated": false,
+        "attacker_defeated": false
+      },
+      "roles": [
+        {
+          "id": "E01",
+          "asset": "Shino-original-CC0.vrm",
+          "bones": 148
+        },
+        {
+          "id": "G01",
+          "asset": "Fumiriya-original-CC0.vrm",
+          "bones": 107
+        }
+      ],
+      "frames": 3,
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    "untouched": true,
+    "selectedGone": true,
+    "zoneCorrect": true,
+    "aiNotYet": true,
+    "aiReplied": true,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "mobile",
+    "http": 200,
+    "initial": {
+      "hand": [
+        "E01",
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "从下方手牌选卡，再按「召唤／发动」确认出牌；默认目标教室，可修改。",
+      "selected": [],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "selected": {
+      "hand": [
+        "E01",
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "已选卡牌：铃声追不上 · 费用 1 ✧",
+      "target": "0",
+      "confirmDisabled": false,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "已选择「铃声追不上」；目标区域：教室。请按「召唤这张牌」确认。",
+      "selected": [
+        "E01"
+      ],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "beforeConfirm": {
+      "hand": [
+        "E01",
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "已选卡牌：铃声追不上 · 费用 1 ✧",
+      "target": "0",
+      "confirmDisabled": false,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "已选择「铃声追不上」；目标区域：教室。请按「召唤这张牌」确认。",
+      "selected": [
+        "E01"
+      ],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "deployed": {
+      "hand": [
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 1",
+      "round": "01",
+      "zones": [
+        "我 1 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "出牌成功：「铃声追不上」已打到 教室。角色已登场，下一次己方行动才能攻击。按「结束回合 → 对手行动」等待回应。",
+      "prompt": "「铃声追不上」已部署！人物本回合先待命。点击「结束回合」，等到下次轮到你时才会自动攻击同一战线的对手。",
+      "selected": [],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "afterAI": {
+      "hand": [
+        "T06",
+        "T03",
+        "E02",
+        "T01",
+        "E03"
+      ],
+      "energy": "✧ 3",
+      "round": "02",
+      "zones": [
+        "我 1 · 敌 2",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "AI 已出牌：橡皮筋建筑师 → 教室，橡皮筋建筑师 → 教室；双方新召唤角色暂时待命，下一次自己行动才会攻击。 现在又轮到你了。",
+      "prompt": "AI 已出牌：橡皮筋建筑师 → 教室，橡皮筋建筑师 → 教室；双方新召唤角色暂时待命，下一次自己行动才会攻击。 现在又轮到你了。",
+      "selected": [],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "realBattle": {
+      "source": "R22_E01_G01_VRM",
+      "mode": "live",
+      "event": {
+        "type": "exchange",
+        "from": "E01",
+        "to": "G01",
+        "side": "player",
+        "lane": 0,
+        "serial": 7,
+        "damage": 2,
+        "blocked": 0,
+        "retaliation": 1,
+        "retaliation_blocked": 0,
+        "target_defeated": false,
+        "attacker_defeated": false
+      },
+      "roles": [
+        {
+          "id": "E01",
+          "asset": "Shino-original-CC0.vrm",
+          "bones": 148
+        },
+        {
+          "id": "G01",
+          "asset": "Fumiriya-original-CC0.vrm",
+          "bones": 107
+        }
+      ],
+      "frames": 4,
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    "untouched": true,
+    "selectedGone": true,
+    "zoneCorrect": true,
+    "aiNotYet": true,
+    "aiReplied": true,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "ordinary",
+    "http": 200,
+    "initial": {
+      "hand": [
+        "E01",
+        "E02",
+        "E06",
+        "T05",
+        "G01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "从下方手牌选卡，再按「召唤／发动」确认出牌；默认目标教室，可修改。",
+      "selected": [],
+      "bodyWidth": 1280,
+      "viewportWidth": 1280
+    },
+    "selected": {
+      "hand": [
+        "E01",
+        "E02",
+        "E06",
+        "T05",
+        "G01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "已选卡牌：拐弯纸飞机 · 费用 2 ✧",
+      "target": "0",
+      "confirmDisabled": false,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "已选择「拐弯纸飞机」；目标区域：教室。请按「召唤这张牌」确认。",
+      "selected": [
+        "E02"
+      ],
+      "bodyWidth": 1280,
+      "viewportWidth": 1280
+    },
+    "beforeConfirm": {
+      "hand": [
+        "E01",
+        "E02",
+        "E06",
+        "T05",
+        "G01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "已选卡牌：拐弯纸飞机 · 费用 2 ✧",
+      "target": "0",
+      "confirmDisabled": false,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "已选择「拐弯纸飞机」；目标区域：教室。请按「召唤这张牌」确认。",
+      "selected": [
+        "E02"
+      ],
+      "bodyWidth": 1280,
+      "viewportWidth": 1280
+    },
+    "deployed": {
+      "hand": [
+        "E01",
+        "E06",
+        "T05",
+        "G01"
+      ],
+      "energy": "✧ 0",
+      "round": "01",
+      "zones": [
+        "我 1 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "出牌成功：「拐弯纸飞机」已打到 教室。角色已登场，下一次己方行动才能攻击。按「结束回合 → 对手行动」等待回应。",
+      "prompt": "「拐弯纸飞机」已部署！人物本回合先待命。点击「结束回合」，等到下次轮到你时才会自动攻击同一战线的对手。",
+      "selected": [],
+      "bodyWidth": 1280,
+      "viewportWidth": 1280
+    },
+    "afterAI": {
+      "hand": [
+        "E01",
+        "E06",
+        "T05",
+        "G01",
+        "G06"
+      ],
+      "energy": "✧ 3",
+      "round": "02",
+      "zones": [
+        "我 1 · 敌 1",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "AI 已出牌：食堂隐藏菜单 → 教室；双方新召唤角色暂时待命，下一次自己行动才会攻击。 现在又轮到你了。",
+      "prompt": "AI 已出牌：食堂隐藏菜单 → 教室；双方新召唤角色暂时待命，下一次自己行动才会攻击。 现在又轮到你了。",
+      "selected": [],
+      "bodyWidth": 1280,
+      "viewportWidth": 1280
+    },
+    "realBattle": null,
+    "untouched": true,
+    "selectedGone": true,
+    "zoneCorrect": true,
+    "aiNotYet": true,
+    "aiReplied": true,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "target-switch",
+    "http": 200,
+    "initial": {
+      "hand": [
+        "E01",
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "0",
+      "confirmDisabled": true,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "从下方手牌选卡，再按「召唤／发动」确认出牌；默认目标教室，可修改。",
+      "selected": [],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "selected": {
+      "hand": [
+        "E01",
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "已选卡牌：铃声追不上 · 费用 1 ✧",
+      "target": "0",
+      "confirmDisabled": false,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "已选择「铃声追不上」；目标区域：教室。请按「召唤这张牌」确认。",
+      "selected": [
+        "E01"
+      ],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "beforeConfirm": {
+      "hand": [
+        "E01",
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 2",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 0 · 敌 0"
+      ],
+      "chosen": "已选卡牌：铃声追不上 · 费用 1 ✧",
+      "target": "2",
+      "confirmDisabled": false,
+      "opponent": "你的出牌阶段：从下方选一张手牌，确认召唤／发动；轮到对手时按「结束回合」。",
+      "prompt": "已选召唤位置：操场。现在按「召唤／发动这张牌」确认出牌。",
+      "selected": [
+        "E01"
+      ],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "deployed": {
+      "hand": [
+        "T06",
+        "T03",
+        "E02",
+        "T01"
+      ],
+      "energy": "✧ 1",
+      "round": "01",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 1 · 敌 0"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "2",
+      "confirmDisabled": true,
+      "opponent": "出牌成功：「铃声追不上」已打到 操场。角色已登场，下一次己方行动才能攻击。按「结束回合 → 对手行动」等待回应。",
+      "prompt": "「铃声追不上」已部署！人物本回合先待命。点击「结束回合」，等到下次轮到你时才会自动攻击同一战线的对手。",
+      "selected": [],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "afterAI": {
+      "hand": [
+        "T06",
+        "T03",
+        "E02",
+        "T01",
+        "E03"
+      ],
+      "energy": "✧ 3",
+      "round": "02",
+      "zones": [
+        "我 0 · 敌 0",
+        "我 0 · 敌 0",
+        "我 1 · 敌 2"
+      ],
+      "chosen": "先从下方手牌中选一张",
+      "target": "2",
+      "confirmDisabled": true,
+      "opponent": "AI 已出牌：橡皮筋建筑师 → 操场，橡皮筋建筑师 → 操场；双方新召唤角色暂时待命，下一次自己行动才会攻击。 现在又轮到你了。",
+      "prompt": "AI 已出牌：橡皮筋建筑师 → 操场，橡皮筋建筑师 → 操场；双方新召唤角色暂时待命，下一次自己行动才会攻击。 现在又轮到你了。",
+      "selected": [],
+      "bodyWidth": 430,
+      "viewportWidth": 430
+    },
+    "realBattle": null,
+    "untouched": true,
+    "selectedGone": true,
+    "zoneCorrect": true,
+    "aiNotYet": true,
+    "aiReplied": true,
+    "errors": [],
+    "passed": true
+  }
+]
