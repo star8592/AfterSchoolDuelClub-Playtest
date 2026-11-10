@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow">
+<title>R55 18 卡 · 实际 GLB 资产审查厅</title>
+<script type="importmap">{"imports":{"three":"../../assets/three/build/three.module.js","three/addons/":"../../assets/three/examples/jsm/"}}</script>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Noto Sans CJK SC",sans-serif;color:#e9f1f7;background:#09121d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 65% 6%,#293d57 0%,#0d1a29 43%,#070f17 100%);min-height:100vh}
+main{max-width:1800px;margin:auto;padding:20px 22px 30px}
+h1{font-size:clamp(22px,2vw,32px);margin:0;color:#ffe3ae;letter-spacing:.06em}
+p{color:#adbdcc;margin:8px 0 12px;font-size:13px;line-height:1.6}
+.top{display:flex;gap:20px;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap}
+.legend{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;color:#c9d8e2}
+.legend span{background:#21364a;border:1px solid #49647c;padding:5px 9px;border-radius:18px}
+.layout{display:grid;grid-template-columns:minmax(260px,450px) minmax(440px,1fr);gap:16px;align-items:start}
+.list{background:#0e1c2bdf;border:1px solid #35566a;border-radius:17px;padding:12px;max-height:calc(100vh - 135px);overflow:auto}
+.roster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.choice{border-radius:11px;border:1px solid #3b5365;background:#16273b;color:#e4eef8;text-align:left;padding:10px;cursor:pointer;min-height:81px;transition:border-color .16s,background .16s}
+.choice.active{border-color:#f0c789;background:linear-gradient(145deg,#384457,#15364a);box-shadow:0 0 0 1px #e3b568}
+.choice:hover{border-color:#8cb1ce}
+.choice strong{display:block;font-size:13px;margin:3px 0;line-height:1.35}
+.choice small{display:block;font-size:10px;color:#b7c8d5}
+.num{font-size:11px;color:#f6c988;font-weight:800}
+.view-panel{border:1px solid #517286;border-radius:17px;overflow:hidden;background:#101f30df;min-height:620px}
+.stage{height:min(68vh,720px);min-height:420px;position:relative;background:radial-gradient(circle at 55% 30%,#5268794d,#0b1523 73%)}
+.stage canvas{width:100%;height:100%;display:block;touch-action:none}
+.render-info{position:absolute;top:13px;left:14px;color:#f5e4bd;background:#0b1827cc;padding:7px 11px;border:1px solid #63778a7d;border-radius:9px;font-size:12px;pointer-events:none}
+.panels{padding:18px 20px}.name{font-size:21px;font-weight:900;color:#fff3d7}.status{font-size:12px;color:#f2bf8b;margin-top:3px}
+.meta{margin:10px 0;color:#b2c9d9;font-size:13px;line-height:1.65}
+.buttons{display:flex;flex-wrap:wrap;gap:8px}
+button.action{border:1px solid #6c8ba5;border-radius:9px;padding:9px 14px;color:#eaf1f6;background:#23415a;cursor:pointer;font-weight:650}
+button.action:hover{background:#345671}
+.notice{font-size:12px;color:#f4b990;background:#38271874;padding:9px 12px;border-radius:10px;border:1px solid #ae785b55}
+@media(max-width:890px){.layout{grid-template-columns:1fr}.list{max-height:none}.roster{grid-template-columns:repeat(3,minmax(0,1fr))}.stage{height:55vh;min-height:350px}}
+@media(max-width:570px){main{padding:10px}.roster{grid-template-columns:repeat(2,minmax(0,1fr))}.stage{height:48vh;min-height:270px}.view-panel{min-height:490px}.choice{padding:8px}}
+</style></head>
+<body><main>
+ <div class="top">
+  <div><h1>放学后决斗社 · 18 卡资产审查厅</h1><p>R55 独立实验区 · 每张卡片都有可旋转的实际模型或技能预演，不替代正式场馆，也不声称低模已达到成品品质。</p></div>
+  <div class="legend"><span>12 人物召唤</span><span>6 事件技能</span><span>授权来源可追溯</span><span>正式美术验收：未通过</span></div>
+ </div>
+ <div class="layout">
+  <section class="list" aria-label="18张正式卡牌及待审素材"><div id="roster" class="roster"></div></section>
+  <section class="view-panel">
+    <div class="stage"><canvas id="canvas" aria-label="真实可旋转的三维 GLB 模型或事件特效"></canvas><div class="render-info" id="info">正在载入3D素材…</div></div>
+    <div class="panels">
+      <div class="name" id="name">载入中</div><div class="status" id="status"></div>
+      <div class="meta" id="meta">鼠标拖动旋转、滚轮缩放；动作预览使用来源模型内置动画。</div>
+      <div class="buttons">
+        <button class="action" id="idle">待机 / Idle</button><button class="action" id="attack">攻击 / Attack</button>
+        <button class="action" id="walk">行走 / Walk</button><button class="action" id="reset">镜头回正</button>
+      </div>
+      <p class="notice">本页是美术采购与技术预览实验，模型用途是骨架和造型筛选；低模候选、纸飞机旧样机、临时技能演出均不得直接当成最终角色交付。</p>
+    </div>
+  </section>
+ </div>
+</main>
+<script type="module" src="./viewer.mjs"></script>
+</body></html>
