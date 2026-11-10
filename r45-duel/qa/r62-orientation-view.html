@@ -1,0 +1,37 @@
+<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>R62 source face axis qualification</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>html,body{margin:0;background:#122336;color:#f3f5f9;font:14px system-ui}header{padding:10px;background:#20374e}#canvas{display:block;width:100%;height:calc(100vh - 46px)}#status{position:fixed;top:10px;right:10px;color:#baffcb}</style>
+<header><b>模型原始正面轴审查：</b>左到右 yaw=0° / 90° / 180° / 270°，相机沿世界 +Z 看向人物</header>
+<div id="status">加载中</div><canvas id="canvas"></canvas>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+const id=new URL(location.href).searchParams.get('id')||'E03';
+const data=await fetch('../assets/summons/runtime-assets.json').then(r=>r.json());
+const rec=data.models.find(x=>x.card_id===id);
+const gltf=await new GLTFLoader().loadAsync('../assets/summons/'+rec.file);
+const scene=new THREE.Scene();scene.background=new THREE.Color('#112034');
+const renderer=new THREE.WebGLRenderer({canvas:document.getElementById('canvas'),antialias:true});
+const width=document.body.clientWidth,height=window.innerHeight-46;
+renderer.setSize(width,height);renderer.setPixelRatio(1);
+const camera=new THREE.PerspectiveCamera(35,width/height,.01,70);
+camera.position.set(0,1.5,10.5);camera.lookAt(0,1.12,0);
+scene.add(new THREE.HemisphereLight(0xffffff,0x4d6473,2.0));
+const light=new THREE.DirectionalLight(0xffffff,2.5);light.position.set(2,5,7);scene.add(light);
+const box=new THREE.Box3().setFromObject(gltf.scene,true);
+const size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
+const scale=2.2/Math.max(.01,size.y);
+const xs=[-3.1,-1.03,1.03,3.1];
+for(let i=0;i<4;i++){
+ const pivot=new THREE.Group(),scaled=new THREE.Group(),clone=cloneSkeleton(gltf.scene);
+ clone.position.set(-center.x,-box.min.y,-center.z);scaled.scale.setScalar(scale);
+ scaled.add(clone);pivot.add(scaled);pivot.position.x=xs[i];pivot.rotation.y=i*Math.PI/2;
+ scene.add(pivot);
+ const floor=new THREE.Mesh(new THREE.CylinderGeometry(.87,.87,.035,48),new THREE.MeshStandardMaterial({color:'#3a5672'}));floor.position.set(xs[i],-.06,0);scene.add(floor);
+}
+scene.add(new THREE.GridHelper(12,20,0x3d576f,0x283e50));
+renderer.render(scene,camera);document.getElementById('status').textContent='READY '+id+' | source front comparison '+size.toArray().map(x=>x.toFixed(2));
+window.__R62_FACE_QA={ready:true,id,dimensions:size.toArray(),mesh:gltf.scene.children.length};
+</script></html>

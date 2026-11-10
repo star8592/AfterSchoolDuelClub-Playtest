@@ -9,6 +9,7 @@
 import {BY_ID} from '../engine.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {instantiateSummon,UNIT_MODEL_IDS} from './summon-models.mjs';
+import {faceOpponentYaw,faceOpponentDot} from './summon-orientation.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
@@ -236,9 +237,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     const pos=place(side,index);
     if(state.kind!=='original-vrm'){
      state.object.position.set(pos.x,0,pos.z);
-     state.object.scale.setScalar(state.kind==='vrm-instance'?.78:1);
-     state.object.rotation.y=(state.kind==='vrm-instance'||state.kind==='gltf-instance')?
-       (side==='player'?-2.38:2.38):0;
+     state.object.scale.setScalar(1);
+     state.object.rotation.y=faceOpponentYaw(id,side);
     }
     state.object.visible=true;
    });
@@ -297,7 +297,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
    if(state.status&&labelStyle!=='hidden')drawStatusTag(state,labelStyle);
    const object=state.object;
    if(state.kind==='vrm-instance'||state.kind==='gltf-instance'){
-    object.position.y=.012*Math.sin(seconds*1.5+state.index);
+    const hover=state.kind==='gltf-instance'?(prototypes.get(state.id)?.spec.hover||0):0;
+    object.position.y=hover+(hover?.032:.008)*Math.sin(seconds*1.5+state.index);
    }
    // An exchange affects position only temporarily; resting pose is
    // reconstructed each frame and therefore cannot accumulate drift.
@@ -315,9 +316,10 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     tag.scale.set(labelStyle==='hidden'?.01:compact?.94:1.48,
                   labelStyle==='hidden'?.01:compact?.30:.46,1);
     tag.position.copy(object.position);
-    tag.position.y+=(state.kind==='gltf-instance'?
-      Math.max(2.48,(prototypes.get(state.id)?.spec.targetHeight||2.2)+.26):
-      3.35)+(compact&&state.index%2?.15:0);
+    const height=state.kind==='gltf-instance'?
+      (prototypes.get(state.id)?.measured.scaledHeight||2.1):2.12;
+    const hover=state.kind==='gltf-instance'?(prototypes.get(state.id)?.spec.hover||0):0;
+    tag.position.y+=Math.max(.85,height+hover+.24)+(compact&&state.index%2?.15:0);
     tag.visible=labelStyle!=='hidden'&&object.visible;
    }
   }
@@ -398,7 +400,32 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
   const list=[...entries.values()].map(s=>{
    const v=s.object.getWorldPosition(new THREE.Vector3());
    const ndc=v.clone().add(new THREE.Vector3(0,s.kind==='gltf-instance'?1.0:1.4)).project(camera);
-   return{side:s.side,uid:s.uid,id:s.id,kind:s.kind,visible:s.object.visible,
+   // Diagnostic footprint from the actual transformed mesh (not requested height).
+   // Eight projected AABB corners provide a conservative screen-space estimate.
+   const bounds=new THREE.Box3().setFromObject(s.object,true);
+   const size=bounds.getSize(new THREE.Vector3());
+   const projected=[];
+   for(const x of [bounds.min.x,bounds.max.x])
+    for(const y of [bounds.min.y,bounds.max.y])
+     for(const z of [bounds.min.z,bounds.max.z]){
+      const t=new THREE.Vector3(x,y,z).project(camera);
+      projected.push(t);
+     }
+   const screenBBox={
+    left:Math.min(...projected.map(t=>t.x)),right:Math.max(...projected.map(t=>t.x)),
+    top:Math.max(...projected.map(t=>t.y)),bottom:Math.min(...projected.map(t=>t.y))
+   };
+   const metrics={
+    width:Number(size.x.toFixed(3)),height:Number(size.y.toFixed(3)),
+    depth:Number(size.z.toFixed(3)),minY:Number(bounds.min.y.toFixed(3)),
+    maxY:Number(bounds.max.y.toFixed(3)),
+    coverageWidth:Number(((screenBBox.right-screenBBox.left)*.5).toFixed(3)),
+    coverageHeight:Number(((screenBBox.top-screenBBox.bottom)*.5).toFixed(3)),
+    withinFrame:screenBBox.left>-1&&screenBBox.right<1&&screenBBox.top<1&&screenBBox.bottom>-1,
+    ndcBounds:Object.fromEntries(Object.entries(screenBBox).map(([k,n])=>[k,Number(n.toFixed(3))]))
+   };
+   metrics.frontDot=Number(faceOpponentDot(THREE,s.object,s.side).toFixed(4));
+   return{side:s.side,uid:s.uid,id:s.id,kind:s.kind,visible:s.object.visible,metrics,
     hp:s.hp,attack:s.attack,shield:s.shield,
     hpTag:!!s.status?.label.visible,
     hpTagPosition:s.status?.label.position.toArray().map(v=>Number(v.toFixed(2))),

@@ -10,6 +10,7 @@ import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
+import {faceOpponentYaw} from './summon-orientation.mjs';
 import {preloadSummonModels} from './summon-models.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
@@ -170,7 +171,7 @@ function onResize(){
  const narrow=camera.aspect<.85;
  camera.fov=narrow?48:42;
  const tan=Math.tan(camera.fov*Math.PI/360);
- const extent=narrow?3.05:5.8;
+ const extent=narrow?4.72:5.8;
  // Respect the visible safe region for BOTH card projections and side decks.
  // An orbit changes perspective but must never change the rules or actor IDs.
  orbitBaseDistance=Math.max(narrow?11.6:10.0,extent/(tan*camera.aspect*.94)+(narrow?.35:.85));
@@ -275,12 +276,12 @@ async function loadActor(spec,idx){
  if(skins<spec.minSkins||bones<spec.minBones||vertices<20000)
   throw Error(spec.id+' R22 identity mismatch: skins='+skins+' bones='+bones);
  const box=new THREE.Box3().setFromObject(original,true),dims=box.getSize(new THREE.Vector3());
- const scale=3.03/dims.y;
+ const scale=2.12/dims.y;
  const pivot=new THREE.Group(),character=new THREE.Group();
  original.scale.setScalar(scale);original.position.set(-(box.min.x+box.max.x)/2*scale,-box.min.y*scale,-(box.min.z+box.max.z)/2*scale);
  character.add(original);pivot.add(character);
  pivot.position.set(idx===0?-1.75:1.75,0,0);
- pivot.rotation.y=(idx===0?-2.38:2.38);
+ pivot.rotation.y=faceOpponentYaw(spec.id,idx===0?'player':'ai');
  pivot.visible=false;
  scene.add(pivot);
  const base=new Map();m.forEach((b,n)=>base.set(n,b.quaternion.clone()));
@@ -321,7 +322,7 @@ function reactActor(a,sec,absoluteSec){
  }
  a.pivot.position.x=a.restX+sign*(approach*.86+attack*.29-hit*.12);
  a.pivot.position.y=.016*Math.sin(absoluteSec*1.7+(left?0:2))+(attack*.065);
- a.pivot.rotation.y=(left?-2.38:2.38)+sign*(attack*.20+block*.13);
+ a.pivot.rotation.y=faceOpponentYaw(a.id,left?'player':'ai')+sign*(attack*.20+block*.13);
  a.pivot.rotation.z=sign*(-attack*.11+hit*.16);
  a.character.rotation.x=attack*.10-hit*.14;
  a.character.rotation.z=sign*(-attack*.14+hit*.16);
@@ -384,7 +385,10 @@ function loop(){
  const angle=orbitYaw*Math.PI/180;
  // World-space orbital viewpoint with a dynamically fitted camera distance.
  // A restrained, deterministic push maintains the R47 cinematic style.
- const distance=orbitBaseDistance*orbitZoom-push*(narrow?.10:.25);
+ // At diagonal angles the projected character footprint grows. Ease the
+ // orbit radius rather than cropping an actor or altering its world scale.
+ const diagonalFit=1+.14*Math.abs(Math.sin(2*angle));
+ const distance=orbitBaseDistance*orbitZoom*diagonalFit-push*(narrow?.10:.25);
  const arc=playing&&!reduced?Math.sin(Math.PI*clamp((t-1.5)/3.6,0,1))*(narrow?.035:.11):0;
  // R49: elevate the camera and aim into the gym, not at empty sky.
  // Orbit about the same center of action; pitch stays consistent as yaw changes.
@@ -474,7 +478,7 @@ function exposeQA(){
   get ready(){return ready},
   get shownCards(){return structuredClone(shownCards)},
   get summonPresence(){return summonPresence?.inspect(camera)||null},
-  get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale})):[];},
+  get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale,measured:x.measured})):[];},
   get combatEvents(){return summonPresence?.sequenceStats()||null},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
