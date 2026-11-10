@@ -1,0 +1,1190 @@
+[
+  {
+    "name": "wide",
+    "ok": true,
+    "opened": {
+      "revision": 2,
+      "total": 10,
+      "models": 4,
+      "pendingArt": 6,
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U101",
+          "id": "E02",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 1,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.48,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.24,
+            -0.12
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U102",
+          "id": "G03",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 5,
+          "attack": 4,
+          "shield": 1,
+          "hpTag": true,
+          "hpTagPosition": [
+            -2.13,
+            2.56,
+            -1.4
+          ],
+          "position": [
+            -2.13,
+            0,
+            -1.4
+          ],
+          "inView": true,
+          "screen": [
+            -0.26,
+            0.07
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U103",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "hp": 2,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -2.13,
+            3.37,
+            1.4
+          ],
+          "position": [
+            -2.13,
+            0.02,
+            1.4
+          ],
+          "inView": true,
+          "screen": [
+            -0.32,
+            -0.34
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U104",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "hp": 1,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -3.07,
+            3.44,
+            -0.82
+          ],
+          "position": [
+            -3.07,
+            -0.01,
+            -0.82
+          ],
+          "inView": true,
+          "screen": [
+            -0.39,
+            0.01
+          ],
+          "skins": 67
+        },
+        {
+          "side": "player",
+          "uid": "U105",
+          "id": "T04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 6,
+          "attack": 4,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -3.07,
+            2.47,
+            0.82
+          ],
+          "position": [
+            -3.07,
+            0.01,
+            0.82
+          ],
+          "inView": true,
+          "screen": [
+            -0.44,
+            -0.26
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U201",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "hp": 3,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            3.34,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.24,
+            -0.11
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U202",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "hp": 1,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            2.13,
+            3.46,
+            -1.4
+          ],
+          "position": [
+            2.13,
+            0.01,
+            -1.4
+          ],
+          "inView": true,
+          "screen": [
+            0.26,
+            0.09
+          ],
+          "skins": 102
+        },
+        {
+          "side": "ai",
+          "uid": "U203",
+          "id": "T01",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 2,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            2.13,
+            2.44,
+            1.4
+          ],
+          "position": [
+            2.13,
+            -0.02,
+            1.4
+          ],
+          "inView": true,
+          "screen": [
+            0.32,
+            -0.37
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U204",
+          "id": "E04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 4,
+          "attack": 5,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            3.07,
+            2.55,
+            -0.82
+          ],
+          "position": [
+            3.07,
+            -0.01,
+            -0.82
+          ],
+          "inView": true,
+          "screen": [
+            0.39,
+            -0.01
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U205",
+          "id": "G04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 5,
+          "attack": 4,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            3.07,
+            2.47,
+            0.82
+          ],
+          "position": [
+            3.07,
+            0.01,
+            0.82
+          ],
+          "inView": true,
+          "screen": [
+            0.44,
+            -0.26
+          ]
+        }
+      ]
+    },
+    "adjusted": {
+      "revision": 3,
+      "total": 10,
+      "models": 4,
+      "pendingArt": 6,
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U101",
+          "id": "E02",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 4,
+          "attack": 2,
+          "shield": 1,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.46,
+            0
+          ],
+          "position": [
+            -1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.23,
+            -0.12
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U102",
+          "id": "G03",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 5,
+          "attack": 4,
+          "shield": 1,
+          "hpTag": true,
+          "hpTagPosition": [
+            -2.13,
+            2.54,
+            -1.4
+          ],
+          "position": [
+            -2.13,
+            -0.02,
+            -1.4
+          ],
+          "inView": true,
+          "screen": [
+            -0.26,
+            0.07
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U103",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "hp": 2,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -2.13,
+            3.35,
+            1.4
+          ],
+          "position": [
+            -2.13,
+            0,
+            1.4
+          ],
+          "inView": true,
+          "screen": [
+            -0.32,
+            -0.34
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U104",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "hp": 1,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -3.07,
+            3.44,
+            -0.82
+          ],
+          "position": [
+            -3.07,
+            -0.01,
+            -0.82
+          ],
+          "inView": true,
+          "screen": [
+            -0.39,
+            0.01
+          ],
+          "skins": 67
+        },
+        {
+          "side": "player",
+          "uid": "U105",
+          "id": "T04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 6,
+          "attack": 4,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -3.07,
+            2.48,
+            0.82
+          ],
+          "position": [
+            -3.07,
+            0.02,
+            0.82
+          ],
+          "inView": true,
+          "screen": [
+            -0.44,
+            -0.25
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U201",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "hp": 3,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            3.33,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.24,
+            -0.11
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U202",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "hp": 1,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            2.13,
+            3.45,
+            -1.4
+          ],
+          "position": [
+            2.13,
+            0,
+            -1.4
+          ],
+          "inView": true,
+          "screen": [
+            0.26,
+            0.09
+          ],
+          "skins": 102
+        },
+        {
+          "side": "ai",
+          "uid": "U203",
+          "id": "T01",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 2,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            2.13,
+            2.45,
+            1.4
+          ],
+          "position": [
+            2.13,
+            -0.01,
+            1.4
+          ],
+          "inView": true,
+          "screen": [
+            0.32,
+            -0.36
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U204",
+          "id": "E04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 4,
+          "attack": 5,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            3.07,
+            2.57,
+            -0.82
+          ],
+          "position": [
+            3.07,
+            0.01,
+            -0.82
+          ],
+          "inView": true,
+          "screen": [
+            0.39,
+            0
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U205",
+          "id": "G04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 5,
+          "attack": 4,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            3.07,
+            2.48,
+            0.82
+          ],
+          "position": [
+            3.07,
+            0.02,
+            0.82
+          ],
+          "inView": true,
+          "screen": [
+            0.44,
+            -0.25
+          ]
+        }
+      ]
+    },
+    "empty": {
+      "revision": 4,
+      "total": 0,
+      "models": 0,
+      "pendingArt": 0,
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": []
+    },
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "ok": true,
+    "opened": {
+      "revision": 2,
+      "total": 10,
+      "models": 4,
+      "pendingArt": 6,
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U101",
+          "id": "E02",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 1,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.48,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.54,
+            -0.01
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U102",
+          "id": "G03",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 5,
+          "attack": 4,
+          "shield": 1,
+          "hpTag": true,
+          "hpTagPosition": [
+            -2.13,
+            2.56,
+            -1.4
+          ],
+          "position": [
+            -2.13,
+            0,
+            -1.4
+          ],
+          "inView": true,
+          "screen": [
+            -0.6,
+            0.06
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U103",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "hp": 2,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -2.13,
+            3.37,
+            1.4
+          ],
+          "position": [
+            -2.13,
+            0.02,
+            1.4
+          ],
+          "inView": true,
+          "screen": [
+            -0.72,
+            -0.09
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U104",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "hp": 1,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -3.07,
+            3.44,
+            -0.82
+          ],
+          "position": [
+            -3.07,
+            -0.01,
+            -0.82
+          ],
+          "inView": true,
+          "screen": [
+            -0.9,
+            0.04
+          ],
+          "skins": 67
+        },
+        {
+          "side": "player",
+          "uid": "U105",
+          "id": "T04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 6,
+          "attack": 4,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -3.07,
+            2.47,
+            0.82
+          ],
+          "position": [
+            -3.07,
+            0.01,
+            0.82
+          ],
+          "inView": true,
+          "screen": [
+            -0.99,
+            -0.07
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U201",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "hp": 3,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            3.34,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.54,
+            0
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U202",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "hp": 1,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            2.13,
+            3.46,
+            -1.4
+          ],
+          "position": [
+            2.13,
+            0.01,
+            -1.4
+          ],
+          "inView": true,
+          "screen": [
+            0.6,
+            0.08
+          ],
+          "skins": 102
+        },
+        {
+          "side": "ai",
+          "uid": "U203",
+          "id": "T01",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 2,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            2.13,
+            2.45,
+            1.4
+          ],
+          "position": [
+            2.13,
+            -0.01,
+            1.4
+          ],
+          "inView": true,
+          "screen": [
+            0.71,
+            -0.11
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U204",
+          "id": "E04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 4,
+          "attack": 5,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            3.07,
+            2.55,
+            -0.82
+          ],
+          "position": [
+            3.07,
+            -0.01,
+            -0.82
+          ],
+          "inView": true,
+          "screen": [
+            0.9,
+            0.03
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U205",
+          "id": "G04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 5,
+          "attack": 4,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            3.07,
+            2.47,
+            0.82
+          ],
+          "position": [
+            3.07,
+            0.01,
+            0.82
+          ],
+          "inView": true,
+          "screen": [
+            0.99,
+            -0.07
+          ]
+        }
+      ]
+    },
+    "adjusted": {
+      "revision": 3,
+      "total": 10,
+      "models": 4,
+      "pendingArt": 6,
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U101",
+          "id": "E02",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 4,
+          "attack": 2,
+          "shield": 1,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.47,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.54,
+            -0.01
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U102",
+          "id": "G03",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 5,
+          "attack": 4,
+          "shield": 1,
+          "hpTag": true,
+          "hpTagPosition": [
+            -2.13,
+            2.55,
+            -1.4
+          ],
+          "position": [
+            -2.13,
+            -0.01,
+            -1.4
+          ],
+          "inView": true,
+          "screen": [
+            -0.6,
+            0.06
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U103",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "hp": 2,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -2.13,
+            3.36,
+            1.4
+          ],
+          "position": [
+            -2.13,
+            0.01,
+            1.4
+          ],
+          "inView": true,
+          "screen": [
+            -0.71,
+            -0.09
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U104",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "hp": 1,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -3.07,
+            3.44,
+            -0.82
+          ],
+          "position": [
+            -3.07,
+            -0.01,
+            -0.82
+          ],
+          "inView": true,
+          "screen": [
+            -0.9,
+            0.04
+          ],
+          "skins": 67
+        },
+        {
+          "side": "player",
+          "uid": "U105",
+          "id": "T04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 6,
+          "attack": 4,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -3.07,
+            2.48,
+            0.82
+          ],
+          "position": [
+            -3.07,
+            0.02,
+            0.82
+          ],
+          "inView": true,
+          "screen": [
+            -0.99,
+            -0.07
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U201",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "hp": 3,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            3.33,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.54,
+            0
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U202",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "hp": 1,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            2.13,
+            3.45,
+            -1.4
+          ],
+          "position": [
+            2.13,
+            0,
+            -1.4
+          ],
+          "inView": true,
+          "screen": [
+            0.6,
+            0.08
+          ],
+          "skins": 102
+        },
+        {
+          "side": "ai",
+          "uid": "U203",
+          "id": "T01",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 2,
+          "attack": 1,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            2.13,
+            2.44,
+            1.4
+          ],
+          "position": [
+            2.13,
+            -0.02,
+            1.4
+          ],
+          "inView": true,
+          "screen": [
+            0.71,
+            -0.11
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U204",
+          "id": "E04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 4,
+          "attack": 5,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            3.07,
+            2.56,
+            -0.82
+          ],
+          "position": [
+            3.07,
+            0,
+            -0.82
+          ],
+          "inView": true,
+          "screen": [
+            0.9,
+            0.03
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U205",
+          "id": "G04",
+          "kind": "art-pending",
+          "visible": true,
+          "hp": 5,
+          "attack": 4,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            3.07,
+            2.48,
+            0.82
+          ],
+          "position": [
+            3.07,
+            0.02,
+            0.82
+          ],
+          "inView": true,
+          "screen": [
+            0.99,
+            -0.07
+          ]
+        }
+      ]
+    },
+    "empty": {
+      "revision": 4,
+      "total": 0,
+      "models": 0,
+      "pendingArt": 0,
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": []
+    },
+    "errors": []
+  }
+]
