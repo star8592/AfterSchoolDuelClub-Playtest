@@ -1,0 +1,51 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R65 自然待机姿势 · 源骨骼修正对照</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>body{margin:0;color:#f1f5f9;background:#121f2d;font:15px system-ui}header{padding:10px 18px;background:#1c3044;display:flex;justify-content:space-between}#canvas{display:block;width:100vw;height:calc(100vh - 48px)}#status{color:#b9efcd}</style></head>
+<body><header><b>真实 GLB 骨骼前后对比 · 角色正面视角</b><span id="status">正在加载模型…</span></header><canvas id="canvas"></canvas>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+import {preloadSummonModels,instantiateSummon} from '../scene/summon-models.mjs';
+const params=new URLSearchParams(location.search),before=params.get('mode')==='before';
+const group=params.get('group')==='1'?1:0;
+const ids=group===0?['E03','E04','G02','G03']:['G04','T03','T04'];
+const models=await preloadSummonModels(THREE,new GLTFLoader());
+const scene=new THREE.Scene();scene.background=new THREE.Color('#1b2839');
+const canvas=document.getElementById('canvas');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(1);
+renderer.setSize(innerWidth,innerHeight-48);
+const camera=new THREE.PerspectiveCamera(36,innerWidth/(innerHeight-48),.05,60);
+camera.position.set(0,2.75,13.6);camera.lookAt(0,1,0);
+scene.add(new THREE.HemisphereLight(0xffffff,0x405269,2.7));
+const directional=new THREE.DirectionalLight(0xffffff,3.3);directional.position.set(-3,8,7);scene.add(directional);
+const grey=new THREE.MeshStandardMaterial({color:0x384d61,roughness:.86});
+const textMaterial=new THREE.MeshBasicMaterial({color:before?0xed9d80:0x7bebb7});
+const xPositions=ids.length===4?[-4.4,-1.47,1.47,4.4]:[-3,0,3];
+const poses=[];
+for(const [i,id] of ids.entries()){
+ const tpl=models.get(id);
+ let visual,rig=null;
+ if(before){
+  const clone=cloneSkeleton(tpl.source);
+  clone.position.copy(tpl.center).multiplyScalar(-1);
+  const scaled=new THREE.Group();scaled.scale.setScalar(tpl.scale);scaled.add(clone);
+  visual=new THREE.Group();visual.add(scaled);
+  if(tpl.clips.length){const mixer=new THREE.AnimationMixer(clone);const idle=tpl.clips.find(x=>x.name==='Idle'||x.name==='idle');if(idle){mixer.clipAction(idle).play();mixer.update(.26)}}
+ }else{
+  rig=instantiateSummon(THREE,tpl);
+  rig.update(.04);visual=rig.root;
+ }
+ visual.position.x=xPositions[i];scene.add(visual);
+ poses.push({id,rig,visual});
+ const floor=new THREE.Mesh(new THREE.CylinderGeometry(.95,.95,.055,48),grey);
+ floor.position.set(xPositions[i],-.07,0);scene.add(floor);
+}
+const grid=new THREE.GridHelper(18,24,0x567088,0x334558);grid.position.y=-.10;scene.add(grid);
+renderer.setAnimationLoop(()=>renderer.render(scene,camera));
+await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+window.__R65_GALLERY={ready:true,mode:before?'before':'after',ids,poses:poses.map(x=>{const box=new THREE.Box3().setFromObject(x.visual,true); const center=box.getCenter(new THREE.Vector3());const size=box.getSize(new THREE.Vector3());return {id:x.id,posture:x.rig?.posture||null, center:center.toArray(),size:size.toArray(),screen:center.project(camera).toArray(),visible:x.visual.visible}})};
+document.getElementById('status').textContent=before?'修复前：原生 Idle / 僵硬横伸':'修复后：真实肩肘骨骼自然下垂';
+</script></body></html>

@@ -1,0 +1,942 @@
+[
+  {
+    "name": "wide",
+    "batch": 0,
+    "ids": [
+      "E03",
+      "E04",
+      "G02",
+      "G03",
+      "G04"
+    ],
+    "pass": true,
+    "errors": [],
+    "rows": [
+      {
+        "id": "E03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.88,
+              "spread": 0.387
+            },
+            {
+              "side": -1,
+              "drop": -0.798,
+              "spread": 0.475
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.887,
+              "spread": 0.328
+            },
+            {
+              "side": -1,
+              "drop": -0.83,
+              "spread": 0.486
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G02",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.849,
+              "spread": 0.468
+            },
+            {
+              "side": -1,
+              "drop": -0.915,
+              "spread": 0.29
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.812,
+              "spread": 0.505
+            },
+            {
+              "side": -1,
+              "drop": -0.839,
+              "spread": 0.471
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G04",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.924,
+              "spread": 0.251
+            },
+            {
+              "side": -1,
+              "drop": -0.779,
+              "spread": 0.51
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.88,
+              "spread": 0.387
+            },
+            {
+              "side": -1,
+              "drop": -0.798,
+              "spread": 0.475
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.887,
+              "spread": 0.328
+            },
+            {
+              "side": -1,
+              "drop": -0.83,
+              "spread": 0.486
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G02",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.849,
+              "spread": 0.468
+            },
+            {
+              "side": -1,
+              "drop": -0.915,
+              "spread": 0.29
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.812,
+              "spread": 0.505
+            },
+            {
+              "side": -1,
+              "drop": -0.839,
+              "spread": 0.471
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G04",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 66,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.924,
+              "spread": 0.251
+            },
+            {
+              "side": -1,
+              "drop": -0.779,
+              "spread": 0.51
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      }
+    ]
+  },
+  {
+    "name": "wide",
+    "batch": 1,
+    "ids": [
+      "T03",
+      "T04",
+      "G03",
+      "E03",
+      "G02"
+    ],
+    "pass": true,
+    "errors": [],
+    "rows": [
+      {
+        "id": "T03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.838,
+              "spread": 0.462
+            },
+            {
+              "side": -1,
+              "drop": -0.912,
+              "spread": 0.299
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.944,
+              "spread": 0.224
+            },
+            {
+              "side": -1,
+              "drop": -0.829,
+              "spread": 0.445
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.812,
+              "spread": 0.505
+            },
+            {
+              "side": -1,
+              "drop": -0.839,
+              "spread": 0.471
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 150,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.886,
+              "spread": 0.374
+            },
+            {
+              "side": -1,
+              "drop": -0.805,
+              "spread": 0.464
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G02",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 150,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.856,
+              "spread": 0.456
+            },
+            {
+              "side": -1,
+              "drop": -0.919,
+              "spread": 0.276
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "T03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.838,
+              "spread": 0.462
+            },
+            {
+              "side": -1,
+              "drop": -0.912,
+              "spread": 0.299
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.944,
+              "spread": 0.224
+            },
+            {
+              "side": -1,
+              "drop": -0.829,
+              "spread": 0.445
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 150,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.82,
+              "spread": 0.493
+            },
+            {
+              "side": -1,
+              "drop": -0.845,
+              "spread": 0.458
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 150,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.886,
+              "spread": 0.374
+            },
+            {
+              "side": -1,
+              "drop": -0.805,
+              "spread": 0.464
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G02",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 150,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.856,
+              "spread": 0.456
+            },
+            {
+              "side": -1,
+              "drop": -0.919,
+              "spread": 0.276
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      }
+    ]
+  },
+  {
+    "name": "portrait",
+    "batch": 0,
+    "ids": [
+      "E03",
+      "E04",
+      "G02",
+      "G03",
+      "G04"
+    ],
+    "pass": true,
+    "errors": [],
+    "rows": [
+      {
+        "id": "E03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.88,
+              "spread": 0.387
+            },
+            {
+              "side": -1,
+              "drop": -0.798,
+              "spread": 0.475
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.887,
+              "spread": 0.328
+            },
+            {
+              "side": -1,
+              "drop": -0.83,
+              "spread": 0.486
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G02",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.849,
+              "spread": 0.468
+            },
+            {
+              "side": -1,
+              "drop": -0.915,
+              "spread": 0.29
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.812,
+              "spread": 0.505
+            },
+            {
+              "side": -1,
+              "drop": -0.839,
+              "spread": 0.471
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G04",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.924,
+              "spread": 0.251
+            },
+            {
+              "side": -1,
+              "drop": -0.779,
+              "spread": 0.51
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.88,
+              "spread": 0.387
+            },
+            {
+              "side": -1,
+              "drop": -0.798,
+              "spread": 0.475
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.887,
+              "spread": 0.328
+            },
+            {
+              "side": -1,
+              "drop": -0.83,
+              "spread": 0.486
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G02",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.849,
+              "spread": 0.468
+            },
+            {
+              "side": -1,
+              "drop": -0.915,
+              "spread": 0.29
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.812,
+              "spread": 0.505
+            },
+            {
+              "side": -1,
+              "drop": -0.839,
+              "spread": 0.471
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G04",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 67,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.924,
+              "spread": 0.251
+            },
+            {
+              "side": -1,
+              "drop": -0.779,
+              "spread": 0.51
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      }
+    ]
+  },
+  {
+    "name": "portrait",
+    "batch": 1,
+    "ids": [
+      "T03",
+      "T04",
+      "G03",
+      "E03",
+      "G02"
+    ],
+    "pass": true,
+    "errors": [],
+    "rows": [
+      {
+        "id": "T03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.838,
+              "spread": 0.462
+            },
+            {
+              "side": -1,
+              "drop": -0.912,
+              "spread": 0.299
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.944,
+              "spread": 0.224
+            },
+            {
+              "side": -1,
+              "drop": -0.829,
+              "spread": 0.445
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.812,
+              "spread": 0.505
+            },
+            {
+              "side": -1,
+              "drop": -0.839,
+              "spread": 0.471
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 142,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.886,
+              "spread": 0.374
+            },
+            {
+              "side": -1,
+              "drop": -0.805,
+              "spread": 0.464
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G02",
+        "side": "player",
+        "pose": {
+          "weight": 1,
+          "frames": 142,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.856,
+              "spread": 0.456
+            },
+            {
+              "side": -1,
+              "drop": -0.919,
+              "spread": 0.276
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "T03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.838,
+              "spread": 0.462
+            },
+            {
+              "side": -1,
+              "drop": -0.912,
+              "spread": 0.299
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 70,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.944,
+              "spread": 0.224
+            },
+            {
+              "side": -1,
+              "drop": -0.829,
+              "spread": 0.445
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 142,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.82,
+              "spread": 0.493
+            },
+            {
+              "side": -1,
+              "drop": -0.845,
+              "spread": 0.458
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 142,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.886,
+              "spread": 0.374
+            },
+            {
+              "side": -1,
+              "drop": -0.805,
+              "spread": 0.464
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      },
+      {
+        "id": "G02",
+        "side": "ai",
+        "pose": {
+          "weight": 1,
+          "frames": 142,
+          "arms": [
+            {
+              "side": 1,
+              "drop": -0.856,
+              "spread": 0.456
+            },
+            {
+              "side": -1,
+              "drop": -0.919,
+              "spread": 0.276
+            }
+          ]
+        },
+        "front": 1,
+        "withinFrame": true
+      }
+    ]
+  }
+]

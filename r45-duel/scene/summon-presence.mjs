@@ -157,6 +157,21 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     if(rest)obj.quaternion.copy(rest);
    }
   });
+  // R65: the secondary VRM clones did not run the main cinematic arm pose,
+  // leaving some repeated/other-side E01/G01 summons in an unrigged T stance.
+  // Use the same independently verified original-VRM shoulder convention as
+  // reactActor(); no meshes are rebuilt or replaced.
+  const offsets={
+   J_Bip_R_UpperArm:[0,0,id==='E01'?-1.10:-1.02],
+   J_Bip_L_UpperArm:[0,0,id==='E01'?1.09:1.16],
+   J_Bip_R_LowerArm:[.04,0,-.18],
+   J_Bip_L_LowerArm:[-.04,0,.16]
+  };
+  model.traverse(o=>{
+   const e=offsets[o.name];
+   if(!e||!o.isBone)return;
+   o.quaternion.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(...e,'XYZ')));
+  });
   wrapper.add(model);
   wrapper.name='R50_ACTUAL_VRM_INSTANCE_'+id;
   wrapper.userData.skinnedMeshes=model.getObjectsByProperty('isSkinnedMesh',true).length;
@@ -166,7 +181,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
  function cloneGltf(id){
   const recycle=pool.get(id)?.pop();
   if(recycle){
-   recycle.userData.r61?.play('idle');
+   recycle.userData.r61?.revive();
    return recycle;
   }
   const template=prototypes.get(id);
@@ -327,7 +342,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
                   labelStyle==='hidden'?.01:compact?.30:.46,1);
     tag.position.copy(object.position);
     const height=state.kind==='gltf-instance'?
-      (prototypes.get(state.id)?.measured.scaledHeight||2.1):2.12;
+      (object.userData.r61?.restHeight||prototypes.get(state.id)?.measured.scaledHeight||2.1):2.12;
     const hover=state.kind==='gltf-instance'?(prototypes.get(state.id)?.spec.hover||0):0;
     tag.position.y+=Math.max(.85,height+hover+.24)+(compact&&state.index%2?.15:0);
     tag.visible=labelStyle!=='hidden'&&object.visible;
@@ -417,6 +432,20 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
    }
   }
  }
+ function measureVrmArms(object){
+  // Only used for QA inspection of the existing VRM source rig.
+  const out=[];
+  for(const side of ['R','L']){
+   const a=object.getObjectByName('J_Bip_'+side+'_UpperArm');
+   const b=object.getObjectByName('J_Bip_'+side+'_LowerArm');
+   if(!a||!b)continue;
+   const start=a.getWorldPosition(new THREE.Vector3());
+   const end=b.getWorldPosition(new THREE.Vector3());
+   const delta=end.sub(start).normalize();
+   out.push({side,drop:Number(delta.y.toFixed(3)),spread:Number(Math.abs(delta.x).toFixed(3))});
+  }
+  return out;
+ }
  function inspect(camera){
   const list=[...entries.values()].map(s=>{
    const v=s.object.getWorldPosition(new THREE.Vector3());
@@ -463,9 +492,12 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
      bank:Number(s.object.rotation.z.toFixed(4)),
      lift:Number(s.object.position.y.toFixed(4)),
      clip:s.object.userData.r61?.currentClip||null,
+     clipRunning:s.object.userData.r61?.clipRunning||false,
      crossfades:s.object.userData.r61?.transitions||0,
-     fadingClips:s.object.userData.r61?.fadingClips||0
+     fadingClips:s.object.userData.r61?.fadingClips||0,
+     posture:s.object.userData.r61?.posture||null
     }:null,
+    vrmPosture:s.kind==='vrm-instance'||s.kind==='original-vrm'?measureVrmArms(s.object):null,
     artApproved:false};
   });
   return{revision,hpDisplayMode,activeHpStyle:activeHpStyle(camera),

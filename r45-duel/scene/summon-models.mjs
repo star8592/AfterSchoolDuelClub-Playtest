@@ -4,6 +4,7 @@
  * E01/G01 remain the existing unique source VRM rigs.
  */
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+import {createSummonPose} from './summon-poses.mjs';
 export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
@@ -54,6 +55,7 @@ export function instantiateSummon(THREE,template){
  const root=new THREE.Group();root.add(scaled);
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const mixer=template.clips.length?new THREE.AnimationMixer(instance):null;
+ const pose=createSummonPose(THREE,instance,template.id);
  const choose=(kind)=>{
   if(!mixer)return null;
   const clips=template.clips;
@@ -72,6 +74,7 @@ export function instantiateSummon(THREE,template){
  const update=(dt)=>{
   if(!mixer)return;
   mixer.update(dt);
+  pose?.apply(dt,current==='Idle'||current==='idle'?'idle':'action');
   for(const [action,remaining] of fading){
    const next=remaining-dt;
    if(next<=0){action.stop();fading.delete(action)}
@@ -81,7 +84,7 @@ export function instantiateSummon(THREE,template){
  const play=(kind)=>{
   if(!mixer)return false;
   const clip=choose(kind);if(!clip)return false;
-  if(current===clip.name&&kind==='idle')return true;
+  if(current===clip.name&&kind==='idle'&&activeAction?.isRunning())return true;
   const next=mixer.clipAction(clip),prev=activeAction;
   fading.delete(next); // A previously fading clip can become current again.
   next.reset();next.enabled=true;
@@ -99,18 +102,42 @@ export function instantiateSummon(THREE,template){
   return true;
  };
  play('idle');
+ let restHeight=template.measured.scaledHeight;
  // Some skinned GLBs embed a root-motion offset that raises their boots.
  // Sample the chosen idle clip once, then seat the *real posed* feet on court.
  if(mixer){
   mixer.update(.26);
+  pose?.apply(0,'idle');
   scaled.updateMatrixWorld(true);
+  // A bent, lowered limb changes the *real posed* mesh AABB substantially:
+  // the previous static/T-pose scale was no longer a valid size contract.
+  // Retain the source mesh/rig and normalize only this seven-character group
+  // against the actual new idle posture, not a guessed model height.
+  if(pose){
+   const frame=new THREE.Box3().setFromObject(scaled,true);
+   const observedHeight=frame.max.y-frame.min.y;
+   if(!Number.isFinite(observedHeight)||observedHeight<.2)
+    throw Error('R65 invalid relaxed character height '+template.id);
+   const correction=THREE.MathUtils.clamp(2.035/observedHeight,.72,1.25);
+   scaled.scale.multiplyScalar(correction);
+   scaled.updateMatrixWorld(true);
+  }
   const posed=new THREE.Box3().setFromObject(scaled,true);
+  restHeight=posed.max.y-posed.min.y;
   if(Number.isFinite(posed.min.y)&&Math.abs(posed.min.y)<3){
    scaled.position.y-=posed.min.y;
   }
  }
- return {root,mixer,play,update,instance,meshCount:template.meshes,animationCount:template.clips.length,
-  get currentClip(){return current},get transitions(){return transitions},
+ return {root,mixer,play,update,instance,restHeight,
+  meshCount:template.meshes,animationCount:template.clips.length,
+  get currentClip(){return current},get clipRunning(){return activeAction?.isRunning()||false},
+  get transitions(){return transitions},
+  revive(){
+   mixer?.stopAllAction();
+   fading.clear();current=null;activeAction=null;
+   pose?.reset();play('idle');update(0);
+  },
   get fadingClips(){return fading.size},
+  get posture(){return pose?.inspect()||null},
   artApproved:false,kind:'real-gltf-prototype'};
 }

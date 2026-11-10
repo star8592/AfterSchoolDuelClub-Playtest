@@ -1,0 +1,162 @@
+[
+  {
+    "id": "E01",
+    "side": "player",
+    "kind": "original-vrm",
+    "arms": [
+      {
+        "side": "R",
+        "drop": -0.919,
+        "spread": 0.012
+      },
+      {
+        "side": "L",
+        "drop": -0.919,
+        "spread": 0.012
+      }
+    ],
+    "visible": true,
+    "withinFrame": true,
+    "front": 1
+  },
+  {
+    "id": "G01",
+    "side": "player",
+    "kind": "vrm-instance",
+    "arms": [
+      {
+        "side": "R",
+        "drop": -0.875,
+        "spread": 0.007
+      },
+      {
+        "side": "L",
+        "drop": -0.934,
+        "spread": 0.007
+      }
+    ],
+    "visible": true,
+    "withinFrame": true,
+    "front": 1
+  },
+  {
+    "id": "E01",
+    "side": "player",
+    "kind": "vrm-instance",
+    "arms": [
+      {
+        "side": "R",
+        "drop": -0.911,
+        "spread": 0.008
+      },
+      {
+        "side": "L",
+        "drop": -0.907,
+        "spread": 0.008
+      }
+    ],
+    "visible": true,
+    "withinFrame": true,
+    "front": 1
+  },
+  {
+    "id": "G01",
+    "side": "player",
+    "kind": "vrm-instance",
+    "arms": [
+      {
+        "side": "R",
+        "drop": -0.875,
+        "spread": 0.007
+      },
+      {
+        "side": "L",
+        "drop": -0.934,
+        "spread": 0.007
+      }
+    ],
+    "visible": true,
+    "withinFrame": true,
+    "front": 1
+  },
+  {
+    "id": "E01",
+    "side": "ai",
+    "kind": "vrm-instance",
+    "arms": [
+      {
+        "side": "R",
+        "drop": -0.911,
+        "spread": 0.008
+      },
+      {
+        "side": "L",
+        "drop": -0.907,
+        "spread": 0.008
+      }
+    ],
+    "visible": true,
+    "withinFrame": true,
+    "front": 1
+  },
+  {
+    "id": "G01",
+    "side": "ai",
+    "kind": "original-vrm",
+    "arms": [
+      {
+        "side": "R",
+        "drop": -0.919,
+        "spread": 0.023
+      },
+      {
+        "side": "L",
+        "drop": -0.919,
+        "spread": 0.023
+      }
+    ],
+    "visible": true,
+    "withinFrame": true,
+    "front": 1
+  },
+  {
+    "id": "E01",
+    "side": "ai",
+    "kind": "vrm-instance",
+    "arms": [
+      {
+        "side": "R",
+        "drop": -0.911,
+        "spread": 0.008
+      },
+      {
+        "side": "L",
+        "drop": -0.907,
+        "spread": 0.008
+      }
+    ],
+    "visible": true,
+    "withinFrame": true,
+    "front": 1
+  },
+  {
+    "id": "G01",
+    "side": "ai",
+    "kind": "vrm-instance",
+    "arms": [
+      {
+        "side": "R",
+        "drop": -0.875,
+        "spread": 0.007
+      },
+      {
+        "side": "L",
+        "drop": -0.934,
+        "spread": 0.007
+      }
+    ],
+    "visible": true,
+    "withinFrame": true,
+    "front": 1
+  }
+]
