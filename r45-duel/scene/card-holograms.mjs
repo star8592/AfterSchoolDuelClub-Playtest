@@ -15,7 +15,7 @@ export function createCardHolograms(THREE,scene){
  canvas.width=384;canvas.height=520;
  for(const side of ['player','ai']){
   const grp=groups[side],sgn=side==='player'?-1:1;
-  grp.position.set(sgn*6.05,1.53,1.55);
+  grp.position.set(sgn*5.05,1.53,1.55);
   grp.rotation.y=sgn<0?-.17:.17;
   root.add(grp);
   const backing=new THREE.Mesh(new THREE.BoxGeometry(.94,1.3,.038),
@@ -97,7 +97,7 @@ export function createCardHolograms(THREE,scene){
    const opacity=up*down;
    grp.visible=true;
    const sign=side==='player'?-1:1;
-   grp.position.x=sign*(portrait?2.55:6.05);
+   grp.position.x=sign*(portrait?2.55:5.05);
    grp.position.y=(portrait?1.25:1.53)+(.45*(1-Math.pow(1-up,3)))-.17*(1-down);
    grp.position.z=portrait?0.45:1.55;
    const sc=(portrait?.75:1)*(0.75+.25*up);
