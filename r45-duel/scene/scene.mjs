@@ -10,6 +10,7 @@ import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
+import {preloadSummonModels} from './summon-models.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
 const MODEL_SPECS=[
@@ -121,6 +122,7 @@ let shownCards={player:[],ai:[]};
 let shownUnits={player:[],ai:[]};
 let pendingCombatEvents=null;
 let summonPresence=null;
+let summonModels=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const ease=v=>{const t=clamp(v,0,1);return t*t*(3-2*t)};
@@ -472,6 +474,7 @@ function exposeQA(){
   get ready(){return ready},
   get shownCards(){return structuredClone(shownCards)},
   get summonPresence(){return summonPresence?.inspect(camera)||null},
+  get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale})):[];},
   get combatEvents(){return summonPresence?.sequenceStats()||null},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
@@ -511,10 +514,11 @@ try{
  source3DAssetsVerified=actors[0].source==='Shino-original-CC0.vrm'&&
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
- summonPresence=createSummonPresence(THREE,scene,{actors});
+ summonModels=await preloadSummonModels(THREE,new GLTFLoader());
+ summonPresence=createSummonPresence(THREE,scene,{actors,prototypes:summonModels});
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
- stageText('idle','高精度人物与体育馆已载入 · 待命');
+ stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
  exposeQA();
  const warmupStarted=performance.now();
  let warmupFrames=0;
@@ -530,12 +534,13 @@ try{
  } while((performance.now()-warmupStarted<850||warmupFrames<7)&&warmupFrames<95);
  $('loading').hidden=true;
  ready=true;
- reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length});
+ reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,
+  loadedSummonGlbs:summonModels.size,unit3dKinds:12,finalArtApproved:false});
  broadcastCamera();
  requestAnimationFrame(loop);
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();
 }catch(e){
  console.error('R45_SCENE_MODEL_LOAD_FAILED',e);
- $('loading').textContent='真实 E01/G01 模型无法加载：'+String(e.message||e);
+ $('loading').textContent='召唤用三维模型加载失败（阻止虚假就绪）：'+String(e.message||e);
  $('loading').dataset.error='true';
 }
