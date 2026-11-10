@@ -1,0 +1,3434 @@
+[
+  {
+    "viewport": "wide",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "angle": 0,
+    "entries": [
+      {
+        "id": "E01",
+        "side": "player",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.118,
+          "depth": 0.784,
+          "minY": 0.016,
+          "maxY": 2.134,
+          "coverageWidth": 0.047,
+          "coverageHeight": 0.25,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.283,
+            "right": -0.189,
+            "top": 0.094,
+            "bottom": -0.405
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.24,
+          -0.1
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.501,
+          "maxY": 0.812,
+          "coverageWidth": 0.104,
+          "coverageHeight": 0.14,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.362,
+            "right": -0.154,
+            "top": 0.097,
+            "bottom": -0.182
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.26,
+          0.11
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.569,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": -0.003,
+          "maxY": 2.078,
+          "coverageWidth": 0.178,
+          "coverageHeight": 0.471,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.523,
+            "right": -0.168,
+            "top": 0.031,
+            "bottom": -0.91
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.31,
+          -0.42
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.491,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": -0.008,
+          "maxY": 2.073,
+          "coverageWidth": 0.143,
+          "coverageHeight": 0.326,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.543,
+            "right": -0.257,
+            "top": 0.274,
+            "bottom": -0.378
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.38,
+          -0.06
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "player",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 1.724,
+          "minY": -0.006,
+          "maxY": 2.114,
+          "coverageWidth": 0.086,
+          "coverageHeight": 0.343,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.529,
+            "right": -0.357,
+            "top": 0.04,
+            "bottom": -0.646
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.44,
+          -0.24
+        ]
+      },
+      {
+        "id": "E01",
+        "side": "ai",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 1.63,
+          "minY": 0.008,
+          "maxY": 2.128,
+          "coverageWidth": 0.055,
+          "coverageHeight": 0.315,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.184,
+            "right": 0.293,
+            "top": 0.151,
+            "bottom": -0.479
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.24,
+          -0.1
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.501,
+          "maxY": 0.812,
+          "coverageWidth": 0.104,
+          "coverageHeight": 0.14,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.154,
+            "right": 0.362,
+            "top": 0.097,
+            "bottom": -0.182
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.26,
+          0.11
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.569,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": -0.003,
+          "maxY": 2.078,
+          "coverageWidth": 0.177,
+          "coverageHeight": 0.469,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.167,
+            "right": 0.521,
+            "top": 0.037,
+            "bottom": -0.901
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.31,
+          -0.42
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.491,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": -0.008,
+          "maxY": 2.073,
+          "coverageWidth": 0.144,
+          "coverageHeight": 0.327,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.258,
+            "right": 0.545,
+            "top": 0.268,
+            "bottom": -0.386
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.38,
+          -0.06
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "ai",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 0.864,
+          "minY": -0.008,
+          "maxY": 2.112,
+          "coverageWidth": 0.071,
+          "coverageHeight": 0.268,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.367,
+            "right": 0.51,
+            "top": -0.027,
+            "bottom": -0.562
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.44,
+          -0.24
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "wide",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "angle": 45,
+    "entries": [
+      {
+        "id": "E01",
+        "side": "player",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 0.784,
+          "minY": -0.011,
+          "maxY": 2.109,
+          "coverageWidth": 0.059,
+          "coverageHeight": 0.215,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.321,
+            "right": -0.203,
+            "top": 0.285,
+            "bottom": -0.145
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.26,
+          0.12
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.449,
+          "maxY": 0.761,
+          "coverageWidth": 0.115,
+          "coverageHeight": 0.128,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.282,
+            "right": -0.052,
+            "top": 0.24,
+            "bottom": -0.017
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.17,
+          0.25
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.56,
+          "height": 2.078,
+          "depth": 2.909,
+          "minY": -0.006,
+          "maxY": 2.072,
+          "coverageWidth": 0.211,
+          "coverageHeight": 0.352,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.641,
+            "right": -0.22,
+            "top": 0.316,
+            "bottom": -0.387
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.41,
+          -0.02
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.487,
+          "height": 2.078,
+          "depth": 2.099,
+          "minY": 0.002,
+          "maxY": 2.08,
+          "coverageWidth": 0.139,
+          "coverageHeight": 0.269,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.416,
+            "right": -0.137,
+            "top": 0.469,
+            "bottom": -0.069
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.27,
+          0.2
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "player",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 1.724,
+          "minY": 0.007,
+          "maxY": 2.127,
+          "coverageWidth": 0.11,
+          "coverageHeight": 0.244,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.531,
+            "right": -0.312,
+            "top": 0.348,
+            "bottom": -0.141
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.42,
+          0.16
+        ]
+      },
+      {
+        "id": "E01",
+        "side": "ai",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 1.63,
+          "minY": -0.003,
+          "maxY": 2.117,
+          "coverageWidth": 0.096,
+          "coverageHeight": 0.29,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.09,
+            "right": 0.103,
+            "top": 0.057,
+            "bottom": -0.522
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.01,
+          -0.17
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.449,
+          "maxY": 0.761,
+          "coverageWidth": 0.136,
+          "coverageHeight": 0.177,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.022,
+            "right": 0.293,
+            "top": -0.046,
+            "bottom": -0.4
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.16,
+          -0.07
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.56,
+          "height": 2.078,
+          "depth": 2.909,
+          "minY": -0.006,
+          "maxY": 2.072,
+          "coverageWidth": 0.237,
+          "coverageHeight": 0.464,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.34,
+            "right": 0.134,
+            "top": 0,
+            "bottom": -0.929
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.09,
+          -0.44
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.487,
+          "height": 2.078,
+          "depth": 2.099,
+          "minY": 0.002,
+          "maxY": 2.08,
+          "coverageWidth": 0.173,
+          "coverageHeight": 0.377,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.037,
+            "right": 0.382,
+            "top": 0.072,
+            "bottom": -0.681
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.21,
+          -0.29
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "ai",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 0.864,
+          "minY": -0.006,
+          "maxY": 2.114,
+          "coverageWidth": 0.068,
+          "coverageHeight": 0.277,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.004,
+            "right": 0.132,
+            "top": -0.192,
+            "bottom": -0.747
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.06,
+          -0.41
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "wide",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "angle": 90,
+    "entries": [
+      {
+        "id": "E01",
+        "side": "player",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.121,
+          "depth": 0.784,
+          "minY": -0.002,
+          "maxY": 2.119,
+          "coverageWidth": 0.052,
+          "coverageHeight": 0.192,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.231,
+            "right": -0.127,
+            "top": 0.457,
+            "bottom": 0.073
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.18,
+          0.31
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.485,
+          "maxY": 0.797,
+          "coverageWidth": 0.094,
+          "coverageHeight": 0.097,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.121,
+            "right": 0.067,
+            "top": 0.324,
+            "bottom": 0.13
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.03,
+          0.37
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.569,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": 0.007,
+          "maxY": 2.088,
+          "coverageWidth": 0.181,
+          "coverageHeight": 0.242,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.518,
+            "right": -0.155,
+            "top": 0.535,
+            "bottom": 0.052
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.32,
+          0.29
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.479,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": 0.007,
+          "maxY": 2.087,
+          "coverageWidth": 0.113,
+          "coverageHeight": 0.226,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.2,
+            "right": 0.026,
+            "top": 0.606,
+            "bottom": 0.155
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.08,
+          0.37
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "player",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 1.724,
+          "minY": 0,
+          "maxY": 2.12,
+          "coverageWidth": 0.099,
+          "coverageHeight": 0.183,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.349,
+            "right": -0.151,
+            "top": 0.571,
+            "bottom": 0.204
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.25,
+          0.44
+        ]
+      },
+      {
+        "id": "E01",
+        "side": "ai",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 1.63,
+          "minY": -0.006,
+          "maxY": 2.114,
+          "coverageWidth": 0.126,
+          "coverageHeight": 0.221,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.355,
+            "right": -0.104,
+            "top": 0.049,
+            "bottom": -0.394
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.22,
+          -0.12
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.485,
+          "maxY": 0.797,
+          "coverageWidth": 0.125,
+          "coverageHeight": 0.152,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.161,
+            "right": 0.09,
+            "top": -0.171,
+            "bottom": -0.475
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.03,
+          -0.16
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.569,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": 0.007,
+          "maxY": 2.088,
+          "coverageWidth": 0.252,
+          "coverageHeight": 0.317,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.696,
+            "right": -0.193,
+            "top": 0.073,
+            "bottom": -0.562
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.42,
+          -0.25
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.479,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": 0.007,
+          "maxY": 2.087,
+          "coverageWidth": 0.176,
+          "coverageHeight": 0.332,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.32,
+            "right": 0.033,
+            "top": -0.079,
+            "bottom": -0.744
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.12,
+          -0.42
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "ai",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 0.864,
+          "minY": 0.015,
+          "maxY": 2.135,
+          "coverageWidth": 0.094,
+          "coverageHeight": 0.236,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.466,
+            "right": -0.278,
+            "top": -0.161,
+            "bottom": -0.632
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.37,
+          -0.34
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "wide",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "angle": 180,
+    "entries": [
+      {
+        "id": "E01",
+        "side": "player",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.119,
+          "depth": 0.784,
+          "minY": 0.014,
+          "maxY": 2.132,
+          "coverageWidth": 0.035,
+          "coverageHeight": 0.212,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.155,
+            "right": 0.225,
+            "top": 0.468,
+            "bottom": 0.044
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.19,
+          0.31
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.507,
+          "maxY": 0.819,
+          "coverageWidth": 0.101,
+          "coverageHeight": 0.132,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.149,
+            "right": 0.351,
+            "top": 0.155,
+            "bottom": -0.11
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.25,
+          0.17
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.568,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": 0,
+          "maxY": 2.08,
+          "coverageWidth": 0.104,
+          "coverageHeight": 0.288,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.118,
+            "right": 0.327,
+            "top": 0.656,
+            "bottom": 0.081
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.21,
+          0.37
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.49,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": -0.007,
+          "maxY": 2.074,
+          "coverageWidth": 0.124,
+          "coverageHeight": 0.291,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.234,
+            "right": 0.483,
+            "top": 0.44,
+            "bottom": -0.141
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.34,
+          0.15
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "player",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 1.724,
+          "minY": -0.007,
+          "maxY": 2.113,
+          "coverageWidth": 0.051,
+          "coverageHeight": 0.247,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.267,
+            "right": 0.369,
+            "top": 0.574,
+            "bottom": 0.079
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.32,
+          0.38
+        ]
+      },
+      {
+        "id": "E01",
+        "side": "ai",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 1.63,
+          "minY": 0.007,
+          "maxY": 2.127,
+          "coverageWidth": 0.04,
+          "coverageHeight": 0.255,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.231,
+            "right": -0.152,
+            "top": 0.504,
+            "bottom": -0.005
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.19,
+          0.31
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.507,
+          "maxY": 0.819,
+          "coverageWidth": 0.101,
+          "coverageHeight": 0.132,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.351,
+            "right": -0.149,
+            "top": 0.154,
+            "bottom": -0.111
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.25,
+          0.17
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.568,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": 0,
+          "maxY": 2.08,
+          "coverageWidth": 0.105,
+          "coverageHeight": 0.289,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.329,
+            "right": -0.119,
+            "top": 0.653,
+            "bottom": 0.076
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.21,
+          0.37
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.49,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": -0.007,
+          "maxY": 2.074,
+          "coverageWidth": 0.124,
+          "coverageHeight": 0.29,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.481,
+            "right": -0.234,
+            "top": 0.445,
+            "bottom": -0.135
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.34,
+          0.15
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "ai",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 0.864,
+          "minY": -0.013,
+          "maxY": 2.106,
+          "coverageWidth": 0.043,
+          "coverageHeight": 0.208,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.36,
+            "right": -0.273,
+            "top": 0.537,
+            "bottom": 0.122
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.32,
+          0.38
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "wide",
+    "batch": [
+      "G02",
+      "G03",
+      "G04",
+      "T01",
+      "T02"
+    ],
+    "angle": 0,
+    "entries": [
+      {
+        "id": "G02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.751,
+          "height": 2.036,
+          "depth": 2.57,
+          "minY": -0.011,
+          "maxY": 2.025,
+          "coverageWidth": 0.147,
+          "coverageHeight": 0.382,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.35,
+            "right": -0.057,
+            "top": 0.183,
+            "bottom": -0.581
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.23,
+          -0.18
+        ]
+      },
+      {
+        "id": "G03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.217,
+          "height": 2.081,
+          "depth": 2.3,
+          "minY": -0.007,
+          "maxY": 2.073,
+          "coverageWidth": 0.107,
+          "coverageHeight": 0.324,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.376,
+            "right": -0.162,
+            "top": 0.352,
+            "bottom": -0.296
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.26,
+          0.02
+        ]
+      },
+      {
+        "id": "G04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.358,
+          "height": 2.081,
+          "depth": 2.559,
+          "minY": -0.007,
+          "maxY": 2.074,
+          "coverageWidth": 0.155,
+          "coverageHeight": 0.433,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.493,
+            "right": -0.182,
+            "top": 0.017,
+            "bottom": -0.849
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.31,
+          -0.42
+        ]
+      },
+      {
+        "id": "T01",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.144,
+          "height": 1.152,
+          "depth": 1.01,
+          "minY": 0,
+          "maxY": 1.152,
+          "coverageWidth": 0.094,
+          "coverageHeight": 0.166,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.474,
+            "right": -0.287,
+            "top": 0.039,
+            "bottom": -0.294
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.38,
+          -0.05
+        ]
+      },
+      {
+        "id": "T02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.388,
+          "height": 1.467,
+          "depth": 1.086,
+          "minY": 0.001,
+          "maxY": 1.468,
+          "coverageWidth": 0.062,
+          "coverageHeight": 0.223,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.492,
+            "right": -0.367,
+            "top": -0.134,
+            "bottom": -0.581
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.43,
+          -0.31
+        ]
+      },
+      {
+        "id": "G02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.751,
+          "height": 2.036,
+          "depth": 2.57,
+          "minY": -0.011,
+          "maxY": 2.025,
+          "coverageWidth": 0.144,
+          "coverageHeight": 0.378,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.056,
+            "right": 0.345,
+            "top": 0.2,
+            "bottom": -0.556
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.23,
+          -0.18
+        ]
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.217,
+          "height": 2.081,
+          "depth": 2.3,
+          "minY": -0.007,
+          "maxY": 2.073,
+          "coverageWidth": 0.108,
+          "coverageHeight": 0.327,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.163,
+            "right": 0.379,
+            "top": 0.339,
+            "bottom": -0.316
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.26,
+          0.02
+        ]
+      },
+      {
+        "id": "G04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.358,
+          "height": 2.081,
+          "depth": 2.559,
+          "minY": -0.007,
+          "maxY": 2.074,
+          "coverageWidth": 0.156,
+          "coverageHeight": 0.438,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.183,
+            "right": 0.496,
+            "top": -0.002,
+            "bottom": -0.879
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.31,
+          -0.42
+        ]
+      },
+      {
+        "id": "T01",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.144,
+          "height": 1.152,
+          "depth": 1.01,
+          "minY": 0,
+          "maxY": 1.152,
+          "coverageWidth": 0.094,
+          "coverageHeight": 0.167,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.287,
+            "right": 0.474,
+            "top": 0.037,
+            "bottom": -0.296
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.38,
+          -0.06
+        ]
+      },
+      {
+        "id": "T02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.388,
+          "height": 1.467,
+          "depth": 1.086,
+          "minY": 0.001,
+          "maxY": 1.468,
+          "coverageWidth": 0.062,
+          "coverageHeight": 0.224,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.366,
+            "right": 0.491,
+            "top": -0.135,
+            "bottom": -0.582
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.43,
+          -0.31
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "wide",
+    "batch": [
+      "T03",
+      "T04",
+      "E02",
+      "T01",
+      "G03"
+    ],
+    "angle": 0,
+    "entries": [
+      {
+        "id": "T01",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.142,
+          "height": 1.15,
+          "depth": 1.009,
+          "minY": 0.008,
+          "maxY": 1.157,
+          "coverageWidth": 0.093,
+          "coverageHeight": 0.166,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.474,
+            "right": -0.287,
+            "top": 0.039,
+            "bottom": -0.293
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.38,
+          -0.05
+        ]
+      },
+      {
+        "id": "T01",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.142,
+          "height": 1.15,
+          "depth": 1.009,
+          "minY": 0.008,
+          "maxY": 1.157,
+          "coverageWidth": 0.093,
+          "coverageHeight": 0.166,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.287,
+            "right": 0.474,
+            "top": 0.039,
+            "bottom": -0.293
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.38,
+          -0.05
+        ]
+      },
+      {
+        "id": "T03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.754,
+          "height": 2.081,
+          "depth": 2.021,
+          "minY": -0.007,
+          "maxY": 2.073,
+          "coverageWidth": 0.147,
+          "coverageHeight": 0.338,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.395,
+            "right": -0.101,
+            "top": 0.18,
+            "bottom": -0.497
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.23,
+          -0.18
+        ]
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.582,
+          "height": 2.081,
+          "depth": 1.734,
+          "minY": -0.001,
+          "maxY": 2.079,
+          "coverageWidth": 0.123,
+          "coverageHeight": 0.286,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.389,
+            "right": -0.143,
+            "top": 0.331,
+            "bottom": -0.242
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.26,
+          0.02
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.504,
+          "maxY": 0.816,
+          "coverageWidth": 0.132,
+          "coverageHeight": 0.196,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.448,
+            "right": -0.185,
+            "top": -0.293,
+            "bottom": -0.686
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.32,
+          -0.32
+        ]
+      },
+      {
+        "id": "G03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.22,
+          "height": 2.08,
+          "depth": 2.377,
+          "minY": 0.002,
+          "maxY": 2.082,
+          "coverageWidth": 0.155,
+          "coverageHeight": 0.396,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.61,
+            "right": -0.3,
+            "top": 0.081,
+            "bottom": -0.712
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.43,
+          -0.31
+        ]
+      },
+      {
+        "id": "T03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.754,
+          "height": 2.081,
+          "depth": 2.021,
+          "minY": -0.007,
+          "maxY": 2.073,
+          "coverageWidth": 0.15,
+          "coverageHeight": 0.344,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.103,
+            "right": 0.402,
+            "top": 0.151,
+            "bottom": -0.537
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.23,
+          -0.18
+        ]
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.582,
+          "height": 2.081,
+          "depth": 1.734,
+          "minY": -0.001,
+          "maxY": 2.079,
+          "coverageWidth": 0.126,
+          "coverageHeight": 0.292,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.145,
+            "right": 0.397,
+            "top": 0.301,
+            "bottom": -0.283
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.26,
+          0.02
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.504,
+          "maxY": 0.816,
+          "coverageWidth": 0.132,
+          "coverageHeight": 0.196,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.185,
+            "right": 0.448,
+            "top": -0.293,
+            "bottom": -0.686
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.32,
+          -0.32
+        ]
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.22,
+          "height": 2.08,
+          "depth": 2.377,
+          "minY": 0.002,
+          "maxY": 2.082,
+          "coverageWidth": 0.155,
+          "coverageHeight": 0.396,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.3,
+            "right": 0.61,
+            "top": 0.081,
+            "bottom": -0.712
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.43,
+          -0.31
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "portrait",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "angle": 0,
+    "entries": [
+      {
+        "id": "E01",
+        "side": "player",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.118,
+          "depth": 0.784,
+          "minY": 0.016,
+          "maxY": 2.134,
+          "coverageWidth": 0.051,
+          "coverageHeight": 0.109,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.407,
+            "right": -0.304,
+            "top": 0.101,
+            "bottom": -0.117
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.36,
+          0.02
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.499,
+          "maxY": 0.811,
+          "coverageWidth": 0.157,
+          "coverageHeight": 0.036,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.567,
+            "right": -0.254,
+            "top": 0.026,
+            "bottom": -0.046
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.41,
+          0.07
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.57,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": -0.003,
+          "maxY": 2.078,
+          "coverageWidth": 0.205,
+          "coverageHeight": 0.147,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.678,
+            "right": -0.268,
+            "top": 0.087,
+            "bottom": -0.207
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.46,
+          -0.06
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.491,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": -0.008,
+          "maxY": 2.073,
+          "coverageWidth": 0.178,
+          "coverageHeight": 0.12,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.786,
+            "right": -0.43,
+            "top": 0.127,
+            "bottom": -0.113
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.6,
+          0.01
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "player",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 1.724,
+          "minY": -0.006,
+          "maxY": 2.114,
+          "coverageWidth": 0.077,
+          "coverageHeight": 0.127,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.723,
+            "right": -0.569,
+            "top": 0.091,
+            "bottom": -0.163
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.64,
+          0
+        ]
+      },
+      {
+        "id": "E01",
+        "side": "ai",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 1.63,
+          "minY": 0.008,
+          "maxY": 2.128,
+          "coverageWidth": 0.058,
+          "coverageHeight": 0.121,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.299,
+            "right": 0.414,
+            "top": 0.109,
+            "bottom": -0.132
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.36,
+          0.02
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.499,
+          "maxY": 0.811,
+          "coverageWidth": 0.157,
+          "coverageHeight": 0.036,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.254,
+            "right": 0.567,
+            "top": 0.026,
+            "bottom": -0.046
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.41,
+          0.07
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.57,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": -0.003,
+          "maxY": 2.078,
+          "coverageWidth": 0.204,
+          "coverageHeight": 0.147,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.267,
+            "right": 0.676,
+            "top": 0.088,
+            "bottom": -0.206
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.46,
+          -0.06
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.491,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": -0.008,
+          "maxY": 2.073,
+          "coverageWidth": 0.179,
+          "coverageHeight": 0.121,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.431,
+            "right": 0.788,
+            "top": 0.126,
+            "bottom": -0.115
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.6,
+          0.01
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "ai",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 0.864,
+          "minY": -0.009,
+          "maxY": 2.111,
+          "coverageWidth": 0.065,
+          "coverageHeight": 0.114,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.58,
+            "right": 0.709,
+            "top": 0.08,
+            "bottom": -0.148
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.64,
+          0
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "portrait",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "angle": 45,
+    "entries": [
+      {
+        "id": "E01",
+        "side": "player",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 0.784,
+          "minY": -0.007,
+          "maxY": 2.113,
+          "coverageWidth": 0.076,
+          "coverageHeight": 0.09,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.478,
+            "right": -0.327,
+            "top": 0.12,
+            "bottom": -0.06
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.4,
+          0.06
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.453,
+          "maxY": 0.765,
+          "coverageWidth": 0.184,
+          "coverageHeight": 0.032,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.453,
+            "right": -0.085,
+            "top": 0.051,
+            "bottom": -0.014
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.27,
+          0.08
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.562,
+          "height": 2.079,
+          "depth": 2.909,
+          "minY": -0.007,
+          "maxY": 2.071,
+          "coverageWidth": 0.287,
+          "coverageHeight": 0.114,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.925,
+            "right": -0.35,
+            "top": 0.123,
+            "bottom": -0.105
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.63,
+          0.01
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.494,
+          "height": 2.079,
+          "depth": 2.099,
+          "minY": -0.001,
+          "maxY": 2.078,
+          "coverageWidth": 0.208,
+          "coverageHeight": 0.098,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.645,
+            "right": -0.228,
+            "top": 0.151,
+            "bottom": -0.045
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.44,
+          0.05
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "player",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 1.724,
+          "minY": 0.006,
+          "maxY": 2.126,
+          "coverageWidth": 0.141,
+          "coverageHeight": 0.095,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.791,
+            "right": -0.508,
+            "top": 0.131,
+            "bottom": -0.059
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.65,
+          0.06
+        ]
+      },
+      {
+        "id": "E01",
+        "side": "ai",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 1.63,
+          "minY": 0,
+          "maxY": 2.12,
+          "coverageWidth": 0.133,
+          "coverageHeight": 0.105,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.121,
+            "right": 0.144,
+            "top": 0.084,
+            "bottom": -0.127
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.01,
+          0.01
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.453,
+          "maxY": 0.765,
+          "coverageWidth": 0.202,
+          "coverageHeight": 0.038,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.033,
+            "right": 0.437,
+            "top": -0.004,
+            "bottom": -0.081
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.24,
+          0.03
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.562,
+          "height": 2.079,
+          "depth": 2.909,
+          "minY": -0.007,
+          "maxY": 2.071,
+          "coverageWidth": 0.308,
+          "coverageHeight": 0.131,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.436,
+            "right": 0.18,
+            "top": 0.073,
+            "bottom": -0.189
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.12,
+          -0.06
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.494,
+          "height": 2.079,
+          "depth": 2.099,
+          "minY": -0.001,
+          "maxY": 2.078,
+          "coverageWidth": 0.235,
+          "coverageHeight": 0.118,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.053,
+            "right": 0.524,
+            "top": 0.084,
+            "bottom": -0.152
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.29,
+          -0.03
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "ai",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 0.864,
+          "minY": -0.01,
+          "maxY": 2.11,
+          "coverageWidth": 0.089,
+          "coverageHeight": 0.106,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.006,
+            "right": 0.171,
+            "top": 0.049,
+            "bottom": -0.163
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.08,
+          -0.03
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "portrait",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "angle": 90,
+    "entries": [
+      {
+        "id": "E01",
+        "side": "player",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.121,
+          "depth": 0.784,
+          "minY": -0.012,
+          "maxY": 2.109,
+          "coverageWidth": 0.075,
+          "coverageHeight": 0.091,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.369,
+            "right": -0.219,
+            "top": 0.163,
+            "bottom": -0.02
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.29,
+          0.1
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.465,
+          "maxY": 0.776,
+          "coverageWidth": 0.157,
+          "coverageHeight": 0.029,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.202,
+            "right": 0.112,
+            "top": 0.073,
+            "bottom": 0.015
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.04,
+          0.11
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.571,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": 0.004,
+          "maxY": 2.085,
+          "coverageWidth": 0.275,
+          "coverageHeight": 0.1,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.823,
+            "right": -0.272,
+            "top": 0.178,
+            "bottom": -0.023
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.53,
+          0.08
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.489,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": 0.008,
+          "maxY": 2.089,
+          "coverageWidth": 0.184,
+          "coverageHeight": 0.096,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.326,
+            "right": 0.043,
+            "top": 0.192,
+            "bottom": 0
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.14,
+          0.09
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "player",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 1.724,
+          "minY": 0.005,
+          "maxY": 2.125,
+          "coverageWidth": 0.153,
+          "coverageHeight": 0.087,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.574,
+            "right": -0.267,
+            "top": 0.187,
+            "bottom": 0.012
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.42,
+          0.13
+        ]
+      },
+      {
+        "id": "E01",
+        "side": "ai",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 1.63,
+          "minY": -0.008,
+          "maxY": 2.112,
+          "coverageWidth": 0.173,
+          "coverageHeight": 0.104,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.511,
+            "right": -0.166,
+            "top": 0.092,
+            "bottom": -0.116
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.34,
+          0.02
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.465,
+          "maxY": 0.776,
+          "coverageWidth": 0.186,
+          "coverageHeight": 0.037,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.238,
+            "right": 0.133,
+            "top": -0.028,
+            "bottom": -0.102
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.05,
+          0.02
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.571,
+          "height": 2.081,
+          "depth": 2.909,
+          "minY": 0.004,
+          "maxY": 2.085,
+          "coverageWidth": 0.329,
+          "coverageHeight": 0.121,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.968,
+            "right": -0.31,
+            "top": 0.094,
+            "bottom": -0.147
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.63,
+          -0.03
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.489,
+          "height": 2.081,
+          "depth": 2.099,
+          "minY": 0.008,
+          "maxY": 2.089,
+          "coverageWidth": 0.236,
+          "coverageHeight": 0.125,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.428,
+            "right": 0.044,
+            "top": 0.071,
+            "bottom": -0.179
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.18,
+          -0.06
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "ai",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 0.864,
+          "minY": 0.014,
+          "maxY": 2.134,
+          "coverageWidth": 0.105,
+          "coverageHeight": 0.11,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.637,
+            "right": -0.428,
+            "top": 0.062,
+            "bottom": -0.159
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.53,
+          -0.02
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "portrait",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "angle": 180,
+    "entries": [
+      {
+        "id": "E01",
+        "side": "player",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 0.784,
+          "minY": 0.013,
+          "maxY": 2.134,
+          "coverageWidth": 0.044,
+          "coverageHeight": 0.096,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.268,
+            "right": 0.356,
+            "top": 0.167,
+            "bottom": -0.025
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.31,
+          0.1
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.509,
+          "maxY": 0.821,
+          "coverageWidth": 0.153,
+          "coverageHeight": 0.035,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.249,
+            "right": 0.556,
+            "top": 0.039,
+            "bottom": -0.031
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.4,
+          0.08
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.561,
+          "height": 2.078,
+          "depth": 2.909,
+          "minY": 0.007,
+          "maxY": 2.085,
+          "coverageWidth": 0.155,
+          "coverageHeight": 0.11,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.215,
+            "right": 0.524,
+            "top": 0.203,
+            "bottom": -0.016
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.36,
+          0.09
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.491,
+          "height": 2.078,
+          "depth": 2.099,
+          "minY": 0,
+          "maxY": 2.079,
+          "coverageWidth": 0.166,
+          "coverageHeight": 0.112,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.403,
+            "right": 0.735,
+            "top": 0.159,
+            "bottom": -0.065
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.56,
+          0.05
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "player",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 1.724,
+          "minY": -0.007,
+          "maxY": 2.113,
+          "coverageWidth": 0.059,
+          "coverageHeight": 0.102,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.473,
+            "right": 0.591,
+            "top": 0.187,
+            "bottom": -0.018
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.53,
+          0.11
+        ]
+      },
+      {
+        "id": "E01",
+        "side": "ai",
+        "kind": "vrm-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.407,
+          "height": 2.12,
+          "depth": 1.63,
+          "minY": 0.001,
+          "maxY": 2.121,
+          "coverageWidth": 0.049,
+          "coverageHeight": 0.105,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.362,
+            "right": -0.265,
+            "top": 0.173,
+            "bottom": -0.036
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.31,
+          0.1
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.509,
+          "maxY": 0.821,
+          "coverageWidth": 0.153,
+          "coverageHeight": 0.035,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.556,
+            "right": -0.25,
+            "top": 0.039,
+            "bottom": -0.031
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.4,
+          0.08
+        ]
+      },
+      {
+        "id": "E03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.561,
+          "height": 2.078,
+          "depth": 2.909,
+          "minY": 0.007,
+          "maxY": 2.085,
+          "coverageWidth": 0.154,
+          "coverageHeight": 0.11,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.525,
+            "right": -0.217,
+            "top": 0.202,
+            "bottom": -0.017
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.36,
+          0.09
+        ]
+      },
+      {
+        "id": "E04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.491,
+          "height": 2.078,
+          "depth": 2.099,
+          "minY": 0,
+          "maxY": 2.079,
+          "coverageWidth": 0.165,
+          "coverageHeight": 0.112,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.733,
+            "right": -0.403,
+            "top": 0.16,
+            "bottom": -0.064
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.56,
+          0.05
+        ]
+      },
+      {
+        "id": "G01",
+        "side": "ai",
+        "kind": "original-vrm",
+        "visible": true,
+        "metrics": {
+          "width": 0.424,
+          "height": 2.12,
+          "depth": 0.864,
+          "minY": 0.003,
+          "maxY": 2.122,
+          "coverageWidth": 0.05,
+          "coverageHeight": 0.094,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.582,
+            "right": -0.482,
+            "top": 0.18,
+            "bottom": -0.007
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.53,
+          0.11
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "portrait",
+    "batch": [
+      "G02",
+      "G03",
+      "G04",
+      "T01",
+      "T02"
+    ],
+    "angle": 0,
+    "entries": [
+      {
+        "id": "G02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.751,
+          "height": 2.036,
+          "depth": 2.569,
+          "minY": -0.002,
+          "maxY": 2.034,
+          "coverageWidth": 0.197,
+          "coverageHeight": 0.13,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.487,
+            "right": -0.094,
+            "top": 0.11,
+            "bottom": -0.151
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.35,
+          -0.01
+        ]
+      },
+      {
+        "id": "G03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.217,
+          "height": 2.081,
+          "depth": 2.3,
+          "minY": 0.003,
+          "maxY": 2.083,
+          "coverageWidth": 0.14,
+          "coverageHeight": 0.119,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.554,
+            "right": -0.275,
+            "top": 0.142,
+            "bottom": -0.096
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.41,
+          0.02
+        ]
+      },
+      {
+        "id": "G04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.358,
+          "height": 2.081,
+          "depth": 2.559,
+          "minY": -0.005,
+          "maxY": 2.076,
+          "coverageWidth": 0.178,
+          "coverageHeight": 0.141,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.646,
+            "right": -0.291,
+            "top": 0.085,
+            "bottom": -0.197
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.46,
+          -0.06
+        ]
+      },
+      {
+        "id": "T01",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.144,
+          "height": 1.151,
+          "depth": 1.009,
+          "minY": -0.008,
+          "maxY": 1.143,
+          "coverageWidth": 0.127,
+          "coverageHeight": 0.065,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.727,
+            "right": -0.473,
+            "top": 0.033,
+            "bottom": -0.097
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.6,
+          0.01
+        ]
+      },
+      {
+        "id": "T02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.388,
+          "height": 1.467,
+          "depth": 1.084,
+          "minY": -0.01,
+          "maxY": 1.457,
+          "coverageWidth": 0.061,
+          "coverageHeight": 0.086,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.703,
+            "right": -0.581,
+            "top": 0.021,
+            "bottom": -0.151
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.64,
+          -0.04
+        ]
+      },
+      {
+        "id": "G02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.751,
+          "height": 2.036,
+          "depth": 2.569,
+          "minY": -0.002,
+          "maxY": 2.034,
+          "coverageWidth": 0.195,
+          "coverageHeight": 0.129,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.093,
+            "right": 0.482,
+            "top": 0.112,
+            "bottom": -0.146
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.35,
+          -0.01
+        ]
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.217,
+          "height": 2.081,
+          "depth": 2.3,
+          "minY": 0.003,
+          "maxY": 2.083,
+          "coverageWidth": 0.14,
+          "coverageHeight": 0.12,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.277,
+            "right": 0.556,
+            "top": 0.14,
+            "bottom": -0.1
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.41,
+          0.02
+        ]
+      },
+      {
+        "id": "G04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.358,
+          "height": 2.081,
+          "depth": 2.559,
+          "minY": -0.005,
+          "maxY": 2.076,
+          "coverageWidth": 0.178,
+          "coverageHeight": 0.142,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.291,
+            "right": 0.647,
+            "top": 0.082,
+            "bottom": -0.202
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.46,
+          -0.06
+        ]
+      },
+      {
+        "id": "T01",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.144,
+          "height": 1.151,
+          "depth": 1.009,
+          "minY": -0.008,
+          "maxY": 1.143,
+          "coverageWidth": 0.127,
+          "coverageHeight": 0.065,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.473,
+            "right": 0.727,
+            "top": 0.032,
+            "bottom": -0.097
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.6,
+          0.01
+        ]
+      },
+      {
+        "id": "T02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 0.388,
+          "height": 1.467,
+          "depth": 1.084,
+          "minY": -0.01,
+          "maxY": 1.457,
+          "coverageWidth": 0.061,
+          "coverageHeight": 0.086,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.58,
+            "right": 0.701,
+            "top": 0.02,
+            "bottom": -0.152
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.64,
+          -0.04
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  },
+  {
+    "viewport": "portrait",
+    "batch": [
+      "T03",
+      "T04",
+      "E02",
+      "T01",
+      "G03"
+    ],
+    "angle": 0,
+    "entries": [
+      {
+        "id": "T01",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.133,
+          "height": 1.142,
+          "depth": 1.006,
+          "minY": 0,
+          "maxY": 1.142,
+          "coverageWidth": 0.126,
+          "coverageHeight": 0.064,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.726,
+            "right": -0.474,
+            "top": 0.032,
+            "bottom": -0.097
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.6,
+          0.01
+        ]
+      },
+      {
+        "id": "T01",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.133,
+          "height": 1.142,
+          "depth": 1.006,
+          "minY": 0,
+          "maxY": 1.142,
+          "coverageWidth": 0.126,
+          "coverageHeight": 0.064,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.473,
+            "right": 0.725,
+            "top": 0.032,
+            "bottom": -0.096
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.6,
+          0.01
+        ]
+      },
+      {
+        "id": "T03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.753,
+          "height": 2.081,
+          "depth": 2.021,
+          "minY": -0.002,
+          "maxY": 2.079,
+          "coverageWidth": 0.196,
+          "coverageHeight": 0.123,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.558,
+            "right": -0.166,
+            "top": 0.112,
+            "bottom": -0.135
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.35,
+          -0.01
+        ]
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.581,
+          "height": 2.081,
+          "depth": 1.734,
+          "minY": -0.008,
+          "maxY": 2.073,
+          "coverageWidth": 0.169,
+          "coverageHeight": 0.112,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.579,
+            "right": -0.242,
+            "top": 0.138,
+            "bottom": -0.087
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.41,
+          0.02
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.453,
+          "maxY": 0.765,
+          "coverageWidth": 0.178,
+          "coverageHeight": 0.044,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.639,
+            "right": -0.284,
+            "top": -0.052,
+            "bottom": -0.139
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.46,
+          -0.01
+        ]
+      },
+      {
+        "id": "G03",
+        "side": "player",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.22,
+          "height": 2.08,
+          "depth": 2.377,
+          "minY": 0.006,
+          "maxY": 2.086,
+          "coverageWidth": 0.169,
+          "coverageHeight": 0.134,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.822,
+            "right": -0.484,
+            "top": 0.096,
+            "bottom": -0.173
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          -0.64,
+          -0.04
+        ]
+      },
+      {
+        "id": "T03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.753,
+          "height": 2.081,
+          "depth": 2.021,
+          "minY": -0.002,
+          "maxY": 2.079,
+          "coverageWidth": 0.198,
+          "coverageHeight": 0.125,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.168,
+            "right": 0.563,
+            "top": 0.107,
+            "bottom": -0.143
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.35,
+          -0.01
+        ]
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.581,
+          "height": 2.081,
+          "depth": 1.734,
+          "minY": -0.008,
+          "maxY": 2.073,
+          "coverageWidth": 0.171,
+          "coverageHeight": 0.113,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.244,
+            "right": 0.586,
+            "top": 0.132,
+            "bottom": -0.095
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.41,
+          0.02
+        ]
+      },
+      {
+        "id": "E02",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.493,
+          "height": 0.312,
+          "depth": 1.75,
+          "minY": 0.453,
+          "maxY": 0.765,
+          "coverageWidth": 0.178,
+          "coverageHeight": 0.044,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.284,
+            "right": 0.639,
+            "top": -0.052,
+            "bottom": -0.139
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.46,
+          -0.01
+        ]
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "kind": "gltf-instance",
+        "visible": true,
+        "metrics": {
+          "width": 1.22,
+          "height": 2.08,
+          "depth": 2.377,
+          "minY": 0.006,
+          "maxY": 2.086,
+          "coverageWidth": 0.169,
+          "coverageHeight": 0.134,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.484,
+            "right": 0.822,
+            "top": 0.096,
+            "bottom": -0.173
+          },
+          "frontDot": 1
+        },
+        "screen": [
+          0.64,
+          -0.04
+        ]
+      }
+    ],
+    "errors": [],
+    "pass": true,
+    "failures": []
+  }
+]

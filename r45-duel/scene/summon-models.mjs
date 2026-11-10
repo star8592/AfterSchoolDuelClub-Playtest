@@ -5,16 +5,18 @@
  */
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 export const UNIT_MODEL_SPECS=Object.freeze({
- E02:{file:'E02-PaperPlane-R57.glb',label:'折纸信使',targetHeight:1.65,kind:'object'},
- E03:{file:'E03-CheerCaptain-Schoolkid.glb',label:'加油队长（学生临时骨架）',targetHeight:2.25,kind:'character'},
- E04:{file:'E04-CanteenRelay-FoodCourier.glb',label:'食堂接力员',targetHeight:2.25,kind:'character'},
- G02:{file:'G02-BlackboardExpert-ItEngineer.glb',label:'黑板密码专家',targetHeight:2.25,kind:'character'},
- G03:{file:'G03-ReverseLab-WhiteCoatDoctor.glb',label:'实验学长',targetHeight:2.25,kind:'character'},
- G04:{file:'G04-ClubDirector-OfficeManager.glb',label:'社团计划总监',targetHeight:2.25,kind:'character'},
- T01:{file:'T01-BroadcastOwl-BarnOwl.glb',label:'猫头鹰播音员',targetHeight:1.70,kind:'creature'},
- T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.95,kind:'object'},
- T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.25,kind:'character'},
- T04:{file:'T04-ClubGuardian-SecurityGuard.glb',label:'活动室守门人',targetHeight:2.25,kind:'character'}
+ // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
+ // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
+ E02:{file:'E02-PaperPlane-R57.glb',label:'拐弯纸飞机',targetHeight:.42,maxWidth:1.75,maxDepth:1.75,hover:.48,kind:'object'},
+ E03:{file:'E03-CheerCaptain-Schoolkid.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ E04:{file:'E04-CanteenRelay-FoodCourier.glb',label:'食堂接力员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ G02:{file:'G02-BlackboardExpert-ItEngineer.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
+ G03:{file:'G03-ReverseLab-WhiteCoatDoctor.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ G04:{file:'G04-ClubDirector-OfficeManager.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ T01:{file:'T01-BroadcastOwl-BarnOwl.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
+ T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
+ T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ T04:{file:'T04-ClubGuardian-SecurityGuard.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
 export async function preloadSummonModels(THREE,loader){
@@ -30,7 +32,12 @@ export async function preloadSummonModels(THREE,loader){
   let meshes=0;
   source.traverse(o=>{if(o.isMesh){meshes++;o.frustumCulled=false;}});
   if(!meshes)throw Error('Empty GLB meshes for '+id);
-  return[id,{id,spec,source,clips:gltf.animations,scale:spec.targetHeight/size.y,
+  const scale=Math.min(spec.targetHeight/size.y,
+   spec.maxWidth?spec.maxWidth/size.x:Infinity,
+   spec.maxDepth?spec.maxDepth/size.z:Infinity);
+  return[id,{id,spec,source,clips:gltf.animations,scale,
+   measured:{width:size.x,height:size.y,depth:size.z,
+    scaledHeight:size.y*scale,scaledWidth:size.x*scale,scaledDepth:size.z*scale},
    center:new THREE.Vector3(center.x,bounds.min.y,center.z),meshes,url:url.pathname}];
  }));
  const models=new Map(loaded);
@@ -69,6 +76,16 @@ export function instantiateSummon(THREE,template){
   a.play();current=clip.name;return true;
  };
  play('idle');
+ // Some skinned GLBs embed a root-motion offset that raises their boots.
+ // Sample the chosen idle clip once, then seat the *real posed* feet on court.
+ if(mixer){
+  mixer.update(.26);
+  scaled.updateMatrixWorld(true);
+  const posed=new THREE.Box3().setFromObject(scaled,true);
+  if(Number.isFinite(posed.min.y)&&Math.abs(posed.min.y)<3){
+   scaled.position.y-=posed.min.y;
+  }
+ }
  return {root,mixer,play,instance,meshCount:template.meshes,animationCount:template.clips.length,
   artApproved:false,kind:'real-gltf-prototype'};
 }
