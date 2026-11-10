@@ -1,0 +1,35 @@
+{
+  "source_asset": "R59 native E02 real GLB",
+  "source_sha256": "013d39fa1172f987c6d93b9a87efbc666f5248de4918242cdeff3af241e58bb6",
+  "output_sha256": "904ab9930af985af752095718966b265b1c96b1efc73fa74beadae722f135a90",
+  "license_material": "CC0-1.0",
+  "paper_material": "ambientCG Paper001 1K JPG PBR",
+  "paper_url": "https://ambientcg.com/view?id=Paper001",
+  "paper_license_url": "https://docs.ambientcg.com/license/",
+  "paper_zip_sha256": "5be094ffad8a6343ed96ec728e6eda3d84ae542cd2b16c32bc2ad67bb57a0013",
+  "pbr_channels": [
+    "baseColor",
+    "normalGL",
+    "metallicRoughness"
+  ],
+  "tex_resolution": 768,
+  "mesh_count": 17,
+  "new_geometry_meshes": 0,
+  "wing_morph_targets": 2,
+  "wing_nodes": [
+    13,
+    14
+  ],
+  "animations": [
+    "Idle_Glide",
+    "Bank_Left",
+    "Bank_Right",
+    "Attack_Dart",
+    "Hit_Recoil"
+  ],
+  "status": "R60_STUDY_ONLY",
+  "art_approved": false,
+  "production_approved": false,
+  "rights_status": "PAPER_TEXTURE_CC0_VERIFIED; ORIGINAL_MODEL_COMPLETE_RIGHTS_REVIEW_PENDING",
+  "notes": "Embedded CC0 photographic paper textures, UV coordinates and per-wing morph deltas. No new 3D meshes, no external video service."
+}

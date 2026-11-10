@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,"><meta name="robots" content="noindex,nofollow"><title>R60 · E02 写实纸张 PBR 与独立折翼动态</title>
+<script type="importmap">{"imports":{
+"three":"https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/assets/three/build/three.module.js",
+"three/addons/":"https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/assets/three/examples/jsm/"
+}}</script>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Noto Sans SC",sans-serif;background:#0a1423;color:#eaf5ff}
+*{box-sizing:border-box}body{margin:0}main{max-width:1540px;margin:auto;padding:22px}
+h1{font-size:clamp(22px,2.2vw,34px);margin:0 0 9px;color:#f8ddae}
+small,p{color:#bbcadc;line-height:1.5}section{border:1px solid #3e6179;border-radius:18px;overflow:hidden;background:#0c2033}
+canvas{width:100%;height:min(70vh,790px);min-height:370px;display:block;touch-action:none}
+.controls{display:flex;flex-wrap:wrap;gap:9px;padding:18px;background:#112539}
+button{color:#eef8ff;font-weight:650;border:1px solid #567e98;background:#21465f;border-radius:9px;padding:11px 15px;cursor:pointer}
+button.active{border-color:#e9c27d;background:#4f5366}
+#state{padding:8px 19px 17px;font-size:13px;color:#b7cde0}
+.warning{padding:11px 16px;background:#31261d;border:1px solid #6a4e3b;border-radius:11px;font-size:13px;color:#ebcfab;margin:14px 0}
+</style></head>
+<body><main><h1>E02 拐弯纸飞机 · R60 纸张材质与独立折翼实验</h1>
+<p>从 R59 的真实模型继续深化：CC0 扫描纸纤维法线/粗糙度，左右机翼独立 Morph Targets。可切换 R59 / R60 同机位对照，鼠标旋转与动作按钮均为真实 GLB 动画。</p>
+<section><canvas id="stage" aria-label="可旋转的纸飞机三维模型"></canvas><div class="controls"><button id="variant" type="button">版本对比：切换模型</button><span id="variant-label" style="align-self:center;color:#b8cfe0;font-size:13px"></span></div><div class="controls" id="clips"></div><div id="state" role="status">正在加载真实 GLB 模型……</div></section>
+<p class="warning">R60 仍是 ART NO-GO 技术美术实验：保留 R57 原始轮廓与网格、R59 五套动作，新增真正拍摄纸面材质和机翼形变；并没有重做原画、优化全部卡牌或完成正式赛事场馆集成。不要把此页当作高品质最终成品、卡牌正式战斗或已通过版权审批。</p></main>
+<script type="module" src="./viewer.mjs"></script>
+</body></html>
