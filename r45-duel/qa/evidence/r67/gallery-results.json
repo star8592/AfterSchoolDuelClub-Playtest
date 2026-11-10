@@ -1,0 +1,170 @@
+[
+  {
+    "id": "E01",
+    "view": "full",
+    "pass": true,
+    "state": {
+      "id": "E01",
+      "frames": 129,
+      "models": 2,
+      "left": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "idle",
+        "amount": 0,
+        "blink": 0,
+        "expression": "joy",
+        "faceAmount": 0,
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 130
+      },
+      "right": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "gesture",
+        "amount": 1,
+        "blink": 0.928,
+        "expression": "joy",
+        "faceAmount": 0.42,
+        "actualBlink": 0.928,
+        "actualExpression": 0.42,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 130
+      }
+    },
+    "screenshotBytes": 124544,
+    "errors": []
+  },
+  {
+    "id": "E01",
+    "view": "face",
+    "pass": true,
+    "state": {
+      "id": "E01",
+      "frames": 129,
+      "models": 2,
+      "left": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "idle",
+        "amount": 0,
+        "blink": 0,
+        "expression": "joy",
+        "faceAmount": 0,
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 130
+      },
+      "right": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "gesture",
+        "amount": 1,
+        "blink": 0.931,
+        "expression": "joy",
+        "faceAmount": 0.42,
+        "actualBlink": 0.931,
+        "actualExpression": 0.42,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 130
+      }
+    },
+    "screenshotBytes": 202264,
+    "errors": []
+  },
+  {
+    "id": "G01",
+    "view": "full",
+    "pass": true,
+    "state": {
+      "id": "G01",
+      "frames": 129,
+      "models": 2,
+      "left": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "idle",
+        "amount": 0,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0,
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 130
+      },
+      "right": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "gesture",
+        "amount": 1,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0.31,
+        "actualBlink": 0,
+        "actualExpression": 0.31,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 130
+      }
+    },
+    "screenshotBytes": 125852,
+    "errors": []
+  },
+  {
+    "id": "G01",
+    "view": "face",
+    "pass": true,
+    "state": {
+      "id": "G01",
+      "frames": 129,
+      "models": 2,
+      "left": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "idle",
+        "amount": 0,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0,
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 130
+      },
+      "right": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "gesture",
+        "amount": 1,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0.31,
+        "actualBlink": 0,
+        "actualExpression": 0.31,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 130
+      }
+    },
+    "screenshotBytes": 193230,
+    "errors": []
+  }
+]

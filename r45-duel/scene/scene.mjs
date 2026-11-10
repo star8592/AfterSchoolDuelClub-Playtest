@@ -12,6 +12,7 @@ import {createCardHolograms} from './card-holograms.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
 import {preloadSummonModels} from './summon-models.mjs';
+import {extractVrm0Expressions} from './vrm-character-acting.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
 const MODEL_SPECS=[
@@ -271,6 +272,7 @@ async function loadActor(spec,idx){
  const url=new URL('../assets/model/'+spec.source,location.href).href;
  const gltf=await new GLTFLoader().loadAsync(url);
  const original=gltf.scene;
+ const faceExpressions=extractVrm0Expressions(gltf);
  const {m,skins,bones,vertices}=indexBones(original);
  const style=restoreR22Style(original,spec.id,m);
  if(skins<spec.minSkins||bones<spec.minBones||vertices<20000)
@@ -289,7 +291,7 @@ async function loadActor(spec,idx){
  // and mesh identity; do not replace character geometry with generic proxy.
  const actor={id:spec.id,name:spec.name,source:spec.source,model:original,
   pivot,character,bones:m,base,skins,boneCount:bones,triangles:Math.round(vertices/3),style,
-  restX:idx===0?-1.75:1.75,side:idx===0?'left':'right'};
+  restX:idx===0?-1.75:1.75,side:idx===0?'left':'right',faceExpressions};
  return actor;
 }
 function stageText(phase,details){

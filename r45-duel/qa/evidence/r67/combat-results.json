@@ -1,0 +1,118 @@
+[
+  {
+    "view": "wide",
+    "pass": true,
+    "expressive": true,
+    "combatFrames": 12,
+    "combatExpressionsNeutral": true,
+    "finished": true,
+    "restored": true,
+    "recycled": [
+      {
+        "id": "E01",
+        "uid": "U111",
+        "side": "player",
+        "front": 1,
+        "within": true,
+        "expression": 0,
+        "blink": 0,
+        "mode": "idle",
+        "amount": 0,
+        "arms": [
+          {
+            "side": "R",
+            "drop": -0.911,
+            "spread": 0.014
+          },
+          {
+            "side": "L",
+            "drop": -0.907,
+            "spread": 0.014
+          }
+        ]
+      },
+      {
+        "id": "G01",
+        "uid": "U211",
+        "side": "ai",
+        "front": 1,
+        "within": true,
+        "expression": 0,
+        "blink": 0.515,
+        "mode": "idle",
+        "amount": 0,
+        "arms": [
+          {
+            "side": "R",
+            "drop": -0.875,
+            "spread": 0.008
+          },
+          {
+            "side": "L",
+            "drop": -0.934,
+            "spread": 0.009
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "view": "portrait",
+    "pass": true,
+    "expressive": true,
+    "combatFrames": 12,
+    "combatExpressionsNeutral": true,
+    "finished": true,
+    "restored": true,
+    "recycled": [
+      {
+        "id": "E01",
+        "uid": "U111",
+        "side": "player",
+        "front": 1,
+        "within": true,
+        "expression": 0,
+        "blink": 0,
+        "mode": "idle",
+        "amount": 0,
+        "arms": [
+          {
+            "side": "R",
+            "drop": -0.911,
+            "spread": 0.014
+          },
+          {
+            "side": "L",
+            "drop": -0.907,
+            "spread": 0.014
+          }
+        ]
+      },
+      {
+        "id": "G01",
+        "uid": "U211",
+        "side": "ai",
+        "front": 1,
+        "within": true,
+        "expression": 0,
+        "blink": 0.949,
+        "mode": "idle",
+        "amount": 0,
+        "arms": [
+          {
+            "side": "R",
+            "drop": -0.875,
+            "spread": 0.008
+          },
+          {
+            "side": "L",
+            "drop": -0.934,
+            "spread": 0.008
+          }
+        ]
+      }
+    ],
+    "errors": []
+  }
+]

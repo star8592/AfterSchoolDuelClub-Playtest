@@ -10,6 +10,7 @@ import {BY_ID} from '../engine.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {instantiateSummon,UNIT_MODEL_IDS} from './summon-models.mjs';
 import {faceOpponentYaw,faceOpponentDot} from './summon-orientation.mjs';
+import {createVrmCharacterActing} from './vrm-character-acting.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
@@ -244,6 +245,15 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
       root.add(object);
      }
      state={key,id,uid,side,index,kind,object,created:performance.now(),status:makeStatusTag(side,id)};
+     if(VRM_IDS.has(id)){
+      const source=actors.find(a=>a.id===id);
+      state.vrmPersonality=object.userData.r67Controller||createVrmCharacterActing(THREE,object,{
+       id,expressions:source.faceExpressions,
+       sourceRest:kind==='original-vrm'?source.base:null
+      });
+      object.userData.r67Controller=state.vrmPersonality;
+      state.vrmPersonality.revive();
+     }
      entries.set(key,state);
     }
     state.index=index;
@@ -309,6 +319,12 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
   const labelStyle=activeHpStyle(camera);
   for(const state of entries.values()){
    state.object.userData.r61?.update?.(dt);
+   if(state.vrmPersonality){
+    const activeMove=state.r67Move&&seconds-state.r67Move.started<.72?
+     state.r67Move.kind:null;
+    state.vrmPersonality.update(seconds,{seed:state.index+(state.side==='ai'?2.5:0),
+     cinematic:cinematic&&state.kind==='original-vrm',combat:activeMove});
+   }
    if(state.status&&labelStyle!=='hidden')drawStatusTag(state,labelStyle);
    const object=state.object;
    if(state.kind==='vrm-instance'||state.kind==='gltf-instance'){
@@ -362,9 +378,14 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     if(index!==sequence.index){
      sequence.index=index;playedEvents++;
      const newly=sequence.events[index];
-     anchor(newly.side,newly.attacker_uid,newly.from)?.object.userData.r61?.play('attack');
-     if(newly.type==='exchange')
-      anchor(newly.side==='player'?'ai':'player',newly.target_uid,newly.to)?.object.userData.r61?.play('hit');
+     const attacking=anchor(newly.side,newly.attacker_uid,newly.from);
+     attacking?.object.userData.r61?.play('attack');
+     if(attacking?.vrmPersonality)attacking.r67Move={kind:'attack',started:seconds};
+     if(newly.type==='exchange'){
+      const victim=anchor(newly.side==='player'?'ai':'player',newly.target_uid,newly.to);
+      victim?.object.userData.r61?.play('hit');
+      if(victim?.vrmPersonality)victim.r67Move={kind:'hit',started:seconds};
+     }
     }
     const event=sequence.events[index];
     const phase=(elapsed-index*secondsPerHit)/secondsPerHit;
@@ -474,7 +495,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     withinFrame:screenBBox.left>-1&&screenBBox.right<1&&screenBBox.top<1&&screenBBox.bottom>-1,
     ndcBounds:Object.fromEntries(Object.entries(screenBBox).map(([k,n])=>[k,Number(n.toFixed(3))]))
    };
-   metrics.frontDot=Number(faceOpponentDot(THREE,s.object,s.side).toFixed(4));
+   metrics.frontDot=Number(faceOpponentDot(THREE,s.object,s.side,s.id).toFixed(4));
    return{side:s.side,uid:s.uid,id:s.id,kind:s.kind,visible:s.object.visible,metrics,
     hp:s.hp,attack:s.attack,shield:s.shield,
     hpTag:!!s.status?.label.visible,
@@ -499,6 +520,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
      acting:s.object.userData.r61?.acting||null
     }:null,
     vrmPosture:s.kind==='vrm-instance'||s.kind==='original-vrm'?measureVrmArms(s.object):null,
+    vrmActing:s.vrmPersonality?.inspect()||null,
     artApproved:false};
   });
   return{revision,hpDisplayMode,activeHpStyle:activeHpStyle(camera),
