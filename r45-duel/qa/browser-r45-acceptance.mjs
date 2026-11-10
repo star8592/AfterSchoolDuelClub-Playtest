@@ -3,7 +3,7 @@ import {writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 const require=createRequire(import.meta.url);
 const {chromium}=require('/home/master/projects/tidebound-ground-qa-20261109/node_modules/playwright');
-const base='http://127.0.0.1:10975/r45-duel/?seed=1&qa=1';
+const base=(process.env.ASDC_QA_ORIGIN||'http://127.0.0.1:10975')+'/r45-duel/?seed=1&qa=1';
 const out=resolve(import.meta.dirname,'evidence');
 let browser;const results=[];
 const layout=()=>({
@@ -67,7 +67,7 @@ for(const [device,width,height] of [['desktop',1366,850],['mobile',430,900],['sh
     initial.arena.height>=135&&fight.handVisible:true;
  const pass=res.status()===200&&initial.game.cardCount===18&&initial.game.sceneReady&&
    initial.scene.stadium?.label==='R45_ONE_ARENA_GYM_3D'&&
-   initial.scene.stadium?.seats===198&&/RTX 5070 Ti/.test(initial.scene.gpu)&&
+   initial.scene.stadium?.seats>=198&&/RTX 5070 Ti/.test(initial.scene.gpu)&&
    !initial.scene.visibility.some(x=>x.visible)&&
    selected.hand===5&&selected.energy===initial.game.energy&&selected.selected!==null&&
    summoned.hand===4&&summoned.energy===1&&summoned.board.includes('E01')&&

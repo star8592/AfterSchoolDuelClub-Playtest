@@ -34,7 +34,7 @@ try{
    const q=await p.evaluate(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA.summonPresence);
    const pass=q.total===batch.length*2&&q.entries.every(x=>x.visible&&x.inView)&&
     q.entries.filter(x=>['E01','G01'].includes(x.id)).every(x=>x.kind!=='art-pending')&&
-    q.entries.filter(x=>!['E01','G01'].includes(x.id)).every(x=>x.kind==='art-pending');
+    q.entries.filter(x=>!['E01','G01'].includes(x.id)).every(x=>x.kind==='gltf-instance'&&x.meshes>0);
    if(offset===0)await p.screenshot({path:resolve(out,device+'-summon-roster.png')});
    records.push({device,batch,total:q.total,pending:q.pendingArt,entries:q.entries,pass});
    console.log('R50_UNIT_BATCH',JSON.stringify({device,batch,pass,total:q.total,pending:q.pendingArt,visible:q.entries.filter(x=>x.visible&&x.inView).length,errors}));
@@ -45,9 +45,9 @@ try{
   await p.waitForFunction(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA?.summonPresence?.total===10,null,{timeout:18000});
   await p.waitForTimeout(600);
   let q=await p.evaluate(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA.summonPresence);
-  const pass=q.total===10&&q.models===8&&q.pendingArt===2&&
-   q.entries.every(x=>x.visible&&x.inView)&&
-   q.entries.filter(x=>['E01','G01'].includes(x.id)).every(x=>x.kind!=='art-pending');
+  const pass=q.total===10&&q.models===10&&q.pendingArt===0&&
+   q.entries.every(x=>x.visible&&x.inView&&x.kind!=='art-pending')&&
+   q.entries.filter(x=>!['E01','G01'].includes(x.id)).every(x=>x.kind==='gltf-instance');
   await p.screenshot({path:resolve(out,device+'-duplicates.png')});
   records.push({device,test:'duplicates and sides',pass,q});
   console.log('R50_UNIT_DUPLICATE_GATE',JSON.stringify({device,pass,models:q.models,pending:q.pendingArt,entries:q.entries.length,errors}));

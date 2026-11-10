@@ -1,0 +1,74 @@
+/**
+ * R61 playability-only resource registry, not a final art approval.
+ * All 10 GLB files are standalone inside r45-duel/assets/summons.
+ * E01/G01 remain the existing unique source VRM rigs.
+ */
+import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+export const UNIT_MODEL_SPECS=Object.freeze({
+ E02:{file:'E02-PaperPlane-R57.glb',label:'折纸信使',targetHeight:1.65,kind:'object'},
+ E03:{file:'E03-CheerCaptain-Schoolkid.glb',label:'加油队长（学生临时骨架）',targetHeight:2.25,kind:'character'},
+ E04:{file:'E04-CanteenRelay-FoodCourier.glb',label:'食堂接力员',targetHeight:2.25,kind:'character'},
+ G02:{file:'G02-BlackboardExpert-ItEngineer.glb',label:'黑板密码专家',targetHeight:2.25,kind:'character'},
+ G03:{file:'G03-ReverseLab-WhiteCoatDoctor.glb',label:'实验学长',targetHeight:2.25,kind:'character'},
+ G04:{file:'G04-ClubDirector-OfficeManager.glb',label:'社团计划总监',targetHeight:2.25,kind:'character'},
+ T01:{file:'T01-BroadcastOwl-BarnOwl.glb',label:'猫头鹰播音员',targetHeight:1.70,kind:'creature'},
+ T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.95,kind:'object'},
+ T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.25,kind:'character'},
+ T04:{file:'T04-ClubGuardian-SecurityGuard.glb',label:'活动室守门人',targetHeight:2.25,kind:'character'}
+});
+export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
+export async function preloadSummonModels(THREE,loader){
+ const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
+  const spec=UNIT_MODEL_SPECS[id];
+  const url=new URL('../assets/summons/'+spec.file,import.meta.url);
+  const gltf=await loader.loadAsync(url.href);
+  const source=gltf.scene;
+  source.updateMatrixWorld(true);
+  const bounds=new THREE.Box3().setFromObject(source);
+  const size=bounds.getSize(new THREE.Vector3()),center=bounds.getCenter(new THREE.Vector3());
+  if(bounds.isEmpty()||!Number.isFinite(size.y)||size.y<.02)throw Error('Invalid actual GLB bounds for '+id);
+  let meshes=0;
+  source.traverse(o=>{if(o.isMesh){meshes++;o.frustumCulled=false;}});
+  if(!meshes)throw Error('Empty GLB meshes for '+id);
+  return[id,{id,spec,source,clips:gltf.animations,scale:spec.targetHeight/size.y,
+   center:new THREE.Vector3(center.x,bounds.min.y,center.z),meshes,url:url.pathname}];
+ }));
+ const models=new Map(loaded);
+ if(models.size!==10)throw Error('R61 expected exactly 10 independently sourced summoned GLBs');
+ return models;
+}
+export function instantiateSummon(THREE,template){
+ const instance=cloneSkeleton(template.source);
+ instance.traverse(o=>{if(o.isSkinnedMesh)o.frustumCulled=false});
+ // Center and seat source mesh at arena floor, while keeping source skeleton
+ // transform and animation binding intact under the original model root.
+ instance.position.set(-template.center.x,-template.center.y,-template.center.z);
+ const scaled=new THREE.Group();scaled.scale.setScalar(template.scale);scaled.add(instance);
+ const root=new THREE.Group();root.add(scaled);
+ root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
+ const mixer=template.clips.length?new THREE.AnimationMixer(instance):null;
+ const choose=(kind)=>{
+  if(!mixer)return null;
+  const clips=template.clips;
+  const preference=kind==='attack'?['Attack_Flip_Menu','Attack','attack','Special','Cheer']:
+   kind==='hit'?['Hit_Retreat','Hit','hit']:
+   kind==='death'?['Death','dead']:
+   kind==='walk'?['Walk_Small_Steps','Walk','walk','Run']:
+     ['Idle_Menu_Breath','Idle','idle','Stand'];
+  return preference.map(n=>clips.find(c=>c.name===n)).find(Boolean)||clips[0];
+ };
+ let current=null;
+ const play=(kind)=>{
+  if(!mixer)return false;
+  const clip=choose(kind);if(!clip)return false;
+  if(current===clip.name&&kind==='idle')return true;
+  mixer.stopAllAction();
+  const a=mixer.clipAction(clip);a.reset();a.enabled=true;a.setEffectiveWeight(1);
+  a.setLoop(kind==='idle'||kind==='walk'?THREE.LoopRepeat:THREE.LoopOnce,kind==='idle'||kind==='walk'?Infinity:1);
+  a.clampWhenFinished=kind!=='idle'&&kind!=='walk';
+  a.play();current=clip.name;return true;
+ };
+ play('idle');
+ return {root,mixer,play,instance,meshCount:template.meshes,animationCount:template.clips.length,
+  artApproved:false,kind:'real-gltf-prototype'};
+}

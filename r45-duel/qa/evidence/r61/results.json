@@ -1,0 +1,203 @@
+[
+  {
+    "name": "wide",
+    "pass": true,
+    "modelAssets": 10,
+    "groups": [
+      {
+        "batch": [
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "G01"
+        ],
+        "pass": true,
+        "total": 10,
+        "pending": 0,
+        "models": 10,
+        "offscreen": [],
+        "kinds": {
+          "E01": "vrm-instance",
+          "E02": "gltf-instance",
+          "E03": "gltf-instance",
+          "E04": "gltf-instance",
+          "G01": "original-vrm"
+        }
+      },
+      {
+        "batch": [
+          "G02",
+          "G03",
+          "G04",
+          "T01",
+          "T02"
+        ],
+        "pass": true,
+        "total": 10,
+        "pending": 0,
+        "models": 10,
+        "offscreen": [],
+        "kinds": {
+          "G02": "gltf-instance",
+          "G03": "gltf-instance",
+          "G04": "gltf-instance",
+          "T01": "gltf-instance",
+          "T02": "gltf-instance"
+        }
+      },
+      {
+        "batch": [
+          "T03",
+          "T04"
+        ],
+        "pass": true,
+        "total": 4,
+        "pending": 0,
+        "models": 4,
+        "offscreen": [],
+        "kinds": {
+          "T03": "gltf-instance",
+          "T04": "gltf-instance"
+        }
+      }
+    ],
+    "dupPass": true,
+    "cleanup": true,
+    "errors": []
+  },
+  {
+    "name": "standard",
+    "pass": true,
+    "modelAssets": 10,
+    "groups": [
+      {
+        "batch": [
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "G01"
+        ],
+        "pass": true,
+        "total": 10,
+        "pending": 0,
+        "models": 10,
+        "offscreen": [],
+        "kinds": {
+          "E01": "vrm-instance",
+          "E02": "gltf-instance",
+          "E03": "gltf-instance",
+          "E04": "gltf-instance",
+          "G01": "original-vrm"
+        }
+      },
+      {
+        "batch": [
+          "G02",
+          "G03",
+          "G04",
+          "T01",
+          "T02"
+        ],
+        "pass": true,
+        "total": 10,
+        "pending": 0,
+        "models": 10,
+        "offscreen": [],
+        "kinds": {
+          "G02": "gltf-instance",
+          "G03": "gltf-instance",
+          "G04": "gltf-instance",
+          "T01": "gltf-instance",
+          "T02": "gltf-instance"
+        }
+      },
+      {
+        "batch": [
+          "T03",
+          "T04"
+        ],
+        "pass": true,
+        "total": 4,
+        "pending": 0,
+        "models": 4,
+        "offscreen": [],
+        "kinds": {
+          "T03": "gltf-instance",
+          "T04": "gltf-instance"
+        }
+      }
+    ],
+    "dupPass": true,
+    "cleanup": true,
+    "errors": []
+  },
+  {
+    "name": "portrait",
+    "pass": true,
+    "modelAssets": 10,
+    "groups": [
+      {
+        "batch": [
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "G01"
+        ],
+        "pass": true,
+        "total": 10,
+        "pending": 0,
+        "models": 10,
+        "offscreen": [],
+        "kinds": {
+          "E01": "vrm-instance",
+          "E02": "gltf-instance",
+          "E03": "gltf-instance",
+          "E04": "gltf-instance",
+          "G01": "original-vrm"
+        }
+      },
+      {
+        "batch": [
+          "G02",
+          "G03",
+          "G04",
+          "T01",
+          "T02"
+        ],
+        "pass": true,
+        "total": 10,
+        "pending": 0,
+        "models": 10,
+        "offscreen": [],
+        "kinds": {
+          "G02": "gltf-instance",
+          "G03": "gltf-instance",
+          "G04": "gltf-instance",
+          "T01": "gltf-instance",
+          "T02": "gltf-instance"
+        }
+      },
+      {
+        "batch": [
+          "T03",
+          "T04"
+        ],
+        "pass": true,
+        "total": 4,
+        "pending": 0,
+        "models": 4,
+        "offscreen": [],
+        "kinds": {
+          "T03": "gltf-instance",
+          "T04": "gltf-instance"
+        }
+      }
+    ],
+    "dupPass": true,
+    "cleanup": true,
+    "errors": []
+  }
+]
