@@ -3,7 +3,7 @@ import {writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 const require=createRequire(import.meta.url);
 const {chromium}=require('/home/master/projects/tidebound-ground-qa-20261109/node_modules/playwright');
-const base='http://127.0.0.1:10977/r45-duel/?seed=1&qa=1';
+const base=(process.env.ASDC_QA_ORIGIN||'http://127.0.0.1:10977')+'/r45-duel/?seed=1&qa=1';
 const output=resolve(import.meta.dirname,'evidence');
 let b;const reports=[];
 try{

@@ -9,6 +9,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
+import {createSummonPresence} from './summon-presence.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
 const MODEL_SPECS=[
@@ -117,6 +118,8 @@ let absoluteSeconds=0;
 let renderFrameTiming=0;
 let choreographyQA={stride:0,guard:0,cameraOrbit:0,maxStride:0,maxOrbit:0};
 let shownCards={player:[],ai:[]};
+let shownUnits={player:[],ai:[]};
+let summonPresence=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const ease=v=>{const t=clamp(v,0,1);return t*t*(3-2*t)};
@@ -369,6 +372,7 @@ function loop(){
    visible:actors.map(a=>a.pivot.visible),
    reducedMotion:reduced});
  podiumCards?.update(absoluteSeconds,playing,camera.aspect<.95);
+ summonPresence?.update(absoluteSeconds,camera);
  // Deliberate single slow push-in during actual contact. No shake or
  // random camera jitter. Stays inside the same view and card layout.
  const narrow=camera.aspect<.85;
@@ -396,7 +400,7 @@ function loop(){
  if(contact)hadContact=true;
  if(playing&&time>=DURATION){
   playing=false;time=0;
-  actors.forEach(a=>a.pivot.visible=shownCards[a.side==='left'?'player':'ai'].includes(a.id));
+  summonPresence?.sync(shownUnits);
   stageText('idle','双方待命 · 真实三维竞技场');
  }
  renderer.render(scene,camera);frames++;drawCount=renderer.info.render.calls;
@@ -422,14 +426,20 @@ function onMessage(ev){
  }
  if(msg?.type==='ASDC_R45_BOARD'){
   if(!Array.isArray(msg.player)||!Array.isArray(msg.ai))return;
-  const safe=list=>list.filter(id=>typeof id==='string'&&/^[EGT][0-9]{2}$/.test(id)).slice(0,5);
+  const validId=id=>typeof id==='string'&&/^[EGT][0-9]{2}$/.test(id);
+  const safe=list=>list.filter(validId).slice(0,5);
   const wasShown=structuredClone(shownCards);
   shownCards={player:safe(msg.player),ai:safe(msg.ai)};
-  if(!wasShown.player.includes('E01')&&shownCards.player.includes('E01'))
-   duelEffects?.pulse('player',absoluteSeconds);
-  if(!wasShown.ai.includes('G01')&&shownCards.ai.includes('G01'))
-   duelEffects?.pulse('ai',absoluteSeconds);
-  if(!playing)actors.forEach(a=>a.pivot.visible=shownCards[a.side==='left'?'player':'ai'].includes(a.id));
+  const unitsFor=side=>{
+   const raw=Array.isArray(msg.units?.[side])?msg.units[side]:shownCards[side].map((id,i)=>({id,uid:'LEGACY'+i}));
+   return raw.filter(u=>u&&validId(u.id)&&typeof u.uid==='string'&&/^(U\d+|LEGACY\d+)$/.test(u.uid)).slice(0,5);
+  };
+  shownUnits={player:unitsFor('player'),ai:unitsFor('ai')};
+  for(const side of ['player','ai']){
+   if(shownCards[side].some((id,i)=>id!==wasShown[side][i]))
+    duelEffects?.pulse(side,absoluteSeconds);
+  }
+  summonPresence?.sync(shownUnits,{cinematic:playing});
   return;
  }
  if(!checkIncoming(msg))return;
@@ -444,6 +454,7 @@ function exposeQA(){
  Object.defineProperty(window,'__r45SceneQA',{value:{
   get ready(){return ready},
   get shownCards(){return structuredClone(shownCards)},
+  get summonPresence(){return summonPresence?.inspect(camera)||null},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
    bones:a.boneCount,skinnedMeshes:a.skins,triangles:a.triangles,
@@ -482,6 +493,7 @@ try{
  source3DAssetsVerified=actors[0].source==='Shino-original-CC0.vrm'&&
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
+ summonPresence=createSummonPresence(THREE,scene,{actors});
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','高精度人物与体育馆已载入 · 待命');

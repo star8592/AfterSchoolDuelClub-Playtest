@@ -7,7 +7,7 @@ try{
  const p=await b.newPage({viewport:{width:1440,height:900}});
  const errors=[];
  p.on('pageerror',e=>errors.push(String(e)));
- await p.goto('http://127.0.0.1:10977/r45-duel/?seed=1&qa=1',{waitUntil:'domcontentloaded'});
+ await p.goto((process.env.ASDC_QA_ORIGIN||'http://127.0.0.1:10977')+'/r45-duel/?seed=1&qa=1',{waitUntil:'domcontentloaded'});
  await p.waitForFunction('window.__r45QA?.sceneReady',null,{timeout:70000});
  const rect=await p.frameLocator('#stadium').locator('canvas').boundingBox();
  const x=rect.x+rect.width*.45,y=rect.y+rect.height*.48;

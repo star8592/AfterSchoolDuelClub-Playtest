@@ -16,7 +16,7 @@ try{
   const errors=[];
   p.on('pageerror',e=>errors.push(String(e)));
   p.on('response',r=>{if(r.status()>=400)errors.push('HTTP '+r.status()+' '+r.url())});
-  await p.goto('http://127.0.0.1:10977/r45-duel/?seed=1&qa=1',{waitUntil:'domcontentloaded',timeout:35000});
+  await p.goto((process.env.ASDC_QA_ORIGIN||'http://127.0.0.1:10977')+'/r45-duel/?seed=1&qa=1',{waitUntil:'domcontentloaded',timeout:35000});
   await p.waitForFunction('window.__r45QA?.sceneReady',null,{timeout:65000});
   await p.waitForTimeout(500);
   const opening=await p.evaluate(()=>{
