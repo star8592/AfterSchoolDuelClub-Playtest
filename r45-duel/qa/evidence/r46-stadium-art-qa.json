@@ -1,0 +1,302 @@
+[
+  {
+    "device": "desktop",
+    "width": 1366,
+    "height": 850,
+    "http": 200,
+    "opening": {
+      "qReady": true,
+      "stadium": "R45_ONE_ARENA_GYM_3D",
+      "polish": {
+        "physicalTrim": 88,
+        "liveSigns": 3,
+        "licensedTextures": 3,
+        "lightVolumes": 2,
+        "materials": 7
+      },
+      "particleSystem": "R46_TRUE_3D_SUMMON_AND_IMPACT",
+      "drawCalls": 177,
+      "gameCards": 18,
+      "handCards": 5,
+      "truePortrait": true,
+      "faceSrc": "./assets/cards/E01-vrm-card-bust.png",
+      "customArtCards": 1,
+      "arenaHeight": 438,
+      "handBottom": 842,
+      "viewportHeight": 850,
+      "documentWidth": 1366,
+      "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    "selected": {
+      "energy": 2,
+      "hand": 5,
+      "selection": 0
+    },
+    "afterPlay": {
+      "energy": 1,
+      "hand": 4,
+      "board": [
+        "E01"
+      ]
+    },
+    "afterAI": {
+      "board": [
+        "G01",
+        "G01"
+      ],
+      "text": "AI 打出：橡皮筋建筑师、橡皮筋建筑师。刚上场的召唤物要等下个己方行动回合才能攻击。现在轮到你了。"
+    },
+    "combat": {
+      "event": {
+        "type": "exchange",
+        "from": "E01",
+        "to": "G01",
+        "side": "player",
+        "lane": 0,
+        "serial": 7,
+        "damage": 2,
+        "blocked": 0,
+        "retaliation": 1,
+        "retaliation_blocked": 0,
+        "target_defeated": false,
+        "attacker_defeated": false
+      },
+      "roles": [
+        {
+          "id": "E01",
+          "bones": 148,
+          "asset": "Shino-original-CC0.vrm"
+        },
+        {
+          "id": "G01",
+          "bones": 107,
+          "asset": "Fumiriya-original-CC0.vrm"
+        }
+      ],
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+      "effects": {
+        "layer": "R46_TRUE_3D_SUMMON_AND_IMPACT",
+        "teamEffects": 2,
+        "impactRings": 3,
+        "particlePoints": 272,
+        "updateCount": 210,
+        "impactRendered": 27,
+        "liveSummonBeams": 0
+      },
+      "polish": {
+        "physicalTrim": 88,
+        "liveSigns": 3,
+        "licensedTextures": 3,
+        "lightVolumes": 2,
+        "materials": 7
+      },
+      "studio": "R45_ONE_ARENA_GYM_3D",
+      "handVisible": true,
+      "drawCalls": 385
+    },
+    "noOldRuntime": true,
+    "requestsCount": 54,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "mobile",
+    "width": 430,
+    "height": 900,
+    "http": 200,
+    "opening": {
+      "qReady": true,
+      "stadium": "R45_ONE_ARENA_GYM_3D",
+      "polish": {
+        "physicalTrim": 88,
+        "liveSigns": 3,
+        "licensedTextures": 3,
+        "lightVolumes": 2,
+        "materials": 7
+      },
+      "particleSystem": "R46_TRUE_3D_SUMMON_AND_IMPACT",
+      "drawCalls": 124,
+      "gameCards": 18,
+      "handCards": 5,
+      "truePortrait": true,
+      "faceSrc": "./assets/cards/E01-vrm-card-bust.png",
+      "customArtCards": 1,
+      "arenaHeight": 557,
+      "handBottom": 895,
+      "viewportHeight": 900,
+      "documentWidth": 430,
+      "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    "selected": {
+      "energy": 2,
+      "hand": 5,
+      "selection": 0
+    },
+    "afterPlay": {
+      "energy": 1,
+      "hand": 4,
+      "board": [
+        "E01"
+      ]
+    },
+    "afterAI": {
+      "board": [
+        "G01",
+        "G01"
+      ],
+      "text": "AI 打出：橡皮筋建筑师、橡皮筋建筑师。刚上场的召唤物要等下个己方行动回合才能攻击。现在轮到你了。"
+    },
+    "combat": {
+      "event": {
+        "type": "exchange",
+        "from": "E01",
+        "to": "G01",
+        "side": "player",
+        "lane": 0,
+        "serial": 7,
+        "damage": 2,
+        "blocked": 0,
+        "retaliation": 1,
+        "retaliation_blocked": 0,
+        "target_defeated": false,
+        "attacker_defeated": false
+      },
+      "roles": [
+        {
+          "id": "E01",
+          "bones": 148,
+          "asset": "Shino-original-CC0.vrm"
+        },
+        {
+          "id": "G01",
+          "bones": 107,
+          "asset": "Fumiriya-original-CC0.vrm"
+        }
+      ],
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+      "effects": {
+        "layer": "R46_TRUE_3D_SUMMON_AND_IMPACT",
+        "teamEffects": 2,
+        "impactRings": 3,
+        "particlePoints": 272,
+        "updateCount": 197,
+        "impactRendered": 21,
+        "liveSummonBeams": 0
+      },
+      "polish": {
+        "physicalTrim": 88,
+        "liveSigns": 3,
+        "licensedTextures": 3,
+        "lightVolumes": 2,
+        "materials": 7
+      },
+      "studio": "R45_ONE_ARENA_GYM_3D",
+      "handVisible": true,
+      "drawCalls": 336
+    },
+    "noOldRuntime": true,
+    "requestsCount": 54,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "small",
+    "width": 375,
+    "height": 667,
+    "http": 200,
+    "opening": {
+      "qReady": true,
+      "stadium": "R45_ONE_ARENA_GYM_3D",
+      "polish": {
+        "physicalTrim": 88,
+        "liveSigns": 3,
+        "licensedTextures": 3,
+        "lightVolumes": 2,
+        "materials": 7
+      },
+      "particleSystem": "R46_TRUE_3D_SUMMON_AND_IMPACT",
+      "drawCalls": 128,
+      "gameCards": 18,
+      "handCards": 5,
+      "truePortrait": true,
+      "faceSrc": "./assets/cards/E01-vrm-card-bust.png",
+      "customArtCards": 1,
+      "arenaHeight": 289,
+      "handBottom": 662,
+      "viewportHeight": 667,
+      "documentWidth": 375,
+      "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    "selected": {
+      "energy": 2,
+      "hand": 5,
+      "selection": 0
+    },
+    "afterPlay": {
+      "energy": 1,
+      "hand": 4,
+      "board": [
+        "E01"
+      ]
+    },
+    "afterAI": {
+      "board": [
+        "G01",
+        "G01"
+      ],
+      "text": "AI 打出：橡皮筋建筑师、橡皮筋建筑师。刚上场的召唤物要等下个己方行动回合才能攻击。现在轮到你了。"
+    },
+    "combat": {
+      "event": {
+        "type": "exchange",
+        "from": "E01",
+        "to": "G01",
+        "side": "player",
+        "lane": 0,
+        "serial": 7,
+        "damage": 2,
+        "blocked": 0,
+        "retaliation": 1,
+        "retaliation_blocked": 0,
+        "target_defeated": false,
+        "attacker_defeated": false
+      },
+      "roles": [
+        {
+          "id": "E01",
+          "bones": 148,
+          "asset": "Shino-original-CC0.vrm"
+        },
+        {
+          "id": "G01",
+          "bones": 107,
+          "asset": "Fumiriya-original-CC0.vrm"
+        }
+      ],
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+      "effects": {
+        "layer": "R46_TRUE_3D_SUMMON_AND_IMPACT",
+        "teamEffects": 2,
+        "impactRings": 3,
+        "particlePoints": 272,
+        "updateCount": 199,
+        "impactRendered": 22,
+        "liveSummonBeams": 0
+      },
+      "polish": {
+        "physicalTrim": 88,
+        "liveSigns": 3,
+        "licensedTextures": 3,
+        "lightVolumes": 2,
+        "materials": 7
+      },
+      "studio": "R45_ONE_ARENA_GYM_3D",
+      "handVisible": true,
+      "drawCalls": 336
+    },
+    "noOldRuntime": true,
+    "requestsCount": 54,
+    "errors": [],
+    "passed": true
+  }
+]

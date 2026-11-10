@@ -1,0 +1,54 @@
+{
+  "E01": {
+    "source_png": "art/portrait-src/E01-vrm-portrait.png",
+    "card_png": "assets/cards/E01-vrm-card-bust.png",
+    "source_size": [
+      480,
+      650
+    ],
+    "crop_size": [
+      304,
+      423
+    ],
+    "source_alpha_bbox": [
+      96,
+      113,
+      384,
+      650
+    ],
+    "crop_alpha_bbox": [
+      8,
+      71,
+      296,
+      423
+    ],
+    "is_actual_rig_render": true,
+    "max_fake_generation_attempts": 0
+  },
+  "G01": {
+    "source_png": "art/portrait-src/G01-vrm-portrait.png",
+    "card_png": "assets/cards/G01-vrm-card-bust.png",
+    "source_size": [
+      480,
+      650
+    ],
+    "crop_size": [
+      304,
+      423
+    ],
+    "source_alpha_bbox": [
+      97,
+      112,
+      383,
+      650
+    ],
+    "crop_alpha_bbox": [
+      9,
+      70,
+      295,
+      423
+    ],
+    "is_actual_rig_render": true,
+    "max_fake_generation_attempts": 0
+  }
+}

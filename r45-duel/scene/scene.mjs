@@ -7,6 +7,8 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {createStadium} from './stadium.mjs';
+import {createDuelEffects} from './duel-effects.mjs';
+import {createCardHolograms} from './card-holograms.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
 const MODEL_SPECS=[
@@ -22,6 +24,10 @@ let currentPayload=null,activePhase='idle',ready=false,hadContact=false;
 let lastSourceIds=[],source3DAssetsVerified=false;
 let horizontalFov=0;
 let stadiumEvidence=null;
+let duelEffects=null;
+let podiumCards=null;
+let absoluteSeconds=0;
+let renderFrameTiming=0;
 let shownCards={player:[],ai:[]};
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -41,19 +47,21 @@ function makeScene(){
  scene=new THREE.Scene();scene.background=new THREE.Color('#192b42');scene.fog=new THREE.Fog('#192b42',17,49);
  renderer=new THREE.WebGLRenderer({canvas:$('battle-canvas'),alpha:false,antialias:true,powerPreference:'high-performance'});
  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
- renderer.toneMappingExposure=1.32;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+ renderer.toneMappingExposure=1.15;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
- camera=new THREE.PerspectiveCamera(33,1,.1,60);
- camera.position.set(0,2.7,10.2);camera.lookAt(0,1.18,0);
- scene.add(new THREE.HemisphereLight('#cddffe','#455165',2.0));
- const key=new THREE.DirectionalLight('#ffdfbc',3.15);
+ camera=new THREE.PerspectiveCamera(36,1,.1,60);
+ camera.position.set(0,2.9,8.7);camera.lookAt(0,1.29,0);
+ scene.add(new THREE.HemisphereLight('#cddffe','#425769',1.40));
+ const key=new THREE.DirectionalLight('#ffdfc3',2.70);
  key.position.set(-4,8,5);key.castShadow=true;key.shadow.mapSize.set(2048,2048);
  key.shadow.camera.left=-7;key.shadow.camera.right=7;key.shadow.camera.top=7;key.shadow.camera.bottom=-7;
  key.shadow.bias=-.00018;scene.add(key);
- const rim=new THREE.DirectionalLight('#8abaff',2.25);rim.position.set(5,6,-4);scene.add(rim);
- const fill=new THREE.DirectionalLight('#ffd7b9',.75);fill.position.set(3,3,6);scene.add(fill);
+ const rim=new THREE.DirectionalLight('#a0c9fc',2.25);rim.position.set(5,6,-4);scene.add(rim);
+ const fill=new THREE.DirectionalLight('#f7d6b9',.8);fill.position.set(3,3,6);scene.add(fill);
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
  stadiumEvidence=createStadium(THREE,scene,{detail:'medium'});
+ duelEffects=createDuelEffects(THREE,scene);
+ podiumCards=createCardHolograms(THREE,scene);
   clock=new THREE.Clock();
  onResize();window.addEventListener('resize',onResize);
  const gl=renderer.getContext(),ext=gl.getExtension('WEBGL_debug_renderer_info');
@@ -64,8 +72,10 @@ function onResize(){
  const w=window.innerWidth,h=window.innerHeight;
  renderer.setSize(w,h,false);camera.aspect=w/Math.max(h,1);
  const narrow=camera.aspect<.95;
- camera.fov=narrow?45:33;camera.position.set(0,narrow?2.65:2.7,narrow?12.4:10.2);
- camera.lookAt(0,narrow?1.25:1.18,0);camera.updateProjectionMatrix();
+ camera.fov=narrow?43:36;
+ camera.position.set(0,narrow?2.8:2.95,narrow?10.8:8.7);
+ camera.lookAt(0,narrow?1.42:1.29,0);
+ camera.updateProjectionMatrix();
  horizontalFov=2*Math.atan(Math.tan(camera.fov*Math.PI/360)*camera.aspect)*180/Math.PI;
 }
 function indexBones(root){
@@ -165,11 +175,11 @@ async function loadActor(spec,idx){
  if(skins<spec.minSkins||bones<spec.minBones||vertices<20000)
   throw Error(spec.id+' R22 identity mismatch: skins='+skins+' bones='+bones);
  const box=new THREE.Box3().setFromObject(original,true),dims=box.getSize(new THREE.Vector3());
- const scale=2.50/dims.y;
+ const scale=3.03/dims.y;
  const pivot=new THREE.Group(),character=new THREE.Group();
  original.scale.setScalar(scale);original.position.set(-(box.min.x+box.max.x)/2*scale,-box.min.y*scale,-(box.min.z+box.max.z)/2*scale);
  character.add(original);pivot.add(character);
- pivot.position.set(idx===0?-1.87:1.87,0,0);
+ pivot.position.set(idx===0?-1.75:1.75,0,0);
  pivot.rotation.y=(idx===0?-2.38:2.38);
  pivot.visible=false;
  scene.add(pivot);
@@ -178,7 +188,7 @@ async function loadActor(spec,idx){
  // and mesh identity; do not replace character geometry with generic proxy.
  const actor={id:spec.id,name:spec.name,source:spec.source,model:original,
   pivot,character,bones:m,base,skins,boneCount:bones,triangles:Math.round(vertices/3),style,
-  restX:idx===0?-1.87:1.87,side:idx===0?'left':'right'};
+  restX:idx===0?-1.75:1.75,side:idx===0?'left':'right'};
  return actor;
 }
 function stageText(phase,details){
@@ -187,7 +197,7 @@ function stageText(phase,details){
  }
  if(details)$('details').textContent=details;
 }
-function reactActor(a,sec){
+function reactActor(a,sec,absoluteSec){
  const left=a.side==='left';
  const sign=left?1:-1;
  const approach=smoothPulse(sec,.8,1.5,3.55,4.7);
@@ -197,18 +207,18 @@ function reactActor(a,sec){
    smoothPulse(sec,2.69,2.8,3.16,3.5);
  const hit=left?smoothPulse(sec,3.84,3.90,4.15,4.35):
    smoothPulse(sec,2.79,2.9,3.20,3.46);
- const idle=Math.sin(sec*2.6+(left?0:1))*.012;
+ const idle=Math.sin(absoluteSec*1.43+(left?0:1.8))*.022;
  a.pivot.position.x=a.restX+sign*(approach*.86+attack*.29-hit*.12);
- a.pivot.position.y=.014*Math.sin(sec*2)+(attack*.045);
+ a.pivot.position.y=.016*Math.sin(absoluteSec*1.7+(left?0:2))+(attack*.065);
  a.pivot.rotation.y=(left?-2.38:2.38)+sign*(attack*.20+block*.13);
  a.pivot.rotation.z=sign*(-attack*.11+hit*.16);
  a.character.rotation.x=attack*.10-hit*.14;
  a.character.rotation.z=sign*(-attack*.14+hit*.16);
  // Bone rotations are measured relative to this character's actual VRM rest
  // pose. Both characters retain unique mesh, skeleton, skin and face.
- setBone(a,'C_Spine',.015*idle,0,sign*(-attack*.08+hit*.15));
- setBone(a,'C_Chest',-attack*.12+hit*.12,0,sign*(-attack*.09+hit*.16));
- setBone(a,'C_Head',idle,0,sign*(-attack*.08+hit*.10));
+ setBone(a,'C_Spine',idle*.30,0,sign*(-attack*.12+hit*.15));
+ setBone(a,'C_Chest',idle*.55-attack*.18+hit*.17,0,sign*(-attack*.12+hit*.16));
+ setBone(a,'C_Head',idle*.6,0,sign*(-attack*.09+hit*.13));
  setBone(a,'R_UpperArm',-.95*attack-.28*block,0,-1.12+.35*attack);
  setBone(a,'R_LowerArm',-.60*attack-.2*block,0,-.08);
  setBone(a,'L_UpperArm',-.26*attack-.45*block,0,1.12-.25*attack);
@@ -225,6 +235,7 @@ function play(payload){
  currentPayload=structuredClone(payload);mode=payload.mode;playing=true;
  actors.forEach(a=>a.pivot.visible=true);
  time=0;hadContact=false;
+ if(duelEffects){duelEffects.pulse('player',absoluteSeconds);duelEffects.pulse('ai',absoluteSeconds)}
  stageText('approach',mode==='demo'?'独立角色对打试演 · 不改变当前牌局':
   '来自真实对局 · 交锋事件 #'+payload.event.serial);
  const ev=payload.event;
@@ -245,7 +256,20 @@ function loop(){
  else if(t<4.22)stageText('counter');
  else if(t<5.25)stageText('retreat');
  else stageText('settled');
- actors.forEach(a=>reactActor(a,t));
+ absoluteSeconds+=delta;
+ actors.forEach(a=>reactActor(a,t,absoluteSeconds));
+ duelEffects?.update({absoluteSec:absoluteSeconds,fightTime:t,playing,
+   visible:actors.map(a=>a.pivot.visible),
+   reducedMotion:reduced});
+ podiumCards?.update(absoluteSeconds,playing,camera.aspect<.95);
+ // Deliberate single slow push-in during actual contact. No shake or
+ // random camera jitter. Stays inside the same view and card layout.
+ const narrow=camera.aspect<.95;
+ const push=playing?(phaseValue(t,1.90,2.75)*(1-phaseValue(t,4.25,5.55))):0;
+ const baseZ=narrow?10.8:8.7;
+ camera.position.z=baseZ-push*(narrow?.13:.27);
+ camera.position.y=(narrow?2.8:2.95)+push*.055;
+ camera.lookAt(0,(narrow?1.42:1.29)+push*.07,0);
  const contact=t>=2.83&&t<3.11||t>=3.88&&t<4.15;
  $('impact').hidden=!playing||!contact;
  $('impact').textContent=t<3.5?(currentPayload?.event?
@@ -268,10 +292,19 @@ function reply(type,other={}){
 function onMessage(ev){
  if(ev.source!==window.parent||ev.origin!==location.origin||!ready)return;
  const msg=ev.data;
+ if(msg?.type==='ASDC_R46_CARD_PLAY'){
+  podiumCards?.show(msg,absoluteSeconds);
+  return;
+ }
  if(msg?.type==='ASDC_R45_BOARD'){
   if(!Array.isArray(msg.player)||!Array.isArray(msg.ai))return;
   const safe=list=>list.filter(id=>typeof id==='string'&&/^[EGT][0-9]{2}$/.test(id)).slice(0,5);
+  const wasShown=structuredClone(shownCards);
   shownCards={player:safe(msg.player),ai:safe(msg.ai)};
+  if(!wasShown.player.includes('E01')&&shownCards.player.includes('E01'))
+   duelEffects?.pulse('player',absoluteSeconds);
+  if(!wasShown.ai.includes('G01')&&shownCards.ai.includes('G01'))
+   duelEffects?.pulse('ai',absoluteSeconds);
   if(!playing)actors.forEach(a=>a.pivot.visible=shownCards[a.side==='left'?'player':'ai'].includes(a.id));
   return;
  }
@@ -294,6 +327,9 @@ function exposeQA(){
   get sourceMatchesR22(){return source3DAssetsVerified},
   get renderer(){return renderInfo},
   get stadium(){return stadiumEvidence?.stats||null},
+  get effects(){return duelEffects?.stats||null},
+  get podiumCards(){return podiumCards?.stats||null},
+  get cameraDistance(){return camera?.position.z||null},
   get frameCount(){return frames},
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
@@ -315,8 +351,24 @@ try{
  source3DAssetsVerified=actors[0].source==='Shino-original-CC0.vrm'&&
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
- $('loading').hidden=true;ready=true;stageText('idle','实际 VRM 模型已载入 · 待命');
+ // Do not signal scene readiness before Chrome actually paints the first
+ // GL frame. The old timing leaked an all-white first-frame compositor image.
+ stageText('idle','高精度人物与体育馆已载入 · 待命');
  exposeQA();
+ const warmupStarted=performance.now();
+ let warmupFrames=0;
+ // Headless Vulkan's first visible compositor image can remain white for
+ // ~400-600ms even though GL has rendered. Keep the in-scene loading cover
+ // until the presentation surface has had time to acquire painted frames.
+ do {
+  await new Promise(resolve=>requestAnimationFrame(()=>{
+   renderer.render(scene,camera);
+   resolve();
+  }));
+  warmupFrames++;
+ } while((performance.now()-warmupStarted<850||warmupFrames<7)&&warmupFrames<95);
+ $('loading').hidden=true;
+ ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length});
  requestAnimationFrame(loop);
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();

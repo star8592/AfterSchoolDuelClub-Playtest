@@ -138,3 +138,86 @@ button:focus-visible,summary:focus-visible{outline:3px solid #fff0b6;outline-off
  .arena{min-height:260px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* R46 art-direction pass: sober academy card frames. First two character
+   portraits are actual renders of the very same VRM skin/mesh as the fights.
+   All other 16 cards remain icon-only pending real character art. */
+.card{
+ isolation:isolate;
+ border-top:2px solid #e2c590a8;
+ box-shadow:0 5px 16px #06152366,inset 0 1px #ffffff19;
+ background-image:linear-gradient(135deg,rgba(255,255,255,.08),transparent 55%),
+   linear-gradient(to bottom,#283c4f,#172b3d 85%)!important;
+ padding:7px 9px!important;
+ overflow:hidden;
+}
+.card.ember{--card-accent:#ebb284;--card-accent-dim:#91614e}
+.card.grove{--card-accent:#bad5a4;--card-accent-dim:#496f64}
+.card.tide{--card-accent:#a8d6e6;--card-accent-dim:#4a7396}
+.card::before{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:
+  radial-gradient(ellipse at 92% 52%,color-mix(in srgb,var(--card-accent) 37%,transparent),transparent 66%),
+  linear-gradient(100deg,rgba(7,21,35,.9) 0%,rgba(12,29,42,.65) 50%,transparent 90%);
+}
+.card::after{
+ content:"";position:absolute;right:-28px;bottom:-30px;
+ width:120px;height:120px;border:1px solid color-mix(in srgb,var(--card-accent) 30%,transparent);
+ transform:rotate(45deg);z-index:0;pointer-events:none;border-radius:15px;
+}
+.card .card-type,.card .card-name,.card .card-desc,.card .card-stats{
+ position:relative;z-index:3;
+}
+.card .card-type{font-size:10px!important;color:color-mix(in srgb,var(--card-accent) 78%,white)!important;
+ font-weight:750;letter-spacing:.08em}
+.card .cost{width:25px!important;height:25px!important;
+ box-shadow:0 1px 0 #ffe9bf inset,0 2px 8px #0008;background:linear-gradient(135deg,#fff5d3,#cfa86c)!important}
+.card .card-name{
+ max-width:100%;text-shadow:0 1px 7px #0a1429;
+ font-size:13px!important;color:#fff5e2;
+}
+.card .card-stats{margin-top:auto;font-size:10px!important;color:var(--card-accent)!important}
+.card .card-illustration{
+ position:absolute!important;right:0!important;top:21px!important;
+ width:57%!important;height:calc(100% - 22px)!important;
+ max-height:none!important;min-height:0!important;flex:none!important;
+ display:flex;align-items:center;justify-content:center;
+ z-index:1;pointer-events:none;
+}
+.card .card-illustration.true-3d-portrait{
+ opacity:.96;filter:drop-shadow(0 5px 9px #06172c);
+}
+.card .card-illustration img.real-actor-portrait{
+ width:100%;height:100%;object-fit:cover;object-position:50% 17%;
+ transform:translateY(7px) scale(1.33);
+ display:block;
+ -webkit-mask-image:linear-gradient(to bottom,#000 4%,#000 65%,transparent 100%);
+ mask-image:linear-gradient(to bottom,#000 4%,#000 65%,transparent 100%);
+}
+.card .card-illustration.original-card-symbol{
+ width:42%!important;right:6px!important;top:36px!important;height:58%!important;
+ align-items:center;justify-content:center;
+}
+.card .card-illustration.original-card-symbol .symbol{
+ font-family:Georgia,serif;
+ display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--card-accent) 40%,transparent);
+ color:var(--card-accent);border-radius:50%;
+ width:64px;height:64px;font-size:32px;
+ background:radial-gradient(circle at 55% 32%,#ffffff12,#12243b6f 65%);
+ box-shadow:0 0 10px color-mix(in srgb,var(--card-accent) 15%,transparent);
+}
+.card.selected{
+ transform:translateY(-3px);
+ border-color:#f6d39a!important;
+ box-shadow:0 0 0 2px #f9cf8f72,0 0 22px #e6a65a66,inset 0 1px #fff7d9!important;
+}
+.card:disabled{opacity:.64!important;filter:saturate(.45)}
+.card[data-art="symbol-only"] .card-name{max-width:90%}
+.hand{padding-top:6px!important}
+@media(max-width:860px){
+ .card .card-illustration.original-card-symbol .symbol{
+  width:43px;height:43px;font-size:22px
+ }
+ .card .card-name{font-size:11px!important}
+ .card .card-illustration img.real-actor-portrait{transform:translateY(3px) scale(1.27)}
+}
