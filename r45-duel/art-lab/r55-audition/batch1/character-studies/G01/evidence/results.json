@@ -1,0 +1,176 @@
+[
+  {
+    "device": "desktop",
+    "pass": true,
+    "preview": {
+      "loaded": {
+        "loaded": true,
+        "meshes": 132,
+        "animations": 0,
+        "sourceBounds": {
+          "min": [
+            -0.78,
+            0,
+            -0.223
+          ],
+          "max": [
+            0.782,
+            1.922,
+            0.263
+          ],
+          "center": [
+            0.001,
+            0.961,
+            0.02
+          ]
+        },
+        "accessoryBounds": {
+          "min": [
+            null,
+            null,
+            null
+          ],
+          "max": [
+            null,
+            null,
+            null
+          ],
+          "center": [
+            0,
+            0,
+            0
+          ]
+        },
+        "costumeAnimations": 0,
+        "modelPath": "../../assets/model/Fumiriya-original-CC0.vrm",
+        "error": null
+      },
+      "motion": {
+        "mode": "idle",
+        "attachedMeshes": 30,
+        "rightArmQ": [
+          0,
+          0,
+          -0.02325568894048073,
+          0.999729549894322
+        ]
+      },
+      "variant": true
+    },
+    "original": {
+      "loaded": true,
+      "meshes": 102,
+      "animations": 0,
+      "sourceBounds": {
+        "min": [
+          -0.78,
+          0,
+          -0.173
+        ],
+        "max": [
+          0.782,
+          1.922,
+          0.171
+        ],
+        "center": [
+          0.001,
+          0.961,
+          -0.001
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "../../assets/model/Fumiriya-original-CC0.vrm",
+      "error": null
+    },
+    "armDelta": 0.27381854522171667,
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "pass": true,
+    "preview": {
+      "loaded": {
+        "loaded": true,
+        "meshes": 132,
+        "animations": 0,
+        "sourceBounds": {
+          "min": [
+            -0.78,
+            0,
+            -0.223
+          ],
+          "max": [
+            0.782,
+            1.922,
+            0.263
+          ],
+          "center": [
+            0.001,
+            0.961,
+            0.02
+          ]
+        },
+        "accessoryBounds": {
+          "min": [
+            null,
+            null,
+            null
+          ],
+          "max": [
+            null,
+            null,
+            null
+          ],
+          "center": [
+            0,
+            0,
+            0
+          ]
+        },
+        "costumeAnimations": 0,
+        "modelPath": "../../assets/model/Fumiriya-original-CC0.vrm",
+        "error": null
+      },
+      "motion": {
+        "mode": "idle",
+        "attachedMeshes": 30,
+        "rightArmQ": [
+          0,
+          0,
+          -0.03277920407266803,
+          0.9994626175002056
+        ]
+      },
+      "variant": true
+    },
+    "original": {
+      "loaded": true,
+      "meshes": 102,
+      "animations": 0,
+      "sourceBounds": {
+        "min": [
+          -0.78,
+          0,
+          -0.173
+        ],
+        "max": [
+          0.782,
+          1.922,
+          0.171
+        ],
+        "center": [
+          0.001,
+          0.961,
+          -0.001
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "../../assets/model/Fumiriya-original-CC0.vrm",
+      "error": null
+    },
+    "armDelta": 0.2834291500478461,
+    "errors": []
+  }
+]

@@ -20,17 +20,25 @@ const ring=new THREE.Mesh(new THREE.TorusGeometry(2.20,.013,6,120),
 ring.rotation.x=-Math.PI/2;ring.position.y=.013;scene.add(ring);
 const holder=new THREE.Group();scene.add(holder);
 let records=[],active=null,idx=0,mixer=null,accessoryMixer=null,accessoryClips=[],motion=null,spin=0,azimuth=.47,elevation=.23,zoom=7.2;
-let paperFlight=null;
+let paperFlight=null,architectPose=null;
 let loadToken=0,diagnostics={loaded:false,meshes:0,animations:0,error:null};
 const OWL_STUDY='batch1/character-studies/T01/T01-BroadcastOwl-R56-STUDY.glb';
 const E02_STUDY='batch1/character-studies/E02/E02-PaperPlane-R57-Refined-STUDY.glb';
 const T02_STUDY='batch1/character-studies/T02/T02-LivingMenu-R58-AnimateStudy.glb';
+const G01_STUDY='batch1/character-studies/G01/G01-ElasticArchitect-R59-PropsSTUDY.glb';
 const T02_ART_STUDY='batch1/character-studies/T02/materials/T02-LivingMenu-R59-IllustratedStudy.glb';
 const studyQuery=new URLSearchParams(location.search).get('study');
 let owlStudy=studyQuery==='T01-R56';
 let e02Study=studyQuery==='E02-R57';
 let t02ArtStudy=studyQuery==='T02-R59';
 let t02Study=studyQuery==='T02-R58'||t02ArtStudy;
+let g01Study=studyQuery==='G01-R59';
+function refreshG01Variant(){
+ const b=$('g01-variant');b.hidden=records[idx]?.id!=='G01';
+ b.textContent=g01Study?'当前：R59 建筑师配件 · 点击查看原始':'当前：原始通用 VRM · 点击看建筑师';
+}
+$('g01-variant').addEventListener('click',()=>{g01Study=!g01Study;select(idx)});
+
 function refreshT02Variant(){
  const b=$('t02-variant');
  b.hidden=records[idx]?.id!=='T02';
@@ -76,7 +84,7 @@ function placeCamera(){
 function disposeGroup(){
  while(holder.children.length)holder.remove(holder.children[0]);
  mixer?.stopAllAction();accessoryMixer?.stopAllAction();
- mixer=null;accessoryMixer=null;accessoryClips=[];motion=null;paperFlight=null;
+ mixer=null;accessoryMixer=null;accessoryClips=[];motion=null;paperFlight=null;architectPose=null;
  while(ambient.length){const m=ambient.pop();if(m.parent)m.parent.remove(m);
   m.geometry?.dispose?.();m.material?.dispose?.();}
 }
@@ -113,6 +121,13 @@ function previewSpell(id){
  return core;
 }
 function playClip(request){
+ if(architectPose){
+  architectPose.mode=request;
+  architectPose.started=clock.elapsedTime;
+  $('info').textContent='原始 VRM 骨架 + 独立三维职业配件 · '+
+   ({idle:'测量待机',walk:'规划手势',attack:'弹力尺出击'}[request]||request);
+  return;
+ }
  if(paperFlight){
   paperFlight.mode=request==='walk'?'bank':request==='attack'?'attack':'idle';
   paperFlight.started=clock.elapsedTime;
@@ -143,7 +158,7 @@ async function select(index){
  if(prevId!==entry.id){
   elevation=entry.id==='E02'?.78:.23;
   zoom=entry.id==='E02'?(window.innerWidth<600?8.7:6.6):7.2;
-  azimuth=.47;
+  azimuth=entry.id==='G01'?Math.PI:.47;
  }
  for(const [id,text] of Object.entries(entry.id==='E02'?
   {idle:'悬停 / Idle',walk:'盘旋 / Bank',attack:'俯冲 / Attack'}:
@@ -157,6 +172,7 @@ async function select(index){
  refreshOwlVariant();
  refreshE02Variant();
  refreshT02Variant();
+ refreshG01Variant();
  $('status').textContent=entry.status==='ACTUAL_SOURCE_VRM'?'当前正式场馆已有源 VRM · 人物原创美术仍需审核':
   entry.kind==='spell'?'事件技能三维预演 · 尚未完成成品 VFX':'候选源模型或旧实验模型 · 暂不作为正式角色';
  $('meta').textContent=entry.kind==='spell'?'这一张事件牌已匹配独立的三维特效概念，战斗规则不由预览器计算。':
@@ -171,16 +187,33 @@ async function select(index){
  }
  try{
   const useOverlay=entry.id==='T01'&&owlStudy;
+  const useArchitect=entry.id==='G01'&&g01Study;
   const modelPath=entry.id==='E02'&&e02Study?E02_STUDY:
     entry.id==='T02'&&t02ArtStudy?T02_ART_STUDY:
     entry.id==='T02'&&t02Study?T02_STUDY:
     useOverlay?OWL_STUDY:entry.previewModel;
   const gltf=await loader.loadAsync([E02_STUDY,T02_STUDY,T02_ART_STUDY].includes(modelPath)?modelPath:entry.previewModel);
-  const costume=useOverlay?await loader.loadAsync(OWL_STUDY):null;
+  const costume=useOverlay?await loader.loadAsync(OWL_STUDY):
+    useArchitect?await loader.loadAsync(G01_STUDY):null;
+
   if(token!==loadToken)return;
   const model=new THREE.Group();
   model.add(gltf.scene);
-  if(costume){
+  if(useArchitect&&costume){
+   // Bind real costume meshes to the untouched source VRM bones. Original
+   // face/skin/hair meshes never pass through a destructive export step.
+   gltf.scene.updateMatrixWorld(true);costume.scene.updateMatrixWorld(true);
+   const costumeMeshes=[];costume.scene.traverse(o=>{
+    if(o.isMesh&&o.userData?.attachBone)costumeMeshes.push(o);
+   });
+   let anchored=0;
+   for(const o of costumeMeshes){
+    const bone=gltf.scene.getObjectByName(o.userData.attachBone);
+    if(bone){bone.attach(o);anchored++;}
+   }
+   model.userData.g01AnchoredProps=anchored;
+  }
+  if(useOverlay&&costume){
    // Blender exported this heritage rig with a different origin convention.
    // The costume is an independent skinned GLB aligned to the untouched CC0 owl.
    costume.scene.rotation.y=Math.PI;
@@ -194,7 +227,7 @@ async function select(index){
     center:b.getCenter(new THREE.Vector3()).toArray().map(x=>+x.toFixed(3))};
   };
   const sourceBounds=readBounds(gltf.scene);
-  const accessoryBounds=costume?readBounds(costume.scene):null;
+  const accessoryBounds=useOverlay&&costume?readBounds(costume.scene):null;
   const box=new THREE.Box3().setFromObject(model);
   const size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
   const scale=2.65/Math.max(.001,size.y,size.x*.65,size.z*.65);
@@ -206,6 +239,14 @@ async function select(index){
    paperFlight={root:model,mode:'idle',started:0,baseX:model.position.x,
     baseY:model.position.y,baseZ:model.position.z};
   }
+  if(useArchitect){
+   const bones={};const base={};
+   for(const key of ['J_Bip_R_UpperArm','J_Bip_L_UpperArm','J_Bip_C_Head']){
+    bones[key]=gltf.scene.getObjectByName(key);
+    if(bones[key])base[key]=bones[key].quaternion.clone();
+   }
+   architectPose={mode:'idle',started:0,bones,base,anchored:model.userData.g01AnchoredProps};
+  }
   const meshCount=(()=>{let n=0;model.traverse(o=>{if(o.isMesh)n++});return n})();
   active={...entry,animations:gltf.animations};
   diagnostics={loaded:true,meshes:meshCount,animations:gltf.animations.length,
@@ -216,6 +257,9 @@ async function select(index){
   }
   if(entry.id==='E02'&&e02Study){
    $('status').textContent='R57 纸飞机实体边缘与材质精修试验 · 非 Pixal3D 生成，尚未通过正式美术验收';
+  }
+  if(entry.id==='G01'&&g01Study){
+   $('status').textContent='R59 橡皮筋建筑师 · 保留源 VRM + 30 配件 · 非正式美术成品';
   }
   if(entry.id==='T02'&&t02Study){
    $('status').textContent=t02ArtStudy?'R59 原创双面食物插画 PBR 贴图 · 技术预览，尚未美术验收':
@@ -252,6 +296,21 @@ $('reset').addEventListener('click',()=>{
 const clock=new THREE.Clock();
 function loop(){
  requestAnimationFrame(loop);const dt=Math.min(.06,clock.getDelta()),t=clock.elapsedTime;
+ if(architectPose){
+  const a=architectPose,elapsed=t-a.started;
+  const wave=a.mode==='attack'?.56*Math.sin(Math.min(1,elapsed/1.25)*Math.PI):
+   a.mode==='walk'?.20*Math.sin(elapsed*3):.075*Math.sin(t*1.8);
+  const q=(name,delta)=>{
+   if(a.bones[name]&&a.base[name]){
+    a.bones[name].quaternion.copy(a.base[name]).multiply(
+     new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),delta));
+   }
+  };
+  q('J_Bip_R_UpperArm',wave);
+  q('J_Bip_L_UpperArm',-wave*.7);
+  q('J_Bip_C_Head',wave*.12);
+  if(a.mode==='attack'&&elapsed>1.25)a.mode='idle';
+ }
  if(mixer)mixer.update(dt);
  if(accessoryMixer)accessoryMixer.update(dt);
  if(paperFlight){
@@ -284,7 +343,8 @@ try{
    (entry.kind==='spell'?'事件 · 三维特效预演':entry.status==='ACTUAL_SOURCE_VRM'?'已有 VRM 源模型':'模型候选 · 未通过美术签收')+'</small>';
   b.addEventListener('click',()=>select(records.indexOf(entry)));$('roster').appendChild(b);
  }
- const initial=owlStudy?records.findIndex(x=>x.id==='T01'):
+ const initial=g01Study?records.findIndex(x=>x.id==='G01'):
+   owlStudy?records.findIndex(x=>x.id==='T01'):
    e02Study?records.findIndex(x=>x.id==='E02'):
    t02Study?records.findIndex(x=>x.id==='T02'):0;
  await select(Math.max(0,initial));
@@ -296,7 +356,13 @@ window.__R55_AUDITION_QA={
  selectById:id=>{const i=records.findIndex(x=>x.id===id);if(i>=0)select(i);return i>=0},
  get selectedSource(){return diagnostics.modelPath||records[idx]?.previewModel||null},
  get studyVariant(){return owlStudy},
+ get g01StudyVariant(){return g01Study},
+ get architectMotion(){return architectPose?{
+  mode:architectPose.mode,
+  attachedMeshes:architectPose.anchored,
+  rightArmQ:architectPose.bones['J_Bip_R_UpperArm']?.quaternion.toArray()||null}:null;},
  get t02ArtStudyVariant(){return t02ArtStudy},
+
  get t02StudyVariant(){return t02Study},
  setT02StudyVariant:(on)=>{t02Study=!!on;select(idx);return t02Study;},
  get activePageState(){

@@ -107,7 +107,7 @@
       "name": "橡皮筋建筑师",
       "approach": "existing legal VRM rig -> new head/attire/props -> weight transfer",
       "prototype": "../../../assets/model/Fumiriya-original-CC0.vrm",
-      "art_status": "source VRM is live but a unique original character design is missing",
+      "art_status": "VRM bone-attached 30 prop meshes, browser 2/2; original face/garments unchanged, unique final original art still missing",
       "features": [
         "adult architect",
         "elastic tools",
@@ -122,10 +122,14 @@
         "impact"
       ],
       "p0": false,
-      "p1": false,
+      "p1": true,
       "p2": false,
       "p3": false,
-      "approved": false
+      "approved": false,
+      "candidate_mesh": "character-studies/G01/G01-ElasticArchitect-R59-PropsSTUDY.glb",
+      "p1_technical_identity_props_verified": true,
+      "mesh_sources": "Original Fumiriya CC0 VRM unchanged; added separately authored 30 accessory meshes",
+      "animation_status": "browser gesture on original VRM bones; no built-in GLB clips"
     }
   ]
 }
