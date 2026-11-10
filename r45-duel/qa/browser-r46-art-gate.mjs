@@ -51,7 +51,7 @@ try{
    return{event:q.payload.event,roles:q.roles.map(x=>({id:x.id,bones:x.bones,asset:x.asset})),
     renderer:q.renderer,effects:q.effects,polish:q.stadium.polish,studio:q.stadium.label,
     handVisible:document.querySelector('.controls').getBoundingClientRect().bottom<=innerHeight+4,
-    drawCalls:q.drawCalls};
+    drawCalls:q.drawCalls,choreography:q.choreography};
   });
   const noOldRuntime=requests.every(u=>!/\/(?:r14-|r18-|r19-|r20-|r21-|r22-|r23-|r25-|r32-|r34-|r36-|r38-|r39-|r40-|r41-|r42-|r43-|r44-)/.test(u));
   const passed=res.status()===200&&opening.qReady&&
@@ -64,7 +64,8 @@ try{
    afterAI.text.includes('AI 打出')&&combat.event?.from==='E01'&&combat.event?.to==='G01'&&
    combat.event.damage===2&&combat.event.retaliation===1&&
    combat.roles[0].bones===148&&combat.roles[1].bones===107&&
-   combat.effects.impactRendered>8&&/RTX 5070 Ti/.test(combat.renderer)&&
+   combat.effects.impactRendered>8&&combat.choreography?.maxStride>.08&&
+   combat.choreography?.maxOrbit>.02&&/RTX 5070 Ti/.test(combat.renderer)&&
    (device==='small'||combat.handVisible)&&opening.documentWidth<=width+2&&
    noOldRuntime&&!errors.length;
   const record={device,width,height,http:res.status(),opening,selected,afterPlay,afterAI,combat,
@@ -75,7 +76,8 @@ try{
    originalPortrait:opening.truePortrait,stageSigns:opening.polish?.liveSigns,
    rigBones:combat.roles.map(r=>r.bones),damage:combat.event.damage,
    retaliation:combat.event.retaliation,impactFrames:combat.effects.impactRendered,
-   drawCalls:combat.drawCalls,noOldRuntime,passed,errors
+   drawCalls:combat.drawCalls,maxStride:combat.choreography?.maxStride,
+   maxOrbit:combat.choreography?.maxOrbit,noOldRuntime,passed,errors
   }));
   if(!passed)process.exitCode=3;
   await p.close();

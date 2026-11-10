@@ -28,6 +28,7 @@ let duelEffects=null;
 let podiumCards=null;
 let absoluteSeconds=0;
 let renderFrameTiming=0;
+let choreographyQA={stride:0,guard:0,cameraOrbit:0,maxStride:0,maxOrbit:0};
 let shownCards={player:[],ai:[]};
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -208,6 +209,17 @@ function reactActor(a,sec,absoluteSec){
  const hit=left?smoothPulse(sec,3.84,3.90,4.15,4.35):
    smoothPulse(sec,2.79,2.9,3.20,3.46);
  const idle=Math.sin(absoluteSec*1.43+(left?0:1.8))*.022;
+ // A planted, alternating step cycle, driven only during approach/retreat.
+ // Smoothly return the original source rig to rest between exchanges.
+ const locomotion=smoothPulse(sec,.62,1.03,4.16,5.18);
+ const walkPhase=sec*11.2+(left?0:Math.PI);
+ const stride=.34*locomotion*Math.sin(walkPhase);
+ const guard=.11*block;
+ if(left){
+  choreographyQA.stride=Number(stride.toFixed(4));
+  choreographyQA.guard=Number(guard.toFixed(4));
+  choreographyQA.maxStride=Math.max(choreographyQA.maxStride,Math.abs(stride));
+ }
  a.pivot.position.x=a.restX+sign*(approach*.86+attack*.29-hit*.12);
  a.pivot.position.y=.016*Math.sin(absoluteSec*1.7+(left?0:2))+(attack*.065);
  a.pivot.rotation.y=(left?-2.38:2.38)+sign*(attack*.20+block*.13);
@@ -223,10 +235,12 @@ function reactActor(a,sec,absoluteSec){
  setBone(a,'R_LowerArm',-.60*attack-.2*block,0,-.08);
  setBone(a,'L_UpperArm',-.26*attack-.45*block,0,1.12-.25*attack);
  setBone(a,'L_LowerArm',-.25*block,0,.08);
- setBone(a,'L_UpperLeg',-.11*approach,0,0);
- setBone(a,'R_UpperLeg',.11*approach,0,0);
- setBone(a,'L_LowerLeg',.08*approach,0,0);
- setBone(a,'R_LowerLeg',-.08*approach,0,0);
+ setBone(a,'L_UpperLeg',stride,0,0);
+ setBone(a,'R_UpperLeg',-stride,0,0);
+ setBone(a,'L_LowerLeg',Math.max(0,-stride)*.8,0,0);
+ setBone(a,'R_LowerLeg',Math.max(0,stride)*.8,0,0);
+ // Guard reads through the actual upper body rather than a proxy object.
+ setBone(a,'C_LeftShoulder',0,0,guard*sign);
  if(attack>.03||hit>.03)actionFrames++;
  if(hit>.1)impactFrames++;
 }
@@ -268,6 +282,11 @@ function loop(){
  const push=playing?(phaseValue(t,1.90,2.75)*(1-phaseValue(t,4.25,5.55))):0;
  const baseZ=narrow?10.8:8.7;
  camera.position.z=baseZ-push*(narrow?.13:.27);
+ // Gentle dolly arc, not shake; zero displacement at both ends.
+ const orbit=playing&&!reduced?Math.sin(Math.PI*clamp((t-1.5)/3.6,0,1))*(narrow?.035:.11):0;
+ camera.position.x=orbit;
+ choreographyQA.cameraOrbit=Number(orbit.toFixed(4));
+ choreographyQA.maxOrbit=Math.max(choreographyQA.maxOrbit,Math.abs(orbit));
  camera.position.y=(narrow?2.8:2.95)+push*.055;
  camera.lookAt(0,(narrow?1.42:1.29)+push*.07,0);
  const contact=t>=2.83&&t<3.11||t>=3.88&&t<4.15;
@@ -330,6 +349,7 @@ function exposeQA(){
   get effects(){return duelEffects?.stats||null},
   get podiumCards(){return podiumCards?.stats||null},
   get cameraDistance(){return camera?.position.z||null},
+  get choreography(){return {...choreographyQA}},
   get frameCount(){return frames},
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
