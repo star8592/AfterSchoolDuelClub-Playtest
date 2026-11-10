@@ -17,21 +17,27 @@ const renderer=new THREE.WebGLRenderer({canvas:document.getElementById('canvas')
 const width=document.body.clientWidth,height=window.innerHeight-46;
 renderer.setSize(width,height);renderer.setPixelRatio(1);
 const camera=new THREE.PerspectiveCamera(35,width/height,.01,70);
-camera.position.set(0,1.5,10.5);camera.lookAt(0,1.12,0);
+if(new URL(location.href).searchParams.has('top')){camera.up.set(0,0,-1);camera.position.set(0,11,0);camera.lookAt(0,0,0)}
+else{camera.position.set(0,1.5,10.5);camera.lookAt(0,1.12,0)}
 scene.add(new THREE.HemisphereLight(0xffffff,0x4d6473,2.0));
 const light=new THREE.DirectionalLight(0xffffff,2.5);light.position.set(2,5,7);scene.add(light);
 const box=new THREE.Box3().setFromObject(gltf.scene,true);
 const size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
-const scale=2.2/Math.max(.01,size.y);
+const scale=Math.min(2.2/Math.max(.01,size.y),1.85/Math.max(.01,size.x),1.85/Math.max(.01,size.z)); // Bound flat assets by their actual footprint; no overlap
 const xs=[-3.1,-1.03,1.03,3.1];
+const topView=new URL(location.href).searchParams.has('top');
 for(let i=0;i<4;i++){
  const pivot=new THREE.Group(),scaled=new THREE.Group(),clone=cloneSkeleton(gltf.scene);
  clone.position.set(-center.x,-box.min.y,-center.z);scaled.scale.setScalar(scale);
  scaled.add(clone);pivot.add(scaled);pivot.position.x=xs[i];pivot.rotation.y=i*Math.PI/2;
  scene.add(pivot);
+ if(topView)pivot.add(new THREE.ArrowHelper(new THREE.Vector3(0,0,1),new THREE.Vector3(0,.05,0),.85,0x00ff79,.23,.15));
  const floor=new THREE.Mesh(new THREE.CylinderGeometry(.87,.87,.035,48),new THREE.MeshStandardMaterial({color:'#3a5672'}));floor.position.set(xs[i],-.06,0);scene.add(floor);
 }
 scene.add(new THREE.GridHelper(12,20,0x3d576f,0x283e50));
-renderer.render(scene,camera);document.getElementById('status').textContent='READY '+id+' | source front comparison '+size.toArray().map(x=>x.toFixed(2));
-window.__R62_FACE_QA={ready:true,id,dimensions:size.toArray(),mesh:gltf.scene.children.length};
+renderer.setAnimationLoop(()=>renderer.render(scene,camera));
+await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+document.getElementById('status').textContent='READY '+id+' | source front comparison '+size.toArray().map(x=>x.toFixed(2));
+let meshes=0;gltf.scene.traverse(o=>{if(o.isMesh)meshes++});
+window.__R62_FACE_QA={ready:true,id,dimensions:size.toArray(),sceneChildren:gltf.scene.children.length,meshes,worldScale:scale};
 </script></html>

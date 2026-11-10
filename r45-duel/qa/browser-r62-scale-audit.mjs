@@ -12,7 +12,7 @@ const batches=[
  ['T03','T04','E02','T01','G03']
 ];
 const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',
- args:['--no-sandbox','--enable-webgl','--use-angle=vulkan','--enable-features=Vulkan,DefaultANGLEVulkan','--disable-software-rasterizer','--disable-dev-shm-usage']});
+ args:['--no-sandbox','--enable-webgl','--use-angle=gl','--disable-software-rasterizer','--disable-dev-shm-usage']});
 const out=[];let fail=false;
 try {
  for(const [viewport,width,height] of [['wide',1920,1080],['portrait',430,900]]){
@@ -50,12 +50,12 @@ try {
         e.id==='T01'?m.height>=1.07&&m.height<=1.24:
         e.id==='T02'?m.height>=1.37&&m.height<=1.58:
         (m.height>=1.86&&m.height<=2.18);
-      return opponent&&ground&&scale&&e.visible;
+      return opponent&&ground&&scale&&e.visible&&m.withinFrame===true;
     };
     const passed=row.entries.every(check)&&errors.length===0;
     row.pass=passed;row.failures=row.entries.filter(e=>!check(e)).map(e=>({
       id:e.id,side:e.side,height:e.metrics.height,ground:e.metrics.minY,
-      frontDot:e.metrics.frontDot,width:e.metrics.width,depth:e.metrics.depth
+      frontDot:e.metrics.frontDot,width:e.metrics.width,depth:e.metrics.depth,withinFrame:e.metrics.withinFrame
     }));
     if(!passed)fail=true;
     out.push(row);
