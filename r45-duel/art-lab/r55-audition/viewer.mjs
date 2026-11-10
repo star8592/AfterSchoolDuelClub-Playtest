@@ -19,8 +19,17 @@ const ring=new THREE.Mesh(new THREE.TorusGeometry(2.20,.013,6,120),
  new THREE.MeshBasicMaterial({color:'#87d2e9',transparent:true,opacity:.35}));
 ring.rotation.x=-Math.PI/2;ring.position.y=.013;scene.add(ring);
 const holder=new THREE.Group();scene.add(holder);
-let records=[],active=null,idx=0,mixer=null,motion=null,spin=0,azimuth=.47,elevation=.23,zoom=7.2;
+let records=[],active=null,idx=0,mixer=null,accessoryMixer=null,accessoryClips=[],motion=null,spin=0,azimuth=.47,elevation=.23,zoom=7.2;
 let loadToken=0,diagnostics={loaded:false,meshes:0,animations:0,error:null};
+const OWL_STUDY='batch1/character-studies/T01/T01-BroadcastOwl-R56-STUDY.glb';
+let owlStudy=new URLSearchParams(location.search).get('study')==='T01-R56';
+function refreshOwlVariant(){
+ const button=$('owl-variant');
+ button.hidden=records[idx]?.id!=='T01';
+ button.textContent=owlStudy?'当前：R56 改造试验 · 点击看原始':'当前：原始 CC0 猫头鹰 · 点击看改造';
+}
+$('owl-variant').addEventListener('click',()=>{owlStudy=!owlStudy;select(idx)});
+
 const loader=new GLTFLoader();
 const ambient=[];
 
@@ -39,7 +48,8 @@ function placeCamera(){
 }
 function disposeGroup(){
  while(holder.children.length)holder.remove(holder.children[0]);
- mixer?.stopAllAction();mixer=null;motion=null;
+ mixer?.stopAllAction();accessoryMixer?.stopAllAction();
+ mixer=null;accessoryMixer=null;accessoryClips=[];motion=null;
  while(ambient.length){const m=ambient.pop();if(m.parent)m.parent.remove(m);
   m.geometry?.dispose?.();m.material?.dispose?.();}
 }
@@ -82,12 +92,21 @@ function playClip(request){
  let clip=clips.find(c=>c.name.toLowerCase().includes(request));
  if(!clip)clip=request==='idle'?clips[0]:clips.find(c=>c.name.toLowerCase().includes('idle'))||clips[0];
  mixer.stopAllAction();mixer.clipAction(clip).reset().fadeIn(.1).play();
- $('info').textContent='GLB 原始模型 · '+clip.name+' · 骨骼动画';
+ if(accessoryMixer&&accessoryClips.length){
+  const costumeClip=accessoryClips.find(c=>c.name.toLowerCase()===clip.name.toLowerCase())
+    ||accessoryClips.find(c=>c.name.toLowerCase().includes(request));
+  if(costumeClip){
+   accessoryMixer.stopAllAction();
+   accessoryMixer.clipAction(costumeClip).reset().fadeIn(.1).play();
+  }
+ }
+ $('info').textContent=(accessoryMixer?'源模型 + 配件独立骨骼':'GLB 原始模型')+' · '+clip.name+' · 骨骼动画';
 }
 async function select(index){
  idx=index;const entry=records[idx];if(!entry)return;
  [...$('roster').children].forEach((n,i)=>n.classList.toggle('active',i===idx));
  $('name').textContent=entry.id+' · '+entry.name;
+ refreshOwlVariant();
  $('status').textContent=entry.status==='ACTUAL_SOURCE_VRM'?'当前正式场馆已有源 VRM · 人物原创美术仍需审核':
   entry.kind==='spell'?'事件技能三维预演 · 尚未完成成品 VFX':'候选源模型或旧实验模型 · 暂不作为正式角色';
  $('meta').textContent=entry.kind==='spell'?'这一张事件牌已匹配独立的三维特效概念，战斗规则不由预览器计算。':
@@ -101,9 +120,28 @@ async function select(index){
   return;
  }
  try{
+  const useOverlay=entry.id==='T01'&&owlStudy;
+  const modelPath=useOverlay?OWL_STUDY:entry.previewModel;
   const gltf=await loader.loadAsync(entry.previewModel);
+  const costume=useOverlay?await loader.loadAsync(OWL_STUDY):null;
   if(token!==loadToken)return;
-  const model=gltf.scene;
+  const model=new THREE.Group();
+  model.add(gltf.scene);
+  if(costume){
+   // Blender exported this heritage rig with a different origin convention.
+   // The costume is an independent skinned GLB aligned to the untouched CC0 owl.
+   costume.scene.rotation.y=Math.PI;
+   costume.scene.position.set(0,1.65,-.35);
+   model.add(costume.scene);
+  }
+  const readBounds=(obj)=>{
+   const b=new THREE.Box3().setFromObject(obj);
+   return{min:b.min.toArray().map(x=>+x.toFixed(3)),
+    max:b.max.toArray().map(x=>+x.toFixed(3)),
+    center:b.getCenter(new THREE.Vector3()).toArray().map(x=>+x.toFixed(3))};
+  };
+  const sourceBounds=readBounds(gltf.scene);
+  const accessoryBounds=costume?readBounds(costume.scene):null;
   const box=new THREE.Box3().setFromObject(model);
   const size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
   const scale=2.65/Math.max(.001,size.y,size.x*.65,size.z*.65);
@@ -113,8 +151,17 @@ async function select(index){
   holder.add(model);
   const meshCount=(()=>{let n=0;model.traverse(o=>{if(o.isMesh)n++});return n})();
   active={...entry,animations:gltf.animations};
-  diagnostics={loaded:true,meshes:meshCount,animations:gltf.animations.length,error:null};
-  if(gltf.animations.length){mixer=new THREE.AnimationMixer(model);playClip('idle')}
+  diagnostics={loaded:true,meshes:meshCount,animations:gltf.animations.length,
+   sourceBounds,accessoryBounds,
+   costumeAnimations:costume?.animations.length||0,modelPath,error:null};
+  if(entry.id==='T01'&&owlStudy){
+   $('status').textContent='R56 独立三维改造试验 · 耳机/话筒已绑定，尚未通过正式原画与细节验收';
+  }
+  if(gltf.animations.length){
+   mixer=new THREE.AnimationMixer(gltf.scene);
+   if(costume){accessoryMixer=new THREE.AnimationMixer(costume.scene);accessoryClips=costume.animations;}
+   playClip('idle');
+  }
   else $('info').textContent='实际 GLB · '+meshCount+' 网格 · 无内置动画';
  }catch(error){
   diagnostics={loaded:false,meshes:0,animations:0,error:String(error)};
@@ -136,6 +183,7 @@ const clock=new THREE.Clock();
 function loop(){
  requestAnimationFrame(loop);const dt=Math.min(.06,clock.getDelta()),t=clock.elapsedTime;
  if(mixer)mixer.update(dt);
+ if(accessoryMixer)accessoryMixer.update(dt);
  ring.material.opacity=.25+.07*Math.sin(t*1.8);
  if(records[idx]?.kind==='spell')holder.rotation.y+=dt*.29;
  else holder.rotation.y=0;
@@ -150,14 +198,17 @@ try{
    (entry.kind==='spell'?'事件 · 三维特效预演':entry.status==='ACTUAL_SOURCE_VRM'?'已有 VRM 源模型':'模型候选 · 未通过美术签收')+'</small>';
   b.addEventListener('click',()=>select(records.indexOf(entry)));$('roster').appendChild(b);
  }
- await select(0);
+ const initial=owlStudy?records.findIndex(x=>x.id==='T01'):0;
+ await select(Math.max(0,initial));
 }catch(error){$('info').textContent='数据载入失败：'+String(error)}
 window.__R55_AUDITION_QA={
  get roster(){return records.length},
  get current(){return records[idx]?.id||null},
  get diagnostics(){return diagnostics},
  selectById:id=>{const i=records.findIndex(x=>x.id===id);if(i>=0)select(i);return i>=0},
- get selectedSource(){return records[idx]?.previewModel||null},
+ get selectedSource(){return diagnostics.modelPath||records[idx]?.previewModel||null},
+ get studyVariant(){return owlStudy},
+ setStudyVariant:(on)=>{owlStudy=!!on;select(idx);return owlStudy;},
  setOrbit:(yaw,up=.23,distance=7.2)=>{
   if(!Number.isFinite(yaw)||!Number.isFinite(up)||!Number.isFinite(distance))return false;
   azimuth=yaw;elevation=up;zoom=Math.max(3.5,Math.min(13.5,distance));return true;
