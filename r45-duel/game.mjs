@@ -158,6 +158,24 @@ function sendScene(msg){
  scene.contentWindow.postMessage(msg,location.origin);
  return true;
 }
+function updateCameraAngle(angle){
+ const node=$('camera-angle');
+ if(node)node.textContent=Math.round(angle)+'°';
+}
+for(const [id,delta] of [['camera-left',-45],['camera-right',45]]){
+ $(id)?.addEventListener('click',()=>sendScene({type:'ASDC_R48_CAMERA_DELTA',degrees:delta}));
+}
+$('camera-reset')?.addEventListener('click',()=>sendScene({type:'ASDC_R48_CAMERA_SET',degrees:0}));
+$('camera-fullscreen')?.addEventListener('click',async()=>{
+ try{
+  if(document.fullscreenElement)await document.exitFullscreen();
+  else await document.documentElement.requestFullscreen();
+ }catch(error){announce('浏览器未允许全屏，可按 F11 切换全屏');}
+});
+window.addEventListener('message',ev=>{
+ if(ev.source===scene.contentWindow&&ev.origin===location.origin&&ev.data?.type==='ASDC_R48_CAMERA_ANGLE')
+  updateCameraAngle(ev.data.degrees);
+});
 function syncScene(){
  sendScene(boardSnapshot());
 }
@@ -244,6 +262,13 @@ window.addEventListener('message',event=>{
 scene.addEventListener('load',()=>{if(!sceneReady)sceneError=false});
 window.addEventListener('keydown',event=>{
  if(event.key==='Escape'&&$('help').open)$('help').open=false;
+ if(event.target instanceof HTMLElement&&/^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName))return;
+ if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
+  event.preventDefault();sendScene({type:'ASDC_R48_CAMERA_DELTA',degrees:event.key==='ArrowLeft'?-45:45});
+ }
+ if(event.key==='Home'||event.key.toLowerCase()==='r'){
+  sendScene({type:'ASDC_R48_CAMERA_SET',degrees:0});
+ }
 });
 render();
 announce('开始决斗：你在左，对手在右；选牌并按「出牌」，召唤物会进入同一个三维体育馆。');

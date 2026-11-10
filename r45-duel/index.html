@@ -47,6 +47,14 @@
       </div>
     </details>
   </section>
+  <nav class="camera-tools" aria-label="三维镜头控制">
+    <span class="camera-caption">视角</span>
+    <button type="button" id="camera-left" title="向左旋转45度" aria-label="向左旋转45度">↶ 45°</button>
+    <button type="button" id="camera-reset" title="回到正面" aria-label="镜头回正">正面</button>
+    <button type="button" id="camera-right" title="向右旋转45度" aria-label="向右旋转45度">45° ↷</button>
+    <button type="button" id="camera-fullscreen" title="切换浏览器全屏" aria-label="切换全屏">⛶ 全屏</button>
+    <span id="camera-angle" aria-live="polite">0°</span>
+  </nav>
   <main class="arena" aria-label="唯一全三维体育馆战斗空间">
     <iframe id="stadium" src="./scene/" title="真正的三维体育馆，左右决斗者，中间是唯一的召唤竞技场"
       loading="eager" referrerpolicy="same-origin"></iframe>

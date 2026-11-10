@@ -23,6 +23,75 @@ let lastTime=0,frames=0,actionFrames=0,impactFrames=0,drawCount=0,renderInfo=nul
 let currentPayload=null,activePhase='idle',ready=false,hadContact=false;
 let lastSourceIds=[],source3DAssetsVerified=false;
 let horizontalFov=0;
+let orbitYaw=0, orbitTargetYaw=0, orbitZoom=1, orbitBaseDistance=12;
+const orbitBound=180;
+let pointerDrag=null;
+let lastOcclusionMode='';
+const orbitClamp=(v)=>clamp(v,-orbitBound,orbitBound);
+function broadcastCamera(){
+ if(window.parent!==window)window.parent.postMessage({
+  type:'ASDC_R48_CAMERA_ANGLE',degrees:orbitTargetYaw
+ },location.origin);
+}
+function setOrbit(value){
+ if(!Number.isFinite(value))return;
+ orbitTargetYaw=orbitClamp(value);broadcastCamera();
+}
+function installOrbitControls(){
+ const el=$('battle-canvas');
+ el.style.touchAction='none';
+ el.addEventListener('pointerdown',e=>{
+  if(e.button!==0)return;
+  pointerDrag={id:e.pointerId,x:e.clientX,moved:false};
+  el.setPointerCapture(e.pointerId);
+ });
+ el.addEventListener('pointermove',e=>{
+  if(!pointerDrag||e.pointerId!==pointerDrag.id)return;
+  const dx=e.clientX-pointerDrag.x;
+  pointerDrag.x=e.clientX;pointerDrag.moved=true;
+  setOrbit(orbitTargetYaw-dx*.27);
+ });
+ for(const event of ['pointerup','pointercancel','lostpointercapture']){
+  el.addEventListener(event,()=>{pointerDrag=null});
+ }
+ el.addEventListener('wheel',e=>{
+  e.preventDefault();
+  orbitZoom=clamp(orbitZoom*Math.exp(e.deltaY*.001),.84,1.65);
+ },{passive:false});
+}
+function cameraFrameStats(){
+ if(!camera)return null;
+ const ndc=x=>{
+  const v=new THREE.Vector3(x,1.76,camera.aspect<.85?.45:1.55).project(camera);
+  return {x:Number(v.x.toFixed(3)),y:Number(v.y.toFixed(3)),front:v.z>-1&&v.z<1};
+ };
+ const edge=camera.aspect<.85?2.55:5.05;
+ return{yaw:Number(orbitYaw.toFixed(2)),targetYaw:orbitTargetYaw,
+  distance:Number(camera.position.distanceTo(new THREE.Vector3(0,1.3,0)).toFixed(2)),
+  aspect:Number(camera.aspect.toFixed(3)),
+  podiums:{player:ndc(-edge),ai:ndc(edge)}};
+}
+function keepArenaVisible(){
+ if(!stadiumEvidence?.group)return;
+ const at=Math.abs(orbitYaw);
+ const side=orbitYaw>=0?1:-1;
+ const mode=at>=120?'back':at>=58?(side>0?'right':'left'):'front';
+ if(mode===lastOcclusionMode)return;
+ lastOcclusionMode=mode;
+ stadiumEvidence.group.traverse(obj=>{
+  const n=obj.name||'';
+  if(n.startsWith('Gym_Side_Wall_')){
+   obj.visible=at<58||!n.endsWith(String(side*11.5));
+  }
+  if(n==='Gym_Back_Wall'||n.startsWith('Grandstand_Back_Tier_')||
+     n.startsWith('Grandstand_Riser_')||n.startsWith('Stadium_Seats_Instanced_')||
+     n.startsWith('Stadium_Bleacher_Safety_Rail_')||
+     n.startsWith('Stadium_Bleacher_Rail_Post_')||
+     n.startsWith('Gym_Scoreboard_')){
+   obj.visible=at<120;
+  }
+ });
+}
 let stadiumEvidence=null;
 let duelEffects=null;
 let podiumCards=null;
@@ -65,20 +134,26 @@ function makeScene(){
  podiumCards=createCardHolograms(THREE,scene);
   clock=new THREE.Clock();
  onResize();window.addEventListener('resize',onResize);
+ installOrbitControls();
  const gl=renderer.getContext(),ext=gl.getExtension('WEBGL_debug_renderer_info');
  renderInfo=ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER);
 }
 function onResize(){
  if(!renderer)return;
- const w=window.innerWidth,h=window.innerHeight;
- renderer.setSize(w,h,false);camera.aspect=w/Math.max(h,1);
- const narrow=camera.aspect<.95;
- camera.fov=narrow?43:36;
- camera.position.set(0,narrow?2.8:2.95,narrow?10.8:8.7);
- camera.lookAt(0,narrow?1.42:1.29,0);
+ const w=Math.max(1,window.innerWidth),h=Math.max(1,window.innerHeight);
+ renderer.setSize(w,h,false);
+ camera.aspect=w/h;
+ const narrow=camera.aspect<.85;
+ camera.fov=narrow?48:42;
+ const tan=Math.tan(camera.fov*Math.PI/360);
+ const extent=narrow?3.05:6.50;
+ // Respect the visible safe region for BOTH card projections and side decks.
+ // An orbit changes perspective but must never change the rules or actor IDs.
+ orbitBaseDistance=Math.max(narrow?11.5:10.5,extent/(tan*camera.aspect*.87)+(narrow?.5:1.65));
  camera.updateProjectionMatrix();
- horizontalFov=2*Math.atan(Math.tan(camera.fov*Math.PI/360)*camera.aspect)*180/Math.PI;
+ horizontalFov=2*Math.atan(tan*camera.aspect)*180/Math.PI;
 }
+
 function indexBones(root){
  const m=new Map();let skins=0,vertices=0,bones=0;
  root.traverse(o=>{
@@ -278,17 +353,20 @@ function loop(){
  podiumCards?.update(absoluteSeconds,playing,camera.aspect<.95);
  // Deliberate single slow push-in during actual contact. No shake or
  // random camera jitter. Stays inside the same view and card layout.
- const narrow=camera.aspect<.95;
+ const narrow=camera.aspect<.85;
  const push=playing?(phaseValue(t,1.90,2.75)*(1-phaseValue(t,4.25,5.55))):0;
- const baseZ=narrow?10.8:8.7;
- camera.position.z=baseZ-push*(narrow?.13:.27);
- // Gentle dolly arc, not shake; zero displacement at both ends.
- const orbit=playing&&!reduced?Math.sin(Math.PI*clamp((t-1.5)/3.6,0,1))*(narrow?.035:.11):0;
- camera.position.x=orbit;
- choreographyQA.cameraOrbit=Number(orbit.toFixed(4));
- choreographyQA.maxOrbit=Math.max(choreographyQA.maxOrbit,Math.abs(orbit));
- camera.position.y=(narrow?2.8:2.95)+push*.055;
+ orbitYaw+=(orbitTargetYaw-orbitYaw)*(1-Math.exp(-delta*8));
+ const angle=orbitYaw*Math.PI/180;
+ // World-space orbital viewpoint with a dynamically fitted camera distance.
+ // A restrained, deterministic push maintains the R47 cinematic style.
+ const distance=orbitBaseDistance*orbitZoom-push*(narrow?.10:.25);
+ const arc=playing&&!reduced?Math.sin(Math.PI*clamp((t-1.5)/3.6,0,1))*(narrow?.035:.11):0;
+ camera.position.set(Math.sin(angle)*distance+Math.cos(angle)*arc,
+  (narrow?3.35:3.4)+push*.055,Math.cos(angle)*distance-Math.sin(angle)*arc);
+ choreographyQA.cameraOrbit=Number(arc.toFixed(4));
+ choreographyQA.maxOrbit=Math.max(choreographyQA.maxOrbit,Math.abs(arc));
  camera.lookAt(0,(narrow?1.42:1.29)+push*.07,0);
+ keepArenaVisible();
  const contact=t>=2.83&&t<3.11||t>=3.88&&t<4.15;
  $('impact').hidden=!playing||!contact;
  $('impact').textContent=t<3.5?(currentPayload?.event?
@@ -311,6 +389,12 @@ function reply(type,other={}){
 function onMessage(ev){
  if(ev.source!==window.parent||ev.origin!==location.origin||!ready)return;
  const msg=ev.data;
+ if(msg?.type==='ASDC_R48_CAMERA_SET'){
+  setOrbit(Number(msg.degrees));return;
+ }
+ if(msg?.type==='ASDC_R48_CAMERA_DELTA'){
+  setOrbit(orbitTargetYaw+Number(msg.degrees));return;
+ }
  if(msg?.type==='ASDC_R46_CARD_PLAY'){
   podiumCards?.show(msg,absoluteSeconds);
   return;
@@ -348,7 +432,8 @@ function exposeQA(){
   get stadium(){return stadiumEvidence?.stats||null},
   get effects(){return duelEffects?.stats||null},
   get podiumCards(){return podiumCards?.stats||null},
-  get cameraDistance(){return camera?.position.z||null},
+  get cameraDistance(){return camera?.position.distanceTo(new THREE.Vector3(0,1.3,0))||null},
+  get framing(){return cameraFrameStats()},
   get choreography(){return {...choreographyQA}},
   get frameCount(){return frames},
   get actionFrameCount(){return actionFrames},
@@ -390,6 +475,7 @@ try{
  $('loading').hidden=true;
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length});
+ broadcastCamera();
  requestAnimationFrame(loop);
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();
 }catch(e){

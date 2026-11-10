@@ -84,7 +84,7 @@ export function addStadiumPolish(THREE, scene, root, stats){
   // Raised symmetric duelist station rails emphasize each team's side.
   for(const side of [-1,1]){
     const isPlayer=side<0,teamMat=isPlayer?coral:teal;
-    const x=side*6.70;
+    const x=side*5.55;
     circle((isPlayer?'Player':'Rival')+'_Station_Halo',.86,.042,teamMat,x,.475,.65);
     for(const z of [-.25,.70,1.56]){
       bx('Duelist_Metal_Floor_Border_'+side+'_'+z,

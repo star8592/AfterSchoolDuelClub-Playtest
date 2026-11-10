@@ -108,7 +108,7 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
   box([19,.19,.3],[0,4.9,-11.32],gold,'Gym_Sponsor_Rail');
   // Side duelists stand beyond the actual summon zone, with distinct plinths.
   for(const sign of [-1,1]){
-    const x=sign*6.70;
+    const x=sign*5.55;
     cylinder(.86,1.01,.46,48,[x,.2,.65],sign<0?coral:teal,
       'Duelist_Platform_'+(sign<0?'PLAYER':'AI'));
     cylinder(.52,.55,.03,48,[x,.445,.65],gold,
