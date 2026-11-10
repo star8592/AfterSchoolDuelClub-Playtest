@@ -1,0 +1,120 @@
+[
+  {
+    "view": "wide",
+    "pass": true,
+    "triggered": true,
+    "attacks": true,
+    "hits": true,
+    "complete": true,
+    "reset": true,
+    "facing": true,
+    "errors": [],
+    "initialActing": [
+      {
+        "name": "挠头想答案",
+        "native": true,
+        "gestureCount": 1,
+        "gestureActive": true,
+        "gestureClock": 0.07
+      },
+      {
+        "name": "挠头想答案",
+        "native": true,
+        "gestureCount": 1,
+        "gestureActive": true,
+        "gestureClock": 0.07
+      }
+    ],
+    "final": [
+      {
+        "side": "player",
+        "uid": "U101",
+        "clip": "Idle",
+        "acting": {
+          "name": "挠头想答案",
+          "native": true,
+          "gestureCount": 1,
+          "gestureActive": false,
+          "gestureClock": 2.32
+        },
+        "pose": 1,
+        "front": 1,
+        "within": true
+      },
+      {
+        "side": "ai",
+        "uid": "U201",
+        "clip": "Idle",
+        "acting": {
+          "name": "挠头想答案",
+          "native": true,
+          "gestureCount": 1,
+          "gestureActive": false,
+          "gestureClock": 2.32
+        },
+        "pose": 1,
+        "front": 1,
+        "within": true
+      }
+    ]
+  },
+  {
+    "view": "portrait",
+    "pass": true,
+    "triggered": true,
+    "attacks": true,
+    "hits": true,
+    "complete": true,
+    "reset": true,
+    "facing": true,
+    "errors": [],
+    "initialActing": [
+      {
+        "name": "挠头想答案",
+        "native": true,
+        "gestureCount": 1,
+        "gestureActive": true,
+        "gestureClock": 0.07
+      },
+      {
+        "name": "挠头想答案",
+        "native": true,
+        "gestureCount": 1,
+        "gestureActive": true,
+        "gestureClock": 0.07
+      }
+    ],
+    "final": [
+      {
+        "side": "player",
+        "uid": "U101",
+        "clip": "Idle",
+        "acting": {
+          "name": "挠头想答案",
+          "native": true,
+          "gestureCount": 1,
+          "gestureActive": false,
+          "gestureClock": 2.32
+        },
+        "pose": 1,
+        "front": 1,
+        "within": true
+      },
+      {
+        "side": "ai",
+        "uid": "U201",
+        "clip": "Idle",
+        "acting": {
+          "name": "挠头想答案",
+          "native": true,
+          "gestureCount": 1,
+          "gestureActive": false,
+          "gestureClock": 2.32
+        },
+        "pose": 1,
+        "front": 1,
+        "within": true
+      }
+    ]
+  }
+]

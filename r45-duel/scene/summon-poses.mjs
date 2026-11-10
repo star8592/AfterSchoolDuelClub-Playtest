@@ -14,6 +14,24 @@ const RELAXED_HUMANS=Object.freeze({
  T04:{positive:[.23,-.96,.20,.20],negative:[-.34,-.82,.42,.40]}  // guard
 });
 export const RELAXED_POSE_IDS=Object.freeze(Object.keys(RELAXED_HUMANS));
+// Model-specific short comedic gestures. Angles are directions for real upper-
+// arm bones; no additional objects/mesh are spawned. Values are deliberately
+// bent rather than sideways T poses. Periods and offsets prevent synchronized
+// military-looking movement when five allies share the field.
+export const PERSONALITY_BEATS=Object.freeze({
+ E03:{name:'得意地给自己加油',period:8.1,offset:5.8,
+  positive:[.30,-.24,.93,.62],negative:[-.36,-.72,.58,.57]},
+ E04:{name:'小心翼翼递出便当',period:9.3,offset:5.3,
+  positive:[.32,-.55,.77,.58],negative:[-.27,-.84,.46,.48]},
+ G02:{name:'挠头想答案',native:'Scratch',period:10.7,offset:4.3,duration:1.6},
+ G03:{name:'实验失败摊手',period:8.8,offset:6.8,
+  positive:[.52,-.55,.65,.78],negative:[-.51,-.55,.65,.75]},
+ G04:{name:'一本正经讲计划',native:'Explain',period:9.9,offset:5.1,duration:1.8},
+ T03:{name:'热情递送信封',period:8.6,offset:5.9,
+  positive:[.34,-.42,.84,.67],negative:[-.41,-.79,.44,.46]},
+ T04:{name:'煞有介事地敬礼',native:'Salute',period:11.4,offset:4.7,duration:1.5}
+});
+const softStep=v=>{const x=Math.max(0,Math.min(1,v));return x*x*(3-2*x)};
 
 export function createSummonPose(THREE,instance,id){
  const profile=RELAXED_HUMANS[id];
@@ -42,23 +60,38 @@ export function createSummonPose(THREE,instance,id){
   a.target=new THREE.Quaternion().setFromUnitVectors(a.source,new THREE.Vector3(...cfg.slice(0,3)).normalize());
   a.bend=new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),-a.side*cfg[3]);
   a.animatedTarget=a.target.clone();
+  const gest=PERSONALITY_BEATS[id],wanted=gest?.[a.side>0?'positive':'negative'];
+  a.gestureTarget=wanted?new THREE.Quaternion().setFromUnitVectors(
+   a.source,new THREE.Vector3(...wanted.slice(0,3)).normalize()):null;
+  a.gestureBend=wanted?new THREE.Quaternion().setFromAxisAngle(
+   new THREE.Vector3(0,0,1),-a.side*wanted[3]):null;
+  a.animatedBend=a.bend.clone();
  }
  const from=new THREE.Vector3(),to=new THREE.Vector3();
  const swayAxis=new THREE.Vector3(0,0,1),sway=new THREE.Quaternion();
- let weight=1,frame=0,seconds=0;
+ let weight=1,frame=0,seconds=0,gestureAmount=0;
  function apply(delta,kind){
   const aim=kind==='idle'?1:0;
   seconds+=Math.max(0,delta);
   weight+= (aim-weight)*(1-Math.exp(-Math.max(0,delta)*11));
+  const beat=PERSONALITY_BEATS[id];
+  if(beat&&!beat.native&&kind==='idle'){
+   const t=(seconds+beat.offset)%beat.period;
+   // One readable gesture, then a long quiet idle: no constant waving.
+   gestureAmount=softStep((t-1.6)/.48)*(1-softStep((t-3.25)/.62));
+  }else gestureAmount=0;
   for(const arm of arms){
-   // Breathing-scale asymmetry only; never turn resting arms into a salute.
    const breathing=.018*Math.sin(seconds*1.2+arm.side*.85);
    sway.setFromAxisAngle(swayAxis,breathing);
-   arm.animatedTarget.copy(arm.target).multiply(sway);
+   arm.animatedTarget.copy(arm.target);
+   if(arm.gestureTarget)arm.animatedTarget.slerp(arm.gestureTarget,gestureAmount);
+   arm.animatedTarget.multiply(sway);
    arm.shoulder.quaternion.slerp(arm.animatedTarget,weight);
-   // Preserve original author animation on attacks; add a modest idle elbow
-   // bend only to the native idle pose for a relaxed non-T stance.
-   const relaxedForearm=arm.elbow.quaternion.clone().multiply(arm.bend);
+   // Slight elbow bend follows the gesture, otherwise preserve its native
+   // rigged idle and let the authored attack/hit clips have full control.
+   arm.animatedBend.copy(arm.bend);
+   if(arm.gestureBend)arm.animatedBend.slerp(arm.gestureBend,gestureAmount);
+   const relaxedForearm=arm.elbow.quaternion.clone().multiply(arm.animatedBend);
    arm.elbow.quaternion.slerp(relaxedForearm,weight);
   }
   frame++;
@@ -70,8 +103,10 @@ export function createSummonPose(THREE,instance,id){
    return {side:a.side,drop:Number(((to.y-from.y)/distance).toFixed(3)),
     spread:Number((Math.abs(to.x-from.x)/distance).toFixed(3))};
   });
-  return {weight:Number(weight.toFixed(3)),frames:frame,arms:measures};
+  return {weight:Number(weight.toFixed(3)),frames:frame,arms:measures,
+   gesture:PERSONALITY_BEATS[id]?.name||null,
+   gestureAmount:Number(gestureAmount.toFixed(3))};
  }
- function reset(){weight=1;seconds=0;}
- return{apply,inspect,reset};
+ function reset(){weight=1;seconds=0;gestureAmount=0;}
+ return{apply,inspect,reset,get gestureAmount(){return gestureAmount}};
 }

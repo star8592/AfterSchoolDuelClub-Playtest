@@ -4,7 +4,7 @@
  * E01/G01 remain the existing unique source VRM rigs.
  */
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
-import {createSummonPose} from './summon-poses.mjs';
+import {createSummonPose,PERSONALITY_BEATS} from './summon-poses.mjs';
 export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
@@ -56,10 +56,14 @@ export function instantiateSummon(THREE,template){
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const mixer=template.clips.length?new THREE.AnimationMixer(instance):null;
  const pose=createSummonPose(THREE,instance,template.id);
+ const characterBeat=PERSONALITY_BEATS[template.id];
+ const nativeBeat=characterBeat?.native&&template.clips.some(c=>c.name===characterBeat.native)
+  ?characterBeat:null;
  const choose=(kind)=>{
   if(!mixer)return null;
   const clips=template.clips;
-  const preference=kind==='attack'?['Attack_Flip_Menu','Attack','attack','Special','Cheer']:
+  const preference=kind==='gesture'&&nativeBeat?[nativeBeat.native]:
+   kind==='attack'?['Attack_Flip_Menu','Attack','attack','Special','Cheer']:
    kind==='hit'?['Hit_Retreat','Hit','hit']:
    kind==='death'?['Death','dead']:
    kind==='walk'?['Walk_Small_Steps','Walk','walk','Run']:
@@ -69,12 +73,58 @@ export function instantiateSummon(THREE,template){
  // Preserve animation continuity. R63's stopAllAction() teleported bones
  // from one source clip to another on every attack/hit/idle transition.
  // A short cross-fade keeps source-authored motion, with no invented mesh.
- let current=null,activeAction=null,transitions=0;
+ let current=null,activeAction=null,transitions=0,gestureClock=nativeBeat?.offset||0,gestureTime=0,gestureCount=0;
+ // The source 'Scratch/Explain/Salute' clips include root translations;
+ // keep the fighter's feet on the arena and within its own summoning lane.
+ let settleTime=0,restCenter=null;
+ const boxMotion=new THREE.Box3(),vecCenter=new THREE.Vector3(),vecGoal=new THREE.Vector3(),vecRootPos=new THREE.Vector3();
+ const vecCorrection=new THREE.Vector3(),quatWorld=new THREE.Quaternion();
  const fading=new Map();
  const update=(dt)=>{
   if(!mixer)return;
   mixer.update(dt);
+  // Built-in character acting where the GLB provides a real authored clip.
+  // Only in idle: never interrupt a fight event or impose a prop/hand pose.
+  if(nativeBeat){
+   gestureClock+=dt;
+   if(gestureTime>0){
+    gestureTime=Math.max(0,gestureTime-dt);
+    if(gestureTime===0&&current===nativeBeat.native){
+     settleTime=1.05;play('idle');
+    }
+   }else if((current==='Idle'||current==='idle')&&gestureClock>=nativeBeat.period){
+    gestureClock=0;
+    if(play('gesture')){gestureTime=nativeBeat.duration;settleTime=1.05;gestureCount++;}
+   }
+  }
   pose?.apply(dt,current==='Idle'||current==='idle'?'idle':'action');
+  const proceduralGesture=pose?.gestureAmount||0;
+  if(proceduralGesture>.018)settleTime=Math.max(settleTime,1.05);
+  // Even authored Idle moves the source's lowest vertices by 0.1+ units;
+  // continually seat human feet. Only gesture clips get horizontal anchoring.
+  const isIdle=current==='Idle'||current==='idle';
+  if(restCenter&&pose&&(isIdle||gestureTime>0||settleTime>0)){
+   // The source's moving hand can become its lowest vertex. Re-seat the
+   // actual posed mesh so feet and props do not drift above/under the floor.
+   // Root correction uses world coordinates, then transforms back into the
+   // source's local axes, independent of player/AI facing or camera orbit.
+   root.updateMatrixWorld(true);
+   boxMotion.setFromObject(scaled,true);
+   boxMotion.getCenter(vecCenter);
+   vecGoal.copy(restCenter).applyMatrix4(root.matrixWorld);
+   root.getWorldPosition(vecRootPos);
+   const lockLane=!!nativeBeat&&(gestureTime>0||settleTime>0);
+   vecCorrection.set(lockLane?vecGoal.x-vecCenter.x:0,
+    vecRootPos.y-boxMotion.min.y,
+    lockLane?vecGoal.z-vecCenter.z:0);
+   vecCorrection.x=THREE.MathUtils.clamp(vecCorrection.x,-.10,.10);
+   vecCorrection.y=THREE.MathUtils.clamp(vecCorrection.y,-.48,.48);
+   vecCorrection.z=THREE.MathUtils.clamp(vecCorrection.z,-.10,.10);
+   root.getWorldQuaternion(quatWorld).invert();
+   vecCorrection.applyQuaternion(quatWorld);
+   scaled.position.add(vecCorrection);
+   settleTime=Math.max(0,settleTime-dt);
+  }
   for(const [action,remaining] of fading){
    const next=remaining-dt;
    if(next<=0){action.stop();fading.delete(action)}
@@ -89,6 +139,10 @@ export function instantiateSummon(THREE,template){
   fading.delete(next); // A previously fading clip can become current again.
   next.reset();next.enabled=true;
   next.setEffectiveTimeScale(1);next.setEffectiveWeight(1);
+  if(kind!=='gesture'&&kind!=='idle'&&kind!=='walk'){
+   gestureTime=0;
+   if(nativeBeat)settleTime=.35;
+  }
   const repeat=kind==='idle'||kind==='walk';
   next.setLoop(repeat?THREE.LoopRepeat:THREE.LoopOnce,repeat?Infinity:1);
   next.clampWhenFinished=!repeat;
@@ -127,7 +181,10 @@ export function instantiateSummon(THREE,template){
   if(Number.isFinite(posed.min.y)&&Math.abs(posed.min.y)<3){
    scaled.position.y-=posed.min.y;
   }
+  scaled.updateMatrixWorld(true);
+  restCenter=new THREE.Box3().setFromObject(scaled,true).getCenter(new THREE.Vector3());
  }
+ const restPlacement=scaled.position.clone();
  return {root,mixer,play,update,instance,restHeight,
   meshCount:template.meshes,animationCount:template.clips.length,
   get currentClip(){return current},get clipRunning(){return activeAction?.isRunning()||false},
@@ -135,9 +192,13 @@ export function instantiateSummon(THREE,template){
   revive(){
    mixer?.stopAllAction();
    fading.clear();current=null;activeAction=null;
-   pose?.reset();play('idle');update(0);
+   pose?.reset();gestureClock=nativeBeat?.offset||0;gestureTime=0;settleTime=0;gestureCount=0;
+   scaled.position.copy(restPlacement);
+   play('idle');update(0);
   },
   get fadingClips(){return fading.size},
   get posture(){return pose?.inspect()||null},
+  get acting(){return {name:characterBeat?.name||null,native:!!nativeBeat,
+   gestureCount,gestureActive:gestureTime>0,gestureClock:Number(gestureClock.toFixed(2))}},
   artApproved:false,kind:'real-gltf-prototype'};
 }

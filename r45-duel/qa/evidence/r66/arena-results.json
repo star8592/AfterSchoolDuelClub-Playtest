@@ -1,0 +1,1702 @@
+[
+  {
+    "viewport": "wide",
+    "batch": 0,
+    "pass": true,
+    "gestures": true,
+    "frame": true,
+    "ground": true,
+    "cards": [
+      {
+        "key": "E03:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.057,
+        "lowest": {
+          "id": "E03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.029,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.54
+        },
+        "highest": {
+          "id": "E03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.022,
+          "height": 2.014,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.68
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E04:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.045,
+        "lowest": {
+          "id": "E04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.029,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.92
+        },
+        "highest": {
+          "id": "E04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.044,
+          "height": 2.036,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.06
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G02:player",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Scratch"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.078,
+        "lowest": {
+          "id": "G02",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.024,
+          "height": 2.032,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.3
+        },
+        "highest": {
+          "id": "G02",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.028,
+          "height": 2.02,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.31
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G03:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.049,
+        "lowest": {
+          "id": "G03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.022,
+          "height": 2.03,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.68
+        },
+        "highest": {
+          "id": "G03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.034,
+          "height": 2.026,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.7
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G04:player",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Explain"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.063,
+        "lowest": {
+          "id": "G04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.043,
+          "height": 2.051,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.06
+        },
+        "highest": {
+          "id": "G04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.038,
+          "height": 2.03,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.07
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E03:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.057,
+        "lowest": {
+          "id": "E03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.029,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.54
+        },
+        "highest": {
+          "id": "E03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.022,
+          "height": 2.014,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.68
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E04:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.045,
+        "lowest": {
+          "id": "E04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.029,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.92
+        },
+        "highest": {
+          "id": "E04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.044,
+          "height": 2.036,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.06
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G02:ai",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Scratch"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.078,
+        "lowest": {
+          "id": "G02",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.024,
+          "height": 2.032,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.3
+        },
+        "highest": {
+          "id": "G02",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.028,
+          "height": 2.02,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.31
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G03:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.049,
+        "lowest": {
+          "id": "G03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.022,
+          "height": 2.03,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.68
+        },
+        "highest": {
+          "id": "G03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.034,
+          "height": 2.026,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.7
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G04:ai",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Explain"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.063,
+        "lowest": {
+          "id": "G04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.043,
+          "height": 2.051,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.06
+        },
+        "highest": {
+          "id": "G04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.038,
+          "height": 2.03,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.07
+        },
+        "inFrame": true,
+        "facing": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "viewport": "wide",
+    "batch": 1,
+    "pass": true,
+    "gestures": true,
+    "frame": true,
+    "ground": true,
+    "cards": [
+      {
+        "key": "T03:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.17,
+        "lowest": {
+          "id": "T03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.01,
+          "height": 2.018,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.23
+        },
+        "highest": {
+          "id": "T03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.041,
+          "height": 2.034,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.21
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "T04:player",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Salute"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.045,
+        "lowest": {
+          "id": "T04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.031,
+          "height": 2.039,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.61
+        },
+        "highest": {
+          "id": "T04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.053,
+          "height": 2.045,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.47
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G02:player",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Scratch"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.077,
+        "lowest": {
+          "id": "G02",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.035,
+          "height": 2.043,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.99
+        },
+        "highest": {
+          "id": "G02",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.053,
+          "height": 2.045,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.85
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E04:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.048,
+        "lowest": {
+          "id": "E04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.028,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.37
+        },
+        "highest": {
+          "id": "E04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.03,
+          "height": 2.023,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.23
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G03:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.081,
+        "lowest": {
+          "id": "G03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0.858,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 1.916,
+          "height": 1.924,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.47
+        },
+        "highest": {
+          "id": "G03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.041,
+          "height": 2.033,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.61
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "T03:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.17,
+        "lowest": {
+          "id": "T03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.01,
+          "height": 2.018,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.23
+        },
+        "highest": {
+          "id": "T03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.041,
+          "height": 2.034,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.21
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "T04:ai",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Salute"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.045,
+        "lowest": {
+          "id": "T04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.031,
+          "height": 2.039,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.61
+        },
+        "highest": {
+          "id": "T04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.053,
+          "height": 2.045,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.47
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G02:ai",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Scratch"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.077,
+        "lowest": {
+          "id": "G02",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.035,
+          "height": 2.043,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.99
+        },
+        "highest": {
+          "id": "G02",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.053,
+          "height": 2.045,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.85
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E04:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.048,
+        "lowest": {
+          "id": "E04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.028,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.37
+        },
+        "highest": {
+          "id": "E04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.03,
+          "height": 2.023,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.23
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G03:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.081,
+        "lowest": {
+          "id": "G03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0.858,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 1.916,
+          "height": 1.924,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.47
+        },
+        "highest": {
+          "id": "G03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.041,
+          "height": 2.033,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.61
+        },
+        "inFrame": true,
+        "facing": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "batch": 0,
+    "pass": true,
+    "gestures": true,
+    "frame": true,
+    "ground": true,
+    "cards": [
+      {
+        "key": "E03:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.057,
+        "lowest": {
+          "id": "E03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.025,
+          "height": 2.033,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.7
+        },
+        "highest": {
+          "id": "E03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.021,
+          "height": 2.013,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.68
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E04:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.045,
+        "lowest": {
+          "id": "E04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.019,
+          "height": 2.027,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.07
+        },
+        "highest": {
+          "id": "E04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.045,
+          "height": 2.037,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.06
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G02:player",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Scratch"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.078,
+        "lowest": {
+          "id": "G02",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.029,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.46
+        },
+        "highest": {
+          "id": "G02",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.023,
+          "height": 2.015,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.47
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G03:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.049,
+        "lowest": {
+          "id": "G03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.024,
+          "height": 2.031,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.83
+        },
+        "highest": {
+          "id": "G03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.033,
+          "height": 2.025,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.7
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G04:player",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Explain"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.11,
+        "lowest": {
+          "id": "G04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.041,
+          "height": 2.048,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.21
+        },
+        "highest": {
+          "id": "G04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.039,
+          "height": 2.031,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.07
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E03:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.057,
+        "lowest": {
+          "id": "E03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.025,
+          "height": 2.033,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.7
+        },
+        "highest": {
+          "id": "E03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.021,
+          "height": 2.013,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.68
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E04:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.045,
+        "lowest": {
+          "id": "E04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.019,
+          "height": 2.027,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.07
+        },
+        "highest": {
+          "id": "E04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.045,
+          "height": 2.037,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.06
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G02:ai",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Scratch"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.078,
+        "lowest": {
+          "id": "G02",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.029,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.46
+        },
+        "highest": {
+          "id": "G02",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.023,
+          "height": 2.015,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.47
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G03:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.049,
+        "lowest": {
+          "id": "G03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.024,
+          "height": 2.031,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.83
+        },
+        "highest": {
+          "id": "G03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.033,
+          "height": 2.025,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.7
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G04:ai",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Explain"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.11,
+        "lowest": {
+          "id": "G04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.041,
+          "height": 2.048,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.21
+        },
+        "highest": {
+          "id": "G04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.039,
+          "height": 2.031,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.07
+        },
+        "inFrame": true,
+        "facing": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "batch": 1,
+    "pass": true,
+    "gestures": true,
+    "frame": true,
+    "ground": true,
+    "cards": [
+      {
+        "key": "T03:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.176,
+        "lowest": {
+          "id": "T03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.011,
+          "height": 2.019,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.38
+        },
+        "highest": {
+          "id": "T03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.038,
+          "height": 2.031,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.53
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "T04:player",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Salute"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.045,
+        "lowest": {
+          "id": "T04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.03,
+          "height": 2.038,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.77
+        },
+        "highest": {
+          "id": "T04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.053,
+          "height": 2.045,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.47
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G02:player",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Scratch"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.078,
+        "lowest": {
+          "id": "G02",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.028,
+          "height": 2.036,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.14
+        },
+        "highest": {
+          "id": "G02",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.03,
+          "height": 2.022,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.16
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E04:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.052,
+        "lowest": {
+          "id": "E04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.029,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.53
+        },
+        "highest": {
+          "id": "E04",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.033,
+          "height": 2.026,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.54
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G03:player",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.087,
+        "lowest": {
+          "id": "G03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.034,
+          "height": 2.042,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 7.91
+        },
+        "highest": {
+          "id": "G03",
+          "side": "player",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.033,
+          "height": 2.025,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.92
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "T03:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.176,
+        "lowest": {
+          "id": "T03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.011,
+          "height": 2.019,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.38
+        },
+        "highest": {
+          "id": "T03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.038,
+          "height": 2.031,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.53
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "T04:ai",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Salute"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.045,
+        "lowest": {
+          "id": "T04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.03,
+          "height": 2.038,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.77
+        },
+        "highest": {
+          "id": "T04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.053,
+          "height": 2.045,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.47
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G02:ai",
+        "maxGesture": 0,
+        "nativeCount": 1,
+        "clips": [
+          "Idle",
+          "Scratch"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.078,
+        "lowest": {
+          "id": "G02",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": -0.008,
+          "maxY": 2.028,
+          "height": 2.036,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.14
+        },
+        "highest": {
+          "id": "G02",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 1,
+          "minY": 0.008,
+          "maxY": 2.03,
+          "height": 2.022,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 11.16
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "E04:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.052,
+        "lowest": {
+          "id": "E04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.021,
+          "height": 2.029,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 8.53
+        },
+        "highest": {
+          "id": "E04",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.033,
+          "height": 2.026,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 10.54
+        },
+        "inFrame": true,
+        "facing": true
+      },
+      {
+        "key": "G03:ai",
+        "maxGesture": 1,
+        "nativeCount": 0,
+        "clips": [
+          "Idle"
+        ],
+        "minGround": -0.008,
+        "maxGround": 0.008,
+        "maxHeight": 2.087,
+        "lowest": {
+          "id": "G03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": -0.008,
+          "maxY": 2.034,
+          "height": 2.042,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 7.91
+        },
+        "highest": {
+          "id": "G03",
+          "side": "ai",
+          "clip": "Idle",
+          "gesture": 0,
+          "nativeCount": 0,
+          "minY": 0.008,
+          "maxY": 2.033,
+          "height": 2.025,
+          "within": true,
+          "front": 1,
+          "poseWeight": 1,
+          "t": 9.92
+        },
+        "inFrame": true,
+        "facing": true
+      }
+    ],
+    "errors": []
+  }
+]

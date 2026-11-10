@@ -1,0 +1,79 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R66 · 七种角色真实骨骼喜剧表演</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>
+body{margin:0;color:#f1f5f9;background:#121f2d;font:15px system-ui}
+header{padding:9px 18px;background:#1c3044;display:flex;align-items:center;gap:15px;justify-content:space-between;flex-wrap:wrap}
+header b{white-space:nowrap} nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{color:#d6ebfc;text-decoration:none;border:1px solid #587287;border-radius:7px;padding:5px 10px;font-size:13px}
+nav a:hover,nav a[aria-current=page]{background:#426987;color:#fff}
+#canvas{display:block;width:100vw;height:calc(100vh - 88px)}#status{color:#b9efcd;font-size:12px}
+#legend{position:fixed;bottom:12px;left:5%;width:90%;display:grid;gap:9px;pointer-events:none}
+#legend .item{background:#1c3044e5;border:1px solid #506b83;border-radius:9px;padding:8px 6px;text-align:center;font-size:12px}
+#legend b{display:block;font-size:14px;color:#f1f7ff;margin-bottom:3px}
+#legend em{color:#a5ddc8;font-style:normal}
+</style></head>
+<body><header><b>R66 · 真实角色喜剧姿态</b><nav id="nav"></nav><span id="status">正在加载模型…</span></header><canvas id="canvas"></canvas><div id="legend"></div>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+import {preloadSummonModels,instantiateSummon} from '../scene/summon-models.mjs';
+import {PERSONALITY_BEATS} from '../scene/summon-poses.mjs';
+const params=new URLSearchParams(location.search),before=params.get('mode')==='before',acting=params.get('mode')==='acting';
+const group=params.get('group')==='1'?1:0;
+const ids=group===0?['E03','E04','G02','G03']:['G04','T03','T04'];
+const roleNames={E03:'加油队长',E04:'食堂接力员',G02:'黑板密码专家',G03:'实验学长',
+ G04:'社团计划总监',T03:'默契收发员',T04:'活动室守门人'};
+const selectedMode=acting?'acting':'relaxed';
+const menu=[['relaxed','自然站姿'],['acting','喜剧动作']].flatMap(([mode,title])=>
+ [0,1].map(g=>({mode,g,title:`${title} · 第${g+1}组`})));
+document.getElementById('nav').innerHTML=menu.map(({mode,g,title})=>
+ `<a href="?mode=${mode}&group=${g}" ${mode===selectedMode&&g===group?'aria-current="page"':''}>${title}</a>`).join('');
+const legend=document.getElementById('legend');legend.style.gridTemplateColumns=`repeat(${ids.length},1fr)`;
+legend.innerHTML=ids.map(id=>`<div class="item"><b>${roleNames[id]}</b><em>${acting?PERSONALITY_BEATS[id].name:'自然放松待机'}</em></div>`).join('');
+const models=await preloadSummonModels(THREE,new GLTFLoader());
+const scene=new THREE.Scene();scene.background=new THREE.Color('#1b2839');
+const canvas=document.getElementById('canvas');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(1);
+renderer.setSize(innerWidth,canvas.getBoundingClientRect().height);
+const camera=new THREE.PerspectiveCamera(36,innerWidth/Math.max(1,canvas.getBoundingClientRect().height),.05,60);
+camera.position.set(0,2.75,13.6);camera.lookAt(0,1,0);
+scene.add(new THREE.HemisphereLight(0xffffff,0x405269,2.7));
+const directional=new THREE.DirectionalLight(0xffffff,3.3);directional.position.set(-3,8,7);scene.add(directional);
+const grey=new THREE.MeshStandardMaterial({color:0x384d61,roughness:.86});
+const textMaterial=new THREE.MeshBasicMaterial({color:before?0xed9d80:0x7bebb7});
+const xPositions=ids.length===4?[-4.4,-1.47,1.47,4.4]:[-3,0,3];
+const poses=[];
+for(const [i,id] of ids.entries()){
+ const tpl=models.get(id);
+ let visual,rig=null;
+ if(before){
+  const clone=cloneSkeleton(tpl.source);
+  clone.position.copy(tpl.center).multiplyScalar(-1);
+  const scaled=new THREE.Group();scaled.scale.setScalar(tpl.scale);scaled.add(clone);
+  visual=new THREE.Group();visual.add(scaled);
+  if(tpl.clips.length){const mixer=new THREE.AnimationMixer(clone);const idle=tpl.clips.find(x=>x.name==='Idle'||x.name==='idle');if(idle){mixer.clipAction(idle).play();mixer.update(.26)}}
+ }else{
+  rig=instantiateSummon(THREE,tpl);
+  rig.update(.04);
+  if(acting){
+   const beat=PERSONALITY_BEATS[id];
+   const target=beat.native?beat.period-beat.offset+.62:
+    ((2.53-beat.offset+beat.period)%beat.period);
+   for(let t=0;t<target;t+=.04)rig.update(.04);
+  }
+  visual=rig.root;
+ }
+ visual.position.x=xPositions[i];scene.add(visual);
+ poses.push({id,rig,visual});
+ const floor=new THREE.Mesh(new THREE.CylinderGeometry(.95,.95,.055,48),grey);
+ floor.position.set(xPositions[i],-.07,0);scene.add(floor);
+}
+const grid=new THREE.GridHelper(18,24,0x567088,0x334558);grid.position.y=-.10;scene.add(grid);
+renderer.setAnimationLoop(()=>renderer.render(scene,camera));
+await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+window.__R66_GALLERY={ready:true,mode:before?'before':acting?'acting':'relaxed',ids,poses:poses.map(x=>{const box=new THREE.Box3().setFromObject(x.visual,true); const center=box.getCenter(new THREE.Vector3());const size=box.getSize(new THREE.Vector3());return {id:x.id,posture:x.rig?.posture||null,acting:x.rig?.acting||null,clip:x.rig?.currentClip||null, center:center.toArray(),size:size.toArray(),screen:center.project(camera).toArray(),visible:x.visual.visible}})};
+document.getElementById('status').textContent=before?'原始姿态':acting?'短时喜剧表演 · 真实源模型':'自然待机姿态';
+</script></body></html>

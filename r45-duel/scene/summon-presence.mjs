@@ -495,7 +495,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
      clipRunning:s.object.userData.r61?.clipRunning||false,
      crossfades:s.object.userData.r61?.transitions||0,
      fadingClips:s.object.userData.r61?.fadingClips||0,
-     posture:s.object.userData.r61?.posture||null
+     posture:s.object.userData.r61?.posture||null,
+     acting:s.object.userData.r61?.acting||null
     }:null,
     vrmPosture:s.kind==='vrm-instance'||s.kind==='original-vrm'?measureVrmArms(s.object):null,
     artApproved:false};
