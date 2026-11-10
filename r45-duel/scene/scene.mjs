@@ -39,21 +39,42 @@ function setOrbit(value){
  if(!Number.isFinite(value))return;
  orbitTargetYaw=orbitClamp(value);broadcastCamera();
 }
+function inspectCanvasPoint(clientX,clientY){
+ if(!camera||!summonPresence)return;
+ const el=$('battle-canvas'),rect=el.getBoundingClientRect();
+ if(!rect.width||!rect.height)return;
+ const ndcX=((clientX-rect.left)/rect.width)*2-1;
+ const ndcY=1-((clientY-rect.top)/rect.height)*2;
+ const selected=summonPresence.pickAt(camera,ndcX,ndcY);
+ if(window.parent!==window){
+  window.parent.postMessage({type:'ASDC_R54_UNIT_INSPECT',unit:selected},location.origin);
+ }
+}
 function installOrbitControls(){
  const el=$('battle-canvas');
  el.style.touchAction='none';
  el.addEventListener('pointerdown',e=>{
   if(e.button!==0)return;
-  pointerDrag={id:e.pointerId,x:e.clientX,moved:false};
+  pointerDrag={id:e.pointerId,x:e.clientX,y:e.clientY,
+   startX:e.clientX,startY:e.clientY,moved:false};
   el.setPointerCapture(e.pointerId);
  });
  el.addEventListener('pointermove',e=>{
   if(!pointerDrag||e.pointerId!==pointerDrag.id)return;
   const dx=e.clientX-pointerDrag.x;
-  pointerDrag.x=e.clientX;pointerDrag.moved=true;
-  setOrbit(orbitTargetYaw-dx*.27);
+  pointerDrag.x=e.clientX;pointerDrag.y=e.clientY;
+  if(Math.hypot(e.clientX-pointerDrag.startX,e.clientY-pointerDrag.startY)>7)
+   pointerDrag.moved=true;
+  if(pointerDrag.moved)setOrbit(orbitTargetYaw-dx*.27);
  });
- for(const event of ['pointerup','pointercancel','lostpointercapture']){
+ el.addEventListener('pointerup',e=>{
+  if(!pointerDrag||e.pointerId!==pointerDrag.id)return;
+  const wasClick=!pointerDrag.moved&&
+    Math.hypot(e.clientX-pointerDrag.startX,e.clientY-pointerDrag.startY)<8;
+  pointerDrag=null;
+  if(wasClick)inspectCanvasPoint(e.clientX,e.clientY);
+ });
+ for(const event of ['pointercancel','lostpointercapture']){
   el.addEventListener(event,()=>{pointerDrag=null});
  }
  el.addEventListener('wheel',e=>{

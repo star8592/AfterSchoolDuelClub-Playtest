@@ -24,6 +24,17 @@ export function createSummonPresence(THREE,scene,{actors}){
  root.name='R50_Board_Units_Only';
  scene.add(root);
  const entries=new Map(),pool=new Map();
+ let selectedKey=null;
+ const selection=new THREE.Mesh(
+  new THREE.TorusGeometry(.58,.036,12,72),
+  new THREE.MeshBasicMaterial({color:'#fff0a9',transparent:true,opacity:.88,
+   depthWrite:false,side:THREE.DoubleSide}));
+ selection.rotation.x=-Math.PI/2;
+ selection.position.y=.1;
+ selection.name='R54_Inspect_Selected_Unit_Ring';
+ selection.visible=false;
+ root.add(selection);
+
  let current={player:[],ai:[]},revision=0,missing=0;
  let sequence=null,playedEvents=0,finishedSequences=0;
  let hpDisplayMode='auto';
@@ -232,6 +243,7 @@ export function createSummonPresence(THREE,scene,{actors}){
    state.status.label.material.dispose();
    state.status.texture.dispose();
   }
+  if(selectedKey===key){selectedKey=null;selection.visible=false;}
   entries.delete(key);
  }
 
@@ -361,6 +373,14 @@ export function createSummonPresence(THREE,scene,{actors}){
     tag.visible=labelStyle!=='hidden'&&object.visible;
    }
   }
+  if(selectedKey){
+   const selected=entries.get(selectedKey);
+   if(selected){
+    selection.visible=true;
+    selection.position.set(selected.object.position.x,.105,selected.object.position.z);
+    selection.material.opacity=.70+.20*Math.sin(seconds*3);
+   }else{selectedKey=null;selection.visible=false;}
+  }
   hitRing.visible=ribbon.visible=hitLabel.visible=false;
   if(sequence){
    const elapsed=Math.max(0,seconds-sequence.started);
@@ -427,6 +447,25 @@ export function createSummonPresence(THREE,scene,{actors}){
    }
   }
  }
+ function pickAt(camera,nx,ny){
+  if(!Number.isFinite(nx)||!Number.isFinite(ny)||Math.abs(nx)>1||Math.abs(ny)>1)return null;
+  const ray=new THREE.Raycaster();
+  ray.setFromCamera(new THREE.Vector2(nx,ny),camera);
+  let picked=null,near=Infinity;
+  for(const state of entries.values()){
+   if(!state.object.visible)continue;
+   const hit=ray.intersectObject(state.object,true)
+     .find(h=>h.object.isMesh||h.object.isSkinnedMesh);
+   if(hit&&hit.distance<near){picked=state;near=hit.distance;}
+  }
+  selectedKey=picked?.key||null;
+  selection.visible=!!picked;
+  if(!picked)return null;
+  return{side:picked.side,uid:picked.uid,id:picked.id,
+   name:BY_ID[picked.id]?.name||picked.id,hp:picked.hp,
+   attack:picked.attack,shield:picked.shield,
+   characterModelReady:picked.kind!=='art-pending'};
+ }
  function inspect(camera){
   const list=[...entries.values()].map(s=>{
    const v=s.object.getWorldPosition(new THREE.Vector3());
@@ -440,10 +479,10 @@ export function createSummonPresence(THREE,scene,{actors}){
     screen:[Number(ndc.x.toFixed(2)),Number(ndc.y.toFixed(2))],
     skins:s.kind==='vrm-instance'?s.object.userData.skinnedMeshes:undefined};
   });
-  return{revision,hpDisplayMode,activeHpStyle:activeHpStyle(camera),
+  return{revision,selectedKey,hpDisplayMode,activeHpStyle:activeHpStyle(camera),
   visibleHpTags:[...entries.values()].filter(x=>x.status?.label.visible).length,
   total:list.length,models:list.filter(x=>x.kind!=='art-pending').length,
    pendingArt:missing,cardIds:[...UNIT_IDS],entries:list};
  }
- return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode};
+ return{sync,update,inspect,pickAt,startSequence,sequenceStats,setHpDisplayMode};
 }

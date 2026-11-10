@@ -1,0 +1,40 @@
+[
+  {
+    "name": "desktop",
+    "pass": true,
+    "player": {
+      "selected": "player:U101",
+      "toast": "我方「拐弯纸飞机」　♥1　攻击 2 · 角色模型制作中",
+      "orbit": 0
+    },
+    "ai": {
+      "selected": "ai:U201",
+      "toast": "对方「橡皮筋建筑师」　♥3　攻击 2 · 真实三维角色",
+      "orbit": 0
+    },
+    "after": {
+      "selected": "ai:U201",
+      "orbit": -51.29
+    },
+    "errors": []
+  },
+  {
+    "name": "portrait",
+    "pass": true,
+    "player": {
+      "selected": "player:U101",
+      "toast": "我方「拐弯纸飞机」　♥1　攻击 2 · 角色模型制作中",
+      "orbit": 0
+    },
+    "ai": {
+      "selected": "ai:U201",
+      "toast": "对方「橡皮筋建筑师」　♥3　攻击 2 · 真实三维角色",
+      "orbit": 0
+    },
+    "after": {
+      "selected": "ai:U201",
+      "orbit": -51.28
+    },
+    "errors": []
+  }
+]

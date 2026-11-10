@@ -283,6 +283,17 @@ window.addEventListener('message',event=>{
   sendScene({type:'ASDC_R53_HP_MODE',mode:hpViewModes[hpViewIndex]});
   return;
  }
+ if(event.data?.type==='ASDC_R54_UNIT_INSPECT'){
+  const u=event.data.unit;
+  if(u&&typeof u.id==='string'&&BY_ID[u.id]){
+   const camp=u.side==='player'?'我方':'对方';
+   const detail=camp+'「'+BY_ID[u.id].name+'」　♥'+u.hp+
+     '　攻击 '+u.attack+(u.shield?'　护盾 '+u.shield:'')+
+     (u.characterModelReady?' · 真实三维角色':' · 角色模型制作中');
+   announce(detail,'selected');
+  }
+  return;
+ }
  if(event.data?.type==='ASDC_R45_FIGHT_ACCEPTED'){
   return;
  }
