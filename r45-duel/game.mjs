@@ -233,6 +233,7 @@ $('play').addEventListener('click',()=>{
 });
 $('end').addEventListener('click',()=>{
  if(!gameReady())return;
+ const pre=boardSnapshot().units;
  const serial=g.serial;
  endTurn(g);
  if(g.phase==='playing'&&g.active==='ai')aiTurn(g);
@@ -244,7 +245,18 @@ $('end').addEventListener('click',()=>{
   projectPlayedCard(event.card,'ai');
  }
  const fight=findRealExchange(fresh);
+ const clashes=fresh.filter(e=>e.type==='exchange'||e.type==='direct_hit');
+ // R46 preserves its exclusive full-rig E01→G01 cinematic.
+ // Every other real exchange uses the shorter UID-specific 3D sequence.
  if(fight)playFight(fight);
+ const generic=fight?clashes.filter(e=>e.serial!==fight.serial):clashes;
+ if(generic.length)sendScene({type:'ASDC_R51_COMBAT_EVENTS',
+  pre,post:boardSnapshot().units,events:generic.map(e=>({
+   type:e.type,serial:e.serial,side:e.side,from:e.from,to:e.to||null,
+   attacker_uid:e.attacker_uid||null,target_uid:e.target_uid||null,
+   damage:e.damage,blocked:e.blocked||0,retaliation:e.retaliation||0,
+   target_defeated:!!e.target_defeated,attacker_defeated:!!e.attacker_defeated
+  }))});
  if(g.phase==='ended'){
   const endText=g.winner==='player'?'你赢得了对决！':g.winner==='ai'?'AI 获胜，再试一局！':'平局。';
   announce(endText+' '+summary,'ended');

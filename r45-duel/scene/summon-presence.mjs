@@ -25,6 +25,36 @@ export function createSummonPresence(THREE,scene,{actors}){
  scene.add(root);
  const entries=new Map(),pool=new Map();
  let current={player:[],ai:[]},revision=0,missing=0;
+ let sequence=null,playedEvents=0,finishedSequences=0;
+ const secondsPerHit=.90;
+ const impact=new THREE.Group();
+ impact.name='R51_Event_Linked_Impact';
+ root.add(impact);
+ const hitRing=new THREE.Mesh(new THREE.TorusGeometry(.47,.035,10,64),
+  new THREE.MeshBasicMaterial({color:'#ffdeab',transparent:true,opacity:0,
+   blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));
+ hitRing.position.y=1.35;hitRing.visible=false;impact.add(hitRing);
+ const ribbon=new THREE.Mesh(new THREE.CylinderGeometry(.025,.07,1,12,1),
+  new THREE.MeshBasicMaterial({color:'#ffe2ae',transparent:true,opacity:0,
+   blending:THREE.AdditiveBlending,depthWrite:false}));
+ ribbon.visible=false;impact.add(ribbon);
+ const hitCanvas=document.createElement('canvas');
+ hitCanvas.width=384;hitCanvas.height=192;
+ const hitCtx=hitCanvas.getContext('2d');
+ const hitTex=new THREE.CanvasTexture(hitCanvas);
+ hitTex.colorSpace=THREE.SRGBColorSpace;
+ const hitLabel=new THREE.Sprite(new THREE.SpriteMaterial({map:hitTex,
+  transparent:true,opacity:0,depthWrite:false}));
+ hitLabel.scale.set(1.8,.9,1);hitLabel.visible=false;impact.add(hitLabel);
+ let lastHitSerial=-1;
+ const markHit=(event)=>{
+  hitCtx.clearRect(0,0,384,192);
+  hitCtx.textAlign='center';hitCtx.textBaseline='middle';
+  hitCtx.shadowColor='#170d11';hitCtx.shadowBlur=16;
+  hitCtx.font='bold 78px sans-serif';hitCtx.fillStyle='#fff5cd';
+  hitCtx.fillText(event.damage>0?'-'+event.damage:(event.blocked>0?'格挡':'闪避'),192,106);
+  hitTex.needsUpdate=true;
+ };
  const primary=new Map([['player:E01',actors.find(a=>a.id==='E01')],
                         ['ai:G01',actors.find(a=>a.id==='G01')]]);
  const mainActorSet=new Set(actors);
@@ -122,7 +152,8 @@ export function createSummonPresence(THREE,scene,{actors}){
   entries.delete(key);
  }
 
- function sync(snapshot,{cinematic=false}={}){
+ function sync(snapshot,{cinematic=false,force=false}={}){
+  if(sequence&&!force){sequence.final=snapshot;return;}
   revision++;
   current=snapshot;
   const keep=new Set();
@@ -175,6 +206,41 @@ export function createSummonPresence(THREE,scene,{actors}){
   missing=[...entries.values()].filter(e=>e.kind==='art-pending').length;
  }
 
+ function anchor(side,uid,id){
+  let value=entries.get(side+':'+uid);
+  if(!value&&id)value=[...entries.values()].find(v=>v.side===side&&v.id===id);
+  return value||null;
+ }
+ function sequenceHitStart(event){
+  if(lastHitSerial!==event.serial){lastHitSerial=event.serial;markHit(event);}
+ }
+ function startSequence({events,pre,post},now){
+  if(!Array.isArray(events)||!events.length)return false;
+  const isUnitList=a=>Array.isArray(a)&&a.length<=5&&a.every(u=>
+   typeof u?.uid==='string'&&/^U[0-9]+$/.test(u.uid)&&UNIT_IDS.includes(u.id));
+  if(!isUnitList(pre?.player)||!isUnitList(pre?.ai)||
+     !isUnitList(post?.player)||!isUnitList(post?.ai))return false;
+  const ordered=events.filter(e=>e&&['exchange','direct_hit'].includes(e.type)&&
+    ['player','ai'].includes(e.side)&&UNIT_IDS.includes(e.from)&&
+    typeof e.attacker_uid==='string'&&/^U[0-9]+$/.test(e.attacker_uid)&&
+    Number.isInteger(e.damage)&&e.damage>=0&&e.damage<=99&&
+    Number.isInteger(e.serial)&&e.serial>0 &&
+    (e.type==='direct_hit'||(UNIT_IDS.includes(e.to)&&
+      typeof e.target_uid==='string'&&/^U[0-9]+$/.test(e.target_uid)))
+  ).slice(0,12);
+  if(!ordered.length)return false;
+  // A new resolved turn supersedes prior cinematic state; game remains
+  // authoritative. Restore exact pre-turn live units before the first hit.
+  sequence=null;
+  sync(pre,{force:true});
+  sequence={events:ordered,started:now,final:post,index:-1};
+  impact.visible=true;
+  return true;
+ }
+ function sequenceStats(){
+  return{active:!!sequence,queued:sequence?.events.length||0,
+   index:sequence?.index??-1,playedEvents,finishedSequences};
+ }
  function update(seconds,camera){
   const aim=new THREE.Vector3();
   for(const state of entries.values()){
@@ -187,6 +253,64 @@ export function createSummonPresence(THREE,scene,{actors}){
     object.position.y=.017*Math.sin(seconds*1.9+state.index*1.2);
    }else if(state.kind==='vrm-instance'){
     object.position.y=.012*Math.sin(seconds*1.5+state.index);
+   }
+   // An exchange affects position only temporarily; resting pose is
+   // reconstructed each frame and therefore cannot accumulate drift.
+   const at=place(state.side,state.index);
+   object.position.x=at.x;
+   object.position.z=at.z;
+   if(state.kind!=='original-vrm')object.rotation.z=0;
+  }
+  hitRing.visible=ribbon.visible=hitLabel.visible=false;
+  if(sequence){
+   const elapsed=Math.max(0,seconds-sequence.started);
+   const index=Math.floor(elapsed/secondsPerHit);
+   if(index>=sequence.events.length){
+    const final=sequence.final;
+    sequence=null;impact.visible=false;
+    finishedSequences++;
+    sync(final,{force:true});
+   }else{
+    if(index!==sequence.index){sequence.index=index;playedEvents++;}
+    const event=sequence.events[index];
+    const phase=(elapsed-index*secondsPerHit)/secondsPerHit;
+    const attacker=anchor(event.side,event.attacker_uid,event.from);
+    const target=event.type==='exchange'?
+      anchor(event.side==='player'?'ai':'player',event.target_uid,event.to):null;
+    const from=attacker?attacker.object.position.clone().add(new THREE.Vector3(0,1.35,0)):
+       new THREE.Vector3(event.side==='player'?-1.8:1.8,1.35,0);
+    const to=target?target.object.position.clone().add(new THREE.Vector3(0,1.35,0)):
+       new THREE.Vector3(event.side==='player'?5.5:-5.5,1.65,.8);
+    const ease=t=>{const v=Math.max(0,Math.min(1,t));return v*v*(3-2*v)};
+    const lunge=ease((phase-.09)/.19)*(1-ease((phase-.42)/.35));
+    const recoil=ease((phase-.42)/.09)*(1-ease((phase-.65)/.23));
+    if(attacker){
+     const sideSign=event.side==='player'?1:-1;
+     attacker.object.position.x+=sideSign*.62*lunge;
+     attacker.object.rotation.z=-sideSign*.11*lunge;
+    }
+    if(target){
+     const sideSign=event.side==='player'?-1:1;
+     target.object.position.x+=sideSign*.24*recoil;
+     target.object.rotation.z=sideSign*.14*recoil;
+    }
+    // Three-dimensional shaft connects the actual attacker and the actual
+    // victim, not a hard-coded E01/G01 shared hit position.
+    const pulse=ease((phase-.31)/.10)*(1-ease((phase-.58)/.24));
+    if(pulse>.01){
+     sequenceHitStart(event);
+     const center=from.clone().lerp(to,.75),line=to.clone().sub(from);
+     ribbon.position.copy(from.clone().add(to).multiplyScalar(.5));
+     ribbon.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),line.clone().normalize());
+     ribbon.scale.set(1,line.length(),1);
+     ribbon.material.opacity=.55*pulse;ribbon.visible=true;
+     hitRing.position.copy(center);
+     hitRing.lookAt(camera.position);
+     hitRing.scale.setScalar(.55+1.1*(1-pulse));
+     hitRing.material.opacity=.86*pulse;hitRing.visible=true;
+     hitLabel.position.copy(to.clone().add(new THREE.Vector3(0,.52+(phase-.35)*.8,0)));
+     hitLabel.material.opacity=.94*pulse;hitLabel.visible=true;
+    }
    }
   }
  }
@@ -202,5 +326,5 @@ export function createSummonPresence(THREE,scene,{actors}){
   return{revision,total:list.length,models:list.filter(x=>x.kind!=='art-pending').length,
    pendingArt:missing,cardIds:[...UNIT_IDS],entries:list};
  }
- return{sync,update,inspect};
+ return{sync,update,inspect,startSequence,sequenceStats};
 }

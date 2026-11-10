@@ -1,0 +1,29 @@
+{
+  "version":"R51",
+  "role":"audit_only_not_runtime_loaded",
+  "productionCharacterArtApproved":false,
+  "note":"A visible unit is not proof of a finished independent character model. Two source VRMs exist; final cast approval remains open.",
+  "unitCards":[
+    {"id":"E01","name":"铃声追不上","visual":"source_vrm","source":"assets/model/Shino-original-CC0.vrm","unique3DCharacterComplete":false},
+    {"id":"E02","name":"拐弯纸飞机","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false,"historicalPrototype":"R23 E02-paper-plane.glb, productionArtApproved=false"},
+    {"id":"E03","name":"加油过头的队长","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false},
+    {"id":"E04","name":"食堂接力冠军","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false},
+    {"id":"G01","name":"橡皮筋建筑师","visual":"source_vrm","source":"assets/model/Fumiriya-original-CC0.vrm","unique3DCharacterComplete":false},
+    {"id":"G02","name":"黑板密码专家","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false},
+    {"id":"G03","name":"反向实验学长","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false},
+    {"id":"G04","name":"社团计划总监","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false},
+    {"id":"T01","name":"迟到的播音员","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false},
+    {"id":"T02","name":"食堂隐藏菜单","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false,"historicalPrototype":"R23 T02-living-menu.glb, productionArtApproved=false"},
+    {"id":"T03","name":"默契收发员","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false},
+    {"id":"T04","name":"活动室守门人","visual":"identified_3d_standee","source":null,"unique3DCharacterComplete":false}
+  ],
+  "deliveryGate":[
+    "consistent original art and front/side/back views",
+    "source-grounded image-to-3D or artist-authored character; no low-quality procedural proxy",
+    "recognizable independent identity and consistent face",
+    "proper 3D meshes, materials, scale, shadows and usable rigging",
+    "card and summoned character share the same identity",
+    "real browser 0/45/90/180 views, duplication and both camps QA",
+    "original art versus model qualitative approval before production signoff"
+  ]
+}
