@@ -168,6 +168,18 @@ for(const [id,delta] of [['camera-left',-45],['camera-right',45]]){
  $(id)?.addEventListener('click',()=>sendScene({type:'ASDC_R48_CAMERA_DELTA',degrees:delta}));
 }
 $('camera-reset')?.addEventListener('click',()=>sendScene({type:'ASDC_R48_CAMERA_SET',degrees:0}));
+const hpViewModes=['auto','full','compact','hidden'];
+const hpViewNames={auto:'♥ 自动',full:'♥ 完整',compact:'♥ 精简',hidden:'♥ 隐藏'};
+let hpViewIndex=0;
+function nextHpViewMode(){
+ hpViewIndex=(hpViewIndex+1)%hpViewModes.length;
+ const mode=hpViewModes[hpViewIndex];
+ const control=$('hp-label-mode');
+ if(control){control.textContent=hpViewNames[mode];control.setAttribute('aria-label','血量名牌：'+hpViewNames[mode]);}
+ sendScene({type:'ASDC_R53_HP_MODE',mode});
+}
+$('hp-label-mode')?.addEventListener('click',nextHpViewMode);
+
 $('camera-fullscreen')?.addEventListener('click',async()=>{
  try{
   if(document.fullscreenElement)await document.exitFullscreen();
@@ -268,6 +280,7 @@ window.addEventListener('message',event=>{
  if(event.data?.type==='ASDC_R45_SCENE_READY'){
   sceneReady=true;sceneError=false;
   syncScene();
+  sendScene({type:'ASDC_R53_HP_MODE',mode:hpViewModes[hpViewIndex]});
   return;
  }
  if(event.data?.type==='ASDC_R45_FIGHT_ACCEPTED'){
@@ -280,6 +293,9 @@ window.addEventListener('keydown',event=>{
  if(event.target instanceof HTMLElement&&/^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName))return;
  if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
   event.preventDefault();sendScene({type:'ASDC_R48_CAMERA_DELTA',degrees:event.key==='ArrowLeft'?-45:45});
+ }
+ if(event.key.toLowerCase()==='h'&&!event.repeat){
+  nextHpViewMode();
  }
  if(event.key==='Home'||event.key.toLowerCase()==='r'){
   sendScene({type:'ASDC_R48_CAMERA_SET',degrees:0});
