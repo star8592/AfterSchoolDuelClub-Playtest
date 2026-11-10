@@ -119,6 +119,7 @@ let renderFrameTiming=0;
 let choreographyQA={stride:0,guard:0,cameraOrbit:0,maxStride:0,maxOrbit:0};
 let shownCards={player:[],ai:[]};
 let shownUnits={player:[],ai:[]};
+let pendingCombatEvents=null;
 let summonPresence=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -401,6 +402,10 @@ function loop(){
  if(playing&&time>=DURATION){
   playing=false;time=0;
   summonPresence?.sync(shownUnits);
+  if(pendingCombatEvents){
+   summonPresence?.startSequence(pendingCombatEvents,absoluteSeconds);
+   pendingCombatEvents=null;
+  }
   stageText('idle','双方待命 · 真实三维竞技场');
  }
  renderer.render(scene,camera);frames++;drawCount=renderer.info.render.calls;
@@ -419,6 +424,14 @@ function onMessage(ev){
  }
  if(msg?.type==='ASDC_R48_CAMERA_DELTA'){
   setOrbit(orbitTargetYaw+Number(msg.degrees));return;
+ }
+ if(msg?.type==='ASDC_R51_COMBAT_EVENTS'){
+  let ok=false;
+  if(playing){
+   pendingCombatEvents=msg;ok=true;
+  }else ok=summonPresence?.startSequence(msg,absoluteSeconds)||false;
+  reply('ASDC_R51_COMBAT_ACCEPTED',{accepted:ok,deferred:playing,count:msg.events?.length||0});
+  return;
  }
  if(msg?.type==='ASDC_R46_CARD_PLAY'){
   podiumCards?.show(msg,absoluteSeconds);
@@ -455,6 +468,7 @@ function exposeQA(){
   get ready(){return ready},
   get shownCards(){return structuredClone(shownCards)},
   get summonPresence(){return summonPresence?.inspect(camera)||null},
+  get combatEvents(){return summonPresence?.sequenceStats()||null},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
    bones:a.boneCount,skinnedMeshes:a.skins,triangles:a.triangles,

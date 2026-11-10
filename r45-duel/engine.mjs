@@ -152,7 +152,7 @@ export function endTurn(g) {
         event(g,'exchange',{lane,from:atk.id,to:target.id,damage:dealt.applied,blocked:dealt.blocked,retaliation:retaliation.applied,retaliation_blocked:retaliation.blocked,target_uid:target.uid,attacker_uid:atk.uid,target_defeated:target.hp<=0,attacker_defeated:atk.hp<=0,target_hp_after:target.hp,attacker_hp_after:atk.hp});
       } else {
         const dmg=atk.attack+atk.buff;g.hp[other]=Math.max(0,g.hp[other]-dmg);
-        event(g,'direct_hit',{lane,from:atk.id,damage:dmg});
+        event(g,'direct_hit',{lane,from:atk.id,attacker_uid:atk.uid,damage:dmg});
       }
       atk.buff=0;
       g.board[side][lane]=g.board[side][lane].filter(u=>u.hp>0);
