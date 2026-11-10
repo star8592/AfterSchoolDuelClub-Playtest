@@ -1,0 +1,124 @@
+[
+  {
+    "name": "desktop",
+    "pass": true,
+    "candidate": {
+      "model": {
+        "loaded": true,
+        "meshes": 43,
+        "animations": 5,
+        "sourceBounds": {
+          "min": [
+            -1.01,
+            0.006,
+            -0.35
+          ],
+          "max": [
+            1.01,
+            2.653,
+            0.35
+          ],
+          "center": [
+            0,
+            1.33,
+            0
+          ]
+        },
+        "accessoryBounds": null,
+        "costumeAnimations": 0,
+        "modelPath": "batch1/character-studies/T02/materials/T02-LivingMenu-R59-IllustratedStudy.glb",
+        "error": null
+      },
+      "art": true
+    },
+    "previous": {
+      "loaded": true,
+      "meshes": 41,
+      "animations": 5,
+      "sourceBounds": {
+        "min": [
+          -1.01,
+          0.006,
+          -0.35
+        ],
+        "max": [
+          1.01,
+          2.653,
+          0.35
+        ],
+        "center": [
+          0,
+          1.33,
+          0
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "batch1/character-studies/T02/T02-LivingMenu-R58-AnimateStudy.glb",
+      "error": null
+    },
+    "moved": 0.8456696092050463,
+    "errors": []
+  },
+  {
+    "name": "portrait",
+    "pass": true,
+    "candidate": {
+      "model": {
+        "loaded": true,
+        "meshes": 43,
+        "animations": 5,
+        "sourceBounds": {
+          "min": [
+            -1.01,
+            0.006,
+            -0.35
+          ],
+          "max": [
+            1.01,
+            2.653,
+            0.35
+          ],
+          "center": [
+            0,
+            1.33,
+            0
+          ]
+        },
+        "accessoryBounds": null,
+        "costumeAnimations": 0,
+        "modelPath": "batch1/character-studies/T02/materials/T02-LivingMenu-R59-IllustratedStudy.glb",
+        "error": null
+      },
+      "art": true
+    },
+    "previous": {
+      "loaded": true,
+      "meshes": 41,
+      "animations": 5,
+      "sourceBounds": {
+        "min": [
+          -1.01,
+          0.006,
+          -0.35
+        ],
+        "max": [
+          1.01,
+          2.653,
+          0.35
+        ],
+        "center": [
+          0,
+          1.33,
+          0
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "batch1/character-studies/T02/T02-LivingMenu-R58-AnimateStudy.glb",
+      "error": null
+    },
+    "moved": 0.8461433394691342,
+    "errors": []
+  }
+]
