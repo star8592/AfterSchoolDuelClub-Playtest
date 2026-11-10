@@ -1,0 +1,19 @@
+<!doctype html><html lang="zh-Hans"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:,">
+<title>T02 · 食堂阿姨＋活菜单 · 单一 GLB 双召唤</title>
+<script type="importmap">{"imports":{"three":"https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/assets/three/build/three.module.js","three/addons/":"https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/assets/three/examples/jsm/"}}</script>
+<style>:root{color-scheme:dark;font-family:system-ui,"Noto Sans SC",sans-serif;background:#0c1827;color:#edf5f9}*{box-sizing:border-box}body{margin:0}main{max-width:1500px;margin:auto;padding:17px}h1{margin:0 0 7px;font-size:clamp(23px,3vw,34px);color:#ffe0a9}p{line-height:1.5;color:#bfd0e0;font-size:13px}.stage{position:relative;border:1px solid #53768a;border-radius:15px;overflow:hidden;background:#1b3147}canvas{display:block;width:100%;height:72vh;min-height:360px;touch-action:none}.status{position:absolute;left:12px;top:12px;max-width:65%;background:#172c3acc;border-radius:10px;font-size:12px;padding:9px 12px}.buttons{display:flex;flex-wrap:wrap;gap:8px;background:#172b3e;padding:12px}button{border:1px solid #56839b;background:#244965;color:#fff;padding:9px 12px;border-radius:8px;cursor:pointer;font-weight:600}button:hover{background:#326587}.footer{font-size:12px;padding:12px;color:#d8c6aa}.warn{border:1px solid #735e44;background:#2b2821a8;border-radius:11px;padding:12px;margin-top:13px;font-size:13px;color:#ecc49e}@media(max-width:600px){main{padding:7px}canvas{height:63vh;min-height:370px}.status{max-width:95%}.buttons{gap:5px}button{padding:8px;font-size:12px}}</style>
+</head><body><main><h1>T02 食堂阿姨 × 活体菜单</h1>
+<p>真实 3D 双召唤组合：一个 GLB 内含独立中年女性人体、工作服饰、53 骨骼，以及可活动的魔法菜单。拖动旋转查看，点击按钮实际播放原生骨骼动作。</p>
+<section class="stage"><canvas id="c"></canvas><div id="status" class="status">加载 MPFB 双角色 GLB……</div>
+<div class="buttons">
+<button data-angle="0">正面</button><button data-angle="45">45°</button><button data-angle="90">侧面</button><button data-angle="180">背面</button>
+<button data-human="Idle_Aunt_Breath">阿姨待机</button>
+<button data-human="Serve_Menu">端出菜单</button>
+<button data-human="Wave_Welcome">挥手招呼</button>
+<button data-human="Hit_Recoil">阿姨受击</button>
+<button data-menu="Attack_Flip_Menu">菜单攻击翻页</button>
+<button data-menu="Defend_Opening_Menu">菜单防御</button>
+</div><div id="stats" class="footer"></div></section>
+<p class="warn">美术研究版（ART_NO_GO）：真人体与菜单双召唤已经真实运行，但人物脸部造型、围裙材质、动作节奏与整体卡通风格尚未取得最终原画批准；不覆盖现有正式游戏。</p>
+</main><script type="module" src="./duo.mjs"></script></body></html>

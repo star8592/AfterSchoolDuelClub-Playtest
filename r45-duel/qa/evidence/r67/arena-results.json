@@ -1,0 +1,138 @@
+[
+  {
+    "device": "desktop",
+    "duo": false,
+    "pass": true,
+    "http": 200,
+    "file": "T02-LivingMenu-R59.glb",
+    "meshes": 43,
+    "clips": 5,
+    "scale": 0.5544554685220894,
+    "entries": [
+      {
+        "side": "player",
+        "front": 1,
+        "minY": 0.006,
+        "height": 1.467,
+        "inView": true,
+        "playing": [
+          "Idle_Menu_Breath"
+        ]
+      },
+      {
+        "side": "ai",
+        "front": 1,
+        "minY": 0.006,
+        "height": 1.467,
+        "inView": true,
+        "playing": [
+          "Idle_Menu_Breath"
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "device": "desktop",
+    "duo": true,
+    "pass": true,
+    "http": 200,
+    "file": "T02-CanteenAunt-LivingMenu-Duo-STUDY.glb",
+    "meshes": 59,
+    "clips": 9,
+    "scale": 0.8491418950793406,
+    "entries": [
+      {
+        "side": "player",
+        "front": 1,
+        "minY": 0.008,
+        "height": 1.58,
+        "inView": true,
+        "playing": [
+          "Idle_Aunt_Breath",
+          "Idle_Menu_Breath"
+        ]
+      },
+      {
+        "side": "ai",
+        "front": 1,
+        "minY": 0.008,
+        "height": 1.58,
+        "inView": true,
+        "playing": [
+          "Idle_Aunt_Breath",
+          "Idle_Menu_Breath"
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "duo": false,
+    "pass": true,
+    "http": 200,
+    "file": "T02-LivingMenu-R59.glb",
+    "meshes": 43,
+    "clips": 5,
+    "scale": 0.5544554685220894,
+    "entries": [
+      {
+        "side": "player",
+        "front": 1,
+        "minY": 0.007,
+        "height": 1.467,
+        "inView": true,
+        "playing": [
+          "Idle_Menu_Breath"
+        ]
+      },
+      {
+        "side": "ai",
+        "front": 1,
+        "minY": 0.007,
+        "height": 1.467,
+        "inView": true,
+        "playing": [
+          "Idle_Menu_Breath"
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "duo": true,
+    "pass": true,
+    "http": 200,
+    "file": "T02-CanteenAunt-LivingMenu-Duo-STUDY.glb",
+    "meshes": 59,
+    "clips": 9,
+    "scale": 0.8491418950793406,
+    "entries": [
+      {
+        "side": "player",
+        "front": 1,
+        "minY": 0.008,
+        "height": 1.58,
+        "inView": true,
+        "playing": [
+          "Idle_Aunt_Breath",
+          "Idle_Menu_Breath"
+        ]
+      },
+      {
+        "side": "ai",
+        "front": 1,
+        "minY": 0.008,
+        "height": 1.58,
+        "inView": true,
+        "playing": [
+          "Idle_Aunt_Breath",
+          "Idle_Menu_Breath"
+        ]
+      }
+    ],
+    "errors": []
+  }
+]

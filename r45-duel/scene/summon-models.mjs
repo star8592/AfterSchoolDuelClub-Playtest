@@ -13,6 +13,14 @@ const isE02R60Study=(()=>{
  catch{return false;}
 })();
 
+// R67: true two-character T02 is opt-in; production default remains menu-only.
+const isT02DuoStudy=(()=>{
+ const local=new URLSearchParams(location.search).get('t02Study')==='duo';
+ if(local)return true;
+ try{return window.parent!==window && new URLSearchParams(window.parent.location.search).get('t02Study')==='duo';}
+ catch{return false;}
+})();
+
 export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
@@ -30,8 +38,12 @@ export const UNIT_MODEL_SPECS=Object.freeze({
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
 export async function preloadSummonModels(THREE,loader){
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
-  const spec=UNIT_MODEL_SPECS[id];
-  const selectedFile=id==='E02'&&isE02R60Study?
+  const baseSpec=UNIT_MODEL_SPECS[id];
+  const spec=id==='T02'&&isT02DuoStudy?
+   {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:baseSpec;
+  const selectedFile=id==='T02'&&isT02DuoStudy?
+   'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
+   id==='E02'&&isE02R60Study?
    'E02-R60-PhotoPaper-WingFlex-STUDY.glb':spec.file;
   const url=new URL('../assets/summons/'+selectedFile,import.meta.url);
   const gltf=await loader.loadAsync(url.href);
@@ -76,8 +88,29 @@ export function instantiateSummon(THREE,template){
   return preference.map(n=>clips.find(c=>c.name===n)).find(Boolean)||clips[0];
  };
  let current=null;
+ const duo=template.id==='T02' &&
+  template.selectedFile==='T02-CanteenAunt-LivingMenu-Duo-STUDY.glb';
  const play=(kind)=>{
   if(!mixer)return false;
+  if(duo){
+   const pairing=kind==='attack'?['Serve_Menu','Attack_Flip_Menu']:
+    kind==='hit'?['Hit_Recoil','Hit_Retreat']:
+    kind==='walk'?['Wave_Welcome','Walk_Small_Steps']:
+    ['Idle_Aunt_Breath','Idle_Menu_Breath'];
+   if(current===kind&&kind==='idle')return true;
+   mixer.stopAllAction();
+   let played=0;
+   for(const name of pairing){
+    const clip=template.clips.find(c=>c.name===name);
+    if(!clip)continue;
+    const action=mixer.clipAction(clip);action.reset();action.enabled=true;
+    action.setEffectiveWeight(1);
+    const looping=kind==='idle'||kind==='walk';
+    action.setLoop(looping?THREE.LoopRepeat:THREE.LoopOnce,looping?Infinity:1);
+    action.clampWhenFinished=!looping;action.play();played++;
+   }
+   current=kind;return played===2;
+  }
   const clip=choose(kind);if(!clip)return false;
   if(current===clip.name&&kind==='idle')return true;
   mixer.stopAllAction();
@@ -98,5 +131,6 @@ export function instantiateSummon(THREE,template){
   }
  }
  return {root,mixer,play,instance,meshCount:template.meshes,animationCount:template.clips.length,
+  getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   artApproved:false,kind:'real-gltf-prototype'};
 }

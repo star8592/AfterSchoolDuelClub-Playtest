@@ -1,0 +1,42 @@
+[
+  {
+    "device": "desktop",
+    "passed": true,
+    "attacking": [
+      "Serve_Menu",
+      "Attack_Flip_Menu"
+    ],
+    "defending": [
+      "Hit_Recoil",
+      "Hit_Retreat"
+    ],
+    "combat": {
+      "active": true,
+      "queued": 1,
+      "index": 0,
+      "playedEvents": 1,
+      "finishedSequences": 0
+    },
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "passed": true,
+    "attacking": [
+      "Serve_Menu",
+      "Attack_Flip_Menu"
+    ],
+    "defending": [
+      "Hit_Recoil",
+      "Hit_Retreat"
+    ],
+    "combat": {
+      "active": true,
+      "queued": 1,
+      "index": 0,
+      "playedEvents": 1,
+      "finishedSequences": 0
+    },
+    "errors": []
+  }
+]
