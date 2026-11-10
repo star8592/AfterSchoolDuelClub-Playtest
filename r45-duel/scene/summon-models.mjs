@@ -4,6 +4,15 @@
  * E01/G01 remain the existing unique source VRM rigs.
  */
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+// R63: opt-in only. Without ?e02Study=r60 the existing R62 game and all models
+// remain byte-for-byte unaffected. The game iframe is same-origin.
+const isE02R60Study=(()=>{
+ const local=new URLSearchParams(location.search).get('e02Study')==='r60';
+ if(local)return true;
+ try{return window.parent!==window && new URLSearchParams(window.parent.location.search).get('e02Study')==='r60';}
+ catch{return false;}
+})();
+
 export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
@@ -22,7 +31,9 @@ export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
 export async function preloadSummonModels(THREE,loader){
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
   const spec=UNIT_MODEL_SPECS[id];
-  const url=new URL('../assets/summons/'+spec.file,import.meta.url);
+  const selectedFile=id==='E02'&&isE02R60Study?
+   'E02-R60-PhotoPaper-WingFlex-STUDY.glb':spec.file;
+  const url=new URL('../assets/summons/'+selectedFile,import.meta.url);
   const gltf=await loader.loadAsync(url.href);
   const source=gltf.scene;
   source.updateMatrixWorld(true);
@@ -35,7 +46,7 @@ export async function preloadSummonModels(THREE,loader){
   const scale=Math.min(spec.targetHeight/size.y,
    spec.maxWidth?spec.maxWidth/size.x:Infinity,
    spec.maxDepth?spec.maxDepth/size.z:Infinity);
-  return[id,{id,spec,source,clips:gltf.animations,scale,
+  return[id,{id,spec,selectedFile,source,clips:gltf.animations,scale,
    measured:{width:size.x,height:size.y,depth:size.z,
     scaledHeight:size.y*scale,scaledWidth:size.x*scale,scaledDepth:size.z*scale},
    center:new THREE.Vector3(center.x,bounds.min.y,center.z),meshes,url:url.pathname}];
@@ -57,11 +68,11 @@ export function instantiateSummon(THREE,template){
  const choose=(kind)=>{
   if(!mixer)return null;
   const clips=template.clips;
-  const preference=kind==='attack'?['Attack_Flip_Menu','Attack','attack','Special','Cheer']:
-   kind==='hit'?['Hit_Retreat','Hit','hit']:
+  const preference=kind==='attack'?['Attack_Dart','Attack_Flip_Menu','Attack','attack','Special','Cheer']:
+   kind==='hit'?['Hit_Recoil','Hit_Retreat','Hit','hit']:
    kind==='death'?['Death','dead']:
-   kind==='walk'?['Walk_Small_Steps','Walk','walk','Run']:
-     ['Idle_Menu_Breath','Idle','idle','Stand'];
+   kind==='walk'?['Bank_Left','Bank_Right','Walk_Small_Steps','Walk','walk','Run']:
+     ['Idle_Glide','Idle_Menu_Breath','Idle','idle','Stand'];
   return preference.map(n=>clips.find(c=>c.name===n)).find(Boolean)||clips[0];
  };
  let current=null;

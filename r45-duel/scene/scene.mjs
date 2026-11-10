@@ -478,7 +478,7 @@ function exposeQA(){
   get ready(){return ready},
   get shownCards(){return structuredClone(shownCards)},
   get summonPresence(){return summonPresence?.inspect(camera)||null},
-  get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale,measured:x.measured})):[];},
+  get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.selectedFile||x.spec.file,baselineFile:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale,measured:x.measured})):[];},
   get combatEvents(){return summonPresence?.sequenceStats()||null},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,

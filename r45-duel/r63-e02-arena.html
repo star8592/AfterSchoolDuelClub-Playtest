@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:,">
+<title>R63 · 拐弯纸飞机 · 真实竞技场模型对比</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Noto Sans SC",sans-serif;color:#e9f2fa;background:#091321}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0,#253e56 0,#0c192a 49%,#091321 100%);}
+main{max-width:1800px;margin:auto;padding:16px 19px 28px}
+h1{margin:0;font-weight:850;color:#ffe0ab;font-size:clamp(21px,2.5vw,35px)}
+p{font-size:13px;color:#b1c5d7;line-height:1.6;margin:9px 0}
+.top{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:11px}
+.top a{color:#b8e7ff;text-decoration:none;font-size:13px;padding:9px 12px;background:#133851;border:1px solid #56829a;border-radius:9px}
+.stage{height:min(72vh,810px);min-height:350px;position:relative;overflow:hidden;border:1px solid #62869b;border-radius:16px;background:#13263a}
+.stage iframe{width:100%;height:100%;border:0;display:block}
+.status{position:absolute;right:10px;top:10px;max-width:52%;border-radius:9px;padding:9px 12px;background:#112132db;border:1px solid #63849b;color:#f5e9c9;font:12px system-ui;pointer-events:none}
+.controls{display:flex;gap:8px;flex-wrap:wrap;padding:12px 0}
+button{border:1px solid #557992;background:#173a52;color:#e9f2fa;font-weight:650;cursor:pointer;padding:10px 13px;border-radius:9px;font-size:13px}
+button:hover{background:#2c516b}button.active{background:#58513b;border-color:#e6bc6f;color:#fff2ce}
+.notice{border:1px solid #665241;background:#2f291eaa;border-radius:9px;padding:10px 13px;font-size:12px;color:#f0d1ad}
+@media(max-width:750px){main{padding:8px}.stage{height:65vh;min-height:320px}.status{max-width:75%;font-size:10px}.controls{gap:5px}button{padding:9px 11px;font-size:12px}}
+</style>
+</head>
+<body><main>
+<div class="top">
+ <div><h1>拐弯纸飞机 · 竞技场真 3D 对比</h1><p>直接在完整体育馆中观察双方召唤物：纸张材质、独立折翼、朝向、比例、悬浮位置与 360° 镜头。</p></div>
+ <a id="full-game" href="./?seed=1&e02Study=r60">进入完整出牌游戏</a>
+</div>
+<div class="controls" id="versions">
+ <button type="button" data-v="old">R62 原版 · 纯色静态纸翼</button>
+ <button type="button" data-v="r60">R60 新版 · 纸张 PBR + 双翼形变</button>
+</div>
+<section class="stage">
+ <iframe id="stage-frame" title="中央三维竞技馆实时召唤场景" src="about:blank"></iframe>
+ <div class="status" id="status" role="status">正在准备真实三维场馆…</div>
+</section>
+<div class="controls" id="actions">
+ <button type="button" data-count="1">双方各召唤一架</button>
+ <button type="button" data-count="3">双方各召唤三架</button>
+ <button type="button" data-angle="-90">左视角 -90°</button>
+ <button type="button" data-angle="-45">左转 -45°</button>
+ <button type="button" data-angle="0">正面 0°</button>
+ <button type="button" data-angle="45">右转 +45°</button>
+ <button type="button" data-angle="90">右视角 +90°</button>
+ <button type="button" data-angle="180">背面 180°</button>
+</div>
+<div class="notice">这是 R63 美术研究入口，不是商业美术验收。完整游戏出牌规则仍在主入口执行；此页仅投影真实召唤物，用于看模型和动作，不提供伪造的伤害结算。旧版不会被新版自动覆盖。</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const frame=$('stage-frame'),status=$('status');
+const qs=new URLSearchParams(location.search);
+let variant=qs.get('v')==='old'?'old':'r60', count=1, angle=0, poll=null, expiry=null;
+function post(data){frame.contentWindow?.postMessage(data,location.origin)}
+function cards(){
+ const ids=Array(count).fill('E02');
+ const units=side=>ids.map((id,i)=>({id,uid:'U'+(side==='player'?'1':'2')+String(i).padStart(2,'0'),hp:5,attack:1,shield:0}));
+ post({type:'ASDC_R45_BOARD',player:ids,ai:ids,units:{player:units('player'),ai:units('ai')}});
+}
+function camera(){post({type:'ASDC_R48_CAMERA_SET',degrees:angle})}
+function refresh(){
+ try{
+ const q=frame.contentWindow.__r45SceneQA;
+ const models=q?.summonModels;
+ const entry=models?.find(x=>x.id==='E02');
+ const presence=q?.summonPresence;
+ const front=presence?.entries?.map(e=>e.metrics?.frontDot);
+ const heights=presence?.entries?.map(e=>e.metrics?.height);
+ if(entry&&presence?.total===count*2)
+  status.textContent=(variant==='r60'?'R60 新版':'R62 原版')+
+   ' · E02: '+entry.meshes+' 网格 / '+entry.clips+' 原生动画 · 双方召唤 '+presence.total+
+   ' · 正面对敌 '+front?.join('/')+
+   ' · 高度 '+heights?.join('/')+
+   ' · 技术验证中';
+ }catch(e){status.textContent='3D 诊断信息不可访问：'+e.message}
+}
+function ready(){
+ const deadline=Date.now()+55000;
+ if(poll)clearInterval(poll);
+ if(expiry)clearTimeout(expiry);
+ poll=setInterval(()=>{
+  let ok=false;
+  try{ok=!!frame.contentWindow?.__r45SceneQA?.ready}catch(e){}
+  if(ok){clearInterval(poll);poll=null;cards();camera();setTimeout(refresh,750)}
+  else if(Date.now()>deadline){clearInterval(poll);poll=null;status.textContent='加载超时：请检查网页资源或显卡 WebGL2 支持';}
+ },150);
+}
+function load(v){
+ variant=v;
+ if(poll){clearInterval(poll);poll=null}
+ qs.set('v',variant);history.replaceState(null,'',location.pathname+'?'+qs.toString());
+ for(const b of document.querySelectorAll('[data-v]'))b.classList.toggle('active',b.dataset.v===variant);
+ $('full-game').href='./?seed=1'+(variant==='r60'?'&e02Study=r60':'');
+ status.textContent='正在加载 '+(variant==='r60'?'R60 真实纸面与折翼':'R62 基础模型')+' …';
+ frame.src='./scene/?qa=1'+(variant==='r60'?'&e02Study=r60':'');
+}
+frame.addEventListener('load',ready);
+$('versions').addEventListener('click',e=>{const v=e.target.closest('button[data-v]')?.dataset.v;if(v&&v!==variant)load(v)});
+$('actions').addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.count){count=Number(b.dataset.count);cards();setTimeout(refresh,500)}
+ if(b.dataset.angle){angle=Number(b.dataset.angle);camera();setTimeout(refresh,450)}
+});
+window.__R63_SHOWCASE_QA={get variant(){return variant},get count(){return count},get angle(){return angle},get ready(){try{return !!frame.contentWindow?.__r45SceneQA?.ready}catch{return false}},get status(){return status.textContent}};
+load(variant);
+</script></body></html>

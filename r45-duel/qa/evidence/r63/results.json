@@ -1,0 +1,226 @@
+[
+  {
+    "device": "desktop",
+    "study": false,
+    "pass": true,
+    "http": 200,
+    "models": 10,
+    "clips": 0,
+    "assets": [
+      "http://127.0.0.1:11083/r45-duel/assets/summons/E02-PaperPlane-R57.glb"
+    ],
+    "entry": [
+      {
+        "side": "player",
+        "frontDot": 1,
+        "minY": 0.512,
+        "width": 1.493,
+        "height": 0.312,
+        "depth": 1.75,
+        "wingMorph": null,
+        "visible": true,
+        "inView": true
+      },
+      {
+        "side": "ai",
+        "frontDot": 1,
+        "minY": 0.512,
+        "width": 1.493,
+        "height": 0.312,
+        "depth": 1.75,
+        "wingMorph": null,
+        "visible": true,
+        "inView": true
+      }
+    ],
+    "moving": true,
+    "errors": []
+  },
+  {
+    "device": "desktop",
+    "study": true,
+    "pass": true,
+    "http": 200,
+    "models": 10,
+    "clips": 5,
+    "assets": [
+      "http://127.0.0.1:11083/r45-duel/assets/summons/E02-R60-PhotoPaper-WingFlex-STUDY.glb"
+    ],
+    "entry": [
+      {
+        "side": "player",
+        "frontDot": 1,
+        "minY": 0.472,
+        "width": 1.495,
+        "height": 0.337,
+        "depth": 1.748,
+        "wingMorph": {
+          "wing_left": {
+            "weights": [
+              0.16612000238100694,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          },
+          "wing_right": {
+            "weights": [
+              0.15210666984109963,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          }
+        },
+        "visible": true,
+        "inView": true
+      },
+      {
+        "side": "ai",
+        "frontDot": 1,
+        "minY": 0.472,
+        "width": 1.495,
+        "height": 0.337,
+        "depth": 1.748,
+        "wingMorph": {
+          "wing_left": {
+            "weights": [
+              0.16612000238100694,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          },
+          "wing_right": {
+            "weights": [
+              0.15210666984109963,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          }
+        },
+        "visible": true,
+        "inView": true
+      }
+    ],
+    "moving": true,
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "study": false,
+    "pass": true,
+    "http": 200,
+    "models": 10,
+    "clips": 0,
+    "assets": [
+      "http://127.0.0.1:11083/r45-duel/assets/summons/E02-PaperPlane-R57.glb"
+    ],
+    "entry": [
+      {
+        "side": "player",
+        "frontDot": 1,
+        "minY": 0.512,
+        "width": 1.493,
+        "height": 0.312,
+        "depth": 1.75,
+        "wingMorph": null,
+        "visible": true,
+        "inView": true
+      },
+      {
+        "side": "ai",
+        "frontDot": 1,
+        "minY": 0.512,
+        "width": 1.493,
+        "height": 0.312,
+        "depth": 1.75,
+        "wingMorph": null,
+        "visible": true,
+        "inView": true
+      }
+    ],
+    "moving": true,
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "study": true,
+    "pass": true,
+    "http": 200,
+    "models": 10,
+    "clips": 5,
+    "assets": [
+      "http://127.0.0.1:11083/r45-duel/assets/summons/E02-R60-PhotoPaper-WingFlex-STUDY.glb"
+    ],
+    "entry": [
+      {
+        "side": "player",
+        "frontDot": 1,
+        "minY": 0.476,
+        "width": 1.495,
+        "height": 0.335,
+        "depth": 1.749,
+        "wingMorph": {
+          "wing_left": {
+            "weights": [
+              0.1794400015036265,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          },
+          "wing_right": {
+            "weights": [
+              0.16394666887742496,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          }
+        },
+        "visible": true,
+        "inView": true
+      },
+      {
+        "side": "ai",
+        "frontDot": 1,
+        "minY": 0.476,
+        "width": 1.495,
+        "height": 0.335,
+        "depth": 1.749,
+        "wingMorph": {
+          "wing_left": {
+            "weights": [
+              0.1794400015036265,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          },
+          "wing_right": {
+            "weights": [
+              0.16394666887742496,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          }
+        },
+        "visible": true,
+        "inView": true
+      }
+    ],
+    "moving": true,
+    "errors": []
+  }
+]

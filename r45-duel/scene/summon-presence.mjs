@@ -425,7 +425,22 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     ndcBounds:Object.fromEntries(Object.entries(screenBBox).map(([k,n])=>[k,Number(n.toFixed(3))]))
    };
    metrics.frontDot=Number(faceOpponentDot(THREE,s.object,s.side).toFixed(4));
-   return{side:s.side,uid:s.uid,id:s.id,kind:s.kind,visible:s.object.visible,metrics,
+   // R63 read-only visual evidence: distinguish real per-wing GLB morphs
+   // from an unchanged R62 plane or an animated whole-scene transform.
+   let wingMorph=null;
+   if(s.id==='E02'&&s.kind==='gltf-instance'){
+    const parts={};
+    s.object.traverse(node=>{
+     const role=node.userData?.patch_r60_role;
+     if(role==='wing_left'||role==='wing_right'){
+      parts[role]={weights:node.morphTargetInfluences?.slice()||[],
+       textured:!!node.material?.map,normal:!!node.material?.normalMap,
+       roughness:!!node.material?.roughnessMap};
+     }
+    });
+    if(parts.wing_left&&parts.wing_right)wingMorph=parts;
+   }
+   return{side:s.side,uid:s.uid,id:s.id,kind:s.kind,visible:s.object.visible,metrics,wingMorph,
     hp:s.hp,attack:s.attack,shield:s.shield,
     hpTag:!!s.status?.label.visible,
     hpTagPosition:s.status?.label.position.toArray().map(v=>Number(v.toFixed(2))),
