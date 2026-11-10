@@ -1,1 +1,0 @@
-R21 playable premium 3D character staging: E01/G01/T01 from verified CC0 VRM assets; same camera restore originals; unchanged 18-card game and active events. No PlayMoru production deployment. Final art, original facial sculpt, root-motion and footplant NOT approved.
