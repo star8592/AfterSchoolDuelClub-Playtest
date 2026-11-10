@@ -1,0 +1,45 @@
+{
+  "batch": "Batch 1",
+  "date": "2026-11-10",
+  "production_approved": 0,
+  "release_policy": "art approval must be explicit; never replace live summon with an experimental model",
+  "targets": [
+    {
+      "id": "E02", "name": "拐弯纸飞机",
+      "approach": "original art -> image-to-3d -> paper PBR and model polish",
+      "reference": "../../../art/references/E02-existing-3d-portrait.png",
+      "prototype": "../models/E02-paper-plane.glb",
+      "art_status": "512px recovered transparent PNG; final three-view sheet is not available",
+      "features": ["origami wings", "cute eyes", "readable folds", "no stray limbs"],
+      "actions": ["hover", "bank", "dart attack", "crumple impact"],
+      "p0": true, "p1": false, "p2": false, "p3": false, "approved": false
+    },
+    {
+      "id": "T02", "name": "食堂隐藏菜单",
+      "approach": "unique object-character art -> image-to-3d -> page and face rig",
+      "prototype": "../models/T02-living-menu.glb",
+      "art_status": "historic unrigged GLB only; approved character concept is missing",
+      "features": ["animated pages", "food illustration", "eyes and mouth", "expressive spine"],
+      "actions": ["page open", "talk", "spin attack", "paper recoil"],
+      "p0": false, "p1": false, "p2": false, "p3": false, "approved": false
+    },
+    {
+      "id": "T01", "name": "迟到的播音员（猫头鹰版）",
+      "approach": "CC0 owl skeleton -> high-quality original owl character -> custom animations",
+      "prototype": "../models/BarnOwl.glb",
+      "art_status": "CC0 rigged animal is ready; final unique owl broadcaster concept is missing",
+      "features": ["feathers", "headphones", "microphone", "school broadcaster silhouette"],
+      "actions": ["beak talk", "blink", "takeoff", "announce", "stumble"],
+      "p0": false, "p1": false, "p2": false, "p3": false, "approved": false
+    },
+    {
+      "id": "G01", "name": "橡皮筋建筑师",
+      "approach": "existing legal VRM rig -> new head/attire/props -> weight transfer",
+      "prototype": "../../../assets/model/Fumiriya-original-CC0.vrm",
+      "art_status": "source VRM is live but a unique original character design is missing",
+      "features": ["adult architect", "elastic tools", "blueprints", "distinct non-generic face"],
+      "actions": ["planning", "elastic construction", "attack", "guard", "impact"],
+      "p0": false, "p1": false, "p2": false, "p3": false, "approved": false
+    }
+  ]
+}
