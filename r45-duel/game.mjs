@@ -150,8 +150,10 @@ function render(){
  renderGuide();
 }
 function boardSnapshot(){
- return{type:'ASDC_R45_BOARD',player:g.board.player[0].map(x=>x.id),
-   ai:g.board.ai[0].map(x=>x.id)};
+ const units=side=>g.board[side][0].map(x=>({uid:x.uid,id:x.id}));
+ return{type:'ASDC_R45_BOARD',
+  player:g.board.player[0].map(x=>x.id),ai:g.board.ai[0].map(x=>x.id),
+  units:{player:units('player'),ai:units('ai')}};
 }
 function sendScene(msg){
  if(!sceneReady||!scene.contentWindow)return false;

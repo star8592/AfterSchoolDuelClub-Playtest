@@ -1,0 +1,984 @@
+[
+  {
+    "device": "wide",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "total": 10,
+    "pending": 6,
+    "entries": [
+      {
+        "side": "player",
+        "uid": "U100",
+        "id": "E01",
+        "kind": "original-vrm",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.24,
+          -0.1
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U101",
+        "id": "E02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.26,
+          0.08
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U102",
+        "id": "E03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.32,
+          -0.36
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U103",
+        "id": "E04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.39,
+          -0.01
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U104",
+        "id": "G01",
+        "kind": "vrm-instance",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.44,
+          -0.24
+        ],
+        "skins": 102
+      },
+      {
+        "side": "ai",
+        "uid": "U100",
+        "id": "E01",
+        "kind": "vrm-instance",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.24,
+          -0.1
+        ],
+        "skins": 67
+      },
+      {
+        "side": "ai",
+        "uid": "U101",
+        "id": "E02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.26,
+          0.08
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U102",
+        "id": "E03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.32,
+          -0.36
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U103",
+        "id": "E04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.39,
+          -0.01
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U104",
+        "id": "G01",
+        "kind": "original-vrm",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.24,
+          -0.1
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "device": "wide",
+    "batch": [
+      "G02",
+      "G03",
+      "G04",
+      "T01",
+      "T02"
+    ],
+    "total": 10,
+    "pending": 10,
+    "entries": [
+      {
+        "side": "player",
+        "uid": "U100",
+        "id": "G02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.23,
+          -0.12
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U101",
+        "id": "G03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.26,
+          0.07
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U102",
+        "id": "G04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.32,
+          -0.37
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U103",
+        "id": "T01",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.39,
+          0
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U104",
+        "id": "T02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.44,
+          -0.25
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U100",
+        "id": "G02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.23,
+          -0.12
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U101",
+        "id": "G03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.26,
+          0.07
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U102",
+        "id": "G04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.32,
+          -0.37
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U103",
+        "id": "T01",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.39,
+          0
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U104",
+        "id": "T02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.44,
+          -0.25
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "device": "wide",
+    "batch": [
+      "T03",
+      "T04"
+    ],
+    "total": 4,
+    "pending": 4,
+    "entries": [
+      {
+        "side": "player",
+        "uid": "U100",
+        "id": "T03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.23,
+          -0.12
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U101",
+        "id": "T04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.26,
+          0.07
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U100",
+        "id": "T03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.23,
+          -0.12
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U101",
+        "id": "T04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.26,
+          0.07
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "device": "wide",
+    "test": "duplicates and sides",
+    "pass": true,
+    "q": {
+      "revision": 5,
+      "total": 10,
+      "models": 8,
+      "pendingArt": 2,
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U100",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.24,
+            -0.11
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U101",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.26,
+            0.09
+          ],
+          "skins": 67
+        },
+        {
+          "side": "player",
+          "uid": "U102",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.32,
+            -0.34
+          ],
+          "skins": 102
+        },
+        {
+          "side": "player",
+          "uid": "U103",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.39,
+            0.02
+          ],
+          "skins": 102
+        },
+        {
+          "side": "player",
+          "uid": "U104",
+          "id": "E02",
+          "kind": "art-pending",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.44,
+            -0.26
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U100",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.24,
+            -0.1
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U101",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.26,
+            0.09
+          ],
+          "skins": 102
+        },
+        {
+          "side": "ai",
+          "uid": "U102",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.32,
+            -0.34
+          ],
+          "skins": 67
+        },
+        {
+          "side": "ai",
+          "uid": "U103",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.39,
+            0.02
+          ],
+          "skins": 67
+        },
+        {
+          "side": "ai",
+          "uid": "U104",
+          "id": "T02",
+          "kind": "art-pending",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.44,
+            -0.26
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "device": "wide",
+    "test": "despawn cleanup",
+    "pass": true,
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "batch": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G01"
+    ],
+    "total": 10,
+    "pending": 6,
+    "entries": [
+      {
+        "side": "player",
+        "uid": "U100",
+        "id": "E01",
+        "kind": "original-vrm",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.54,
+          0
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U101",
+        "id": "E02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.6,
+          0.06
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U102",
+        "id": "E03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.71,
+          -0.11
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U103",
+        "id": "E04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.9,
+          0.03
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U104",
+        "id": "G01",
+        "kind": "vrm-instance",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.99,
+          -0.06
+        ],
+        "skins": 102
+      },
+      {
+        "side": "ai",
+        "uid": "U100",
+        "id": "E01",
+        "kind": "vrm-instance",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.54,
+          0
+        ],
+        "skins": 67
+      },
+      {
+        "side": "ai",
+        "uid": "U101",
+        "id": "E02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.6,
+          0.06
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U102",
+        "id": "E03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.71,
+          -0.11
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U103",
+        "id": "E04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.9,
+          0.03
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U104",
+        "id": "G01",
+        "kind": "original-vrm",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.54,
+          0
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "device": "portrait",
+    "batch": [
+      "G02",
+      "G03",
+      "G04",
+      "T01",
+      "T02"
+    ],
+    "total": 10,
+    "pending": 10,
+    "entries": [
+      {
+        "side": "player",
+        "uid": "U100",
+        "id": "G02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.54,
+          -0.01
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U101",
+        "id": "G03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.6,
+          0.06
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U102",
+        "id": "G04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.71,
+          -0.11
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U103",
+        "id": "T01",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.9,
+          0.03
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U104",
+        "id": "T02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.99,
+          -0.07
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U100",
+        "id": "G02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.54,
+          -0.01
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U101",
+        "id": "G03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.6,
+          0.06
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U102",
+        "id": "G04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.71,
+          -0.11
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U103",
+        "id": "T01",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.9,
+          0.03
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U104",
+        "id": "T02",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.99,
+          -0.07
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "device": "portrait",
+    "batch": [
+      "T03",
+      "T04"
+    ],
+    "total": 4,
+    "pending": 4,
+    "entries": [
+      {
+        "side": "player",
+        "uid": "U100",
+        "id": "T03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.54,
+          -0.02
+        ]
+      },
+      {
+        "side": "player",
+        "uid": "U101",
+        "id": "T04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          -0.6,
+          0.06
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U100",
+        "id": "T03",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.54,
+          -0.02
+        ]
+      },
+      {
+        "side": "ai",
+        "uid": "U101",
+        "id": "T04",
+        "kind": "art-pending",
+        "visible": true,
+        "inView": true,
+        "screen": [
+          0.6,
+          0.06
+        ]
+      }
+    ],
+    "pass": true
+  },
+  {
+    "device": "portrait",
+    "test": "duplicates and sides",
+    "pass": true,
+    "q": {
+      "revision": 5,
+      "total": 10,
+      "models": 8,
+      "pendingArt": 2,
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U100",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.54,
+            0
+          ]
+        },
+        {
+          "side": "player",
+          "uid": "U101",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.6,
+            0.07
+          ],
+          "skins": 67
+        },
+        {
+          "side": "player",
+          "uid": "U102",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.71,
+            -0.1
+          ],
+          "skins": 102
+        },
+        {
+          "side": "player",
+          "uid": "U103",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.9,
+            0.04
+          ],
+          "skins": 102
+        },
+        {
+          "side": "player",
+          "uid": "U104",
+          "id": "E02",
+          "kind": "art-pending",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            -0.99,
+            -0.07
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U100",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.54,
+            0
+          ]
+        },
+        {
+          "side": "ai",
+          "uid": "U101",
+          "id": "G01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.6,
+            0.07
+          ],
+          "skins": 102
+        },
+        {
+          "side": "ai",
+          "uid": "U102",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.71,
+            -0.1
+          ],
+          "skins": 67
+        },
+        {
+          "side": "ai",
+          "uid": "U103",
+          "id": "E01",
+          "kind": "vrm-instance",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.9,
+            0.04
+          ],
+          "skins": 67
+        },
+        {
+          "side": "ai",
+          "uid": "U104",
+          "id": "T02",
+          "kind": "art-pending",
+          "visible": true,
+          "inView": true,
+          "screen": [
+            0.99,
+            -0.07
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "device": "portrait",
+    "test": "despawn cleanup",
+    "pass": true,
+    "errors": []
+  }
+]
