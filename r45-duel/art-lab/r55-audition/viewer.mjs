@@ -25,16 +25,21 @@ let loadToken=0,diagnostics={loaded:false,meshes:0,animations:0,error:null};
 const OWL_STUDY='batch1/character-studies/T01/T01-BroadcastOwl-R56-STUDY.glb';
 const E02_STUDY='batch1/character-studies/E02/E02-PaperPlane-R57-Refined-STUDY.glb';
 const T02_STUDY='batch1/character-studies/T02/T02-LivingMenu-R58-AnimateStudy.glb';
+const T02_ART_STUDY='batch1/character-studies/T02/materials/T02-LivingMenu-R59-IllustratedStudy.glb';
 const studyQuery=new URLSearchParams(location.search).get('study');
 let owlStudy=studyQuery==='T01-R56';
 let e02Study=studyQuery==='E02-R57';
-let t02Study=studyQuery==='T02-R58';
+let t02ArtStudy=studyQuery==='T02-R59';
+let t02Study=studyQuery==='T02-R58'||t02ArtStudy;
 function refreshT02Variant(){
  const b=$('t02-variant');
  b.hidden=records[idx]?.id!=='T02';
- b.textContent=t02Study?'当前：R58 活菜单翻页 · 点击看原始':'当前：旧活菜单 · 点击看动态版';
+ b.textContent=t02Study?'当前：'+(t02ArtStudy?'R59 彩绘':'R58 动态')+' · 点击看原始':'当前：旧活菜单 · 点击看动态版';
+ const art=$('t02-art');art.hidden=records[idx]?.id!=='T02';
+ art.textContent=t02ArtStudy?'当前：R59 彩绘 · 点击关闭':'查看 R59 双面插画';
 }
-$('t02-variant').addEventListener('click',()=>{t02Study=!t02Study;select(idx)});
+$('t02-variant').addEventListener('click',()=>{t02Study=!t02Study;if(!t02Study)t02ArtStudy=false;select(idx)});
+$('t02-art').addEventListener('click',()=>{t02ArtStudy=!t02ArtStudy;if(t02ArtStudy)t02Study=true;select(idx)});
 
 function refreshE02Variant(){
  const b=$('e02-variant');
@@ -167,9 +172,10 @@ async function select(index){
  try{
   const useOverlay=entry.id==='T01'&&owlStudy;
   const modelPath=entry.id==='E02'&&e02Study?E02_STUDY:
+    entry.id==='T02'&&t02ArtStudy?T02_ART_STUDY:
     entry.id==='T02'&&t02Study?T02_STUDY:
     useOverlay?OWL_STUDY:entry.previewModel;
-  const gltf=await loader.loadAsync([E02_STUDY,T02_STUDY].includes(modelPath)?modelPath:entry.previewModel);
+  const gltf=await loader.loadAsync([E02_STUDY,T02_STUDY,T02_ART_STUDY].includes(modelPath)?modelPath:entry.previewModel);
   const costume=useOverlay?await loader.loadAsync(OWL_STUDY):null;
   if(token!==loadToken)return;
   const model=new THREE.Group();
@@ -212,7 +218,8 @@ async function select(index){
    $('status').textContent='R57 纸飞机实体边缘与材质精修试验 · 非 Pixal3D 生成，尚未通过正式美术验收';
   }
   if(entry.id==='T02'&&t02Study){
-   $('status').textContent='R58 活菜单真实 GLB 翻页试验 · 五套原生动画，不是最终人物美术';
+   $('status').textContent=t02ArtStudy?'R59 原创双面食物插画 PBR 贴图 · 技术预览，尚未美术验收':
+    'R58 活菜单 GLB 翻页 · 五套原生动画，尚未美术验收';
   }
   if(gltf.animations.length){
    mixer=new THREE.AnimationMixer(gltf.scene);
@@ -289,6 +296,7 @@ window.__R55_AUDITION_QA={
  selectById:id=>{const i=records.findIndex(x=>x.id===id);if(i>=0)select(i);return i>=0},
  get selectedSource(){return diagnostics.modelPath||records[idx]?.previewModel||null},
  get studyVariant(){return owlStudy},
+ get t02ArtStudyVariant(){return t02ArtStudy},
  get t02StudyVariant(){return t02Study},
  setT02StudyVariant:(on)=>{t02Study=!!on;select(idx);return t02Study;},
  get activePageState(){
