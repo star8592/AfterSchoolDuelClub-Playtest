@@ -24,9 +24,18 @@ let paperFlight=null;
 let loadToken=0,diagnostics={loaded:false,meshes:0,animations:0,error:null};
 const OWL_STUDY='batch1/character-studies/T01/T01-BroadcastOwl-R56-STUDY.glb';
 const E02_STUDY='batch1/character-studies/E02/E02-PaperPlane-R57-Refined-STUDY.glb';
+const T02_STUDY='batch1/character-studies/T02/T02-LivingMenu-R58-AnimateStudy.glb';
 const studyQuery=new URLSearchParams(location.search).get('study');
 let owlStudy=studyQuery==='T01-R56';
 let e02Study=studyQuery==='E02-R57';
+let t02Study=studyQuery==='T02-R58';
+function refreshT02Variant(){
+ const b=$('t02-variant');
+ b.hidden=records[idx]?.id!=='T02';
+ b.textContent=t02Study?'当前：R58 活菜单翻页 · 点击看原始':'当前：旧活菜单 · 点击看动态版';
+}
+$('t02-variant').addEventListener('click',()=>{t02Study=!t02Study;select(idx)});
+
 function refreshE02Variant(){
  const b=$('e02-variant');
  b.hidden=records[idx]?.id!=='E02';
@@ -119,7 +128,9 @@ function playClip(request){
    accessoryMixer.clipAction(costumeClip).reset().fadeIn(.1).play();
   }
  }
- $('info').textContent=(accessoryMixer?'源模型 + 配件独立骨骼':'GLB 原始模型')+' · '+clip.name+' · 骨骼动画';
+ const actionKind=records[idx]?.id==='T02'&&t02Study?'GLB 原生翻页与节点动画':'源骨骼动画';
+ $('info').textContent=(accessoryMixer?'源模型 + 配件独立骨骼':'实际三维模型')+
+   ' · '+clip.name+' · '+actionKind;
 }
 async function select(index){
  const prevId=records[idx]?.id;
@@ -131,6 +142,8 @@ async function select(index){
  }
  for(const [id,text] of Object.entries(entry.id==='E02'?
   {idle:'悬停 / Idle',walk:'盘旋 / Bank',attack:'俯冲 / Attack'}:
+  entry.id==='T02'&&t02Study?
+  {idle:'轻摇 / Idle',walk:'小跑 / Walk',attack:'翻页攻击 / Attack'}:
   {idle:'待机 / Idle',walk:'行走 / Walk',attack:'攻击 / Attack'})){
   $(id).textContent=text;
  }
@@ -138,6 +151,7 @@ async function select(index){
  $('name').textContent=entry.id+' · '+entry.name;
  refreshOwlVariant();
  refreshE02Variant();
+ refreshT02Variant();
  $('status').textContent=entry.status==='ACTUAL_SOURCE_VRM'?'当前正式场馆已有源 VRM · 人物原创美术仍需审核':
   entry.kind==='spell'?'事件技能三维预演 · 尚未完成成品 VFX':'候选源模型或旧实验模型 · 暂不作为正式角色';
  $('meta').textContent=entry.kind==='spell'?'这一张事件牌已匹配独立的三维特效概念，战斗规则不由预览器计算。':
@@ -153,8 +167,9 @@ async function select(index){
  try{
   const useOverlay=entry.id==='T01'&&owlStudy;
   const modelPath=entry.id==='E02'&&e02Study?E02_STUDY:
+    entry.id==='T02'&&t02Study?T02_STUDY:
     useOverlay?OWL_STUDY:entry.previewModel;
-  const gltf=await loader.loadAsync(modelPath===E02_STUDY?E02_STUDY:entry.previewModel);
+  const gltf=await loader.loadAsync([E02_STUDY,T02_STUDY].includes(modelPath)?modelPath:entry.previewModel);
   const costume=useOverlay?await loader.loadAsync(OWL_STUDY):null;
   if(token!==loadToken)return;
   const model=new THREE.Group();
@@ -195,6 +210,9 @@ async function select(index){
   }
   if(entry.id==='E02'&&e02Study){
    $('status').textContent='R57 纸飞机实体边缘与材质精修试验 · 非 Pixal3D 生成，尚未通过正式美术验收';
+  }
+  if(entry.id==='T02'&&t02Study){
+   $('status').textContent='R58 活菜单真实 GLB 翻页试验 · 五套原生动画，不是最终人物美术';
   }
   if(gltf.animations.length){
    mixer=new THREE.AnimationMixer(gltf.scene);
@@ -260,7 +278,8 @@ try{
   b.addEventListener('click',()=>select(records.indexOf(entry)));$('roster').appendChild(b);
  }
  const initial=owlStudy?records.findIndex(x=>x.id==='T01'):
-   e02Study?records.findIndex(x=>x.id==='E02'):0;
+   e02Study?records.findIndex(x=>x.id==='E02'):
+   t02Study?records.findIndex(x=>x.id==='T02'):0;
  await select(Math.max(0,initial));
 }catch(error){$('info').textContent='数据载入失败：'+String(error)}
 window.__R55_AUDITION_QA={
@@ -270,6 +289,23 @@ window.__R55_AUDITION_QA={
  selectById:id=>{const i=records.findIndex(x=>x.id===id);if(i>=0)select(i);return i>=0},
  get selectedSource(){return diagnostics.modelPath||records[idx]?.previewModel||null},
  get studyVariant(){return owlStudy},
+ get t02StudyVariant(){return t02Study},
+ setT02StudyVariant:(on)=>{t02Study=!!on;select(idx);return t02Study;},
+ get activePageState(){
+  if(records[idx]?.id!=='T02')return null;
+  const hinge=holder.getObjectByName('R58_Left_Book_Binding_PIVOT');
+  return hinge?{rotation:hinge.quaternion.toArray(),worldPosition:hinge.getWorldPosition(new THREE.Vector3()).toArray()}:null;
+ },
+ get menuRigState(){
+  if(records[idx]?.id!=='T02')return null;
+  const get=name=>holder.getObjectByName(name)?.quaternion.toArray()||null;
+  return {
+   page:get('R58_Left_Book_Binding_PIVOT'),
+   chefHat:get('R58_Chef_Hat_Expressive_Hinge'),
+   leftArm:get('R58_Left_Spoon_Arm_Joint'),
+   rightArm:get('R58_Right_Spoon_Arm_Joint')
+  };
+ },
  get e02StudyVariant(){return e02Study},
  get paperMotion(){return paperFlight?{mode:paperFlight.mode,
   x:paperFlight.root.position.x,y:paperFlight.root.position.y,

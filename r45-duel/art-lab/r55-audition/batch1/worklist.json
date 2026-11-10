@@ -38,7 +38,7 @@
       "name": "食堂隐藏菜单",
       "approach": "unique object-character art -> image-to-3d -> page and face rig",
       "prototype": "../models/T02-living-menu.glb",
-      "art_status": "historic unrigged GLB only; approved character concept is missing",
+      "art_status": "41 existing meshes, animated book-page, chef-hat and two arms, 2/2 browser verified, art not approved",
       "features": [
         "animated pages",
         "food illustration",
@@ -52,10 +52,20 @@
         "paper recoil"
       ],
       "p0": false,
-      "p1": false,
+      "p1": true,
       "p2": false,
       "p3": false,
-      "approved": false
+      "approved": false,
+      "p1_technical_animation_verified": true,
+      "preview_model": "character-studies/T02/T02-LivingMenu-R58-AnimateStudy.glb",
+      "clips": [
+        "Idle_Menu_Breath",
+        "Walk_Small_Steps",
+        "Attack_Flip_Menu",
+        "Defend_Opening_Menu",
+        "Hit_Retreat"
+      ],
+      "rig_type": "glTF node animation, not skeletal skinning"
     },
     {
       "id": "T01",

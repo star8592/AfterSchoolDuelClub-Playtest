@@ -1,0 +1,146 @@
+[
+  {
+    "device": "desktop",
+    "pass": true,
+    "model": {
+      "variant": true,
+      "loaded": true,
+      "meshes": 41,
+      "animations": 5,
+      "sourceBounds": {
+        "min": [
+          -1.01,
+          0.006,
+          -0.35
+        ],
+        "max": [
+          1.01,
+          2.653,
+          0.35
+        ],
+        "center": [
+          0,
+          1.33,
+          0
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "batch1/character-studies/T02/T02-LivingMenu-R58-AnimateStudy.glb",
+      "error": null
+    },
+    "original": {
+      "loaded": true,
+      "meshes": 41,
+      "animations": 0,
+      "sourceBounds": {
+        "min": [
+          -1.01,
+          0.006,
+          -0.35
+        ],
+        "max": [
+          1.01,
+          2.653,
+          0.35
+        ],
+        "center": [
+          0,
+          1.33,
+          0
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "models/T02-living-menu.glb",
+      "error": null,
+      "variant": false
+    },
+    "pageMovement": 0.8948737965606133,
+    "jointMovement": {
+      "chefHat": 0.04444285527952905,
+      "leftArm": 0.05382019148499617,
+      "rightArm": 0.05382019148499617
+    },
+    "attackLabel": "实际三维模型 · Attack_Flip_Menu · GLB 原生翻页与节点动画",
+    "snapshots": [
+      0,
+      45,
+      90,
+      180
+    ],
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "pass": true,
+    "model": {
+      "variant": true,
+      "loaded": true,
+      "meshes": 41,
+      "animations": 5,
+      "sourceBounds": {
+        "min": [
+          -1.01,
+          0.006,
+          -0.35
+        ],
+        "max": [
+          1.01,
+          2.653,
+          0.35
+        ],
+        "center": [
+          0,
+          1.33,
+          0
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "batch1/character-studies/T02/T02-LivingMenu-R58-AnimateStudy.glb",
+      "error": null
+    },
+    "original": {
+      "loaded": true,
+      "meshes": 41,
+      "animations": 0,
+      "sourceBounds": {
+        "min": [
+          -1.01,
+          0.006,
+          -0.35
+        ],
+        "max": [
+          1.01,
+          2.653,
+          0.35
+        ],
+        "center": [
+          0,
+          1.33,
+          0
+        ]
+      },
+      "accessoryBounds": null,
+      "costumeAnimations": 0,
+      "modelPath": "models/T02-living-menu.glb",
+      "error": null,
+      "variant": false
+    },
+    "pageMovement": 0.8952650453705725,
+    "jointMovement": {
+      "chefHat": 0.043533003670972376,
+      "leftArm": 0.05329041357481326,
+      "rightArm": 0.05329041357481326
+    },
+    "attackLabel": "实际三维模型 · Attack_Flip_Menu · GLB 原生翻页与节点动画",
+    "snapshots": [
+      0,
+      45,
+      90,
+      180
+    ],
+    "errors": []
+  }
+]
