@@ -11,7 +11,12 @@ const g=createGame(seed);
 const scene=$('stadium');
 let selected=null,sceneReady=false,sceneError=false,lastToast='',lastFightSerial=0;
 const styleName={ember:'活力',grove:'创意',tide:'默契'};
-const pictogram={ember:'⚡',grove:'✦',tide:'◈'};
+const pictogram={
+ E02:'➤',E03:'⚑',E04:'★',
+ G02:'⌘',G03:'⚗',G04:'◇',
+ T01:'♫',T02:'☷',T03:'↔',T04:'⌂',
+ E05:'✦',E06:'✹',G05:'╋',G06:'▤',T05:'☼',T06:'◉'
+};
 const MAX_CARDS_ON_FIELD=5;
 const $make=(tag,className,text)=>{
  const node=document.createElement(tag);
@@ -76,8 +81,20 @@ function renderHand(){
   const head=$make('div','card-type');
   head.append($make('span',null,styleName[c.style]+' · '+(c.kind==='unit'?'人物':'事件')),
     $make('span','cost',c.cost));
-  const art=$make('span','card-illustration',pictogram[c.style]);
+  const isPortrait=id==='E01'||id==='G01';
+  const art=$make('span','card-illustration'+(isPortrait?' true-3d-portrait':' original-card-symbol'));
   art.setAttribute('aria-hidden','true');
+  if(isPortrait){
+   const img=$make('img','real-actor-portrait');
+   img.src='./assets/cards/'+id+'-vrm-card-bust.png';
+   img.alt='';img.decoding='async';img.loading='eager';
+   art.append(img);
+  }else{
+   const symbol=$make('span','symbol',pictogram[id]||'✦');
+   art.append(symbol);
+  }
+  card.dataset.art=isPortrait?'actual-vrm':'symbol-only';
+  card.title=(isPortrait?'已实装3D角色：':'仍待独立角色美术：')+c.name;
   card.append(head,$make('strong','card-name',c.name),art,
     $make('div','card-desc',c.line),
     $make('div','card-stats',c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'✦ '+(c.cost===1?'轻量事件':'战术事件')));
@@ -144,6 +161,13 @@ function sendScene(msg){
 function syncScene(){
  sendScene(boardSnapshot());
 }
+// A visually projected physical card from the correct side duelist platform.
+// This is a secondary presentation event; it never changes core rules.
+function projectPlayedCard(id,side='player'){
+ const card=BY_ID[id];if(!card)return;
+ sendScene({type:'ASDC_R46_CARD_PLAY',side,id,name:card.name,
+   kind:card.kind,cost:card.cost});
+}
 function stateSummary(eventList){
  const newCards=eventList.filter(e=>e.type==='card_play'&&e.side==='ai');
  const combat=eventList.filter(e=>e.type==='exchange'||e.type==='direct_hit');
@@ -175,12 +199,13 @@ function playFight(e){
 }
 $('play').addEventListener('click',()=>{
  if(selected===null||!cardCanPlay(selected))return;
- const c=BY_ID[g.hand.player[selected]],result=playCard(g,selected,0);
+ const id=g.hand.player[selected],c=BY_ID[id],result=playCard(g,selected,0);
  if(!result.ok){
   announce('出牌失败：'+result.reason,'warning');render();return;
  }
  selected=null;
  render();syncScene();
+ projectPlayedCard(id,'player');
  const suffix=c.kind==='unit'?'已进入中央竞技场。本回合待命，下次轮到你才会攻击。':
   '已立即结算事件效果。';
  announce('已出牌：「'+c.name+'」。'+suffix+'　还可以继续出牌，或点击「结束回合」。','played');
@@ -195,6 +220,9 @@ $('end').addEventListener('click',()=>{
  selected=null;
  render();syncScene();
  const summary=stateSummary(fresh);
+ for(const event of fresh.filter(e=>e.type==='card_play'&&e.side==='ai').slice(-3)){
+  projectPlayedCard(event.card,'ai');
+ }
  const fight=findRealExchange(fresh);
  if(fight)playFight(fight);
  if(g.phase==='ended'){

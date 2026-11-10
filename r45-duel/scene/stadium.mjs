@@ -1,3 +1,4 @@
+import {addStadiumPolish} from './stadium-polish.mjs';
 /**
  * R45 procedural 3D school-gymnasium battle environment.
  * All architecture (court, bleachers, roof, light rigs, podiums and screens)
@@ -127,7 +128,8 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     mast.castShadow=true;
     cylinder(.22,.25,.07,20,[x,3.1,-2.1],gold,'Court_Floodlight_Head_'+sign);
   }
-  return {group,stats:{...stats,geometryTypes:[...stats.geometryTypes],
+  const polish=addStadiumPolish(THREE,scene,group,stats);
+  return {group,polish,stats:{...stats,geometryTypes:[...stats.geometryTypes],
     totalPhysicalBleacherRows:stats.bleacherRows+8,
     distinctAreas:['LEFT_DUELIST_STATION','CENTRAL_SUMMONING_RING','RIGHT_DUELIST_STATION',
       'RAISED_BLEACHERS','ROOF_TRUSSES','SCOREBOARD']},
