@@ -1,0 +1,39 @@
+{
+  "source": "/home/master/projects/after-school-duel-r58-t02-menu-20261110/r45-duel/art-lab/r55-audition/models/T02-living-menu.glb",
+  "source_sha256": "bf50aab2b3a691e6297b34bd95d353dd847207f91091298edf744dec4ed4efd9",
+  "output": "/home/master/projects/after-school-duel-r58-t02-menu-20261110/r45-duel/art-lab/r55-audition/batch1/character-studies/T02/T02-LivingMenu-R58-AnimateStudy.glb",
+  "output_sha256": "1a7d525b67e99a23efb506a1fd06916cb8d94ac18a0018adfdd0c8a7eb1c7feb",
+  "source_meshes": 41,
+  "source_materials": 9,
+  "rig_type": "native_glTF2_node_hinge_with_animation_channels",
+  "animated_page_nodes": [
+    25,
+    26,
+    27,
+    28,
+    33,
+    34,
+    35,
+    36,
+    37
+  ],
+  "costume_pivots": {
+    "hat": 43,
+    "right_arm": 44,
+    "left_arm": 45
+  },
+  "clips": [
+    "Idle_Menu_Breath",
+    "Walk_Small_Steps",
+    "Attack_Flip_Menu",
+    "Defend_Opening_Menu",
+    "Hit_Retreat"
+  ],
+  "materials_roughness_corrected": [
+    "T02 parchment menu pages"
+  ],
+  "p1_technical_rig_ready": true,
+  "image_to_3d_generated": false,
+  "final_character_art_approved": false,
+  "production_approved": false
+}
