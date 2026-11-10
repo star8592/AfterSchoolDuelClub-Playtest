@@ -389,3 +389,11 @@ html,body{width:100%;height:100%;overflow:hidden}
  .field-rows{bottom:32dvh}
  .battle-toast{top:64px}
 }
+
+/* R53: one unobtrusive HP mode toggle; do not enlarge the camera HUD. */
+#hp-label-mode{background:#284653f0;border-color:#769aa2}
+#hp-label-mode:hover{background:#385e70}
+@media(max-width:650px){
+ #hp-label-mode{font-size:10px;padding:5px 3px;min-height:29px}
+ .camera-tools{max-width:calc(100vw - 8px)}
+}

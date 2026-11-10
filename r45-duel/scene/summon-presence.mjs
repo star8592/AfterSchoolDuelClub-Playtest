@@ -26,6 +26,20 @@ export function createSummonPresence(THREE,scene,{actors}){
  const entries=new Map(),pool=new Map();
  let current={player:[],ai:[]},revision=0,missing=0;
  let sequence=null,playedEvents=0,finishedSequences=0;
+ let hpDisplayMode='auto';
+ const hpModes=new Set(['auto','full','compact','hidden']);
+ function setHpDisplayMode(next){
+  if(!hpModes.has(next))return false;
+  hpDisplayMode=next;
+  for(const entry of entries.values())if(entry.status)entry.status.last='';
+  return true;
+ }
+ function activeHpStyle(camera){
+  if(hpDisplayMode==='hidden')return 'hidden';
+  if(hpDisplayMode!=='auto')return hpDisplayMode;
+  return entries.size>=5||camera.aspect<.9?'compact':'full';
+ }
+
  const secondsPerHit=.90;
  const impact=new THREE.Group();
  impact.name='R51_Event_Linked_Impact';
@@ -83,12 +97,12 @@ export function createSummonPresence(THREE,scene,{actors}){
   const tag={label,canvas:cvs,ctx:cx,texture:tex,last:''};
   return tag;
  }
- function drawStatusTag(state){
+ function drawStatusTag(state,mode='full'){
   const tag=state.status;
   if(!tag)return;
   const hp=Math.max(0,state.hp||0),base=Math.max(1,BY_ID[state.id].hp);
   const maxHp=Math.max(base,hp);
-  const key=[state.side,state.id,hp,state.attack,state.shield,maxHp].join('/');
+  const key=[state.side,state.id,hp,state.attack,state.shield,maxHp,mode].join('/');
   if(key===tag.last)return;
   tag.last=key;
   const ctx=tag.ctx,c=tag.canvas;
@@ -99,12 +113,20 @@ export function createSummonPresence(THREE,scene,{actors}){
   ctx.lineWidth=5;ctx.strokeStyle=accent;
   ctx.beginPath();ctx.roundRect(6,7,500,145,22);ctx.stroke();
   ctx.textBaseline='middle';ctx.textAlign='left';
-  ctx.fillStyle='#fff4df';ctx.font='bold 40px sans-serif';
-  const name=BY_ID[state.id].name.slice(0,8);
-  ctx.fillText(name,25,53,365);
-  ctx.textAlign='right';ctx.font='bold 42px sans-serif';
-  ctx.fillStyle=hp===0?'#ff7777':'#fff0d7';
-  ctx.fillText('♥'+hp,480,53);
+  ctx.fillStyle='#fff4df';
+  if(mode==='full'){
+   ctx.font='bold 40px sans-serif';
+   ctx.fillText(BY_ID[state.id].name.slice(0,8),25,53,365);
+   ctx.textAlign='right';ctx.font='bold 42px sans-serif';
+   ctx.fillStyle=hp===0?'#ff7777':'#fff0d7';
+   ctx.fillText('♥'+hp,480,53);
+  }else{
+   ctx.font='bold 64px sans-serif';
+   ctx.fillText(state.id,31,64);
+   ctx.textAlign='right';
+   ctx.fillStyle=hp===0?'#ff7777':'#fff0d7';
+   ctx.fillText('♥'+hp,470,64);
+  }
   ctx.fillStyle='#2b4655';
   ctx.beginPath();ctx.roundRect(27,106,456,23,9);ctx.fill();
   const ratio=Math.min(1,hp/maxHp);
@@ -305,7 +327,9 @@ export function createSummonPresence(THREE,scene,{actors}){
  }
  function update(seconds,camera,{cinematic=false}={}){
   const aim=new THREE.Vector3();
+  const labelStyle=activeHpStyle(camera);
   for(const state of entries.values()){
+   if(state.status&&labelStyle!=='hidden')drawStatusTag(state,labelStyle);
    const object=state.object;
    if(state.kind==='art-pending'){
     aim.set(camera.position.x-object.position.x,0,camera.position.z-object.position.z);
@@ -326,14 +350,15 @@ export function createSummonPresence(THREE,scene,{actors}){
    if(state.kind!=='original-vrm')object.rotation.z=0;
    const tag=state.status?.label;
    if(tag){
-    // At 5v5, keep every unit's HP readable without ten large labels
-    // overwhelming the court and summoned character silhouettes.
-    const dense=entries.size>=7;
-    tag.scale.set(dense?1.05:1.48,dense?.33:.46,1);
+    // Compress by card ID + HP in dense battles; one button can restore
+    // names or suppress labels entirely. Never create a billboard wall.
+    const compact=labelStyle==='compact';
+    tag.scale.set(labelStyle==='hidden'?.01:compact?.94:1.48,
+                  labelStyle==='hidden'?.01:compact?.30:.46,1);
     tag.position.copy(object.position);
     tag.position.y+=(state.kind==='art-pending'?2.46:3.35)
-      +(dense&&state.index%2?0.1:0);
-    tag.visible=object.visible;
+      +(compact&&state.index%2?.15:0);
+    tag.visible=labelStyle!=='hidden'&&object.visible;
    }
   }
   hitRing.visible=ribbon.visible=hitLabel.visible=false;
@@ -415,8 +440,10 @@ export function createSummonPresence(THREE,scene,{actors}){
     screen:[Number(ndc.x.toFixed(2)),Number(ndc.y.toFixed(2))],
     skins:s.kind==='vrm-instance'?s.object.userData.skinnedMeshes:undefined};
   });
-  return{revision,total:list.length,models:list.filter(x=>x.kind!=='art-pending').length,
+  return{revision,hpDisplayMode,activeHpStyle:activeHpStyle(camera),
+  visibleHpTags:[...entries.values()].filter(x=>x.status?.label.visible).length,
+  total:list.length,models:list.filter(x=>x.kind!=='art-pending').length,
    pendingArt:missing,cardIds:[...UNIT_IDS],entries:list};
  }
- return{sync,update,inspect,startSequence,sequenceStats};
+ return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode};
 }

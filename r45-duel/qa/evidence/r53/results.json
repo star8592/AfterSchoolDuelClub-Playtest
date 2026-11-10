@@ -1,0 +1,150 @@
+[
+  {
+    "name": "ultrawide",
+    "pass": true,
+    "auto": {
+      "mode": "compact",
+      "hpTags": 10
+    },
+    "checks": [
+      {
+        "label": "full",
+        "ok": true,
+        "effective": "full",
+        "visible": 10
+      },
+      {
+        "label": "compact",
+        "ok": true,
+        "effective": "compact",
+        "visible": 10
+      },
+      {
+        "label": "hidden",
+        "ok": true,
+        "effective": "hidden",
+        "visible": 0
+      },
+      {
+        "label": "auto",
+        "ok": true,
+        "effective": "compact",
+        "visible": 10
+      }
+    ],
+    "keyboard": "full",
+    "rotated": 44.94,
+    "errors": []
+  },
+  {
+    "name": "wide",
+    "pass": true,
+    "auto": {
+      "mode": "compact",
+      "hpTags": 10
+    },
+    "checks": [
+      {
+        "label": "full",
+        "ok": true,
+        "effective": "full",
+        "visible": 10
+      },
+      {
+        "label": "compact",
+        "ok": true,
+        "effective": "compact",
+        "visible": 10
+      },
+      {
+        "label": "hidden",
+        "ok": true,
+        "effective": "hidden",
+        "visible": 0
+      },
+      {
+        "label": "auto",
+        "ok": true,
+        "effective": "compact",
+        "visible": 10
+      }
+    ],
+    "keyboard": "full",
+    "rotated": 44.94,
+    "errors": []
+  },
+  {
+    "name": "four-three",
+    "pass": true,
+    "auto": {
+      "mode": "compact",
+      "hpTags": 10
+    },
+    "checks": [
+      {
+        "label": "full",
+        "ok": true,
+        "effective": "full",
+        "visible": 10
+      },
+      {
+        "label": "compact",
+        "ok": true,
+        "effective": "compact",
+        "visible": 10
+      },
+      {
+        "label": "hidden",
+        "ok": true,
+        "effective": "hidden",
+        "visible": 0
+      },
+      {
+        "label": "auto",
+        "ok": true,
+        "effective": "compact",
+        "visible": 10
+      }
+    ],
+    "keyboard": "full",
+    "rotated": 44.94,
+    "errors": []
+  },
+  {
+    "name": "mobile",
+    "pass": true,
+    "auto": {
+      "mode": "compact",
+      "hpTags": 10
+    },
+    "checks": [
+      {
+        "label": "full",
+        "ok": true,
+        "effective": "full",
+        "visible": 10
+      },
+      {
+        "label": "compact",
+        "ok": true,
+        "effective": "compact",
+        "visible": 10
+      },
+      {
+        "label": "hidden",
+        "ok": true,
+        "effective": "hidden",
+        "visible": 0
+      },
+      {
+        "label": "auto",
+        "ok": true,
+        "effective": "compact",
+        "visible": 10
+      }
+    ],
+    "keyboard": "full",
+    "rotated": 44.94,
+    "errors": []
+  }
+]

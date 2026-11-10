@@ -419,6 +419,10 @@ function reply(type,other={}){
 function onMessage(ev){
  if(ev.source!==window.parent||ev.origin!==location.origin||!ready)return;
  const msg=ev.data;
+ if(msg?.type==='ASDC_R53_HP_MODE'){
+  summonPresence?.setHpDisplayMode(msg.mode);
+  return;
+ }
  if(msg?.type==='ASDC_R48_CAMERA_SET'){
   setOrbit(Number(msg.degrees));return;
  }
