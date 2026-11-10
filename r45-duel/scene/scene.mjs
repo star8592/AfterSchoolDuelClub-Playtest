@@ -373,7 +373,7 @@ function loop(){
    visible:actors.map(a=>a.pivot.visible),
    reducedMotion:reduced});
  podiumCards?.update(absoluteSeconds,playing,camera.aspect<.95);
- summonPresence?.update(absoluteSeconds,camera);
+ summonPresence?.update(absoluteSeconds,camera,{cinematic:playing});
  // Deliberate single slow push-in during actual contact. No shake or
  // random camera jitter. Stays inside the same view and card layout.
  const narrow=camera.aspect<.85;

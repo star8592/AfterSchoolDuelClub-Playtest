@@ -1,0 +1,18 @@
+[
+  {
+    "name": "two-unit",
+    "fps": 43.6,
+    "drawCalls": 369,
+    "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "units": 2,
+    "noErrors": true
+  },
+  {
+    "name": "ten-unit",
+    "fps": 44.1,
+    "drawCalls": 779,
+    "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "units": 10,
+    "noErrors": true
+  }
+]

@@ -150,7 +150,7 @@ function render(){
  renderGuide();
 }
 function boardSnapshot(){
- const units=side=>g.board[side][0].map(x=>({uid:x.uid,id:x.id}));
+ const units=side=>g.board[side][0].map(x=>({uid:x.uid,id:x.id,hp:x.hp,attack:x.attack+x.buff,shield:x.shield||0}));
  return{type:'ASDC_R45_BOARD',
   player:g.board.player[0].map(x=>x.id),ai:g.board.ai[0].map(x=>x.id),
   units:{player:units('player'),ai:units('ai')}};
@@ -255,6 +255,7 @@ $('end').addEventListener('click',()=>{
    type:e.type,serial:e.serial,side:e.side,from:e.from,to:e.to||null,
    attacker_uid:e.attacker_uid||null,target_uid:e.target_uid||null,
    damage:e.damage,blocked:e.blocked||0,retaliation:e.retaliation||0,
+   target_hp_after:e.target_hp_after,attacker_hp_after:e.attacker_hp_after,
    target_defeated:!!e.target_defeated,attacker_defeated:!!e.attacker_defeated
   }))});
  if(g.phase==='ended'){
