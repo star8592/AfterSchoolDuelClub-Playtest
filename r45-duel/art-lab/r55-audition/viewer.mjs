@@ -20,9 +20,20 @@ const ring=new THREE.Mesh(new THREE.TorusGeometry(2.20,.013,6,120),
 ring.rotation.x=-Math.PI/2;ring.position.y=.013;scene.add(ring);
 const holder=new THREE.Group();scene.add(holder);
 let records=[],active=null,idx=0,mixer=null,accessoryMixer=null,accessoryClips=[],motion=null,spin=0,azimuth=.47,elevation=.23,zoom=7.2;
+let paperFlight=null;
 let loadToken=0,diagnostics={loaded:false,meshes:0,animations:0,error:null};
 const OWL_STUDY='batch1/character-studies/T01/T01-BroadcastOwl-R56-STUDY.glb';
-let owlStudy=new URLSearchParams(location.search).get('study')==='T01-R56';
+const E02_STUDY='batch1/character-studies/E02/E02-PaperPlane-R57-Refined-STUDY.glb';
+const studyQuery=new URLSearchParams(location.search).get('study');
+let owlStudy=studyQuery==='T01-R56';
+let e02Study=studyQuery==='E02-R57';
+function refreshE02Variant(){
+ const b=$('e02-variant');
+ b.hidden=records[idx]?.id!=='E02';
+ b.textContent=e02Study?'当前：R57 纸翼精修 · 点击看原始':'当前：旧纸飞机 · 点击看精修版';
+}
+$('e02-variant').addEventListener('click',()=>{e02Study=!e02Study;select(idx)});
+
 function refreshOwlVariant(){
  const button=$('owl-variant');
  button.hidden=records[idx]?.id!=='T01';
@@ -41,15 +52,17 @@ function fit(){
 }
 window.addEventListener('resize',fit);fit();
 function placeCamera(){
+ const paper=records[idx]?.id==='E02';
  const elev=Math.max(-.12,Math.min(1.04,elevation));
- camera.position.set(zoom*Math.sin(azimuth)*Math.cos(elev),2.0+zoom*Math.sin(elev),
+ camera.position.set(zoom*Math.sin(azimuth)*Math.cos(elev),
+  (paper?1.15:2.0)+zoom*Math.sin(elev),
   zoom*Math.cos(azimuth)*Math.cos(elev));
- camera.lookAt(0,1.25,0);
+ camera.lookAt(0,paper?.5:1.25,0);
 }
 function disposeGroup(){
  while(holder.children.length)holder.remove(holder.children[0]);
  mixer?.stopAllAction();accessoryMixer?.stopAllAction();
- mixer=null;accessoryMixer=null;accessoryClips=[];motion=null;
+ mixer=null;accessoryMixer=null;accessoryClips=[];motion=null;paperFlight=null;
  while(ambient.length){const m=ambient.pop();if(m.parent)m.parent.remove(m);
   m.geometry?.dispose?.();m.material?.dispose?.();}
 }
@@ -86,6 +99,12 @@ function previewSpell(id){
  return core;
 }
 function playClip(request){
+ if(paperFlight){
+  paperFlight.mode=request==='walk'?'bank':request==='attack'?'attack':'idle';
+  paperFlight.started=clock.elapsedTime;
+  $('info').textContent='原始三维实体 · '+({idle:'悬停',bank:'转弯盘旋',attack:'俯冲攻击'}[paperFlight.mode])+' · 变换动画';
+  return;
+ }
  if(!mixer||!active)return;
  const clips=active.animations||[];
  if(!clips.length)return;
@@ -103,10 +122,22 @@ function playClip(request){
  $('info').textContent=(accessoryMixer?'源模型 + 配件独立骨骼':'GLB 原始模型')+' · '+clip.name+' · 骨骼动画';
 }
 async function select(index){
+ const prevId=records[idx]?.id;
  idx=index;const entry=records[idx];if(!entry)return;
+ if(prevId!==entry.id){
+  elevation=entry.id==='E02'?.78:.23;
+  zoom=entry.id==='E02'?(window.innerWidth<600?8.7:6.6):7.2;
+  azimuth=.47;
+ }
+ for(const [id,text] of Object.entries(entry.id==='E02'?
+  {idle:'悬停 / Idle',walk:'盘旋 / Bank',attack:'俯冲 / Attack'}:
+  {idle:'待机 / Idle',walk:'行走 / Walk',attack:'攻击 / Attack'})){
+  $(id).textContent=text;
+ }
  [...$('roster').children].forEach((n,i)=>n.classList.toggle('active',i===idx));
  $('name').textContent=entry.id+' · '+entry.name;
  refreshOwlVariant();
+ refreshE02Variant();
  $('status').textContent=entry.status==='ACTUAL_SOURCE_VRM'?'当前正式场馆已有源 VRM · 人物原创美术仍需审核':
   entry.kind==='spell'?'事件技能三维预演 · 尚未完成成品 VFX':'候选源模型或旧实验模型 · 暂不作为正式角色';
  $('meta').textContent=entry.kind==='spell'?'这一张事件牌已匹配独立的三维特效概念，战斗规则不由预览器计算。':
@@ -121,8 +152,9 @@ async function select(index){
  }
  try{
   const useOverlay=entry.id==='T01'&&owlStudy;
-  const modelPath=useOverlay?OWL_STUDY:entry.previewModel;
-  const gltf=await loader.loadAsync(entry.previewModel);
+  const modelPath=entry.id==='E02'&&e02Study?E02_STUDY:
+    useOverlay?OWL_STUDY:entry.previewModel;
+  const gltf=await loader.loadAsync(modelPath===E02_STUDY?E02_STUDY:entry.previewModel);
   const costume=useOverlay?await loader.loadAsync(OWL_STUDY):null;
   if(token!==loadToken)return;
   const model=new THREE.Group();
@@ -149,6 +181,10 @@ async function select(index){
   model.position.set(-center.x*scale,-box.min.y*scale,-center.z*scale);
   model.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;if(o.isSkinnedMesh)o.frustumCulled=false}});
   holder.add(model);
+  if(entry.id==='E02'){
+   paperFlight={root:model,mode:'idle',started:0,baseX:model.position.x,
+    baseY:model.position.y,baseZ:model.position.z};
+  }
   const meshCount=(()=>{let n=0;model.traverse(o=>{if(o.isMesh)n++});return n})();
   active={...entry,animations:gltf.animations};
   diagnostics={loaded:true,meshes:meshCount,animations:gltf.animations.length,
@@ -157,12 +193,17 @@ async function select(index){
   if(entry.id==='T01'&&owlStudy){
    $('status').textContent='R56 独立三维改造试验 · 耳机/话筒已绑定，尚未通过正式原画与细节验收';
   }
+  if(entry.id==='E02'&&e02Study){
+   $('status').textContent='R57 纸飞机实体边缘与材质精修试验 · 非 Pixal3D 生成，尚未通过正式美术验收';
+  }
   if(gltf.animations.length){
    mixer=new THREE.AnimationMixer(gltf.scene);
    if(costume){accessoryMixer=new THREE.AnimationMixer(costume.scene);accessoryClips=costume.animations;}
    playClip('idle');
   }
-  else $('info').textContent='实际 GLB · '+meshCount+' 网格 · 无内置动画';
+  else $('info').textContent=entry.id==='E02'?
+    '实际 GLB · '+meshCount+' 网格 · 可悬停、转弯、俯冲':
+    '实际 GLB · '+meshCount+' 网格 · 无内置动画';
  }catch(error){
   diagnostics={loaded:false,meshes:0,animations:0,error:String(error)};
   $('info').textContent='文件加载失败：'+String(error).slice(0,90);
@@ -178,12 +219,32 @@ canvas.addEventListener('pointerup',()=>{drag=null});
 canvas.addEventListener('pointercancel',()=>{drag=null});
 canvas.addEventListener('wheel',e=>{zoom=Math.max(3.5,Math.min(13.5,zoom*Math.exp(e.deltaY*.001)));e.preventDefault()},{passive:false});
 for(const k of ['idle','attack','walk'])$(k).addEventListener('click',()=>playClip(k));
-$('reset').addEventListener('click',()=>{azimuth=.47;elevation=.23;zoom=7.2});
+$('reset').addEventListener('click',()=>{
+ azimuth=.47;
+ elevation=records[idx]?.id==='E02'?.78:.23;
+ zoom=records[idx]?.id==='E02'?(innerWidth<600?8.7:6.6):7.2;
+});
 const clock=new THREE.Clock();
 function loop(){
  requestAnimationFrame(loop);const dt=Math.min(.06,clock.getDelta()),t=clock.elapsedTime;
  if(mixer)mixer.update(dt);
  if(accessoryMixer)accessoryMixer.update(dt);
+ if(paperFlight){
+  const a=paperFlight,phase=t-a.started;
+  a.root.position.set(a.baseX,a.baseY+.075*Math.sin(t*1.8),a.baseZ);
+  a.root.rotation.set(0,0,.035*Math.sin(t*1.3));
+  if(a.mode==='bank'){
+   a.root.rotation.y=.23*Math.sin(phase*1.9);
+   a.root.rotation.z=.28*Math.sin(phase*1.4);
+   a.root.position.y+=.12*Math.sin(phase*2.0);
+  }else if(a.mode==='attack'){
+   const u=Math.min(1,phase/1.15);
+   a.root.position.z-=.70*Math.sin(Math.PI*u);
+   a.root.rotation.x=.21*Math.sin(Math.PI*u);
+   a.root.rotation.z=.13*Math.sin(Math.PI*u);
+   if(u>=1)a.mode='idle';
+  }
+ }
  ring.material.opacity=.25+.07*Math.sin(t*1.8);
  if(records[idx]?.kind==='spell')holder.rotation.y+=dt*.29;
  else holder.rotation.y=0;
@@ -198,7 +259,8 @@ try{
    (entry.kind==='spell'?'事件 · 三维特效预演':entry.status==='ACTUAL_SOURCE_VRM'?'已有 VRM 源模型':'模型候选 · 未通过美术签收')+'</small>';
   b.addEventListener('click',()=>select(records.indexOf(entry)));$('roster').appendChild(b);
  }
- const initial=owlStudy?records.findIndex(x=>x.id==='T01'):0;
+ const initial=owlStudy?records.findIndex(x=>x.id==='T01'):
+   e02Study?records.findIndex(x=>x.id==='E02'):0;
  await select(Math.max(0,initial));
 }catch(error){$('info').textContent='数据载入失败：'+String(error)}
 window.__R55_AUDITION_QA={
@@ -208,6 +270,12 @@ window.__R55_AUDITION_QA={
  selectById:id=>{const i=records.findIndex(x=>x.id===id);if(i>=0)select(i);return i>=0},
  get selectedSource(){return diagnostics.modelPath||records[idx]?.previewModel||null},
  get studyVariant(){return owlStudy},
+ get e02StudyVariant(){return e02Study},
+ get paperMotion(){return paperFlight?{mode:paperFlight.mode,
+  x:paperFlight.root.position.x,y:paperFlight.root.position.y,
+  z:paperFlight.root.position.z,
+  roll:paperFlight.root.rotation.z}:null},
+ setE02StudyVariant:(on)=>{e02Study=!!on;select(idx);return e02Study;},
  setStudyVariant:(on)=>{owlStudy=!!on;select(idx);return owlStudy;},
  setOrbit:(yaw,up=.23,distance=7.2)=>{
   if(!Number.isFinite(yaw)||!Number.isFinite(up)||!Number.isFinite(distance))return false;

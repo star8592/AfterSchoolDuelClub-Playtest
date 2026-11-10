@@ -1,0 +1,82 @@
+[
+  {
+    "name": "desktop",
+    "pass": true,
+    "stages": [
+      {
+        "action": "idle",
+        "expected": "idle",
+        "pass": true,
+        "moved": 0.0542
+      },
+      {
+        "action": "walk",
+        "expected": "bank",
+        "pass": true,
+        "moved": 0.1521
+      },
+      {
+        "action": "attack",
+        "expected": "attack",
+        "pass": true,
+        "moved": 0.3933
+      }
+    ],
+    "state": {
+      "flight": {
+        "mode": "idle",
+        "x": 0,
+        "y": -0.8127258148032895,
+        "z": -0.18930206665291882,
+        "roll": 0.03304939098013074
+      },
+      "camera": {
+        "azimuth": 3.141592653589793,
+        "elevation": 0.79,
+        "zoom": 6.6
+      },
+      "mode": true
+    },
+    "errors": []
+  },
+  {
+    "name": "portrait",
+    "pass": true,
+    "stages": [
+      {
+        "action": "idle",
+        "expected": "idle",
+        "pass": true,
+        "moved": 0.0542
+      },
+      {
+        "action": "walk",
+        "expected": "bank",
+        "pass": true,
+        "moved": 0.1465
+      },
+      {
+        "action": "attack",
+        "expected": "attack",
+        "pass": true,
+        "moved": 0.3883
+      }
+    ],
+    "state": {
+      "flight": {
+        "mode": "idle",
+        "x": 0,
+        "y": -0.8000483723870436,
+        "z": -0.18930206665291882,
+        "roll": 0.030334611190052513
+      },
+      "camera": {
+        "azimuth": 3.141592653589793,
+        "elevation": 0.79,
+        "zoom": 8.7
+      },
+      "mode": true
+    },
+    "errors": []
+  }
+]
