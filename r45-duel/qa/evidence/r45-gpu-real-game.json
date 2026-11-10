@@ -1,0 +1,710 @@
+[
+  {
+    "device": "desktop",
+    "width": 1366,
+    "height": 850,
+    "initial": {
+      "game": {
+        "cardCount": 18,
+        "energy": 2,
+        "hand": 5,
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        },
+        "round": 1,
+        "sceneReady": true
+      },
+      "scene": {
+        "stadium": {
+          "label": "R45_ONE_ARENA_GYM_3D",
+          "geometryTypes": [
+            "BoxGeometry",
+            "RingGeometry",
+            "CylinderGeometry"
+          ],
+          "meshCount": 119,
+          "instancedObjects": 4,
+          "bleacherRows": 6,
+          "seats": 198,
+          "lights": 25,
+          "totalPhysicalBleacherRows": 14,
+          "distinctAreas": [
+            "LEFT_DUELIST_STATION",
+            "CENTRAL_SUMMONING_RING",
+            "RIGHT_DUELIST_STATION",
+            "RAISED_BLEACHERS",
+            "ROOF_TRUSSES",
+            "SCOREBOARD"
+          ]
+        },
+        "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+        "visibility": [
+          {
+            "id": "E01",
+            "visible": false
+          },
+          {
+            "id": "G01",
+            "visible": false
+          }
+        ]
+      },
+      "docHeight": 850,
+      "viewport": 850,
+      "docWidth": 1366,
+      "width": 1366,
+      "hand": {
+        "x": 24,
+        "y": 624,
+        "width": 1318,
+        "height": 151,
+        "top": 624,
+        "right": 1342,
+        "bottom": 775,
+        "left": 24
+      },
+      "arena": {
+        "x": 11,
+        "y": 138,
+        "width": 1344,
+        "height": 438,
+        "top": 138,
+        "right": 1355,
+        "bottom": 576,
+        "left": 11
+      },
+      "play": {
+        "x": 829,
+        "y": 780,
+        "width": 270,
+        "height": 53,
+        "top": 780,
+        "right": 1099,
+        "bottom": 833,
+        "left": 829
+      },
+      "end": {
+        "x": 1107,
+        "y": 780,
+        "width": 235,
+        "height": 53,
+        "top": 780,
+        "right": 1342,
+        "bottom": 833,
+        "left": 1107
+      },
+      "card": {
+        "x": 214.25,
+        "y": 626,
+        "width": 180.296875,
+        "height": 144,
+        "top": 626,
+        "right": 394.546875,
+        "bottom": 770,
+        "left": 214.25
+      }
+    },
+    "selected": {
+      "hand": 5,
+      "energy": 2,
+      "selected": 0,
+      "button": "出牌 · 召唤"
+    },
+    "summoned": {
+      "hand": 4,
+      "energy": 1,
+      "board": [
+        "E01"
+      ],
+      "status": "已出牌：「铃声追不上」。已进入中央竞技场。本回合待命，下次轮到你才会攻击。　还可以继续出牌，或点击「结束回合」。"
+    },
+    "ai": {
+      "board": [
+        "G01",
+        "G01"
+      ],
+      "message": "AI 打出：橡皮筋建筑师、橡皮筋建筑师。刚上场的召唤物要等下个己方行动回合才能攻击。现在轮到你了。"
+    },
+    "fight": {
+      "mode": "live",
+      "active": true,
+      "event": {
+        "type": "exchange",
+        "from": "E01",
+        "to": "G01",
+        "side": "player",
+        "lane": 0,
+        "serial": 7,
+        "damage": 2,
+        "blocked": 0,
+        "retaliation": 1,
+        "retaliation_blocked": 0,
+        "target_defeated": false,
+        "attacker_defeated": false
+      },
+      "actorVisibility": [
+        {
+          "id": "E01",
+          "visible": true
+        },
+        {
+          "id": "G01",
+          "visible": true
+        }
+      ],
+      "roles": [
+        {
+          "id": "E01",
+          "bones": 148,
+          "asset": "Shino-original-CC0.vrm"
+        },
+        {
+          "id": "G01",
+          "bones": 107,
+          "asset": "Fumiriya-original-CC0.vrm"
+        }
+      ],
+      "stadium": "R45_ONE_ARENA_GYM_3D",
+      "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+      "actionFrames": 3,
+      "parentId": "arena",
+      "handVisible": true,
+      "layout": {
+        "docHeight": 850,
+        "viewport": 850,
+        "docWidth": 1366,
+        "width": 1366,
+        "hand": {
+          "x": 24,
+          "y": 624,
+          "width": 1318,
+          "height": 151,
+          "top": 624,
+          "right": 1342,
+          "bottom": 775,
+          "left": 24
+        },
+        "arena": {
+          "x": 11,
+          "y": 138,
+          "width": 1344,
+          "height": 438,
+          "top": 138,
+          "right": 1355,
+          "bottom": 576,
+          "left": 11
+        },
+        "play": {
+          "x": 829,
+          "y": 780,
+          "width": 270,
+          "height": 53,
+          "top": 780,
+          "right": 1099,
+          "bottom": 833,
+          "left": 829
+        },
+        "end": {
+          "x": 1107,
+          "y": 780,
+          "width": 235,
+          "height": 53,
+          "top": 780,
+          "right": 1342,
+          "bottom": 833,
+          "left": 1107
+        },
+        "card": {
+          "x": 119.609375,
+          "y": 626,
+          "width": 180.296875,
+          "height": 144,
+          "top": 626,
+          "right": 299.90625,
+          "bottom": 770,
+          "left": 119.609375
+        }
+      }
+    },
+    "essentialInViewport": true,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "mobile",
+    "width": 430,
+    "height": 900,
+    "initial": {
+      "game": {
+        "cardCount": 18,
+        "energy": 2,
+        "hand": 5,
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        },
+        "round": 1,
+        "sceneReady": true
+      },
+      "scene": {
+        "stadium": {
+          "label": "R45_ONE_ARENA_GYM_3D",
+          "geometryTypes": [
+            "BoxGeometry",
+            "RingGeometry",
+            "CylinderGeometry"
+          ],
+          "meshCount": 119,
+          "instancedObjects": 4,
+          "bleacherRows": 6,
+          "seats": 198,
+          "lights": 25,
+          "totalPhysicalBleacherRows": 14,
+          "distinctAreas": [
+            "LEFT_DUELIST_STATION",
+            "CENTRAL_SUMMONING_RING",
+            "RIGHT_DUELIST_STATION",
+            "RAISED_BLEACHERS",
+            "ROOF_TRUSSES",
+            "SCOREBOARD"
+          ]
+        },
+        "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+        "visibility": [
+          {
+            "id": "E01",
+            "visible": false
+          },
+          {
+            "id": "G01",
+            "visible": false
+          }
+        ]
+      },
+      "docHeight": 900,
+      "viewport": 900,
+      "docWidth": 430,
+      "width": 430,
+      "hand": {
+        "x": 13,
+        "y": 720,
+        "width": 404,
+        "height": 114,
+        "top": 720,
+        "right": 417,
+        "bottom": 834,
+        "left": 13
+      },
+      "arena": {
+        "x": 6,
+        "y": 125,
+        "width": 418,
+        "height": 557,
+        "top": 125,
+        "right": 424,
+        "bottom": 682,
+        "left": 6
+      },
+      "play": {
+        "x": 164.203125,
+        "y": 837,
+        "width": 126.609375,
+        "height": 52,
+        "top": 837,
+        "right": 290.8125,
+        "bottom": 889,
+        "left": 164.203125
+      },
+      "end": {
+        "x": 294.8125,
+        "y": 837,
+        "width": 122.1875,
+        "height": 52,
+        "top": 837,
+        "right": 417,
+        "bottom": 889,
+        "left": 294.8125
+      },
+      "card": {
+        "x": 14,
+        "y": 722,
+        "width": 112,
+        "height": 107,
+        "top": 722,
+        "right": 126,
+        "bottom": 829,
+        "left": 14
+      }
+    },
+    "selected": {
+      "hand": 5,
+      "energy": 2,
+      "selected": 0,
+      "button": "出牌 · 召唤"
+    },
+    "summoned": {
+      "hand": 4,
+      "energy": 1,
+      "board": [
+        "E01"
+      ],
+      "status": "已出牌：「铃声追不上」。已进入中央竞技场。本回合待命，下次轮到你才会攻击。　还可以继续出牌，或点击「结束回合」。"
+    },
+    "ai": {
+      "board": [
+        "G01",
+        "G01"
+      ],
+      "message": "AI 打出：橡皮筋建筑师、橡皮筋建筑师。刚上场的召唤物要等下个己方行动回合才能攻击。现在轮到你了。"
+    },
+    "fight": {
+      "mode": "live",
+      "active": true,
+      "event": {
+        "type": "exchange",
+        "from": "E01",
+        "to": "G01",
+        "side": "player",
+        "lane": 0,
+        "serial": 7,
+        "damage": 2,
+        "blocked": 0,
+        "retaliation": 1,
+        "retaliation_blocked": 0,
+        "target_defeated": false,
+        "attacker_defeated": false
+      },
+      "actorVisibility": [
+        {
+          "id": "E01",
+          "visible": true
+        },
+        {
+          "id": "G01",
+          "visible": true
+        }
+      ],
+      "roles": [
+        {
+          "id": "E01",
+          "bones": 148,
+          "asset": "Shino-original-CC0.vrm"
+        },
+        {
+          "id": "G01",
+          "bones": 107,
+          "asset": "Fumiriya-original-CC0.vrm"
+        }
+      ],
+      "stadium": "R45_ONE_ARENA_GYM_3D",
+      "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+      "actionFrames": 3,
+      "parentId": "arena",
+      "handVisible": true,
+      "layout": {
+        "docHeight": 900,
+        "viewport": 900,
+        "docWidth": 430,
+        "width": 430,
+        "hand": {
+          "x": 13,
+          "y": 720,
+          "width": 404,
+          "height": 114,
+          "top": 720,
+          "right": 417,
+          "bottom": 834,
+          "left": 13
+        },
+        "arena": {
+          "x": 6,
+          "y": 125,
+          "width": 418,
+          "height": 557,
+          "top": 125,
+          "right": 424,
+          "bottom": 682,
+          "left": 6
+        },
+        "play": {
+          "x": 164.203125,
+          "y": 837,
+          "width": 126.609375,
+          "height": 52,
+          "top": 837,
+          "right": 290.8125,
+          "bottom": 889,
+          "left": 164.203125
+        },
+        "end": {
+          "x": 294.8125,
+          "y": 837,
+          "width": 122.1875,
+          "height": 52,
+          "top": 837,
+          "right": 417,
+          "bottom": 889,
+          "left": 294.8125
+        },
+        "card": {
+          "x": 14,
+          "y": 722,
+          "width": 112,
+          "height": 107,
+          "top": 722,
+          "right": 126,
+          "bottom": 829,
+          "left": 14
+        }
+      }
+    },
+    "essentialInViewport": true,
+    "errors": [],
+    "passed": true
+  },
+  {
+    "device": "short",
+    "width": 375,
+    "height": 667,
+    "initial": {
+      "game": {
+        "cardCount": 18,
+        "energy": 2,
+        "hand": 5,
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        },
+        "round": 1,
+        "sceneReady": true
+      },
+      "scene": {
+        "stadium": {
+          "label": "R45_ONE_ARENA_GYM_3D",
+          "geometryTypes": [
+            "BoxGeometry",
+            "RingGeometry",
+            "CylinderGeometry"
+          ],
+          "meshCount": 119,
+          "instancedObjects": 4,
+          "bleacherRows": 6,
+          "seats": 198,
+          "lights": 25,
+          "totalPhysicalBleacherRows": 14,
+          "distinctAreas": [
+            "LEFT_DUELIST_STATION",
+            "CENTRAL_SUMMONING_RING",
+            "RIGHT_DUELIST_STATION",
+            "RAISED_BLEACHERS",
+            "ROOF_TRUSSES",
+            "SCOREBOARD"
+          ]
+        },
+        "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+        "visibility": [
+          {
+            "id": "E01",
+            "visible": false
+          },
+          {
+            "id": "G01",
+            "visible": false
+          }
+        ]
+      },
+      "docHeight": 667,
+      "viewport": 667,
+      "docWidth": 375,
+      "width": 375,
+      "hand": {
+        "x": 13,
+        "y": 481,
+        "width": 349,
+        "height": 120,
+        "top": 481,
+        "right": 362,
+        "bottom": 601,
+        "left": 13
+      },
+      "arena": {
+        "x": 6,
+        "y": 154,
+        "width": 363,
+        "height": 289,
+        "top": 154,
+        "right": 369,
+        "bottom": 443,
+        "left": 6
+      },
+      "play": {
+        "x": 143.765625,
+        "y": 604,
+        "width": 109.015625,
+        "height": 52,
+        "top": 604,
+        "right": 252.78125,
+        "bottom": 656,
+        "left": 143.765625
+      },
+      "end": {
+        "x": 256.78125,
+        "y": 604,
+        "width": 105.203125,
+        "height": 52,
+        "top": 604,
+        "right": 361.984375,
+        "bottom": 656,
+        "left": 256.78125
+      },
+      "card": {
+        "x": 14,
+        "y": 483,
+        "width": 112,
+        "height": 113,
+        "top": 483,
+        "right": 126,
+        "bottom": 596,
+        "left": 14
+      }
+    },
+    "selected": {
+      "hand": 5,
+      "energy": 2,
+      "selected": 0,
+      "button": "出牌 · 召唤"
+    },
+    "summoned": {
+      "hand": 4,
+      "energy": 1,
+      "board": [
+        "E01"
+      ],
+      "status": "已出牌：「铃声追不上」。已进入中央竞技场。本回合待命，下次轮到你才会攻击。　还可以继续出牌，或点击「结束回合」。"
+    },
+    "ai": {
+      "board": [
+        "G01",
+        "G01"
+      ],
+      "message": "AI 打出：橡皮筋建筑师、橡皮筋建筑师。刚上场的召唤物要等下个己方行动回合才能攻击。现在轮到你了。"
+    },
+    "fight": {
+      "mode": "live",
+      "active": true,
+      "event": {
+        "type": "exchange",
+        "from": "E01",
+        "to": "G01",
+        "side": "player",
+        "lane": 0,
+        "serial": 7,
+        "damage": 2,
+        "blocked": 0,
+        "retaliation": 1,
+        "retaliation_blocked": 0,
+        "target_defeated": false,
+        "attacker_defeated": false
+      },
+      "actorVisibility": [
+        {
+          "id": "E01",
+          "visible": true
+        },
+        {
+          "id": "G01",
+          "visible": true
+        }
+      ],
+      "roles": [
+        {
+          "id": "E01",
+          "bones": 148,
+          "asset": "Shino-original-CC0.vrm"
+        },
+        {
+          "id": "G01",
+          "bones": 107,
+          "asset": "Fumiriya-original-CC0.vrm"
+        }
+      ],
+      "stadium": "R45_ONE_ARENA_GYM_3D",
+      "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+      "actionFrames": 3,
+      "parentId": "arena",
+      "handVisible": true,
+      "layout": {
+        "docHeight": 667,
+        "viewport": 667,
+        "docWidth": 375,
+        "width": 375,
+        "hand": {
+          "x": 13,
+          "y": 481,
+          "width": 349,
+          "height": 120,
+          "top": 481,
+          "right": 362,
+          "bottom": 601,
+          "left": 13
+        },
+        "arena": {
+          "x": 6,
+          "y": 154,
+          "width": 363,
+          "height": 289,
+          "top": 154,
+          "right": 369,
+          "bottom": 443,
+          "left": 6
+        },
+        "play": {
+          "x": 143.765625,
+          "y": 604,
+          "width": 109.015625,
+          "height": 52,
+          "top": 604,
+          "right": 252.78125,
+          "bottom": 656,
+          "left": 143.765625
+        },
+        "end": {
+          "x": 256.78125,
+          "y": 604,
+          "width": 105.203125,
+          "height": 52,
+          "top": 604,
+          "right": 361.984375,
+          "bottom": 656,
+          "left": 256.78125
+        },
+        "card": {
+          "x": 14,
+          "y": 483,
+          "width": 112,
+          "height": 113,
+          "top": 483,
+          "right": 126,
+          "bottom": 596,
+          "left": 14
+        }
+      }
+    },
+    "essentialInViewport": true,
+    "errors": [],
+    "passed": true
+  }
+]

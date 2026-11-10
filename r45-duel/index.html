@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0b1828">
+  <title>放学后决斗社 · R45 全新单场地卡牌对决</title>
+  <link rel="stylesheet" href="./ui.css">
+</head>
+<body>
+<div id="game" class="game">
+  <header class="scoreboard" aria-label="双方决斗信息">
+    <div class="duelist player">
+      <span class="duelist-icon" aria-hidden="true">我</span>
+      <div class="duelist-info"><span class="duelist-name">你 · 学生决斗者</span>
+        <div class="hp"><strong id="player-hp">20</strong><span>/ 20 人气</span></div>
+        <div class="hp-track"><i id="player-hp-bar"></i></div>
+      </div>
+    </div>
+    <div class="center-score">
+      <strong>放学后决斗社</strong>
+      <span><b id="round">第 1 回合</b> <em id="whose-turn">轮到你</em></span>
+      <div class="turn-indicator">CARD DUEL <span aria-hidden="true">✦</span> 3D ARENA</div>
+    </div>
+    <div class="duelist enemy">
+      <span class="duelist-icon" aria-hidden="true">AI</span>
+      <div class="duelist-info"><span class="duelist-name">对手 · AI 决斗者</span>
+        <div class="hp"><strong id="enemy-hp">20</strong><span>/ 20 人气</span></div>
+        <div class="hp-track"><i id="enemy-hp-bar"></i></div>
+      </div>
+    </div>
+  </header>
+  <section class="onboard" aria-label="开局操作教学">
+    <div class="onboard-primary">
+      <strong>首次决斗只要三步</strong>
+      <span id="guide-step">① 选下方的卡牌　② 按「出牌」召唤　③ 按「结束回合」等 AI 回应</span>
+    </div>
+    <details class="help" id="help">
+      <summary>规则说明 <span aria-hidden="true">▾</span></summary>
+      <div class="help-content">
+        <p><b>目标：</b>你与 AI 各有 20 点人气，先将对方降为 0 就获胜。</p>
+        <p><b>人物牌：</b>按出牌按钮后，人物直接进入中央竞技场；刚上场待命，下一次轮到你才开始攻击。</p>
+        <p><b>事件牌：</b>立刻产生加成、伤害、回复、抽牌等效果，不需要选位置。</p>
+        <p><b>回合：</b>花费能量出牌，可以连续出多张；按「结束回合」后，已有角色攻击，AI 自动出牌并回应。</p>
+        <p><b>风格与连携：</b>活力克创意、创意克默契、默契克活力。同回合打出不同风格的牌会触发一次连携。</p>
+      </div>
+    </details>
+  </section>
+  <main class="arena" aria-label="唯一全三维体育馆战斗空间">
+    <iframe id="stadium" src="./scene/" title="真正的三维体育馆，左右决斗者，中间是唯一的召唤竞技场"
+      loading="eager" referrerpolicy="same-origin"></iframe>
+    <div class="arena-tint" aria-hidden="true"></div>
+    <div class="arena-title"><span class="arena-mark">✦</span> 中央召唤竞技场 <small>唯一战场 · 自动入场</small></div>
+    <div class="side-label ours"><strong>你的决斗台</strong><span>左侧出牌</span></div>
+    <div class="side-label theirs"><strong>对方决斗台</strong><span>右侧出牌</span></div>
+    <section class="battle-history" aria-live="polite" aria-label="对局动作反馈">
+      <div id="battle-toast" class="battle-toast">你的回合：选择一张卡牌，点击「出牌」，角色就会在中央出现。</div>
+      <div class="field-rows">
+        <div class="field-side"><strong>我方召唤物 <span id="my-field-count">0</span>/5</strong><div class="unit-tags" id="my-field"></div></div>
+        <div class="field-side enemy-side"><strong>对手召唤物 <span id="enemy-field-count">0</span>/5</strong><div class="unit-tags" id="enemy-field"></div></div>
+      </div>
+    </section>
+  </main>
+  <section class="controls" aria-label="手牌与出牌操作">
+    <div class="hand-top">
+      <div class="hand-caption"><strong>你的手牌 <span id="hand-count">5</span></strong><span>选中一张牌，按「出牌」即可</span></div>
+      <div class="energy-pill" aria-live="polite">✧ 能量 <strong id="energy">2</strong> / 9</div>
+    </div>
+    <div id="hand" class="hand" role="group" aria-label="我的卡牌"></div>
+    <div class="actions">
+      <div class="selection" role="status" aria-live="polite">
+        <strong id="selected-title">还没有选牌</strong>
+        <span id="selected-info">点击上方任意一张能量足够的手牌即可选择</span>
+      </div>
+      <button id="play" class="play-btn" type="button" disabled>先选一张牌</button>
+      <button id="end" class="end-btn" type="button">结束回合 <span aria-hidden="true">→</span></button>
+    </div>
+  </section>
+</div>
+<script type="module" src="./game.mjs"></script>
+</body>
+</html>
