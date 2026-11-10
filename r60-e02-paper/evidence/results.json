@@ -1,0 +1,362 @@
+[
+  {
+    "view": "desktop",
+    "variant": "R59",
+    "success": true,
+    "http": 200,
+    "init": {
+      "version": "R59",
+      "mesh": 17,
+      "clips": [
+        "Idle_Glide",
+        "Bank_Left",
+        "Bank_Right",
+        "Attack_Dart",
+        "Hit_Recoil"
+      ],
+      "wings": {
+        "left": null,
+        "right": null,
+        "texture": false,
+        "normal": false,
+        "roughness": false,
+        "rolesFound": false
+      }
+    },
+    "bank": {
+      "root": {
+        "rotation": [
+          -0.0425782914090973,
+          -0.009438800587176189,
+          0.21620204134105026,
+          0.9753741022338268
+        ],
+        "position": [
+          -0.09998143226872316,
+          0.07498857576649429,
+          0
+        ]
+      },
+      "wings": {
+        "left": null,
+        "right": null,
+        "texture": false,
+        "normal": false,
+        "roughness": false,
+        "rolesFound": false
+      }
+    },
+    "dart": {
+      "root": {
+        "rotation": [
+          -0.07619933922954551,
+          -0.00012835983314221544,
+          -0.0018356311472206013,
+          0.9970909251170214
+        ],
+        "position": [
+          0,
+          -0.054150001276480675,
+          -0.3842999998738893
+        ]
+      },
+      "wings": {
+        "left": null,
+        "right": null,
+        "texture": false,
+        "normal": false,
+        "roughness": false,
+        "rolesFound": false
+      }
+    },
+    "gpu": {
+      "webgl2": true,
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    "frametimes": {
+      "count": 84,
+      "p95_frame_ms": 16.8
+    },
+    "errors": []
+  },
+  {
+    "view": "desktop",
+    "variant": "R60",
+    "success": true,
+    "http": 200,
+    "init": {
+      "version": "R60",
+      "mesh": 17,
+      "clips": [
+        "Idle_Glide",
+        "Bank_Left",
+        "Bank_Right",
+        "Attack_Dart",
+        "Hit_Recoil"
+      ],
+      "wings": {
+        "left": [
+          0.057466666904533364,
+          0
+        ],
+        "right": [
+          0.04788889087111132,
+          0
+        ],
+        "texture": true,
+        "normal": true,
+        "roughness": true,
+        "rolesFound": true
+      }
+    },
+    "bank": {
+      "root": {
+        "rotation": [
+          -0.04133487679761067,
+          -0.00906231138566416,
+          0.2107046304940057,
+          0.9766334155543673
+        ],
+        "position": [
+          -0.0967499992041426,
+          0.07300000147318296,
+          0
+        ]
+      },
+      "wings": {
+        "left": [
+          0.8849999918991874,
+          0
+        ],
+        "right": [
+          0.5879999986588957,
+          0
+        ],
+        "texture": true,
+        "normal": true,
+        "roughness": true,
+        "rolesFound": true
+      }
+    },
+    "dart": {
+      "root": {
+        "rotation": [
+          -0.07595208788288026,
+          -0.00013125504488757376,
+          -0.0018770346044196338,
+          0.9971097121110718
+        ],
+        "position": [
+          0,
+          -0.053905264419697146,
+          -0.38349473668894957
+        ]
+      },
+      "wings": {
+        "left": [
+          0.13858946636839237,
+          0.23210526917614785
+        ],
+        "right": [
+          0.13858946636839237,
+          0.23210526917614785
+        ],
+        "texture": true,
+        "normal": true,
+        "roughness": true,
+        "rolesFound": true
+      }
+    },
+    "gpu": {
+      "webgl2": true,
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    "frametimes": {
+      "count": 84,
+      "p95_frame_ms": 16.7
+    },
+    "errors": []
+  },
+  {
+    "view": "portrait",
+    "variant": "R59",
+    "success": true,
+    "http": 200,
+    "init": {
+      "version": "R59",
+      "mesh": 17,
+      "clips": [
+        "Idle_Glide",
+        "Bank_Left",
+        "Bank_Right",
+        "Attack_Dart",
+        "Hit_Recoil"
+      ],
+      "wings": {
+        "left": null,
+        "right": null,
+        "texture": false,
+        "normal": false,
+        "roughness": false,
+        "rolesFound": false
+      }
+    },
+    "bank": {
+      "root": {
+        "rotation": [
+          -0.04131212634910641,
+          -0.009055423933137187,
+          0.2106040370147057,
+          0.9766561392738851
+        ],
+        "position": [
+          -0.09669090830557284,
+          0.0729636378414703,
+          0
+        ]
+      },
+      "wings": {
+        "left": null,
+        "right": null,
+        "texture": false,
+        "normal": false,
+        "roughness": false,
+        "rolesFound": false
+      }
+    },
+    "dart": {
+      "root": {
+        "rotation": [
+          -0.07611692268113159,
+          -0.00012932490425105088,
+          -0.0018494323071574356,
+          0.997097194448712
+        ],
+        "position": [
+          0,
+          -0.05406842235663608,
+          -0.3840315789189037
+        ]
+      },
+      "wings": {
+        "left": null,
+        "right": null,
+        "texture": false,
+        "normal": false,
+        "roughness": false,
+        "rolesFound": false
+      }
+    },
+    "gpu": {
+      "webgl2": true,
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    "frametimes": {
+      "count": 84,
+      "p95_frame_ms": 16.7
+    },
+    "errors": []
+  },
+  {
+    "view": "portrait",
+    "variant": "R60",
+    "success": true,
+    "http": 200,
+    "init": {
+      "version": "R60",
+      "mesh": 17,
+      "clips": [
+        "Idle_Glide",
+        "Bank_Left",
+        "Bank_Right",
+        "Attack_Dart",
+        "Hit_Recoil"
+      ],
+      "wings": {
+        "left": [
+          0.05776000024543868,
+          0
+        ],
+        "right": [
+          0.04813333533097201,
+          0
+        ],
+        "texture": true,
+        "normal": true,
+        "roughness": true,
+        "rolesFound": true
+      }
+    },
+    "bank": {
+      "root": {
+        "rotation": [
+          -0.041228704061475004,
+          -0.009030169067444842,
+          0.2102351739977696,
+          0.9767393660067945
+        ],
+        "position": [
+          -0.09647424162660893,
+          0.07283030449388303,
+          0
+        ]
+      },
+      "wings": {
+        "left": [
+          0.8820302948957749,
+          0
+        ],
+        "right": [
+          0.5861333319656179,
+          0
+        ],
+        "texture": true,
+        "normal": true,
+        "roughness": true,
+        "rolesFound": true
+      }
+    },
+    "dart": {
+      "root": {
+        "rotation": [
+          -0.07595208793200517,
+          -0.00013125504431234756,
+          -0.001877034596193516,
+          0.9971097121073454
+        ],
+        "position": [
+          0,
+          -0.053905264468322,
+          -0.38349473684894103
+        ]
+      },
+      "wings": {
+        "left": [
+          0.1385894663307473,
+          0.23210526925457503
+        ],
+        "right": [
+          0.1385894663307473,
+          0.23210526925457503
+        ],
+        "texture": true,
+        "normal": true,
+        "roughness": true,
+        "rolesFound": true
+      }
+    },
+    "gpu": {
+      "webgl2": true,
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    "frametimes": {
+      "count": 84,
+      "p95_frame_ms": 16.8
+    },
+    "errors": []
+  }
+]
