@@ -64,16 +64,39 @@ export function instantiateSummon(THREE,template){
      ['Idle_Menu_Breath','Idle','idle','Stand'];
   return preference.map(n=>clips.find(c=>c.name===n)).find(Boolean)||clips[0];
  };
- let current=null;
+ // Preserve animation continuity. R63's stopAllAction() teleported bones
+ // from one source clip to another on every attack/hit/idle transition.
+ // A short cross-fade keeps source-authored motion, with no invented mesh.
+ let current=null,activeAction=null,transitions=0;
+ const fading=new Map();
+ const update=(dt)=>{
+  if(!mixer)return;
+  mixer.update(dt);
+  for(const [action,remaining] of fading){
+   const next=remaining-dt;
+   if(next<=0){action.stop();fading.delete(action)}
+   else fading.set(action,next);
+  }
+ };
  const play=(kind)=>{
   if(!mixer)return false;
   const clip=choose(kind);if(!clip)return false;
   if(current===clip.name&&kind==='idle')return true;
-  mixer.stopAllAction();
-  const a=mixer.clipAction(clip);a.reset();a.enabled=true;a.setEffectiveWeight(1);
-  a.setLoop(kind==='idle'||kind==='walk'?THREE.LoopRepeat:THREE.LoopOnce,kind==='idle'||kind==='walk'?Infinity:1);
-  a.clampWhenFinished=kind!=='idle'&&kind!=='walk';
-  a.play();current=clip.name;return true;
+  const next=mixer.clipAction(clip),prev=activeAction;
+  fading.delete(next); // A previously fading clip can become current again.
+  next.reset();next.enabled=true;
+  next.setEffectiveTimeScale(1);next.setEffectiveWeight(1);
+  const repeat=kind==='idle'||kind==='walk';
+  next.setLoop(repeat?THREE.LoopRepeat:THREE.LoopOnce,repeat?Infinity:1);
+  next.clampWhenFinished=!repeat;
+  next.play();
+  if(prev&&prev!==next){
+   next.crossFadeFrom(prev,.18,true);
+   fading.set(prev,.20); // Retire the zero-weight outgoing action.
+   transitions++;
+  }
+  activeAction=next;current=clip.name;
+  return true;
  };
  play('idle');
  // Some skinned GLBs embed a root-motion offset that raises their boots.
@@ -86,6 +109,8 @@ export function instantiateSummon(THREE,template){
    scaled.position.y-=posed.min.y;
   }
  }
- return {root,mixer,play,instance,meshCount:template.meshes,animationCount:template.clips.length,
+ return {root,mixer,play,update,instance,meshCount:template.meshes,animationCount:template.clips.length,
+  get currentClip(){return current},get transitions(){return transitions},
+  get fadingClips(){return fading.size},
   artApproved:false,kind:'real-gltf-prototype'};
 }

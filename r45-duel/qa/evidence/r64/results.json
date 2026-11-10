@@ -1,0 +1,38 @@
+[
+  {
+    "view": "wide",
+    "pass": true,
+    "ended": true,
+    "arcs": true,
+    "recoil": true,
+    "crossfades": true,
+    "sourceClips": true,
+    "facing": true,
+    "frame": true,
+    "idleE02": true,
+    "fadedClipsClean": true,
+    "errors": [],
+    "sampleCount": 53,
+    "maxG02Crossfades": 3,
+    "paperAttackPitchMin": -0.1507,
+    "paperTargetPitchMax": 0.1257
+  },
+  {
+    "view": "portrait",
+    "pass": true,
+    "ended": true,
+    "arcs": true,
+    "recoil": true,
+    "crossfades": true,
+    "sourceClips": true,
+    "facing": true,
+    "frame": true,
+    "idleE02": true,
+    "fadedClipsClean": true,
+    "errors": [],
+    "sampleCount": 53,
+    "maxG02Crossfades": 3,
+    "paperAttackPitchMin": -0.1504,
+    "paperTargetPitchMax": 0.1257
+  }
+]

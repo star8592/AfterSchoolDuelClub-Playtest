@@ -293,12 +293,22 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
   lastUpdateSeconds=seconds;
   const labelStyle=activeHpStyle(camera);
   for(const state of entries.values()){
-   state.object.userData.r61?.mixer?.update(dt);
+   state.object.userData.r61?.update?.(dt);
    if(state.status&&labelStyle!=='hidden')drawStatusTag(state,labelStyle);
    const object=state.object;
    if(state.kind==='vrm-instance'||state.kind==='gltf-instance'){
     const hover=state.kind==='gltf-instance'?(prototypes.get(state.id)?.spec.hover||0):0;
-    object.position.y=hover+(hover?.032:.008)*Math.sin(seconds*1.5+state.index);
+    if(state.id==='E02'){
+     // E02 is a solid paper plane without animation clips. Slow, low-angle
+     // flight is kept camera-independent; no fast jitter or forced spins.
+     const phase=seconds*.96+state.index*.68+(state.side==='ai'?1.1:0);
+     object.position.y=hover+.020*Math.sin(phase);
+     object.rotation.x=.026*Math.sin(phase*.79);
+     object.rotation.z=.020*Math.sin(phase*.63);
+    }else{
+     object.position.y=hover+(hover?.032:.008)*Math.sin(seconds*1.5+state.index);
+     object.rotation.x=0;
+    }
    }
    // An exchange affects position only temporarily; resting pose is
    // reconstructed each frame and therefore cannot accumulate drift.
@@ -366,12 +376,23 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     if(attacker){
      const sideSign=event.side==='player'?1:-1;
      attacker.object.position.x+=sideSign*.62*lunge;
-     attacker.object.rotation.z=-sideSign*.11*lunge;
+     attacker.object.rotation.z+=-sideSign*.11*lunge;
+     if(attacker.id==='E02'){
+      // A flight arc conveys an attack despite E02 having no bone animation.
+      // All offsets unwind to the stationary hover every frame.
+      attacker.object.position.y+=.13*lunge;
+      attacker.object.rotation.x-=.16*lunge;
+      attacker.object.rotation.z+=-sideSign*.09*lunge;
+     }
     }
     if(target){
      const sideSign=event.side==='player'?-1:1;
      target.object.position.x+=sideSign*.24*recoil;
-     target.object.rotation.z=sideSign*.14*recoil;
+     target.object.rotation.z+=sideSign*.14*recoil;
+     if(target.id==='E02'){
+      target.object.position.y+=.04*recoil;
+      target.object.rotation.x+=.10*recoil;
+     }
     }
     for(const state of [attacker,target]){
      if(state?.status?.label)state.status.label.position.x=state.object.position.x;
@@ -436,6 +457,15 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
      s.kind==='gltf-instance'?prototypes.get(s.id).source.children.length:undefined,
     meshes:s.kind==='gltf-instance'?s.object.userData.r61?.meshCount:undefined,
     clips:s.kind==='gltf-instance'?s.object.userData.r61?.animationCount:undefined,
+    // Read-only debug telemetry; no gameplay authority, DOM overlay or network.
+    motion:s.kind==='gltf-instance'?{
+     pitch:Number(s.object.rotation.x.toFixed(4)),
+     bank:Number(s.object.rotation.z.toFixed(4)),
+     lift:Number(s.object.position.y.toFixed(4)),
+     clip:s.object.userData.r61?.currentClip||null,
+     crossfades:s.object.userData.r61?.transitions||0,
+     fadingClips:s.object.userData.r61?.fadingClips||0
+    }:null,
     artApproved:false};
   });
   return{revision,hpDisplayMode,activeHpStyle:activeHpStyle(camera),
