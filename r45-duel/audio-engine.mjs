@@ -16,6 +16,12 @@ const VOICE_MODEL='Qwen3-TTS';
 const base='./assets/audio/';
 const clamp=n=>Math.min(1,Math.max(0,Number(n)||0));
 const defaults={music:.44,sfx:.75,voice:.86};
+const SOUND_INTENT_KEY='asdc_r83_sound_on';
+function savedSoundIntent(){
+  try{return localStorage.getItem(SOUND_INTENT_KEY)!=='off'}
+  catch{return true}
+}
+
 function savedVolume(){
  try{
   const stored=JSON.parse(localStorage.getItem('asdc_r70_audio_mix')||'null');
@@ -25,7 +31,10 @@ function savedVolume(){
 }
 
 export function createDuelAudio(){
- let enabled=false,ctx=null,decoded=new Map(),voiceManifest={clips:{}},voiceAudio=null;
+ let requested=savedSoundIntent(),enabled=false,ctx=null,decoded=new Map(),voiceManifest={clips:{}},voiceAudio=null;
+ let assetsLoading=null,assetsReady=false,musicAttemptInFlight=false;
+ const pendingCues=[],pendingVoices=[];
+
  let musicAudio=null,musicKind='school_duel_theme',musicDucked=false;
  let activeSfx=0,voiceQueue=[],currentVoiceKey=null;
  const recentVoiceKeys=new Map();
@@ -60,39 +69,90 @@ export function createDuelAudio(){
   }));
  }
  function beginMusic(){
-  if(!enabled||!musicAudio)return;
+  if(!requested||!musicAudio||musicAttemptInFlight||!musicAudio.paused)return;
   musicAudio.loop=true;
   updateMusicVolume();
+  musicAttemptInFlight=true;
   const play=musicAudio.play();
-  play?.then(()=>{counters.musicStart++;log('music',musicKind)}).catch(e=>{
-   counters.errors++;log('music-error',String(e));
+  play?.then(()=>{
+    musicAttemptInFlight=false;
+    if(!requested){musicAudio.pause();return}
+    counters.musicStart++;log('music',musicKind);
+  }).catch(e=>{
+    musicAttemptInFlight=false;
+    // Autoplay is routinely blocked on a fresh browser tab: this is not an
+    // asset failure or a reason to force an extra sound-enable button.
+    if(e?.name==='NotAllowedError')log('autoplay-deferred','first game interaction unlocks audio');
+    else if(e?.name!=='AbortError'){counters.errors++;log('music-error',String(e))}
   });
  }
- async function unlock(){
-  if(enabled)return true;
+ async function prepare(){
+  if(assetsLoading)return assetsLoading;
   const Ctx=window.AudioContext||window.webkitAudioContext;
-  if(!Ctx)throw Error('Browser does not support Web Audio');
+  if(!Ctx)return Promise.reject(Error('Browser does not support Web Audio'));
   ctx??=new Ctx();
-  await ctx.resume();
-  enabled=true;counters.unlock++;
-  // Audio files are served from the same origin as this game; no external stream.
-  musicAudio=new Audio(base+musicKind+'.ogg');
+  musicAudio??=new Audio(base+musicKind+'.ogg');
   musicAudio.preload='auto';
+  musicAudio.loop=true;
   musicAudio.addEventListener('error',()=>{
-   counters.errors++;log('music-error','file failed');
+    counters.errors++;log('music-error','file failed');
   });
+  // Decode while suspended. First card selection must not wait for network.
+  assetsLoading=Promise.all([loadManifest(),preloadCues()]).then(()=>{
+    assetsReady=true;flushPending();
+    log('prepared','sound files ready; playback follows browser policy');
+    return true;
+  });
+  return assetsLoading;
+ }
+ function flushPending(){
+  if(!requested||!enabled)return;
+  for(const item of pendingCues.splice(0,8))
+    playCue(item.key,item.side);
+  if(voiceManifest.clips){
+    for(const item of pendingVoices.splice(0,3))
+      playCharacter(item.id,item.kind);
+  }
+ }
+ // Called optimistically on page entry, then immediately on the first real
+ // card/keyboard/tap gesture if the browser disallowed autoplay.
+ async function unlock(){
+  if(!requested)return false;
+  if(enabled&&ctx?.state==='running'){
+    // Some browsers allow AudioContext.resume() during page load but refuse
+    // HTMLAudioElement.play(). A real card gesture must retry the music too.
+    if(musicAudio?.paused&&!musicAttemptInFlight)beginMusic();
+    return true;
+  }
+  void prepare().catch(e=>{counters.errors++;log('prepare-error',String(e))});
+  if(!ctx)throw Error('Browser does not support Web Audio');
+  // Attempt HTML media PLAY synchronously inside the user gesture; awaiting
+  // resume() first can lose transient activation in Chromium/Safari.
   beginMusic();
-  void loadManifest();void preloadCues();
-  log('unlocked','explicit user gesture');
+  await ctx.resume();
+  if(!requested)return false; // explicit mute won a racing async resume
+  if(ctx.state!=='running')return false;
+  if(!enabled){enabled=true;counters.unlock++;log('unlocked','auto on load / first game action');}
+  // A user gesture may arrive while an autoplay rejection is still settling.
+  if(musicAudio?.paused&&!musicAttemptInFlight)beginMusic();
+  flushPending();
   return true;
  }
  function stop(){
+  requested=false;
+  try{localStorage.setItem(SOUND_INTENT_KEY,'off')}catch{}
   enabled=false;
+  pendingCues.length=0;pendingVoices.length=0;
   musicAudio?.pause();
-  voiceQueue=[];
-  voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
+  voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
   musicDucked=false;
-  log('muted','user');
+  void ctx?.suspend().catch(()=>{});
+  log('muted','explicit user preference');
+ }
+ async function turnOn(){
+  requested=true;
+  try{localStorage.setItem(SOUND_INTENT_KEY,'on')}catch{}
+  return unlock();
  }
  function setVolume(channel,value){
   if(!Object.hasOwn(volume,channel))return;
@@ -102,7 +162,11 @@ export function createDuelAudio(){
   log('volume',channel+':'+volume[channel]);
  }
  function playCue(key,side='center'){
-  if(!enabled||!ctx||!decoded.has(key)||!SOUNDS[key]||volume.sfx===0)return false;
+  if(!requested||!SOUNDS[key]||volume.sfx===0)return false;
+  if(!enabled||!ctx||!decoded.has(key)){
+    if(pendingCues.length<8)pendingCues.push({key,side});
+    return true;
+  }
   try{
    const source=ctx.createBufferSource(),gain=ctx.createGain();
    source.buffer=decoded.get(key);
@@ -150,7 +214,11 @@ export function createDuelAudio(){
   }catch(e){counters.errors++;log('voice-init-error',String(e));done()}
  }
  function playCharacter(id,kind='enter'){
-  if(!enabled||volume.voice===0)return false;
+  if(!requested||volume.voice===0)return false;
+  if(!enabled||!assetsReady){
+    if(pendingVoices.length<3)pendingVoices.push({id,kind});
+    return true;
+  }
   const clip=voiceManifest.clips?.[id]?.[kind];
   if(!clip?.file||clip.ready!==true){counters.voiceMissing++;return false}
   // Only locally generated Qwen3-TTS Opus file names, never remote URLs.
@@ -178,6 +246,7 @@ export function createDuelAudio(){
   musicKind=to;
   if(!enabled)return;
   musicAudio?.pause();
+  musicAttemptInFlight=false;
   musicAudio=new Audio(base+to+'.ogg');
   musicAudio.preload='auto';
   beginMusic();
@@ -189,9 +258,12 @@ export function createDuelAudio(){
   if(winner!=='draw')playCue('stadium_cheer');
   log('finished',winner);
  }
- function status(){return {provider:VOICE_MODEL,enabled,
+ function status(){return {provider:VOICE_MODEL,enabled,requested,
+  activationPending:requested&&!enabled,assetsReady,
+  audioContextState:ctx?.state||'none',
+  pendingCues:pendingCues.length,pendingVoices:pendingVoices.length,
   musicKind,musicDucked,voicePlaying:!!voiceAudio,currentVoiceKey,
   voiceQueue:voiceQueue.map(x=>x.id+':'+x.kind),decodedCues:decoded.size,voiceClipCount:Object.keys(voiceManifest.clips||{}).length,
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
- return {unlock,stop,setVolume,playCue,playCharacter,switchMusic,gameFinished,status};
+ return {prepare,unlock,turnOn,stop,setVolume,playCue,playCharacter,switchMusic,gameFinished,status};
 }

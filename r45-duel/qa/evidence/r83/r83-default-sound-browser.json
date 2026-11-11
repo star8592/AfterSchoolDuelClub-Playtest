@@ -1,0 +1,52 @@
+[
+  {
+    "name": "desktop",
+    "pass": true,
+    "initial": {
+      "requested": true,
+      "enabled": true
+    },
+    "afterCard": {
+      "requested": true,
+      "enabled": true,
+      "decoded": 17,
+      "musicStart": 1,
+      "firstCardCues": 1
+    },
+    "afterPlay": {
+      "voices": 1
+    },
+    "persistedMute": true,
+    "oneClickRestore": true,
+    "errors": []
+  },
+  {
+    "name": "phone",
+    "pass": true,
+    "initial": {
+      "requested": true,
+      "enabled": true
+    },
+    "afterCard": {
+      "requested": true,
+      "enabled": true,
+      "decoded": 17,
+      "musicStart": 1,
+      "firstCardCues": 1
+    },
+    "afterPlay": {
+      "voices": 1
+    },
+    "persistedMute": true,
+    "oneClickRestore": true,
+    "errors": []
+  },
+  {
+    "name": "autoplay-allowed-launch",
+    "pass": true,
+    "requested": true,
+    "enabled": true,
+    "musicStart": 1,
+    "errors": []
+  }
+]

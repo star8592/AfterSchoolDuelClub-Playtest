@@ -42,7 +42,7 @@ try{
  await page.close();
  // Seed 5: E06 only legal after turn, real damage causes visible victim reaction.
  page=await open(5);
- await page.locator('#audio-toggle').click();
+ // R83: audio is on by default; ordinary game actions unlock browser audio.
  await page.waitForFunction(()=>window.__r45QA?.audio?.voiceClipCount>=15,null,{timeout:17000}).catch(()=>{});
  await page.locator('#end').click();
  await page.waitForTimeout(320);

@@ -37,13 +37,43 @@ for(const [id,channel] of [['audio-music','music'],['audio-sfx','sfx'],['audio-v
  const slider=$(id);slider.value=Math.round(audio.status().volume[channel]*100);
  slider.addEventListener('input',()=>audio.setVolume(channel,Number(slider.value)/100));
 }
-$('audio-toggle').addEventListener('click',async()=>{
- const button=$('audio-toggle');
- if(audio.status().enabled){audio.stop();button.textContent='♪ 开启声音';button.setAttribute('aria-pressed','false');return}
- try{
-  await audio.unlock();button.textContent='♫ 声音开启';button.setAttribute('aria-pressed','true');
- }catch(e){button.textContent='♪ 播放受限';announce('浏览器无法启动音频：'+String(e.message),'warning')}
+// Sound is ON for new players; Chrome/Safari may wait for the first gesture.
+ // Never make "enable audio" an extra step before selecting or playing a card.
+const soundToggle=$('audio-toggle');
+function paintSoundToggle(){
+ const requested=audio.status().requested;
+ soundToggle.textContent=requested?'♫ 声音开启':'♪ 声音关闭';
+ soundToggle.setAttribute('aria-pressed',String(requested));
+ soundToggle.title=requested
+  ?'默认播放音乐、战斗音效和人物语音；点此可静音。浏览器可能在第一次游戏操作时开始播放。'
+  :'当前已静音，点此恢复音乐、战斗音效和人物语音';
+}
+paintSoundToggle();
+soundToggle.addEventListener('click',()=>{
+ if(audio.status().requested){audio.stop();paintSoundToggle();return}
+ // This click is already an explicit playback user gesture.
+ void audio.turnOn().catch(e=>console.warn('Game audio unavailable:',String(e)));
+ paintSoundToggle();
 });
+function unlockSoundOnFirstGameAction(event){
+ const sound=audio.status();
+ // A resumed AudioContext does not imply the music HTMLAudioElement was
+ // allowed to autoplay. Retry the latter on a genuine card/keyboard gesture.
+ if(!sound.requested||(sound.enabled&&sound.counters.musicStart>0))return;
+ if(event.target instanceof Element&&event.target.closest('#audio-toggle'))return;
+ void audio.unlock().catch(e=>console.warn('Game audio unavailable:',String(e)));
+}
+// Capture before the card click is handled, so the first tap has an audible
+// card cue rather than a silent first move.
+for(const type of ['pointerdown','keydown','click']){
+ window.addEventListener(type,unlockSoundOnFirstGameAction,{capture:true,passive:true});
+}
+void audio.prepare().catch(e=>console.warn('Audio preload unavailable:',String(e)));
+if(audio.status().requested){
+ // Autoplay is attempted where the browser allows it; otherwise no dialog:
+ // first ordinary game interaction resumes the sound automatically.
+ void audio.unlock().catch(e=>console.warn('Audio autoplay unavailable:',String(e)));
+}
 function cardSound(c){
  if(c.kind==='unit')return 'cast';
  return ({buff:'cast',blast:'spell_charge',confuse:'spell_charge',repair:'heal',heal:'heal',draw:'select'})[c.effect]||'turn';
