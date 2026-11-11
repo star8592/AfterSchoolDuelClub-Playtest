@@ -1,5 +1,5 @@
 {
-  "version": "R72",
+  "version": "R73",
   "release_status": "PLAYABILITY_ONLY",
   "approved_final_art": 0,
   "models": [
@@ -83,15 +83,15 @@
     },
     {
       "card_id": "T01",
-      "file": "T01-BroadcastOwl-BarnOwl.glb",
-      "source_repository_path": "art-lab/r55-audition/models/BarnOwl.glb",
-      "sha256": "6219f98a1582cba03bcfa45cdd9971c8e740a56eb2d4c7f873a8a10f28796fdb",
-      "bytes": 91784,
-      "license": "CC0 1.0",
-      "source_url": "https://gobkit.com/freebies/animal013/BarnOwl.glb",
-      "mode": "PLAYABILITY_PROTOTYPE_NOT_FINAL_ART",
+      "file": "T01-BroadcastOwl-PolyforkRadio-R73.glb",
+      "source_repository_path": "r45-duel/art-lab/r73-blender/build_t01_broadcaster.py",
+      "sha256": "decb055cf33ef44a70ed41a40b92662e466100fa2e68f49c67319170f3634e1c",
+      "bytes": 1610700,
+      "license": "CC BY 4.0 · Polyfork Owl, original mesh plus Blender-authored broadcasting headset",
+      "source_url": "https://polyfork.dev/asset/owl-base",
+      "mode": "PLAYABILITY_BLENDER_ENHANCED_PENDING_FINAL_ART",
       "art_approved": false,
-      "match_note": "Bird 3D base, broadcaster costume R56 stays study until integrated",
+      "match_note": "Polyfork Owl 21-bone 4-action rig plus skinned earphones/microphone/rec LED made in Blender, visually recognizable school announcer; browser QA still required",
       "skeleton_animation": true
     },
     {

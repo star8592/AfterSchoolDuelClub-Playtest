@@ -1,0 +1,37 @@
+{
+  "source": "r45-duel/assets/summons/T01-BroadcastOwl-PolyforkOwl.glb",
+  "output": "r45-duel/assets/summons/T01-BroadcastOwl-PolyforkRadio-R73.glb",
+  "blend": "r45-duel/assets/summons/T01-BroadcastOwl-PolyforkRadio-R73.blend",
+  "source_sha256": "43932e56a0e4f4755b68253006ab9ca37a838bde552d7a3f2f6f3e19167a7cc9",
+  "output_sha256": "decb055cf33ef44a70ed41a40b92662e466100fa2e68f49c67319170f3634e1c",
+  "source_triangles": 3502,
+  "added_parts": 15,
+  "added_part_names": [
+    "R73_Headband_navy",
+    "R73_Headband_gold_trim",
+    "R73_Earcup_-1_navy",
+    "R73_Earcup_-1_cream",
+    "R73_Earcup_-1_goldpin",
+    "R73_Earcup_-1_stem",
+    "R73_Earcup_1_navy",
+    "R73_Earcup_1_cream",
+    "R73_Earcup_1_goldpin",
+    "R73_Earcup_1_stem",
+    "R73_Boom_Mic_gold",
+    "R73_Headset_Mic_foam",
+    "R73_OnAir_indicator",
+    "R73_Broadcast_badge_base",
+    "R73_Broadcast_badge_mark"
+  ],
+  "armature_name": "body",
+  "source_bones": 21,
+  "source_animations": [
+    "Fly",
+    "Idle",
+    "Run",
+    "Walk"
+  ],
+  "source_license": "CC BY 4.0 \u00b7 Polyfork Owl \u00b7 https://polyfork.dev/",
+  "art_approved": false,
+  "quality_stage": "BLENDER_MASTER_READY_BROWSER_REVIEW_PENDING"
+}

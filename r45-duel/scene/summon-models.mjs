@@ -16,7 +16,7 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  G03:{file:'G03-ReverseLab-WhiteCoatDoctor.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-ClubDirector-OfficeManager.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  M01:{file:'M01-MusicTeacher-PolyforkSchoolTeacher.glb',label:'音乐老师',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- T01:{file:'T01-BroadcastOwl-BarnOwl.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
+ T01:{file:'T01-BroadcastOwl-PolyforkRadio-R73.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
  T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T04:{file:'T04-ClubGuardian-SecurityGuard.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
@@ -95,7 +95,7 @@ export function instantiateSummon(THREE,template){
    kind==='death'?['Death','dead']:
    kind==='walk'?['Walk_Small_Steps','Walk','walk','Run']:
      ['Idle_Menu_Breath','Idle','idle','Stand'];
-  return preference.map(n=>clips.find(c=>c.name===n)).find(Boolean)||clips[0];
+  return preference.map(n=>clips.find(c=>c.name===n||c.name.startsWith(n+'.'))).find(Boolean)||clips[0];
  };
  // Preserve animation continuity. R63's stopAllAction() teleported bones
  // from one source clip to another on every attack/hit/idle transition.

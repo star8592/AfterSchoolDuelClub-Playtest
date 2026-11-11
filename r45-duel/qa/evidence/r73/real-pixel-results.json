@@ -1,0 +1,130 @@
+[
+  {
+    "viewport": "wide",
+    "angle": 0,
+    "file": "wide-0-canvas.png",
+    "pass": true,
+    "mean_rgb": [
+      54.5,
+      71.05,
+      89.54
+    ],
+    "stddev_rgb": [
+      36.77,
+      33.5,
+      33.38
+    ]
+  },
+  {
+    "viewport": "wide",
+    "angle": 45,
+    "file": "wide-45-canvas.png",
+    "pass": true,
+    "mean_rgb": [
+      54.52,
+      70.92,
+      89.26
+    ],
+    "stddev_rgb": [
+      36.88,
+      33.39,
+      33.33
+    ]
+  },
+  {
+    "viewport": "wide",
+    "angle": 90,
+    "file": "wide-90-canvas.png",
+    "pass": true,
+    "mean_rgb": [
+      54.56,
+      70.84,
+      89.04
+    ],
+    "stddev_rgb": [
+      36.53,
+      32.91,
+      33.09
+    ]
+  },
+  {
+    "viewport": "wide",
+    "angle": 180,
+    "file": "wide-180-canvas.png",
+    "pass": true,
+    "mean_rgb": [
+      54.83,
+      70.73,
+      88.33
+    ],
+    "stddev_rgb": [
+      36.89,
+      31.92,
+      31.93
+    ]
+  },
+  {
+    "viewport": "portrait",
+    "angle": 0,
+    "file": "portrait-0-canvas.png",
+    "pass": true,
+    "mean_rgb": [
+      41.91,
+      55.97,
+      71.72
+    ],
+    "stddev_rgb": [
+      37.63,
+      31.86,
+      28.18
+    ]
+  },
+  {
+    "viewport": "portrait",
+    "angle": 45,
+    "file": "portrait-45-canvas.png",
+    "pass": true,
+    "mean_rgb": [
+      42.14,
+      55.95,
+      71.49
+    ],
+    "stddev_rgb": [
+      38.09,
+      31.74,
+      27.94
+    ]
+  },
+  {
+    "viewport": "portrait",
+    "angle": 90,
+    "file": "portrait-90-canvas.png",
+    "pass": true,
+    "mean_rgb": [
+      42.05,
+      55.79,
+      71.24
+    ],
+    "stddev_rgb": [
+      37.48,
+      31.04,
+      27.53
+    ]
+  },
+  {
+    "viewport": "portrait",
+    "angle": 180,
+    "file": "portrait-180-canvas.png",
+    "pass": true,
+    "mean_rgb": [
+      42.44,
+      55.68,
+      70.36
+    ],
+    "stddev_rgb": [
+      38.13,
+      29.65,
+      25.11
+    ]
+  }
+]
