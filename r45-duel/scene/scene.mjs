@@ -6,6 +6,7 @@
  */
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
@@ -121,6 +122,7 @@ function keepArenaVisible(){
   }
  });
 }
+let duelistHosts=[];
 let stadiumEvidence=null;
 let duelEffects=null;
 let podiumCards=null;
@@ -291,6 +293,9 @@ async function loadActor(spec,idx){
  character.add(original);pivot.add(character);
  pivot.position.set(idx===0?-1.75:1.75,0,0);
  pivot.rotation.y=faceOpponentYaw(spec.id,idx===0?'player':'ai');
+ // This rig is the original summonable E01/G01 body; SummonPresence
+ // intentionally controls its visibility. A separately cloned rig at each
+ // duelist podium stays visible for the ENTIRE match (see makeDuelistHosts).
  pivot.visible=false;
  scene.add(pivot);
  const base=new Map();m.forEach((b,n)=>base.set(n,b.quaternion.clone()));
@@ -353,6 +358,37 @@ function reactActor(a,sec,absoluteSec){
  if(attack>.03||hit>.03)actionFrames++;
  if(hit>.1)impactFrames++;
 }
+
+// A real spectator sees two ACTUAL players at their podiums from the start.
+// They must be independent clones: the original VRMs can also be summoned
+// as cards in the central arena, and SummonPresence must still own those.
+function makeDuelistHosts(){
+ duelistHosts=actors.map((actor,i)=>{
+  const pivot=cloneSkeleton(actor.pivot);
+  pivot.name='R74_PERMANENT_DUELIST_'+actor.id;
+  pivot.position.set(i===0?-5.55:5.55,.48,.60);
+  pivot.rotation.y=faceOpponentYaw(actor.id,i===0?'player':'ai');
+  pivot.visible=true;scene.add(pivot);
+  const {m,bones,skins}=indexBones(pivot),base=new Map();
+  m.forEach((bone,key)=>base.set(key,bone.quaternion.clone()));
+  if(skins<actor.skins||bones<actor.boneCount)
+   throw Error('R74 permanent duelist clone lost source VRM skin/bones '+actor.id);
+  return{id:actor.id,pivot,bones:m,base,side:i===0?'player':'ai',
+   sourceRig:actor.source,sourceBones:bones,skinnedMeshes:skins};
+ });
+}
+function updateDuelistHosts(seconds){
+ for(const host of duelistHosts){
+  const breath=Math.sin(seconds*1.36+(host.side==='player'?0:1.4))*.025;
+  // Natural lowered A-pose; never turn hosts into T-pose mannequins.
+  setBone(host,'R_UpperArm',-.08+breath*.1,0,-.92);
+  setBone(host,'L_UpperArm',-.08-breath*.1,0,.92);
+  setBone(host,'R_LowerArm',-.17,0,-.06);
+  setBone(host,'L_LowerArm',-.17,0,.06);
+  setBone(host,'C_Chest',breath*.12,0,0);
+  setBone(host,'C_Head',breath*.18,0,0);
+ }
+}
 function play(payload){
  if(!checkIncoming(payload))throw Error('R45 fight validation: only real E01 vs G01 roles accepted');
  currentPayload=structuredClone(payload);mode=payload.mode;playing=true;
@@ -381,6 +417,7 @@ function loop(){
  else stageText('settled');
  absoluteSeconds+=delta;
  actors.forEach(a=>reactActor(a,t,absoluteSeconds));
+ updateDuelistHosts(absoluteSeconds);
  duelEffects?.update({absoluteSec:absoluteSeconds,fightTime:t,playing,
    visible:actors.map(a=>a.pivot.visible),
    reducedMotion:reduced});
@@ -493,6 +530,9 @@ function exposeQA(){
   get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale,measured:x.measured})):[];},
   get combatEvents(){return summonPresence?.sequenceStats()||null},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
+  get duelistHosts(){return duelistHosts.map(a=>({id:a.id,visible:a.pivot.visible,
+   x:Number(a.pivot.position.x.toFixed(3)),y:Number(a.pivot.position.y.toFixed(3)),
+   z:Number(a.pivot.position.z.toFixed(3)),bones:a.sourceBones,skins:a.skinnedMeshes}))},
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
    bones:a.boneCount,skinnedMeshes:a.skins,triangles:a.triangles,
    recoloredMeshes:a.style.recolored,accessories:a.style.accessories}))},
@@ -530,6 +570,7 @@ try{
  source3DAssetsVerified=actors[0].source==='Shino-original-CC0.vrm'&&
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
+ makeDuelistHosts();
  summonModels=await preloadSummonModels(THREE,new GLTFLoader());
  summonPresence=createSummonPresence(THREE,scene,{actors,prototypes:summonModels});
  // Do not signal scene readiness before Chrome actually paints the first
