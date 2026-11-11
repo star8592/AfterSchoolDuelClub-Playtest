@@ -1,0 +1,70 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>R77 · 三个错配角色的新旧高模对照</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>*{box-sizing:border-box}html,body{height:100%;margin:0;background:#13253b;color:#f2f4f7;font:14px system-ui,sans-serif}header{background:#20374a;padding:11px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}h1{font-size:17px;margin:0}p{font-size:12px;color:#b9cbd9;margin:4px 0}nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}label{font-size:12px}select{border-radius:6px;border:1px solid #6b899b;padding:7px;background:#2b475d;color:white}canvas{display:block;width:100%;height:calc(100vh - 213px);min-height:310px}footer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;background:#172e43;padding:8px}footer article{padding:8px;border-radius:7px;border:1px solid #57758b;background:#28465b;min-height:67px}footer b{font-size:12px}footer small{display:block;font-size:10px;color:#bad2df;margin-top:4px}footer em{display:block;font-size:10px;color:#93e5bc;font-style:normal}#note{background:#162c42;padding:5px 14px;font-size:11px;color:#c0d1dd}@media(max-width:650px){header{padding:7px}h1{font-size:14px}p{font-size:10px}canvas{height:calc(100vh - 255px)}footer article{padding:4px}footer b,footer small,footer em{font-size:9px}}
+</style></head><body>
+<header><div><h1>R77 · 真实新旧模型选角对照</h1><p>低模兜底 vs. MIT 原始高质量人物 · 双人收发员真实双骨骼角色 · 可切换 3D 体育馆</p></div>
+<nav><label>目标角色<select id="role"><option value="E03">E03 加油队长</option><option value="G02">G02 黑板专家</option><option value="T03">T03 默契收发员</option></select></label>
+<label>单人放大<select id="focus"><option value="all">新旧全部</option></select></label>
+<label>动作<select id="motion"><option value="idle">自然待机</option><option value="wave">挥手</option><option value="talk">讲话</option><option value="cheer">欢呼</option></select></label>
+<label>角度<select id="angle"><option>0</option><option>45</option><option>90</option><option>180</option></select></label>
+<label>场馆<select id="venue"><option value="studio">底模试镜</option><option value="gym">真实体育馆</option></select></label></nav></header>
+<canvas id="canvas"></canvas><footer id="labels"></footer><div id="note">所有高质量模型来源 Rocketbox MIT，逐一保留原始 GLB 与许可。基底候选不等于与原作角色一致；旧模型仅为对照，正式游戏尚未换入候选。</div>
+<script type="module">
+import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';import {createStadium} from '../scene/stadium.mjs';
+const $=id=>document.getElementById(id),qp=new URLSearchParams(location.search);
+const pick=(id,list,fallback)=>list.includes(qp.get(id))?qp.get(id):fallback;
+const o={role:pick('role',['E03','G02','T03'],'E03'),motion:pick('motion',['idle','wave','talk','cheer'],'idle'),angle:[0,45,90,180].includes(+qp.get('angle'))?+qp.get('angle'):0,venue:pick('venue',['studio','gym'],'studio')};
+for(const id of ['role','motion','angle','venue','focus']){$(id).value=String(o[id]);$(id).addEventListener('change',()=>{const p=new URLSearchParams(location.search);p.set(id,$(id).value);location.search=p.toString()})}
+const sources={
+ E03:[{name:'旧低模 · Schoolkid',list:['legacy-E03'],legacy:true},{name:'女孩 01 · MIT',list:['female-child-01']},{name:'女孩 02 · MIT',list:['female-child-02']}],
+ G02:[{name:'旧 IT 工程师',list:['legacy-G02'],legacy:true},{name:'男孩 01 · MIT',list:['male-child-01']},{name:'男孩 02 · MIT',list:['male-child-02']}],
+ T03:[{name:'旧单人骑手低模',list:['legacy-T03'],legacy:true},{name:'真实男配送员 · MIT',list:['delivery-male-01']},{name:'成年女性同事 · MIT',list:['female-adult-07']},{name:'双人协作候选 · 两个独立真人骨架',list:['delivery-male-01','female-adult-07'],duo:true}]
+};
+const srcPath={ 'legacy-E03':'../assets/summons/E03-CheerCaptain-Schoolkid.glb','legacy-G02':'../assets/summons/G02-BlackboardExpert-ItEngineer.glb','legacy-T03':'../assets/summons/T03-MailPair-DeliveryRider.glb',
+ 'male-child-01':'../art-lab/r74-model-recast/candidates/male-child-01.glb',
+ 'male-child-02':'../art-lab/r74-model-recast/candidates/male-child-02.glb',
+ 'female-child-01':'../art-lab/r74-model-recast/candidates/female-child-01.glb',
+ 'female-child-02':'../art-lab/r75-recast/candidates/female-child-02.glb'};
+const roleChoices=sources[o.role];const chosen=pick('focus',['all',...roleChoices.map(g=>g.duo?'duo':g.list[0])],'all');
+$('focus').innerHTML='<option value="all">新旧全部</option>'+roleChoices.map(g=>`<option value="${g.duo?'duo':g.list[0]}">${g.name}</option>`).join('');
+$('focus').value=chosen;
+const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);const scene=new THREE.Scene();scene.background=new THREE.Color('#16283c');scene.add(new THREE.HemisphereLight('#edf7ff','#536d82',2.5));const sun=new THREE.DirectionalLight('#fff0de',2.2);sun.position.set(-5,7,9);scene.add(sun);const rim=new THREE.DirectionalLight('#b6ddff',.9);rim.position.set(5,6,-4);scene.add(rim);
+if(o.venue==='gym')createStadium(THREE,scene,{detail:'low'});else {const floor=new THREE.Mesh(new THREE.PlaneGeometry(30,10),new THREE.MeshStandardMaterial({color:'#37546c',roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.02;scene.add(floor)}
+const canvas=$('canvas'),renderer=new THREE.WebGLRenderer({canvas,powerPreference:'high-performance',antialias:true,preserveDrawingBuffer:true});renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.25));
+const camera=new THREE.PerspectiveCamera(38,1,.1,150);const resize=()=>{const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();camera.position.set(0,o.venue==='gym'?2.42:2.55,chosen!=='all'?(w<700?8.0:5.2):w<700?28:o.venue==='gym'?13.5:10.1);camera.lookAt(0,1.13,o.venue==='gym'?-.55:0)};resize();addEventListener('resize',resize);
+const data=[],motions=[],errors=[];const group=chosen==='all'?sources[o.role]:sources[o.role].filter(g=>(g.duo?'duo':g.list[0])===chosen),pos=chosen!=='all'?[0]:group.length===4?[-4.5,-1.55,1.55,4.5]:[-3.65,0,3.65];
+const names={idle:'idle_neutral_01',wave:'wave_01',talk:'gestic_talk_neutral_01',cheer:'cheer_01'};
+const clipCache={};
+async function sourceClip(prefix){const key=prefix+'_'+names[o.motion];if(!clipCache[key]){const m=await loader.loadAsync(`../art-lab/r75-motion/sources/${key}.glb`);clipCache[key]=m.animations[0]}return clipCache[key]}
+for(const[gi,g]of group.entries()){
+ const parent=new THREE.Group();parent.position.x=pos[gi];parent.rotation.y=o.angle*Math.PI/180;scene.add(parent);
+ let totalBones=0,totalTris=0,skinned=0,clipCount=0,loaded=0,moves=0;const models=[];
+ for(const [j,id]of g.list.entries()){
+  try{
+   const gltf=await loader.loadAsync(srcPath[id]||`../art-lab/r77-targeted-cast/sources/${id}.glb`);
+   const actor=gltf.scene,box=new THREE.Box3().setFromObject(actor,true),dim=box.getSize(new THREE.Vector3());
+   if(box.isEmpty()||!Number.isFinite(dim.y)||dim.y<.02)throw Error('invalid real geometry '+dim.y);
+   const holder=new THREE.Group();parent.add(holder);holder.position.x=g.duo?(j===0?-.55:.55):0;holder.scale.setScalar((g.duo?1.83:2.07)/dim.y);
+   const norm=new THREE.Group();holder.add(norm);norm.add(actor);actor.position.set(-(box.min.x+box.max.x)*.5,-box.min.y,-(box.min.z+box.max.z)*.5);
+   let boneN=0,meshN=0,tris=0;actor.traverse(obj=>{if(obj.isBone)boneN++;if(obj.isSkinnedMesh)meshN++;if(obj.isMesh){const a=obj.geometry;tris+=(a.index?a.index.count:a.attributes.position.count)/3}});
+   let clip=gltf.animations.find(x=>x.name==='Idle')||gltf.animations[0];let matched=0,totalTracks=0,mixer=null;
+   if(!g.legacy){
+     const prefix=id.startsWith('female')?'f':'m',orig=await sourceClip(prefix);totalTracks=orig.tracks.length;
+     const nodes=new Set();actor.traverse(obj=>{if(obj.name)nodes.add(obj.name)});
+     const retarget=orig.tracks.map(t=>{const n=t.clone();if(id.includes('child'))n.name=n.name.replace(/^Bip01(?=\.|_|\s)/,'Bip02');return n}).filter(t=>nodes.has(t.name.slice(0,t.name.lastIndexOf('.'))));matched=retarget.length;
+     if(matched<20||matched<.7*totalTracks)throw Error('skeleton retarget incomplete '+matched+'/'+totalTracks);
+     clip=new THREE.AnimationClip(o.motion,orig.duration,retarget);
+   }
+   if(clip){mixer=new THREE.AnimationMixer(actor);mixer.clipAction(clip).play();motions.push(mixer)}
+   const selected=[];actor.traverse(obj=>{if(obj.isBone&&/(Head|Spine|Arm|Hand|Hips)/i.test(obj.name))selected.push({obj,initial:obj.quaternion.clone()})});
+   models.push({id,bones:boneN,skins:meshN,tris:Math.round(tris),height:dim.y,clip:clip?.name,matched,totalTracks,selected,observedMotion:0});
+   loaded++;totalBones+=boneN;totalTris+=tris;skinned+=meshN;clipCount+=gltf.animations.length;
+  }catch(e){const msg=String(e);console.error('R77_CAST_MODEL_FAILED',id,e);errors.push(`${id}: ${msg}`)}
+ }
+ data.push({label:g.name,legacy:!!g.legacy,duo:!!g.duo,models});
+ $('labels').insertAdjacentHTML('beforeend',`<article><b>${g.name}</b><small>${loaded}/${g.list.length} 个源人物 · ${Math.round(totalTris).toLocaleString()} triangles · ${totalBones} 骨</small><em>${g.legacy?'旧模型仅作对照':g.duo?'双人真正独立骨骼/动作':'原生高模直接导入'} · ${o.motion}</em></article>`);
+}
+let frames=0;const clock=new THREE.Clock();renderer.setAnimationLoop(()=>{const dt=Math.min(clock.getDelta(),.05);motions.forEach(m=>m.update(dt));for(const d of data)for(const m of d.models)for(const b of m.selected){m.observedMotion=Math.max(m.observedMotion,b.initial.angleTo(b.obj.quaternion))}renderer.render(scene,camera);frames++});
+window.__R77_CAST_QA={ready:true,focus:chosen,role:o.role,motion:o.motion,angle:o.angle,venue:o.venue,get frames(){return frames},get errors(){return errors},get data(){return data.map(d=>({label:d.label,legacy:d.legacy,duo:d.duo,models:d.models.map(({id,bones,skins,tris,height,clip,matched,totalTracks,observedMotion})=>({id,bones,skins,tris,height,clip,matched,totalTracks,motion:+observedMotion.toFixed(5)}))}))}};
+</script></body></html>

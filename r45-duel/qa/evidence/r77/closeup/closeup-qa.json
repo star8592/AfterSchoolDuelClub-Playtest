@@ -1,0 +1,190 @@
+[
+  {
+    "role": "E03",
+    "focus": "legacy-E03",
+    "motion": "idle",
+    "angle": 0,
+    "pass": true,
+    "model": [
+      {
+        "id": "legacy-E03",
+        "tris": 1700,
+        "bones": 13,
+        "matched": 0,
+        "totalTracks": 0,
+        "motion": 0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "E03",
+    "focus": "female-child-01",
+    "motion": "cheer",
+    "angle": 0,
+    "pass": true,
+    "model": [
+      {
+        "id": "female-child-01",
+        "tris": 7102,
+        "bones": 81,
+        "matched": 64,
+        "totalTracks": 64,
+        "motion": 2.23946
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "E03",
+    "focus": "female-child-02",
+    "motion": "cheer",
+    "angle": 90,
+    "pass": true,
+    "model": [
+      {
+        "id": "female-child-02",
+        "tris": 6870,
+        "bones": 80,
+        "matched": 64,
+        "totalTracks": 64,
+        "motion": 2.24206
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "G02",
+    "focus": "legacy-G02",
+    "motion": "idle",
+    "angle": 0,
+    "pass": true,
+    "model": [
+      {
+        "id": "legacy-G02",
+        "tris": 2858,
+        "bones": 13,
+        "matched": 0,
+        "totalTracks": 0,
+        "motion": 0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "G02",
+    "focus": "male-child-01",
+    "motion": "talk",
+    "angle": 0,
+    "pass": true,
+    "model": [
+      {
+        "id": "male-child-01",
+        "tris": 6660,
+        "bones": 80,
+        "matched": 64,
+        "totalTracks": 64,
+        "motion": 1.20516
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "G02",
+    "focus": "male-child-02",
+    "motion": "talk",
+    "angle": 90,
+    "pass": true,
+    "model": [
+      {
+        "id": "male-child-02",
+        "tris": 7310,
+        "bones": 80,
+        "matched": 64,
+        "totalTracks": 64,
+        "motion": 1.2052
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "T03",
+    "focus": "legacy-T03",
+    "motion": "idle",
+    "angle": 0,
+    "pass": true,
+    "model": [
+      {
+        "id": "legacy-T03",
+        "tris": 2918,
+        "bones": 13,
+        "matched": 0,
+        "totalTracks": 0,
+        "motion": 0
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "T03",
+    "focus": "delivery-male-01",
+    "motion": "wave",
+    "angle": 0,
+    "pass": true,
+    "model": [
+      {
+        "id": "delivery-male-01",
+        "tris": 6800,
+        "bones": 81,
+        "matched": 62,
+        "totalTracks": 62,
+        "motion": 1.35128
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "T03",
+    "focus": "female-adult-07",
+    "motion": "wave",
+    "angle": 0,
+    "pass": true,
+    "model": [
+      {
+        "id": "female-adult-07",
+        "tris": 8308,
+        "bones": 81,
+        "matched": 46,
+        "totalTracks": 46,
+        "motion": 1.83108
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "T03",
+    "focus": "duo",
+    "motion": "wave",
+    "angle": 0,
+    "pass": true,
+    "model": [
+      {
+        "id": "delivery-male-01",
+        "tris": 6800,
+        "bones": 81,
+        "matched": 62,
+        "totalTracks": 62,
+        "motion": 1.35045
+      },
+      {
+        "id": "female-adult-07",
+        "tris": 8308,
+        "bones": 81,
+        "matched": 46,
+        "totalTracks": 46,
+        "motion": 1.82868
+      }
+    ],
+    "errors": []
+  }
+]

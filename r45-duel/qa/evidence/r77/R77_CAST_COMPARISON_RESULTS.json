@@ -1,0 +1,778 @@
+[
+  {
+    "role": "E03",
+    "motion": "idle",
+    "angle": 0,
+    "venue": "studio",
+    "vp": "wide",
+    "pass": true,
+    "pngBytes": 98225,
+    "data": [
+      {
+        "label": "旧低模 · Schoolkid",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-E03",
+            "bones": 13,
+            "skins": 1,
+            "tris": 1700,
+            "height": 0.13261737951824198,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "女孩 01 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-child-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 7102,
+            "height": 1.4330282359659605,
+            "clip": "idle",
+            "matched": 62,
+            "totalTracks": 62,
+            "motion": 0.71831
+          }
+        ]
+      },
+      {
+        "label": "女孩 02 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-child-02",
+            "bones": 80,
+            "skins": 2,
+            "tris": 6870,
+            "height": 1.4380100373213847,
+            "clip": "idle",
+            "matched": 62,
+            "totalTracks": 62,
+            "motion": 0.71831
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "E03",
+    "motion": "cheer",
+    "angle": 45,
+    "venue": "gym",
+    "vp": "wide",
+    "pass": true,
+    "pngBytes": 728191,
+    "data": [
+      {
+        "label": "旧低模 · Schoolkid",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-E03",
+            "bones": 13,
+            "skins": 1,
+            "tris": 1700,
+            "height": 0.13261737951824198,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "女孩 01 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-child-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 7102,
+            "height": 1.4330282359659605,
+            "clip": "cheer",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 2.24116
+          }
+        ]
+      },
+      {
+        "label": "女孩 02 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-child-02",
+            "bones": 80,
+            "skins": 2,
+            "tris": 6870,
+            "height": 1.4380100373213847,
+            "clip": "cheer",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 2.24116
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "E03",
+    "motion": "cheer",
+    "angle": 0,
+    "venue": "studio",
+    "vp": "portrait",
+    "pass": true,
+    "pngBytes": 24413,
+    "data": [
+      {
+        "label": "旧低模 · Schoolkid",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-E03",
+            "bones": 13,
+            "skins": 1,
+            "tris": 1700,
+            "height": 0.13261737951824198,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "女孩 01 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-child-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 7102,
+            "height": 1.4330282359659605,
+            "clip": "cheer",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 2.23956
+          }
+        ]
+      },
+      {
+        "label": "女孩 02 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-child-02",
+            "bones": 80,
+            "skins": 2,
+            "tris": 6870,
+            "height": 1.4380100373213847,
+            "clip": "cheer",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 2.23956
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "G02",
+    "motion": "idle",
+    "angle": 0,
+    "venue": "studio",
+    "vp": "wide",
+    "pass": true,
+    "pngBytes": 93759,
+    "data": [
+      {
+        "label": "旧 IT 工程师",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-G02",
+            "bones": 13,
+            "skins": 1,
+            "tris": 2858,
+            "height": 0.16697574059206755,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "男孩 01 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "male-child-01",
+            "bones": 80,
+            "skins": 2,
+            "tris": 6660,
+            "height": 1.4328027320844892,
+            "clip": "idle",
+            "matched": 59,
+            "totalTracks": 59,
+            "motion": 0.63704
+          }
+        ]
+      },
+      {
+        "label": "男孩 02 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "male-child-02",
+            "bones": 80,
+            "skins": 2,
+            "tris": 7310,
+            "height": 1.4255371712046179,
+            "clip": "idle",
+            "matched": 59,
+            "totalTracks": 59,
+            "motion": 0.63704
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "G02",
+    "motion": "talk",
+    "angle": 90,
+    "venue": "gym",
+    "vp": "wide",
+    "pass": true,
+    "pngBytes": 723638,
+    "data": [
+      {
+        "label": "旧 IT 工程师",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-G02",
+            "bones": 13,
+            "skins": 1,
+            "tris": 2858,
+            "height": 0.16697574059206755,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "男孩 01 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "male-child-01",
+            "bones": 80,
+            "skins": 2,
+            "tris": 6660,
+            "height": 1.4328027320844892,
+            "clip": "talk",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 1.20517
+          }
+        ]
+      },
+      {
+        "label": "男孩 02 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "male-child-02",
+            "bones": 80,
+            "skins": 2,
+            "tris": 7310,
+            "height": 1.4255371712046179,
+            "clip": "talk",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 1.20517
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "G02",
+    "motion": "wave",
+    "angle": 45,
+    "venue": "studio",
+    "vp": "portrait",
+    "pass": true,
+    "pngBytes": 21084,
+    "data": [
+      {
+        "label": "旧 IT 工程师",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-G02",
+            "bones": 13,
+            "skins": 1,
+            "tris": 2858,
+            "height": 0.16697574059206755,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "男孩 01 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "male-child-01",
+            "bones": 80,
+            "skins": 2,
+            "tris": 6660,
+            "height": 1.4328027320844892,
+            "clip": "wave",
+            "matched": 62,
+            "totalTracks": 62,
+            "motion": 1.35487
+          }
+        ]
+      },
+      {
+        "label": "男孩 02 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "male-child-02",
+            "bones": 80,
+            "skins": 2,
+            "tris": 7310,
+            "height": 1.4255371712046179,
+            "clip": "wave",
+            "matched": 62,
+            "totalTracks": 62,
+            "motion": 1.35487
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "T03",
+    "motion": "idle",
+    "angle": 0,
+    "venue": "studio",
+    "vp": "wide",
+    "pass": true,
+    "pngBytes": 130209,
+    "data": [
+      {
+        "label": "旧单人骑手低模",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-T03",
+            "bones": 13,
+            "skins": 1,
+            "tris": 2918,
+            "height": 0.15068346657229528,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "真实男配送员 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "delivery-male-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 6800,
+            "height": 1.8160761894734923,
+            "clip": "idle",
+            "matched": 59,
+            "totalTracks": 59,
+            "motion": 0.63701
+          }
+        ]
+      },
+      {
+        "label": "成年女性同事 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-adult-07",
+            "bones": 81,
+            "skins": 3,
+            "tris": 8308,
+            "height": 1.7225717931528595,
+            "clip": "idle",
+            "matched": 62,
+            "totalTracks": 62,
+            "motion": 0.66316
+          }
+        ]
+      },
+      {
+        "label": "双人协作候选 · 两个独立真人骨架",
+        "legacy": false,
+        "duo": true,
+        "models": [
+          {
+            "id": "delivery-male-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 6800,
+            "height": 1.8160761894734923,
+            "clip": "idle",
+            "matched": 59,
+            "totalTracks": 59,
+            "motion": 0.63701
+          },
+          {
+            "id": "female-adult-07",
+            "bones": 81,
+            "skins": 3,
+            "tris": 8308,
+            "height": 1.7225717931528595,
+            "clip": "idle",
+            "matched": 62,
+            "totalTracks": 62,
+            "motion": 0.66316
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "T03",
+    "motion": "wave",
+    "angle": 45,
+    "venue": "gym",
+    "vp": "wide",
+    "pass": true,
+    "pngBytes": 732184,
+    "data": [
+      {
+        "label": "旧单人骑手低模",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-T03",
+            "bones": 13,
+            "skins": 1,
+            "tris": 2918,
+            "height": 0.15068346657229528,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "真实男配送员 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "delivery-male-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 6800,
+            "height": 1.8160761894734923,
+            "clip": "wave",
+            "matched": 62,
+            "totalTracks": 62,
+            "motion": 1.35027
+          }
+        ]
+      },
+      {
+        "label": "成年女性同事 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-adult-07",
+            "bones": 81,
+            "skins": 3,
+            "tris": 8308,
+            "height": 1.7225717931528595,
+            "clip": "wave",
+            "matched": 46,
+            "totalTracks": 46,
+            "motion": 1.82851
+          }
+        ]
+      },
+      {
+        "label": "双人协作候选 · 两个独立真人骨架",
+        "legacy": false,
+        "duo": true,
+        "models": [
+          {
+            "id": "delivery-male-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 6800,
+            "height": 1.8160761894734923,
+            "clip": "wave",
+            "matched": 62,
+            "totalTracks": 62,
+            "motion": 1.35027
+          },
+          {
+            "id": "female-adult-07",
+            "bones": 81,
+            "skins": 3,
+            "tris": 8308,
+            "height": 1.7225717931528595,
+            "clip": "wave",
+            "matched": 46,
+            "totalTracks": 46,
+            "motion": 1.82851
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "T03",
+    "motion": "cheer",
+    "angle": 180,
+    "venue": "studio",
+    "vp": "wide",
+    "pass": true,
+    "pngBytes": 115682,
+    "data": [
+      {
+        "label": "旧单人骑手低模",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-T03",
+            "bones": 13,
+            "skins": 1,
+            "tris": 2918,
+            "height": 0.15068346657229528,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "真实男配送员 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "delivery-male-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 6800,
+            "height": 1.8160761894734923,
+            "clip": "cheer",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 1.29575
+          }
+        ]
+      },
+      {
+        "label": "成年女性同事 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-adult-07",
+            "bones": 81,
+            "skins": 3,
+            "tris": 8308,
+            "height": 1.7225717931528595,
+            "clip": "cheer",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 2.26969
+          }
+        ]
+      },
+      {
+        "label": "双人协作候选 · 两个独立真人骨架",
+        "legacy": false,
+        "duo": true,
+        "models": [
+          {
+            "id": "delivery-male-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 6800,
+            "height": 1.8160761894734923,
+            "clip": "cheer",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 1.29575
+          },
+          {
+            "id": "female-adult-07",
+            "bones": 81,
+            "skins": 3,
+            "tris": 8308,
+            "height": 1.7225717931528595,
+            "clip": "cheer",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 2.26969
+          }
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "role": "T03",
+    "motion": "talk",
+    "angle": 45,
+    "venue": "gym",
+    "vp": "portrait",
+    "pass": true,
+    "pngBytes": 112227,
+    "data": [
+      {
+        "label": "旧单人骑手低模",
+        "legacy": true,
+        "duo": false,
+        "models": [
+          {
+            "id": "legacy-T03",
+            "bones": 13,
+            "skins": 1,
+            "tris": 2918,
+            "height": 0.15068346657229528,
+            "clip": "Idle",
+            "matched": 0,
+            "totalTracks": 0,
+            "motion": 0
+          }
+        ]
+      },
+      {
+        "label": "真实男配送员 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "delivery-male-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 6800,
+            "height": 1.8160761894734923,
+            "clip": "talk",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 1.20515
+          }
+        ]
+      },
+      {
+        "label": "成年女性同事 · MIT",
+        "legacy": false,
+        "duo": false,
+        "models": [
+          {
+            "id": "female-adult-07",
+            "bones": 81,
+            "skins": 3,
+            "tris": 8308,
+            "height": 1.7225717931528595,
+            "clip": "talk",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 0.76602
+          }
+        ]
+      },
+      {
+        "label": "双人协作候选 · 两个独立真人骨架",
+        "legacy": false,
+        "duo": true,
+        "models": [
+          {
+            "id": "delivery-male-01",
+            "bones": 81,
+            "skins": 2,
+            "tris": 6800,
+            "height": 1.8160761894734923,
+            "clip": "talk",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 1.20515
+          },
+          {
+            "id": "female-adult-07",
+            "bones": 81,
+            "skins": 3,
+            "tris": 8308,
+            "height": 1.7225717931528595,
+            "clip": "talk",
+            "matched": 64,
+            "totalTracks": 64,
+            "motion": 0.76602
+          }
+        ]
+      }
+    ],
+    "errors": []
+  }
+]
