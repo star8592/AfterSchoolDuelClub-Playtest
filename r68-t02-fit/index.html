@@ -1,0 +1,16 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:,"><title>R68 · T02 食堂阿姨真实模型适配对比</title><script type="importmap">{"imports":{"three":"../r45-duel/assets/three/build/three.module.js","three/addons/":"../r45-duel/assets/three/examples/jsm/"}}</script><style>
+:root{color-scheme:dark;font-family:system-ui,"Noto Sans SC",sans-serif;background:#0b1829;color:#ecf5fb}*{box-sizing:border-box}body{margin:0}main{max-width:1460px;margin:auto;padding:18px}h1{font-size:clamp(22px,3vw,34px);margin:0;color:#ffe1b0}p{font-size:13px;line-height:1.6;color:#bfd1e2}a{color:#a9dbf3} .meta{margin:10px 0 12px}.row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}button{background:#203c56;color:#f5f8fc;border:1px solid #66849a;border-radius:9px;padding:10px 14px;cursor:pointer;font-weight:650}button.active{background:#544b3b;border-color:#efbe6b;color:#ffead4}.stage{border:1px solid #567b8e;border-radius:14px;overflow:hidden;background:#152c41;position:relative}canvas{display:block;width:100%;height:min(75vh,720px);min-height:370px;touch-action:none}#status{position:absolute;top:10px;left:10px;background:#182a3cdb;color:#e9f2fa;padding:9px 12px;border-radius:10px;max-width:67%;font-size:12px}.stats{padding:10px 14px;font-size:12px;color:#bad1df}.notice{border:1px solid #796040;background:#332c25;padding:12px;border-radius:10px;color:#f0cba1;margin-top:14px;font-size:13px}@media(max-width:650px){main{padding:9px}canvas{height:65vh;min-height:340px}button{padding:9px;font-size:12px}#status{max-width:87%}}
+</style></head><body><main>
+<h1>R68 食堂阿姨 · 现成模型 / 圆润改造 / 自动贴合对比</h1>
+<p class="meta">真实骨骼人体与原 T02 活体菜单。三种角色使用同一镜头、相同比例和光照；可旋转缩放查看头发、头围、衣服尺寸及侧面。此页仅做资产美术研究，不改变正式游戏。</p>
+<div class="row" id="choices">
+<button data-model="round">方案 A · Rocketbox 圆润女厨师</button>
+<button data-model="chef">方案 B · Rocketbox 原版女厨师</button>
+<button data-model="mpfb">方案 C · MakeHuman 自动适配</button></div>
+<section class="stage"><canvas id="stage"></canvas><div id="status" role="status">正在读取真实 GLB…</div><div class="stats" id="stats"></div></section>
+<div class="row">
+<button data-angle="0">正面</button><button data-angle="45">45°</button><button data-angle="90">侧面</button><button data-angle="180">背面</button>
+<button id="menuAction">播放活体菜单翻页</button><button id="reset">重置镜头</button>
+</div>
+<p class="notice">**仅供模型审查，ART_NO_GO。** Rocketbox 原始完整人物和改造版遵守 Microsoft MIT 许可，详见本目录许可证。MakeHuman 官方基础人体/系统衣服按 CC0 来源处理。模型仍需角色卡通化、自然摆姿、脸部表情、正式版权审核及和菜单统一风格。当前不是合格正式模型。</p>
+<p><a href="../r67-t02-duo/">查看旧版 R67 双召唤</a> · <a href="../r45-duel/r67-t02-arena.html">旧版体育馆对照</a></p></main><script type="module" src="./viewer.mjs"></script></body></html>
