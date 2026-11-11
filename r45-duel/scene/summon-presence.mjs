@@ -293,7 +293,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
   lastUpdateSeconds=seconds;
   const labelStyle=activeHpStyle(camera);
   for(const state of entries.values()){
-   state.object.userData.r61?.mixer?.update(dt);
+   const r61=state.object.userData.r61;
+   if(r61?.update)r61.update(dt);else r61?.mixer?.update(dt);
    if(state.status&&labelStyle!=='hidden')drawStatusTag(state,labelStyle);
    const object=state.object;
    if(state.kind==='vrm-instance'||state.kind==='gltf-instance'){

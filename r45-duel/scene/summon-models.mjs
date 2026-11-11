@@ -28,12 +28,12 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  E03:{file:'E03-CheerCaptain-Schoolkid.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  E04:{file:'E04-CanteenRelay-FoodCourier.glb',label:'食堂接力员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G02:{file:'G02-BlackboardExpert-ItEngineer.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
- G03:{file:'G03-ReverseLab-WhiteCoatDoctor.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ G03:{file:'G03-Jay-BlenderStudio-R80.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-ClubDirector-OfficeManager.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T01:{file:'T01-BroadcastOwl-BarnOwl.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
  T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- T04:{file:'T04-ClubGuardian-SecurityGuard.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
+ T04:{file:'T04-Rex-BlenderStudio-R80.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
 export async function preloadSummonModels(THREE,loader){
@@ -77,6 +77,19 @@ export function instantiateSummon(THREE,template){
  const root=new THREE.Group();root.add(scaled);
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const mixer=template.clips.length?new THREE.AnimationMixer(instance):null;
+ // R80: user-approved Blender Studio meshes have no exported bone animations.
+ const filmStatic=['G03','T04'].includes(template.id)&&template.clips.length===0;
+ let staticState='idle',staticElapsed=0,staticPhase=0;
+ const updateStatic=(dt)=>{
+  if(!filmStatic)return;
+  const sec=Math.max(0,Math.min(.09,dt));staticElapsed+=sec;staticPhase+=sec;
+  const dur=staticState==='attack'?.72:staticState==='hit'?.54:.8;
+  if(staticState!=='idle'&&staticElapsed>dur){staticState='idle';staticElapsed=0;}
+  const impulse=staticState==='idle'?0:Math.sin(Math.PI*staticElapsed/dur);
+  scaled.rotation.x=(staticState==='attack'?-.1:staticState==='hit'?.065:0)*impulse;
+  scaled.rotation.z=.009*Math.sin(staticPhase*.8)+(staticState==='attack'?.07:staticState==='hit'?-.08:0)*impulse;
+  scaled.position.y=.003*Math.sin(staticPhase*1.6);
+ };
  const choose=(kind)=>{
   if(!mixer)return null;
   const clips=template.clips;
@@ -91,6 +104,7 @@ export function instantiateSummon(THREE,template){
  const duo=template.id==='T02' &&
   template.selectedFile==='T02-CanteenAunt-LivingMenu-Duo-STUDY.glb';
  const play=(kind)=>{
+  if(filmStatic){staticState=kind;staticElapsed=0;current='R80_static_'+kind;return true;}
   if(!mixer)return false;
   if(duo){
    const pairing=kind==='attack'?['Serve_Menu','Attack_Flip_Menu']:
@@ -130,7 +144,7 @@ export function instantiateSummon(THREE,template){
    scaled.position.y-=posed.min.y;
   }
  }
- return {root,mixer,play,instance,meshCount:template.meshes,animationCount:template.clips.length,
+ return {root,mixer,play,update:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   artApproved:false,kind:'real-gltf-prototype'};
 }
