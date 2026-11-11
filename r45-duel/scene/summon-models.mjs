@@ -25,14 +25,14 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
  E02:{file:'E02-PaperPlane-R57.glb',label:'拐弯纸飞机',targetHeight:.42,maxWidth:1.75,maxDepth:1.75,hover:.48,kind:'object'},
- E03:{file:'E03-CheerCaptain-Schoolkid.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ E03:{file:'E03-Ellie-BlenderStudio-R83.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  E04:{file:'E04-Phil-BlenderStudio-R82.glb',label:'食堂接力员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- G02:{file:'G02-BlackboardExpert-ItEngineer.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
+ G02:{file:'G02-Snow-BlenderStudio-R83.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
  G03:{file:'G03-Jay-BlenderStudio-R80.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-Victoria-BlenderStudio-R82.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T01:{file:'T01-BroadcastOwl-BarnOwl.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
- T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ T03:{file:'T03-Rain-BlenderStudio-R83.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T04:{file:'T04-Rex-BlenderStudio-R80.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
@@ -78,7 +78,7 @@ export function instantiateSummon(THREE,template){
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const mixer=template.clips.length?new THREE.AnimationMixer(instance):null;
  // R80: user-approved Blender Studio meshes have no exported bone animations.
- const filmStatic=['G03','T04','E04','G04'].includes(template.id)&&template.clips.length===0;
+ const filmStatic=['G03','T04','E04','G04','E03','G02','T03'].includes(template.id)&&template.clips.length===0;
  let staticState='idle',staticElapsed=0,staticPhase=0;
  const updateStatic=(dt)=>{
   if(!filmStatic)return;

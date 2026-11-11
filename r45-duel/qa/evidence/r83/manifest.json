@@ -1,0 +1,172 @@
+{
+  "release": "R83",
+  "main_base": "120e7cbac7c3b8df790d8bff645b7ad5bf8c5054",
+  "licenses": "CC BY 4.0; Blender Foundation / Blender Studio",
+  "blobs": {
+    "E03-Ellie": {
+      "sha": "68b881d34b0b46e11f2bd6e95365ae22a72b96e8",
+      "size": 6077992
+    },
+    "G02-Snow": {
+      "sha": "0f45f873834f0eb1b4f719f1714c04d3aeffaf70",
+      "size": 10514192
+    },
+    "T03-Rain": {
+      "sha": "4019c42af1f5138ff3b09f83e272f005e4e9f6c0",
+      "size": 6666376
+    }
+  },
+  "model_animations": 0,
+  "qa": [
+    {
+      "viewport": "wide",
+      "passed": true,
+      "modelCount": 10,
+      "actorPass": true,
+      "combatCount": 8,
+      "errors": [],
+      "newModels": [
+        {
+          "id": "E03",
+          "file": "E03-Ellie-BlenderStudio-R83.glb",
+          "baselineFile": "E03-Ellie-BlenderStudio-R83.glb",
+          "meshes": 62,
+          "clips": 0,
+          "scale": 1.3329847275123041,
+          "measured": {
+            "width": 1.0022304058074951,
+            "height": 1.560407975477574,
+            "depth": 0.355005145072937,
+            "scaledHeight": 2.08,
+            "scaledWidth": 1.3359578243898498,
+            "scaledDepth": 0.47321643657051493
+          }
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-BlenderStudio-R83.glb",
+          "baselineFile": "G02-Snow-BlenderStudio-R83.glb",
+          "meshes": 20,
+          "clips": 0,
+          "scale": 1.332437591361521,
+          "measured": {
+            "width": 1.7873995900154114,
+            "height": 1.8612504000775516,
+            "depth": 0.36422809958457947,
+            "scaledHeight": 2.48,
+            "scaledWidth": 2.381598404520705,
+            "scaledDepth": 0.48531121171666125
+          }
+        },
+        {
+          "id": "G03",
+          "file": "G03-Jay-BlenderStudio-R80.glb",
+          "baselineFile": "G03-Jay-BlenderStudio-R80.glb",
+          "meshes": 40,
+          "clips": 0,
+          "scale": 1.6544852240826475,
+          "measured": {
+            "width": 0.9122272729873657,
+            "height": 1.2571886226141942,
+            "depth": 0.3657605051994324,
+            "scaledHeight": 2.08,
+            "scaledWidth": 1.5092665441628044,
+            "scaledDepth": 0.6051453514054652
+          }
+        },
+        {
+          "id": "T03",
+          "file": "T03-Rain-BlenderStudio-R83.glb",
+          "baselineFile": "T03-Rain-BlenderStudio-R83.glb",
+          "meshes": 23,
+          "clips": 0,
+          "scale": 1.2615174081389258,
+          "measured": {
+            "width": 1.3965507745742798,
+            "height": 1.6488080042181537,
+            "depth": 0.6956602334976196,
+            "scaledHeight": 2.08,
+            "scaledWidth": 1.7617731134753547,
+            "scaledDepth": 0.8775874947072371
+          }
+        }
+      ]
+    },
+    {
+      "viewport": "portrait",
+      "passed": true,
+      "modelCount": 10,
+      "actorPass": true,
+      "combatCount": 8,
+      "errors": [],
+      "newModels": [
+        {
+          "id": "E03",
+          "file": "E03-Ellie-BlenderStudio-R83.glb",
+          "baselineFile": "E03-Ellie-BlenderStudio-R83.glb",
+          "meshes": 62,
+          "clips": 0,
+          "scale": 1.3329847275123041,
+          "measured": {
+            "width": 1.0022304058074951,
+            "height": 1.560407975477574,
+            "depth": 0.355005145072937,
+            "scaledHeight": 2.08,
+            "scaledWidth": 1.3359578243898498,
+            "scaledDepth": 0.47321643657051493
+          }
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-BlenderStudio-R83.glb",
+          "baselineFile": "G02-Snow-BlenderStudio-R83.glb",
+          "meshes": 20,
+          "clips": 0,
+          "scale": 1.332437591361521,
+          "measured": {
+            "width": 1.7873995900154114,
+            "height": 1.8612504000775516,
+            "depth": 0.36422809958457947,
+            "scaledHeight": 2.48,
+            "scaledWidth": 2.381598404520705,
+            "scaledDepth": 0.48531121171666125
+          }
+        },
+        {
+          "id": "G03",
+          "file": "G03-Jay-BlenderStudio-R80.glb",
+          "baselineFile": "G03-Jay-BlenderStudio-R80.glb",
+          "meshes": 40,
+          "clips": 0,
+          "scale": 1.6544852240826475,
+          "measured": {
+            "width": 0.9122272729873657,
+            "height": 1.2571886226141942,
+            "depth": 0.3657605051994324,
+            "scaledHeight": 2.08,
+            "scaledWidth": 1.5092665441628044,
+            "scaledDepth": 0.6051453514054652
+          }
+        },
+        {
+          "id": "T03",
+          "file": "T03-Rain-BlenderStudio-R83.glb",
+          "baselineFile": "T03-Rain-BlenderStudio-R83.glb",
+          "meshes": 23,
+          "clips": 0,
+          "scale": 1.2615174081389258,
+          "measured": {
+            "width": 1.3965507745742798,
+            "height": 1.6488080042181537,
+            "depth": 0.6956602334976196,
+            "scaledHeight": 2.08,
+            "scaledWidth": 1.7617731134753547,
+            "scaledDepth": 0.8775874947072371
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Seven high-quality film-style GLB human bases on 10 GLB registered models, plus E01/G01 original VRMs. Special animals/objects not automatically replaced.",
+  "limitations": "Static body mesh only, game root-motion fallback; final rigs and exact source-like identity styling outstanding."
+}
