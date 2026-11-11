@@ -24,6 +24,12 @@ const isT02DuoStudy=(()=>{
  catch{return false;}
 })();
 
+// R86: isolated genuine-skin test. Regular players keep R85 static Jay.
+const isG03R86Study=(()=>{
+ if(new URLSearchParams(location.search).get('g03Study')==='rig')return true;
+ try{return window.parent!==window&&new URLSearchParams(window.parent.location.search).get('g03Study')==='rig'}catch{return false}
+})();
+
 export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
@@ -47,7 +53,8 @@ export async function preloadSummonModels(THREE,loader){
   const selectedFile=id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
    id==='E02'&&isE02R60Study?
-   'E02-R60-PhotoPaper-WingFlex-STUDY.glb':spec.file;
+   'E02-R60-PhotoPaper-WingFlex-STUDY.glb':
+   id==='G03'&&isG03R86Study?'G03-Jay-Skinned-R86.glb':spec.file;
   const url=new URL('../assets/summons/'+selectedFile,import.meta.url);
   const gltf=await loader.loadAsync(url.href);
   const source=gltf.scene;
@@ -70,6 +77,39 @@ export async function preloadSummonModels(THREE,loader){
  if(models.size!==10)throw Error('R61 expected exactly 10 independently sourced summoned GLBs');
  return models;
 }
+// R86: locally authored bone tracks on Blender Studio's actual Jay deform rig.
+// The source GLB has 295 real joints and 0 embedded clips. All actions below
+// bind to shoulder bones and deform existing skinned vertices (not mesh sway).
+export function createR86JaySkeletonClips(THREE,instance){
+ const left=instance.getObjectByName('DEF-ShoulderL');
+ const right=instance.getObjectByName('DEF-ShoulderR');
+ if(!left?.isBone||!right?.isBone)return [];
+ // A narrow decorative jacket strip has incomplete skin weights after GLB export.
+ // Hide only that detached trim, never hide the body, hands or sleeve geometry.
+ instance.traverse(o=>{if(o.name==='Data_GEO-jay_jacket_1')o.visible=false;});
+ const initialL=left.quaternion.clone(),initialR=right.quaternion.clone();
+ const z=new THREE.Vector3(0,0,1);
+ const clip=(name,times,L,R)=>{
+  const track=(bone,base,angles)=>{
+   const values=[];
+   for(const angle of angles){
+    const q=base.clone().multiply(new THREE.Quaternion().setFromAxisAngle(z,angle));
+    values.push(q.x,q.y,q.z,q.w);
+   }
+   return new THREE.QuaternionKeyframeTrack(`${bone.name}.quaternion`,times,values);
+  };
+  return new THREE.AnimationClip(name,times.at(-1),[
+   track(left,initialL,L),track(right,initialR,R)
+  ]);
+ };
+ return [
+  clip('R86_Skeletal_Idle',[0,.72,1.44],[1.05,.99,1.05],[-1.05,-.99,-1.05]),
+  clip('R86_Skeletal_Attack',[0,.14,.35,.75],[1.05,.12,-.1,1.05],[-1.05,-.92,-1.05,-1.05]),
+  clip('R86_Skeletal_Hit',[0,.12,.28,.56],[1.05,.65,.6,1.05],[-1.05,-.65,-.6,-1.05]),
+  clip('R86_Skeletal_Walk',[0,.24,.5,.8],[1.05,.87,1.12,1.05],[-1.05,-1.12,-.87,-1.05])
+ ];
+}
+
 export function instantiateSummon(THREE,template){
  const instance=cloneSkeleton(template.source);
  instance.traverse(o=>{if(o.isSkinnedMesh)o.frustumCulled=false});
@@ -79,9 +119,11 @@ export function instantiateSummon(THREE,template){
  const scaled=new THREE.Group();scaled.scale.setScalar(template.scale);scaled.add(instance);
  const root=new THREE.Group();root.add(scaled);
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
- const mixer=template.clips.length?new THREE.AnimationMixer(instance):null;
+ const r86Clips=template.id==='G03'&&template.selectedFile==='G03-Jay-Skinned-R86.glb'?createR86JaySkeletonClips(THREE,instance):[];
+ const availableClips=r86Clips.length?r86Clips:template.clips;
+ const mixer=availableClips.length?new THREE.AnimationMixer(instance):null;
  // R80: user-approved Blender Studio meshes have no exported bone animations.
- const filmStatic=['G03','T04','E04','G04','E03','G02','T03','T01'].includes(template.id)&&template.clips.length===0;
+ const filmStatic=['G03','T04','E04','G04','E03','G02','T03','T01'].includes(template.id)&&availableClips.length===0;
  let staticState='idle',staticElapsed=0,staticPhase=0;
  const updateStatic=(dt)=>{
   if(!filmStatic)return;
@@ -95,12 +137,12 @@ export function instantiateSummon(THREE,template){
  };
  const choose=(kind)=>{
   if(!mixer)return null;
-  const clips=template.clips;
-  const preference=kind==='attack'?['Attack_Dart','Attack_Flip_Menu','Attack','attack','Special','Cheer']:
-   kind==='hit'?['Hit_Recoil','Hit_Retreat','Hit','hit']:
+  const clips=availableClips;
+  const preference=kind==='attack'?['R86_Skeletal_Attack','Attack_Dart','Attack_Flip_Menu','Attack','attack','Special','Cheer']:
+   kind==='hit'?['R86_Skeletal_Hit','Hit_Recoil','Hit_Retreat','Hit','hit']:
    kind==='death'?['Death','dead']:
-   kind==='walk'?['Bank_Left','Bank_Right','Walk_Small_Steps','Walk','walk','Run']:
-     ['Idle_Glide','Idle_Menu_Breath','Idle','idle','Stand'];
+   kind==='walk'?['R86_Skeletal_Walk','Bank_Left','Bank_Right','Walk_Small_Steps','Walk','walk','Run']:
+     ['R86_Skeletal_Idle','Idle_Glide','Idle_Menu_Breath','Idle','idle','Stand'];
   return preference.map(n=>clips.find(c=>c.name===n)).find(Boolean)||clips[0];
  };
  let current=null;
@@ -147,7 +189,7 @@ export function instantiateSummon(THREE,template){
    scaled.position.y-=posed.min.y;
   }
  }
- return {root,mixer,play,update:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,
+ return {root,mixer,play,update:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   artApproved:false,kind:'real-gltf-prototype'};
 }

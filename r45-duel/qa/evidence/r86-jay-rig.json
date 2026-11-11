@@ -1,0 +1,30 @@
+{
+  "release": "R86_Jay_pilot",
+  "main_parent": "77c20f923a7707649ac546fe96d70dc441be739f",
+  "author": "Blender Foundation / Blender Studio Jay, CC BY 4.0",
+  "source": "https://studio.blender.org/characters/jay/v1/",
+  "source_blend_sha256": "18383a3d25d68c6a91208e4240f2e4dfe67592739078f18b21cf257be91a8458",
+  "new_glb_sha256": "bca18d53e3f126f1721d12baade53a6c4e5553e200df46fdad1fa5705f752005",
+  "new_glb_bytes": 4456524,
+  "web_terrain": "True SkinnedMesh, not evaluated static geometry",
+  "skin_count": 1,
+  "bone_joint_count": 295,
+  "native_glb_clips": 0,
+  "runtime_created_bone_clips": [
+    "R86_Skeletal_Idle",
+    "R86_Skeletal_Attack",
+    "R86_Skeletal_Hit",
+    "R86_Skeletal_Walk"
+  ],
+  "artifact_isolated": true,
+  "visible_default": "R85 unchanged. Opt in ?g03Study=rig.",
+  "excluded_attachment": "Data_GEO-jay_jacket_1 temporarily hidden due disconnected cuff strip; original remains in source and visible on baseline.",
+  "qa": {
+    "desktop_rig_pass": true,
+    "desktop_baseline_pass": true,
+    "portrait_rig_pass": true,
+    "r86_playing_real_skeletal_tracks": true,
+    "script_and_http_errors": []
+  },
+  "art_status": "TECH_VERIFIED, ART_NOT_FINAL. No claim that 7 characters are now animated; only G03 R86 optional pilot."
+}
