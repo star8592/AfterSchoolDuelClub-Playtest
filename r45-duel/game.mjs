@@ -4,11 +4,13 @@
  * Real rules and 3D rendering are separate; visual animation never mutates HP.
  */
 import {BY_ID,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
+import {createDuelAudio} from './audio-engine.mjs';
 
 const $=id=>document.getElementById(id);
 const seed=Number(new URLSearchParams(location.search).get('seed')??'1')||1;
 const g=createGame(seed);
 const scene=$('stadium');
+const audio=createDuelAudio();
 let selected=null,sceneReady=false,sceneError=false,lastToast='',lastFightSerial=0;
 const styleName={ember:'活力',grove:'创意',tide:'默契'};
 const pictogram={
@@ -31,6 +33,17 @@ function announce(message,kind='neutral'){
  element.textContent=message;
  element.dataset.kind=kind;
 }
+for(const [id,channel] of [['audio-music','music'],['audio-sfx','sfx'],['audio-voice','voice']]){
+ const slider=$(id);slider.value=Math.round(audio.status().volume[channel]*100);
+ slider.addEventListener('input',()=>audio.setVolume(channel,Number(slider.value)/100));
+}
+$('audio-toggle').addEventListener('click',async()=>{
+ const button=$('audio-toggle');
+ if(audio.status().enabled){audio.stop();button.textContent='♪ 开启声音';button.setAttribute('aria-pressed','false');return}
+ try{
+  await audio.unlock();button.textContent='♫ 声音开启';button.setAttribute('aria-pressed','true');
+ }catch(e){button.textContent='♪ 播放受限';announce('浏览器无法启动音频：'+String(e.message),'warning')}
+});
 function gameReady(){return g.phase==='playing'&&g.active==='player';}
 function cardCanPlay(index){
  return gameReady()&&legalMoves(g).some(m=>m.index===index&&m.lane===0);
@@ -100,6 +113,7 @@ function renderHand(){
     $make('div','card-stats',c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'✦ '+(c.cost===1?'轻量事件':'战术事件')));
   card.addEventListener('click',()=>{
    selected=selected===index?null:index;
+   audio.playCue('select');
    render();
    if(selected!==null){
     const chosen=BY_ID[g.hand.player[selected]];
@@ -237,6 +251,7 @@ $('play').addEventListener('click',()=>{
  }
  selected=null;
  render();syncScene();
+ audio.playCue(c.kind==='unit'?'cast':'heal','player');audio.playCharacter(id,'enter');
  projectPlayedCard(id,'player');
  const suffix=c.kind==='unit'?'已进入中央竞技场。本回合待命，下次轮到你才会攻击。':
   '已立即结算事件效果。';
@@ -245,6 +260,7 @@ $('play').addEventListener('click',()=>{
 });
 $('end').addEventListener('click',()=>{
  if(!gameReady())return;
+ audio.playCue('turn');
  const pre=boardSnapshot().units;
  const serial=g.serial;
  endTurn(g);
@@ -254,6 +270,7 @@ $('end').addEventListener('click',()=>{
  render();syncScene();
  const summary=stateSummary(fresh);
  for(const event of fresh.filter(e=>e.type==='card_play'&&e.side==='ai').slice(-3)){
+  audio.playCue('enemy_cast','ai');audio.playCharacter(event.card,'enter');
   projectPlayedCard(event.card,'ai');
  }
  const fight=findRealExchange(fresh);
@@ -262,6 +279,7 @@ $('end').addEventListener('click',()=>{
  // Every other real exchange uses the shorter UID-specific 3D sequence.
  if(fight)playFight(fight);
  const generic=fight?clashes.filter(e=>e.serial!==fight.serial):clashes;
+ if(clashes.length){audio.playCue('attack',clashes[0].side);audio.playCue('hit',clashes[0].side==='player'?'ai':'player');}
  if(generic.length)sendScene({type:'ASDC_R51_COMBAT_EVENTS',
   pre,post:boardSnapshot().units,events:generic.map(e=>({
    type:e.type,serial:e.serial,side:e.side,from:e.from,to:e.to||null,
@@ -272,8 +290,12 @@ $('end').addEventListener('click',()=>{
   }))});
  if(g.phase==='ended'){
   const endText=g.winner==='player'?'你赢得了对决！':g.winner==='ai'?'AI 获胜，再试一局！':'平局。';
+  audio.gameFinished(g.winner);
   announce(endText+' '+summary,'ended');
- }else announce(summary+'。现在轮到你了。','ai');
+ }else{
+  audio.switchMusic(g.hp.ai<=8||g.hp.player<=8?'duel_tension':'school_duel_theme');
+  announce(summary+'。现在轮到你了。','ai');
+ }
 });
 window.addEventListener('message',event=>{
  if(event.origin!==location.origin||event.source!==scene.contentWindow)return;
@@ -316,6 +338,8 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get cardCount(){return Object.keys(BY_ID).length},
   get events(){return structuredClone(g.events)},
   get selected(){return selected},
-  get lastFightSerial(){return lastFightSerial}
+  get lastFightSerial(){return lastFightSerial},
+  get audio(){return audio.status()},
+  audioVoiceSample(id){return audio.playCharacter(id,'enter')}
  }});
 }

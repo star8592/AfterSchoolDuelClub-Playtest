@@ -1,0 +1,106 @@
+{
+  "producer": "Qwen3-TTS",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "language": "Chinese",
+  "usage": "original fictional game character dialogue only",
+  "characters": {
+    "E01": {
+      "name": "铃声追不上",
+      "speaker": "Vivian",
+      "instruct": "活泼、俏皮、有一点慌张，像刚要迟到的年轻漫画角色，不要尖叫。",
+      "lines": {
+        "enter": "等等等等，放学铃已经响了吗？我先上！",
+        "attack": "这次肯定赶得上！"
+      }
+    },
+    "G01": {
+      "name": "橡皮筋建筑师",
+      "speaker": "Dylan",
+      "instruct": "年轻男声，聪明有点呆萌，像突然想到好主意，轻快自然。",
+      "lines": {
+        "enter": "等一等！这个结构，居然可以这样搭！",
+        "attack": "让你看看我的新设计！"
+      }
+    },
+    "E03": {
+      "name": "加油队长",
+      "speaker": "Eric",
+      "instruct": "年轻、热情、鼓劲，但不要声音过大。",
+      "lines": {
+        "enter": "加油加油，今天我们也要超常发挥！"
+      }
+    },
+    "E04": {
+      "name": "食堂接力员",
+      "speaker": "Serena",
+      "instruct": "温暖的年轻女声，像学校食堂里熟悉的同学，轻松有喜感。",
+      "lines": {
+        "enter": "热腾腾的午餐送到，记得趁热吃！"
+      }
+    },
+    "G02": {
+      "name": "黑板密码专家",
+      "speaker": "Dylan",
+      "instruct": "聪明、专注、略微疑惑，像正在解数学题的年轻同学。",
+      "lines": {
+        "enter": "黑板上的密码？给我三秒钟想想。"
+      }
+    },
+    "G03": {
+      "name": "实验学长",
+      "speaker": "Eric",
+      "instruct": "年轻男声，理工学长，幽默又有点不确定。",
+      "lines": {
+        "enter": "实验开始！等等，试管怎么冒泡了？"
+      }
+    },
+    "G04": {
+      "name": "社团计划总监",
+      "speaker": "Uncle_Fu",
+      "instruct": "沉稳但带一本正经的幽默感，像认真做汇报的指导老师。",
+      "lines": {
+        "enter": "按照我的计划，接下来应该非常顺利。"
+      }
+    },
+    "T01": {
+      "name": "猫头鹰播音员",
+      "speaker": "Eric",
+      "instruct": "轻快的校园广播主持人，有一点夸张但仍然自然的报幕语气。",
+      "lines": {
+        "enter": "这里是校园广播站！欢迎收听决斗实况！"
+      }
+    },
+    "T03": {
+      "name": "默契收发员",
+      "speaker": "Vivian",
+      "instruct": "开心又忙碌的快递邮差，年轻女声，语速略快，亲切清晰。",
+      "lines": {
+        "enter": "你的信来啦！这回可别弄丢啦。"
+      }
+    },
+    "T04": {
+      "name": "活动室守门人",
+      "speaker": "Uncle_Fu",
+      "instruct": "一本正经的男性保安，声音厚实，喜感来自一本正经，不要粗暴。",
+      "lines": {
+        "enter": "活动室已开放！请排好队，按顺序入场。"
+      }
+    },
+    "M01": {
+      "name": "音乐老师",
+      "speaker": "Uncle_Fu",
+      "instruct": "成熟温柔的男音乐老师，咬字清楚，带着轻微的节奏感与幽默感。",
+      "lines": {
+        "enter": "一、二、三，预备，跟着节奏来！"
+      }
+    },
+    "T02": {
+      "name": "活菜单",
+      "speaker": "Serena",
+      "instruct": "拟人化的魔法菜单，活泼清脆、风趣，像食堂的可爱广播提示音，但保持真人般自然发音。",
+      "lines": {
+        "enter": "今日特供，惊喜套餐！快来瞧一瞧！"
+      }
+    }
+  }
+}

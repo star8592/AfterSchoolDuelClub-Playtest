@@ -1,0 +1,64 @@
+[
+  {
+    "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+    "mesh_count": 11,
+    "triangles": 3857,
+    "polygon_faces": 3857,
+    "armatures": 1,
+    "deform_bones": 31,
+    "skinned_meshes": 10,
+    "zero_weight_vertices": 0,
+    "non_manifold_edges": 11331,
+    "materials": 1,
+    "images_resolutions": [],
+    "animations": [
+      "Idle",
+      "Run",
+      "Walk"
+    ],
+    "recommendation": "retain skinned source; manual topology and material review"
+  },
+  {
+    "file": "T01-BroadcastOwl-PolyforkOwl.glb",
+    "mesh_count": 3,
+    "triangles": 3662,
+    "polygon_faces": 3662,
+    "armatures": 1,
+    "deform_bones": 21,
+    "skinned_meshes": 1,
+    "zero_weight_vertices": 0,
+    "non_manifold_edges": 10506,
+    "materials": 1,
+    "images_resolutions": [],
+    "animations": [
+      "Fly",
+      "Idle.001",
+      "Run.001",
+      "Walk.001"
+    ],
+    "recommendation": "retain skinned source; manual topology and material review"
+  },
+  {
+    "file": "E03-CheerCaptain-Schoolkid.glb",
+    "mesh_count": 4,
+    "triangles": 1940,
+    "polygon_faces": 1940,
+    "armatures": 1,
+    "deform_bones": 13,
+    "skinned_meshes": 1,
+    "zero_weight_vertices": 0,
+    "non_manifold_edges": 3932,
+    "materials": 1,
+    "images_resolutions": [],
+    "animations": [
+      "Attack",
+      "Death",
+      "Hit",
+      "Idle.002",
+      "Run.002",
+      "Special",
+      "Walk.002"
+    ],
+    "recommendation": "retain skinned source; manual topology and material review"
+  }
+]

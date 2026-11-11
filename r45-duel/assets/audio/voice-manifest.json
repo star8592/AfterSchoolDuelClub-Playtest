@@ -1,0 +1,173 @@
+{
+  "provider": "Qwen3-TTS",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "version": "R70",
+  "status": "partial-verified-Qwen3-TTS",
+  "clips": {
+    "E01": {
+      "enter": {
+        "file": "E01-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Vivian",
+        "text": "等等等等，放学铃已经响了吗？我先上！",
+        "duration_seconds": 4.25,
+        "sha256": "ec6480df73b724bcd6084fbd02684f4f9ac522a7c73a2ae4e8c1cfb906a5069d",
+        "review_status": "pending-human-listening",
+        "ready": true
+      },
+      "attack": {
+        "file": "E01-attack.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Vivian",
+        "text": "这次肯定赶得上！",
+        "duration_seconds": 1.37,
+        "sha256": "992801de0840c4801a4f4d9a2a48c98249451086ba0a8ea90d9d60f04e59c7d4",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "G01": {
+      "enter": {
+        "file": "G01-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Dylan",
+        "text": "等一等！这个结构，居然可以这样搭！",
+        "duration_seconds": 3.45,
+        "sha256": "33b2282d4fadd5edb6f5bf46b4223d9f0998c43d5307711797dcafcac0711490",
+        "review_status": "pending-human-listening",
+        "ready": true
+      },
+      "attack": {
+        "file": "G01-attack.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Dylan",
+        "text": "让你看看我的新设计！",
+        "duration_seconds": 1.77,
+        "sha256": "bce33208ab1952bc7588613add431284dc6c555f4e67a15395f4a8e297eff2b8",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "E03": {
+      "enter": {
+        "file": "E03-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Eric",
+        "text": "加油加油，今天我们也要超常发挥！",
+        "duration_seconds": 3.45,
+        "sha256": "409386c194eadf29cd0f5407ce7db4964d08e82086df0c7e6e7ae0457343bac2",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "E04": {
+      "enter": {
+        "file": "E04-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "text": "热腾腾的午餐送到，记得趁热吃！",
+        "duration_seconds": 3.05,
+        "sha256": "bb8f58c742eb42a61c759d24abfb69a877e01cc4185bcd125136490cabc22703",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "G02": {
+      "enter": {
+        "file": "G02-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Dylan",
+        "text": "黑板上的密码？给我三秒钟想想。",
+        "duration_seconds": 2.97,
+        "sha256": "696ea18884b1e987bf2b01183b48f390e9038d0fef63ea7694a770f9621ca9f5",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "G03": {
+      "enter": {
+        "file": "G03-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Eric",
+        "text": "实验开始！等等，试管怎么冒泡了？",
+        "duration_seconds": 3.93,
+        "sha256": "4e078e17fbd356e7d28aabbd9cf4ed1a338d43ab1aac70f856b169e9f7f12d43",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "G04": {
+      "enter": {
+        "file": "G04-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Uncle_Fu",
+        "text": "按照我的计划，接下来应该非常顺利。",
+        "duration_seconds": 4.65,
+        "sha256": "cd894fdbb1b2ee8d4171d295786d8ec00ff1d2f0891ad7fc5f12c2712767b73a",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "T01": {
+      "enter": {
+        "file": "T01-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Eric",
+        "text": "这里是校园广播站！欢迎收听决斗实况！",
+        "duration_seconds": 3.29,
+        "sha256": "2ee0e997f074a5bcdf1c9b0966bd26eaa3991ad8a2fb8f73998b051f0ceb051f",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "T03": {
+      "enter": {
+        "file": "T03-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Vivian",
+        "text": "你的信来啦！这回可别弄丢啦。",
+        "duration_seconds": 2.89,
+        "sha256": "f8ddf1b6e57e0ea7bcf673dc534edf1a3e80ce3fe76894c76a9198ec00997706",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "T04": {
+      "enter": {
+        "file": "T04-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Uncle_Fu",
+        "text": "活动室已开放！请排好队，按顺序入场。",
+        "duration_seconds": 4.33,
+        "sha256": "0aa7d4a6a6283aedcc15f118b3b73365da63a07a2ee27098b77b355011b6ee7e",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "M01": {
+      "enter": {
+        "file": "M01-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Uncle_Fu",
+        "text": "一、二、三，预备，跟着节奏来！",
+        "duration_seconds": 4.89,
+        "sha256": "49c347bd515c753115fcd271a6d963b65e226c92d0f3a7e2a3ed59054146daf6",
+        "review_status": "pending-human-listening",
+        "ready": true
+      }
+    },
+    "T02": {
+      "enter": {
+        "file": "T02-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "text": "今日特供，惊喜套餐！快来瞧一瞧！",
+        "duration_seconds": 3.05,
+        "sha256": "b5b3ea287016f6749aa655621bcd4aee7c004741e7b81a13727e9d264c72af01",
+        "ready": true,
+        "review_status": "pending-human-listening"
+      }
+    }
+  },
+  "language": "Chinese"
+}
