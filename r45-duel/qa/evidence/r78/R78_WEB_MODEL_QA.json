@@ -1,0 +1,75 @@
+[
+  {
+    "viewport": "desktop",
+    "model": "female-high-fidelity-cast",
+    "pass": true,
+    "thumb": {
+      "complete": true,
+      "naturalWidth": 1920,
+      "naturalHeight": 1080
+    },
+    "iframeInfo": {
+      "src": "about:blank",
+      "defaultInactive": true,
+      "upstreamHttp200": false,
+      "responses": []
+    },
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "model": "schoolboy-high-fidelity",
+    "pass": true,
+    "thumb": {
+      "complete": true,
+      "naturalWidth": 1920,
+      "naturalHeight": 1080
+    },
+    "iframeInfo": {
+      "src": "about:blank",
+      "defaultInactive": true,
+      "upstreamHttp200": true,
+      "responses": [
+        {
+          "status": 200,
+          "url": "https://sketchfab.com/models/92b4b22d14194be191c0df00f6e62b3d/embed?autostart=1&preload=0&max_texture_size=2048&ui_infos=0&ui_controls=1&ui_watermark=1"
+        }
+      ]
+    },
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "model": "adult-high-fidelity-man",
+    "pass": true,
+    "thumb": {
+      "complete": true,
+      "naturalWidth": 1920,
+      "naturalHeight": 1080
+    },
+    "iframeInfo": {
+      "src": "about:blank",
+      "defaultInactive": true,
+      "upstreamHttp200": false,
+      "responses": []
+    },
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "model": "female-high-fidelity-cast",
+    "pass": true,
+    "thumb": {
+      "complete": true,
+      "naturalWidth": 1920,
+      "naturalHeight": 1080
+    },
+    "iframeInfo": {
+      "src": "about:blank",
+      "defaultInactive": true,
+      "upstreamHttp200": false,
+      "responses": []
+    },
+    "errors": []
+  }
+]
