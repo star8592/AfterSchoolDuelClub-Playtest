@@ -1,5 +1,5 @@
 {
-  "version": "R72",
+  "version": "R76",
   "role": "audit_only_not_runtime_loaded",
   "productionCharacterArtApproved": false,
   "note": "A visible unit is not proof of a finished independent character model. Two source VRMs exist; final cast approval remains open.",
@@ -69,6 +69,16 @@
       "unique3DCharacterComplete": false,
       "candidateGLB": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
       "sourceLicense": "CC BY 4.0",
+      "productionArtApproved": false
+    },
+    {
+      "id": "M02",
+      "name": "食堂阿姨",
+      "visual": "source_cartoony_high_mesh_r76_candidate",
+      "source": null,
+      "unique3DCharacterComplete": false,
+      "candidateGLB": "M02-CafeteriaAunt-CartoonR76.glb",
+      "sourceLicense": "CC0 provider declared; verify before production",
       "productionArtApproved": false
     },
     {

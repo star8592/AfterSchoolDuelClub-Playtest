@@ -1,5 +1,5 @@
 {
-  "version": "R73",
+  "version": "R76",
   "release_status": "PLAYABILITY_ONLY",
   "approved_final_art": 0,
   "models": [
@@ -144,6 +144,19 @@
       "mode": "PLAYABILITY_PROTOTYPE_NOT_FINAL_ART",
       "art_approved": false,
       "match_note": "User-selected music teacher candidate, realistic hands / original Idle, not final art",
+      "skeleton_animation": true
+    },
+    {
+      "card_id": "M02",
+      "file": "M02-CafeteriaAunt-CartoonR76.glb",
+      "source_repository_path": "assets/summons/M02-CafeteriaAunt-CartoonR76.glb (native GLB retained unmodified; evidence in art-lab/r76-cartoon-cast/sources/R76_SOURCE_INVENTORY.json)",
+      "sha256": "c0944aaaef7376ae003f6244eaa91703bc7fbe5f204c0e4e64d0c911ae37663d",
+      "bytes": 2839340,
+      "license": "CC0-1.0 claimed by original provider; creator chain requires precommercial review",
+      "source_url": "https://vibeassets.io/a/4yhw0ja37h",
+      "mode": "R76_PLAYABLE_CANDIDATE_NOT_FINAL_ART",
+      "art_approved": false,
+      "match_note": "Native cartoon plump cafeteria worker, true human proportions and 10 source animations; original series uniform/face comparison not verified",
       "skeleton_animation": true
     }
   ]

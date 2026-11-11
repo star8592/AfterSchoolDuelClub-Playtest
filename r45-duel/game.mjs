@@ -15,7 +15,7 @@ let selected=null,sceneReady=false,sceneError=false,lastToast='',lastFightSerial
 const styleName={ember:'活力',grove:'创意',tide:'默契'};
 const pictogram={
  E02:'➤',E03:'⚑',E04:'★',
- G02:'⌘',G03:'⚗',G04:'◇',M01:'♫',
+ G02:'⌘',G03:'⚗',G04:'◇',M01:'♫',M02:'♨',
  T01:'♫',T02:'☷',T03:'↔',T04:'⌂',
  E05:'✦',E06:'✹',G05:'╋',G06:'▤',T05:'☼',T06:'◉'
 };

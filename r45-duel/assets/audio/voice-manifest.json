@@ -167,6 +167,28 @@
         "ready": true,
         "review_status": "pending-human-listening"
       }
+    },
+    "M02": {
+      "enter": {
+        "file": "M02-enter.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "text": "都别挤，都别挤！热腾腾的加餐端上来啦！",
+        "duration_seconds": 3.37,
+        "sha256": "faa69433759a12f23a1d2516fd8b348757f8505671a6b085593b4823ee18b3ea",
+        "ready": true,
+        "review_status": "pending-human-listening"
+      },
+      "attack": {
+        "file": "M02-attack.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "Serena",
+        "text": "还想接着打？先把这一大碗饭吃完！",
+        "duration_seconds": 3.61,
+        "sha256": "263855fa8235b85c9dbe957bd622d7790050a8e46e777dec043110c4d3aee2be",
+        "ready": true,
+        "review_status": "pending-human-listening"
+      }
     }
   },
   "language": "Chinese"

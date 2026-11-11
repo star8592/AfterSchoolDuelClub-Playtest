@@ -575,7 +575,7 @@ try{
  summonPresence=createSummonPresence(THREE,scene,{actors,prototypes:summonModels});
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
- stageText('idle','13 种三维召唤实体与体育馆已载入 · 待命');
+ stageText('idle','14 种三维召唤实体与体育馆已载入 · 待命');
  exposeQA();
  const warmupStarted=performance.now();
  let warmupFrames=0;

@@ -1,0 +1,102 @@
+[
+  {
+    "viewport": "desktop",
+    "seed": 6,
+    "placed": true,
+    "pass": true,
+    "before": {
+      "round": 3,
+      "phase": "playing",
+      "units": [
+        {
+          "id": "M02",
+          "hp": 2
+        }
+      ],
+      "events": [
+        "E02"
+      ]
+    },
+    "attack": {
+      "round": 4,
+      "events": [
+        {
+          "serial": 10,
+          "type": "exchange",
+          "side": "player",
+          "lane": 0,
+          "from": "M02",
+          "to": "E03",
+          "damage": 4,
+          "blocked": 0,
+          "retaliation": 3,
+          "retaliation_blocked": 0,
+          "target_uid": "U7",
+          "attacker_uid": "U5",
+          "target_defeated": true,
+          "attacker_defeated": true,
+          "target_hp_after": 0,
+          "attacker_hp_after": 0
+        }
+      ],
+      "scene": {
+        "active": true,
+        "queued": 1,
+        "index": 0,
+        "playedEvents": 1,
+        "finishedSequences": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "seed": 6,
+    "placed": true,
+    "pass": true,
+    "before": {
+      "round": 3,
+      "phase": "playing",
+      "units": [
+        {
+          "id": "M02",
+          "hp": 2
+        }
+      ],
+      "events": [
+        "E02"
+      ]
+    },
+    "attack": {
+      "round": 4,
+      "events": [
+        {
+          "serial": 10,
+          "type": "exchange",
+          "side": "player",
+          "lane": 0,
+          "from": "M02",
+          "to": "E03",
+          "damage": 4,
+          "blocked": 0,
+          "retaliation": 3,
+          "retaliation_blocked": 0,
+          "target_uid": "U7",
+          "attacker_uid": "U5",
+          "target_defeated": true,
+          "attacker_defeated": true,
+          "target_hp_after": 0,
+          "attacker_hp_after": 0
+        }
+      ],
+      "scene": {
+        "active": true,
+        "queued": 1,
+        "index": -1,
+        "playedEvents": 1,
+        "finishedSequences": 0
+      }
+    },
+    "errors": []
+  }
+]

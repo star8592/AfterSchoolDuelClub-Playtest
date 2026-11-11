@@ -1,0 +1,88 @@
+[
+  {
+    "viewport": "desktop",
+    "seed": 6,
+    "init": {
+      "cards": 20,
+      "modelCount": 12
+    },
+    "played": {
+      "units": [
+        "M02"
+      ],
+      "events": [
+        "E02",
+        "M02"
+      ]
+    },
+    "bySide": [
+      {
+        "side": "player",
+        "frames": 64,
+        "visible": true,
+        "ground": 0.014,
+        "minHeight": 2.253,
+        "maxHeight": 2.316,
+        "facing": true,
+        "nativeIdle": true,
+        "realRig": true
+      },
+      {
+        "side": "ai",
+        "frames": 64,
+        "visible": true,
+        "ground": 0.014,
+        "minHeight": 2.253,
+        "maxHeight": 2.316,
+        "facing": true,
+        "nativeIdle": true,
+        "realRig": true
+      }
+    ],
+    "pass": true,
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "seed": 6,
+    "init": {
+      "cards": 20,
+      "modelCount": 12
+    },
+    "played": {
+      "units": [
+        "M02"
+      ],
+      "events": [
+        "E02",
+        "M02"
+      ]
+    },
+    "bySide": [
+      {
+        "side": "player",
+        "frames": 64,
+        "visible": true,
+        "ground": 0.014,
+        "minHeight": 2.254,
+        "maxHeight": 2.316,
+        "facing": true,
+        "nativeIdle": true,
+        "realRig": true
+      },
+      {
+        "side": "ai",
+        "frames": 64,
+        "visible": true,
+        "ground": 0.014,
+        "minHeight": 2.254,
+        "maxHeight": 2.316,
+        "facing": true,
+        "nativeIdle": true,
+        "realRig": true
+      }
+    ],
+    "pass": true,
+    "errors": []
+  }
+]

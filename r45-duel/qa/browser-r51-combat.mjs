@@ -1,6 +1,7 @@
 import {createRequire} from 'node:module';
 import {mkdirSync,writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
+import {createGame} from '../engine.mjs';
 const require=createRequire(import.meta.url);
 const {chromium}=require('/home/master/projects/tidebound-ground-qa-20261109/node_modules/playwright');
 const BASE=process.env.ASDC_QA_ORIGIN||'http://127.0.0.1:10979';
@@ -11,11 +12,16 @@ let browser,failed=false;
 try{
  browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',
   args:['--no-sandbox','--enable-webgl','--use-angle=vulkan','--enable-features=Vulkan,DefaultANGLEVulkan','--disable-software-rasterizer','--disable-dev-shm-usage']});
- for(const [name,w,h,seed,card] of [
+ for(const [name,w,h,preferredSeed,card] of [
   ['wide-e02',1920,1080,1,'E02'],
   ['portrait-e02',430,900,1,'E02'],
   ['wide-g02',1920,1080,4,'G02'],
   ['standard-e02',1366,768,4,'E02']]){
+  // A new playable card changes the seeded deck shuffle; never hardcode a
+  // seed that no longer draws the specific card being tested.
+  const seed=createGame(preferredSeed).hand.player.includes(card)?preferredSeed:
+   Array.from({length:10000},(_,i)=>i+1).find(i=>createGame(i).hand.player.includes(card));
+  if(!seed)throw Error('No deterministic opening hand seed for '+card);
   const p=await browser.newPage({viewport:{width:w,height:h}}),errors=[];
   p.on('pageerror',e=>errors.push(e.message));
   p.on('response',r=>{if(r.status()>=400)errors.push('HTTP '+r.status()+' '+r.url())});
@@ -53,7 +59,7 @@ try{
    during.combat.playedEvents>0&&after.combat.finishedSequences>=1&&
    JSON.stringify(actual)===JSON.stringify(visual)&&!errors.length;
   reports.push({name,pass,during,after,errors});
-  console.log('R51_REAL_COMBAT_GATE',JSON.stringify({name,pass,combat:during.combat,after:after.combat,
+  console.log('R51_REAL_COMBAT_GATE',JSON.stringify({name,seed,pass,combat:during.combat,after:after.combat,
    events:during.events.slice(-3).map(x=>({from:x.from,to:x.to,type:x.type,attacker_uid:x.attacker_uid,target_uid:x.target_uid,damage:x.damage})),
    actual,visual,errors}));
   if(!pass)failed=true;

@@ -16,6 +16,7 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  G03:{file:'G03-ReverseLab-WhiteCoatDoctor.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-ClubDirector-OfficeManager.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  M01:{file:'M01-MusicTeacher-PolyforkSchoolTeacher.glb',label:'音乐老师',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ M02:{file:'M02-CafeteriaAunt-CartoonR76.glb',label:'食堂阿姨',targetHeight:2.07,maxWidth:2.35,kind:'character'},
  T01:{file:'T01-BroadcastOwl-PolyforkRadio-R73.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
  T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
@@ -68,7 +69,7 @@ export async function preloadSummonModels(THREE,loader){
    center:new THREE.Vector3(center.x,bounds.min.y,center.z),meshes,url:url.pathname}];
  }));
  const models=new Map(loaded);
- if(models.size!==UNIT_MODEL_IDS.length||models.size!==11)throw Error('R72 expected eleven independently sourced summoned GLBs');
+ if(models.size!==UNIT_MODEL_IDS.length||models.size!==12)throw Error('R76 expected twelve independently sourced summoned GLBs');
  return models;
 }
 export function instantiateSummon(THREE,template){
@@ -89,7 +90,8 @@ export function instantiateSummon(THREE,template){
  const choose=(kind)=>{
   if(!mixer)return null;
   const clips=template.clips;
-  const preference=kind==='gesture'&&nativeBeat?[nativeBeat.native]:
+  const preference=template.id==='M02'?(kind==='attack'?['Grip_and_Throw_Down','Angry_Stomp']:kind==='hit'?['Angry_Stomp']:kind==='walk'?['Big_Wave_Hello']:kind==='death'?['Shrug']:['Idle']):
+   kind==='gesture'&&nativeBeat?[nativeBeat.native]:
    kind==='attack'?['Attack_Flip_Menu','Attack','attack','Special','Cheer']:
    kind==='hit'?['Hit_Retreat','Hit','hit']:
    kind==='death'?['Death','dead']:

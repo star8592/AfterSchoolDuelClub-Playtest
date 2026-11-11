@@ -3,7 +3,7 @@ import {resolve} from 'node:path';
 import {mkdirSync,writeFileSync} from 'node:fs';
 const require=createRequire(import.meta.url);
 const {chromium}=require('/home/master/projects/tidebound-ground-qa-20261109/node_modules/playwright');
-const UNIT_IDS=['E01','E02','E03','E04','G01','G02','G03','G04','M01','T01','T02','T03','T04'];
+const UNIT_IDS=['E01','E02','E03','E04','G01','G02','G03','G04','M01','M02','T01','T02','T03','T04'];
 const BASE=process.env.ASDC_QA_ORIGIN||'http://127.0.0.1:10991';
 const DEST=resolve(import.meta.dirname,'evidence/r61');
 mkdirSync(DEST,{recursive:true});
@@ -59,7 +59,7 @@ try{
   await page.waitForFunction(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA?.summonPresence?.total===0,null,{timeout:20000});
   const empty=await page.evaluate(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA.summonPresence);
   const cleanup=empty.total===0&&empty.models===0;
-  const pass=response.status()===200&&pre.models.length===11&&pre.sourceMatchesR22&&
+  const pass=response.status()===200&&pre.models.length===12&&pre.sourceMatchesR22&&
    groups.every(x=>x.pass)&&dupPass&&cleanup&&!errors.length;
   const record={name,pass,modelAssets:pre.models.length,groups,dupPass,cleanup,errors};
   results.push(record);console.log('R61_SUMMON_VIEWPORT_GATE',JSON.stringify(record));
