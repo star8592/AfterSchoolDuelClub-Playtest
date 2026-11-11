@@ -1,0 +1,93 @@
+{
+  "version": "R82",
+  "base": "a5cbbff77e4b2b85d6e101293f2309ca6922c688",
+  "result": "LOCAL_PLAYABLE_QA_PASS_NOT_FINAL_ART",
+  "tested_utc": "2026-11-12",
+  "models": [
+    {
+      "id": "E04",
+      "name": "Phil",
+      "original_blend_sha256": "74c23fa9c96b833c9c2381776bdf49f6bfeee11e02060dd36151f9078f8cccd7",
+      "web_glb_sha256": "898ffe460a34c0f85cf51822be20f755856161644d8d3eba42ca6f9b3edbed4f",
+      "web_glb_bytes": 2306224,
+      "source_film": "Sprite Fright",
+      "author": "Blender Foundation",
+      "license": "CC BY 4.0",
+      "source_url": "https://studio.blender.org/characters/phil/v1/",
+      "source_mesh_objects": 72,
+      "source_rig_objects": 2,
+      "source_actions": 24,
+      "web_animation_count": 0,
+      "web_status": "Static color fallback, user requested better prototype first; film shading/hair/rig not yet converted."
+    },
+    {
+      "id": "G04",
+      "name": "Victoria",
+      "original_blend_sha256": "d28ec2e40cd7efe884e76d12695dbe33d443c433aebf5eec33d6b1bee0b01c25",
+      "web_glb_sha256": "655a7906e3c3c584cf585acbe21e0816df84472a09c49977163df78bdd30793c",
+      "web_glb_bytes": 4185404,
+      "source_film": "Sprite Fright",
+      "author": "Blender Foundation",
+      "license": "CC BY 4.0",
+      "source_url": "https://studio.blender.org/characters/victoria/v1/",
+      "source_mesh_objects": 111,
+      "source_rig_objects": 2,
+      "source_actions": 41,
+      "web_animation_count": 0,
+      "web_status": "Static color fallback, user requested better prototype first; film shading/hair/rig not yet converted."
+    }
+  ],
+  "qa": [
+    {
+      "viewport": "wide",
+      "passed": true,
+      "actor_pass": true,
+      "combat_count": 8,
+      "errors": [],
+      "source_models": [
+        [
+          "E04",
+          29
+        ],
+        [
+          "G03",
+          40
+        ],
+        [
+          "G04",
+          34
+        ],
+        [
+          "T04",
+          38
+        ]
+      ]
+    },
+    {
+      "viewport": "portrait",
+      "passed": true,
+      "actor_pass": true,
+      "combat_count": 8,
+      "errors": [],
+      "source_models": [
+        [
+          "E04",
+          29
+        ],
+        [
+          "G03",
+          40
+        ],
+        [
+          "G04",
+          34
+        ],
+        [
+          "T04",
+          38
+        ]
+      ]
+    }
+  ],
+  "notes": "Four Blender Studio bases active as separate characters, two additional units retained existing GLB and two remain VRM. Final film-level shading/rig not yet approved."
+}
