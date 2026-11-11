@@ -30,7 +30,7 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  G02:{file:'G02-Snow-BlenderStudio-R83.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
  G03:{file:'G03-Jay-BlenderStudio-R80.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-Victoria-BlenderStudio-R82.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- T01:{file:'T01-BroadcastOwl-BarnOwl.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
+ T01:{file:'T01-Owl-Innerscene-R84.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
  T03:{file:'T03-Rain-BlenderStudio-R83.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T04:{file:'T04-Rex-BlenderStudio-R80.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
@@ -78,7 +78,7 @@ export function instantiateSummon(THREE,template){
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const mixer=template.clips.length?new THREE.AnimationMixer(instance):null;
  // R80: user-approved Blender Studio meshes have no exported bone animations.
- const filmStatic=['G03','T04','E04','G04','E03','G02','T03'].includes(template.id)&&template.clips.length===0;
+ const filmStatic=['G03','T04','E04','G04','E03','G02','T03','T01'].includes(template.id)&&template.clips.length===0;
  let staticState='idle',staticElapsed=0,staticPhase=0;
  const updateStatic=(dt)=>{
   if(!filmStatic)return;

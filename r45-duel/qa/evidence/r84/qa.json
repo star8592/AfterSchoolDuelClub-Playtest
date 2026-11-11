@@ -1,0 +1,60 @@
+{
+  "revision": "R84",
+  "source": "https://www.innerscene.com/tools/library/3d-parts/owl-d696472a",
+  "license": "CC0 1.0 claimed by source, Innerscene original model",
+  "sha256": "c11c94db20065c6c6f252e768e8c748f22dc69ef9b4e7199110b96de0625c12e",
+  "old_triangles": 520,
+  "new_triangles": 62592,
+  "previous_native_clips": 4,
+  "new_native_clips": 0,
+  "yaw_source_front_radians": 1.57079632679,
+  "qa": [
+    {
+      "viewport": "wide",
+      "passed": true,
+      "actorPass": true,
+      "combatCount": 8,
+      "errors": [],
+      "owl": {
+        "id": "T01",
+        "file": "T01-Owl-Innerscene-R84.glb",
+        "baselineFile": "T01-Owl-Innerscene-R84.glb",
+        "meshes": 129,
+        "clips": 0,
+        "scale": 2.2423853646804206,
+        "measured": {
+          "width": 0.40802671015262604,
+          "height": 0.5128467292524874,
+          "depth": 0.21212051063776016,
+          "scaledHeight": 1.15,
+          "scaledWidth": 0.9149531232449486,
+          "scaledDepth": 0.4756559286026509
+        }
+      }
+    },
+    {
+      "viewport": "portrait",
+      "passed": true,
+      "actorPass": true,
+      "combatCount": 8,
+      "errors": [],
+      "owl": {
+        "id": "T01",
+        "file": "T01-Owl-Innerscene-R84.glb",
+        "baselineFile": "T01-Owl-Innerscene-R84.glb",
+        "meshes": 129,
+        "clips": 0,
+        "scale": 2.2423853646804206,
+        "measured": {
+          "width": 0.40802671015262604,
+          "height": 0.5128467292524874,
+          "depth": 0.21212051063776016,
+          "scaledHeight": 1.15,
+          "scaledWidth": 0.9149531232449486,
+          "scaledDepth": 0.4756559286026509
+        }
+      }
+    }
+  ],
+  "caveat": "Original animation remains in old file; replacement uses temporary root motion, full animated wings missing."
+}

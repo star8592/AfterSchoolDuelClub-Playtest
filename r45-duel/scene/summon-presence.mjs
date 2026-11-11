@@ -425,7 +425,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     withinFrame:screenBBox.left>-1&&screenBBox.right<1&&screenBBox.top<1&&screenBBox.bottom>-1,
     ndcBounds:Object.fromEntries(Object.entries(screenBBox).map(([k,n])=>[k,Number(n.toFixed(3))]))
    };
-   metrics.frontDot=Number(faceOpponentDot(THREE,s.object,s.side).toFixed(4));
+   metrics.frontDot=Number(faceOpponentDot(THREE,s.object,s.side,s.id).toFixed(4));
    // R63 read-only visual evidence: distinguish real per-wing GLB morphs
    // from an unchanged R62 plane or an animated whole-scene transform.
    let wingMorph=null;
