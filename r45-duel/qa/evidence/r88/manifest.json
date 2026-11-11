@@ -1,0 +1,151 @@
+{
+  "release": "R88",
+  "main_base": "09d5a279da30adb457135b796798de4e71298aac",
+  "result": "LOCAL_CHROME_DESKTOP_PORTRAIT_PASS",
+  "models": [
+    {
+      "id": "E03",
+      "character": "Ellie",
+      "old_file": "E03-Ellie-BlenderStudio-R83.glb",
+      "new_file": "E03-Ellie-Animated-R88.glb",
+      "source": "https://studio.blender.org/characters/ellie/v1/",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "0d62fd9a83d9c2fa0b1f26c6fefcfe148b838012ad3a029c8532b97f488e4425",
+      "bytes": 7025396,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 4,
+      "strongest_attack_vertex_delta": 0.1826,
+      "axis": "Z",
+      "no_export_warnings": true
+    },
+    {
+      "id": "E04",
+      "character": "Phil",
+      "old_file": "E04-Phil-BlenderStudio-R82.glb",
+      "new_file": "E04-Phil-Animated-R88.glb",
+      "source": "https://studio.blender.org/characters/phil/v1/",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "2a7d3c4203554aea222a9bc735b9a6905ed4b2d8fc8aebd7c3402e91e8300dbf",
+      "bytes": 3092276,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 10,
+      "strongest_attack_vertex_delta": 0.3063,
+      "axis": "Z",
+      "no_export_warnings": true
+    },
+    {
+      "id": "G04",
+      "character": "Victoria",
+      "old_file": "G04-Victoria-BlenderStudio-R82.glb",
+      "new_file": "G04-Victoria-Animated-R88.glb",
+      "source": "https://studio.blender.org/characters/victoria/v1/",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "0da6f70af24ea421f85f23f0eafdb57d4680aba06142e2f2974f6572f91a1f84",
+      "bytes": 5461968,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 3,
+      "strongest_attack_vertex_delta": 0.2231,
+      "axis": "Z",
+      "no_export_warnings": true
+    },
+    {
+      "id": "T03",
+      "character": "Rain",
+      "old_file": "T03-Rain-BlenderStudio-R83.glb",
+      "new_file": "T03-Rain-Animated-R88.glb",
+      "source": "https://studio.blender.org/characters/rain/v3/",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "f1dab8d04c64fcd3ed03378f4a77fc51383112694d9e100d7ca26bb1e04e95e3",
+      "bytes": 8715608,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 3,
+      "strongest_attack_vertex_delta": 0.25,
+      "axis": "Z",
+      "no_export_warnings": true
+    },
+    {
+      "id": "T04",
+      "character": "Rex",
+      "old_file": "T04-Rex-BlenderStudio-R80.glb",
+      "new_file": "T04-Rex-Animated-R88.glb",
+      "source": "https://studio.blender.org/characters/rex/v1/",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "a9b3ef3c64947795f29dd180525e6574db70f7ebfdf9c26b8231327507c31d2d",
+      "bytes": 6611060,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 5,
+      "strongest_attack_vertex_delta": 0.0815,
+      "axis": "Y",
+      "no_export_warnings": true
+    }
+  ],
+  "qa": [
+    {
+      "viewport": "desktop",
+      "mode": "new",
+      "pass": true,
+      "errors": [],
+      "batches": 2,
+      "per_role_attack_hit": {
+        "E03": true,
+        "E04": true,
+        "G04": true,
+        "T03": true,
+        "T04": true
+      }
+    },
+    {
+      "viewport": "desktop",
+      "mode": "old",
+      "pass": true,
+      "errors": [],
+      "batches": 0,
+      "per_role_attack_hit": {}
+    },
+    {
+      "viewport": "portrait",
+      "mode": "new",
+      "pass": true,
+      "errors": [],
+      "batches": 2,
+      "per_role_attack_hit": {
+        "E03": true,
+        "E04": true,
+        "G04": true,
+        "T03": true,
+        "T04": true
+      }
+    },
+    {
+      "viewport": "portrait",
+      "mode": "old",
+      "pass": true,
+      "errors": [],
+      "batches": 0,
+      "per_role_attack_hit": {}
+    }
+  ],
+  "rollback": "?r88Study=old",
+  "engine_scope": "Five GLB mappings and reversible switch; other R86/R87 character actions, 12-unit casting, paper plane/creature, rules and scene preserved",
+  "art_caveat": "Source CloudRig motions baked to mesh morphs. Still no complete finger/face/footwork or film-level shading. These are real browser clips, not completed cinematic character performances."
+}
