@@ -1,0 +1,39 @@
+{
+  "revision": "R88_VISUAL_REVIEW",
+  "main": "580ce4ca24c90d350e1b4c24e88d894f60d04705",
+  "purpose": "Direct interactive native GLB visual comparison of 7 film-style characters",
+  "real_browser": [
+    {
+      "viewport": "desktop",
+      "pass": true,
+      "ids": [
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "T03",
+        "T04"
+      ],
+      "clips_playable": true,
+      "errors": []
+    },
+    {
+      "viewport": "portrait",
+      "pass": true,
+      "ids": [
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "T03",
+        "T04"
+      ],
+      "clips_playable": true,
+      "errors": []
+    }
+  ],
+  "limitations": "These are first-generation limited morph clips; a natural relaxed stance, elbows/feet/face still need art work. Automated clip playback does not assert cinematic motion quality.",
+  "controls": "7 character choices, Idle/Attack/Hit, rotate zoom speed; self-contained local Three.js import map; no CDN."
+}
