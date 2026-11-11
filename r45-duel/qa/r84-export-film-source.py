@@ -5,8 +5,23 @@ Produces standalone art audition GLBs only, not runtime replacement.
 import bpy,sys,json,hashlib
 from pathlib import Path
 args=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []
-if len(args)!=2:raise RuntimeError('usage: blender source.blend --python script -- <slug> <output.glb>')
-slug,out=args;out=Path(out);out.parent.mkdir(parents=True,exist_ok=True)
+if len(args) not in (2,3):raise RuntimeError('usage: blender source.blend --python script -- <slug> <output.glb> [relaxed]')
+slug,out=args[:2];out=Path(out);out.parent.mkdir(parents=True,exist_ok=True)
+if len(args)==3 and args[2]=='relaxed':
+ # Artist's *real rig* drives the actual source mesh before the static
+ # audition snapshot, no fake proxy limbs or post-export lowpoly subdivision.
+ from mathutils import Vector
+ rig=next((o for o in bpy.data.objects if o.name.lower()==('rig-'+slug).lower()),None)
+ if rig is None:raise RuntimeError('source artist rig not found for relaxed audition '+slug)
+ for letter,side in [('L',1),('R',-1)]:
+  pb=rig.pose.bones.get('IK-MSTR-Wrist.'+letter)
+  if not pb:raise RuntimeError('IK wrist control missing in '+slug+' '+letter)
+  world=rig.matrix_world@pb.matrix
+  world.translation=Vector((side*.39,.02,.58))
+  pb.matrix=rig.matrix_world.inverted()@world
+ bpy.context.view_layer.update()
+ print('R84_FILM_NATIVE_RIG_RELAXED',slug)
+
 originals=[]
 for obj in bpy.data.objects:
  if obj.type!='MESH' or obj.hide_render or len(obj.data.polygons)<1 or not obj.name.startswith('GEO-'):

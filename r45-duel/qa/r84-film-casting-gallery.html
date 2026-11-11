@@ -37,7 +37,7 @@ const loader=new GLTFLoader(),positions=[-3.18,0,3.18],names=['phil','victoria',
 const geometryMeshes=[];
 await Promise.all(names.map(async(name,i)=>{
  try{
-  const url='../art-lab/r84-film-recast/auditions/r84-'+name+'-audition.glb';
+  const url='../art-lab/r84-film-recast/auditions/r84-'+name+'-relaxed-audition.glb';
   const gltf=await loader.loadAsync(url);const root=gltf.scene;const group=new THREE.Group();
   group.position.set(positions[i],.12,0);scene.add(group);
   const box=new THREE.Box3().setFromObject(root),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());

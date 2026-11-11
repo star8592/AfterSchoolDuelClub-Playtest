@@ -34,7 +34,7 @@ https://studio.blender.org/characters/ellie/v1/
 源码 qa/r84-export-film-source.py 和 3个audition GLB可复现；本地Blend源仅保留在单独隔离工作区，不纳入普通网页游戏包。
 真实Web展厅 http://127.0.0.1:11024/r45-duel/qa/r84-film-casting-gallery.html
 页面可旋转看正/侧视角，截图 qa/evidence/r84/r84-film-artist-candidates-front.png 和 ...angle.png；真实Chrome已加载3个GLB，QA PASSED。
-注意：当前是静态T姿候选，原画校园身份、服装、发型、真正骨骼动作仍未做完，故尚未把它们替换进入正式游戏。不能以候选模型已下载冒充卡牌人物美术已完成。
+注意：已利用原生Blender动画骨骼IK给三个候选制作自然垂臂的静态美术验收姿势；该GLB尚无实际战斗动作clips，原画校园身份、服装、发型与真实战斗动画仍未做完，故尚未把它们替换进入正式游戏。不能以候选模型已下载冒充卡牌人物美术已完成。
 
 ## 正在进行的下一步（不假称已完成）
 给 E03/E04/G02/G04/T03 选择符合原作身份的不同高级人形、改造服装/体态/面部、绑定动作并逐卡在真游戏里替换。每张卡验收正面朝向、大小比例、落地、出牌、攻防、骨骼动作、声音、镜头和实时HP。仍保持每张牌可召唤不破坏游戏规则。

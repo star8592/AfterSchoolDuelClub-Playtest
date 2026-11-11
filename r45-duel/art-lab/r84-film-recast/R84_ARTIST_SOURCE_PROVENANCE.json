@@ -8,12 +8,13 @@
       "license": "CC-BY 4.0 (Blender Studio)",
       "raw_source_sha256": "b9671b4add7a7e52000c5dba3ddfa322fb0c0c85abf70ea3ad5fcf6499947e59",
       "raw_source_bytes": 15081086,
-      "audition_glb_file": "art-lab/r84-film-recast/auditions/r84-phil-audition.glb",
-      "audition_sha256": "f9e39c4d40a89acd4b8b7db9f818613554d826106e32fa5963ddde165ed685fd",
-      "audition_bytes": 2306524,
+      "audition_glb_file": "art-lab/r84-film-recast/auditions/r84-phil-relaxed-audition.glb",
+      "audition_sha256": "55e7cb238ea4d23b8b1699629cb65ccddd066d7961df3c2ee3b6aa5de6b19cf0",
+      "audition_bytes": 2306528,
       "runtime_deployed": false,
       "animation_ready": false,
-      "art_approved": false
+      "art_approved": false,
+      "pose": "native artist IK wrist controls: relaxed static arms"
     },
     {
       "name": "victoria",
@@ -22,12 +23,13 @@
       "license": "CC-BY 4.0 (Blender Studio)",
       "raw_source_sha256": "852dc7bea686db2d59302679609bd0c438ef88936f3684dd193a74b3b292cd6b",
       "raw_source_bytes": 11090748,
-      "audition_glb_file": "art-lab/r84-film-recast/auditions/r84-victoria-audition.glb",
-      "audition_sha256": "842928cc6ba62ae1d6d61567c14720c77517588daae71c36481c69c546496b80",
+      "audition_glb_file": "art-lab/r84-film-recast/auditions/r84-victoria-relaxed-audition.glb",
+      "audition_sha256": "e3e84c9ffded1e0870857d810ebf9de2605e94d006f98af847d4b2dff8cdc226",
       "audition_bytes": 4185152,
       "runtime_deployed": false,
       "animation_ready": false,
-      "art_approved": false
+      "art_approved": false,
+      "pose": "native artist IK wrist controls: relaxed static arms"
     },
     {
       "name": "ellie",
@@ -36,12 +38,13 @@
       "license": "CC-BY 4.0 (Blender Studio)",
       "raw_source_sha256": "3dd235218725a9e68890073bbeacb4820f9b34db65d44f80c31bb88696a3c54c",
       "raw_source_bytes": 21851981,
-      "audition_glb_file": "art-lab/r84-film-recast/auditions/r84-ellie-audition.glb",
-      "audition_sha256": "827818cb39c6cd02361aad38154e22c64a8932aaa06084671e9a925f381909ca",
-      "audition_bytes": 5996880,
+      "audition_glb_file": "art-lab/r84-film-recast/auditions/r84-ellie-relaxed-audition.glb",
+      "audition_sha256": "230227fda782031f424f0f7e67acef44447a123a49d986ed4fd29a3bc26595a2",
+      "audition_bytes": 5996884,
       "runtime_deployed": false,
       "animation_ready": false,
-      "art_approved": false
+      "art_approved": false,
+      "pose": "native artist IK wrist controls: relaxed static arms"
     }
   ]
 }
