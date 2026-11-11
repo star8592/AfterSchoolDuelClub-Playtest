@@ -58,7 +58,7 @@ try{
    opening.stadium==='R45_ONE_ARENA_GYM_3D'&&opening.polish?.licensedTextures===3&&
    opening.polish?.physicalTrim>=80&&opening.polish?.liveSigns===3&&
    opening.particleSystem==='R46_TRUE_3D_SUMMON_AND_IMPACT'&&
-   opening.gameCards===18&&opening.handCards===5&&opening.truePortrait&&
+   opening.gameCards===19&&opening.handCards===5&&opening.truePortrait&&
    selected.hand===5&&selected.energy===2&&afterPlay.hand===4&&afterPlay.energy===1&&
    afterPlay.board.includes('E01')&&afterAI.board.includes('G01')&&
    afterAI.text.includes('AI 打出')&&combat.event?.from==='E01'&&combat.event?.to==='G01'&&

@@ -9,10 +9,11 @@ mkdirSync(outfile,{recursive:true});
 const batches=[
  ['E01','E02','E03','E04','G01'],
  ['G02','G03','G04','T01','T02'],
- ['T03','T04','E02','T01','G03']
+ ['T03','T04','E02','T01','G03'],
+ ['M01','G03','E03','T04','E01']
 ];
 const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',
- args:['--no-sandbox','--enable-webgl','--use-angle=gl','--disable-software-rasterizer','--disable-dev-shm-usage']});
+ args:['--no-sandbox','--enable-webgl','--use-angle=vulkan','--enable-features=Vulkan,DefaultANGLEVulkan','--disable-software-rasterizer','--disable-dev-shm-usage']});
 const out=[];let fail=false;
 try {
  for(const [viewport,width,height] of [['wide',1920,1080],['portrait',430,900]]){

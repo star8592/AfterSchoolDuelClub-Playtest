@@ -15,9 +15,9 @@ import {createVrmCharacterActing} from './vrm-character-acting.mjs';
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
 export function createSummonPresence(THREE,scene,{actors,prototypes}){
- if(!(prototypes instanceof Map)||prototypes.size!==10||
+ if(!(prototypes instanceof Map)||prototypes.size!==UNIT_MODEL_IDS.length||
    UNIT_MODEL_IDS.some(id=>!prototypes.has(id))){
-   throw Error('R61 fail-closed: all ten summoned GLB prototypes must load');
+   throw Error('R72 fail-closed: all eleven summoned GLB prototypes must load');
  }
  const root=new THREE.Group();
  root.name='R50_Board_Units_Only';

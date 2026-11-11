@@ -65,7 +65,7 @@ for(const [device,width,height] of [['desktop',1366,850],['mobile',430,900],['sh
     initial.play.top>=0&&initial.play.bottom<=height+4&&
     initial.end.top>=0&&initial.end.bottom<=height+4&&
     initial.arena.height>=135&&fight.handVisible:true;
- const pass=res.status()===200&&initial.game.cardCount===18&&initial.game.sceneReady&&
+ const pass=res.status()===200&&initial.game.cardCount===19&&initial.game.sceneReady&&
    initial.scene.stadium?.label==='R45_ONE_ARENA_GYM_3D'&&
    initial.scene.stadium?.seats>=198&&/RTX 5070 Ti/.test(initial.scene.gpu)&&
    !initial.scene.visibility.some(x=>x.visible)&&

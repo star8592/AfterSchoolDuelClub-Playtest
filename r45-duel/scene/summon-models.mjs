@@ -5,6 +5,7 @@
  */
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {createSummonPose,PERSONALITY_BEATS} from './summon-poses.mjs';
+import {createMusicTeacherPose} from './music-teacher-pose.mjs';
 export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
@@ -14,12 +15,37 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  G02:{file:'G02-BlackboardExpert-ItEngineer.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
  G03:{file:'G03-ReverseLab-WhiteCoatDoctor.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-ClubDirector-OfficeManager.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ M01:{file:'M01-MusicTeacher-PolyforkSchoolTeacher.glb',label:'音乐老师',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T01:{file:'T01-BroadcastOwl-BarnOwl.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
  T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T04:{file:'T04-ClubGuardian-SecurityGuard.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
+const smooth=x=>{const v=Math.max(0,Math.min(1,x));return v*v*(3-2*v)};
+// M01 is not a Gobkit generic rig. Keep the real Polyfork three-joint arms
+// and the tested R69 two-bone wrist goals, including while facing either camp.
+function createMusicTeacherSummonPose(THREE,model){
+ const ik=createMusicTeacherPose(THREE,model);
+ let elapsed=0,frames=0,entranceAmount=0,gestureAmount=0,combatTime=0;
+ const apply=(dt,kind)=>{
+  elapsed+=Math.max(0,dt);frames++;
+  combatTime=Math.max(0,combatTime-Math.max(0,dt));
+  entranceAmount=kind==='idle'?smooth((elapsed-.10)/.35)*
+   (1-smooth((elapsed-1.54)/.7)):0;
+  const t=(elapsed+2.9)%10.4;
+  gestureAmount=kind==='idle'?smooth((t-2.3)/.45)*(1-smooth((t-3.45)/.6)):0;
+  const strength=combatTime>0?.65:Math.max(0,.07+.22*entranceAmount+.14*gestureAmount);
+  ik.apply(strength);
+ };
+ const inspect=()=>({name:'音乐老师 · 点头打拍子',weight:1,frames,
+  entranceAmount:+entranceAmount.toFixed(3),gestureAmount:+gestureAmount.toFixed(3),
+  arms:Object.entries(ik.inspect()).map(([side,m])=>({side,...m}))});
+ const reset=()=>{elapsed=frames=entranceAmount=gestureAmount=combatTime=0};
+ return{apply,inspect,reset,pulseCombat:()=>{combatTime=.50},
+  get entranceAmount(){return entranceAmount},get gestureAmount(){return gestureAmount}};
+}
+
 export async function preloadSummonModels(THREE,loader){
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
   const spec=UNIT_MODEL_SPECS[id];
@@ -42,7 +68,7 @@ export async function preloadSummonModels(THREE,loader){
    center:new THREE.Vector3(center.x,bounds.min.y,center.z),meshes,url:url.pathname}];
  }));
  const models=new Map(loaded);
- if(models.size!==10)throw Error('R61 expected exactly 10 independently sourced summoned GLBs');
+ if(models.size!==UNIT_MODEL_IDS.length||models.size!==11)throw Error('R72 expected eleven independently sourced summoned GLBs');
  return models;
 }
 export function instantiateSummon(THREE,template){
@@ -55,7 +81,8 @@ export function instantiateSummon(THREE,template){
  const root=new THREE.Group();root.add(scaled);
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const mixer=template.clips.length?new THREE.AnimationMixer(instance):null;
- const pose=createSummonPose(THREE,instance,template.id);
+ const pose=template.id==='M01'?createMusicTeacherSummonPose(THREE,instance):
+  createSummonPose(THREE,instance,template.id);
  const characterBeat=PERSONALITY_BEATS[template.id];
  const nativeBeat=characterBeat?.native&&template.clips.some(c=>c.name===characterBeat.native)
   ?characterBeat:null;
@@ -148,6 +175,7 @@ export function instantiateSummon(THREE,template){
   }
  };
  const play=(kind)=>{
+  if((kind==='attack'||kind==='hit')&&template.id==='M01')pose?.pulseCombat?.();
   if(!mixer)return false;
   const clip=choose(kind);if(!clip)return false;
   if(current===clip.name&&kind==='idle'&&activeAction?.isRunning())return true;

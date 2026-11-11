@@ -39,5 +39,5 @@ for(const c of CARDS){
  console.log('R61_RULE_CARD_GATE',JSON.stringify(row));
 }
 const passed=checks.filter(x=>x.pass).length;
-console.log('R61_RULE_18_TOTAL',JSON.stringify({passed,total:checks.length,units:checks.filter(x=>x.kind==='unit').length,spells:checks.filter(x=>x.kind==='spell').length}));
-if(passed!==18)process.exitCode=3;
+console.log('R72_RULE_19_TOTAL',JSON.stringify({passed,total:checks.length,units:checks.filter(x=>x.kind==='unit').length,spells:checks.filter(x=>x.kind==='spell').length}));
+if(passed!==19)process.exitCode=3;

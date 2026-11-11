@@ -1,0 +1,112 @@
+[
+  {
+    "name": "desktop",
+    "seed": 6,
+    "pass": true,
+    "start": {
+      "cards": 19,
+      "round": 1,
+      "hand": [
+        "E01",
+        "E02",
+        "M01",
+        "T03",
+        "E03"
+      ],
+      "modelCount": 11
+    },
+    "played": {
+      "board": [
+        "M01"
+      ],
+      "events": [
+        "E02",
+        "M01"
+      ]
+    },
+    "bySide": [
+      {
+        "side": "player",
+        "frames": 40,
+        "entrance": 1,
+        "maxHandError": 0,
+        "rightFacing": true,
+        "inFrame": true,
+        "minHeight": 2.023,
+        "maxHeight": 2.037,
+        "ground": 0.008,
+        "allReal": true,
+        "playingIdle": true
+      },
+      {
+        "side": "ai",
+        "frames": 40,
+        "entrance": 1,
+        "maxHandError": 0,
+        "rightFacing": true,
+        "inFrame": true,
+        "minHeight": 2.023,
+        "maxHeight": 2.037,
+        "ground": 0.008,
+        "allReal": true,
+        "playingIdle": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "portrait",
+    "seed": 6,
+    "pass": true,
+    "start": {
+      "cards": 19,
+      "round": 1,
+      "hand": [
+        "E01",
+        "E02",
+        "M01",
+        "T03",
+        "E03"
+      ],
+      "modelCount": 11
+    },
+    "played": {
+      "board": [
+        "M01"
+      ],
+      "events": [
+        "E02",
+        "M01"
+      ]
+    },
+    "bySide": [
+      {
+        "side": "player",
+        "frames": 40,
+        "entrance": 1,
+        "maxHandError": 0,
+        "rightFacing": true,
+        "inFrame": true,
+        "minHeight": 2.024,
+        "maxHeight": 2.037,
+        "ground": 0.008,
+        "allReal": true,
+        "playingIdle": true
+      },
+      {
+        "side": "ai",
+        "frames": 40,
+        "entrance": 1,
+        "maxHandError": 0,
+        "rightFacing": true,
+        "inFrame": true,
+        "minHeight": 2.024,
+        "maxHeight": 2.037,
+        "ground": 0.008,
+        "allReal": true,
+        "playingIdle": true
+      }
+    ],
+    "errors": []
+  }
+]

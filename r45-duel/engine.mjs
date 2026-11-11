@@ -1,5 +1,5 @@
 /**
- * R45 Clean Room — single-arena deterministic 18-card core.
+ * R45 Clean Room — single-arena deterministic 19-card core.
  * Pure module: no browser, network, user identifiers, or storage.
  */
 export const STYLES = Object.freeze(['ember', 'grove', 'tide']);
@@ -18,6 +18,7 @@ export const CARDS = Object.freeze([
   {id:'G02',style:'grove',kind:'unit',cost:2,attack:2,hp:3,name:'黑板密码专家',line:'答案原来就写在黑板上。'},
   {id:'G03',style:'grove',kind:'unit',cost:3,attack:2,hp:5,name:'反向实验学长',line:'按下红钮，蓝钮先自己按了。'},
   {id:'G04',style:'grove',kind:'unit',cost:5,attack:4,hp:5,name:'社团计划总监',line:'连校长都看不懂计划表。'},
+  {id:'M01',style:'tide',kind:'unit',cost:3,attack:2,hp:5,name:'音乐老师',line:'一二三，跟着节奏一起出牌！'},
   {id:'T01',style:'tide',kind:'unit',cost:1,attack:1,hp:2,name:'迟到的播音员',line:'赛后宣布：比赛马上开始。'},
   {id:'T02',style:'tide',kind:'unit',cost:2,attack:2,hp:3,name:'食堂隐藏菜单',line:'今天的套餐叫胜利。'},
   {id:'T03',style:'tide',kind:'unit',cost:3,attack:3,hp:3,name:'默契收发员',line:'把吵架变成排队。'},

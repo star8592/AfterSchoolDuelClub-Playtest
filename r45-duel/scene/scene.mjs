@@ -451,7 +451,7 @@ function onMessage(ev){
  }
  if(msg?.type==='ASDC_R45_BOARD'){
   if(!Array.isArray(msg.player)||!Array.isArray(msg.ai))return;
-  const validId=id=>typeof id==='string'&&/^[EGT][0-9]{2}$/.test(id);
+  const validId=id=>typeof id==='string'&&/^[EGTM][0-9]{2}$/.test(id);
   const safe=list=>list.filter(validId).slice(0,5);
   const wasShown=structuredClone(shownCards);
   shownCards={player:safe(msg.player),ai:safe(msg.ai)};
@@ -524,7 +524,7 @@ try{
  summonPresence=createSummonPresence(THREE,scene,{actors,prototypes:summonModels});
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
- stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
+ stageText('idle','13 种三维召唤实体与体育馆已载入 · 待命');
  exposeQA();
  const warmupStarted=performance.now();
  let warmupFrames=0;

@@ -1,5 +1,5 @@
 {
-  "version": "R61",
+  "version": "R72",
   "release_status": "PLAYABILITY_ONLY",
   "approved_final_art": 0,
   "models": [
@@ -131,6 +131,19 @@
       "mode": "PLAYABILITY_PROTOTYPE_NOT_FINAL_ART",
       "art_approved": false,
       "match_note": "Security guard as activities room gatekeeper, original costume pending",
+      "skeleton_animation": true
+    },
+    {
+      "card_id": "M01",
+      "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "source_repository_path": "R69 ModelVault Polyfork School Teacher source",
+      "sha256": "1df7f472476de641a015e7dd7172d6a2d3d28e753ee78294add6838414de89e7",
+      "bytes": 836836,
+      "license": "CC BY 4.0, original source attribution file retained",
+      "source_url": "https://polyfork.dev/asset/school-teacher-8b8bfc",
+      "mode": "PLAYABILITY_PROTOTYPE_NOT_FINAL_ART",
+      "art_approved": false,
+      "match_note": "User-selected music teacher candidate, realistic hands / original Idle, not final art",
       "skeleton_animation": true
     }
   ]
