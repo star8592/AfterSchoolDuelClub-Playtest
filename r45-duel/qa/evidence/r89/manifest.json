@@ -1,0 +1,181 @@
+{
+  "release": "R89",
+  "base": "67b0aca6f4ae0e2d24f7afc04f20b3b83d6bd76d",
+  "status": "ALL_LOCAL_QA_PASS",
+  "license": "CC BY 4.0 — Blender Foundation / Blender Studio",
+  "model_provenance": [
+    {
+      "uid": "E03",
+      "source_character": "Ellie",
+      "previous_model": "E03-Ellie-Animated-R88.glb",
+      "new_model": "E03-Ellie-Natural-R89.glb",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "ac1c974ddb56f39e74d4f73e1a13f0cf2709566654c0c8357a96c37348420b37",
+      "bytes": 7053212,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 4,
+      "strongest_attack_vertex_delta": 0.6119,
+      "rig": "RIG-Ellie"
+    },
+    {
+      "uid": "E04",
+      "source_character": "Phil",
+      "previous_model": "E04-Phil-Animated-R88.glb",
+      "new_model": "E04-Phil-Natural-R89.glb",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "ab947fb8fc4dfea65e69122ef7b0b989baf949494f166ce87ec8df3b3fb475a7",
+      "bytes": 3111400,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 10,
+      "strongest_attack_vertex_delta": 0.8892,
+      "rig": "RIG-Phil"
+    },
+    {
+      "uid": "G02",
+      "source_character": "Snow",
+      "previous_model": "G02-Snow-Animated-R86.glb",
+      "new_model": "G02-Snow-Natural-R89.glb",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "2e25f1e84db92f8283af141f90f6498c7930662b22031944a3a6f74970421caa",
+      "bytes": 11395896,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 2,
+      "strongest_attack_vertex_delta": 0.9772,
+      "rig": "RIG-Snow"
+    },
+    {
+      "uid": "G03",
+      "source_character": "Jay",
+      "previous_model": "G03-Jay-Animated-R87.glb",
+      "new_model": "G03-Jay-Natural-R89.glb",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "a262fd272d1cea69b6cb3b5e89717cb5c80372d5cbc7a6966fe2a0982c5ed6cc",
+      "bytes": 5013272,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 2,
+      "strongest_attack_vertex_delta": 0.5814,
+      "rig": "RIG-jay"
+    },
+    {
+      "uid": "G04",
+      "source_character": "Victoria",
+      "previous_model": "G04-Victoria-Animated-R88.glb",
+      "new_model": "G04-Victoria-Natural-R89.glb",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "8db592d3cf4b041d82750576c7e92cec18b0a3316e3134886b34a733ff5d4c13",
+      "bytes": 5504772,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 3,
+      "strongest_attack_vertex_delta": 0.6849,
+      "rig": "RIG-Victoria"
+    },
+    {
+      "uid": "T03",
+      "source_character": "Rain",
+      "previous_model": "T03-Rain-Animated-R88.glb",
+      "new_model": "T03-Rain-Natural-R89.glb",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "d1382ee20dcacaa895d3282c79f8daf1b9f3272d0e41793987358756228f399c",
+      "bytes": 8761516,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 3,
+      "strongest_attack_vertex_delta": 0.8137,
+      "rig": "RIG-rain"
+    },
+    {
+      "uid": "T04",
+      "source_character": "Rex",
+      "previous_model": "T04-Rex-Animated-R88.glb",
+      "new_model": "T04-Rex-Natural-R89.glb",
+      "license": "CC BY 4.0; Blender Foundation / Blender Studio",
+      "sha256": "1f5f477895d25de27c7593e69eca0586c25ba6abcf71bc35025e89856f478021",
+      "bytes": 6671540,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_meshes": 5,
+      "strongest_attack_vertex_delta": 0.9521,
+      "rig": "RIG-rex"
+    }
+  ],
+  "screenshots": [
+    "qa/evidence/r89/pose-comparison.jpg"
+  ],
+  "qa": {
+    "arena": [
+      {
+        "view": "desktop",
+        "mode": "new",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "view": "desktop",
+        "mode": "old",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "view": "portrait",
+        "mode": "new",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "view": "portrait",
+        "mode": "old",
+        "passed": true,
+        "errors": []
+      }
+    ],
+    "animation_review": [
+      {
+        "view": "desktop",
+        "passed": true,
+        "characters": 7,
+        "errors": []
+      },
+      {
+        "view": "portrait",
+        "passed": true,
+        "characters": 7,
+        "errors": []
+      }
+    ]
+  },
+  "rollback": "?r89Study=r88",
+  "critical_fixes": [
+    "Correct FK shoulder rotation polarity: source rigs differ, Snow/Rain reverse sign",
+    "Enable full FK wrist chain: disable remaining IK-copy constraints on wrist so hands and finger bones move with forearms",
+    "Snow uses independent UpperArm/Forearm IK-copy disabling",
+    "Rain mutes FK-Upperarm/FK-Forearm/FK-Hand IK constraint overrides",
+    "Rex switched to actual downwards arm elevation axis Z"
+  ],
+  "limits": "Mesh vertex morph animation baked from Blender originals (not a live game skeleton). Facial acting, leg footwork, weight shifting, articulated hands, special magic and sound remain to be improved."
+}

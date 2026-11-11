@@ -16,6 +16,21 @@ const isE02R60Study=(()=>{
  return true;
 })();
 
+// R89: Full shoulder/elbow/wrist FK chain baked into natural standing morph bases.
+// ?r89Study=r88 restores previous animated models without changing combat logic.
+const isR89Previous=(()=>{
+ const local=new URLSearchParams(location.search).get('r89Study');
+ if(local==='r88'||local==='r89')return local==='r88';
+ try{return window.parent!==window&&new URLSearchParams(window.parent.location.search).get('r89Study')==='r88';}catch{}
+ return false;
+})();
+const R89_PREVIOUS=Object.freeze({
+ E03:'E03-Ellie-Animated-R88.glb',E04:'E04-Phil-Animated-R88.glb',
+ G02:'G02-Snow-Animated-R86.glb',G03:'G03-Jay-Animated-R87.glb',
+ G04:'G04-Victoria-Animated-R88.glb',T03:'T03-Rain-Animated-R88.glb',
+ T04:'T04-Rex-Animated-R88.glb'
+});
+
 // R88: The remaining five Blender Studio characters have native morph-target clips.
 // ?r88Study=old keeps the earlier static models for art comparisons and rollback.
 const isR88Old=(()=>{
@@ -66,15 +81,15 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
  E02:{file:'E02-PaperPlane-R57.glb',label:'拐弯纸飞机',targetHeight:.42,maxWidth:1.75,maxDepth:1.75,hover:.48,kind:'object'},
- E03:{file:'E03-Ellie-Animated-R88.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- E04:{file:'E04-Phil-Animated-R88.glb',label:'食堂接力员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- G02:{file:'G02-Snow-Animated-R86.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
- G03:{file:'G03-Jay-Animated-R87.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- G04:{file:'G04-Victoria-Animated-R88.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ E03:{file:'E03-Ellie-Natural-R89.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ E04:{file:'E04-Phil-Natural-R89.glb',label:'食堂接力员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ G02:{file:'G02-Snow-Natural-R89.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
+ G03:{file:'G03-Jay-Natural-R89.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ G04:{file:'G04-Victoria-Natural-R89.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T01:{file:'T01-Owl-Innerscene-R84.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
- T03:{file:'T03-Rain-Animated-R88.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- T04:{file:'T04-Rex-Animated-R88.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
+ T03:{file:'T03-Rain-Natural-R89.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ T04:{file:'T04-Rex-Natural-R89.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
 export async function preloadSummonModels(THREE,loader){
@@ -84,6 +99,8 @@ export async function preloadSummonModels(THREE,loader){
    {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:baseSpec;
   const selectedFile=id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
+   isR89Previous&&Object.hasOwn(R89_PREVIOUS,id)?
+   R89_PREVIOUS[id]:
    isR88Old&&Object.hasOwn(R88_OLD,id)?
    R88_OLD[id]:
    id==='G03'&&!isG03R87?
