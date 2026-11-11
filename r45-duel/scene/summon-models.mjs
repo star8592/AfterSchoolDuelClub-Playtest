@@ -13,14 +13,14 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  E03:{file:'E03-CheerCaptain-Schoolkid.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  E04:{file:'E04-CanteenRelay-FoodCourier.glb',label:'食堂接力员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G02:{file:'G02-BlackboardExpert-ItEngineer.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
- G03:{file:'G03-ReverseLab-WhiteCoatDoctor.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ G03:{file:'G03-Jay-BlenderStudio-R80.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-ClubDirector-OfficeManager.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  M01:{file:'M01-MusicTeacher-PolyforkSchoolTeacher.glb',label:'音乐老师',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  M02:{file:'M02-CafeteriaAunt-CartoonR76.glb',label:'食堂阿姨',targetHeight:2.07,maxWidth:2.35,kind:'character'},
  T01:{file:'T01-BroadcastOwl-PolyforkRadio-R73.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
  T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- T04:{file:'T04-ClubGuardian-SecurityGuard.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
+ T04:{file:'T04-Rex-BlenderStudio-R80.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
 const smooth=x=>{const v=Math.max(0,Math.min(1,x));return v*v*(3-2*v)};
@@ -82,7 +82,13 @@ export function instantiateSummon(THREE,template){
  const root=new THREE.Group();root.add(scaled);
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const mixer=template.clips.length?new THREE.AnimationMixer(instance):null;
- const pose=template.id==='M01'?createMusicTeacherSummonPose(THREE,instance):
+ // R80: user-approved film-quality geometry is ahead of legacy Gobkit looks.
+ // Exported film shader meshes have zero GLB bone clips: do NOT claim native animation.
+ // Small, reversible root motions keep turn-combat responsive until retargeted rigs land.
+ const filmStatic=(template.id==='G03'||template.id==='T04')&&!template.clips.length;
+ let staticPhase=0,staticAge=0,staticState='idle';
+ const staticDurations={attack:.72,hit:.54,walk:.66,death:.95,gesture:.78};
+ const pose=filmStatic?null:template.id==='M01'?createMusicTeacherSummonPose(THREE,instance):
   createSummonPose(THREE,instance,template.id);
  const characterBeat=PERSONALITY_BEATS[template.id];
  const nativeBeat=characterBeat?.native&&template.clips.some(c=>c.name===characterBeat.native)
@@ -110,6 +116,20 @@ export function instantiateSummon(THREE,template){
  const vecCorrection=new THREE.Vector3(),quatWorld=new THREE.Quaternion();
  const fading=new Map();
  const update=(dt)=>{
+  if(filmStatic){
+   const step=Math.max(0,Math.min(dt,.09));
+   staticPhase+=step;staticAge+=step;
+   if(staticState!=='idle'&&staticAge>=(staticDurations[staticState]||.8)){
+    staticState='idle';staticAge=0;current='R80_static_idle';
+   }
+   const cycle=staticState==='idle'?.012*Math.sin(staticPhase*1.5):0;
+   const t=staticAge/Math.max(.01,staticDurations[staticState]||1);
+   const pulse=staticState==='idle'?0:Math.sin(Math.PI*Math.min(1,t));
+   scaled.rotation.x=cycle+(staticState==='attack'?-.10*pulse:staticState==='hit'?.065*pulse:0);
+   scaled.rotation.z=.006*Math.sin(staticPhase*.86)+(staticState==='attack'?.075*pulse:staticState==='hit'?-.08*pulse:0);
+   scaled.position.y=staticState==='walk'?.055*Math.abs(Math.sin(staticAge*12)):0;
+   return;
+  }
   if(!mixer)return;
   mixer.update(dt);
   // Built-in character acting where the GLB provides a real authored clip.
@@ -178,6 +198,11 @@ export function instantiateSummon(THREE,template){
  };
  const play=(kind)=>{
   if((kind==='attack'||kind==='hit')&&template.id==='M01')pose?.pulseCombat?.();
+  if(filmStatic){
+   staticState=['idle','attack','hit','walk','death','gesture'].includes(kind)?kind:'idle';
+   staticAge=0;current='R80_static_'+staticState;
+   return true;
+  }
   if(!mixer)return false;
   const clip=choose(kind);if(!clip)return false;
   if(current===clip.name&&kind==='idle'&&activeAction?.isRunning())return true;
@@ -239,7 +264,8 @@ export function instantiateSummon(THREE,template){
    mixer?.stopAllAction();
    fading.clear();current=null;activeAction=null;
    pose?.reset();gestureClock=nativeBeat?.offset||0;gestureTime=0;settleTime=0;gestureCount=0;
-   scaled.position.copy(restPlacement);scaled.scale.copy(restScale);
+   scaled.position.copy(restPlacement);scaled.scale.copy(restScale);scaled.rotation.set(0,0,0);
+   staticPhase=0;staticAge=0;staticState='idle';
    play('idle');update(0);
   },
   get fadingClips(){return fading.size},

@@ -1,0 +1,116 @@
+[
+  {
+    "width": 1440,
+    "passed": true,
+    "errors": [],
+    "normal": [
+      {
+        "id": "G03",
+        "side": "player",
+        "height": 2.084,
+        "ground": 0.003,
+        "clip": "R80_static_idle"
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "height": 2.082,
+        "ground": 0.005,
+        "clip": "R80_static_idle"
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "height": 2.082,
+        "ground": 0.004,
+        "clip": "R80_static_idle"
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "height": 2.084,
+        "ground": 0.005,
+        "clip": "R80_static_idle"
+      }
+    ],
+    "combat": [
+      {
+        "id": "G03",
+        "side": "player",
+        "clip": "R80_static_attack"
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "clip": "R80_static_idle"
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "clip": "R80_static_hit"
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "clip": "R80_static_idle"
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "passed": true,
+    "errors": [],
+    "normal": [
+      {
+        "id": "G03",
+        "side": "player",
+        "height": 2.084,
+        "ground": 0.003,
+        "clip": "R80_static_idle"
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "height": 2.082,
+        "ground": 0.005,
+        "clip": "R80_static_idle"
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "height": 2.082,
+        "ground": 0.004,
+        "clip": "R80_static_idle"
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "height": 2.084,
+        "ground": 0.005,
+        "clip": "R80_static_idle"
+      }
+    ],
+    "combat": [
+      {
+        "id": "G03",
+        "side": "player",
+        "clip": "R80_static_attack"
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "clip": "R80_static_idle"
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "clip": "R80_static_hit"
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "clip": "R80_static_idle"
+      }
+    ]
+  }
+]
