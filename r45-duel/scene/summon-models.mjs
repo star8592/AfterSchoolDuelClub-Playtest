@@ -110,6 +110,22 @@ export function instantiateSummon(THREE,template){
    // source's local axes, independent of player/AI facing or camera orbit.
    root.updateMatrixWorld(true);
    boxMotion.setFromObject(scaled,true);
+   // The source-art Idle and brief entrance rigs can differ by up to 20%
+   // in actual skinned AABB. Normalize the *whole rig uniformly* during the
+   // entry only, retaining the same proven 2.035-world-unit scale contract.
+   // As the pose relaxes this naturally returns to the stable idle scale;
+   // do not stretch only the legs, replace geometry or loosen the QA gate.
+   if(pose.entranceAmount>.02&&isIdle){
+    const posedH=boxMotion.max.y-boxMotion.min.y;
+    if(Number.isFinite(posedH)&&posedH>.2){
+     const factor=THREE.MathUtils.clamp(2.035/posedH,.72,1.26);
+     if(Math.abs(factor-1)>.001){
+      scaled.scale.multiplyScalar(factor);
+      scaled.updateWorldMatrix(true,true);
+      boxMotion.setFromObject(scaled,true);
+     }
+    }
+   }
    boxMotion.getCenter(vecCenter);
    vecGoal.copy(restCenter).applyMatrix4(root.matrixWorld);
    root.getWorldPosition(vecRootPos);
@@ -184,7 +200,7 @@ export function instantiateSummon(THREE,template){
   scaled.updateMatrixWorld(true);
   restCenter=new THREE.Box3().setFromObject(scaled,true).getCenter(new THREE.Vector3());
  }
- const restPlacement=scaled.position.clone();
+ const restPlacement=scaled.position.clone(),restScale=scaled.scale.clone();
  return {root,mixer,play,update,instance,restHeight,
   meshCount:template.meshes,animationCount:template.clips.length,
   get currentClip(){return current},get clipRunning(){return activeAction?.isRunning()||false},
@@ -193,7 +209,7 @@ export function instantiateSummon(THREE,template){
    mixer?.stopAllAction();
    fading.clear();current=null;activeAction=null;
    pose?.reset();gestureClock=nativeBeat?.offset||0;gestureTime=0;settleTime=0;gestureCount=0;
-   scaled.position.copy(restPlacement);
+   scaled.position.copy(restPlacement);scaled.scale.copy(restScale);
    play('idle');update(0);
   },
   get fadingClips(){return fading.size},

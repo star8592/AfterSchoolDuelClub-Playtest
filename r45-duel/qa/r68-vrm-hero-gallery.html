@@ -1,0 +1,101 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R68 · 双骨骼 IK 英雄定格 Pose</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101c2d;color:#f5f7f9;font-family:system-ui,'Noto Sans SC',sans-serif}
+header{padding:12px 22px;background:#203147;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+nav{display:flex;gap:9px;flex-wrap:wrap}
+nav a{border:1px solid #577186;border-radius:8px;padding:8px 12px;color:#d7e9fa;text-decoration:none;font-size:14px}
+nav a[aria-current=page]{background:#406786;color:#fff}h1{font-size:18px;margin:0}
+#info{display:flex;justify-content:space-between;padding:9px 22px;font-size:13px;color:#bdd0df}
+#canvas{width:100%;height:calc(100vh - 190px);min-height:360px;display:block}
+#panels{position:fixed;bottom:15px;left:9%;width:82%;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{background:#1d3047db;padding:10px 12px;border:1px solid #53748c;border-radius:10px;font-size:13px}
+.panel strong{display:block;color:#faf1d2;font-size:16px;margin-bottom:3px}
+.panel .meta{color:#b6d9e9}
+@media(max-width:720px){header{padding:10px}#info{padding:7px 10px}#canvas{height:calc(100vh - 260px)}#panels{left:3%;width:94%;gap:7px}.panel{font-size:11px;padding:6px}.panel strong{font-size:13px}}
+</style></head><body>
+<header><h1>R68 · 出场 Pose：手腕到位、肘部弯曲、轮廓不再八字形</h1><nav id="nav"></nav></header>
+<div id="info"><span id="subtitle">正在读取源 VRM 的面部形变与骨骼…</span><span id="gpu">真实 GPU 动画</span></div>
+<canvas id="canvas"></canvas>
+<div id="panels"><div class="panel"><strong>自然待机</strong><span class="meta">双手放松、自然眨眼</span></div><div class="panel"><strong>英雄出场</strong><span class="meta" id="beat">待机表演正在准备</span></div></div>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+import {createVrmCharacterActing,extractVrm0Expressions,VRM_ACTING} from '../scene/vrm-character-acting.mjs';
+const args=new URLSearchParams(location.search),id=args.get('id')==='G01'?'G01':'E01';
+const faceView=args.get('view')==='face',reverseCheck=args.get('axis')==='back',
+ mode=args.get('mode')==='beat'?'beat':'entrance';
+const nav=document.getElementById('nav');
+nav.innerHTML=[['E01','铃声追不上'],['G01','橡皮筋建筑师']].flatMap(([c,name])=>
+ [['full','全身'],['face','近景']].flatMap(([v,title])=>
+ [['entrance','出场Pose'],['beat','待机表演']].map(([m,label])=>
+ `<a ${id===c&&(faceView?v==='face':v==='full')&&m===mode?'aria-current="page"':''} href="?id=${c}&view=${v}&mode=${m}">${name} · ${title} ${label}</a>`))).join('');
+document.getElementById('beat').textContent=VRM_ACTING[id].beat;
+const file=id==='E01'?'Shino-original-CC0.vrm':'Fumiriya-original-CC0.vrm';
+const gltf=await new GLTFLoader().loadAsync('../assets/model/'+file);
+const expressions=extractVrm0Expressions(gltf);
+const canvas=document.getElementById('canvas');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#1a2a3b');
+scene.add(new THREE.HemisphereLight(0xe4f0ff,0x6c7d83,2.15));
+const key=new THREE.DirectionalLight(0xffead2,3.0);key.position.set(-3,7,5);scene.add(key);
+const rim=new THREE.DirectionalLight(0xb9d7fc,1.65);rim.position.set(5,4,-4);scene.add(rim);
+const camera=new THREE.PerspectiveCamera(faceView?35:40,1,.06,60);
+const scaleFull=.98;
+const pivots=[],controllers=[];
+for(let i=0;i<2;i++){
+ const model=cloneSkeleton(gltf.scene);
+ const originalRest=new Map();
+ model.traverse(o=>{if(o.isBone)originalRest.set(o.name,o.quaternion.clone())});
+ const actor=new THREE.Group();actor.add(model);actor.position.x=(i===0?-1:1)*(faceView?.72:1.25);
+ scene.add(actor);pivots.push(actor);
+ const controller=createVrmCharacterActing(THREE,model,{id,expressions,sourceRest:originalRest});
+ controllers.push(controller);controller.update(.02,{suppressGesture:i===0,previewAmount:i===1?1:0});
+ const bbox=new THREE.Box3().setFromObject(model,true);const dims=bbox.getSize(new THREE.Vector3());
+ const scale=2.1/Math.max(.01,dims.y);
+ model.scale.setScalar(scale);
+ model.position.set(-(bbox.min.x+bbox.max.x)*.5*scale,-bbox.min.y*scale,-(bbox.min.z+bbox.max.z)*.5*scale);
+}
+const ground=new THREE.Mesh(new THREE.PlaneGeometry(13,10),new THREE.MeshStandardMaterial({color:'#354859',roughness:.93}));
+ground.rotation.x=-Math.PI/2;ground.position.y=-.025;scene.add(ground);
+const grid=new THREE.GridHelper(12,24,0x5b7084,0x39495a);grid.position.y=0;scene.add(grid);
+const resize=()=>{
+ const w=canvas.clientWidth,h=canvas.clientHeight;
+ renderer.setSize(w,h,false);camera.aspect=w/Math.max(1,h);camera.updateProjectionMatrix();
+ const wide=w/h>.95;
+ // Both source VRM faces point toward local -Z (verified from real source render).
+ camera.position.set(0,faceView?1.72:1.55,(reverseCheck?1:-1)*(faceView?(wide?3.2:5.4):(wide?6.6:9.2)));
+ camera.lookAt(0,faceView?1.62:1.06,0);
+};resize();window.addEventListener('resize',resize);
+const clock=new THREE.Clock();let time=0,frame=0;
+renderer.setAnimationLoop(()=>{
+ time+=Math.min(clock.getDelta(),.045);
+ const ph=time%7.0;
+ const pulse=v=>{const x=Math.max(0,Math.min(1,v));return x*x*(3-2*x)};
+ const gesture=pulse((ph-.9)/.55)*(1-pulse((ph-4.4)/.65));
+ controllers[0].update(time,{suppressGesture:true,suppressEntrance:true,previewAmount:0,seed:0});
+ controllers[1].update(time,{previewAmount:mode==='beat'?gesture:1,
+  previewEntrance:mode==='entrance',seed:2});
+ renderer.render(scene,camera);frame++;
+});
+await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+document.getElementById('subtitle').textContent=`${VRM_ACTING[id].name} · 源 VRM 网格 + 原生 BlendShape · 左右同一模型`;
+const gl=renderer.getContext(),ext=gl.getExtension('WEBGL_debug_renderer_info');
+document.getElementById('gpu').textContent=ext?String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)).split(',')[0]:'WebGL';
+window.__R68_GALLERY={ready:true,id,mode,faceView,axis:reverseCheck?'+Z back':'-Z face',get frames(){return frame},
+ get left(){return controllers[0].inspect()},get right(){return controllers[1].inspect()},
+ get visibleModels(){return pivots.filter(x=>x.visible).length},
+ get joints(){return pivots.map(p=>{
+  p.updateMatrixWorld(true);
+  const obj={};
+  for(const name of ['C_Head','R_UpperArm','R_LowerArm','R_Hand','L_UpperArm','L_LowerArm','L_Hand']){
+   const bone=p.getObjectByName('J_Bip_'+name);
+   if(bone)obj[name]=bone.getWorldPosition(new THREE.Vector3()).toArray().map(x=>Number(x.toFixed(3)));
+  }
+  return obj;
+ })}};
+</script></body></html>

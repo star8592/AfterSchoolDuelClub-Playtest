@@ -1,3 +1,4 @@
+import {createVrmTwoBonePose} from './vrm-hero-pose-ik.mjs';
 /**
  * R67 — source-VRM facial blendshapes + individual short acting beats.
  * Uses the original VRM 0.x expression bindings from the GLTF parser and
@@ -70,6 +71,7 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
   if(e)q.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(...e,'XYZ')));
   baseline.set(name,q);
  }
+ const realPose=createVrmTwoBonePose(THREE,object,id);
  const actions={J_Bip_C_Chest:cfg.torso,J_Bip_C_Head:cfg.head,
   J_Bip_R_UpperArm:cfg.rightArm,J_Bip_L_UpperArm:cfg.leftArm};
  const combatActions={
@@ -79,31 +81,46 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
    J_Bip_L_UpperArm:[.17,0,.17],J_Bip_C_Head:[.13,0,-.08]}
  };
  const delta=new THREE.Quaternion(),desired=new THREE.Quaternion();
- let amount=0,blink=0,faceAmount=0,frames=0,lastMode='idle';
- function update(seconds,{cinematic=false,combat=null,preview=false,previewAmount=null,suppressGesture=false,seed=0}={}){
+ let amount=0,blink=0,faceAmount=0,frames=0,lastMode='idle',bornAt=null,entranceAmount=0;
+ function update(seconds,{cinematic=false,combat=null,preview=false,previewAmount=null,previewEntrance=false,suppressEntrance=false,suppressGesture=false,seed=0}={}){
+  if(bornAt===null)bornAt=seconds;
+  const age=Math.max(0,seconds-bornAt);
   const phase=(seconds+cfg.offset+seed*.71)%cfg.period;
+  entranceAmount=cinematic||combat||suppressEntrance?0:previewEntrance?1:ease((age-.1)/.42)*(1-ease((age-1.6)/.75));
   const raw=Number.isFinite(previewAmount)?Math.max(0,Math.min(1,previewAmount)):
    preview?1:suppressGesture?0:ease((phase-1.6)/.4)*(1-ease((phase-3.05)/.7));
   amount=(cinematic||combat)?0:raw;
-  lastMode=combat||cinematic?'combat':amount>.02?'gesture':'idle';
+  lastMode=combat||cinematic?'combat':entranceAmount>.08?'entrance':amount>.02?'gesture':'idle';
   const blinkPhase=(seconds+seed*1.13+(id==='E01'?1:2.4))%5.1;
   blink=(cinematic||combat)?0:ease((blinkPhase-.15)/.08)*(1-ease((blinkPhase-.29)/.10));
   faceAmount=(cinematic||combat)?0:cfg.strength*amount;
   if(!cinematic){
+   // Reset only the actual upper body and two elbow joints; the original
+   // VRM legs/hips retain native motion from the game. IK is solved after
+   // torso/head changes to keep each hand anchored to its intended target.
    for(const [key,bone] of bones){
     const rest=baseline.get(key);if(!rest)continue;
-    let pose=actions[key],weight=amount;
-    if(combat&&combatActions[combat]?.[key]){
-     pose=combatActions[combat][key];weight=1;
+    const controlled=key==='J_Bip_C_Chest'||key==='J_Bip_C_Head'||
+     key.endsWith('_UpperArm')||key.endsWith('_LowerArm');
+    if(!controlled)continue;
+    bone.quaternion.copy(rest);
+    if(combat){
+     const pose=combatActions[combat]?.[key];
+     if(pose){delta.setFromEuler(new THREE.Euler(...pose,'XYZ'));bone.quaternion.multiply(delta);}
+    }else if(key==='J_Bip_C_Chest'||key==='J_Bip_C_Head'){
+     const pose=actions[key],weight=Math.max(amount,entranceAmount);
+     if(pose){
+      delta.setFromEuler(new THREE.Euler(...pose,'XYZ'));
+      desired.copy(rest).multiply(delta);
+      bone.quaternion.slerp(desired,weight);
+     }
     }
-    if(!pose){
-     // Reset controlled bones only. Lower limbs and neck remain source-authored.
-     if(key==='J_Bip_C_Chest'||key==='J_Bip_C_Head'||key.endsWith('_UpperArm'))bone.quaternion.copy(rest);
-     continue;
-    }
-    delta.setFromEuler(new THREE.Euler(...pose,'XYZ'));
-    desired.copy(rest).multiply(delta);
-    bone.quaternion.copy(rest).slerp(desired,weight);
+   }
+   if(!combat){
+    // The two-bone elbow reaches a specific location. This prevents the
+    // A-shaped default silhouette and restores recognizable character poses.
+    realPose.apply(entranceAmount>.05?'entrance':amount>.05?'beat':'idle',
+      entranceAmount>.05?entranceAmount:amount);
    }
   }
   // Expression weights are set per individual source mesh. No global
@@ -130,10 +147,11 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
    expression:cfg.face,faceAmount:Number(faceAmount.toFixed(3)),
    actualBlink:Number((liveBlink||0).toFixed(3)),
    actualExpression:Number((liveExpression||0).toFixed(3)),
+   heroPose:realPose.inspect(),entranceAmount:Number(entranceAmount.toFixed(3)),
    faceMeshes:faceMeshes.length,blinkBindings:bindRows.blink.length,
    expressionBindings:bindRows[cfg.face].length,frames};
  }
- function revive(){amount=blink=faceAmount=0;lastMode='idle';for(const mesh of faceMeshes){
+ function revive(){amount=blink=faceAmount=entranceAmount=0;bornAt=null;lastMode='idle';for(const mesh of faceMeshes){
   for(const bindings of [bindRows.blink,bindRows[cfg.face]])for(const b of bindings||[])
    if(b.mesh===mesh)mesh.morphTargetInfluences[b.index]=0;
  }}

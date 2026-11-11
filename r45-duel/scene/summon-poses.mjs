@@ -14,6 +14,17 @@ const RELAXED_HUMANS=Object.freeze({
  T04:{positive:[.23,-.96,.20,.20],negative:[-.34,-.82,.42,.40]}  // guard
 });
 export const RELAXED_POSE_IDS=Object.freeze(Object.keys(RELAXED_HUMANS));
+// A short, clearly readable hero pose on summon. All directions are relative
+// to actual rigged shoulder joints; these are not dummy meshes or flat cards.
+const ENTRANCE_POSES=Object.freeze({
+ E03:{positive:[.20,.38,.77,.65],negative:[-.35,-.48,.70,.70]},
+ E04:{positive:[.23,-.40,.88,.75],negative:[-.23,-.42,.83,.75]},
+ G02:{positive:[.18,-.31,.91,.62],negative:[-.38,-.69,.60,.48]},
+ G03:{positive:[.53,-.23,.72,.86],negative:[-.47,-.30,.79,.80]},
+ G04:{positive:[.38,-.42,.75,.65],negative:[-.31,-.82,.46,.44]},
+ T03:{positive:[.30,-.31,.90,.77],negative:[-.30,-.82,.48,.53]},
+ T04:{positive:[.24,-.31,.92,.70],negative:[-.30,-.81,.48,.51]}
+});
 // Model-specific short comedic gestures. Angles are directions for real upper-
 // arm bones; no additional objects/mesh are spawned. Values are deliberately
 // bent rather than sideways T poses. Periods and offsets prevent synchronized
@@ -65,11 +76,16 @@ export function createSummonPose(THREE,instance,id){
    a.source,new THREE.Vector3(...wanted.slice(0,3)).normalize()):null;
   a.gestureBend=wanted?new THREE.Quaternion().setFromAxisAngle(
    new THREE.Vector3(0,0,1),-a.side*wanted[3]):null;
+  const arrival=ENTRANCE_POSES[id]?.[a.side>0?'positive':'negative'];
+  a.entranceTarget=arrival?new THREE.Quaternion().setFromUnitVectors(
+   a.source,new THREE.Vector3(...arrival.slice(0,3)).normalize()):null;
+  a.entranceBend=arrival?new THREE.Quaternion().setFromAxisAngle(
+   new THREE.Vector3(0,0,1),-a.side*arrival[3]):null;
   a.animatedBend=a.bend.clone();
  }
  const from=new THREE.Vector3(),to=new THREE.Vector3();
  const swayAxis=new THREE.Vector3(0,0,1),sway=new THREE.Quaternion();
- let weight=1,frame=0,seconds=0,gestureAmount=0;
+ let weight=1,frame=0,seconds=0,gestureAmount=0,entranceAmount=0;
  function apply(delta,kind){
   const aim=kind==='idle'?1:0;
   seconds+=Math.max(0,delta);
@@ -80,17 +96,22 @@ export function createSummonPose(THREE,instance,id){
    // One readable gesture, then a long quiet idle: no constant waving.
    gestureAmount=softStep((t-1.6)/.48)*(1-softStep((t-3.25)/.62));
   }else gestureAmount=0;
+  // 0.2s arrival, 1.35s readable hold, 0.6s release into idle.
+  entranceAmount=kind==='idle'?softStep((seconds-.06)/.22)*
+   (1-softStep((seconds-1.47)/.63)):0;
   for(const arm of arms){
    const breathing=.018*Math.sin(seconds*1.2+arm.side*.85);
    sway.setFromAxisAngle(swayAxis,breathing);
    arm.animatedTarget.copy(arm.target);
-   if(arm.gestureTarget)arm.animatedTarget.slerp(arm.gestureTarget,gestureAmount);
+   if(arm.entranceTarget)arm.animatedTarget.slerp(arm.entranceTarget,entranceAmount);
+   if(arm.gestureTarget)arm.animatedTarget.slerp(arm.gestureTarget,gestureAmount*(1-entranceAmount));
    arm.animatedTarget.multiply(sway);
    arm.shoulder.quaternion.slerp(arm.animatedTarget,weight);
    // Slight elbow bend follows the gesture, otherwise preserve its native
    // rigged idle and let the authored attack/hit clips have full control.
    arm.animatedBend.copy(arm.bend);
-   if(arm.gestureBend)arm.animatedBend.slerp(arm.gestureBend,gestureAmount);
+   if(arm.entranceBend)arm.animatedBend.slerp(arm.entranceBend,entranceAmount);
+   if(arm.gestureBend)arm.animatedBend.slerp(arm.gestureBend,gestureAmount*(1-entranceAmount));
    const relaxedForearm=arm.elbow.quaternion.clone().multiply(arm.animatedBend);
    arm.elbow.quaternion.slerp(relaxedForearm,weight);
   }
@@ -105,8 +126,9 @@ export function createSummonPose(THREE,instance,id){
   });
   return {weight:Number(weight.toFixed(3)),frames:frame,arms:measures,
    gesture:PERSONALITY_BEATS[id]?.name||null,
-   gestureAmount:Number(gestureAmount.toFixed(3))};
+   gestureAmount:Number(gestureAmount.toFixed(3)),
+   entranceAmount:Number(entranceAmount.toFixed(3))};
  }
- function reset(){weight=1;seconds=0;gestureAmount=0;}
- return{apply,inspect,reset,get gestureAmount(){return gestureAmount}};
+ function reset(){weight=1;seconds=0;gestureAmount=0;entranceAmount=0;}
+ return{apply,inspect,reset,get gestureAmount(){return gestureAmount},get entranceAmount(){return entranceAmount}};
 }

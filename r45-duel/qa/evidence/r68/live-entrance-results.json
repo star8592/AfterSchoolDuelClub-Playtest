@@ -1,0 +1,196 @@
+[
+  {
+    "view": "wide",
+    "pass": true,
+    "rows": [
+      {
+        "id": "player:E01",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.016,
+        "maxHeight": 2.126,
+        "maxWristError": 0.0265
+      },
+      {
+        "id": "player:E03",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.125,
+        "maxWristError": 0
+      },
+      {
+        "id": "player:E04",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.054,
+        "maxWristError": 0
+      },
+      {
+        "id": "player:G02",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.032,
+        "maxHeight": 2.071,
+        "maxWristError": 0
+      },
+      {
+        "id": "player:G01",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.12,
+        "maxWristError": 0.0454
+      },
+      {
+        "id": "ai:G03",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.066,
+        "maxWristError": 0
+      },
+      {
+        "id": "ai:G04",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.118,
+        "maxWristError": 0
+      },
+      {
+        "id": "ai:T03",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.178,
+        "maxWristError": 0
+      },
+      {
+        "id": "ai:T04",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.038,
+        "maxWristError": 0
+      },
+      {
+        "id": "ai:G01",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.016,
+        "maxHeight": 2.12,
+        "maxWristError": 0.0455
+      }
+    ],
+    "errors": []
+  },
+  {
+    "view": "portrait",
+    "pass": true,
+    "rows": [
+      {
+        "id": "player:E01",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.016,
+        "maxHeight": 2.126,
+        "maxWristError": 0.0265
+      },
+      {
+        "id": "player:E03",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.043,
+        "maxWristError": 0
+      },
+      {
+        "id": "player:E04",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.044,
+        "maxWristError": 0
+      },
+      {
+        "id": "player:G02",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.04,
+        "maxHeight": 2.074,
+        "maxWristError": 0
+      },
+      {
+        "id": "player:G01",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.12,
+        "maxWristError": 0.0454
+      },
+      {
+        "id": "ai:G03",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.046,
+        "maxWristError": 0
+      },
+      {
+        "id": "ai:G04",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.058,
+        "maxWristError": 0
+      },
+      {
+        "id": "ai:T03",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.051,
+        "maxWristError": 0
+      },
+      {
+        "id": "ai:T04",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.008,
+        "maxHeight": 2.04,
+        "maxWristError": 0
+      },
+      {
+        "id": "ai:G01",
+        "entrancePeak": 1,
+        "minFront": 1,
+        "framesInView": true,
+        "minGround": -0.016,
+        "maxHeight": 2.12,
+        "maxWristError": 0.0455
+      }
+    ],
+    "errors": []
+  }
+]
