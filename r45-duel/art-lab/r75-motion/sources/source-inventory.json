@@ -1,0 +1,244 @@
+[
+  {
+    "id": "m_idle_neutral_01",
+    "status": "VERIFIED",
+    "bytes": 113152,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 59,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Finger0",
+      "Bip01 L Finger01",
+      "Bip01 L Finger02",
+      "Bip01 L Finger1"
+    ],
+    "sha256": "3ecbdace7b6c1b904a793f09b422286c70c357a49991ad0b09d76d0b92156a36",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "m_idle_look_around_01",
+    "status": "VERIFIED",
+    "bytes": 98180,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 60,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Finger1",
+      "Bip01 L Finger11",
+      "Bip01 L Finger12",
+      "Bip01 L Finger2"
+    ],
+    "sha256": "d8e672502f0ba05ea2ae69416b1da5148b943b089ed20e92dc3595d2ea6c922f",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "m_gestic_talk_neutral_01",
+    "status": "VERIFIED",
+    "bytes": 549084,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 64,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Finger0",
+      "Bip01 L Finger01",
+      "Bip01 L Finger02",
+      "Bip01 L Finger1"
+    ],
+    "sha256": "5313519611c37bef812d9f035a483363a19824cfb576ed3a097a40d29eae942d",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "m_cheer_01",
+    "status": "VERIFIED",
+    "bytes": 496912,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 64,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Finger0",
+      "Bip01 L Finger01",
+      "Bip01 L Finger02",
+      "Bip01 L Finger1"
+    ],
+    "sha256": "3e6b7482218d2b5411770d8e3158e2085a3969143fd6ff36794eac15ea65d5f1",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "m_claphands_01",
+    "status": "VERIFIED",
+    "bytes": 187924,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 59,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Finger0",
+      "Bip01 L Finger01",
+      "Bip01 L Finger02",
+      "Bip01 L Finger1"
+    ],
+    "sha256": "b725e5a8c5602e1f9c91bbc6bf75201e02f20101c5619b33da80b7c3b33accff",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "m_wave_01",
+    "status": "VERIFIED",
+    "bytes": 98788,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 62,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Finger0",
+      "Bip01 L Finger01",
+      "Bip01 L Finger02",
+      "Bip01 L Finger1"
+    ],
+    "sha256": "8c4c0eff5178a2872b7fe7fbc2b25dfe243de0a5bac90c62c19064a871ff9dd6",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "m_walk_neutral_01",
+    "status": "VERIFIED",
+    "bytes": 44344,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 126,
+    "channels": 24,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Foot",
+      "Bip01 L Forearm",
+      "Bip01 L Hand",
+      "Bip01 L Thigh"
+    ],
+    "sha256": "5e000da6df7e9c6dfa9300b1224b93ef4d7b03800fedccd4d83e5efab2597344",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "f_idle_neutral_01",
+    "status": "VERIFIED",
+    "bytes": 110432,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 62,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Finger0",
+      "Bip01 L Finger01",
+      "Bip01 L Finger02",
+      "Bip01 L Finger1"
+    ],
+    "sha256": "29968b6b8090c3d74a88369c93a200489213efdb2891c7e139c92d9c021c7f1c",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "f_cheer_01",
+    "status": "VERIFIED",
+    "bytes": 346924,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 64,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Finger0",
+      "Bip01 L Finger01",
+      "Bip01 L Finger02",
+      "Bip01 L Finger1"
+    ],
+    "sha256": "36f4cd777e76df385d54e32d8746adaca146024e1ac47e70e2830809aaff86a5",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "f_gestic_talk_neutral_01",
+    "status": "VERIFIED",
+    "bytes": 454908,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 64,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Finger0",
+      "Bip01 L Finger01",
+      "Bip01 L Finger02",
+      "Bip01 L Finger1"
+    ],
+    "sha256": "19ba67291fa1bd88d4e883ad118f5b5ea5b70b36238289dd15a4f9fedcfc8580",
+    "license": "MIT as declared on source website"
+  },
+  {
+    "id": "f_wave_01",
+    "status": "VERIFIED",
+    "bytes": 108096,
+    "clips": [
+      "Take 001"
+    ],
+    "nodes": 125,
+    "channels": 46,
+    "joints_sample": [
+      "Bip01",
+      "Bip01 Head",
+      "Bip01 L Calf",
+      "Bip01 L Clavicle",
+      "Bip01 L Foot",
+      "Bip01 L Forearm",
+      "Bip01 L Hand",
+      "Bip01 L Thigh"
+    ],
+    "sha256": "cf33b231f4c4a245e2f1ad45efef745d8538aac7c5b4c8cf16af81ed2df89475",
+    "license": "MIT as declared on source website"
+  }
+]

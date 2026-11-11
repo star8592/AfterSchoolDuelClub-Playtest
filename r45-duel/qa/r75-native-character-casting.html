@@ -1,0 +1,109 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>R75 · 原生高质量模型选角与骨骼动作试镜</title><link rel="icon" href="data:,"/>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#14243a;color:#e9e9e2}*{box-sizing:border-box}html,body{margin:0;height:100%;min-width:320px}header{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:13px 22px;border-bottom:1px solid #4c667d;flex-wrap:wrap}h1{font-size:17px;margin:0;font-weight:650}.hint{font-size:12px;color:#b5cad6}nav{display:flex;gap:9px;flex-wrap:wrap;align-items:center}label{font-size:12px;color:#cbdce3}select{margin-left:5px;background:#203a53;color:white;padding:7px 10px;border:1px solid #66869c;border-radius:6px;max-width:140px}main{min-height:240px;height:calc(100vh - 234px)}canvas{display:block;width:100%;height:100%}footer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:9px 18px;background:#192c40}footer article{border:1px solid #4b637b;border-radius:7px;padding:8px;background:#233b53;overflow:hidden}footer b{font-size:13px}footer small{display:block;color:#bacbd9;font-size:11px;margin-top:4px}.status{color:#b8d8b3;font-size:12px}.warning{color:#f4c58a}#notes{padding:7px 18px;font-size:11px;color:#b9d1e0;background:#182e43}@media(max-width:650px){header{padding:8px}h1{font-size:14px}main{height:calc(100vh - 260px)}footer{gap:4px;padding:4px}footer article{padding:5px}footer b,footer small{font-size:9px}select{max-width:110px}}
+</style></head><body>
+<header><div><h1>R75 · 真人角色底模 & 原生动作试镜</h1><div class="hint">原始 MIT 模型，不修补旧低模 · 真实 WebGL 模型+骨骼运动</div></div><nav>
+<label>角色组<select id="group"><option value="kids">儿童/少年</option><option value="coaches">体育人物</option><option value="adult">成人角色</option><option value="canteen">食堂阿姨/成人</option></select></label>
+<label>动作<select id="motion"><option value="idle">自然待机</option><option value="talk">交谈</option><option value="cheer">欢呼</option><option value="wave">挥手</option><option value="clap">鼓掌</option><option value="dance">舞蹈</option><option value="walk">行走</option></select></label>
+<label>视角<select id="angle"><option>0</option><option>45</option><option>90</option><option>180</option></select></label>
+<label>背景<select id="venue"><option value="0">角色基底试镜</option><option value="1">三维体育馆</option></select></label>
+</nav></header>
+<main><canvas id="stage" aria-label="四人真实网格及骨骼动画横向选角试镜"></canvas></main>
+<footer id="labels"></footer><div id="notes">来源：CodeLove 3D / Microsoft Rocketbox MIT 候选。版权/原作相似度尚未最终审核；本页不自动替换任何游戏角色。</div>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
+import {createStadium} from '../scene/stadium.mjs';
+const get=id=>document.getElementById(id),qs=new URLSearchParams(location.search);
+const groups={
+ kids:['male-child-01','male-child-02','female-child-01','female-child-02'],
+ coaches:['sports-male-01','sports-male-02','sports-male-03','sports-female-01'],
+ adult:['male-adult-02','male-adult-13','female-adult-03','female-adult-12'],
+ canteen:['chef-female-01','female-adult-03','female-adult-12','sports-female-02']
+};
+const alias={kids:['男学生甲','男学生乙','女学生甲','女学生乙'],coaches:['体育员甲','体育员乙','体育员丙','女体育员'],adult:['成年男甲','成年男乙','成年女甲','成年女乙'],canteen:['厨师职业模','成年女甲','成年女乙','女体育员']};
+const current={group:groups[qs.get('group')]?qs.get('group'):'kids',motion:qs.get('motion')||'idle',angle:Math.min(180,Math.max(0,Number(qs.get('angle')||0))),venue:qs.get('venue')==='1'?'1':'0'};
+for(const id of ['group','motion','angle','venue']){get(id).value=String(current[id]);get(id).addEventListener('change',()=>{const q=new URLSearchParams(location.search);q.set(id,get(id).value);location.search=q.toString()})}
+const models=[],loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+const cv=get('stage'),ren=new THREE.WebGLRenderer({canvas:cv,antialias:true,powerPreference:'high-performance',preserveDrawingBuffer:true});
+ren.outputColorSpace=THREE.SRGBColorSpace;ren.toneMapping=THREE.ACESFilmicToneMapping;ren.toneMappingExposure=1.12;
+ren.setPixelRatio(Math.min(1.5,window.devicePixelRatio||1));
+const scene=new THREE.Scene();scene.background=new THREE.Color('#14283f');
+scene.add(new THREE.HemisphereLight('#f0f6fa','#5c7283',2.35));const sun=new THREE.DirectionalLight('#fff1da',2.2);sun.position.set(-5,7,9);scene.add(sun);
+const rim=new THREE.DirectionalLight('#d7e8ff',.9);rim.position.set(5,7,-4);scene.add(rim);
+const inGym=current.venue==='1';
+if(inGym)createStadium(THREE,scene,{detail:'low'});
+else{const floor=new THREE.Mesh(new THREE.PlaneGeometry(30,7),new THREE.MeshStandardMaterial({color:'#395570',roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.035;scene.add(floor);}
+if(!inGym)for(const x of [-4.15,-1.4,1.4,4.15]){
+ const ring=new THREE.Mesh(new THREE.RingGeometry(.64,.67,60),new THREE.MeshBasicMaterial({color:'#e2b870',side:THREE.DoubleSide}));ring.rotation.x=-Math.PI/2;ring.position.set(x,.006,0);scene.add(ring);
+}
+const camera=new THREE.PerspectiveCamera(37,1,.1,150);const resize=()=>{
+ const w=Math.max(1,cv.clientWidth),h=Math.max(1,cv.clientHeight);ren.setSize(w,h,false);
+ camera.aspect=w/h;camera.updateProjectionMatrix();camera.position.set(0,inGym?2.42:2.6,w<760?36:inGym?12:10.7);camera.lookAt(0,inGym?1.22:1.02,inGym?-.55:0);
+};resize();addEventListener('resize',resize);
+const validMotion=new Set(['idle','talk','cheer','wave','clap','dance','walk']);const moc=current.motion==='talk'?'gestic_talk_neutral_01':current.motion==='cheer'?'cheer_01':current.motion==='wave'?'wave_01':current.motion==='clap'?'claphands_01':current.motion==='dance'?'dancing_neutral':current.motion==='walk'?'walk_neutral_01':'idle_neutral_01';
+const loadOriginal=async(id)=>{
+ const root=id==='female-child-02'?'r75-recast':id.includes('child')?'r74-model-recast':'r75-recast';
+ const base=`../art-lab/${root}/candidates/${id}.glb`;
+ // sports-male-01 was also already downloaded as the original R74 source.
+ const url=id==='sports-male-01'?`../art-lab/r74-model-recast/candidates/${id}.glb`:base;
+ return loader.loadAsync(url);
+};
+const nTracks=clip=>clip.tracks.map(t=>t.name.slice(0,t.name.lastIndexOf('.')));
+const animations={};
+async function getClip(prefix){
+ const key=prefix+'_'+moc;if(!animations[key]){
+  const gltf=await loader.loadAsync(`../art-lab/r75-motion/sources/${key}.glb`);animations[key]=gltf.animations[0];
+  if(!animations[key])throw new Error('Missing native clip '+key);
+ }return animations[key];
+}
+for(const [i,id] of groups[current.group].entries()){
+ try{
+ const gltf=await loadOriginal(id),native=gltf.scene,source=new THREE.Box3().setFromObject(native,true),size=source.getSize(new THREE.Vector3());
+ if(size.y<.9||size.y>2.5)throw new Error('native upright dimension failed: '+size.toArray());
+ const anchor=new THREE.Group();anchor.name=id;anchor.position.x=[-4.15,-1.4,1.4,4.15][i];anchor.rotation.y=current.angle*Math.PI/180;scene.add(anchor);
+ const norm=new THREE.Group();norm.scale.setScalar(1.98/size.y);norm.position.y=.0;anchor.add(norm);
+ // Model origin can be offset from mesh; normalize in native Y-up world.
+ native.position.set(-(source.min.x+source.max.x)*.5,-source.min.y,-(source.min.z+source.max.z)*.5);norm.add(native);
+ const nodes=new Set();native.traverse(o=>{if(o.name)nodes.add(o.name)});
+ const prefix=id.includes('female')?'f':'m';
+ let clip=await getClip(prefix);
+ // Children use Bip02 while shared adult animation source uses Bip01.
+ // Rebind only names with exact existing targets, never guess bone geometry.
+ const rebind=clip.tracks.map(track=>{
+  const copy=track.clone();if(id.includes('child'))copy.name=copy.name.replace(/^Bip01(?=\.|_|\s)/,'Bip02');return copy;
+ }).filter(track=>nodes.has(track.name.slice(0,track.name.lastIndexOf('.'))));
+ const match=rebind.length,allTracks=clip.tracks.length;
+ const compatible=match>=20&&match/allTracks>=.40;
+ if(!compatible)throw Error('animation bone tracks too few '+match+'/'+allTracks+' sampleNodes='+[...nodes].filter(x=>/Bip0/.test(x)).slice(0,8).join(',')+' tracks='+clip.tracks.slice(0,5).map(x=>x.name).join(','));
+ const named=new THREE.AnimationClip(current.motion,clip.duration,rebind);
+ const mixer=new THREE.AnimationMixer(native),action=mixer.clipAction(named);action.play();
+ let skinned=0,bones=0,triangles=0;native.traverse(o=>{if(o.isSkinnedMesh)skinned++;if(o.isBone)bones++;if(o.isMesh){const g=o.geometry;triangles+=(g.index?g.index.count:g.attributes.position.count)/3}});
+ const entry={id,anchor,model:native,mixer,clip:named,sourceHeight:size.y,sourceWidth:size.x,sourceDepth:size.z,
+  tris:Math.round(triangles),skins:skinned,bones,tracked:match,sourceTracks:allTracks,
+  motion:current.motion,observedMovement:0,frames:0,pass:compatible&&skinned>=1&&bones>=79};
+ const sampleBone=native.getObjectByName(id.includes('child')?'Bip02_Head':'Bip01_Head');
+ const animationBones=[...nodes].filter(n=>/Bip0/.test(n)&&/(Head|Spine|UpperArm|Forearm|Hand|Thigh)/.test(n))
+  .map(n=>native.getObjectByName(n)).filter(Boolean);
+ entry.boneSamples=animationBones.map(b=>({bone:b,initial:b.quaternion.clone()}));
+ entry.head=sampleBone;entry.headStart=sampleBone?.quaternion.clone();entry.movedBones=0;
+ models.push(entry);
+ get('labels').insertAdjacentHTML('beforeend',`<article><b>${alias[current.group][i]} · ${id}</b><small>${entry.tris.toLocaleString()} 面 / ${bones} 骨 / ${match} 动画轨</small><small class="status">原生 GLB · ${current.motion} · MIT 候选</small></article>`);
+ }catch(e){console.error('R75_ACTOR_LOAD_FAILED',id,e);get('labels').insertAdjacentHTML('beforeend',`<article class="warning"><b>${id}</b><small>${String(e)}</small></article>`);}
+}
+let frames=0;const clk=new THREE.Clock();ren.setAnimationLoop(()=>{
+ const dt=Math.min(.05,clk.getDelta());for(const entry of models){entry.mixer.update(dt);entry.frames++;
+  if(entry.boneSamples?.length){let moved=0;
+  for(const s of entry.boneSamples){const deviation=s.initial.angleTo(s.bone.quaternion);
+   entry.observedMovement=Math.max(entry.observedMovement,deviation);
+   if(deviation>.035)moved++;
+  }entry.movedBones=Math.max(entry.movedBones,moved);
+ }
+ }ren.render(scene,camera);frames++;
+});
+window.__R75_CAST_QA={ready:true,group:current.group,motion:current.motion,angle:current.angle,
+ get frames(){return frames},get models(){return models.map(({id,tris,skins,bones,sourceHeight,sourceWidth,sourceDepth,tracked,sourceTracks,observedMovement,movedBones,frames,pass})=>({id,tris,skins,bones,sourceHeight,sourceWidth,sourceDepth,tracked,sourceTracks,observedMovement:+observedMovement.toFixed(5),movedBones,frames,pass}))}};
+</script></body></html>
