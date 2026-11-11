@@ -1,0 +1,164 @@
+[
+  {
+    "device": "desktop",
+    "model": "round",
+    "ok": true,
+    "http": 200,
+    "human": {
+      "bones": 80,
+      "meshes": 2,
+      "skinned": 2,
+      "triangles": 7460
+    },
+    "menu": {
+      "bones": 0,
+      "meshes": 43,
+      "skinned": 0,
+      "triangles": 39220
+    },
+    "clips": [
+      "Idle_Menu_Breath",
+      "Walk_Small_Steps",
+      "Attack_Flip_Menu",
+      "Defend_Opening_Menu",
+      "Hit_Retreat"
+    ],
+    "gpu": null,
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "model": "round",
+    "ok": true,
+    "http": 200,
+    "human": {
+      "bones": 80,
+      "meshes": 2,
+      "skinned": 2,
+      "triangles": 7460
+    },
+    "menu": {
+      "bones": 0,
+      "meshes": 43,
+      "skinned": 0,
+      "triangles": 39220
+    },
+    "clips": [
+      "Idle_Menu_Breath",
+      "Walk_Small_Steps",
+      "Attack_Flip_Menu",
+      "Defend_Opening_Menu",
+      "Hit_Retreat"
+    ],
+    "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "errors": []
+  },
+  {
+    "device": "desktop",
+    "model": "chef",
+    "ok": true,
+    "http": 200,
+    "human": {
+      "bones": 80,
+      "meshes": 2,
+      "skinned": 2,
+      "triangles": 7460
+    },
+    "menu": {
+      "bones": 0,
+      "meshes": 43,
+      "skinned": 0,
+      "triangles": 39220
+    },
+    "clips": [
+      "Idle_Menu_Breath",
+      "Walk_Small_Steps",
+      "Attack_Flip_Menu",
+      "Defend_Opening_Menu",
+      "Hit_Retreat"
+    ],
+    "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "model": "chef",
+    "ok": true,
+    "http": 200,
+    "human": {
+      "bones": 80,
+      "meshes": 2,
+      "skinned": 2,
+      "triangles": 7460
+    },
+    "menu": {
+      "bones": 0,
+      "meshes": 43,
+      "skinned": 0,
+      "triangles": 39220
+    },
+    "clips": [
+      "Idle_Menu_Breath",
+      "Walk_Small_Steps",
+      "Attack_Flip_Menu",
+      "Defend_Opening_Menu",
+      "Hit_Retreat"
+    ],
+    "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "errors": []
+  },
+  {
+    "device": "desktop",
+    "model": "mpfb",
+    "ok": true,
+    "http": 200,
+    "human": {
+      "bones": 53,
+      "meshes": 16,
+      "skinned": 16,
+      "triangles": 35441
+    },
+    "menu": {
+      "bones": 0,
+      "meshes": 43,
+      "skinned": 0,
+      "triangles": 39220
+    },
+    "clips": [
+      "Idle_Menu_Breath",
+      "Walk_Small_Steps",
+      "Attack_Flip_Menu",
+      "Defend_Opening_Menu",
+      "Hit_Retreat"
+    ],
+    "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "model": "mpfb",
+    "ok": true,
+    "http": 200,
+    "human": {
+      "bones": 53,
+      "meshes": 16,
+      "skinned": 16,
+      "triangles": 35441
+    },
+    "menu": {
+      "bones": 0,
+      "meshes": 43,
+      "skinned": 0,
+      "triangles": 39220
+    },
+    "clips": [
+      "Idle_Menu_Breath",
+      "Walk_Small_Steps",
+      "Attack_Flip_Menu",
+      "Defend_Opening_Menu",
+      "Hit_Retreat"
+    ],
+    "gpu": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "errors": []
+  }
+]

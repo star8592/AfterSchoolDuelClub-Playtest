@@ -1,0 +1,22 @@
+{
+  "status": "R68_STUDY_ONLY",
+  "art_approved": false,
+  "production_approved": false,
+  "model_sha256": "cb7c08d7c90fd2d283c419a5caffec0cc3d913e9df306662d341e03817a59412",
+  "file_bytes": 20490836,
+  "input": "MakeHuman MPFB 2.0.18 base rig + CC0 middleage_asian_female system assets",
+  "rig_bones": 53,
+  "asset_refit": "OFFICIAL_MPFBI_MHCLO_REFIT_FIRST + measured body-driven accessory fitting",
+  "accessory_modeling": "Blender original work apron, straps, cap, pocket; size derived from refit clothes and short04 hair meshes; no generated human body",
+  "accessory_parts": [
+    "tailored front apron",
+    "neck strap",
+    "waist ties",
+    "hem",
+    "work pocket",
+    "pleated chef hat",
+    "hat band"
+  ],
+  "license": "MakeHuman core + system assets CC0; custom Blender accessory geometry created for this game",
+  "notes": "Still missing custom facial expression, character identity art approval, animated serving motion, final T02 paired in-game GLB."
+}

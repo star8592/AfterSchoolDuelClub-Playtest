@@ -1,0 +1,19 @@
+{
+  "state": "R68_STUDY_ONLY",
+  "art_approved": false,
+  "production_approved": false,
+  "source_url": "https://models.codelove.in/models/chef-female-01/",
+  "original_repository": "https://github.com/microsoft/Microsoft-Rocketbox",
+  "license": "MIT",
+  "license_notice": "LICENSE-Microsoft-Rocketbox-MIT.md",
+  "source_sha256": "3cab3777e96523fbf3c87fc500653db465bb75ce2458bc29784db09273d3c91c",
+  "output_sha256": "7c948a74c0c9bad2c42c52b056abd8084580e5aecb17dba043899dedb8567f55",
+  "out_bytes": 740732,
+  "method": "Smooth weighting of actual Rocketbox existing skinned vertices around belly/hips; body, coat, head are a single coherent original mesh; no new primitive placeholder shapes",
+  "core_belly_expansion": ".25 lateral / .34 front/back, spatially tapered",
+  "old_model": false,
+  "art_pilot": true,
+  "notes": "Review deformation at shoulders/hands, bind skin & fit on desktop/portrait; no final approval",
+  "source_sha256_of_unaligned": "79dc793b480bbac7cd3dc35e348284521ec08008df5c41245bde1f93e57782ea",
+  "front_axis_qa": "Blender re-export root turned 90 degrees off; corrected root yaw +90 to agree with original on-screen +Z without changing vertex geometry or joints."
+}
