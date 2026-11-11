@@ -1,0 +1,29 @@
+{
+  "version": "R87",
+  "base_commit": "2d343b8eb48b24b179c86663f62129c96651d84d",
+  "character": "G03 Jay",
+  "license": "Blender Studio / Blender Foundation CC BY 4.0",
+  "source_url": "https://studio.blender.org/characters/jay/v1/",
+  "model_sha256": "07db9e8aa39c2684738ee43901a5b74c097f85c52a998b8d4f9666f07f4445ab",
+  "bytes": 4983588,
+  "clips": [
+    "Idle",
+    "Attack",
+    "Hit"
+  ],
+  "technique": "Local body and jacket vertex morphs computed by original Blender CloudRig, exported as native glTF morph animation; not a full browser runtime skeletal rig",
+  "morph_meshes": [
+    "GEO-jay_body",
+    "GEO-jay_jacket"
+  ],
+  "qa": {
+    "desktop_attack": true,
+    "portrait_attack": true,
+    "desktop_hit": true,
+    "portrait_hit": true,
+    "desktop_old_R80_rollback": true,
+    "portrait_old_R80_rollback": true,
+    "javascript_errors": 0
+  },
+  "limitation": "Root motion and limited shoulder deformation; fingers, face and complete combat choreography not yet finished."
+}

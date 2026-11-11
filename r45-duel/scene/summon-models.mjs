@@ -16,6 +16,15 @@ const isE02R60Study=(()=>{
  return true;
 })();
 
+// R87: Jay's source CloudRig poses baked to localized shape-key motions.
+// ?g03Study=r80 switches back to the existing static R80 Jay.
+const isG03R87=(()=>{
+ const local=new URLSearchParams(location.search).get('g03Study');
+ if(local==='r80'||local==='r87')return local==='r87';
+ try{if(window.parent!==window)return new URLSearchParams(window.parent.location.search).get('g03Study')!=='r80';}catch{}
+ return true;
+})();
+
 // R86: CloudRig-derived localized morph animations, not a whole-body sway.
 // Use ?g02Study=r83 to revert Snow to R83; supports parent iframe query string.
 const isG02R86=(()=>{
@@ -46,7 +55,7 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  E03:{file:'E03-Ellie-BlenderStudio-R83.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  E04:{file:'E04-Phil-BlenderStudio-R82.glb',label:'食堂接力员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G02:{file:'G02-Snow-Animated-R86.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
- G03:{file:'G03-Jay-BlenderStudio-R80.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ G03:{file:'G03-Jay-Animated-R87.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-Victoria-BlenderStudio-R82.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T01:{file:'T01-Owl-Innerscene-R84.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
@@ -61,6 +70,8 @@ export async function preloadSummonModels(THREE,loader){
    {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:baseSpec;
   const selectedFile=id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
+   id==='G03'&&!isG03R87?
+   'G03-Jay-BlenderStudio-R80.glb':
    id==='G02'&&!isG02R86?
    'G02-Snow-BlenderStudio-R83.glb':
    id==='E02'&&isE02R60Study?
