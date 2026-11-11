@@ -1,0 +1,168 @@
+[
+  {
+    "viewport": "wide",
+    "pass": true,
+    "pageLoaded": {
+      "ready": true,
+      "modelCount": 10,
+      "models": [
+        {
+          "id": "G03",
+          "file": "G03-Jay-BlenderStudio-R80.glb",
+          "baselineFile": "G03-Jay-BlenderStudio-R80.glb",
+          "meshes": 40,
+          "clips": 0,
+          "scale": 1.6544852240826475,
+          "measured": {
+            "width": 0.9122272729873657,
+            "height": 1.2571886226141942,
+            "depth": 0.3657605051994324,
+            "scaledHeight": 2.08,
+            "scaledWidth": 1.5092665441628044,
+            "scaledDepth": 0.6051453514054652
+          }
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-BlenderStudio-R80.glb",
+          "baselineFile": "T04-Rex-BlenderStudio-R80.glb",
+          "meshes": 38,
+          "clips": 0,
+          "scale": 1.2175658207701316,
+          "measured": {
+            "width": 1.8431255221366882,
+            "height": 1.7083265352212038,
+            "depth": 0.3882010728120804,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.2441266391427344,
+            "scaledDepth": 0.47266035784228627
+          }
+        }
+      ]
+    },
+    "actorPass": true,
+    "entries": [
+      {
+        "id": "G03",
+        "side": "player",
+        "height": 2.081,
+        "minY": 0.01,
+        "frontDot": 1,
+        "inView": true,
+        "clips": 0
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "height": 2.081,
+        "minY": 0.006,
+        "frontDot": 1,
+        "inView": true,
+        "clips": 0
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "height": 2.081,
+        "minY": 0.009,
+        "frontDot": 1,
+        "inView": true,
+        "clips": 0
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "height": 2.081,
+        "minY": 0.006,
+        "frontDot": 1,
+        "inView": true,
+        "clips": 0
+      }
+    ],
+    "combatCount": 4,
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "pass": true,
+    "pageLoaded": {
+      "ready": true,
+      "modelCount": 10,
+      "models": [
+        {
+          "id": "G03",
+          "file": "G03-Jay-BlenderStudio-R80.glb",
+          "baselineFile": "G03-Jay-BlenderStudio-R80.glb",
+          "meshes": 40,
+          "clips": 0,
+          "scale": 1.6544852240826475,
+          "measured": {
+            "width": 0.9122272729873657,
+            "height": 1.2571886226141942,
+            "depth": 0.3657605051994324,
+            "scaledHeight": 2.08,
+            "scaledWidth": 1.5092665441628044,
+            "scaledDepth": 0.6051453514054652
+          }
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-BlenderStudio-R80.glb",
+          "baselineFile": "T04-Rex-BlenderStudio-R80.glb",
+          "meshes": 38,
+          "clips": 0,
+          "scale": 1.2175658207701316,
+          "measured": {
+            "width": 1.8431255221366882,
+            "height": 1.7083265352212038,
+            "depth": 0.3882010728120804,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.2441266391427344,
+            "scaledDepth": 0.47266035784228627
+          }
+        }
+      ]
+    },
+    "actorPass": true,
+    "entries": [
+      {
+        "id": "G03",
+        "side": "player",
+        "height": 2.081,
+        "minY": 0.01,
+        "frontDot": 1,
+        "inView": true,
+        "clips": 0
+      },
+      {
+        "id": "T04",
+        "side": "player",
+        "height": 2.081,
+        "minY": 0.007,
+        "frontDot": 1,
+        "inView": true,
+        "clips": 0
+      },
+      {
+        "id": "T04",
+        "side": "ai",
+        "height": 2.081,
+        "minY": 0.009,
+        "frontDot": 1,
+        "inView": true,
+        "clips": 0
+      },
+      {
+        "id": "G03",
+        "side": "ai",
+        "height": 2.081,
+        "minY": 0.007,
+        "frontDot": 1,
+        "inView": true,
+        "clips": 0
+      }
+    ],
+    "combatCount": 4,
+    "errors": []
+  }
+]
