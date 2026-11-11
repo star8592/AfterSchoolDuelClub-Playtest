@@ -4,13 +4,16 @@
  * E01/G01 remain the existing unique source VRM rigs.
  */
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
-// R63: opt-in only. Without ?e02Study=r60 the existing R62 game and all models
-// remain byte-for-byte unaffected. The game iframe is same-origin.
+// R85: improved R60 photo-paper model and five native clips are the default.
+// Exact older R57 remains available with ?e02Study=r57 for immediate rollback.
 const isE02R60Study=(()=>{
- const local=new URLSearchParams(location.search).get('e02Study')==='r60';
- if(local)return true;
- try{return window.parent!==window && new URLSearchParams(window.parent.location.search).get('e02Study')==='r60';}
- catch{return false;}
+ const local=new URLSearchParams(location.search).get('e02Study');
+ if(local==='r57'||local==='r60')return local==='r60';
+ try{
+  if(window.parent!==window)
+   return new URLSearchParams(window.parent.location.search).get('e02Study')!=='r57';
+ }catch{}
+ return true;
 })();
 
 // R67: true two-character T02 is opt-in; production default remains menu-only.

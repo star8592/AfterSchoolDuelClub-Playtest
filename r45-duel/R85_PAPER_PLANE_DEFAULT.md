@@ -1,0 +1,3 @@
+R85 | E02 R60 default
+
+The previously tested R60 PhotoPaper WingFlex paper plane is now the default E02 summon, with 5 real GLTF clips and morphing wings / PBR paper texture. Existing R57 is still in repository and available instantly via `?e02Study=r57`. This is an incremental quality upgrade, not a new paper plane geometry. No game rules, life/damage engine, decks or other GLB/VRM are changed. For comparison, `?e02Study=r60` remains supported. Verified in Chrome 1440px and 430px, both variants, 8 visible summons, zero script/HTTP errors. QA: `qa/evidence/r85-plane-default.json`. R63 origin: `qa/R63-E02-R60-ARENA.md`.

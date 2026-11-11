@@ -1,0 +1,55 @@
+{
+  "version": "R85",
+  "source_commit": "6ba65adea018fe29ab0aeae58f867a1c83d111e2",
+  "status": "CHROME_LOCAL_QA_PASS",
+  "scope": "E02 only; all 20 cards, other 11 unit models, arena, rules retained",
+  "R60": [
+    "5 native glTF2 clips",
+    "two morphing wings",
+    "paper PBR material"
+  ],
+  "backward_compatibility": "?e02Study=r57 reverts E02 to original 0-clip R57",
+  "samples": [
+    {
+      "mode": "default",
+      "viewport": "desktop",
+      "model": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+      "clips": 5,
+      "two_sides_visible": true,
+      "errors": [],
+      "failed": [],
+      "all_units": 8
+    },
+    {
+      "mode": "default",
+      "viewport": "portrait",
+      "model": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+      "clips": 5,
+      "two_sides_visible": true,
+      "errors": [],
+      "failed": [],
+      "all_units": 8
+    },
+    {
+      "mode": "rollback",
+      "viewport": "desktop",
+      "model": "E02-PaperPlane-R57.glb",
+      "clips": 0,
+      "two_sides_visible": true,
+      "errors": [],
+      "failed": [],
+      "all_units": 8
+    },
+    {
+      "mode": "rollback",
+      "viewport": "portrait",
+      "model": "E02-PaperPlane-R57.glb",
+      "clips": 0,
+      "two_sides_visible": true,
+      "errors": [],
+      "failed": [],
+      "all_units": 8
+    }
+  ],
+  "notes": "Production default is a provisional art upgrade; R60 paper rendering and flapping are functional but card art matching remains subject to review."
+}
