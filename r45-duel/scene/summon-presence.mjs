@@ -313,6 +313,19 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
   return{active:!!sequence,queued:sequence?.events.length||0,
    index:sequence?.index??-1,playedEvents,finishedSequences};
  }
+ function reactToSpell(side,uids,now){
+  if(!['player','ai'].includes(side)||!Array.isArray(uids)||uids.length>5)return 0;
+  let affected=0;
+  for(const uid of uids){
+   const unit=entries.get(side+':'+uid);
+   if(!unit)continue;  // The core may already have removed a defeated unit.
+   unit.r81hit={started:now};
+   unit.object.userData.r61?.play?.('hit');
+   if(unit.vrmPersonality)unit.r67Move={kind:'hit',started:now};
+   affected++;
+  }
+  return affected;
+ }
  function update(seconds,camera,{cinematic=false}={}){
   const dt=lastUpdateSeconds===null?0:Math.min(.07,Math.max(0,seconds-lastUpdateSeconds));
   lastUpdateSeconds=seconds;
@@ -348,7 +361,15 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     object.position.x=at.x;
     object.position.z=at.z;
    }
+   if(state.kind==='original-vrm'&&state.r81LastTilt)object.rotation.z-=state.r81LastTilt;
    if(state.kind!=='original-vrm')object.rotation.z=0;
+   const rAge=seconds-(state.r81hit?.started??-100);
+   const rEase=v=>{const z=Math.max(0,Math.min(1,v));return z*z*(3-2*z)};
+   const recoil=rEase(rAge/.11)*(1-rEase((rAge-.18)/.55));
+   const direction=state.side==='player'?-1:1;
+   const tilt=direction*.17*recoil;
+   object.position.x+=direction*.39*recoil;
+   object.rotation.z+=tilt;state.r81LastTilt=tilt;
    const tag=state.status?.label;
    if(tag){
     // Compress by card ID + HP in dense battles; one button can restore
@@ -529,5 +550,5 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
    pendingArt:0,prototypeArt:list.filter(x=>x.kind==='gltf-instance').length,
    loadedPrototypeIds:[...prototypes.keys()],cardIds:[...UNIT_IDS],entries:list};
  }
- return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode};
+ return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,reactToSpell};
 }

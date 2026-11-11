@@ -408,3 +408,17 @@ html,body{width:100%;height:100%;overflow:hidden}
 .audio-mixer label{display:flex;align-items:center;justify-content:space-between;gap:9px;font-size:12px;white-space:nowrap}
 .audio-mixer input[type="range"]{width:110px;accent-color:#e7b96a}
 @media(max-width:650px){.audio-toggle{font-size:10px!important;padding:5px!important;min-height:29px!important}.audio-settings>summary{font-size:10px;padding:6px 5px}.audio-mixer{width:205px;right:0}}
+
+/* R81: honest real-time score, large enough for a spectator; hit feedback only on actual changes. */
+.scoreboard .hp strong{font-size:clamp(27px,3.2vw,48px);font-weight:950;line-height:1;letter-spacing:.02em;}
+.scoreboard .duelist-name{font-size:clamp(12px,1.5vw,18px)}
+.scoreboard .hp-track{height:9px;box-shadow:0 0 8px #4a9ac433}
+.scoreboard .center-score .turn-indicator{font-size:clamp(11px,1.1vw,15px);color:#f5c480}
+.scoreboard .center-score .turn-indicator strong{font-variant-numeric:tabular-nums}
+.score-changed{animation:r81-score-pop .52s ease-out}
+@keyframes r81-score-pop{0%{transform:scale(1);filter:brightness(1)}30%{transform:scale(1.27);filter:brightness(2.2)}100%{transform:scale(1);filter:brightness(1)}}
+@media(max-width:650px){
+ .scoreboard .hp strong{font-size:clamp(22px,6vw,30px)}
+ .scoreboard .duelist-name{font-size:10px}
+ .scoreboard .center-score .turn-indicator{font-size:9px}
+}

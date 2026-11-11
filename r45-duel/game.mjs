@@ -46,7 +46,7 @@ $('audio-toggle').addEventListener('click',async()=>{
 });
 function cardSound(c){
  if(c.kind==='unit')return 'cast';
- return ({buff:'cast',blast:'hit',confuse:'hit',repair:'heal',heal:'heal',draw:'select'})[c.effect]||'turn';
+ return ({buff:'cast',blast:'spell_charge',confuse:'spell_charge',repair:'heal',heal:'heal',draw:'select'})[c.effect]||'turn';
 }
 function gameReady(){return g.phase==='playing'&&g.active==='player';}
 function cardCanPlay(index){
@@ -131,13 +131,32 @@ function renderHand(){
  $('hand-count').textContent=String(g.hand.player.length);
  if(!g.hand.player.length)$('hand').append($make('div','empty-hand','手牌用完，点击「结束回合」即可继续抽牌'));
 }
+function scoreboardSnapshot(){
+ return{type:'ASDC_R81_SCORE',player:g.hp.player,ai:g.hp.ai,round:g.round,
+   turn:g.phase==='ended'?'ended':g.active,comboPlayer:g.comboCounts.player,
+   comboAi:g.comboCounts.ai,energy:g.energy.player};
+}
+function sendSpellImpact(cardEvent) {
+ if(!cardEvent||cardEvent.type!=='card_play'||!BY_ID[cardEvent.card]||
+   BY_ID[cardEvent.card].kind!=='spell'||!cardEvent.spellOutcome)return false;
+ const {directDamage,unitDamage,targetUids,effect}=cardEvent.spellOutcome;
+ return sendScene({type:'ASDC_R81_SPELL_RESULT',card:cardEvent.card,
+   side:cardEvent.side,serial:cardEvent.serial,damage:directDamage+unitDamage,
+   directDamage,targetUids,effect});
+}
 function renderHUD(){
- $('player-hp').textContent=String(g.hp.player);
- $('enemy-hp').textContent=String(g.hp.ai);
+ for(const [side,node] of [['player','player-hp'],['ai','enemy-hp']]){
+   const label=$(node),next=String(g.hp[side]);
+   if(label.textContent!==next){label.textContent=next;
+     label.classList.remove('score-changed');void label.offsetWidth;
+     label.classList.add('score-changed');}
+ }
+
  $('player-hp-bar').style.width=(100*g.hp.player/MAX_HP).toFixed(1)+'%';
  $('enemy-hp-bar').style.width=(100*g.hp.ai/MAX_HP).toFixed(1)+'%';
  $('energy').textContent=String(g.energy.player);
  $('round').textContent='第 '+g.round+' 回合';
+ const combo=$('combo-count');if(combo)combo.textContent='连携 '+g.comboCounts.player+' : '+g.comboCounts.ai;
  $('whose-turn').textContent=g.phase==='ended'?'决斗结束':
   g.active==='player'?'轮到你出牌':'AI 正在回应';
 }
@@ -166,6 +185,7 @@ function render(){
  renderHand();
  renderActions();
  renderGuide();
+ sendScene(scoreboardSnapshot());
 }
 function boardSnapshot(){
  const units=side=>g.board[side][0].map(x=>({uid:x.uid,id:x.id,hp:x.hp,attack:x.attack+x.buff,shield:x.shield||0}));
@@ -210,6 +230,7 @@ window.addEventListener('message',ev=>{
 });
 function syncScene(){
  sendScene(boardSnapshot());
+ sendScene(scoreboardSnapshot());
 }
 // A visually projected physical card from the correct side duelist platform.
 // This is a secondary presentation event; it never changes core rules.
@@ -249,7 +270,8 @@ function playFight(e){
 }
 $('play').addEventListener('click',()=>{
  if(selected===null||!cardCanPlay(selected))return;
- const id=g.hand.player[selected],c=BY_ID[id],result=playCard(g,selected,0);
+ const id=g.hand.player[selected],c=BY_ID[id],preHp={...g.hp},
+   result=playCard(g,selected,0);
  if(!result.ok){
   announce('出牌失败：'+result.reason,'warning');render();return;
  }
@@ -257,6 +279,19 @@ $('play').addEventListener('click',()=>{
  render();syncScene();
  audio.playCue(cardSound(c),'player');if(c.kind==='unit')audio.playCharacter(id,'enter');
  projectPlayedCard(id,'player');
+ audio.playCue('card_flip','player');
+ audio.playCharacter('HOST_PLAYER','cast');
+ if(c.kind==='spell'){
+  sendSpellImpact(g.events.findLast(e=>e.type==='card_play'&&e.side==='player'&&e.card===id));
+  const sound={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
+    repair:'ice_shatter',draw:'card_flip',heal:'shield_block'}[c.effect];
+  if(sound){
+   if(c.effect==='blast'||c.effect==='confuse')
+     setTimeout(()=>audio.playCue(sound,'player'),460);
+   else audio.playCue(sound,'player');
+  }
+  if(g.hp.ai<preHp.ai)setTimeout(()=>audio.playCharacter('HOST_AI','hurt'),460);
+ }
  const suffix=c.kind==='unit'?'已进入中央竞技场。本回合待命，下次轮到你才会攻击。':
   '已立即结算事件效果。';
  announce('已出牌：「'+c.name+'」。'+suffix+'　还可以继续出牌，或点击「结束回合」。','played');
@@ -269,18 +304,48 @@ $('end').addEventListener('click',()=>{
  if(!gameReady())return;
  audio.playCue('turn');
  const pre=boardSnapshot().units;
+ const preHp={...g.hp};
  const serial=g.serial;
  endTurn(g);
  if(g.phase==='playing'&&g.active==='ai')aiTurn(g);
  const fresh=g.events.filter(e=>e.serial>serial);
  selected=null;
  render();syncScene();
+ for(const side of ['player','ai']){
+  const delta=Math.max(0,preHp[side]-g.hp[side]);
+  // An AI spell already has its own precise impact event; don't count it a
+  // second time as a generic host hit or make the rival flinch twice.
+  const spellDamage=fresh.filter(e=>e.type==='card_play'&&
+    e.side!==(side)&&e.spellOutcome).reduce((n,e)=>n+e.spellOutcome.directDamage,0);
+  const otherDamage=Math.max(0,delta-spellDamage);
+  if(otherDamage>0){
+   setTimeout(()=>{
+    sendScene({type:'ASDC_R81_HIT_HOST',side,damage:otherDamage});
+    audio.playCharacter(side==='player'?'HOST_PLAYER':'HOST_AI','hurt');
+    audio.playCue('score_chime',side);
+   },430);
+  }
+ }
  const summary=stateSummary(fresh);
  for(const event of fresh.filter(e=>e.type==='card_play'&&e.side==='ai').slice(-3)){
   const enemyCard=BY_ID[event.card];
   audio.playCue(enemyCard?.kind==='unit'?'enemy_cast':cardSound(enemyCard),'ai');
   if(enemyCard?.kind==='unit')audio.playCharacter(event.card,'enter');
   projectPlayedCard(event.card,'ai');
+  audio.playCharacter('HOST_AI','cast');
+  if(enemyCard?.kind==='spell') {
+   sendSpellImpact(event);
+   const fx={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
+     repair:'ice_shatter',draw:'card_flip',heal:'shield_block'}[enemyCard.effect];
+   if(fx){
+    if(enemyCard.effect==='blast'||enemyCard.effect==='confuse')
+      setTimeout(()=>audio.playCue(fx,'ai'),460);
+    else audio.playCue(fx,'ai');
+   }
+   if(event.spellOutcome?.directDamage>0){
+    setTimeout(()=>audio.playCharacter('HOST_PLAYER','hurt'),460);
+   }
+  }
  }
  const fight=findRealExchange(fresh);
  const clashes=fresh.filter(e=>e.type==='exchange'||e.type==='direct_hit');
@@ -292,8 +357,10 @@ $('end').addEventListener('click',()=>{
   audio.playCue('attack',clashes[0].side);
   audio.playCue('hit',clashes[0].side==='player'?'ai':'player');
   // Qwen3-TTS attack voice only for the actual attacker and when available.
-  const line=clashes.find(e=>e.from==='E01'||e.from==='G01');
-  if(line)audio.playCharacter(line.from,'attack');
+  // The turn can contain many simultaneous exchanges. One intelligible
+  // characteristic battle shout is better than three voices interrupting.
+  const lead=clashes.find(e=>e.from&&BY_ID[e.from]?.kind==='unit');
+  if(lead)audio.playCharacter(lead.from,'attack');
  }
  if(generic.length)sendScene({type:'ASDC_R51_COMBAT_EVENTS',
   pre,post:boardSnapshot().units,events:generic.map(e=>({

@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "state": {
+    "hp": {
+      "player": 20,
+      "ai": 17
+    },
+    "hits": {
+      "played": 1,
+      "hits": 1,
+      "noHit": 0,
+      "expired": 1,
+      "active": 0,
+      "activeKinds": [],
+      "ruleMutations": 0
+    },
+    "scoreboard": {
+      "player": 20,
+      "ai": 17,
+      "round": 2,
+      "turn": "player",
+      "comboPlayer": 0,
+      "comboAi": 0,
+      "energy": 0,
+      "type": "ASDC_R81_SCORE"
+    }
+  },
+  "videoFile": "/home/master/projects/after-school-duel-r81-impact-stadium-20261112/r45-duel/qa/evidence/r81/r82-actual-eraser-versus-rival-silent.webm",
+  "sizeBytes": 1775484,
+  "errors": [],
+  "note": "Actual Chrome WebGL recording; video does not capture game audio. Open live game to hear Qwen3 voices and Foley."
+}

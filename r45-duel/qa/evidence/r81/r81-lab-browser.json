@@ -1,0 +1,159 @@
+{
+  "ok": true,
+  "errors": [],
+  "states": [
+    {
+      "button": 0,
+      "spell": [],
+      "played": 0,
+      "score": {
+        "player": 20,
+        "ai": 20,
+        "round": 1,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 2,
+        "type": "ASDC_R81_SCORE"
+      }
+    },
+    {
+      "button": 1,
+      "spell": [],
+      "played": 0,
+      "score": {
+        "player": 20,
+        "ai": 20,
+        "round": 1,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 2,
+        "type": "ASDC_R81_SCORE"
+      }
+    },
+    {
+      "button": 2,
+      "spell": [
+        "sonic"
+      ],
+      "played": 1,
+      "score": {
+        "player": 20,
+        "ai": 20,
+        "round": 1,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 2,
+        "type": "ASDC_R81_SCORE"
+      }
+    },
+    {
+      "button": 3,
+      "spell": [
+        "sonic",
+        "eraser"
+      ],
+      "played": 2,
+      "score": {
+        "player": 20,
+        "ai": 20,
+        "round": 1,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 2,
+        "type": "ASDC_R81_SCORE"
+      }
+    },
+    {
+      "button": 4,
+      "spell": [
+        "sonic",
+        "eraser",
+        "repair"
+      ],
+      "played": 3,
+      "score": {
+        "player": 20,
+        "ai": 20,
+        "round": 1,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 2,
+        "type": "ASDC_R81_SCORE"
+      }
+    },
+    {
+      "button": 5,
+      "spell": [
+        "sonic",
+        "eraser",
+        "repair",
+        "warmth"
+      ],
+      "played": 4,
+      "score": {
+        "player": 20,
+        "ai": 20,
+        "round": 1,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 2,
+        "type": "ASDC_R81_SCORE"
+      }
+    },
+    {
+      "button": 6,
+      "spell": [
+        "sonic",
+        "eraser",
+        "repair",
+        "warmth",
+        "rally"
+      ],
+      "played": 5,
+      "score": {
+        "player": 20,
+        "ai": 20,
+        "round": 1,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 2,
+        "type": "ASDC_R81_SCORE"
+      }
+    },
+    {
+      "button": 7,
+      "spell": [
+        "sonic",
+        "eraser",
+        "repair",
+        "warmth",
+        "rally",
+        "pages"
+      ],
+      "played": 6,
+      "score": {
+        "player": 20,
+        "ai": 20,
+        "round": 1,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 2,
+        "type": "ASDC_R81_SCORE"
+      }
+    }
+  ],
+  "audio": {
+    "paused": false,
+    "time": 0.428172,
+    "readyState": 4,
+    "src": "HOST_PLAYER-cast.ogg"
+  }
+}

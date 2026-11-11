@@ -6,7 +6,11 @@
 const SOUNDS=Object.freeze({
  select:'select.ogg',cast:'cast.ogg',enemy_cast:'enemy_cast.ogg',
  turn:'turn.ogg',attack:'attack.ogg',hit:'hit.ogg',
- heal:'heal.ogg',win:'win.ogg',lose:'lose.ogg'
+ heal:'heal.ogg',win:'win.ogg',lose:'lose.ogg',
+ card_flip:'card_flip.ogg',spell_charge:'spell_charge.ogg',
+ meteor_impact:'meteor_impact.ogg',sonic_wave:'sonic_wave.ogg',
+ ice_shatter:'ice_shatter.ogg',stadium_cheer:'stadium_cheer.ogg',
+ score_chime:'score_chime.ogg',shield_block:'shield_block.ogg'
 });
 const VOICE_MODEL='Qwen3-TTS';
 const base='./assets/audio/';
@@ -156,7 +160,7 @@ export function createDuelAudio(){
   recentVoiceKeys.set(key,now);
   if(recentVoiceKeys.size>45)recentVoiceKeys.clear();
   const item={id,kind,file:clip.file};
-  if(kind==='attack'){
+  if(kind==='attack'||kind==='hurt'||kind==='cast'){
    // Attack VO must accompany the actual animation; cancel the old line,
    // leaving pending entrances behind this higher priority combat call.
    if(voiceAudio){voiceAudio.pause();voiceAudio=null;currentVoiceKey=null;counters.voiceInterrupted++;}
@@ -182,6 +186,7 @@ export function createDuelAudio(){
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
   musicDucked=false;musicAudio?.pause();
   playCue(winner==='draw'?'turn':winner==='player'?'win':'lose');
+  if(winner!=='draw')playCue('stadium_cheer');
   log('finished',winner);
  }
  function status(){return {provider:VOICE_MODEL,enabled,

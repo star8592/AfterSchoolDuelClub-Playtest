@@ -1,3 +1,4 @@
+import {addRealBleacherSeats} from './real-stadium-seats.mjs';
 import {addStadiumPolish} from './stadium-polish.mjs';
 /**
  * R45 procedural 3D school-gymnasium battle environment.
@@ -69,21 +70,7 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     box([.74,.22,11],[x,y,0],row%2?beam:navy,'Side_Bleacher_'+sign+'_'+row);
     box([.12,.45,11],[x+sign*.32,y-.27,0],dark,'Side_Riser_'+sign+'_'+row);
   }
-  // Distant seat/color markers: instances rather than individual draw calls.
-  const seatGeo=new THREE.BoxGeometry(.43,.19,.16);
-  const seatMat=[coral,teal,mat('#b8c9d5')];
-  for(let j=0;j<3;j++){
-    const locations=[];
-    for(let row=0;row<6;row++)for(let col=0;col<33;col++){
-      if((row*17+col*11)%3!==j)continue;
-      const z=-6.5-row*.80-.20,y=.56+row*.48;
-      locations.push([-8.85+col*.55,y,z]);
-    }
-    const seats=new THREE.InstancedMesh(seatGeo,seatMat[j],locations.length);
-    seats.name='Stadium_Seats_Instanced_Color_'+j;
-    locations.forEach((p,i)=>{tr.position.set(...p);tr.updateMatrix();seats.setMatrixAt(i,tr.matrix)});
-    group.add(seats);stats.instancedObjects++;stats.seats+=locations.length;stats.meshCount++;
-  }
+  // R81: the false rectangular placeholders are intentionally removed.
   // R49: a complete reverse-facing bank of seating for the 180-degree orbit.
   // Kept hidden from the default entry camera, because that camera stands on
   // this side of the court. Shown only when the camera moves behind the ring.
@@ -102,19 +89,10 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     rearBox([19,.25,.90],[0,y,z],row%2?beam:navy,'Reverse_Grandstand_Tier_'+row);
     rearBox([19,.45,.12],[0,y-.3,z+.43],dark,'Reverse_Grandstand_Riser_'+row);
   }
-  const mirroredSeatGeo=new THREE.BoxGeometry(.43,.19,.16);
-  for(let j=0;j<3;j++){
-    const locations=[];
-    for(let row=0;row<6;row++)for(let col=0;col<33;col++){
-      if((row*17+col*11)%3!==j)continue;
-      locations.push([-8.85+col*.55,.56+row*.48,6.5+row*.8+.2]);
-    }
-    const seated=new THREE.InstancedMesh(mirroredSeatGeo,seatMat[j],locations.length);
-    seated.name='Reverse_Stadium_Seats_Instanced_'+j;
-    locations.forEach((a,i)=>{tr.position.set(...a);tr.updateMatrix();seated.setMatrixAt(i,tr.matrix)});
-    seated.receiveShadow=true;reverse.add(seated);
-    stats.instancedObjects++;stats.meshCount++;stats.seats+=locations.length;
-  }
+  // R81 real chairs in both grandstands: seat, curved visual back, arm and support.
+  const seating=addRealBleacherSeats(THREE,group,reverse);
+  stats.seats=seating.chairs;stats.instancedObjects+=seating.instances;
+  stats.seating=seating;
   rearBox([24,10,.46],[0,4.7,11.85],navy,'Reverse_Gym_Wall');
   rearBox([5.2,1.45,.22],[0,6.04,11.34],dark,'Reverse_Scoreboard_Body');
   rearBox([4.7,1.05,.08],[0,6.04,11.16],teal,'Reverse_Scoreboard_Display');

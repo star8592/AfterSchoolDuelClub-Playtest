@@ -109,6 +109,14 @@ export function playCard(g,index,lane) {
   const id=g.hand[side][index],c=BY_ID[id];
   if(c.cost>g.energy[side])return {ok:false,reason:'insufficient energy'};
   if(c.kind==='unit'&&g.board[side][lane].length>=MAX_FIELD_UNITS)return {ok:false,reason:'arena full'};
+  // R82: capture the exact rule-authoritative spell outcome AT THIS CARD,
+  // not the aggregate delta after several AI cards and combat exchanges.
+  // This is event metadata only and cannot alter combat arithmetic.
+  const preSpell=c.kind==='spell'?{
+    hp:{...g.hp},
+    units:Object.fromEntries(['player','ai'].map(team=>[team,
+      g.board[team][lane].map(u=>({uid:u.uid,hp:u.hp,shield:u.shield||0}))]))
+  }:null;
   g.hand[side].splice(index,1);g.energy[side]-=c.cost;
   if(c.kind==='unit') {
     g.board[side][lane].push({uid:'U'+(g.serial+1),id,style:c.style,attack:c.attack,hp:c.hp,buff:0,shield:0,summonedAt:g.turns[side]});
@@ -125,7 +133,17 @@ export function playCard(g,index,lane) {
       default:throw new Error('Unknown effect');
     }
   }
-  event(g,'card_play',{card:id,lane});
+  const spellOutcome=preSpell?(()=>{
+    const before=preSpell.units[other],after=new Map(g.board[other][lane].map(u=>[u.uid,u]));
+    const affected=before.filter(u=>u.hp>(after.get(u.uid)?.hp??0));
+    return{effect:c.effect,
+      directDamage:Math.max(0,preSpell.hp[other]-g.hp[other]),
+      unitDamage:affected.reduce((n,u)=>n+u.hp-(after.get(u.uid)?.hp??0),0),
+      targetUids:affected.map(u=>u.uid),
+      healed:Math.max(0,g.hp[side]-preSpell.hp[side])
+    };
+  })():null;
+  event(g,'card_play',{card:id,lane,...(spellOutcome?{spellOutcome}:{})});
   if(!g.stylesPlayed[side].includes(c.style))g.stylesPlayed[side].push(c.style);
   if(!g.comboTriggered[side]&&g.stylesPlayed[side].length>=2){
     g.comboTriggered[side]=true;g.comboSerial++;g.comboCounts[side]++;

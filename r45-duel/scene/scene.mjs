@@ -10,6 +10,8 @@ import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createElementalVfx} from './elemental-vfx.mjs';
+import {createSpellImpact} from './spell-impact.mjs';
+import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
@@ -136,6 +138,11 @@ let pendingCombatEvents=null;
 let summonPresence=null;
 let summonModels=null;
 let elementalVfx=null;
+let spellImpact=null;
+let liveScoreboard=null;
+const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
+const hostDamage={player:{started:-100,damage:0},ai:{started:-100,damage:0}};
+const pendingSpellReactions=[];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const ease=v=>{const t=clamp(v,0,1);return t*t*(3-2*t)};
@@ -169,6 +176,8 @@ function makeScene(){
  stadiumEvidence=createStadium(THREE,scene,{detail:'medium'});
  duelEffects=createDuelEffects(THREE,scene);
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
+ spellImpact=createSpellImpact(THREE,scene);
+ liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
  podiumCards=createCardHolograms(THREE,scene);
   clock=new THREE.Clock();
  onResize();window.addEventListener('resize',onResize);
@@ -376,22 +385,35 @@ function makeDuelistHosts(){
   m.forEach((bone,key)=>base.set(key,bone.quaternion.clone()));
   if(skins<actor.skins||bones<actor.boneCount)
    throw Error('R74 permanent duelist clone lost source VRM skin/bones '+actor.id);
-  return{id:actor.id,pivot,bones:m,base,side:i===0?'player':'ai',
+  return{id:actor.id,pivot,bones:m,base,side:i===0?'player':'ai',baseX:pivot.position.x,
    sourceRig:actor.source,sourceBones:bones,skinnedMeshes:skins};
  });
 }
 function updateDuelistHosts(seconds){
  for(const host of duelistHosts){
-  const breath=Math.sin(seconds*1.36+(host.side==='player'?0:1.4))*.025;
-  // Natural lowered A-pose; never turn hosts into T-pose mannequins.
-  setBone(host,'R_UpperArm',-.08+breath*.1,0,-.92);
-  setBone(host,'L_UpperArm',-.08-breath*.1,0,.92);
-  setBone(host,'R_LowerArm',-.17,0,-.06);
-  setBone(host,'L_LowerArm',-.17,0,.06);
-  setBone(host,'C_Chest',breath*.12,0,0);
-  setBone(host,'C_Head',breath*.18,0,0);
+  const side=host.side,gesture=hostAction[side],strike=hostDamage[side];
+  const breath=Math.sin(seconds*1.36+(side==='player'?0:1.4))*.025;
+  const age=seconds-gesture.started,hitAge=seconds-strike.started;
+  // Actor deliberately turns toward the other duelist and physically raises
+  // a hand to present the card, casts it forward, then recovers.
+  const finish=side==='player'?2.60:2.20;
+  const g=smoothPulse(age,.06,.25,finish-.46,finish)*(1-.65*smoothPulse(hitAge,.02,.10,.26,.60));
+  const h=smoothPulse(hitAge,.02,.11,.27,.71);
+  const sign=side==='player'?1:-1;
+  host.pivot.position.x=host.baseX+sign*.065*g-sign*.16*h;
+  host.pivot.rotation.z=-sign*.06*g+sign*.14*h;
+  setBone(host,'R_UpperArm',-.09+breath*.12-g*.76,0,-.92+g*.79);
+  setBone(host,'L_UpperArm',-.08-breath*.12-g*.30,0,.92-g*.47);
+  setBone(host,'R_LowerArm',-.17-g*.55,0,-.06+g*.28);
+  setBone(host,'L_LowerArm',-.17-g*.28,0,.06-g*.22);
+  setBone(host,'C_Chest',breath*.12-g*.18+h*.19,0,-sign*.08*g+sign*.14*h);
+  setBone(host,'C_Spine',-g*.06+h*.07,0,sign*.09*h);
+  setBone(host,'C_Head',breath*.18-g*.10+h*.13,0,sign*.07*h);
+  setBone(host,'R_UpperLeg',-.05*g,0,0);
+  setBone(host,'L_UpperLeg',.05*g,0,0);
  }
 }
+
 function play(payload){
  if(!checkIncoming(payload))throw Error('R45 fight validation: only real E01 vs G01 roles accepted');
  currentPayload=structuredClone(payload);mode=payload.mode;playing=true;
@@ -426,6 +448,19 @@ function loop(){
    reducedMotion:reduced});
  podiumCards?.update(absoluteSeconds,playing,camera.aspect<.95);
  elementalVfx?.update(absoluteSeconds);
+ spellImpact?.update(absoluteSeconds);
+ for(let i=pendingSpellReactions.length-1;i>=0;i--){
+   const pending=pendingSpellReactions[i];
+   if(absoluteSeconds<pending.due)continue;
+   pendingSpellReactions.splice(i,1);
+   if(pending.directDamage>0){
+     hostDamage[pending.victim]={started:absoluteSeconds,damage:pending.directDamage};
+   }
+   if(pending.targetUids.length){
+     summonPresence?.reactToSpell?.(pending.victim,pending.targetUids,absoluteSeconds);
+   }
+ }
+ liveScoreboard?.update(performance.now());
  summonPresence?.update(absoluteSeconds,camera,{cinematic:playing});
  // Deliberate single slow push-in during actual contact. No shake or
  // random camera jitter. Stays inside the same view and card layout.
@@ -497,8 +532,31 @@ function onMessage(ev){
   return;
  }
  if(msg?.type==='ASDC_R46_CARD_PLAY'){
-  elementalVfx?.playCard(msg,absoluteSeconds);
+  // R81 spell cards use a dedicated, card-specific impact sequence;
+  // do not layer a generic R79 glowing orb over a giant eraser or soundwave.
+  if(msg.kind==='unit')elementalVfx?.playCard(msg,absoluteSeconds);
+  if(['player','ai'].includes(msg.side))hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind};
   podiumCards?.show(msg,absoluteSeconds);
+  return;
+ }
+ if(msg?.type==='ASDC_R81_SCORE'){
+  liveScoreboard?.setState(msg,performance.now());return;
+ }
+ if(msg?.type==='ASDC_R81_HIT_HOST'){
+  if(['player','ai'].includes(msg.side)&&Number.isInteger(msg.damage)&&msg.damage>0){
+   hostDamage[msg.side]={started:absoluteSeconds,damage:msg.damage};}
+  return;
+ }
+ if(msg?.type==='ASDC_R81_SPELL_RESULT'){
+  const accepted=spellImpact?.play(msg,absoluteSeconds);
+  if(accepted&&['player','ai'].includes(msg.side)){
+   const directDamage=Number.isInteger(msg.directDamage)&&msg.directDamage>0?msg.directDamage:0;
+   const targetUids=Array.isArray(msg.targetUids)?msg.targetUids.filter(x=>typeof x==='string'&&/^U\d+$/.test(x)).slice(0,5):[];
+   if(directDamage||targetUids.length)pendingSpellReactions.push({
+     due:absoluteSeconds+.46,
+     victim:msg.side==='player'?'ai':'player',directDamage,targetUids
+   });
+  }
   return;
  }
  if(msg?.type==='ASDC_R45_BOARD'){
@@ -546,6 +604,11 @@ function exposeQA(){
   get stadium(){return stadiumEvidence?.stats||null},
   get effects(){return duelEffects?.stats||null},
   get elementalVfx(){return elementalVfx?.stats||null},
+  get spellImpact(){return spellImpact?.stats||null},
+  get liveScoreboard(){return liveScoreboard?.stats||null},
+  get hostActions(){return structuredClone(hostAction)},
+  get hostDamage(){return structuredClone(hostDamage)},
+  get pendingSpellReactions(){return pendingSpellReactions.map(x=>({...x}))},
   get podiumCards(){return podiumCards?.stats||null},
   get cameraDistance(){return camera?.position.distanceTo(new THREE.Vector3(0,1.3,0))||null},
   get framing(){return cameraFrameStats()},

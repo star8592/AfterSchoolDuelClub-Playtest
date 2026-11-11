@@ -1,0 +1,91 @@
+{
+  "cases": [
+    {
+      "name": "canonical board + physical chairs + real summon + duelist gesture",
+      "pass": true,
+      "frontSeats": 198,
+      "rearSeats": 198,
+      "totalSeats": 396,
+      "scoreboard": {
+        "updates": 1,
+        "errors": 0,
+        "data": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        },
+        "size": [
+          1536,
+          288
+        ],
+        "physical": true,
+        "hitFlashCount": 0,
+        "visible": true
+      },
+      "handAfter": 4,
+      "hostGesture": {
+        "started": 0.19829999999701978,
+        "kind": "unit"
+      }
+    },
+    {
+      "name": "real card E06 blast → 3 HP damage → hit reaction → scoreboard",
+      "pass": true,
+      "beforeHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "afterHp": {
+        "player": 20,
+        "ai": 17
+      },
+      "activeSpell": {
+        "played": 1,
+        "hits": 1,
+        "noHit": 0,
+        "expired": 0,
+        "active": 1,
+        "activeKinds": [
+          "eraser"
+        ],
+        "ruleMutations": 0
+      },
+      "hostHit": {
+        "started": 1.0482999999970195,
+        "damage": 3
+      },
+      "scoreboard": {
+        "player": 20,
+        "ai": 17,
+        "round": 2,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 0,
+        "type": "ASDC_R81_SCORE"
+      },
+      "audio": {
+        "cue": 6,
+        "voice": 3,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 3,
+        "unlock": 1,
+        "musicStart": 1,
+        "errors": 0
+      },
+      "voiceClipCount": 16
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "r81-stadium-real-chairs-and-live-score.png",
+    "r81-real-eraser-hit-rival-reaction.png"
+  ],
+  "ok": true
+}
