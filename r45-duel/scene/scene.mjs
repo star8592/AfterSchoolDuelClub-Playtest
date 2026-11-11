@@ -9,6 +9,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
+import {createElementalVfx} from './elemental-vfx.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
@@ -134,6 +135,7 @@ let shownUnits={player:[],ai:[]};
 let pendingCombatEvents=null;
 let summonPresence=null;
 let summonModels=null;
+let elementalVfx=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const ease=v=>{const t=clamp(v,0,1);return t*t*(3-2*t)};
@@ -166,6 +168,7 @@ function makeScene(){
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
  stadiumEvidence=createStadium(THREE,scene,{detail:'medium'});
  duelEffects=createDuelEffects(THREE,scene);
+ elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
   clock=new THREE.Clock();
  onResize();window.addEventListener('resize',onResize);
@@ -422,6 +425,7 @@ function loop(){
    visible:actors.map(a=>a.pivot.visible),
    reducedMotion:reduced});
  podiumCards?.update(absoluteSeconds,playing,camera.aspect<.95);
+ elementalVfx?.update(absoluteSeconds);
  summonPresence?.update(absoluteSeconds,camera,{cinematic:playing});
  // Deliberate single slow push-in during actual contact. No shake or
  // random camera jitter. Stays inside the same view and card layout.
@@ -493,6 +497,7 @@ function onMessage(ev){
   return;
  }
  if(msg?.type==='ASDC_R46_CARD_PLAY'){
+  elementalVfx?.playCard(msg,absoluteSeconds);
   podiumCards?.show(msg,absoluteSeconds);
   return;
  }
@@ -540,6 +545,7 @@ function exposeQA(){
   get renderer(){return renderInfo},
   get stadium(){return stadiumEvidence?.stats||null},
   get effects(){return duelEffects?.stats||null},
+  get elementalVfx(){return elementalVfx?.stats||null},
   get podiumCards(){return podiumCards?.stats||null},
   get cameraDistance(){return camera?.position.distanceTo(new THREE.Vector3(0,1.3,0))||null},
   get framing(){return cameraFrameStats()},

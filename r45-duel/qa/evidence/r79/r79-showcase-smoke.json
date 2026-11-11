@@ -1,0 +1,96 @@
+{
+  "passes": true,
+  "states": [
+    {
+      "played": 2,
+      "types": [
+        "portal",
+        "portal"
+      ],
+      "drawCalls": 595
+    },
+    {
+      "played": 3,
+      "types": [
+        "portal",
+        "portal",
+        "portal"
+      ],
+      "drawCalls": 604
+    },
+    {
+      "played": 4,
+      "types": [
+        "portal",
+        "portal",
+        "portal",
+        "lightning"
+      ],
+      "drawCalls": 620
+    },
+    {
+      "played": 5,
+      "types": [
+        "portal",
+        "portal",
+        "portal",
+        "lightning",
+        "meteor"
+      ],
+      "drawCalls": 643
+    },
+    {
+      "played": 6,
+      "types": [
+        "portal",
+        "portal",
+        "portal",
+        "lightning",
+        "meteor",
+        "crystal"
+      ],
+      "drawCalls": 666
+    },
+    {
+      "played": 7,
+      "types": [
+        "portal",
+        "portal",
+        "portal",
+        "lightning",
+        "meteor",
+        "crystal",
+        "tidal"
+      ],
+      "drawCalls": 689
+    },
+    {
+      "played": 8,
+      "types": [
+        "portal",
+        "portal",
+        "lightning",
+        "meteor",
+        "crystal",
+        "tidal",
+        "aurora"
+      ],
+      "drawCalls": 684
+    },
+    {
+      "played": 9,
+      "types": [
+        "portal",
+        "lightning",
+        "meteor",
+        "crystal",
+        "tidal",
+        "aurora",
+        "glyph"
+      ],
+      "drawCalls": 686
+    }
+  ],
+  "errors": [],
+  "previewUrl": "http://127.0.0.1:11019/r45-duel/qa/r79-vfx-showcase.html"
+}

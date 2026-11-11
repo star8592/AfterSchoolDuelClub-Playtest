@@ -69,7 +69,7 @@ export function createCardHolograms(THREE,scene){
  const show=(item,now)=>{
   if(!item||!['player','ai'].includes(item.side)||!/^([EGTM])\d{2}$/.test(item.id)||
     !Number.isInteger(item.cost)||item.cost<0||item.cost>9||
-    !['unit','event'].includes(item.kind)||typeof item.name!=='string')return false;
+    !['unit','event','spell'].includes(item.kind)||typeof item.name!=='string')return false;
   const state=states[item.side];
   state.queue.push({...item,queuedAt:now});
   // Avoid huge AI-card bursts if it plays many cards in a single turn.

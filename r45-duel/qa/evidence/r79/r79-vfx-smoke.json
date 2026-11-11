@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "portal": {
+    "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+    "played": 1,
+    "expired": 0,
+    "active": 1,
+    "activeTypes": [
+      "portal"
+    ],
+    "usesGameRuleMutation": false
+  },
+  "lightning": {
+    "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+    "played": 2,
+    "expired": 0,
+    "active": 2,
+    "activeTypes": [
+      "portal",
+      "lightning"
+    ],
+    "usesGameRuleMutation": false
+  },
+  "crystal": {
+    "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+    "played": 3,
+    "expired": 1,
+    "active": 2,
+    "activeTypes": [
+      "lightning",
+      "crystal"
+    ],
+    "usesGameRuleMutation": false
+  },
+  "requestErrors": [],
+  "jsErrors": [],
+  "beforeGame": null,
+  "afterGame": null,
+  "screenshotNames": [
+    "r79-portal-actual-arena.png",
+    "r79-lightning-actual-arena.png",
+    "r79-crystal-actual-arena.png"
+  ]
+}

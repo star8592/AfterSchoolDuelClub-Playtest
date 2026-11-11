@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>放学后决斗社 R79 · 原创魔法技能演示</title>
+<style>
+:root{font-family:Inter,"Noto Sans SC","PingFang SC",system-ui,sans-serif;color:#f8eddd;background:#090e1a;color-scheme:dark}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+#arena{width:100%;height:100%;border:0;display:block}
+.panel{position:absolute;left:24px;top:24px;width:min(335px,calc(100vw - 48px));background:linear-gradient(155deg,#15233cee,#09101df4);border:1px solid #b8a17c66;box-shadow:0 18px 50px #0007,0 0 60px #3b9eff10;border-radius:18px;padding:18px;backdrop-filter:blur(16px)}
+.kicker{letter-spacing:.14em;font-size:10px;color:#eac89c;text-transform:uppercase}h1{font-size:22px;line-height:1.1;margin:10px 0 5px;letter-spacing:.02em}p{font-size:12px;color:#aabed6;margin:0 0 12px;line-height:1.5}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+button{color:#f8eeeb;border:1px solid #8c9ab84a;background:linear-gradient(150deg,#243954,#162438);min-height:46px;border-radius:10px;font:600 13px system-ui;cursor:pointer;text-align:left;padding:9px 12px;transition:.15s}
+button:hover:not(:disabled){transform:translateY(-1px);border-color:#eac89c;background:#2a4b6b}
+button:disabled{opacity:.4;cursor:wait}
+button small{font-size:10px;font-weight:400;color:#aeb6c9;display:block}
+button.active{background:#344c66;border-color:#ffc98b}
+.status{font-size:12px;color:#eecb9f;display:flex;align-items:center;gap:8px;margin-top:12px}
+.dot{width:7px;height:7px;border-radius:50%;background:#d7a36a;box-shadow:0 0 10px #d7a36a}
+.footer{margin-top:11px;padding-top:11px;border-top:1px solid #44526a;font-size:10px;color:#94a4b7;line-height:1.5}
+@media(max-width:650px){.panel{left:9px;top:9px;padding:11px;width:246px;border-radius:12px}h1{font-size:15px}.kicker{font-size:9px}p,.footer{display:none}.buttons{gap:5px}button{min-height:36px;font-size:11px;padding:6px 7px}button small{font-size:9px}.status{font-size:10px;margin-top:5px}}
+</style>
+</head><body>
+<iframe id="arena" src="../scene/" title="真实的 3D 单场地卡牌战斗体育馆"></iframe>
+<section class="panel">
+  <div class="kicker">AFTER SCHOOL DUEL CLUB · R79 LAB</div>
+  <h1>魔法特效工作台</h1>
+  <p>原创 Three.js / GLSL 特效，直接运行在卡牌游戏的真实体育馆中。正式玩法事件与演出逻辑隔离，角色实体照常出现。</p>
+  <div class="buttons" id="abilities">
+    <button data-id="E01" data-kind="unit" data-name="烈焰召唤门">✦ 烈焰召唤<small>Fire Gate</small></button>
+    <button data-id="G01" data-kind="unit" data-name="森林召唤阵">❈ 森林召唤<small>Verdant Portal</small></button>
+    <button data-id="T06" data-kind="spell" data-name="闪电禁锢">ϟ 闪电禁锢<small>Volt Snare</small></button>
+    <button data-id="E06" data-kind="spell" data-name="陨石坠落">☄ 陨石坠落<small>Meteor Fall</small></button>
+    <button data-id="G05" data-kind="spell" data-name="冰晶冲击">❄ 晶体冲击<small>Crystal Burst</small></button>
+    <button data-id="T05" data-kind="spell" data-name="海潮法环">◉ 海潮法环<small>Tidal Ring</small></button>
+    <button data-id="E05" data-kind="spell" data-name="魔法增益">✧ 魔法增益<small>Aurora</small></button>
+    <button data-id="G06" data-kind="spell" data-name="魔法符文">⌘ 魔法符文<small>Magic Glyph</small></button>
+  </div>
+  <div class="status"><span class="dot"></span><span id="status" role="status">正在加载 3D 人物和体育馆…</span></div>
+  <div class="footer">开发实验，未替换正式游戏版本 · 可拖动背景旋转镜头 · 无外部特效素材与人物资产复制 · 画面为实时3D</div>
+</section>
+<script>
+const frame=document.querySelector('#arena'),status=document.querySelector('#status');
+const buttons=[...document.querySelectorAll('button[data-id]')];
+let ready=false;
+buttons.forEach(b=>b.disabled=true);
+const post=m=>frame.contentWindow.postMessage(m,location.origin);
+const units=(side,id,uid)=>({id,uid,side,hp:5,shield:0,attack:1});
+window.addEventListener('message',event=>{
+  if(event.origin!==location.origin||event.source!==frame.contentWindow)return;
+  if(event.data?.type==='ASDC_R45_SCENE_READY'){
+    ready=true;buttons.forEach(b=>b.disabled=false);status.textContent='已就绪 · 点击任一技能观看';
+    post({type:'ASDC_R45_BOARD',player:['E01'],ai:['G01'],
+      units:{player:[units('player','E01','U100')],ai:[units('ai','G01','U200')]}});
+    setTimeout(()=>buttons[0].click(),380);
+  }
+});
+buttons.forEach(b=>b.addEventListener('click',()=>{
+  if(!ready)return;
+  buttons.forEach(x=>x.classList.toggle('active',x===b));
+  post({type:'ASDC_R46_CARD_PLAY',id:b.dataset.id,side:b.dataset.id.startsWith('T')?'ai':'player',
+    kind:b.dataset.kind,cost:1,name:b.dataset.name});
+  status.textContent='实时演出：'+b.dataset.name;
+}));
+window.__R79_SHOWCASE_QA={get ready(){return ready},click:i=>buttons[i].click()};
+</script>
+</body></html>
