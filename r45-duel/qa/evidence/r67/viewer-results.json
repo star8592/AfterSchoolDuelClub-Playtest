@@ -1,0 +1,42 @@
+[
+  {
+    "device": "desktop",
+    "ok": true,
+    "meshes": 59,
+    "bones": 53,
+    "skins": 11,
+    "clips": [
+      "Hit_Recoil",
+      "Idle_Aunt_Breath",
+      "Serve_Menu",
+      "Wave_Welcome",
+      "Attack_Flip_Menu",
+      "Hit_Retreat",
+      "Idle_Menu_Breath",
+      "Walk_Small_Steps",
+      "Defend_Opening_Menu"
+    ],
+    "armDelta": 0.3283919308711347,
+    "errors": []
+  },
+  {
+    "device": "portrait",
+    "ok": true,
+    "meshes": 59,
+    "bones": 53,
+    "skins": 11,
+    "clips": [
+      "Hit_Recoil",
+      "Idle_Aunt_Breath",
+      "Serve_Menu",
+      "Wave_Welcome",
+      "Attack_Flip_Menu",
+      "Hit_Retreat",
+      "Idle_Menu_Breath",
+      "Walk_Small_Steps",
+      "Defend_Opening_Menu"
+    ],
+    "armDelta": 0.3283996966311367,
+    "errors": []
+  }
+]

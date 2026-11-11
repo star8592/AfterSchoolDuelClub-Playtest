@@ -1,0 +1,59 @@
+{
+  "status": "STUDY_ONLY",
+  "art_approved": false,
+  "production_approved": false,
+  "source_license": "CC0 MakeHuman system human, Blender-original accessories, original commissioned living menu model, final rights review pending",
+  "paired_components": [
+    {
+      "part": "Aunt",
+      "original": "T02-CanteenAunt-Aproned-Animate-STUDY.glb",
+      "original_bytes": 22842448,
+      "sha256": "f76a43efb047cf8d6036fa6880a93a1a0247ce331af9c378cb9fdb4e0a725461",
+      "meshCount": 16,
+      "armatures": 1,
+      "source_bounds_min": [
+        -0.5151181817054749,
+        -0.3259533941745758,
+        -0.0024413373321294785
+      ],
+      "source_bounds_max": [
+        0.5158841609954834,
+        0.1815759837627411,
+        1.8185635805130005
+      ],
+      "scale": 1.0214140454936358,
+      "offset": [
+        -0.7803912162780762,
+        0.0,
+        0.0024936161935329437
+      ]
+    },
+    {
+      "part": "Menu",
+      "original": "T02-LivingMenu-R59-BASE.glb",
+      "original_bytes": 2519624,
+      "sha256": "4bc18a506143786deaa86d5a807336dafb1a4afc2d217e496f49b10a6255a43a",
+      "meshCount": 43,
+      "armatures": 0,
+      "source_bounds_min": [
+        -1.007279634475708,
+        -0.3499999940395355,
+        0.008047617971897125
+      ],
+      "source_bounds_max": [
+        1.007279634475708,
+        0.3499999940395355,
+        2.6550819873809814
+      ],
+      "scale": 0.4722265847568296,
+      "offset": [
+        0.7799999713897705,
+        0.0,
+        -0.0038002992514520884
+      ]
+    }
+  ],
+  "sha256": "8fc68df913d4f8587981ebccce8edf24706a1ebf441d994e05549acc90545b58",
+  "bytes": 26128908,
+  "note": "Single GLB with true human rig and separate animated menu; test clip coexistence and visual placement in a real WebGL viewer."
+}

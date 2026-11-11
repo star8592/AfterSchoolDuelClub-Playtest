@@ -451,6 +451,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
      s.kind==='gltf-instance'?prototypes.get(s.id).source.children.length:undefined,
     meshes:s.kind==='gltf-instance'?s.object.userData.r61?.meshCount:undefined,
     clips:s.kind==='gltf-instance'?s.object.userData.r61?.animationCount:undefined,
+    playingClips:s.kind==='gltf-instance'?s.object.userData.r61?.getPlayingClips?.():undefined,
     artApproved:false};
   });
   return{revision,hpDisplayMode,activeHpStyle:activeHpStyle(camera),
