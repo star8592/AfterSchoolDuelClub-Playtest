@@ -9,7 +9,16 @@ page.on('response',r=>{if(r.status()>=400)errors.push(`HTTP ${r.status()}:${r.ur
 for(const angle of [0,45,90,180]){
 await page.goto(`${origin}/r45-duel/qa/r74-character-foundation-audition.html?angle=${angle}`,{waitUntil:'domcontentloaded',timeout:45000});
 await page.waitForFunction(()=>window.__R74_CAST_QA?.ready&&window.__R74_CAST_QA?.frames>12,null,{timeout:55000});await page.waitForTimeout(400);
-const q=await page.evaluate(()=>window.__R74_CAST_QA),pass=q.models.length===4&&q.models.every(m=>m.triangles>6000&&m.bones>=80&&m.skins>=1)&&errors.length===0;
+const q=await page.evaluate(()=>window.__R74_CAST_QA),pass=q.models.length===3&&q.models.every(m=>m.triangles>6000&&m.bones>=80&&m.skins>=1&&m.sourceHeight>1.2&&m.sourceHeight<2.5&&m.sourceWidth<1.6)&&errors.length===0;
+await page.waitForTimeout(500);
+let png=Buffer.from(await page.evaluate(()=>document.querySelector('#canvas').toDataURL('image/png').split(',')[1]),'base64');
+if(png.length<(width>1000?45000:20000)){
+ await page.reload({waitUntil:'domcontentloaded'});
+ await page.waitForFunction(()=>window.__R74_CAST_QA?.ready&&window.__R74_CAST_QA?.frames>20,null,{timeout:60000});
+ await page.waitForTimeout(850);
+ png=Buffer.from(await page.evaluate(()=>document.querySelector('#canvas').toDataURL('image/png').split(',')[1]),'base64');
+}
+writeFileSync(resolve(dest,`${viewport}-${angle}-canvas.png`),png);
 await page.screenshot({path:resolve(dest,`${viewport}-${angle}.png`)});
 results.push({viewport,angle,pass,models:q.models,errors:[...errors]});console.log('R74_REAL_RECAST_AUDITION',JSON.stringify({viewport,angle,pass,models:q.models,errors}));
 }await page.close();}}

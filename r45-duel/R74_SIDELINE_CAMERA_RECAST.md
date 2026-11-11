@@ -16,18 +16,18 @@
 
 Z890 ModelVault 有 5,622 条目录元数据，但在本轮前实际缓存/校验只有 40 份资产，没有一份获最终商用美术批准；不能把插件数量、模型目录数量或面数作为最终品质指标。旧 Gobkit 低模只作可玩 fallback，不作为长期精修路线。
 
-本轮按“靠近原作身份 + 商业授权 + 美术质量 + 可绑定自然动作”的顺序搜到并实际下载/验证 4 款新候选，来源 [CodeLove 3D](https://models.codelove.in/)，网站说明原始模型遵循 MIT License，模型文件内 `asset.extras.licenseText` 带有授权正文（来源：Microsoft 2020），且已保存原 GLB 哈希；**版权来源链仍需在最终上线前进一步复核**，当前只是研发试镜。
+本轮按“靠近原作身份 + 商业授权 + 美术质量 + 可绑定自然动作”的顺序搜到并实际下载/技术审计 4 款模型，其中一个在真实渲染检查中被淘汰，来源 [CodeLove 3D](https://models.codelove.in/)，网站说明原始模型遵循 MIT License，模型文件内 `asset.extras.licenseText` 带有授权正文（来源：Microsoft 2020），且已保存原 GLB 哈希；**版权来源链仍需在最终上线前进一步复核**，当前只是研发试镜。
 
 | 候选 | 对应方向 | 原 GLB tris | 骨骼数 | PBR 纹理 | 授权来源 |
 |---|---|---:|---:|---:|---|
 | `male-child-01` | E03 加油队长/少年决斗者底模候选 | 6,660 | 80 | 4 | https://models.codelove.in/models/male-child-01/ |
 | `male-child-02` | 万年学渣、校园男孩候选 | 7,310 | 80 | 4 | https://models.codelove.in/models/male-child-02/ |
-| `female-child-01` | 原作校园少女气质参照 | 7,102 | 81 | 4 | https://models.codelove.in/models/female-child-01/ |
+| `female-child-01` | **淘汰：Blender 重导出后站姿横躺、身高计算仅 0.3 米，视觉比例严重错误** | 7,102 | 81 | 4 | https://models.codelove.in/models/female-child-01/ |
 | `sports-male-01` | 体育老师/体育委员候选 | 7,358 | 80 | 4 | https://models.codelove.in/models/sports-male-01/ |
 
 该批模型来源 GLB 使用 `EXT_meshopt_compression` 和 `EXT_texture_webp`；为让当前游戏 Three.js 预览无需动态网络加载解码器，本轮用 Blender 5.2.3 无艺术修改地重导出标准 GLB；原始与试镜版本均留在 `art-lab/r74-model-recast/candidates/`，保留 SHA256。**基础下载 GLB 内没有动画 clips**，网站另外提供动画打包资源，但本轮尚未取回并做重定向验收，不能宣称完整动画已经准备好。模型可用不代表外观与原作吻合，当前没有任何一个直接替换正式角色。
 
-三维试镜页 `qa/r74-character-foundation-audition.html` 同屏 4 个真实下载的独立模型，0/45/90/180° × 宽/竖 8/8 硬件浏览器验证可导入、材质骨骼正确，不修改实际战斗。开发预览：`http://127.0.0.1:11005/r45-duel/qa/r74-character-foundation-audition.html?angle=45`。
+三维试镜页 `qa/r74-character-foundation-audition.html` 同屏 3 个通过站姿/尺寸筛选的真实下载模型，0/45/90/180° × 宽/竖 8/8 硬件浏览器验证可导入、材质骨骼及人形实际站姿正确，并单独进行 canvas 像素验收；被淘汰的女孩模型仅作为研究问题存档，不展示、不进入游戏。不修改实际战斗。开发预览：`http://127.0.0.1:11005/r45-duel/qa/r74-character-foundation-audition.html?angle=45`。
 
 ## C. 角色选型后续执行顺序
 
