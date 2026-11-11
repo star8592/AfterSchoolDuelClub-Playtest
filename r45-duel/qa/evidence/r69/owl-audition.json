@@ -1,0 +1,346 @@
+[
+  {
+    "screen": "wide",
+    "angle": 0,
+    "ok": true,
+    "bytes": 142877,
+    "models": [
+      {
+        "id": "old",
+        "triangles": 520,
+        "skinned": 1,
+        "animations": [
+          "idle",
+          "attack",
+          "dead",
+          "walk"
+        ],
+        "scale": 0.3538311481448225,
+        "sourceSize": [
+          3.594795658995648,
+          4.097999872545187,
+          4.069999646450845
+        ]
+      },
+      {
+        "id": "candidate",
+        "triangles": 3502,
+        "skinned": 1,
+        "animations": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Fly"
+        ],
+        "scale": 4.264705868970255,
+        "sourceSize": [
+          0.19104667948094753,
+          0.34000000106692313,
+          0.27293318538315736
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "screen": "wide",
+    "angle": 45,
+    "ok": true,
+    "bytes": 147029,
+    "models": [
+      {
+        "id": "old",
+        "triangles": 520,
+        "skinned": 1,
+        "animations": [
+          "idle",
+          "attack",
+          "dead",
+          "walk"
+        ],
+        "scale": 0.3538311481448225,
+        "sourceSize": [
+          3.594795658995648,
+          4.097999872545187,
+          4.069999646450845
+        ]
+      },
+      {
+        "id": "candidate",
+        "triangles": 3502,
+        "skinned": 1,
+        "animations": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Fly"
+        ],
+        "scale": 4.264705868970255,
+        "sourceSize": [
+          0.19104667948094753,
+          0.34000000106692313,
+          0.27293318538315736
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "screen": "wide",
+    "angle": 90,
+    "ok": true,
+    "bytes": 139491,
+    "models": [
+      {
+        "id": "old",
+        "triangles": 520,
+        "skinned": 1,
+        "animations": [
+          "idle",
+          "attack",
+          "dead",
+          "walk"
+        ],
+        "scale": 0.3538311481448225,
+        "sourceSize": [
+          3.594795658995648,
+          4.097999872545187,
+          4.069999646450845
+        ]
+      },
+      {
+        "id": "candidate",
+        "triangles": 3502,
+        "skinned": 1,
+        "animations": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Fly"
+        ],
+        "scale": 4.264705868970255,
+        "sourceSize": [
+          0.19104667948094753,
+          0.34000000106692313,
+          0.27293318538315736
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "screen": "wide",
+    "angle": 180,
+    "ok": true,
+    "bytes": 134782,
+    "models": [
+      {
+        "id": "old",
+        "triangles": 520,
+        "skinned": 1,
+        "animations": [
+          "idle",
+          "attack",
+          "dead",
+          "walk"
+        ],
+        "scale": 0.3538311481448225,
+        "sourceSize": [
+          3.594795658995648,
+          4.097999872545187,
+          4.069999646450845
+        ]
+      },
+      {
+        "id": "candidate",
+        "triangles": 3502,
+        "skinned": 1,
+        "animations": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Fly"
+        ],
+        "scale": 4.264705868970255,
+        "sourceSize": [
+          0.19104667948094753,
+          0.34000000106692313,
+          0.27293318538315736
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "screen": "portrait",
+    "angle": 0,
+    "ok": true,
+    "bytes": 75007,
+    "models": [
+      {
+        "id": "old",
+        "triangles": 520,
+        "skinned": 1,
+        "animations": [
+          "idle",
+          "attack",
+          "dead",
+          "walk"
+        ],
+        "scale": 0.3538311481448225,
+        "sourceSize": [
+          3.594795658995648,
+          4.097999872545187,
+          4.069999646450845
+        ]
+      },
+      {
+        "id": "candidate",
+        "triangles": 3502,
+        "skinned": 1,
+        "animations": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Fly"
+        ],
+        "scale": 4.264705868970255,
+        "sourceSize": [
+          0.19104667948094753,
+          0.34000000106692313,
+          0.27293318538315736
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "screen": "portrait",
+    "angle": 45,
+    "ok": true,
+    "bytes": 77757,
+    "models": [
+      {
+        "id": "old",
+        "triangles": 520,
+        "skinned": 1,
+        "animations": [
+          "idle",
+          "attack",
+          "dead",
+          "walk"
+        ],
+        "scale": 0.3538311481448225,
+        "sourceSize": [
+          3.594795658995648,
+          4.097999872545187,
+          4.069999646450845
+        ]
+      },
+      {
+        "id": "candidate",
+        "triangles": 3502,
+        "skinned": 1,
+        "animations": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Fly"
+        ],
+        "scale": 4.264705868970255,
+        "sourceSize": [
+          0.19104667948094753,
+          0.34000000106692313,
+          0.27293318538315736
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "screen": "portrait",
+    "angle": 90,
+    "ok": true,
+    "bytes": 73260,
+    "models": [
+      {
+        "id": "old",
+        "triangles": 520,
+        "skinned": 1,
+        "animations": [
+          "idle",
+          "attack",
+          "dead",
+          "walk"
+        ],
+        "scale": 0.3538311481448225,
+        "sourceSize": [
+          3.594795658995648,
+          4.097999872545187,
+          4.069999646450845
+        ]
+      },
+      {
+        "id": "candidate",
+        "triangles": 3502,
+        "skinned": 1,
+        "animations": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Fly"
+        ],
+        "scale": 4.264705868970255,
+        "sourceSize": [
+          0.19104667948094753,
+          0.34000000106692313,
+          0.27293318538315736
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "screen": "portrait",
+    "angle": 180,
+    "ok": true,
+    "bytes": 70818,
+    "models": [
+      {
+        "id": "old",
+        "triangles": 520,
+        "skinned": 1,
+        "animations": [
+          "idle",
+          "attack",
+          "dead",
+          "walk"
+        ],
+        "scale": 0.3538311481448225,
+        "sourceSize": [
+          3.594795658995648,
+          4.097999872545187,
+          4.069999646450845
+        ]
+      },
+      {
+        "id": "candidate",
+        "triangles": 3502,
+        "skinned": 1,
+        "animations": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Fly"
+        ],
+        "scale": 4.264705868970255,
+        "sourceSize": [
+          0.19104667948094753,
+          0.34000000106692313,
+          0.27293318538315736
+        ]
+      }
+    ],
+    "errors": []
+  }
+]

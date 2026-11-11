@@ -1,0 +1,44 @@
+{
+  "version": "R69",
+  "stage": "USER_SELECTED_ROLE_CANDIDATE_NOT_PLAYABLE_CARD",
+  "gameplay_card_count_unchanged": 12,
+  "approved_final_art_count": 0,
+  "candidate_model_count": 2,
+  "candidates": [
+    {
+      "id": "M01",
+      "character": "音乐老师",
+      "model": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "source": "https://polyfork.dev/asset/school-teacher-8b8bfc",
+      "license": "CC BY 4.0",
+      "requires_creator_credit": true,
+      "credit_file": "M01-MusicTeacher-PolyforkSchoolTeacher.ATTRIBUTION.txt",
+      "sha256": "1df7f472476de641a015e7dd7172d6a2d3d28e753ee78294add6838414de89e7",
+      "triangles": 3777,
+      "skins": 10,
+      "animation_clips": ["Idle", "Walk", "Run"],
+      "finger_rig": false,
+      "user_selected_for_character_role": true,
+      "approved_for_in_game_final_art": false,
+      "preview_url": "qa/r69-music-teacher-studio.html?angle=0&mode=idle",
+      "next_steps": ["match original character art where available", "finish nuanced hand and wrist poses", "plan new M01 card without altering existing 12-card board contract", "commercial attribution"]
+    },
+    {
+      "id": "T01",
+      "character": "猫头鹰播音员",
+      "model": "T01-BroadcastOwl-PolyforkOwl.glb",
+      "source": "https://polyfork.dev/asset/owl-base",
+      "license": "CC BY 4.0",
+      "requires_creator_credit": true,
+      "credit_file": "T01-BroadcastOwl-PolyforkOwl.ATTRIBUTION.txt",
+      "sha256": "43932e56a0e4f4755b68253006ab9ca37a838bde552d7a3f2f6f3e19167a7cc9",
+      "triangles": 3502,
+      "previous_triangles": 520,
+      "skins": 1,
+      "animation_clips": ["Idle", "Walk", "Run", "Fly"],
+      "approved_for_in_game_final_art": false,
+      "preview_url": "qa/r69-owl-audition.html?angle=0",
+      "blockers": ["new owl lacks existing broadcast-headphones identity", "different stylization, not signed off", "no certified real arena summon/attack regression yet"]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>R69 · 猫头鹰播音员 · 原模型与模型库候选真实 GLB 对比</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui,'Noto Sans SC',sans-serif;background:#111d2d;color:#eff5fc}
+header{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;background:#243752;padding:12px 25px}h1{font-size:20px;margin:0}nav a{margin:2px;display:inline-block;text-decoration:none;color:#e0edf9;border:1px solid #60748a;border-radius:8px;padding:6px 12px}nav a[aria-current=page]{background:#41658a}
+#canvas{display:block;width:100%;height:calc(100vh - 205px);min-height:375px}
+footer{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:12px 28px;background:#1b2e44}
+footer section{padding:10px 14px;background:#273e58;border-radius:10px}footer strong{display:block;font-size:16px}footer small{color:#bfd0e2}
+@media(max-width:650px){footer{padding:8px;gap:6px}footer section{padding:6px}footer strong{font-size:13px}footer small{font-size:11px}h1{font-size:16px}#canvas{height:calc(100vh - 200px)}}
+</style></head><body><header><h1>R69 · T01 猫头鹰 · 已有模型 vs ModelVault 候选</h1><nav id="nav"></nav></header>
+<canvas id="canvas"></canvas>
+<footer><section><strong>现有：Gobkit BarnOwl</strong><small>520 三角面 · 4 动画 · CC0 · 原场馆模型</small></section><section><strong>候选：Polyfork Owl</strong><small>3,502 三角面 · 4 动画 · CC BY 4.0（必须注明作者）</small></section></footer>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+const query=new URLSearchParams(location.search),degrees=Number(query.get('angle')||0);
+const nav=document.getElementById('nav');nav.innerHTML=[0,45,90,180,270].map(x=>`<a href="?angle=${x}" ${x===degrees?'aria-current="page"':''}>${x}°</a>`).join('');
+const scene=new THREE.Scene();scene.background=new THREE.Color('#1b2a3b');
+const canvas=document.getElementById('canvas'),renderer=new THREE.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(1.5,devicePixelRatio||1));renderer.outputColorSpace=THREE.SRGBColorSpace;
+scene.add(new THREE.HemisphereLight(0xf3f6ff,0x8391a2,2.5));
+const sunlight=new THREE.DirectionalLight(0xfff0d7,2.7);sunlight.position.set(3,6,5);scene.add(sunlight);
+const fill=new THREE.DirectionalLight(0xbad4f2,1.4);fill.position.set(-4,5,-5);scene.add(fill);
+const camera=new THREE.PerspectiveCamera(35,1,.01,100);
+const specs=[
+ {id:'old',url:'../assets/summons/T01-BroadcastOwl-BarnOwl.glb',x:-1.05},
+ {id:'candidate',url:'../assets/summons/T01-BroadcastOwl-PolyforkOwl.glb',x:1.05}
+];
+const results=[];
+for(const spec of specs){
+ const gltf=await new GLTFLoader().loadAsync(spec.url);
+ const pivot=new THREE.Group();scene.add(pivot);pivot.position.x=spec.x;
+ const inner=new THREE.Group();pivot.add(inner);inner.add(gltf.scene);
+ const box=new THREE.Box3().setFromObject(gltf.scene,true),size=box.getSize(new THREE.Vector3());
+ const scale=1.45/size.y;inner.scale.setScalar(scale);gltf.scene.position.set(-box.getCenter(new THREE.Vector3()).x,-box.min.y,-box.getCenter(new THREE.Vector3()).z);
+ pivot.rotation.y=degrees*Math.PI/180;
+ let tris=0,skinned=0;
+ gltf.scene.traverse(o=>{if(o.isMesh){if(o.isSkinnedMesh)skinned++;const i=o.geometry.index;const p=o.geometry.getAttribute('position');tris+=i?i.count/3:p.count/3;}});
+ const mixer=gltf.animations.length?new THREE.AnimationMixer(gltf.scene):null;
+ if(mixer){const idle=gltf.animations.find(x=>x.name.toLowerCase()==='idle')||gltf.animations[0];mixer.clipAction(idle).play();}
+ results.push({id:spec.id,triangles:tris,skinned,animations:gltf.animations.map(x=>x.name),scale,sourceSize:size.toArray(),mixer});
+}
+const plane=new THREE.Mesh(new THREE.PlaneGeometry(15,10),new THREE.MeshStandardMaterial({color:'#344a61',roughness:1}));plane.rotation.x=-Math.PI/2;plane.position.y=-.035;scene.add(plane);
+const grid=new THREE.GridHelper(15,30,0x68839b,0x466075);scene.add(grid);
+const onResize=()=>{const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();camera.position.set(0,1.7,w<700?10:6.1);camera.lookAt(0,.83,0)};
+onResize();window.addEventListener('resize',onResize);
+const clock=new THREE.Clock();let frames=0;
+renderer.setAnimationLoop(()=>{const dt=Math.min(.035,clock.getDelta());for(const r of results)r.mixer?.update(dt);renderer.render(scene,camera);frames++});
+await new Promise(r=>setTimeout(r,130));
+window.__R69_OWL_QA={ready:true,degrees,get frames(){return frames},models:results.map(({mixer,...data})=>data)};
+</script></body></html>
