@@ -1,0 +1,30 @@
+{
+  "version": "R86",
+  "parent": "cba0a52ff86db41944782fa7ca7b85f51981573e",
+  "source_model": "Blender Studio Snow v4 / Blender Foundation CC BY 4.0",
+  "source": "https://studio.blender.org/characters/snow/v4/",
+  "export_file": "R86-Snow-RealMorph-AttackHit.glb",
+  "sha256": "5a702e13b59ea0670689b895cb85bb9c631bc03fe0796a6e28b0fd14ce7cbdf8",
+  "bytes": 11345128,
+  "native_animation_clips": [
+    "Idle",
+    "Attack",
+    "Hit"
+  ],
+  "morph_meshes": [
+    "GEO-snow-body",
+    "GEO-snow-shirt"
+  ],
+  "method": "Real CloudRig shoulder deformations baked as morph target positions into glTF; no live bone rig exported",
+  "tested_devices": [
+    "Chrome WebGL2 1440x900",
+    "Chrome WebGL2 430x900"
+  ],
+  "qa": {
+    "attack": true,
+    "hit": true,
+    "rollback": true,
+    "errors": 0
+  },
+  "remaining": "Six other high-resolution human GLBs still have no native actions; this is a verified single-role pilot, not whole cast finished."
+}
