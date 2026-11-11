@@ -23,10 +23,10 @@ function savedVolume(){
 export function createDuelAudio(){
  let enabled=false,ctx=null,decoded=new Map(),voiceManifest={clips:{}},voiceAudio=null;
  let musicAudio=null,musicKind='school_duel_theme',musicDucked=false;
- let activeSfx=0;
- let lastVoiceAt=-Infinity;
+ let activeSfx=0,voiceQueue=[],currentVoiceKey=null;
+ const recentVoiceKeys=new Map();
  const volume=savedVolume();
- const counters={cue:0,voice:0,voiceMissing:0,unlock:0,musicStart:0,errors:0};
+ const counters={cue:0,voice:0,voiceMissing:0,voiceDropped:0,voiceInterrupted:0,unlock:0,musicStart:0,errors:0};
  const debugEvents=[];
  const log=(type,detail)=>{
   debugEvents.push({type,detail,at:Math.round(performance.now())});
@@ -85,7 +85,8 @@ export function createDuelAudio(){
  function stop(){
   enabled=false;
   musicAudio?.pause();
-  voiceAudio?.pause();voiceAudio=null;
+  voiceQueue=[];
+  voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
   musicDucked=false;
   log('muted','user');
  }
@@ -104,36 +105,68 @@ export function createDuelAudio(){
    const simultaneous=activeSfx>=5;
    gain.gain.value=volume.sfx*(simultaneous?.25:.57);
    source.connect(gain);
+   let panner=null;
    if(ctx.createStereoPanner){
-    const panner=ctx.createStereoPanner();
+    panner=ctx.createStereoPanner();
     panner.pan.value=side==='player'?-.42:side==='ai'?.42:0;
     gain.connect(panner);panner.connect(ctx.destination);
    }else gain.connect(ctx.destination);
-   activeSfx++;source.onended=()=>{activeSfx=Math.max(0,activeSfx-1);source.disconnect();gain.disconnect()};
+   activeSfx++;source.onended=()=>{
+    activeSfx=Math.max(0,activeSfx-1);
+    source.disconnect();gain.disconnect();panner?.disconnect();
+   };
    source.start();counters.cue++;log('cue',key+':'+side);return true;
   }catch(e){counters.errors++;log('cue-play-error',String(e));return false}
+ }
+ // Never overlap character speech: a brief queue keeps AI multi-summons
+ // intelligible. Real attacks interrupt the weaker entrance line immediately.
+ function playQueuedVoice(){
+  if(!enabled||voiceAudio||voiceQueue.length===0)return;
+  const {id,kind,file}=voiceQueue.shift();
+  const a=new Audio(base+'voices/'+file);
+  voiceAudio=a;currentVoiceKey=id+':'+kind;
+  a.volume=volume.voice;a.preload='auto';
+  musicDucked=true;updateMusicVolume();
+  const done=()=>{
+   if(voiceAudio!==a)return;
+   voiceAudio=null;currentVoiceKey=null;
+   if(enabled&&voiceQueue.length)playQueuedVoice();
+   else{musicDucked=false;updateMusicVolume()}
+  };
+  a.addEventListener('ended',done,{once:true});
+  a.addEventListener('error',()=>{counters.errors++;done()},{once:true});
+  try{
+   a.play().then(()=>{
+    if(voiceAudio===a){counters.voice++;log('voice',id+':'+kind)}
+   }).catch(e=>{
+    // Expected AbortError when an attack intentionally preempts an entrance.
+    if(voiceAudio!==a)return;
+    counters.errors++;log('voice-play-error',String(e));done();
+   });
+  }catch(e){counters.errors++;log('voice-init-error',String(e));done()}
  }
  function playCharacter(id,kind='enter'){
   if(!enabled||volume.voice===0)return false;
   const clip=voiceManifest.clips?.[id]?.[kind];
   if(!clip?.file||clip.ready!==true){counters.voiceMissing++;return false}
-  // Allowlist names from our generated manifest, never arbitrary URLs.
+  // Only locally generated Qwen3-TTS Opus file names, never remote URLs.
   if(!/^[a-zA-Z0-9_-]+\.ogg$/.test(clip.file)){counters.errors++;return false}
-  if(performance.now()-lastVoiceAt<500)return false;
-  lastVoiceAt=performance.now();
-  try{
-   voiceAudio?.pause();
-   const a=new Audio(base+'voices/'+clip.file);voiceAudio=a;
-   a.volume=volume.voice;a.preload='auto';
-   musicDucked=true;updateMusicVolume();
-   const done=()=>{if(voiceAudio===a){voiceAudio=null;musicDucked=false;updateMusicVolume()}};
-   a.addEventListener('ended',done,{once:true});
-   a.addEventListener('error',()=>{counters.errors++;done()},{once:true});
-   a.play().then(()=>{counters.voice++;log('voice',id+':'+kind)}).catch(e=>{
-    counters.errors++;log('voice-play-error',String(e));done();
-   });
-   return true;
-  }catch(e){counters.errors++;log('voice-init-error',String(e));return false}
+  const key=id+':'+kind,now=performance.now();
+  if(now-(recentVoiceKeys.get(key)??-Infinity)<700)return false;
+  recentVoiceKeys.set(key,now);
+  if(recentVoiceKeys.size>45)recentVoiceKeys.clear();
+  const item={id,kind,file:clip.file};
+  if(kind==='attack'){
+   // Attack VO must accompany the actual animation; cancel the old line,
+   // leaving pending entrances behind this higher priority combat call.
+   if(voiceAudio){voiceAudio.pause();voiceAudio=null;currentVoiceKey=null;counters.voiceInterrupted++;}
+   voiceQueue.unshift(item);
+  }else{
+   if(voiceQueue.length>=2){counters.voiceDropped++;log('voice-dropped',key);return false}
+   voiceQueue.push(item);
+  }
+  if(!voiceAudio)playQueuedVoice();
+  return true;
  }
  function switchMusic(to){
   if(!['school_duel_theme','duel_tension'].includes(to))return;
@@ -146,13 +179,14 @@ export function createDuelAudio(){
   beginMusic();
  }
  function gameFinished(winner){
-  switchMusic('school_duel_theme');
-  musicAudio?.pause();
-  playCue(winner==='player'?'win':'lose');
+  voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
+  musicDucked=false;musicAudio?.pause();
+  playCue(winner==='draw'?'turn':winner==='player'?'win':'lose');
   log('finished',winner);
  }
  function status(){return {provider:VOICE_MODEL,enabled,
-  musicKind,musicDucked,voicePlaying:!!voiceAudio,decodedCues:decoded.size,voiceClipCount:Object.keys(voiceManifest.clips||{}).length,
+  musicKind,musicDucked,voicePlaying:!!voiceAudio,currentVoiceKey,
+  voiceQueue:voiceQueue.map(x=>x.id+':'+x.kind),decodedCues:decoded.size,voiceClipCount:Object.keys(voiceManifest.clips||{}).length,
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
  return {unlock,stop,setVolume,playCue,playCharacter,switchMusic,gameFinished,status};
 }

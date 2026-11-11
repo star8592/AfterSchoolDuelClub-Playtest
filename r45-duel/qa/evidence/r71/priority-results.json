@@ -1,0 +1,420 @@
+[
+  {
+    "screen": "desktop",
+    "pass": true,
+    "scheduled": [
+      true,
+      true,
+      true
+    ],
+    "attack": true,
+    "entrances": {
+      "provider": "Qwen3-TTS",
+      "enabled": true,
+      "musicKind": "school_duel_theme",
+      "musicDucked": true,
+      "voicePlaying": true,
+      "currentVoiceKey": "E01:enter",
+      "voiceQueue": [
+        "G01:enter",
+        "T01:enter"
+      ],
+      "decodedCues": 9,
+      "voiceClipCount": 12,
+      "volume": {
+        "music": 0.44,
+        "sfx": 0.75,
+        "voice": 0.86
+      },
+      "counters": {
+        "cue": 0,
+        "voice": 0,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 0,
+        "unlock": 1,
+        "musicStart": 1,
+        "errors": 0
+      },
+      "events": [
+        {
+          "type": "unlocked",
+          "detail": "explicit user gesture",
+          "at": 168
+        },
+        {
+          "type": "music",
+          "detail": "school_duel_theme",
+          "at": 177
+        }
+      ]
+    },
+    "combat": {
+      "provider": "Qwen3-TTS",
+      "enabled": true,
+      "musicKind": "school_duel_theme",
+      "musicDucked": true,
+      "voicePlaying": true,
+      "currentVoiceKey": "G01:attack",
+      "voiceQueue": [
+        "G01:enter",
+        "T01:enter"
+      ],
+      "decodedCues": 9,
+      "voiceClipCount": 12,
+      "volume": {
+        "music": 0.44,
+        "sfx": 0.75,
+        "voice": 0.86
+      },
+      "counters": {
+        "cue": 0,
+        "voice": 0,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 1,
+        "unlock": 1,
+        "musicStart": 1,
+        "errors": 0
+      },
+      "events": [
+        {
+          "type": "unlocked",
+          "detail": "explicit user gesture",
+          "at": 168
+        },
+        {
+          "type": "music",
+          "detail": "school_duel_theme",
+          "at": 177
+        }
+      ]
+    },
+    "drained": {
+      "provider": "Qwen3-TTS",
+      "enabled": true,
+      "musicKind": "school_duel_theme",
+      "musicDucked": false,
+      "voicePlaying": false,
+      "currentVoiceKey": null,
+      "voiceQueue": [],
+      "decodedCues": 9,
+      "voiceClipCount": 12,
+      "volume": {
+        "music": 0.44,
+        "sfx": 0.75,
+        "voice": 0.86
+      },
+      "counters": {
+        "cue": 0,
+        "voice": 3,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 1,
+        "unlock": 1,
+        "musicStart": 1,
+        "errors": 0
+      },
+      "events": [
+        {
+          "type": "unlocked",
+          "detail": "explicit user gesture",
+          "at": 168
+        },
+        {
+          "type": "music",
+          "detail": "school_duel_theme",
+          "at": 177
+        },
+        {
+          "type": "voice",
+          "detail": "G01:attack",
+          "at": 186
+        },
+        {
+          "type": "voice",
+          "detail": "G01:enter",
+          "at": 2023
+        },
+        {
+          "type": "voice",
+          "detail": "T01:enter",
+          "at": 5566
+        }
+      ]
+    },
+    "stopped": {
+      "provider": "Qwen3-TTS",
+      "enabled": false,
+      "musicKind": "school_duel_theme",
+      "musicDucked": false,
+      "voicePlaying": false,
+      "currentVoiceKey": null,
+      "voiceQueue": [],
+      "decodedCues": 9,
+      "voiceClipCount": 12,
+      "volume": {
+        "music": 0.44,
+        "sfx": 0.75,
+        "voice": 0.86
+      },
+      "counters": {
+        "cue": 0,
+        "voice": 4,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 1,
+        "unlock": 1,
+        "musicStart": 1,
+        "errors": 0
+      },
+      "events": [
+        {
+          "type": "unlocked",
+          "detail": "explicit user gesture",
+          "at": 168
+        },
+        {
+          "type": "music",
+          "detail": "school_duel_theme",
+          "at": 177
+        },
+        {
+          "type": "voice",
+          "detail": "G01:attack",
+          "at": 186
+        },
+        {
+          "type": "voice",
+          "detail": "G01:enter",
+          "at": 2023
+        },
+        {
+          "type": "voice",
+          "detail": "T01:enter",
+          "at": 5566
+        },
+        {
+          "type": "voice",
+          "detail": "E03:enter",
+          "at": 8942
+        },
+        {
+          "type": "muted",
+          "detail": "user",
+          "at": 8972
+        }
+      ]
+    },
+    "errors": []
+  },
+  {
+    "screen": "mobile",
+    "pass": true,
+    "scheduled": [
+      true,
+      true,
+      true
+    ],
+    "attack": true,
+    "entrances": {
+      "provider": "Qwen3-TTS",
+      "enabled": true,
+      "musicKind": "school_duel_theme",
+      "musicDucked": true,
+      "voicePlaying": true,
+      "currentVoiceKey": "E01:enter",
+      "voiceQueue": [
+        "G01:enter",
+        "T01:enter"
+      ],
+      "decodedCues": 9,
+      "voiceClipCount": 12,
+      "volume": {
+        "music": 0.44,
+        "sfx": 0.75,
+        "voice": 0.86
+      },
+      "counters": {
+        "cue": 0,
+        "voice": 0,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 0,
+        "unlock": 1,
+        "musicStart": 1,
+        "errors": 0
+      },
+      "events": [
+        {
+          "type": "unlocked",
+          "detail": "explicit user gesture",
+          "at": 123
+        },
+        {
+          "type": "music",
+          "detail": "school_duel_theme",
+          "at": 135
+        }
+      ]
+    },
+    "combat": {
+      "provider": "Qwen3-TTS",
+      "enabled": true,
+      "musicKind": "school_duel_theme",
+      "musicDucked": true,
+      "voicePlaying": true,
+      "currentVoiceKey": "G01:attack",
+      "voiceQueue": [
+        "G01:enter",
+        "T01:enter"
+      ],
+      "decodedCues": 9,
+      "voiceClipCount": 12,
+      "volume": {
+        "music": 0.44,
+        "sfx": 0.75,
+        "voice": 0.86
+      },
+      "counters": {
+        "cue": 0,
+        "voice": 0,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 1,
+        "unlock": 1,
+        "musicStart": 1,
+        "errors": 0
+      },
+      "events": [
+        {
+          "type": "unlocked",
+          "detail": "explicit user gesture",
+          "at": 123
+        },
+        {
+          "type": "music",
+          "detail": "school_duel_theme",
+          "at": 135
+        }
+      ]
+    },
+    "drained": {
+      "provider": "Qwen3-TTS",
+      "enabled": true,
+      "musicKind": "school_duel_theme",
+      "musicDucked": false,
+      "voicePlaying": false,
+      "currentVoiceKey": null,
+      "voiceQueue": [],
+      "decodedCues": 9,
+      "voiceClipCount": 12,
+      "volume": {
+        "music": 0.44,
+        "sfx": 0.75,
+        "voice": 0.86
+      },
+      "counters": {
+        "cue": 0,
+        "voice": 3,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 1,
+        "unlock": 1,
+        "musicStart": 1,
+        "errors": 0
+      },
+      "events": [
+        {
+          "type": "unlocked",
+          "detail": "explicit user gesture",
+          "at": 123
+        },
+        {
+          "type": "music",
+          "detail": "school_duel_theme",
+          "at": 135
+        },
+        {
+          "type": "voice",
+          "detail": "G01:attack",
+          "at": 155
+        },
+        {
+          "type": "voice",
+          "detail": "G01:enter",
+          "at": 1978
+        },
+        {
+          "type": "voice",
+          "detail": "T01:enter",
+          "at": 5519
+        }
+      ]
+    },
+    "stopped": {
+      "provider": "Qwen3-TTS",
+      "enabled": false,
+      "musicKind": "school_duel_theme",
+      "musicDucked": false,
+      "voicePlaying": false,
+      "currentVoiceKey": null,
+      "voiceQueue": [],
+      "decodedCues": 9,
+      "voiceClipCount": 12,
+      "volume": {
+        "music": 0.44,
+        "sfx": 0.75,
+        "voice": 0.86
+      },
+      "counters": {
+        "cue": 0,
+        "voice": 4,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 1,
+        "unlock": 1,
+        "musicStart": 1,
+        "errors": 0
+      },
+      "events": [
+        {
+          "type": "unlocked",
+          "detail": "explicit user gesture",
+          "at": 123
+        },
+        {
+          "type": "music",
+          "detail": "school_duel_theme",
+          "at": 135
+        },
+        {
+          "type": "voice",
+          "detail": "G01:attack",
+          "at": 155
+        },
+        {
+          "type": "voice",
+          "detail": "G01:enter",
+          "at": 1978
+        },
+        {
+          "type": "voice",
+          "detail": "T01:enter",
+          "at": 5519
+        },
+        {
+          "type": "voice",
+          "detail": "E03:enter",
+          "at": 8904
+        },
+        {
+          "type": "muted",
+          "detail": "user",
+          "at": 8934
+        }
+      ]
+    },
+    "errors": []
+  }
+]

@@ -44,6 +44,10 @@ $('audio-toggle').addEventListener('click',async()=>{
   await audio.unlock();button.textContent='♫ 声音开启';button.setAttribute('aria-pressed','true');
  }catch(e){button.textContent='♪ 播放受限';announce('浏览器无法启动音频：'+String(e.message),'warning')}
 });
+function cardSound(c){
+ if(c.kind==='unit')return 'cast';
+ return ({buff:'cast',blast:'hit',confuse:'hit',repair:'heal',heal:'heal',draw:'select'})[c.effect]||'turn';
+}
 function gameReady(){return g.phase==='playing'&&g.active==='player';}
 function cardCanPlay(index){
  return gameReady()&&legalMoves(g).some(m=>m.index===index&&m.lane===0);
@@ -251,12 +255,15 @@ $('play').addEventListener('click',()=>{
  }
  selected=null;
  render();syncScene();
- audio.playCue(c.kind==='unit'?'cast':'heal','player');audio.playCharacter(id,'enter');
+ audio.playCue(cardSound(c),'player');if(c.kind==='unit')audio.playCharacter(id,'enter');
  projectPlayedCard(id,'player');
  const suffix=c.kind==='unit'?'已进入中央竞技场。本回合待命，下次轮到你才会攻击。':
   '已立即结算事件效果。';
  announce('已出牌：「'+c.name+'」。'+suffix+'　还可以继续出牌，或点击「结束回合」。','played');
- if(g.phase==='ended')announce('决斗结束！'+(g.winner==='player'?'你赢了！':'AI 获胜。'),'ended');
+ if(g.phase==='ended'){
+  audio.gameFinished(g.winner);
+  announce('决斗结束！'+(g.winner==='player'?'你赢了！':'AI 获胜。'),'ended');
+ }
 });
 $('end').addEventListener('click',()=>{
  if(!gameReady())return;
@@ -270,7 +277,9 @@ $('end').addEventListener('click',()=>{
  render();syncScene();
  const summary=stateSummary(fresh);
  for(const event of fresh.filter(e=>e.type==='card_play'&&e.side==='ai').slice(-3)){
-  audio.playCue('enemy_cast','ai');audio.playCharacter(event.card,'enter');
+  const enemyCard=BY_ID[event.card];
+  audio.playCue(enemyCard?.kind==='unit'?'enemy_cast':cardSound(enemyCard),'ai');
+  if(enemyCard?.kind==='unit')audio.playCharacter(event.card,'enter');
   projectPlayedCard(event.card,'ai');
  }
  const fight=findRealExchange(fresh);
@@ -279,7 +288,13 @@ $('end').addEventListener('click',()=>{
  // Every other real exchange uses the shorter UID-specific 3D sequence.
  if(fight)playFight(fight);
  const generic=fight?clashes.filter(e=>e.serial!==fight.serial):clashes;
- if(clashes.length){audio.playCue('attack',clashes[0].side);audio.playCue('hit',clashes[0].side==='player'?'ai':'player');}
+ if(clashes.length){
+  audio.playCue('attack',clashes[0].side);
+  audio.playCue('hit',clashes[0].side==='player'?'ai':'player');
+  // Qwen3-TTS attack voice only for the actual attacker and when available.
+  const line=clashes.find(e=>e.from==='E01'||e.from==='G01');
+  if(line)audio.playCharacter(line.from,'attack');
+ }
  if(generic.length)sendScene({type:'ASDC_R51_COMBAT_EVENTS',
   pre,post:boardSnapshot().units,events:generic.map(e=>({
    type:e.type,serial:e.serial,side:e.side,from:e.from,to:e.to||null,
@@ -340,6 +355,6 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get selected(){return selected},
   get lastFightSerial(){return lastFightSerial},
   get audio(){return audio.status()},
-  audioVoiceSample(id){return audio.playCharacter(id,'enter')}
+  audioVoiceSample(id,kind='enter'){return audio.playCharacter(id,kind)}
  }});
 }
