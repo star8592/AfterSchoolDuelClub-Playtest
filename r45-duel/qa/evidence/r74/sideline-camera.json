@@ -1,0 +1,502 @@
+[
+  {
+    "viewport": "desktop",
+    "angle": 0,
+    "pass": true,
+    "frame": {
+      "yaw": 0,
+      "targetYaw": 0,
+      "distance": 9.52,
+      "aspect": 1.778,
+      "podiums": {
+        "player": {
+          "x": -0.823,
+          "y": 0.094,
+          "front": true
+        },
+        "ai": {
+          "x": 0.823,
+          "y": 0.094,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          0,
+          -0.326,
+          0.983
+        ],
+        "arenaBack": [
+          0,
+          0.118,
+          0.991
+        ],
+        "stageFloor": [
+          0,
+          -0.771,
+          0.968
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 6.843,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "angle": -45,
+    "pass": true,
+    "frame": {
+      "yaw": -44.95,
+      "targetYaw": -45,
+      "distance": 11.07,
+      "aspect": 1.778,
+      "podiums": {
+        "player": {
+          "x": -0.359,
+          "y": 0.02,
+          "front": true
+        },
+        "ai": {
+          "x": 0.52,
+          "y": 0.142,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          0.051,
+          -0.276,
+          0.985
+        ],
+        "arenaBack": [
+          -0.417,
+          0.075,
+          0.991
+        ],
+        "stageFloor": [
+          0.562,
+          -0.46,
+          0.979
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 6.009,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "angle": 45,
+    "pass": true,
+    "frame": {
+      "yaw": 44.9,
+      "targetYaw": 45,
+      "distance": 11.07,
+      "aspect": 1.778,
+      "podiums": {
+        "player": {
+          "x": -0.52,
+          "y": 0.142,
+          "front": true
+        },
+        "ai": {
+          "x": 0.36,
+          "y": 0.02,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          -0.051,
+          -0.276,
+          0.985
+        ],
+        "arenaBack": [
+          0.417,
+          0.075,
+          0.991
+        ],
+        "stageFloor": [
+          -0.562,
+          -0.461,
+          0.979
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 6.009,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "angle": 90,
+    "pass": true,
+    "frame": {
+      "yaw": 89.95,
+      "targetYaw": 90,
+      "distance": 10.08,
+      "aspect": 1.778,
+      "podiums": {
+        "player": {
+          "x": -0.214,
+          "y": 0.193,
+          "front": true
+        },
+        "ai": {
+          "x": -0.55,
+          "y": 0.003,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          -0.079,
+          -0.291,
+          0.984
+        ],
+        "arenaBack": [
+          0.937,
+          -0.005,
+          0.983
+        ],
+        "stageFloor": [
+          -0.653,
+          -0.292,
+          0.984
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 6.841,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "desktop",
+    "angle": 180,
+    "pass": true,
+    "frame": {
+      "yaw": 179.9,
+      "targetYaw": 180,
+      "distance": 10.61,
+      "aspect": 1.778,
+      "podiums": {
+        "player": {
+          "x": 0.538,
+          "y": 0.169,
+          "front": true
+        },
+        "ai": {
+          "x": -0.54,
+          "y": 0.169,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          0,
+          -0.261,
+          0.985
+        ],
+        "arenaBack": [
+          0.004,
+          -0.559,
+          0.949
+        ],
+        "stageFloor": [
+          -0.001,
+          -0.106,
+          0.99
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 6.84,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "angle": 0,
+    "pass": true,
+    "frame": {
+      "yaw": 0,
+      "targetYaw": 0,
+      "distance": 23.43,
+      "aspect": 0.478,
+      "podiums": {
+        "player": {
+          "x": -0.522,
+          "y": 0.048,
+          "front": true
+        },
+        "ai": {
+          "x": 0.522,
+          "y": 0.048,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          0,
+          -0.112,
+          0.995
+        ],
+        "arenaBack": [
+          0,
+          0.022,
+          0.997
+        ],
+        "stageFloor": [
+          0,
+          -0.159,
+          0.993
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 2.868,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "angle": -45,
+    "pass": true,
+    "frame": {
+      "yaw": -44.95,
+      "targetYaw": -45,
+      "distance": 26.95,
+      "aspect": 0.478,
+      "podiums": {
+        "player": {
+          "x": -0.208,
+          "y": 0.039,
+          "front": true
+        },
+        "ai": {
+          "x": 0.416,
+          "y": 0.046,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          0.068,
+          -0.097,
+          0.996
+        ],
+        "arenaBack": [
+          -0.672,
+          0.013,
+          0.997
+        ],
+        "stageFloor": [
+          0.625,
+          -0.12,
+          0.995
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 2.516,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "angle": 45,
+    "pass": true,
+    "frame": {
+      "yaw": 44.9,
+      "targetYaw": 45,
+      "distance": 26.95,
+      "aspect": 0.478,
+      "podiums": {
+        "player": {
+          "x": -0.416,
+          "y": 0.046,
+          "front": true
+        },
+        "ai": {
+          "x": 0.209,
+          "y": 0.039,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          -0.068,
+          -0.097,
+          0.996
+        ],
+        "arenaBack": [
+          0.671,
+          0.013,
+          0.997
+        ],
+        "stageFloor": [
+          -0.625,
+          -0.12,
+          0.995
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 2.516,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "angle": 90,
+    "pass": true,
+    "frame": {
+      "yaw": 89.95,
+      "targetYaw": 90,
+      "distance": 23.99,
+      "aspect": 0.478,
+      "podiums": {
+        "player": {
+          "x": -0.178,
+          "y": 0.056,
+          "front": true
+        },
+        "ai": {
+          "x": -0.219,
+          "y": 0.043,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          -0.108,
+          -0.107,
+          0.995
+        ],
+        "arenaBack": [
+          1.264,
+          -0.002,
+          0.995
+        ],
+        "stageFloor": [
+          -0.89,
+          -0.107,
+          0.995
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 2.867,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  },
+  {
+    "viewport": "portrait",
+    "angle": 180,
+    "pass": true,
+    "frame": {
+      "yaw": 179.91,
+      "targetYaw": 180,
+      "distance": 24.54,
+      "aspect": 0.478,
+      "podiums": {
+        "player": {
+          "x": 0.48,
+          "y": 0.053,
+          "front": true
+        },
+        "ai": {
+          "x": -0.48,
+          "y": 0.053,
+          "front": true
+        }
+      },
+      "composition": {
+        "ring": [
+          0,
+          -0.102,
+          0.995
+        ],
+        "arenaBack": [
+          0.003,
+          -0.044,
+          0.992
+        ],
+        "stageFloor": [
+          -0.001,
+          -0.072,
+          0.996
+        ],
+        "lookAt": [
+          0,
+          1.22,
+          -0.55
+        ],
+        "cameraY": 2.42,
+        "pitchDegrees": 2.867,
+        "viewMode": "sideline-eye-level",
+        "roofTrussOcclusionRisk": false
+      }
+    },
+    "errors": []
+  }
+]

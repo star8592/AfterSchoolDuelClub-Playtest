@@ -1,0 +1,27 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>R74 · 校园角色基底 4 模型真实试镜</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>*{box-sizing:border-box}html,body{margin:0;height:100%;background:#182a39;color:#f2f4f8;font:15px system-ui,sans-serif}header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;gap:12px;flex-wrap:wrap;background:#213b51}h1{font-size:19px;margin:0}nav{display:flex;gap:7px}a{color:#f4e5bb;text-decoration:none;padding:6px 12px;border:1px solid #60768a;border-radius:7px}a[aria-current="page"]{background:#586c86}canvas{display:block;width:100%;height:calc(100vh - 198px);min-height:320px}footer{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px;background:#172b3e}footer section{border:1px solid #4e7080;border-radius:9px;padding:10px;background:#274058}footer b{font-size:14px}footer small{display:block;color:#b6cbd4;margin-top:6px;font-size:11px}@media(max-width:650px){header{padding:10px}h1{font-size:15px}footer{gap:4px;padding:6px}footer section{padding:6px}footer b{font-size:10px}footer small{font-size:9px}canvas{height:calc(100vh - 185px)}}</style></head><body>
+<header><h1>R74 · 只选好的角色底模，不修补旧低模</h1><nav id="nav"></nav></header><canvas id="canvas"></canvas>
+<footer><section><b>男孩 A · 候选 E03</b><small>6,660 tris / 80 骨骼 / MIT</small></section><section><b>男孩 B · 候选小光型</b><small>7,310 tris / 80 骨骼 / MIT</small></section><section><b>女孩 A · 校园参考</b><small>7,102 tris / 81 骨骼 / MIT</small></section><section><b>运动员 · 体育老师/体育委员参考</b><small>7,358 tris / 80 骨骼 / MIT</small></section></footer>
+<script type="module">
+import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+const query=new URLSearchParams(location.search);const angle=Number(query.get('angle')||0);
+const nav=document.getElementById('nav');nav.innerHTML=[0,45,90,180].map(n=>`<a ${n===angle?'aria-current="page"':''} href="?angle=${n}">${n}°</a>`).join('');
+const canvas=document.querySelector('#canvas');const renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.setPixelRatio(Math.min(1.25,devicePixelRatio||1));
+const scene=new THREE.Scene();scene.background=new THREE.Color('#172c40');scene.add(new THREE.HemisphereLight('#e9f4ff','#677d8d',2.3));
+const key=new THREE.DirectionalLight('#ffefda',2.8);key.position.set(-3,7,6);scene.add(key);
+const rim=new THREE.DirectionalLight('#bbd8ef',1.1);rim.position.set(2,5,-4);scene.add(rim);
+const ground=new THREE.Mesh(new THREE.PlaneGeometry(20,8),new THREE.MeshStandardMaterial({color:'#3e5870',roughness:1}));ground.rotation.x=-Math.PI/2;scene.add(ground);
+const camera=new THREE.PerspectiveCamera(34,1,.05,80);
+const specs=[['male-child-01',-3.2],['male-child-02',-1.08],['female-child-01',1.08],['sports-male-01',3.2]];
+const models=[];for(const [id,x] of specs){const gltf=await new GLTFLoader().loadAsync(`../art-lab/r74-model-recast/candidates/${id}-browser.glb`);
+ const root=new THREE.Group();root.position.x=x;root.rotation.y=angle*Math.PI/180;scene.add(root);
+ const inner=new THREE.Group();root.add(inner);inner.add(gltf.scene);
+ const box=new THREE.Box3().setFromObject(gltf.scene,true);const size=box.getSize(new THREE.Vector3());inner.scale.setScalar(2.05/size.y);
+ const center=box.getCenter(new THREE.Vector3());gltf.scene.position.set(-center.x,-box.min.y,-center.z);
+ let tris=0,skins=0,bones=0;gltf.scene.traverse(o=>{if(o.isMesh){const i=o.geometry.index;tris+=(i?i.count:o.geometry.attributes.position.count)/3}if(o.isSkinnedMesh)skins++;if(o.isBone)bones++;});
+ models.push({id,triangles:Math.round(tris),skins,bones,clips:gltf.animations.length,sourceHeight:size.y});}
+const resize=()=>{const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();camera.position.set(0,2.95,w<680?22:12);camera.lookAt(0,1.1,0)};resize();window.addEventListener('resize',resize);
+let frames=0;renderer.setAnimationLoop(()=>{renderer.render(scene,camera);frames++});
+window.__R74_CAST_QA={ready:true,angle,models,get frames(){return frames}};
+</script></body></html>

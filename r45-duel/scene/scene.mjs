@@ -28,7 +28,10 @@ let currentPayload=null,activePhase='idle',ready=false,hadContact=false;
 let lastSourceIds=[],source3DAssetsVerified=false;
 let horizontalFov=0;
 let orbitYaw=0, orbitTargetYaw=0, orbitZoom=1, orbitBaseDistance=12;
-const CAMERA_LOOK_AT=new THREE.Vector3(0,.68,-1.65);
+// R74: view the duel from the spectator sideline, not an elevated drone.
+const CAMERA_LOOK_AT=new THREE.Vector3(0,1.22,-.55);
+const SPECTATOR_EYE_HEIGHT=2.42; // standing gallery spectator eye height
+const EYE_LEVEL_MAX_PITCH_DEGREES=7.5;
 const orbitBound=180;
 let pointerDrag=null;
 let lastOcclusionMode='';
@@ -80,7 +83,11 @@ function cameraFrameStats(){
    arenaBack:new THREE.Vector3(0,1.2,-7).project(camera).toArray().map(v=>Number(v.toFixed(3))),
    stageFloor:new THREE.Vector3(0,.07,4).project(camera).toArray().map(v=>Number(v.toFixed(3))),
    lookAt:CAMERA_LOOK_AT.toArray(),
-   cameraY:Number(camera.position.y.toFixed(2))
+   cameraY:Number(camera.position.y.toFixed(2)),
+   pitchDegrees:Number((Math.atan2(camera.position.y-CAMERA_LOOK_AT.y,
+     Math.hypot(camera.position.x-CAMERA_LOOK_AT.x,camera.position.z-CAMERA_LOOK_AT.z))*180/Math.PI).toFixed(3)),
+   viewMode:'sideline-eye-level',
+   roofTrussOcclusionRisk:camera.position.y>=8
   }};
 }
 function keepArenaVisible(){
@@ -146,7 +153,7 @@ function makeScene(){
  renderer.toneMappingExposure=1.15;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
  camera=new THREE.PerspectiveCamera(36,1,.1,60);
- camera.position.set(0,2.9,8.7);camera.lookAt(0,1.29,0);
+ camera.position.set(0,SPECTATOR_EYE_HEIGHT,12.5);camera.lookAt(CAMERA_LOOK_AT);
  scene.add(new THREE.HemisphereLight('#cddffe','#425769',1.40));
  const key=new THREE.DirectionalLight('#ffdfc3',2.70);
  key.position.set(-4,8,5);key.castShadow=true;key.shadow.mapSize.set(2048,2048);
@@ -392,11 +399,14 @@ function loop(){
  const diagonalFit=1+.14*Math.abs(Math.sin(2*angle));
  const distance=orbitBaseDistance*orbitZoom*diagonalFit-push*(narrow?.10:.25);
  const arc=playing&&!reduced?Math.sin(Math.PI*clamp((t-1.5)/3.6,0,1))*(narrow?.035:.11):0;
- // R49: elevate the camera and aim into the gym, not at empty sky.
- // Orbit about the same center of action; pitch stays consistent as yaw changes.
- const height=(narrow?7.65:Math.max(8.35,distance*.66));
+ // R74 fixed stadium sideline spectator shot. No aerial observation.
+ // The height stays around a standing spectator's eyes for every aspect
+ // ratio, zoom and orbit angle; FOV fitting adjusts DISTANCE, not altitude.
+ // Slight cinema push only changes the radius, never elevates the viewer.
+ const maxEyeHeight=CAMERA_LOOK_AT.y+Math.tan(EYE_LEVEL_MAX_PITCH_DEGREES*Math.PI/180)*distance;
+ const height=Math.min(SPECTATOR_EYE_HEIGHT,maxEyeHeight);
  camera.position.set(Math.sin(angle)*distance+Math.cos(angle)*arc,
-  height+push*.055,CAMERA_LOOK_AT.z+Math.cos(angle)*distance-Math.sin(angle)*arc);
+  height,CAMERA_LOOK_AT.z+Math.cos(angle)*distance-Math.sin(angle)*arc);
  choreographyQA.cameraOrbit=Number(arc.toFixed(4));
  choreographyQA.maxOrbit=Math.max(choreographyQA.maxOrbit,Math.abs(arc));
  camera.lookAt(CAMERA_LOOK_AT.x,CAMERA_LOOK_AT.y+push*.07,CAMERA_LOOK_AT.z);
