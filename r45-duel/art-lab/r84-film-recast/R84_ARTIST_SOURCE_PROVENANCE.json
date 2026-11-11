@@ -1,0 +1,47 @@
+{
+  "status": "SOURCE_OBTAINED_NOT_GAME_DEPLOYED",
+  "items": [
+    {
+      "name": "phil",
+      "source_url": "https://studio.blender.org/download-source/files/c1/c1a19179f6136a2f8c7b802d1201ea3b/c1a19179f6136a2f8c7b802d1201ea3b.blend",
+      "official_page": "https://studio.blender.org/characters/phil/v1/",
+      "license": "CC-BY 4.0 (Blender Studio)",
+      "raw_source_sha256": "b9671b4add7a7e52000c5dba3ddfa322fb0c0c85abf70ea3ad5fcf6499947e59",
+      "raw_source_bytes": 15081086,
+      "audition_glb_file": "art-lab/r84-film-recast/auditions/r84-phil-audition.glb",
+      "audition_sha256": "f9e39c4d40a89acd4b8b7db9f818613554d826106e32fa5963ddde165ed685fd",
+      "audition_bytes": 2306524,
+      "runtime_deployed": false,
+      "animation_ready": false,
+      "art_approved": false
+    },
+    {
+      "name": "victoria",
+      "source_url": "https://studio.blender.org/download-source/files/f3/f399fb2523e10448b6d6e7b77d2eaa26/f399fb2523e10448b6d6e7b77d2eaa26.blend",
+      "official_page": "https://studio.blender.org/characters/victoria/v1/",
+      "license": "CC-BY 4.0 (Blender Studio)",
+      "raw_source_sha256": "852dc7bea686db2d59302679609bd0c438ef88936f3684dd193a74b3b292cd6b",
+      "raw_source_bytes": 11090748,
+      "audition_glb_file": "art-lab/r84-film-recast/auditions/r84-victoria-audition.glb",
+      "audition_sha256": "842928cc6ba62ae1d6d61567c14720c77517588daae71c36481c69c546496b80",
+      "audition_bytes": 4185152,
+      "runtime_deployed": false,
+      "animation_ready": false,
+      "art_approved": false
+    },
+    {
+      "name": "ellie",
+      "source_url": "https://studio.blender.org/download-source/files/01/01a02cb0fed8e700b38bdaf7b4ef75df/01a02cb0fed8e700b38bdaf7b4ef75df.blend",
+      "official_page": "https://studio.blender.org/characters/ellie/v1/",
+      "license": "CC-BY 4.0 (Blender Studio)",
+      "raw_source_sha256": "3dd235218725a9e68890073bbeacb4820f9b34db65d44f80c31bb88696a3c54c",
+      "raw_source_bytes": 21851981,
+      "audition_glb_file": "art-lab/r84-film-recast/auditions/r84-ellie-audition.glb",
+      "audition_sha256": "827818cb39c6cd02361aad38154e22c64a8932aaa06084671e9a925f381909ca",
+      "audition_bytes": 5996880,
+      "runtime_deployed": false,
+      "animation_ready": false,
+      "art_approved": false
+    }
+  ]
+}

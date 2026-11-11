@@ -35,7 +35,7 @@ for character in want:
             with torch.inference_mode():
                 w,sr=model.generate_custom_voice(text=text,language='Chinese',speaker=role['speaker'],instruct=role['instruct'])
             data=np.asarray(w[0],dtype='float32')
-            assert 1.1<len(data)/sr<14,'Unexpected Qwen generated duration'
+            assert .72<len(data)/sr<14,f'Unexpected Qwen generated duration {character}:{kind} {len(data)/sr:.2f}s'
             assert np.isfinite(data).all() and np.max(np.abs(data))>.01,'Audio silent/nonfinite'
             wav=OUT/(slug+'.wav');sf.write(wav,data,sr)
             subprocess.run(['ffmpeg','-y','-hide_banner','-loglevel','error','-i',str(wav),'-ac','1','-ar','24000','-c:a','libopus','-b:a','36k',str(path)],check=True)

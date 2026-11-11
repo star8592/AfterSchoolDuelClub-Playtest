@@ -11,6 +11,14 @@ const seed=Number(new URLSearchParams(location.search).get('seed')??'1')||1;
 const g=createGame(seed);
 const scene=$('stadium');
 const audio=createDuelAudio();
+audio.setOpeningMusic(seed);
+const hostSpeechTurn={player:-1,ai:-1};
+function sayHostOnce(side){
+ if(!['player','ai'].includes(side)||hostSpeechTurn[side]===g.round)return false;
+ hostSpeechTurn[side]=g.round;
+ return audio.playCharacter(side==='player'?'HOST_PLAYER':'HOST_AI','cast');
+}
+
 let selected=null,sceneReady=false,sceneError=false,lastToast='',lastFightSerial=0;
 const styleName={ember:'活力',grove:'创意',tide:'默契'};
 const pictogram={
@@ -307,10 +315,13 @@ $('play').addEventListener('click',()=>{
  }
  selected=null;
  render();syncScene();
- audio.playCue(cardSound(c),'player');if(c.kind==='unit')audio.playCharacter(id,'enter');
+ audio.playCue(cardSound(c),'player');
  projectPlayedCard(id,'player');
  audio.playCue('card_flip','player');
- audio.playCharacter('HOST_PLAYER','cast');
+ // The host announces once per turn, then the freshly summoned unit gets a
+ // distinct entrance sentence. Previously host cast cut off every unit voice.
+ sayHostOnce('player');
+ if(c.kind==='unit')audio.playCharacter(id,'enter');
  if(c.kind==='spell'){
   sendSpellImpact(g.events.findLast(e=>e.type==='card_play'&&e.side==='player'&&e.card===id));
   const sound={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
@@ -360,9 +371,9 @@ $('end').addEventListener('click',()=>{
  for(const event of fresh.filter(e=>e.type==='card_play'&&e.side==='ai').slice(-3)){
   const enemyCard=BY_ID[event.card];
   audio.playCue(enemyCard?.kind==='unit'?'enemy_cast':cardSound(enemyCard),'ai');
-  if(enemyCard?.kind==='unit')audio.playCharacter(event.card,'enter');
   projectPlayedCard(event.card,'ai');
-  audio.playCharacter('HOST_AI','cast');
+  sayHostOnce('ai');
+  if(enemyCard?.kind==='unit')audio.playCharacter(event.card,'enter');
   if(enemyCard?.kind==='spell') {
    sendSpellImpact(event);
    const fx={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
@@ -405,7 +416,8 @@ $('end').addEventListener('click',()=>{
   audio.gameFinished(g.winner);
   announce(endText+' '+summary,'ended');
  }else{
-  audio.switchMusic(g.hp.ai<=8||g.hp.player<=8?'duel_tension':'school_duel_theme');
+  audio.musicForBattle({round:g.round,playerHp:g.hp.player,aiHp:g.hp.ai,
+    comboPlayer:g.comboCounts.player,comboAi:g.comboCounts.ai});
   announce(summary+'。现在轮到你了。','ai');
  }
 });

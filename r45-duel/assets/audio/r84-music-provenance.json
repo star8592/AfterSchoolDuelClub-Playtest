@@ -1,0 +1,52 @@
+{
+  "source": "original hand-authored programmatic composition (not a remix or stock recording)",
+  "generator": "qa/generate-r84-music.py",
+  "sample_rate": 24000,
+  "songs": {
+    "campus_parade": {
+      "file": "campus_parade.ogg",
+      "name": "校园开赛进行曲",
+      "bpm": 136,
+      "seconds": 28.24,
+      "bytes": 410997,
+      "sha256": "762f4e1e5091f837e738d69684d0d43a8831233ac9b02577258bb7be719c51fb",
+      "style": "stadium"
+    },
+    "mischief_shuffle": {
+      "file": "mischief_shuffle.ogg",
+      "name": "乌龙连携与恶作剧",
+      "bpm": 112,
+      "seconds": 34.29,
+      "bytes": 530880,
+      "sha256": "5f1e074c0a9ae919376c5740de861d0d002ec1b7dff31dc297f69c0db727f664",
+      "style": "swing"
+    },
+    "tactical_pulse": {
+      "file": "tactical_pulse.ogg",
+      "name": "紧张思考与布阵",
+      "bpm": 94,
+      "seconds": 40.85,
+      "bytes": 646663,
+      "sha256": "764807b1d5f77f6975dab4ef3b45fe2a184b82cc0f827180747b88db2aa396cd",
+      "style": "subtle"
+    },
+    "heroic_comeback": {
+      "file": "heroic_comeback.ogg",
+      "name": "逆转反攻与翻盘",
+      "bpm": 148,
+      "seconds": 25.95,
+      "bytes": 365788,
+      "sha256": "aec61ee845145bbe1dbb23e22e496a7a732a11384457114cecc5a222e3d38e74",
+      "style": "drive"
+    },
+    "final_overtime": {
+      "file": "final_overtime.ogg",
+      "name": "最终回合决胜",
+      "bpm": 166,
+      "seconds": 23.13,
+      "bytes": 331910,
+      "sha256": "6717665e7fa404ea3ee9a32ef05a2770213c3570ed4a7cb832447ceebbf551be",
+      "style": "drive"
+    }
+  }
+}

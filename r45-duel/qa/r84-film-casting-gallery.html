@@ -1,0 +1,69 @@
+<!doctype html><html lang="zh-Hans"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R84 高精度电影风角色实际模型候选</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#121927;color:#eee6d6;font:14px system-ui}
+header{position:absolute;top:0;left:0;right:0;padding:15px 24px;z-index:2;background:linear-gradient(#080d1cd7,#080d1c22)}
+h1{font-size:21px;margin:0 0 4px}p{margin:0;color:#afbacc;font-size:12px}
+canvas{width:100%;height:100%;display:block}.footer{position:absolute;bottom:10px;left:0;right:0;z-index:3;display:flex;justify-content:space-around;gap:2vw;padding:0 14px;pointer-events:none}
+.card{background:#101d31dd;border:1px solid #b8a17d88;backdrop-filter:blur(9px);border-radius:11px;padding:12px 20px;flex:1;text-align:center;max-width:370px;line-height:1.4}
+.card strong{display:block;font-size:19px;color:#fff3d4}.card small{color:#97b2ca}
+#status{position:absolute;top:66px;left:24px;color:#ffd1a1;font-size:12px}
+@media(max-width:720px){header{padding:10px}h1{font-size:15px}.card{padding:7px 5px}.card strong{font-size:11px}.card small{font-size:9px}#status{top:48px;left:10px}}
+</style></head><body>
+<header><h1>R84 · 动画电影风高精度人物候选</h1>
+<p>真实 Blender Studio 来源网格 → 本地 Blender 5.2 安全转换为 GLB；可旋转观察。仅供换模美术验收，尚未修改正式角色表。</p></header>
+<div id="status">正在加载真实 3D 模型…</div><canvas id="stage"></canvas>
+<div class="footer">
+ <div class="card"><strong>Phil · 角色基底候选</strong><small>造型与服装仍需和剧本核对</small></div>
+ <div class="card"><strong>Victoria · 角色基底候选</strong><small>高精度面部及服装独立验证</small></div>
+ <div class="card"><strong>Ellie · 角色基底候选</strong><small>高精度少女造型，等待校园身份改造</small></div>
+</div>
+<script type="module">
+import * as THREE from 'three';
+import{GLTFLoader}from'three/addons/loaders/GLTFLoader.js';
+const canvas=document.querySelector('#stage'),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));
+renderer.outputColorSpace=THREE.SRGBColorSpace;
+renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.26;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#152137');
+const camera=new THREE.PerspectiveCamera(38,1,.1,60);camera.position.set(0,3.35,13.4);camera.lookAt(0,1.25,0);
+scene.add(new THREE.HemisphereLight('#cce4ff','#635c57',2.05));
+const key=new THREE.DirectionalLight('#ffe9c5',2.6);key.position.set(-3,10,5);scene.add(key);
+const fill=new THREE.DirectionalLight('#a9d6ff',1.4);fill.position.set(5,5,-3);scene.add(fill);
+const pGeo=new THREE.CylinderGeometry(1.43,1.49,.22,56),pMat=new THREE.MeshStandardMaterial({color:'#2b4258',roughness:.56,metalness:.27});
+const loader=new GLTFLoader(),positions=[-3.18,0,3.18],names=['phil','victoria','ellie'],groups=[],audit=[];
+const geometryMeshes=[];
+await Promise.all(names.map(async(name,i)=>{
+ try{
+  const url='../art-lab/r84-film-recast/auditions/r84-'+name+'-audition.glb';
+  const gltf=await loader.loadAsync(url);const root=gltf.scene;const group=new THREE.Group();
+  group.position.set(positions[i],.12,0);scene.add(group);
+  const box=new THREE.Box3().setFromObject(root),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
+  if(box.isEmpty()||size.y<=.001)throw Error('empty mesh '+name);
+  // Source GLB coordinates may be in original Blender metric/global space.
+  // Apply centering in a child before scaling the *parent*; otherwise the
+  // translation is left unscaled and can put the camera inside giant geometry.
+  root.position.set(-center.x,-box.min.y,-center.z);
+  const fitted=new THREE.Group();fitted.scale.setScalar(2.73/size.y);
+  fitted.rotation.y=0; // original Blender Studio characters face toward camera (+Z).
+  fitted.add(root);group.add(fitted);
+  const stage=new THREE.Mesh(pGeo,pMat);stage.position.y=-.13;group.add(stage);
+  let meshes=0,triangles=0;root.traverse(o=>{if(o.isMesh){meshes++;const g=o.geometry;const c=g.index?g.index.count:g.attributes.position.count;triangles+=Math.round(c/3);}});
+  audit.push({name,meshes,triangles,source:'local real GLB',loadOk:true,size:size.toArray(),center:center.toArray(),min:box.min.toArray(),max:box.max.toArray(),viewBounds:new THREE.Box3().setFromObject(fitted).getSize(new THREE.Vector3()).toArray()});
+  groups.push(group);
+ }catch(e){audit.push({name,loadOk:false,error:String(e)});}
+}));
+audit.sort((a,b)=>names.indexOf(a.name)-names.indexOf(b.name));
+const ok=audit.length===3&&audit.every(x=>x.loadOk);
+document.querySelector('#status').textContent=ok?'已加载 3 名真实高精度来源角色，拖动背景可以旋转':'加载异常：'+audit.map(x=>x.error||'').join('; ');
+let azimuth=0,dragX=null,frames=0;
+canvas.addEventListener('pointerdown',e=>{dragX=e.clientX;canvas.setPointerCapture(e.pointerId)});
+canvas.addEventListener('pointermove',e=>{if(dragX===null)return;azimuth+=(e.clientX-dragX)*.007;dragX=e.clientX});
+canvas.addEventListener('pointerup',()=>dragX=null);
+window.addEventListener('resize',resize);function resize(){renderer.setSize(innerWidth,innerHeight);camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix()}resize();
+function draw(){requestAnimationFrame(draw);frames++;for(const g of groups)g.rotation.y=azimuth;renderer.render(scene,camera)}
+draw();
+window.__R84_ART_QA={ready:ok,models:audit,get frames(){return frames}};
+</script></body></html>
