@@ -1,0 +1,1751 @@
+{
+  "origin": "http://127.0.0.1:11098",
+  "pass": true,
+  "checks": [
+    {
+      "pass": true,
+      "name": "desktop tutorial is accessible from current production game",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop regular duel is playable by default",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop one-step tutorial launch uses existing 3D game route",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop retains 12 GLBs, original VRM duelists and default-on Qwen sound",
+      "detail": {
+        "models": 12,
+        "duelists": 2,
+        "score": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        },
+        "sound": true
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop stage 1 starts with real prepared duel",
+      "detail": {
+        "lesson": {
+          "id": "chalk",
+          "title": "第 1 关 · 粉笔弹射",
+          "story": "风纪委员守住了体育馆入口。把活力与创意组合起来，打出出乎意料的一击！",
+          "cards": [
+            "E01",
+            "G01"
+          ],
+          "foe": "T01",
+          "effect": "chalk_hit",
+          "steps": [
+            "① 点击「铃声追不上」并出牌：先让活力社员入场。",
+            "② 点击「橡皮筋建筑师」并出牌：触发真实的粉笔弹射连携。"
+          ],
+          "success": "粉笔弹射命中！伤害直接由规则结算，敌方格挡或被击倒都会如实显示。"
+        },
+        "current": {
+          "t": {
+            "id": "chalk",
+            "title": "第 1 关 · 粉笔弹射",
+            "story": "风纪委员守住了体育馆入口。把活力与创意组合起来，打出出乎意料的一击！",
+            "cards": [
+              "E01",
+              "G01"
+            ],
+            "foe": "T01",
+            "effect": "chalk_hit",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先让活力社员入场。",
+              "② 点击「橡皮筋建筑师」并出牌：触发真实的粉笔弹射连携。"
+            ],
+            "success": "粉笔弹射命中！伤害直接由规则结算，敌方格挡或被击倒都会如实显示。",
+            "level": 1,
+            "step": 0,
+            "completed": false,
+            "target": "E01",
+            "result": null
+          },
+          "stage": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop tutorial never ends before two real cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop only current legal objective is shown",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop chapter 1 real card E01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "chalk",
+            "title": "第 1 关 · 粉笔弹射",
+            "story": "风纪委员守住了体育馆入口。把活力与创意组合起来，打出出乎意料的一击！",
+            "cards": [
+              "E01",
+              "G01"
+            ],
+            "foe": "T01",
+            "effect": "chalk_hit",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先让活力社员入场。",
+              "② 点击「橡皮筋建筑师」并出牌：触发真实的粉笔弹射连携。"
+            ],
+            "success": "粉笔弹射命中！伤害直接由规则结算，敌方格挡或被击倒都会如实显示。",
+            "level": 1,
+            "step": 1,
+            "completed": false,
+            "target": "G01",
+            "result": null
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U999",
+                  "id": "T01",
+                  "style": "tide",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop no phantom combo after the first card",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop chapter 1 real card G01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "chalk",
+            "title": "第 1 关 · 粉笔弹射",
+            "story": "风纪委员守住了体育馆入口。把活力与创意组合起来，打出出乎意料的一击！",
+            "cards": [
+              "E01",
+              "G01"
+            ],
+            "foe": "T01",
+            "effect": "chalk_hit",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先让活力社员入场。",
+              "② 点击「橡皮筋建筑师」并出牌：触发真实的粉笔弹射连携。"
+            ],
+            "success": "粉笔弹射命中！伤害直接由规则结算，敌方格挡或被击倒都会如实显示。",
+            "level": 1,
+            "step": 2,
+            "completed": true,
+            "target": null,
+            "result": {
+              "effect": "chalk_hit",
+              "serial": 5,
+              "damage": 2,
+              "blocked": 0,
+              "shield": 0,
+              "draw": 0,
+              "defeated": true
+            }
+          },
+          "combo": {
+            "serial": 5,
+            "type": "combo_effect",
+            "side": "player",
+            "lane": 0,
+            "effect": "chalk_hit",
+            "target": "U999",
+            "card": "T01",
+            "damage": 2,
+            "blocked": 0,
+            "defeated": true,
+            "hp_after": 0,
+            "shield_after": 0
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                },
+                {
+                  "uid": "U3",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              []
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop chalk_hit is an actual engine combo event",
+      "detail": {
+        "effect": {
+          "serial": 5,
+          "type": "combo_effect",
+          "side": "player",
+          "lane": 0,
+          "effect": "chalk_hit",
+          "target": "U999",
+          "card": "T01",
+          "damage": 2,
+          "blocked": 0,
+          "defeated": true,
+          "hp_after": 0,
+          "shield_after": 0
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop real chalk impact kills staged opponent",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop next chapter button appears only after real combo",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop completed chapter stops extra card plays",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop advance without redownloading large 3D stadium",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop next story scene resets core score but preserves 3D iframe",
+      "detail": {
+        "level": 2,
+        "scene": true,
+        "score": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop stage 2 starts with real prepared duel",
+      "detail": {
+        "lesson": {
+          "id": "broadcast",
+          "title": "第 2 关 · 广播室串台",
+          "story": "放学广播突然串了频道。用活力加默契获得额外一张牌，补足下一步策略。",
+          "cards": [
+            "E01",
+            "T01"
+          ],
+          "foe": "G01",
+          "effect": "broadcast_draw",
+          "steps": [
+            "① 点击「铃声追不上」并出牌：先打出活力风格。",
+            "② 点击「迟到的播音员」并出牌：广播连携会真实补抽一张牌。"
+          ],
+          "success": "广播连携成功！一个竞技场里不会虚构跨走廊转移，实际规则是补抽 1 张牌。"
+        },
+        "current": {
+          "t": {
+            "id": "broadcast",
+            "title": "第 2 关 · 广播室串台",
+            "story": "放学广播突然串了频道。用活力加默契获得额外一张牌，补足下一步策略。",
+            "cards": [
+              "E01",
+              "T01"
+            ],
+            "foe": "G01",
+            "effect": "broadcast_draw",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先打出活力风格。",
+              "② 点击「迟到的播音员」并出牌：广播连携会真实补抽一张牌。"
+            ],
+            "success": "广播连携成功！一个竞技场里不会虚构跨走廊转移，实际规则是补抽 1 张牌。",
+            "level": 2,
+            "step": 0,
+            "completed": false,
+            "target": "E01",
+            "result": null
+          },
+          "stage": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop tutorial never ends before two real cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop only current legal objective is shown",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop chapter 2 real card E01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "broadcast",
+            "title": "第 2 关 · 广播室串台",
+            "story": "放学广播突然串了频道。用活力加默契获得额外一张牌，补足下一步策略。",
+            "cards": [
+              "E01",
+              "T01"
+            ],
+            "foe": "G01",
+            "effect": "broadcast_draw",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先打出活力风格。",
+              "② 点击「迟到的播音员」并出牌：广播连携会真实补抽一张牌。"
+            ],
+            "success": "广播连携成功！一个竞技场里不会虚构跨走廊转移，实际规则是补抽 1 张牌。",
+            "level": 2,
+            "step": 1,
+            "completed": false,
+            "target": "T01",
+            "result": null
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U1999",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop no phantom combo after the first card",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop chapter 2 real card T01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "broadcast",
+            "title": "第 2 关 · 广播室串台",
+            "story": "放学广播突然串了频道。用活力加默契获得额外一张牌，补足下一步策略。",
+            "cards": [
+              "E01",
+              "T01"
+            ],
+            "foe": "G01",
+            "effect": "broadcast_draw",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先打出活力风格。",
+              "② 点击「迟到的播音员」并出牌：广播连携会真实补抽一张牌。"
+            ],
+            "success": "广播连携成功！一个竞技场里不会虚构跨走廊转移，实际规则是补抽 1 张牌。",
+            "level": 2,
+            "step": 2,
+            "completed": true,
+            "target": null,
+            "result": {
+              "effect": "broadcast_draw",
+              "serial": 5,
+              "damage": 0,
+              "blocked": 0,
+              "shield": 0,
+              "draw": 1,
+              "defeated": false
+            }
+          },
+          "combo": {
+            "serial": 5,
+            "type": "combo_effect",
+            "side": "player",
+            "lane": 0,
+            "effect": "broadcast_draw",
+            "draw": 1
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                },
+                {
+                  "uid": "U3",
+                  "id": "T01",
+                  "style": "tide",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U1999",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast_draw is an actual engine combo event",
+      "detail": {
+        "effect": {
+          "serial": 5,
+          "type": "combo_effect",
+          "side": "player",
+          "lane": 0,
+          "effect": "broadcast_draw",
+          "draw": 1
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast really draws, no fictional lane switch",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop next chapter button appears only after real combo",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop completed chapter stops extra card plays",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop advance without redownloading large 3D stadium",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop next story scene resets core score but preserves 3D iframe",
+      "detail": {
+        "level": 3,
+        "scene": true,
+        "score": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 1,
+          "comboAi": 0,
+          "energy": 1,
+          "type": "ASDC_R81_SCORE"
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop stage 3 starts with real prepared duel",
+      "detail": {
+        "lesson": {
+          "id": "poster",
+          "title": "第 3 关 · 招新海报",
+          "story": "社团招新海报飘进体育馆。用创意加默契给己方前排套上真实护盾。",
+          "cards": [
+            "G01",
+            "T01"
+          ],
+          "foe": "E01",
+          "effect": "poster_shield",
+          "steps": [
+            "① 点击「橡皮筋建筑师」并出牌：建立己方前排。",
+            "② 点击「迟到的播音员」并出牌：让前排实际获得 2 点护盾。"
+          ],
+          "success": "招新海报护盾成功！角色获得的护盾是真实规则数据，不是画面里假装变强。"
+        },
+        "current": {
+          "t": {
+            "id": "poster",
+            "title": "第 3 关 · 招新海报",
+            "story": "社团招新海报飘进体育馆。用创意加默契给己方前排套上真实护盾。",
+            "cards": [
+              "G01",
+              "T01"
+            ],
+            "foe": "E01",
+            "effect": "poster_shield",
+            "steps": [
+              "① 点击「橡皮筋建筑师」并出牌：建立己方前排。",
+              "② 点击「迟到的播音员」并出牌：让前排实际获得 2 点护盾。"
+            ],
+            "success": "招新海报护盾成功！角色获得的护盾是真实规则数据，不是画面里假装变强。",
+            "level": 3,
+            "step": 0,
+            "completed": false,
+            "target": "G01",
+            "result": null
+          },
+          "stage": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop tutorial never ends before two real cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop only current legal objective is shown",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop chapter 3 real card G01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "poster",
+            "title": "第 3 关 · 招新海报",
+            "story": "社团招新海报飘进体育馆。用创意加默契给己方前排套上真实护盾。",
+            "cards": [
+              "G01",
+              "T01"
+            ],
+            "foe": "E01",
+            "effect": "poster_shield",
+            "steps": [
+              "① 点击「橡皮筋建筑师」并出牌：建立己方前排。",
+              "② 点击「迟到的播音员」并出牌：让前排实际获得 2 点护盾。"
+            ],
+            "success": "招新海报护盾成功！角色获得的护盾是真实规则数据，不是画面里假装变强。",
+            "level": 3,
+            "step": 1,
+            "completed": false,
+            "target": "T01",
+            "result": null
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U2999",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop no phantom combo after the first card",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop chapter 3 real card T01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "poster",
+            "title": "第 3 关 · 招新海报",
+            "story": "社团招新海报飘进体育馆。用创意加默契给己方前排套上真实护盾。",
+            "cards": [
+              "G01",
+              "T01"
+            ],
+            "foe": "E01",
+            "effect": "poster_shield",
+            "steps": [
+              "① 点击「橡皮筋建筑师」并出牌：建立己方前排。",
+              "② 点击「迟到的播音员」并出牌：让前排实际获得 2 点护盾。"
+            ],
+            "success": "招新海报护盾成功！角色获得的护盾是真实规则数据，不是画面里假装变强。",
+            "level": 3,
+            "step": 2,
+            "completed": true,
+            "target": null,
+            "result": {
+              "effect": "poster_shield",
+              "serial": 5,
+              "damage": 0,
+              "blocked": 0,
+              "shield": 2,
+              "draw": 0,
+              "defeated": false
+            }
+          },
+          "combo": {
+            "serial": 5,
+            "type": "combo_effect",
+            "side": "player",
+            "lane": 0,
+            "effect": "poster_shield",
+            "target": "U2",
+            "card": "G01",
+            "shield": 2
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 2,
+                  "summonedAt": 1
+                },
+                {
+                  "uid": "U3",
+                  "id": "T01",
+                  "style": "tide",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U2999",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop poster_shield is an actual engine combo event",
+      "detail": {
+        "effect": {
+          "serial": 5,
+          "type": "combo_effect",
+          "side": "player",
+          "lane": 0,
+          "effect": "poster_shield",
+          "target": "U2",
+          "card": "G01",
+          "shield": 2
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop poster adds actual two-point unit shield",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop next chapter button appears only after real combo",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop completed chapter stops extra card plays",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop graduation opens real free duel without trapping player",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop zero JS/GLB network errors",
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile tutorial is accessible from current production game",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile regular duel is playable by default",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile one-step tutorial launch uses existing 3D game route",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile retains 12 GLBs, original VRM duelists and default-on Qwen sound",
+      "detail": {
+        "models": 12,
+        "duelists": 2,
+        "score": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        },
+        "sound": true
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile stage 1 starts with real prepared duel",
+      "detail": {
+        "lesson": {
+          "id": "chalk",
+          "title": "第 1 关 · 粉笔弹射",
+          "story": "风纪委员守住了体育馆入口。把活力与创意组合起来，打出出乎意料的一击！",
+          "cards": [
+            "E01",
+            "G01"
+          ],
+          "foe": "T01",
+          "effect": "chalk_hit",
+          "steps": [
+            "① 点击「铃声追不上」并出牌：先让活力社员入场。",
+            "② 点击「橡皮筋建筑师」并出牌：触发真实的粉笔弹射连携。"
+          ],
+          "success": "粉笔弹射命中！伤害直接由规则结算，敌方格挡或被击倒都会如实显示。"
+        },
+        "current": {
+          "t": {
+            "id": "chalk",
+            "title": "第 1 关 · 粉笔弹射",
+            "story": "风纪委员守住了体育馆入口。把活力与创意组合起来，打出出乎意料的一击！",
+            "cards": [
+              "E01",
+              "G01"
+            ],
+            "foe": "T01",
+            "effect": "chalk_hit",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先让活力社员入场。",
+              "② 点击「橡皮筋建筑师」并出牌：触发真实的粉笔弹射连携。"
+            ],
+            "success": "粉笔弹射命中！伤害直接由规则结算，敌方格挡或被击倒都会如实显示。",
+            "level": 1,
+            "step": 0,
+            "completed": false,
+            "target": "E01",
+            "result": null
+          },
+          "stage": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile tutorial never ends before two real cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile only current legal objective is shown",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile chapter 1 real card E01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "chalk",
+            "title": "第 1 关 · 粉笔弹射",
+            "story": "风纪委员守住了体育馆入口。把活力与创意组合起来，打出出乎意料的一击！",
+            "cards": [
+              "E01",
+              "G01"
+            ],
+            "foe": "T01",
+            "effect": "chalk_hit",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先让活力社员入场。",
+              "② 点击「橡皮筋建筑师」并出牌：触发真实的粉笔弹射连携。"
+            ],
+            "success": "粉笔弹射命中！伤害直接由规则结算，敌方格挡或被击倒都会如实显示。",
+            "level": 1,
+            "step": 1,
+            "completed": false,
+            "target": "G01",
+            "result": null
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U999",
+                  "id": "T01",
+                  "style": "tide",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile no phantom combo after the first card",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile chapter 1 real card G01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "chalk",
+            "title": "第 1 关 · 粉笔弹射",
+            "story": "风纪委员守住了体育馆入口。把活力与创意组合起来，打出出乎意料的一击！",
+            "cards": [
+              "E01",
+              "G01"
+            ],
+            "foe": "T01",
+            "effect": "chalk_hit",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先让活力社员入场。",
+              "② 点击「橡皮筋建筑师」并出牌：触发真实的粉笔弹射连携。"
+            ],
+            "success": "粉笔弹射命中！伤害直接由规则结算，敌方格挡或被击倒都会如实显示。",
+            "level": 1,
+            "step": 2,
+            "completed": true,
+            "target": null,
+            "result": {
+              "effect": "chalk_hit",
+              "serial": 5,
+              "damage": 2,
+              "blocked": 0,
+              "shield": 0,
+              "draw": 0,
+              "defeated": true
+            }
+          },
+          "combo": {
+            "serial": 5,
+            "type": "combo_effect",
+            "side": "player",
+            "lane": 0,
+            "effect": "chalk_hit",
+            "target": "U999",
+            "card": "T01",
+            "damage": 2,
+            "blocked": 0,
+            "defeated": true,
+            "hp_after": 0,
+            "shield_after": 0
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                },
+                {
+                  "uid": "U3",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              []
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile chalk_hit is an actual engine combo event",
+      "detail": {
+        "effect": {
+          "serial": 5,
+          "type": "combo_effect",
+          "side": "player",
+          "lane": 0,
+          "effect": "chalk_hit",
+          "target": "U999",
+          "card": "T01",
+          "damage": 2,
+          "blocked": 0,
+          "defeated": true,
+          "hp_after": 0,
+          "shield_after": 0
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile real chalk impact kills staged opponent",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile next chapter button appears only after real combo",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile completed chapter stops extra card plays",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile advance without redownloading large 3D stadium",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile next story scene resets core score but preserves 3D iframe",
+      "detail": {
+        "level": 2,
+        "scene": true,
+        "score": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 1,
+          "comboAi": 0,
+          "energy": 1,
+          "type": "ASDC_R81_SCORE"
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile stage 2 starts with real prepared duel",
+      "detail": {
+        "lesson": {
+          "id": "broadcast",
+          "title": "第 2 关 · 广播室串台",
+          "story": "放学广播突然串了频道。用活力加默契获得额外一张牌，补足下一步策略。",
+          "cards": [
+            "E01",
+            "T01"
+          ],
+          "foe": "G01",
+          "effect": "broadcast_draw",
+          "steps": [
+            "① 点击「铃声追不上」并出牌：先打出活力风格。",
+            "② 点击「迟到的播音员」并出牌：广播连携会真实补抽一张牌。"
+          ],
+          "success": "广播连携成功！一个竞技场里不会虚构跨走廊转移，实际规则是补抽 1 张牌。"
+        },
+        "current": {
+          "t": {
+            "id": "broadcast",
+            "title": "第 2 关 · 广播室串台",
+            "story": "放学广播突然串了频道。用活力加默契获得额外一张牌，补足下一步策略。",
+            "cards": [
+              "E01",
+              "T01"
+            ],
+            "foe": "G01",
+            "effect": "broadcast_draw",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先打出活力风格。",
+              "② 点击「迟到的播音员」并出牌：广播连携会真实补抽一张牌。"
+            ],
+            "success": "广播连携成功！一个竞技场里不会虚构跨走廊转移，实际规则是补抽 1 张牌。",
+            "level": 2,
+            "step": 0,
+            "completed": false,
+            "target": "E01",
+            "result": null
+          },
+          "stage": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile tutorial never ends before two real cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile only current legal objective is shown",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile chapter 2 real card E01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "broadcast",
+            "title": "第 2 关 · 广播室串台",
+            "story": "放学广播突然串了频道。用活力加默契获得额外一张牌，补足下一步策略。",
+            "cards": [
+              "E01",
+              "T01"
+            ],
+            "foe": "G01",
+            "effect": "broadcast_draw",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先打出活力风格。",
+              "② 点击「迟到的播音员」并出牌：广播连携会真实补抽一张牌。"
+            ],
+            "success": "广播连携成功！一个竞技场里不会虚构跨走廊转移，实际规则是补抽 1 张牌。",
+            "level": 2,
+            "step": 1,
+            "completed": false,
+            "target": "T01",
+            "result": null
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U1999",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile no phantom combo after the first card",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile chapter 2 real card T01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "broadcast",
+            "title": "第 2 关 · 广播室串台",
+            "story": "放学广播突然串了频道。用活力加默契获得额外一张牌，补足下一步策略。",
+            "cards": [
+              "E01",
+              "T01"
+            ],
+            "foe": "G01",
+            "effect": "broadcast_draw",
+            "steps": [
+              "① 点击「铃声追不上」并出牌：先打出活力风格。",
+              "② 点击「迟到的播音员」并出牌：广播连携会真实补抽一张牌。"
+            ],
+            "success": "广播连携成功！一个竞技场里不会虚构跨走廊转移，实际规则是补抽 1 张牌。",
+            "level": 2,
+            "step": 2,
+            "completed": true,
+            "target": null,
+            "result": {
+              "effect": "broadcast_draw",
+              "serial": 5,
+              "damage": 0,
+              "blocked": 0,
+              "shield": 0,
+              "draw": 1,
+              "defeated": false
+            }
+          },
+          "combo": {
+            "serial": 5,
+            "type": "combo_effect",
+            "side": "player",
+            "lane": 0,
+            "effect": "broadcast_draw",
+            "draw": 1
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                },
+                {
+                  "uid": "U3",
+                  "id": "T01",
+                  "style": "tide",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U1999",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile broadcast_draw is an actual engine combo event",
+      "detail": {
+        "effect": {
+          "serial": 5,
+          "type": "combo_effect",
+          "side": "player",
+          "lane": 0,
+          "effect": "broadcast_draw",
+          "draw": 1
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile broadcast really draws, no fictional lane switch",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile next chapter button appears only after real combo",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile completed chapter stops extra card plays",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile advance without redownloading large 3D stadium",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile next story scene resets core score but preserves 3D iframe",
+      "detail": {
+        "level": 3,
+        "scene": true,
+        "score": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 1,
+          "comboAi": 0,
+          "energy": 1,
+          "type": "ASDC_R81_SCORE"
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile stage 3 starts with real prepared duel",
+      "detail": {
+        "lesson": {
+          "id": "poster",
+          "title": "第 3 关 · 招新海报",
+          "story": "社团招新海报飘进体育馆。用创意加默契给己方前排套上真实护盾。",
+          "cards": [
+            "G01",
+            "T01"
+          ],
+          "foe": "E01",
+          "effect": "poster_shield",
+          "steps": [
+            "① 点击「橡皮筋建筑师」并出牌：建立己方前排。",
+            "② 点击「迟到的播音员」并出牌：让前排实际获得 2 点护盾。"
+          ],
+          "success": "招新海报护盾成功！角色获得的护盾是真实规则数据，不是画面里假装变强。"
+        },
+        "current": {
+          "t": {
+            "id": "poster",
+            "title": "第 3 关 · 招新海报",
+            "story": "社团招新海报飘进体育馆。用创意加默契给己方前排套上真实护盾。",
+            "cards": [
+              "G01",
+              "T01"
+            ],
+            "foe": "E01",
+            "effect": "poster_shield",
+            "steps": [
+              "① 点击「橡皮筋建筑师」并出牌：建立己方前排。",
+              "② 点击「迟到的播音员」并出牌：让前排实际获得 2 点护盾。"
+            ],
+            "success": "招新海报护盾成功！角色获得的护盾是真实规则数据，不是画面里假装变强。",
+            "level": 3,
+            "step": 0,
+            "completed": false,
+            "target": "G01",
+            "result": null
+          },
+          "stage": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile tutorial never ends before two real cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile only current legal objective is shown",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile chapter 3 real card G01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "poster",
+            "title": "第 3 关 · 招新海报",
+            "story": "社团招新海报飘进体育馆。用创意加默契给己方前排套上真实护盾。",
+            "cards": [
+              "G01",
+              "T01"
+            ],
+            "foe": "E01",
+            "effect": "poster_shield",
+            "steps": [
+              "① 点击「橡皮筋建筑师」并出牌：建立己方前排。",
+              "② 点击「迟到的播音员」并出牌：让前排实际获得 2 点护盾。"
+            ],
+            "success": "招新海报护盾成功！角色获得的护盾是真实规则数据，不是画面里假装变强。",
+            "level": 3,
+            "step": 1,
+            "completed": false,
+            "target": "T01",
+            "result": null
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U2999",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile no phantom combo after the first card",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile chapter 3 real card T01 advances tutorial",
+      "detail": {
+        "state": {
+          "tutorial": {
+            "id": "poster",
+            "title": "第 3 关 · 招新海报",
+            "story": "社团招新海报飘进体育馆。用创意加默契给己方前排套上真实护盾。",
+            "cards": [
+              "G01",
+              "T01"
+            ],
+            "foe": "E01",
+            "effect": "poster_shield",
+            "steps": [
+              "① 点击「橡皮筋建筑师」并出牌：建立己方前排。",
+              "② 点击「迟到的播音员」并出牌：让前排实际获得 2 点护盾。"
+            ],
+            "success": "招新海报护盾成功！角色获得的护盾是真实规则数据，不是画面里假装变强。",
+            "level": 3,
+            "step": 2,
+            "completed": true,
+            "target": null,
+            "result": {
+              "effect": "poster_shield",
+              "serial": 5,
+              "damage": 0,
+              "blocked": 0,
+              "shield": 2,
+              "draw": 0,
+              "defeated": false
+            }
+          },
+          "combo": {
+            "serial": 5,
+            "type": "combo_effect",
+            "side": "player",
+            "lane": 0,
+            "effect": "poster_shield",
+            "target": "U2",
+            "card": "G01",
+            "shield": 2
+          },
+          "hp": {
+            "player": 20,
+            "ai": 20
+          },
+          "board": {
+            "player": [
+              [
+                {
+                  "uid": "U2",
+                  "id": "G01",
+                  "style": "grove",
+                  "attack": 1,
+                  "hp": 3,
+                  "buff": 0,
+                  "shield": 2,
+                  "summonedAt": 1
+                },
+                {
+                  "uid": "U3",
+                  "id": "T01",
+                  "style": "tide",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 1
+                }
+              ]
+            ],
+            "ai": [
+              [
+                {
+                  "uid": "U2999",
+                  "id": "E01",
+                  "style": "ember",
+                  "attack": 1,
+                  "hp": 2,
+                  "buff": 0,
+                  "shield": 0,
+                  "summonedAt": 0
+                }
+              ]
+            ]
+          },
+          "phase": "playing",
+          "round": 1,
+          "sceneReady": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile poster_shield is an actual engine combo event",
+      "detail": {
+        "effect": {
+          "serial": 5,
+          "type": "combo_effect",
+          "side": "player",
+          "lane": 0,
+          "effect": "poster_shield",
+          "target": "U2",
+          "card": "G01",
+          "shield": 2
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile poster adds actual two-point unit shield",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile next chapter button appears only after real combo",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile completed chapter stops extra card plays",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile graduation opens real free duel without trapping player",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile zero JS/GLB network errors",
+      "detail": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "name": "desktop",
+      "width": 1550,
+      "lessons": [
+        {
+          "level": 1,
+          "id": "chalk",
+          "combo": "chalk_hit",
+          "damage": 2,
+          "shield": 0,
+          "draw": 0
+        },
+        {
+          "level": 2,
+          "id": "broadcast",
+          "combo": "broadcast_draw",
+          "damage": 0,
+          "shield": 0,
+          "draw": 1
+        },
+        {
+          "level": 3,
+          "id": "poster",
+          "combo": "poster_shield",
+          "damage": 0,
+          "shield": 2,
+          "draw": 0
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 430,
+      "lessons": [
+        {
+          "level": 1,
+          "id": "chalk",
+          "combo": "chalk_hit",
+          "damage": 2,
+          "shield": 0,
+          "draw": 0
+        },
+        {
+          "level": 2,
+          "id": "broadcast",
+          "combo": "broadcast_draw",
+          "damage": 0,
+          "shield": 0,
+          "draw": 1
+        },
+        {
+          "level": 3,
+          "id": "poster",
+          "combo": "poster_shield",
+          "damage": 0,
+          "shield": 2,
+          "draw": 0
+        }
+      ]
+    }
+  ]
+}
