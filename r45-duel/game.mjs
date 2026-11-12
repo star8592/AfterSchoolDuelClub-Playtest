@@ -10,7 +10,24 @@ import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCa
 
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
-const seed=Number(params.get('seed')??'1')||1;
+// R101: ordinary new sessions should not always receive the SAME seed-1
+// starting hand. A shared ?seed=N remains exactly reproducible for challenges
+// and QA. Show the real random seed in the URL without reloading the scene.
+function createVisitorSeed(){
+ const key=new Uint32Array(1);
+ if(globalThis.crypto?.getRandomValues){
+  crypto.getRandomValues(key);
+  return 1+(key[0]%2147483646);
+ }
+ return 1+(Math.floor(Date.now()/17)%2147483646);
+}
+const suppliedSeed=Number(params.get('seed'));
+const seed=params.has('seed')&&Number.isInteger(suppliedSeed)&&
+ suppliedSeed>=1&&suppliedSeed<=2147483646?suppliedSeed:createVisitorSeed();
+if(!params.has('seed')||seed!==suppliedSeed){
+ const fixed=new URL(location.href);fixed.searchParams.set('seed',String(seed));
+ history.replaceState(null,'',fixed.href);
+}
 const tutorialMode=params.get('mode')==='tutorial';
 const requestedLevel=Number(params.get('level')??'1');
 const initialLevel=tutorialMode&&Number.isInteger(requestedLevel)&&requestedLevel>=1&&requestedLevel<=LESSONS.length?requestedLevel:1;
@@ -414,6 +431,48 @@ function startRematch(){
  location.assign(target.href);
 }
 $('result-rematch').addEventListener('click',startRematch);
+// Exactly the same seed, same 20-card deck, same deterministic core.
+function sameDuelChallengeUrl(){
+ const url=new URL('./',location.href);
+ url.search='';url.hash='';
+ url.searchParams.set('seed',String(seed));
+ url.searchParams.set('ref','challenge');
+ return url.href;
+}
+async function shareChallenge(){
+ const shareUrl=sameDuelChallengeUrl();
+ const message='放学后决斗社同局挑战：我打到了第 '+g.round+
+  ' 回合，剩余人气 '+g.hp.player+':'+g.hp.ai+
+  '。同一副起始牌，敢不敢来比一局？';
+ if(navigator.share){
+  try{
+   await navigator.share({title:'放学后决斗社 · 同局挑战',text:message,url:shareUrl});
+   $('result-share-status').textContent='已打开分享面板';return;
+  }catch(error){if(error?.name==='AbortError'){
+   $('result-share-status').textContent='已取消分享';return;
+  }}
+ }
+ try{
+  await navigator.clipboard.writeText(message+' '+shareUrl);
+  $('result-share-status').textContent='挑战链接已复制，发给朋友即可';
+ }catch{
+  const copy=document.createElement('textarea');copy.value=message+' '+shareUrl;
+  copy.style.cssText='position:fixed;left:-9999px';
+  document.body.append(copy);copy.select();
+  const success=document.execCommand('copy');copy.remove();
+  $('result-share-status').textContent=success?'挑战链接已复制':'请手动复制地址栏链接';
+ }
+}
+$('result-challenge').addEventListener('click',shareChallenge);
+$('result-feedback').addEventListener('click',()=>{
+ const issue=new URL('https://github.com/star8592/AfterSchoolDuelClub-Playtest/issues/new');
+ issue.searchParams.set('title','[试玩反馈] 第 '+g.round+' 回合 · '+(g.winner||'未结束'));
+ issue.searchParams.set('body',['我在《放学后决斗社》玩了一局。',
+  '随机牌局种子：'+seed,'最终人气：'+g.hp.player+':'+g.hp.ai,
+  '问题/好笑的时刻：','',
+  '（GitHub 提交可能需要登录；不要填写私人信息）'].join(String.fromCharCode(10)));
+ window.open(issue.href,'_blank','noopener,noreferrer');
+});
 $('result-review').addEventListener('click',()=>{
  $('result-overlay').hidden=true;
  $('end').focus({preventScroll:true});

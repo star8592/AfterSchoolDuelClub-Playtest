@@ -147,7 +147,7 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  T04:{file:'T04-Rex-Landing-R97.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
-export async function preloadSummonModels(THREE,loader){
+export async function preloadSummonModels(THREE,loader,{onLoaded}={}){
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
   const baseSpec=UNIT_MODEL_SPECS[id];
   const spec=id==='T02'&&isT02DuoStudy?
@@ -183,6 +183,9 @@ export async function preloadSummonModels(THREE,loader){
   let meshes=0;
   source.traverse(o=>{if(o.isMesh){meshes++;o.frustumCulled=false;}});
   if(!meshes)throw Error('Empty GLB meshes for '+id);
+  // Report only real, validated completed GLB loads. Never fabricate percent
+  // based on elapsed time or relax the 12/12 identity readiness gate.
+  if(typeof onLoaded==='function')onLoaded({id,file:selectedFile,meshes});
   const scale=Math.min(spec.targetHeight/size.y,
    spec.maxWidth?spec.maxWidth/size.x:Infinity,
    spec.maxDepth?spec.maxDepth/size.z:Infinity);

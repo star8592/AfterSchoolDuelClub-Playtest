@@ -541,3 +541,16 @@ html,body{width:100%;height:100%;overflow:hidden}
  .lesson-finished-hand strong{font-size:14px}
  .lesson-finished-hand span{font-size:11px}
 }
+
+/* R101 actual sharable same-seed results; no external tracker */
+.result-challenge{
+ color:#132b3f;background:#f5c576;border:1px solid #ffe9b8;
+ border-radius:9px;padding:11px 15px;min-height:46px;font-weight:900;
+ cursor:pointer}
+.result-challenge:hover{filter:brightness(1.08)}
+.result-share-status{min-height:16px;margin:8px 0 0;color:#ffe1ad;
+ font-size:12px;text-align:center}
+@media(max-width:620px){
+ .result-actions{display:flex;flex-wrap:wrap}
+ .result-actions>*{flex:1 1 145px}
+}

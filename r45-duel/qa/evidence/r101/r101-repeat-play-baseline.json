@@ -1,0 +1,147 @@
+{
+  "schema": "R101_PLAYTEST_BALANCE_1",
+  "seedCount": 2500,
+  "cardKinds": {
+    "total": 20,
+    "unit": 14,
+    "spell": 6
+  },
+  "strategies": {
+    "first": {
+      "wins": {
+        "player": 882,
+        "ai": 1561,
+        "draw": 57
+      },
+      "meanRound": 11.17,
+      "medianRound": 12,
+      "comboEffects": {
+        "broadcast_draw": 5538,
+        "poster_shield": 6878,
+        "chalk_hit": 4679,
+        "chalk_direct": 574,
+        "poster_draw": 127
+      },
+      "highestCards": [
+        {
+          "id": "E02",
+          "count": 4963
+        },
+        {
+          "id": "E01",
+          "count": 4955
+        },
+        {
+          "id": "E03",
+          "count": 4932
+        },
+        {
+          "id": "G05",
+          "count": 4599
+        },
+        {
+          "id": "G04",
+          "count": 4567
+        },
+        {
+          "id": "E04",
+          "count": 4559
+        }
+      ],
+      "leastCards": [
+        {
+          "id": "T03",
+          "count": 4460
+        },
+        {
+          "id": "M01",
+          "count": 4445
+        },
+        {
+          "id": "G03",
+          "count": 4442
+        },
+        {
+          "id": "T06",
+          "count": 4424
+        },
+        {
+          "id": "E05",
+          "count": 4423
+        },
+        {
+          "id": "G06",
+          "count": 4272
+        }
+      ]
+    },
+    "last": {
+      "wins": {
+        "player": 795,
+        "ai": 1643,
+        "draw": 62
+      },
+      "meanRound": 11.06,
+      "medianRound": 12,
+      "comboEffects": {
+        "broadcast_draw": 5928,
+        "poster_shield": 6707,
+        "chalk_hit": 5009,
+        "chalk_direct": 575,
+        "poster_draw": 187
+      },
+      "highestCards": [
+        {
+          "id": "E01",
+          "count": 4952
+        },
+        {
+          "id": "E02",
+          "count": 4945
+        },
+        {
+          "id": "E03",
+          "count": 4899
+        },
+        {
+          "id": "G05",
+          "count": 4607
+        },
+        {
+          "id": "E06",
+          "count": 4541
+        },
+        {
+          "id": "E04",
+          "count": 4536
+        }
+      ],
+      "leastCards": [
+        {
+          "id": "E05",
+          "count": 4448
+        },
+        {
+          "id": "T06",
+          "count": 4421
+        },
+        {
+          "id": "T04",
+          "count": 4417
+        },
+        {
+          "id": "G03",
+          "count": 4414
+        },
+        {
+          "id": "M01",
+          "count": 4388
+        },
+        {
+          "id": "G06",
+          "count": 4240
+        }
+      ]
+    }
+  }
+}
