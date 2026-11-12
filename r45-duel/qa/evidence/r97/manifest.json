@@ -1,0 +1,234 @@
+{
+  "release": "R97",
+  "base": "e114c6178a44cf0a73e3f90d2d8a6e9dd00cf8b8",
+  "state": "local browser pass; pending public verification",
+  "new_assets": [
+    {
+      "id": "E03",
+      "name": "Ellie",
+      "file": "E03-Ellie-Landing-R97.glb",
+      "sha256": "5b99927f770926ef2c0045e0df11c845a27ce1b93517dc0e90b235dc86091d1e",
+      "bytes": 8845968,
+      "source": "Blender Studio, CC BY 4.0",
+      "support_sole": [
+        {
+          "mesh": "GEO-ellie_boots",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": 0.0,
+          "brace_foot_z_delta": -0.005864,
+          "vertices": 9244
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "name": "Phil",
+      "file": "E04-Phil-Landing-R97.glb",
+      "sha256": "67fef013407e35adbc207dfa86a3fd259cdbe047f4f4fae8541113c515910e7a",
+      "bytes": 3670340,
+      "source": "Blender Studio, CC BY 4.0",
+      "support_sole": [
+        {
+          "mesh": "GEO-phil_flippers",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": -4e-06,
+          "brace_foot_z_delta": -0.002149,
+          "vertices": 2508
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "name": "Snow",
+      "file": "G02-Snow-Landing-R97.glb",
+      "sha256": "a57cd54bdbc79991621e9d37aa1cc66b5d8cb173edfb5de5d66df31b2a006bac",
+      "bytes": 14616772,
+      "source": "Blender Studio, CC BY 4.0",
+      "support_sole": [
+        {
+          "mesh": "GEO-snow-shoes_base",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": 6e-06,
+          "brace_foot_z_delta": -0.000461,
+          "vertices": 2286
+        },
+        {
+          "mesh": "GEO-snow-shoes_parts",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": 0.017353,
+          "brace_foot_z_delta": 0.001446,
+          "vertices": 2956
+        },
+        {
+          "mesh": "GEO-snow_shoes_base_deformer",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": 6e-06,
+          "brace_foot_z_delta": -0.000461,
+          "vertices": 2286
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "name": "Jay",
+      "file": "G03-Jay-Landing-R97.glb",
+      "sha256": "bbc5611dba4e3453467c55a00a60a6eeec55cb535e8c16d5add93da20c909e3c",
+      "bytes": 6491140,
+      "source": "Blender Studio, CC BY 4.0",
+      "support_sole": [
+        {
+          "mesh": "GEO-jay_shoes_base",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": -5e-05,
+          "brace_foot_z_delta": -0.002385,
+          "vertices": 4032
+        },
+        {
+          "mesh": "GEO-jay_shoes_extra",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": -7e-06,
+          "brace_foot_z_delta": -0.00129,
+          "vertices": 4708
+        }
+      ]
+    },
+    {
+      "id": "G04",
+      "name": "Victoria",
+      "file": "G04-Victoria-Landing-R97.glb",
+      "sha256": "331579db0d20c1262dbf9ca036f8c2e46192c39e9db7667ca7729c4d557990b2",
+      "bytes": 10249516,
+      "source": "Blender Studio, CC BY 4.0",
+      "support_sole": [
+        {
+          "mesh": "GEO-victoria_boots",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": 0.00011,
+          "brace_foot_z_delta": -0.019232,
+          "vertices": 2228
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "name": "Rain",
+      "file": "T03-Rain-Landing-R97.glb",
+      "sha256": "075e6a3aa1cb1a69ebcdf927039cf93d34a017610e26ec61494e682f4a6cae5c",
+      "bytes": 10312392,
+      "source": "Blender Studio, CC BY 4.0",
+      "support_sole": [
+        {
+          "mesh": "GEO-rain-shoes",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": -0.002908,
+          "brace_foot_z_delta": -0.001277,
+          "vertices": 6634
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "name": "Rex",
+      "file": "T04-Rex-Landing-R97.glb",
+      "sha256": "86d06b51a25c7579c1692c3ddce7bbeafa99f51dc30c4fbc57d3a26d0b5627fa",
+      "bytes": 7791296,
+      "source": "Blender Studio, CC BY 4.0",
+      "support_sole": [
+        {
+          "mesh": "GEO-rex_shoes",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": -9e-05,
+          "brace_foot_z_delta": -0.002895,
+          "vertices": 7020
+        },
+        {
+          "mesh": "GEO-rex_shoes_laces",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": -0.00071,
+          "brace_foot_z_delta": 8e-05,
+          "vertices": 1932
+        },
+        {
+          "mesh": "GEO-rex_shoes_tab",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "land_support_max": 0.0,
+          "brace_support_max": 0.0,
+          "land_foot_z_delta": -0.002199,
+          "brace_foot_z_delta": 0.000294,
+          "vertices": 200
+        }
+      ]
+    }
+  ],
+  "changes": [
+    "Land intermediate left-foot contact and torso-weight recovery",
+    "Brace right-foot retreat recovery",
+    "Original high-detail actors and textures retained",
+    "Browser timeline scrub and seven-character morph QA"
+  ],
+  "known_limits": [
+    "Offline mesh morphs; not runtime IK or physics",
+    "Stage units do not have root-motion locomotion"
+  ],
+  "rollback": "?r97Landing=old",
+  "tests": {
+    "desktop_morph": true,
+    "portrait_morph": true,
+    "arena_and_rollback": [
+      {
+        "view": "desktop",
+        "mode": "new",
+        "pass": true
+      },
+      {
+        "view": "desktop",
+        "mode": "old",
+        "pass": true
+      },
+      {
+        "view": "portrait",
+        "mode": "new",
+        "pass": true
+      },
+      {
+        "view": "portrait",
+        "mode": "old",
+        "pass": true
+      }
+    ]
+  }
+}
