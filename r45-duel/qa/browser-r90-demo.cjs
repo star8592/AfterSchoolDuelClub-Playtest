@@ -21,7 +21,7 @@ try{for(const [view,width,height] of [['desktop',1440,900],['portrait',430,900]]
  await p.locator('#combo').click();await p.waitForFunction(c=>window.__R90_SHOWCASE_QA.completed>c,beforeCombo.complete,{timeout:16000});
  const comboAfter=await p.evaluate(()=>({...window.__R90_SHOWCASE_QA}));
  const comboOK=comboAfter.impacts-beforeCombo.impacts===3;
- await p.locator('#mode').click();await p.waitForFunction(()=>window.__R90_SHOWCASE_QA?.ready===true&&window.__R90_SHOWCASE_QA.mode==='off',null,{timeout:170000});
+ await p.locator('#mode').click();await p.waitForFunction(()=>window.__R90_SHOWCASE_QA?.ready===true&&window.__R90_SHOWCASE_QA.mode==='off'&&document.querySelector('#arena').contentWindow.__r45SceneQA?.combatEvents?.r90MotionEnabled===false,null,{timeout:170000});
  const legacyBefore=await p.evaluate(()=>window.__R90_SHOWCASE_QA.completed);
  await p.locator('#fire').click();await p.waitForFunction(n=>window.__R90_SHOWCASE_QA.completed>n,legacyBefore,{timeout:14500});
  const legacy=await p.evaluate(()=>({q:{...window.__R90_SHOWCASE_QA},scene:document.querySelector('#arena').contentWindow.__r45SceneQA.combatEvents}));
