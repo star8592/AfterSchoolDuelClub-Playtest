@@ -86,7 +86,7 @@ function cardSound(c){
  if(c.kind==='unit')return 'cast';
  return ({buff:'cast',blast:'spell_charge',confuse:'spell_charge',repair:'heal',heal:'heal',draw:'select'})[c.effect]||'turn';
 }
-function gameReady(){return g.phase==='playing'&&g.active==='player';}
+function gameReady(){return sceneReady&&!sceneError&&g.phase==='playing'&&g.active==='player';}
 function cardCanPlay(index){
  return gameReady()&&legalMoves(g).some(m=>m.index===index&&m.lane===0);
 }
@@ -207,6 +207,8 @@ function renderActions(){
  btn.textContent=ended?'查看本局战绩':card?'出牌 · '+(card.kind==='unit'?'召唤':'发动'):'先选一张牌';
  $('selected-title').textContent=ended?'本局已结束':card?card.name+' · '+card.cost+' 能量':'还没有选牌';
  $('selected-info').textContent=ended?'点击「再来一局」重新抽牌，开启新决斗':
+  sceneError?'三维资源加载失败。请在场景中点击「重新加载三维场景」，完成后再出牌。':
+  !sceneReady?'三维体育馆和角色模型正在加载，载入后即可出牌。':
   card?describeCard(card):'点击手牌选择，无需选择教室、走廊或其他部署位置';
  $('end').disabled=!ended&&!gameReady();
  $('end').textContent=ended?'↻ 再来一局':'结束回合 → AI 出牌';
@@ -470,13 +472,20 @@ window.addEventListener('message',event=>{
   sceneReady=true;sceneError=false;
   syncScene();
   sendScene({type:'ASDC_R53_HP_MODE',mode:hpViewModes[hpViewIndex]});
+  render(); // enable legal cards only after authentic GLB/VRM readiness
+  return;
+ }
+ if(event.data?.type==='ASDC_R45_SCENE_FAILED'){
+  sceneReady=false;sceneError=true;
+  render();
+  announce('三维人物没有加载成功，出牌已暂停。请在竞技场中点击重新加载。','error');
   return;
  }
  if(event.data?.type==='ASDC_R45_FIGHT_ACCEPTED'){
   return;
  }
 });
-scene.addEventListener('load',()=>{if(!sceneReady)sceneError=false});
+scene.addEventListener('load',()=>{sceneReady=false;sceneError=false;render()});
 window.addEventListener('keydown',event=>{
  if(event.key==='Escape'&&$('help').open)$('help').open=false;
  if(event.target instanceof HTMLElement&&/^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName))return;

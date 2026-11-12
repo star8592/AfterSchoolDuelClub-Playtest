@@ -1,0 +1,167 @@
+{
+  "origin": "http://127.0.0.1:11097",
+  "ok": true,
+  "checks": [
+    {
+      "name": "desktop actual GLB download was deliberately interrupted",
+      "pass": true,
+      "failCount": 1
+    },
+    {
+      "name": "desktop no fake scene ready or phantom playable cards after failed 3D load",
+      "pass": true,
+      "ready": false,
+      "error": true,
+      "endDisabled": true,
+      "playableCards": 0,
+      "retry": "↻ 重新加载三维场景",
+      "errorText": "三维资源加载失败，游戏已暂停出牌以避免错误。Failed to fetch↻ 重新加载三维场景"
+    },
+    {
+      "name": "desktop visible accessible one-click genuine reload action",
+      "pass": true,
+      "ready": false,
+      "error": true,
+      "endDisabled": true,
+      "playableCards": 0,
+      "retry": "↻ 重新加载三维场景",
+      "errorText": "三维资源加载失败，游戏已暂停出牌以避免错误。Failed to fetch↻ 重新加载三维场景"
+    },
+    {
+      "name": "desktop successful retry resumes playable game buttons",
+      "pass": true,
+      "ready": true,
+      "error": false,
+      "endEnabled": true,
+      "legalCards": 3,
+      "modelCount": 12,
+      "duelists": [
+        "E01",
+        "G01"
+      ],
+      "physicalScore": true,
+      "playerHp": 20,
+      "aiHp": 20
+    },
+    {
+      "name": "desktop retry loads real VRM and all GLBs without changing game scores",
+      "pass": true,
+      "ready": true,
+      "error": false,
+      "endEnabled": true,
+      "legalCards": 3,
+      "modelCount": 12,
+      "duelists": [
+        "E01",
+        "G01"
+      ],
+      "physicalScore": true,
+      "playerHp": 20,
+      "aiHp": 20
+    },
+    {
+      "name": "desktop gameplay actually resumes after retry",
+      "pass": true,
+      "phase": "playing",
+      "events": 1,
+      "stage": true
+    },
+    {
+      "name": "desktop no unhandled JS exceptions",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "name": "phone actual GLB download was deliberately interrupted",
+      "pass": true,
+      "failCount": 1
+    },
+    {
+      "name": "phone no fake scene ready or phantom playable cards after failed 3D load",
+      "pass": true,
+      "ready": false,
+      "error": true,
+      "endDisabled": true,
+      "playableCards": 0,
+      "retry": "↻ 重新加载三维场景",
+      "errorText": "三维资源加载失败，游戏已暂停出牌以避免错误。Failed to fetch↻ 重新加载三维场景"
+    },
+    {
+      "name": "phone visible accessible one-click genuine reload action",
+      "pass": true,
+      "ready": false,
+      "error": true,
+      "endDisabled": true,
+      "playableCards": 0,
+      "retry": "↻ 重新加载三维场景",
+      "errorText": "三维资源加载失败，游戏已暂停出牌以避免错误。Failed to fetch↻ 重新加载三维场景"
+    },
+    {
+      "name": "phone successful retry resumes playable game buttons",
+      "pass": true,
+      "ready": true,
+      "error": false,
+      "endEnabled": true,
+      "legalCards": 3,
+      "modelCount": 12,
+      "duelists": [
+        "E01",
+        "G01"
+      ],
+      "physicalScore": true,
+      "playerHp": 20,
+      "aiHp": 20
+    },
+    {
+      "name": "phone retry loads real VRM and all GLBs without changing game scores",
+      "pass": true,
+      "ready": true,
+      "error": false,
+      "endEnabled": true,
+      "legalCards": 3,
+      "modelCount": 12,
+      "duelists": [
+        "E01",
+        "G01"
+      ],
+      "physicalScore": true,
+      "playerHp": 20,
+      "aiHp": 20
+    },
+    {
+      "name": "phone gameplay actually resumes after retry",
+      "pass": true,
+      "phase": "playing",
+      "events": 1,
+      "stage": true
+    },
+    {
+      "name": "phone no unhandled JS exceptions",
+      "pass": true,
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "blocked": {
+    "ready": false,
+    "error": true,
+    "endDisabled": true,
+    "playableCards": 0,
+    "retry": "↻ 重新加载三维场景",
+    "errorText": "三维资源加载失败，游戏已暂停出牌以避免错误。Failed to fetch↻ 重新加载三维场景"
+  },
+  "recovered": {
+    "ready": true,
+    "error": false,
+    "endEnabled": true,
+    "legalCards": 3,
+    "modelCount": 12,
+    "duelists": [
+      "E01",
+      "G01"
+    ],
+    "physicalScore": true,
+    "playerHp": 20,
+    "aiHp": 20
+  }
+}
