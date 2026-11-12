@@ -1,0 +1,205 @@
+{
+  "release": "R93_FOOTWORK",
+  "parent": "4b72d739dbcff9f34bc4b0177ef258a9ea00c17e",
+  "state": "LOCAL_3D_BROWSER_QA_PASSED",
+  "source_character_assets": [
+    {
+      "id": "E03",
+      "source_actor": "Ellie",
+      "source_url": "https://studio.blender.org/characters/ellie/v1/",
+      "license": "CC BY 4.0 (Blender Studio / Blender Foundation)",
+      "previous_glb": "E03-Ellie-Natural-R89.glb",
+      "new_glb": "E03-Ellie-Footwork-R93.glb",
+      "bytes": 9360032,
+      "sha256": "a39a77b25d7e5720d227ccfb0c3776a950f9fb9698dfeb0602e3390681163450",
+      "clips": [
+        "Attack",
+        "Hit",
+        "Idle"
+      ],
+      "step_angle_radians": 0.285,
+      "morph_meshes": 14,
+      "max_step_delta_source_units": 0.2294,
+      "max_retreat_delta_source_units": 0.2075
+    },
+    {
+      "id": "E04",
+      "source_actor": "Phil",
+      "source_url": "https://studio.blender.org/characters/phil/v1/",
+      "license": "CC BY 4.0 (Blender Studio / Blender Foundation)",
+      "previous_glb": "E04-Phil-Natural-R89.glb",
+      "new_glb": "E04-Phil-Footwork-R93.glb",
+      "bytes": 3958552,
+      "sha256": "cc763d632361e412ca434cf5b3e278e67ffcc4c469e81351c446bc3555f3b685",
+      "clips": [
+        "Attack",
+        "Hit",
+        "Idle"
+      ],
+      "step_angle_radians": 0.205,
+      "morph_meshes": 14,
+      "max_step_delta_source_units": 0.1138,
+      "max_retreat_delta_source_units": 0.1212
+    },
+    {
+      "id": "G02",
+      "source_actor": "Snow",
+      "source_url": "https://studio.blender.org/characters/snow/v4/",
+      "license": "CC BY 4.0 (Blender Studio / Blender Foundation)",
+      "previous_glb": "G02-Snow-Natural-R89.glb",
+      "new_glb": "G02-Snow-Footwork-R93.glb",
+      "bytes": 12607984,
+      "sha256": "72258890a4de8bc55d2bbde17a29fb37027d98da3444f844bcf35261b0eb38ca",
+      "clips": [
+        "Attack",
+        "Hit",
+        "Idle"
+      ],
+      "step_angle_radians": 0.26,
+      "morph_meshes": 7,
+      "max_step_delta_source_units": 0.2508,
+      "max_retreat_delta_source_units": 0.2484
+    },
+    {
+      "id": "G03",
+      "source_actor": "Jay",
+      "source_url": "https://studio.blender.org/characters/jay/v1/",
+      "license": "CC BY 4.0 (Blender Studio / Blender Foundation)",
+      "previous_glb": "G03-Jay-Natural-R89.glb",
+      "new_glb": "G03-Jay-Footwork-R93.glb",
+      "bytes": 6790364,
+      "sha256": "081a8619b34fadcc54b735379448800970df07a28f1619092e3a8b739f3cbadf",
+      "clips": [
+        "Attack",
+        "Hit",
+        "Idle"
+      ],
+      "step_angle_radians": 0.305,
+      "morph_meshes": 6,
+      "max_step_delta_source_units": 0.1313,
+      "max_retreat_delta_source_units": 0.1327
+    },
+    {
+      "id": "G04",
+      "source_actor": "Victoria",
+      "source_url": "https://studio.blender.org/characters/victoria/v1/",
+      "license": "CC BY 4.0 (Blender Studio / Blender Foundation)",
+      "previous_glb": "G04-Victoria-Natural-R89.glb",
+      "new_glb": "G04-Victoria-Footwork-R93.glb",
+      "bytes": 5982380,
+      "sha256": "a74b7f68769c0908190c4e35960821256fc360645d8eff07f1c3d8045a831332",
+      "clips": [
+        "Attack",
+        "Hit",
+        "Idle"
+      ],
+      "step_angle_radians": 0.225,
+      "morph_meshes": 5,
+      "max_step_delta_source_units": 0.1825,
+      "max_retreat_delta_source_units": 0.1505
+    },
+    {
+      "id": "T03",
+      "source_actor": "Rain",
+      "source_url": "https://studio.blender.org/characters/rain/v3/",
+      "license": "CC BY 4.0 (Blender Studio / Blender Foundation)",
+      "previous_glb": "T03-Rain-Natural-R89.glb",
+      "new_glb": "T03-Rain-Footwork-R93.glb",
+      "bytes": 10303676,
+      "sha256": "d2647fa336eb2144ddec652a8e6e1bee07871ce5aad9bf57f2e7f9b66bb7d4df",
+      "clips": [
+        "Attack",
+        "Hit",
+        "Idle"
+      ],
+      "step_angle_radians": 0.29,
+      "morph_meshes": 5,
+      "max_step_delta_source_units": 0.3006,
+      "max_retreat_delta_source_units": 0.2771
+    },
+    {
+      "id": "T04",
+      "source_actor": "Rex",
+      "source_url": "https://studio.blender.org/characters/rex/v1/",
+      "license": "CC BY 4.0 (Blender Studio / Blender Foundation)",
+      "previous_glb": "T04-Rex-Natural-R89.glb",
+      "new_glb": "T04-Rex-Footwork-R93.glb",
+      "bytes": 8014912,
+      "sha256": "34d6fec98a4be30bc4f1ebb5a6db0cac32b29c766066fbb16b71790904a4430e",
+      "clips": [
+        "Attack",
+        "Hit",
+        "Idle"
+      ],
+      "step_angle_radians": 0.19,
+      "morph_meshes": 9,
+      "max_step_delta_source_units": 0.1628,
+      "max_retreat_delta_source_units": 0.1696
+    }
+  ],
+  "origin": "Blender source rigs and real evaluated meshes, NOT procedurally modelled figures",
+  "footwork": "Character specific FK thigh and foot rotation, with retained R89 shoulder/wrist; Step and Retreat morphs blended into Attack/Hit clip; collision/HP are from R90",
+  "limitations": [
+    "Not foot locking, IK contact solve or full body motion capture",
+    "Visual contact checked via bounds in isolated preview and court QA; actual per-foot collisions not physics simulated",
+    "No change to rules, scoring, sound defaults, gameplay loop or R92.1 result/rematch fixes"
+  ],
+  "rollback": "?r93Footwork=old",
+  "qa": {
+    "foot_morphes": [
+      {
+        "view": "desktop",
+        "passed": true,
+        "roles": [
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "T03",
+          "T04"
+        ]
+      },
+      {
+        "view": "portrait",
+        "passed": true,
+        "roles": [
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "T03",
+          "T04"
+        ]
+      }
+    ],
+    "gameplay": [
+      {
+        "view": "desktop",
+        "mode": "new",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "view": "desktop",
+        "mode": "old",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "view": "portrait",
+        "mode": "new",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "view": "portrait",
+        "mode": "old",
+        "passed": true,
+        "errors": []
+      }
+    ]
+  },
+  "screenshots": "qa/evidence/r93/seven-footwork-contact.jpg"
+}
