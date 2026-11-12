@@ -1,0 +1,1645 @@
+{
+  "origin": "http://127.0.0.1:11095",
+  "passed": true,
+  "checks": [
+    {
+      "name": "scene still contains 12 source GLBs",
+      "pass": true,
+      "score": {
+        "updates": 1,
+        "errors": 0,
+        "data": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        },
+        "size": [
+          1536,
+          288
+        ],
+        "physical": true,
+        "hitFlashCount": 0,
+        "visible": true
+      },
+      "spells": {
+        "played": 0,
+        "hits": 0,
+        "noHit": 0,
+        "expired": 0,
+        "active": 0,
+        "activeKinds": [],
+        "ruleMutations": 0
+      },
+      "models": 12,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      }
+    },
+    {
+      "name": "jumbotron hides safely behind 135-degree spectator camera",
+      "pass": true
+    },
+    {
+      "name": "jumbotron returns at front-facing spectator angle",
+      "pass": true
+    },
+    {
+      "name": "real 3D scoreboard initialized from authoritative 20/20 engine",
+      "pass": true,
+      "score": {
+        "updates": 1,
+        "errors": 0,
+        "data": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        },
+        "size": [
+          1536,
+          288
+        ],
+        "physical": true,
+        "hitFlashCount": 0,
+        "visible": true
+      },
+      "spells": {
+        "played": 0,
+        "hits": 0,
+        "noHit": 0,
+        "expired": 0,
+        "active": 0,
+        "activeKinds": [],
+        "ruleMutations": 0
+      },
+      "models": 12,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after G05",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "G05",
+        "serial": 2,
+        "spell": {
+          "effect": "repair",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 1
+      },
+      "actual": {
+        "score": {
+          "updates": 4,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 1,
+            "turn": "player",
+            "comboPlayer": 0,
+            "comboAi": 0,
+            "energy": 1,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 1,
+          "hits": 0,
+          "noHit": 1,
+          "expired": 0,
+          "active": 1,
+          "activeKinds": [
+            "repair"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 0,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after T05",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "T05",
+        "serial": 10,
+        "spell": {
+          "effect": "heal",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 19
+        },
+        "round": 2
+      },
+      "actual": {
+        "score": {
+          "updates": 15,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 19,
+            "round": 2,
+            "turn": "player",
+            "comboPlayer": 1,
+            "comboAi": 0,
+            "energy": 2,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 1,
+          "visible": true
+        },
+        "spells": {
+          "played": 2,
+          "hits": 0,
+          "noHit": 2,
+          "expired": 0,
+          "active": 2,
+          "activeKinds": [
+            "repair",
+            "warmth"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 3,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 19
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after E06",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "E06",
+        "serial": 20,
+        "spell": {
+          "effect": "blast",
+          "directDamage": 3,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 17
+        },
+        "round": 3
+      },
+      "actual": {
+        "score": {
+          "updates": 20,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 17,
+            "round": 3,
+            "turn": "player",
+            "comboPlayer": 1,
+            "comboAi": 1,
+            "energy": 1,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 1,
+          "visible": true
+        },
+        "spells": {
+          "played": 5,
+          "hits": 1,
+          "noHit": 4,
+          "expired": 0,
+          "active": 5,
+          "activeKinds": [
+            "repair",
+            "warmth",
+            "warmth",
+            "pages",
+            "eraser"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 3,
+        "realUnitHits": 0,
+        "hostHits": 1,
+        "gameHp": {
+          "player": 20,
+          "ai": 17
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after E06",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "E06",
+        "serial": 44,
+        "spell": {
+          "effect": "blast",
+          "directDamage": 3,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 17,
+          "ai": 14
+        },
+        "round": 6
+      },
+      "actual": {
+        "score": {
+          "updates": 38,
+          "errors": 0,
+          "data": {
+            "player": 17,
+            "ai": 14,
+            "round": 6,
+            "turn": "player",
+            "comboPlayer": 1,
+            "comboAi": 2,
+            "energy": 4,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 2,
+          "visible": true
+        },
+        "spells": {
+          "played": 7,
+          "hits": 2,
+          "noHit": 5,
+          "expired": 0,
+          "active": 7,
+          "activeKinds": [
+            "repair",
+            "warmth",
+            "warmth",
+            "pages",
+            "eraser",
+            "repair",
+            "eraser"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 5,
+        "realUnitHits": 0,
+        "hostHits": 3,
+        "gameHp": {
+          "player": 17,
+          "ai": 14
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after E05",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "E05",
+        "serial": 62,
+        "spell": {
+          "effect": "buff",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 15,
+          "ai": 17
+        },
+        "round": 8
+      },
+      "actual": {
+        "score": {
+          "updates": 51,
+          "errors": 0,
+          "data": {
+            "player": 15,
+            "ai": 17,
+            "round": 8,
+            "turn": "player",
+            "comboPlayer": 2,
+            "comboAi": 2,
+            "energy": 8,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 2,
+          "visible": true
+        },
+        "spells": {
+          "played": 9,
+          "hits": 2,
+          "noHit": 7,
+          "expired": 2,
+          "active": 7,
+          "activeKinds": [
+            "warmth",
+            "pages",
+            "eraser",
+            "repair",
+            "eraser",
+            "warmth",
+            "rally"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 3,
+        "realUnitHits": 0,
+        "hostHits": 4,
+        "gameHp": {
+          "player": 15,
+          "ai": 17
+        }
+      }
+    },
+    {
+      "name": "scene still contains 12 source GLBs",
+      "pass": true,
+      "score": {
+        "updates": 1,
+        "errors": 0,
+        "data": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        },
+        "size": [
+          1536,
+          288
+        ],
+        "physical": true,
+        "hitFlashCount": 0,
+        "visible": true
+      },
+      "spells": {
+        "played": 0,
+        "hits": 0,
+        "noHit": 0,
+        "expired": 0,
+        "active": 0,
+        "activeKinds": [],
+        "ruleMutations": 0
+      },
+      "models": 12,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      }
+    },
+    {
+      "name": "real 3D scoreboard initialized from authoritative 20/20 engine",
+      "pass": true,
+      "score": {
+        "updates": 1,
+        "errors": 0,
+        "data": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        },
+        "size": [
+          1536,
+          288
+        ],
+        "physical": true,
+        "hitFlashCount": 0,
+        "visible": true
+      },
+      "spells": {
+        "played": 0,
+        "hits": 0,
+        "noHit": 0,
+        "expired": 0,
+        "active": 0,
+        "activeKinds": [],
+        "ruleMutations": 0
+      },
+      "models": 12,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after T06",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "T06",
+        "serial": 9,
+        "spell": {
+          "effect": "confuse",
+          "directDamage": 0,
+          "unitDamage": 2,
+          "targetUids": [
+            "U7"
+          ],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 2
+      },
+      "actual": {
+        "score": {
+          "updates": 12,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 2,
+            "turn": "player",
+            "comboPlayer": 1,
+            "comboAi": 0,
+            "energy": 0,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 1,
+          "hits": 1,
+          "noHit": 0,
+          "expired": 0,
+          "active": 1,
+          "activeKinds": [
+            "sonic"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 3,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after T06",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "T06",
+        "serial": 57,
+        "spell": {
+          "effect": "confuse",
+          "directDamage": 0,
+          "unitDamage": 7,
+          "targetUids": [
+            "U31",
+            "U49",
+            "U50",
+            "U53"
+          ],
+          "healed": 0
+        },
+        "hp": {
+          "player": 14,
+          "ai": 20
+        },
+        "round": 7
+      },
+      "actual": {
+        "score": {
+          "updates": 49,
+          "errors": 0,
+          "data": {
+            "player": 14,
+            "ai": 20,
+            "round": 7,
+            "turn": "player",
+            "comboPlayer": 3,
+            "comboAi": 2,
+            "energy": 5,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 2,
+          "visible": true
+        },
+        "spells": {
+          "played": 5,
+          "hits": 4,
+          "noHit": 1,
+          "expired": 0,
+          "active": 5,
+          "activeKinds": [
+            "sonic",
+            "warmth",
+            "sonic",
+            "sonic",
+            "sonic"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 4,
+        "realUnitHits": 0,
+        "hostHits": 2,
+        "gameHp": {
+          "player": 14,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "name": "scene still contains 12 source GLBs",
+      "pass": true,
+      "score": {
+        "updates": 1,
+        "errors": 0,
+        "data": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        },
+        "size": [
+          1536,
+          288
+        ],
+        "physical": true,
+        "hitFlashCount": 0,
+        "visible": true
+      },
+      "spells": {
+        "played": 0,
+        "hits": 0,
+        "noHit": 0,
+        "expired": 0,
+        "active": 0,
+        "activeKinds": [],
+        "ruleMutations": 0
+      },
+      "models": 12,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      }
+    },
+    {
+      "name": "real 3D scoreboard initialized from authoritative 20/20 engine",
+      "pass": true,
+      "score": {
+        "updates": 1,
+        "errors": 0,
+        "data": {
+          "player": 20,
+          "ai": 20,
+          "round": 1,
+          "turn": "player",
+          "comboPlayer": 0,
+          "comboAi": 0,
+          "energy": 2,
+          "type": "ASDC_R81_SCORE"
+        },
+        "size": [
+          1536,
+          288
+        ],
+        "physical": true,
+        "hitFlashCount": 0,
+        "visible": true
+      },
+      "spells": {
+        "played": 0,
+        "hits": 0,
+        "noHit": 0,
+        "expired": 0,
+        "active": 0,
+        "activeKinds": [],
+        "ruleMutations": 0
+      },
+      "models": 12,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after E05",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "E05",
+        "serial": 2,
+        "spell": {
+          "effect": "buff",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 1
+      },
+      "actual": {
+        "score": {
+          "updates": 4,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 1,
+            "turn": "player",
+            "comboPlayer": 0,
+            "comboAi": 0,
+            "energy": 1,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 1,
+          "hits": 0,
+          "noHit": 1,
+          "expired": 0,
+          "active": 1,
+          "activeKinds": [
+            "rally"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 0,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after T05",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "T05",
+        "serial": 3,
+        "spell": {
+          "effect": "heal",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 1
+      },
+      "actual": {
+        "score": {
+          "updates": 7,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 1,
+            "turn": "player",
+            "comboPlayer": 1,
+            "comboAi": 0,
+            "energy": 1,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 2,
+          "hits": 0,
+          "noHit": 2,
+          "expired": 0,
+          "active": 2,
+          "activeKinds": [
+            "rally",
+            "warmth"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 0,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after G06",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "G06",
+        "serial": 16,
+        "spell": {
+          "effect": "draw",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 3
+      },
+      "actual": {
+        "score": {
+          "updates": 20,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 3,
+            "turn": "player",
+            "comboPlayer": 1,
+            "comboAi": 0,
+            "energy": 2,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 3,
+          "hits": 0,
+          "noHit": 3,
+          "expired": 0,
+          "active": 3,
+          "activeKinds": [
+            "rally",
+            "warmth",
+            "pages"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 3,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after T05",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "T05",
+        "serial": 17,
+        "spell": {
+          "effect": "heal",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 3
+      },
+      "actual": {
+        "score": {
+          "updates": 23,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 3,
+            "turn": "player",
+            "comboPlayer": 2,
+            "comboAi": 0,
+            "energy": 2,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 4,
+          "hits": 0,
+          "noHit": 4,
+          "expired": 0,
+          "active": 4,
+          "activeKinds": [
+            "rally",
+            "warmth",
+            "pages",
+            "warmth"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 3,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after G06",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "G06",
+        "serial": 20,
+        "spell": {
+          "effect": "draw",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 3
+      },
+      "actual": {
+        "score": {
+          "updates": 26,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 3,
+            "turn": "player",
+            "comboPlayer": 2,
+            "comboAi": 0,
+            "energy": 0,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 5,
+          "hits": 0,
+          "noHit": 5,
+          "expired": 0,
+          "active": 5,
+          "activeKinds": [
+            "rally",
+            "warmth",
+            "pages",
+            "warmth",
+            "pages"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 3,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after E05",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "E05",
+        "serial": 28,
+        "spell": {
+          "effect": "buff",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 16,
+          "ai": 20
+        },
+        "round": 4
+      },
+      "actual": {
+        "score": {
+          "updates": 31,
+          "errors": 0,
+          "data": {
+            "player": 16,
+            "ai": 20,
+            "round": 4,
+            "turn": "player",
+            "comboPlayer": 2,
+            "comboAi": 1,
+            "energy": 4,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 1,
+          "visible": true
+        },
+        "spells": {
+          "played": 7,
+          "hits": 0,
+          "noHit": 7,
+          "expired": 0,
+          "active": 7,
+          "activeKinds": [
+            "rally",
+            "warmth",
+            "pages",
+            "warmth",
+            "pages",
+            "repair",
+            "rally"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 1,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 16,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "name": "3D arena score equals rule-engine HP after E06",
+      "pass": true,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "E06",
+        "serial": 51,
+        "spell": {
+          "effect": "blast",
+          "directDamage": 3,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 10,
+          "ai": 17
+        },
+        "round": 6
+      },
+      "actual": {
+        "score": {
+          "updates": 50,
+          "errors": 0,
+          "data": {
+            "player": 10,
+            "ai": 17,
+            "round": 6,
+            "turn": "player",
+            "comboPlayer": 4,
+            "comboAi": 2,
+            "energy": 4,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 2,
+          "visible": true
+        },
+        "spells": {
+          "played": 11,
+          "hits": 4,
+          "noHit": 7,
+          "expired": 4,
+          "active": 7,
+          "activeKinds": [
+            "pages",
+            "repair",
+            "rally",
+            "sonic",
+            "sonic",
+            "eraser",
+            "eraser"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 4,
+        "realUnitHits": 0,
+        "hostHits": 3,
+        "gameHp": {
+          "player": 10,
+          "ai": 17
+        }
+      }
+    },
+    {
+      "name": "six genuinely played unique spell cards drive 3D animation",
+      "pass": true,
+      "ids": [
+        "G05",
+        "T05",
+        "E06",
+        "E05",
+        "T06",
+        "G06"
+      ]
+    },
+    {
+      "name": "at least one spell delivered actual player/AI HP damage",
+      "pass": true
+    },
+    {
+      "name": "at least one spell damaged an existing summoned unit",
+      "pass": true
+    },
+    {
+      "name": "non-damaging spells never fabricate game HP changes",
+      "pass": true
+    }
+  ],
+  "realSpells": {
+    "G05": {
+      "seed": 2,
+      "steps": 1,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "G05",
+        "serial": 2,
+        "spell": {
+          "effect": "repair",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 1
+      },
+      "sc": {
+        "score": {
+          "updates": 4,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 1,
+            "turn": "player",
+            "comboPlayer": 0,
+            "comboAi": 0,
+            "energy": 1,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 1,
+          "hits": 0,
+          "noHit": 1,
+          "expired": 0,
+          "active": 1,
+          "activeKinds": [
+            "repair"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 0,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    "T05": {
+      "seed": 4,
+      "steps": 8,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "T05",
+        "serial": 17,
+        "spell": {
+          "effect": "heal",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 3
+      },
+      "sc": {
+        "score": {
+          "updates": 23,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 3,
+            "turn": "player",
+            "comboPlayer": 2,
+            "comboAi": 0,
+            "energy": 2,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 4,
+          "hits": 0,
+          "noHit": 4,
+          "expired": 0,
+          "active": 4,
+          "activeKinds": [
+            "rally",
+            "warmth",
+            "pages",
+            "warmth"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 3,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    "E06": {
+      "seed": 4,
+      "steps": 18,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "E06",
+        "serial": 51,
+        "spell": {
+          "effect": "blast",
+          "directDamage": 3,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 10,
+          "ai": 17
+        },
+        "round": 6
+      },
+      "sc": {
+        "score": {
+          "updates": 50,
+          "errors": 0,
+          "data": {
+            "player": 10,
+            "ai": 17,
+            "round": 6,
+            "turn": "player",
+            "comboPlayer": 4,
+            "comboAi": 2,
+            "energy": 4,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 2,
+          "visible": true
+        },
+        "spells": {
+          "played": 11,
+          "hits": 4,
+          "noHit": 7,
+          "expired": 4,
+          "active": 7,
+          "activeKinds": [
+            "pages",
+            "repair",
+            "rally",
+            "sonic",
+            "sonic",
+            "eraser",
+            "eraser"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 4,
+        "realUnitHits": 0,
+        "hostHits": 3,
+        "gameHp": {
+          "player": 10,
+          "ai": 17
+        }
+      }
+    },
+    "E05": {
+      "seed": 4,
+      "steps": 11,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "E05",
+        "serial": 28,
+        "spell": {
+          "effect": "buff",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 16,
+          "ai": 20
+        },
+        "round": 4
+      },
+      "sc": {
+        "score": {
+          "updates": 31,
+          "errors": 0,
+          "data": {
+            "player": 16,
+            "ai": 20,
+            "round": 4,
+            "turn": "player",
+            "comboPlayer": 2,
+            "comboAi": 1,
+            "energy": 4,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 1,
+          "visible": true
+        },
+        "spells": {
+          "played": 7,
+          "hits": 0,
+          "noHit": 7,
+          "expired": 0,
+          "active": 7,
+          "activeKinds": [
+            "rally",
+            "warmth",
+            "pages",
+            "warmth",
+            "pages",
+            "repair",
+            "rally"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 1,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 16,
+          "ai": 20
+        }
+      }
+    },
+    "T06": {
+      "seed": 1,
+      "steps": 18,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "T06",
+        "serial": 57,
+        "spell": {
+          "effect": "confuse",
+          "directDamage": 0,
+          "unitDamage": 7,
+          "targetUids": [
+            "U31",
+            "U49",
+            "U50",
+            "U53"
+          ],
+          "healed": 0
+        },
+        "hp": {
+          "player": 14,
+          "ai": 20
+        },
+        "round": 7
+      },
+      "sc": {
+        "score": {
+          "updates": 49,
+          "errors": 0,
+          "data": {
+            "player": 14,
+            "ai": 20,
+            "round": 7,
+            "turn": "player",
+            "comboPlayer": 3,
+            "comboAi": 2,
+            "energy": 5,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 2,
+          "visible": true
+        },
+        "spells": {
+          "played": 5,
+          "hits": 4,
+          "noHit": 1,
+          "expired": 0,
+          "active": 5,
+          "activeKinds": [
+            "sonic",
+            "warmth",
+            "sonic",
+            "sonic",
+            "sonic"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 4,
+        "realUnitHits": 0,
+        "hostHits": 2,
+        "gameHp": {
+          "player": 14,
+          "ai": 20
+        }
+      }
+    },
+    "G06": {
+      "seed": 4,
+      "steps": 9,
+      "detail": {
+        "end": false,
+        "kind": "card",
+        "id": "G06",
+        "serial": 20,
+        "spell": {
+          "effect": "draw",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0
+        },
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 3
+      },
+      "sc": {
+        "score": {
+          "updates": 26,
+          "errors": 0,
+          "data": {
+            "player": 20,
+            "ai": 20,
+            "round": 3,
+            "turn": "player",
+            "comboPlayer": 2,
+            "comboAi": 0,
+            "energy": 0,
+            "type": "ASDC_R81_SCORE"
+          },
+          "size": [
+            1536,
+            288
+          ],
+          "physical": true,
+          "hitFlashCount": 0,
+          "visible": true
+        },
+        "spells": {
+          "played": 5,
+          "hits": 0,
+          "noHit": 5,
+          "expired": 0,
+          "active": 5,
+          "activeKinds": [
+            "rally",
+            "warmth",
+            "pages",
+            "warmth",
+            "pages"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 3,
+        "realUnitHits": 0,
+        "hostHits": 0,
+        "gameHp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    }
+  },
+  "errors": [],
+  "results": [
+    {
+      "seed": 2,
+      "steps": 19,
+      "spells": [
+        "G05",
+        "T05",
+        "E06",
+        "E05"
+      ],
+      "eventsProcessed": 5
+    },
+    {
+      "seed": 1,
+      "steps": 32,
+      "spells": [
+        "T06"
+      ],
+      "eventsProcessed": 2
+    },
+    {
+      "seed": 4,
+      "steps": 18,
+      "spells": [
+        "E05",
+        "T05",
+        "G06",
+        "E06"
+      ],
+      "eventsProcessed": 7
+    }
+  ]
+}

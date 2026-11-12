@@ -311,6 +311,21 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
    phase:sequence&&lastUpdateSeconds!==null?
     Number((((lastUpdateSeconds-sequence.started)%secondsPerHit)/secondsPerHit).toFixed(3)):null};
  }
+ let actualSpellReactions=0;
+ function reactToSpell(side,uids,now){
+  if(!['player','ai'].includes(side)||!Array.isArray(uids)||uids.length>5)return 0;
+  let affected=0;
+  for(const uid of uids){
+   if(typeof uid!=='string'||!/^U\d+$/.test(uid))continue;
+   const state=entries.get(side+':'+uid);
+   if(!state)continue; // Rule engine may already have removed defeated unit.
+   state.r95SpellHit=now;
+   state.object.userData.r61?.play?.('hit');
+   affected++;
+  }
+  actualSpellReactions+=affected;
+  return affected;
+ }
  function update(seconds,camera,{cinematic=false}={}){
   const dt=lastUpdateSeconds===null?0:Math.min(.07,Math.max(0,seconds-lastUpdateSeconds));
   lastUpdateSeconds=seconds;
@@ -350,6 +365,13 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     tag.position.y+=Math.max(.85,height+hover+.24)+(compact&&state.index%2?.15:0);
     tag.visible=labelStyle!=='hidden'&&object.visible;
    }
+  }
+  for(const state of entries.values()){
+   const age=seconds-(state.r95SpellHit??-100);
+   if(age<0||age>.73)continue;
+   const envelope=Math.sin(Math.PI*age/.73);
+   state.object.rotation.z+=(state.side==='player'?-1:1)*.11*envelope;
+   state.object.position.x+=(state.side==='player'?-1:1)*.14*envelope;
   }
   hitRing.visible=ribbon.visible=hitLabel.visible=false;
   sparkBurst.visible=false;
@@ -543,5 +565,5 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
    pendingArt:0,prototypeArt:list.filter(x=>x.kind==='gltf-instance').length,
    loadedPrototypeIds:[...prototypes.keys()],cardIds:[...UNIT_IDS],entries:list};
  }
- return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode};
+ return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,reactToSpell,get spellReactions(){return actualSpellReactions}};
 }
