@@ -177,6 +177,19 @@ export function instantiateSummon(THREE,template){
  const r86Clips=template.id==='G03'&&template.selectedFile==='G03-Jay-Skinned-R86.glb'?createR86JaySkeletonClips(THREE,instance):[];
  const availableClips=r86Clips.length?r86Clips:template.clips;
  const mixer=availableClips.length?new THREE.AnimationMixer(instance):null;
+ // R90: subtle transient whole-instance lean and lift layered over R89 glTF
+ // morph clips; reset each frame. This is not live torso, leg, or foot rigging.
+ let groundedY=0;
+ let combatPose=null;
+ const setCombatPose=(pose)=>{
+  combatPose=pose?{...pose}:null;
+  scaled.rotation.x=pose?.lean||0;
+  scaled.rotation.y=pose?.upperTwist||0;
+  scaled.rotation.z=pose?.sideLean||0;
+  scaled.position.y=groundedY+(pose?.lift||0);
+ };
+ const setClipRate=(rate)=>{if(mixer)mixer.timeScale=rate};
+
  // R80: user-approved Blender Studio meshes have no exported bone animations.
  const filmStatic=['G03','T04','E04','G04','E03','G02','T03','T01'].includes(template.id)&&availableClips.length===0;
  let staticState='idle',staticElapsed=0,staticPhase=0;
@@ -243,8 +256,10 @@ export function instantiateSummon(THREE,template){
   if(Number.isFinite(posed.min.y)&&Math.abs(posed.min.y)<3){
    scaled.position.y-=posed.min.y;
   }
+  groundedY=scaled.position.y;
  }
  return {root,mixer,play,update:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
+  setCombatPose,setClipRate,getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};
 }

@@ -10,6 +10,7 @@ import {BY_ID} from '../engine.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {instantiateSummon,UNIT_MODEL_IDS} from './summon-models.mjs';
 import {faceOpponentYaw,faceOpponentDot} from './summon-orientation.mjs';
+import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
@@ -38,6 +39,13 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
   return entries.size>=5||camera.aspect<.9?'compact':'full';
  }
 
+ // Safe opt-out leaves the exact previous R89 event pipeline active.
+ const r90MotionEnabled=(()=>{
+  const local=new URLSearchParams(location.search).get('r90Motion');
+  if(local==='off'||local==='on')return local!=='off';
+  try{return window.parent===window||new URLSearchParams(window.parent.location.search).get('r90Motion')!=='off'}catch{return true}
+ })();
+ let r90ImpactTriggers=0;
  const secondsPerHit=.90;
  const impact=new THREE.Group();
  impact.name='R51_Event_Linked_Impact';
@@ -50,6 +58,18 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
   new THREE.MeshBasicMaterial({color:'#ffe2ae',transparent:true,opacity:0,
    blending:THREE.AdditiveBlending,depthWrite:false}));
  ribbon.visible=false;impact.add(ribbon);
+ // R90: one shared 12-instance 3D burst, tinted per real attacking character.
+ // One instanced draw call, no per-hit geometry allocation, and never emitted
+ // for a missed/blocked direct attack without damage.
+ const sparkMaterial=new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,
+  opacity:0,blending:THREE.AdditiveBlending,depthWrite:false,depthTest:true});
+ const sparkBurst=new THREE.InstancedMesh(new THREE.TetrahedronGeometry(.065),sparkMaterial,12);
+ sparkBurst.name='R90_Event_Impact_Sparks';sparkBurst.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+ sparkBurst.frustumCulled=false;sparkBurst.visible=false;
+ impact.add(sparkBurst);
+ const sparkDummy=new THREE.Object3D(),sparkTint=new THREE.Color(),sparkWhite=new THREE.Color(0xffffff);
+ let r90SparkBursts=0;
+
  const hitCanvas=document.createElement('canvas');
  hitCanvas.width=384;hitCanvas.height=192;
  const hitCtx=hitCanvas.getContext('2d');
@@ -280,13 +300,16 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
   // authoritative. Restore exact pre-turn live units before the first hit.
   sequence=null;
   sync(pre,{force:true});
-  sequence={events:ordered,started:now,final:post,index:-1};
+  sequence={events:ordered,started:now,final:post,index:-1,impactStarted:false};
   impact.visible=true;
   return true;
  }
  function sequenceStats(){
   return{active:!!sequence,queued:sequence?.events.length||0,
-   index:sequence?.index??-1,playedEvents,finishedSequences};
+   index:sequence?.index??-1,playedEvents,finishedSequences,
+   r90MotionEnabled,r90ImpactTriggers,r90SparkBursts,impactStarted:sequence?.impactStarted||false,
+   phase:sequence&&lastUpdateSeconds!==null?
+    Number((((lastUpdateSeconds-sequence.started)%secondsPerHit)/secondsPerHit).toFixed(3)):null};
  }
  function update(seconds,camera,{cinematic=false}={}){
   const dt=lastUpdateSeconds===null?0:Math.min(.07,Math.max(0,seconds-lastUpdateSeconds));
@@ -294,6 +317,10 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
   const labelStyle=activeHpStyle(camera);
   for(const state of entries.values()){
    const r61=state.object.userData.r61;
+   if(r90MotionEnabled){
+    r61?.setCombatPose?.(null);
+    r61?.setClipRate?.(1);
+   }
    if(r61?.update)r61.update(dt);else r61?.mixer?.update(dt);
    if(state.status&&labelStyle!=='hidden')drawStatusTag(state,labelStyle);
    const object=state.object;
@@ -325,6 +352,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
    }
   }
   hitRing.visible=ribbon.visible=hitLabel.visible=false;
+  sparkBurst.visible=false;
   if(sequence){
    const elapsed=Math.max(0,seconds-sequence.started);
    const index=Math.floor(elapsed/secondsPerHit);
@@ -334,16 +362,30 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     finishedSequences++;
     sync(final,{force:true});
     for(const e of entries.values())e.object.userData.r61?.play('idle');
+    if(r90MotionEnabled)for(const e of entries.values()){
+     e.object.userData.r61?.setCombatPose?.(null);
+     e.object.userData.r61?.setClipRate?.(1);
+    }
    }else{
     if(index!==sequence.index){
      sequence.index=index;playedEvents++;
+     sequence.impactStarted=false;
      const newly=sequence.events[index];
      anchor(newly.side,newly.attacker_uid,newly.from)?.object.userData.r61?.play('attack');
-     if(newly.type==='exchange')
+     if(!r90MotionEnabled&&newly.type==='exchange')
       anchor(newly.side==='player'?'ai':'player',newly.target_uid,newly.to)?.object.userData.r61?.play('hit');
     }
     const event=sequence.events[index];
     const phase=(elapsed-index*secondsPerHit)/secondsPerHit;
+    if(r90MotionEnabled&&!sequence.impactStarted&&phase>=R90_HIT_PHASE){
+     sequence.impactStarted=true;
+     if(event.type==='exchange'){
+      const hit=anchor(event.side==='player'?'ai':'player',event.target_uid,event.to);
+      hit?.object.userData.r61?.play('hit');
+     }
+     r90ImpactTriggers++;
+     if(event.damage>0)r90SparkBursts++;
+    }
     if(phase>.48){
      const targetUnit=anchor(event.side==='player'?'ai':'player',event.target_uid,event.to);
      const atkUnit=anchor(event.side,event.attacker_uid,event.from);
@@ -362,27 +404,42 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     const to=target?target.object.position.clone().add(new THREE.Vector3(0,1.35,0)):
        new THREE.Vector3(event.side==='player'?5.5:-5.5,1.65,.8);
     const ease=t=>{const v=Math.max(0,Math.min(1,t));return v*v*(3-2*v)};
+    const motion=r90MotionEnabled?r90Choreography(phase,event.from,event.to,event.damage):null;
     const lunge=ease((phase-.09)/.19)*(1-ease((phase-.42)/.35));
     const recoil=ease((phase-.42)/.09)*(1-ease((phase-.65)/.23));
     if(attacker){
-     const sideSign=event.side==='player'?1:-1;
-     attacker.object.position.x+=sideSign*.62*lunge;
-     attacker.object.rotation.z=-sideSign*.11*lunge;
+     const sign=event.side==='player'?1:-1;
+     attacker.object.position.x+=sign*(motion?motion.attacker.offset:.62*lunge);
+     attacker.object.rotation.z=-sign*(motion?motion.attacker.lean:.11*lunge);
+     if(motion&&isR90Human(event.from)){
+      attacker.object.userData.r61?.setCombatPose?.({
+       lean:-.105*motion.wind+.115*motion.thrust,
+       upperTwist:sign*motion.attacker.upperTwist,
+       lift:motion.attacker.lift});
+      if(motion.freeze)attacker.object.userData.r61?.setClipRate?.(0);
+     }
     }
     if(target){
-     const sideSign=event.side==='player'?-1:1;
-     target.object.position.x+=sideSign*.24*recoil;
-     target.object.rotation.z=sideSign*.14*recoil;
+     const sign=event.side==='player'?-1:1;
+     target.object.position.x+=sign*(motion?motion.defender.offset:.24*recoil);
+     target.object.rotation.z=sign*(motion?motion.defender.lean:.14*recoil);
+     if(motion&&isR90Human(event.to)){
+      target.object.userData.r61?.setCombatPose?.({
+       lean:sign*.115*motion.knocked,
+       upperTwist:sign*motion.defender.upperTwist,
+       lift:motion.defender.lift});
+      if(motion.freeze)target.object.userData.r61?.setClipRate?.(0);
+     }
     }
     for(const state of [attacker,target]){
      if(state?.status?.label)state.status.label.position.x=state.object.position.x;
     }
     // Three-dimensional shaft connects the actual attacker and the actual
     // victim, not a hard-coded E01/G01 shared hit position.
-    const pulse=ease((phase-.31)/.10)*(1-ease((phase-.58)/.24));
+    const pulse=motion?motion.impact:ease((phase-.31)/.10)*(1-ease((phase-.58)/.24));
     if(pulse>.01){
      sequenceHitStart(event);
-     const center=from.clone().lerp(to,.75),line=to.clone().sub(from);
+     const center=from.clone().lerp(to,motion?.85:.75),line=to.clone().sub(from);
      ribbon.position.copy(from.clone().add(to).multiplyScalar(.5));
      ribbon.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),line.clone().normalize());
      ribbon.scale.set(1,line.length(),1);
@@ -390,9 +447,32 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
      hitRing.position.copy(center);
      hitRing.lookAt(camera.position);
      hitRing.scale.setScalar(.55+1.1*(1-pulse));
-     hitRing.material.opacity=.86*pulse;hitRing.visible=true;
+     if(motion)hitRing.material.color.setHex(motion.color);
+    hitRing.material.opacity=.86*pulse;hitRing.visible=true;
      hitLabel.position.copy(to.clone().add(new THREE.Vector3(0,.52+(phase-.35)*.8,0)));
      hitLabel.material.opacity=.94*pulse;hitLabel.visible=true;
+    if(motion&&event.damage>0&&phase>=.41&&phase<.78){
+     const born=Math.max(0,Math.min(1,(phase-.41)/.34));
+     const sparkAlpha=ease((phase-.40)/.06)*(1-ease((phase-.68)/.12));
+     const spread=(.16+.9*born)*motion.sparks;
+     const baseColor=motion.color;
+     for(let i=0;i<12;i++){
+      const a=(i*2.399963+event.serial*.035);
+      const sx=Math.cos(a),sy=Math.sin(a);
+      sparkDummy.position.set(to.x+spread*sx,to.y+spread*.67*sy+.055*born,
+       to.z+Math.sin(a*1.9)*spread*.30);
+      sparkDummy.rotation.set(phase*9+i*.13,phase*6+i*.18,phase*7+i*.24);
+      const r=(.7+.7*(1-born))*(i%3===0?1.18:.72);
+      sparkDummy.scale.setScalar(Math.max(.001,r));sparkDummy.updateMatrix();
+      sparkBurst.setMatrixAt(i,sparkDummy.matrix);
+      sparkTint.setHex(baseColor).lerp(sparkWhite,i%3===0?.72:.15);
+      sparkBurst.setColorAt(i,sparkTint);
+     }
+     sparkBurst.instanceMatrix.needsUpdate=true;
+     if(sparkBurst.instanceColor)sparkBurst.instanceColor.needsUpdate=true;
+     sparkMaterial.opacity=.85*sparkAlpha;
+     sparkBurst.visible=true;
+    }
     }
    }
   }
@@ -453,6 +533,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     meshes:s.kind==='gltf-instance'?s.object.userData.r61?.meshCount:undefined,
     clips:s.kind==='gltf-instance'?s.object.userData.r61?.animationCount:undefined,
     playingClips:s.kind==='gltf-instance'?s.object.userData.r61?.getPlayingClips?.():undefined,
+    r90Pose:s.kind==='gltf-instance'?s.object.userData.r61?.getCombatPose?.():undefined,
+    r90ClipRate:s.kind==='gltf-instance'?s.object.userData.r61?.getClipRate?.():undefined,
     artApproved:false};
   });
   return{revision,hpDisplayMode,activeHpStyle:activeHpStyle(camera),

@@ -1,0 +1,51 @@
+{
+  "release": "R90",
+  "base": "f158e61229cb5d0bf024201baf7c506cdc8fd932",
+  "state": "LOCAL_CHROME_QA_PASS_PENDING_PUBLIC_DEPLOY",
+  "scope": "event-driven presentation only; no gameplay rules changes",
+  "files": [
+    "scene/combat-choreography.mjs",
+    "scene/summon-models.mjs",
+    "scene/summon-presence.mjs",
+    "r90-combat-review.html"
+  ],
+  "feature_flag": "r90Motion=off restores prior R89 timing and poses; default on",
+  "units": "All 7 film-style characters retain R89 model hashes, no GLB replacement",
+  "timeline": {
+    "per_exchange_seconds": 0.9,
+    "hit_trigger_phase": 0.42,
+    "hit_trigger_seconds": 0.378,
+    "visual_hitstop_phase": [
+      0.43,
+      0.495
+    ],
+    "hitstop_ms": 58.5,
+    "hp_update_phase": 0.48
+  },
+  "features": [
+    "Unique windup, lunge and recoil amplitudes for seven characters",
+    "Target Hit clip begins only at registered contact phase",
+    "Transient transforms reset after event; no accumulated drift",
+    "Single 12-instance impact sparkle burst tinted per character and only on damage",
+    "Local brief animation mixer freeze for actual impact",
+    "Separate fully interactive same-origin scene preview of 7 characters and three-hit combo",
+    "Default-enabled optional click-to-enable synthetic sound in preview"
+  ],
+  "explicit_limitations": [
+    "R89 glTF morph animation reused, NOT a new live runtime skeleton or independent foot animation",
+    "No live physics or ragdoll; stage translation and lean are presentation-only",
+    "Preview uses synthetic combat events, not actual score-affecting game turns",
+    "Autoplay restrictions require user interaction before browser audio can start"
+  ],
+  "qa": {
+    "desktop_timing_on_off": 2,
+    "portrait_timing_on_off": 2,
+    "desktop_seven_character_regression": true,
+    "portrait_seven_character_regression": true,
+    "desktop_showcase_roles": 7,
+    "portrait_showcase_roles": 7,
+    "three_hit_combo_both_viewports": true,
+    "r89_comparison_mode_both_viewports": true,
+    "all_page_errors": 0
+  }
+}

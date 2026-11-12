@@ -1,0 +1,43 @@
+const {chromium}=require('/home/master/projects/tidebound-ground-qa-20261109/node_modules/playwright');
+const fs=require('fs'),path=require('path');
+const root='/mnt/data/game-assets/after-school-duel/r80-mainport-qa',base=process.env.ASDC_QA_ORIGIN||'http://127.0.0.1:11081';
+const rows=[];
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--enable-webgl','--use-angle=vulkan','--enable-features=Vulkan,DefaultANGLEVulkan','--disable-software-rasterizer']});
+try{for(const [viewport,w,h] of [['desktop',1440,900],['portrait',430,900]]){
+ for(const mode of ['on','off']){
+ const page=await browser.newPage({viewport:{width:w,height:h}}),errors=[];
+ page.on('pageerror',e=>errors.push('JS '+String(e).slice(0,350)));
+ page.on('response',r=>{if(r.status()>=400&&r.url().includes('/r45-duel/'))errors.push('HTTP '+r.status()+' '+r.url().slice(0,160))});
+ page.on('console',m=>{if(m.type()==='error')errors.push('console '+m.text().slice(0,200))});
+ await page.goto(base+'/r45-duel/?qa=1&seed=17&r90Motion='+mode,{waitUntil:'domcontentloaded',timeout:90000});
+ await page.waitForFunction(()=>window.__r45QA?.sceneReady===true,null,{timeout:168000});
+ const units={player:[{id:'E03',uid:'U101',hp:6,attack:2,shield:0}],ai:[{id:'T04',uid:'U201',hp:7,attack:2,shield:0}]};
+ await page.evaluate(u=>document.querySelector('#stadium').contentWindow.postMessage({type:'ASDC_R45_BOARD',player:u.player.map(x=>x.id),ai:u.ai.map(x=>x.id),units:u},location.origin),units);
+ await page.waitForFunction(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA?.summonPresence?.total===2,null,{timeout:45000});
+ await page.waitForTimeout(500);
+ const baseline=await page.evaluate(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA.summonPresence.entries.map(x=>({side:x.side,id:x.id,position:x.position})));
+ const updated=structuredClone(units);updated.ai[0].hp=5;
+ const mark=()=>page.evaluate(()=>{const api=document.querySelector('#stadium').contentWindow.__r45SceneQA;return {stats:api.combatEvents, units:api.summonPresence.entries.map(x=>({id:x.id,side:x.side,clips:x.playingClips,pose:x.r90Pose,rate:x.r90ClipRate,pos:x.position,hp:x.hp}))}});
+ await page.evaluate(({pre,post})=>document.querySelector('#stadium').contentWindow.postMessage({type:'ASDC_R51_COMBAT_EVENTS',pre,post,events:[{type:'exchange',side:'player',from:'E03',to:'T04',attacker_uid:'U101',target_uid:'U201',serial:900180,damage:2,attacker_hp_after:6,target_hp_after:5}]},location.origin),{pre:units,post:updated});
+ await page.waitForFunction(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA?.combatEvents?.active===true,null,{timeout:45000});
+ await page.waitForFunction(()=>{const q=document.querySelector('#stadium').contentWindow.__r45SceneQA?.combatEvents;return q?.active&&q.phase>=.12&&q.phase<.30},null,{timeout:7500});
+ const early=await mark();
+ await page.waitForFunction(()=>{const q=document.querySelector('#stadium').contentWindow.__r45SceneQA?.combatEvents;return q?.active&&q.phase>=.58&&q.phase<.79},null,{timeout:7500});
+ const impact=await mark();
+ await page.screenshot({path:path.join(root,`r90-${viewport}-${mode}-mid.png`)});
+ await page.waitForFunction(()=>{const q=document.querySelector('#stadium').contentWindow.__r45SceneQA?.combatEvents;return !q?.active&&q?.finishedSequences>=1},null,{timeout:9000});
+ await page.waitForTimeout(110);
+ const end=await mark();
+ const atkEarly=early.units.find(x=>x.side==='player'),hitEarly=early.units.find(x=>x.side==='ai');
+ const atkImpact=impact.units.find(x=>x.side==='player'),hitImpact=impact.units.find(x=>x.side==='ai');
+ const atkEnd=end.units.find(x=>x.side==='player'),hitEnd=end.units.find(x=>x.side==='ai');
+ const positionOK=atkEnd?.pos&&hitEnd?.pos&&Math.abs(atkEnd.pos[0]-baseline.find(x=>x.side==='player').position[0])<.015&&Math.abs(hitEnd.pos[0]-baseline.find(x=>x.side==='ai').position[0])<.015;
+ const newOK=mode==='on'&&early.stats.r90MotionEnabled===true&&early.stats.r90ImpactTriggers===0&&!hitEarly.clips.includes('Hit')&&atkEarly.clips.includes('Attack')&&impact.stats.r90ImpactTriggers===1&&hitImpact.clips.includes('Hit')&&hitImpact.pose!==null&&positionOK&&end.units.every(x=>x.pose===null&&x.rate===1)&&hitEnd.hp===5;
+ const rollbackOK=mode==='off'&&early.stats.r90MotionEnabled===false&&hitEarly.clips.includes('Hit')&&impact.stats.r90ImpactTriggers===0&&positionOK&&hitEnd.hp===5;
+ const pass=!errors.length&&(mode==='on'?newOK:rollbackOK);
+ const row={viewport,mode,pass,errors,baseline,early,impact,end,positionOK};rows.push(row);
+ console.log('R90_TIMELINE_GATE',JSON.stringify({viewport,mode,pass,positionOK,early:{phase:early.stats.phase,impactTriggers:early.stats.r90ImpactTriggers,atk:atkEarly.clips,hit:hitEarly.clips},impact:{phase:impact.stats.phase,impactTriggers:impact.stats.r90ImpactTriggers,atk:atkImpact.clips,hit:hitImpact.clips,pose:hitImpact.pose},end:{stats:end.stats,atk:atkEnd.pos,hit:hitEnd.pos,hp:hitEnd.hp},errors}));
+ await page.close();
+ }}}finally{fs.writeFileSync(path.join(root,'r90-timing-qa.json'),JSON.stringify(rows,null,2));await browser.close()}
+ if(rows.length!==4||rows.some(x=>!x.pass))process.exitCode=5;
+})().catch(e=>{console.error('R90_TIMELINE_EXCEPTION',e);process.exitCode=9});
