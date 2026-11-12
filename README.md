@@ -2,6 +2,8 @@
 
 游戏唯一公开入口为 [r45-duel/](./r45-duel/)。
 
+**两条聊天/两个仓库的历史成果收敛：**[多聊天统一来源与后续开发待办](docs/DUEL_PARALLEL_CHATS_CONVERGENCE_20261112.md)。V0.5 三关与 V0.6 短剧演出保留为研究资产；新 3D 主线不回退到旧三线 UI。
+
 **R96.1 加载故障恢复：**只有真实 GLB/VRM 全部就绪才解锁出牌；失败时场景给出明确错误与一键重新加载入口，恢复后继续原牌局，详见 [R96.1 故障注入实测](r45-duel/qa/R96_1_SCENE_LOADING_RECOVERY.md)。
 
 **R96 最新角色演出：**两侧永久出牌者使用原始 VRM 两骨骼 IK、真实面部 morph 与自动眨眼；抽牌、亮牌、施法、受击动作来自真实出牌事件，继承 R95 的比赛特效和结算，详见 [R96 验收说明](r45-duel/qa/R96_PERMANENT_DUELIST_NATIVE_ACTING.md)。
