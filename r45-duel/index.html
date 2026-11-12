@@ -54,6 +54,7 @@
       <summary>规则说明 <span aria-hidden="true">▾</span></summary>
       <div class="help-content">
         <p><b>目标：</b>你与 AI 各有 20 点人气，先将对方降为 0 就获胜。</p>
+        <p><b>第一次玩卡牌？</b><a href="./training/" target="_blank" rel="noopener noreferrer">四关新手试炼场：费用、事件、结束回合与连携</a>，使用真正的游戏规则，不用等大模型加载。</p>
         <p><b>人物牌：</b>按出牌按钮后，人物直接进入中央竞技场；刚上场待命，下一次轮到你才开始攻击。</p>
         <p><b>事件牌：</b>立刻产生加成、伤害、回复、抽牌等效果，不需要选位置。</p>
         <p><b>回合：</b>花费能量出牌，可以连续出多张；按「结束回合」后，已有角色攻击，AI 自动出牌并回应。</p>
@@ -126,6 +127,31 @@
       <button id="end" class="end-btn" type="button">结束回合 <span aria-hidden="true">→</span></button>
     </div>
   </section>
+  <aside id="card-inspector" class="r103-inspector" role="complementary" aria-label="卡牌收藏级放大预览" hidden>
+    <div class="r103-inspector-top"><span>放学后决斗社 · 卡牌图鉴</span>
+      <button type="button" id="card-inspector-close" aria-label="关闭卡牌预览">×</button>
+    </div>
+    <div class="r103-inspector-art">
+      <img id="card-inspector-picture" alt="" loading="lazy" decoding="async">
+      <span id="card-inspector-cost" class="r103-big-cost">1</span>
+      <div class="r103-inspector-art-shade">
+        <span id="card-inspector-category">人物牌</span>
+        <strong id="card-inspector-title">卡名</strong>
+        <small id="card-inspector-scene"></small>
+      </div>
+    </div>
+    <div class="r103-inspector-lore">
+      <strong id="card-inspector-stats"></strong>
+      <p id="card-inspector-effect"></p>
+      <q id="card-inspector-quote"></q>
+      <span id="card-inspector-hook"></span>
+      <div class="r103-inspector-combos"><b>可构成的风格连携</b>
+        <div id="card-inspector-combos"></div>
+      </div>
+      <small id="card-inspector-note"></small>
+      <a href="./cards/" class="r103-inspector-link">进入完整卡牌图鉴 →</a>
+    </div>
+  </aside>
   <section id="result-overlay" class="result-overlay" role="dialog" aria-modal="true"
     aria-labelledby="result-title" aria-describedby="result-summary" hidden>
     <div class="result-panel">

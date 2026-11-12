@@ -6,6 +6,7 @@
 import {BY_ID,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
+import {cardPresentation,CARD_PRESENTATION_BY_ID,R103_RULE_NOTE} from './card-presentation.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
 
@@ -179,12 +180,70 @@ function renderBoard(){
   $(count).textContent=String(list.length);
  }
 }
+// R103 visual inspection remains possible for cards that cannot be played.
+let inspectedCardId=null,cardInspectorPinned=false,cardInspectCount=0,cardFlights=0;
+function closeCardInspector(){
+ inspectedCardId=null;cardInspectorPinned=false;
+ $('card-inspector').hidden=true;
+}
+function showCardInspector(id,{pin=false}={}){
+ const v=CARD_PRESENTATION_BY_ID[id],c=BY_ID[id];
+ if(!v||!c)return;
+ if(cardInspectorPinned&&!pin&&inspectedCardId!==id)return;
+ inspectedCardId=id;
+ if(pin)cardInspectorPinned=true;
+ cardInspectCount++;
+ const box=$('card-inspector');box.hidden=false;
+ box.dataset.style=c.style;box.dataset.cardId=id;
+ $('card-inspector-picture').src=v.art;
+ $('card-inspector-picture').alt='卡牌主视觉：'+v.name;
+ $('card-inspector-title').textContent=v.name;
+ $('card-inspector-category').textContent=v.styleLabel+' · '+(c.kind==='unit'?'人物牌':'事件牌')+' · '+v.role;
+ $('card-inspector-cost').textContent=String(c.cost);
+ $('card-inspector-scene').textContent=v.scene;
+ $('card-inspector-effect').textContent=v.rule;
+ $('card-inspector-quote').textContent='“'+v.flavor+'”';
+ $('card-inspector-hook').textContent=v.hook;
+ $('card-inspector-stats').textContent=c.kind==='unit'?
+  '攻击  '+c.attack+'　　生命  '+c.hp:'即时生效的事件牌';
+ const links=$('card-inspector-combos');links.replaceChildren();
+ for(const combo of v.combos){
+  const badge=$make('span','inspector-combo-item',
+   combo.title+'｜'+combo.detail);
+  links.append(badge);
+ }
+ $('card-inspector-note').textContent=R103_RULE_NOTE;
+}
+$('card-inspector-close').addEventListener('click',closeCardInspector);
+window.addEventListener('keydown',event=>{
+ if(event.key==='Escape'&&!$('card-inspector').hidden){
+  closeCardInspector();event.preventDefault();
+ }
+});
+function launchCardFlight(id){
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const source=[...document.querySelectorAll('.card[data-card-id]')].find(
+  x=>x.dataset.cardId===id&&x.classList.contains('selected'));
+ if(!source)return;
+ const box=source.getBoundingClientRect();
+ if(!box.width||!box.height)return;
+ const copy=source.cloneNode(true);
+ copy.disabled=true;copy.removeAttribute('id');
+ copy.classList.add('r103-flight');
+ copy.style.cssText='left:'+box.left+'px;top:'+box.top+'px;width:'+box.width+
+  'px;height:'+box.height+'px;--flight-x:'+Math.round(innerWidth*.5-box.left-box.width/2)+
+  'px;--flight-y:'+Math.round(innerHeight*.42-box.top-box.height/2)+'px';
+ document.body.append(copy);
+ cardFlights++;
+ copy.addEventListener('animationend',()=>copy.remove(),{once:true});
+ setTimeout(()=>copy.remove(),800);
+}
 function renderHand(){
  const fragment=document.createDocumentFragment();
  g.hand.player.forEach((id,index)=>{
   if(tutorialMode&&!tutorialCanPlay(g,index))return;
   const c=BY_ID[id],available=cardCanPlay(index);
-  const card=$make('button','card '+c.style+(selected===index?' selected':''));
+  const card=$make('button','card r103-card '+c.style+(selected===index?' selected':''));
   card.type='button';
   card.dataset.cardId=id;
   card.dataset.handIndex=String(index);
@@ -198,25 +257,43 @@ function renderHand(){
   const head=$make('div','card-type');
   head.append($make('span',null,styleName[c.style]+' · '+(c.kind==='unit'?'人物':'事件')),
     $make('span','cost',c.cost));
-  const isPortrait=id==='E01'||id==='G01';
-  const art=$make('span','card-illustration'+(isPortrait?' true-3d-portrait':' original-card-symbol'));
+  const v=cardPresentation(c);
+  const art=$make('span','card-illustration r103-illustration');
   art.setAttribute('aria-hidden','true');
-  if(isPortrait){
-   const img=$make('img','real-actor-portrait');
-   img.src='./assets/cards/'+id+'-vrm-card-bust.png';
-   img.alt='';img.decoding='async';img.loading='eager';
-   art.append(img);
-  }else{
-   const symbol=$make('span','symbol',pictogram[id]||'✦');
-   art.append(symbol);
-  }
-  card.dataset.art=isPortrait?'actual-vrm':'symbol-only';
-  card.title=(isPortrait?'已实装3D角色：':'仍待独立角色美术：')+c.name;
-  card.append(head,$make('strong','card-name',c.name),art,
-    $make('div','card-desc',c.line),
-    $make('div','card-stats',c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'✦ '+(c.cost===1?'轻量事件':'战术事件')));
+  const symbol=$make('span','r103-art-fallback',pictogram[id]||'✦');
+  const image=$make('img','r103-art-photo');
+  image.src=v.art;image.alt='';image.decoding='async';image.loading='eager';
+  image.addEventListener('error',()=>{image.hidden=true;art.dataset.fallback='true'});
+  art.append(symbol,image);
+  const role=$make('span','r103-card-role',v.role);
+  const upper=$make('div','r103-card-upper');
+  upper.append($make('span','r103-card-edition',c.id+' / '+v.code),
+    $make('span','r103-card-class',c.kind==='unit'?'人物':'事件'));
+  const effect=$make('div','r103-card-effect',c.kind==='unit'?
+   '上场待命 · 下回合攻击':v.rule);
+  const stats=$make('div','card-stats r103-card-stats',
+   c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'✦ 即时事件');
+  card.dataset.art='r103-original-card-art';
+  card.dataset.visual=v.role;
+  card.title='选中出牌：'+c.name+'。要查看完整卡面请点击卡片右上角的「放大」';
+  card.append(art,head,$make('strong','card-name',c.name),role,
+   effect,stats,upper);
+  const slot=$make('div','r103-card-slot');
+  const inspect=$make('button','r103-card-inspect','⤢');
+  inspect.type='button';inspect.title='查看 '+c.name+' 的完整卡面和连携';
+  inspect.setAttribute('aria-label','放大查看卡牌：'+c.name);
+  inspect.addEventListener('click',()=>showCardInspector(id,{pin:true}));
+  slot.addEventListener('pointerenter',event=>{
+   if(event.pointerType!=='touch'&&matchMedia('(min-width:700px)').matches)
+    showCardInspector(id);
+  });
+  slot.addEventListener('pointerleave',()=>{
+   if(!cardInspectorPinned&&selected===null)closeCardInspector();
+  });
+  slot.append(card,inspect);
   card.addEventListener('click',()=>{
    selected=selected===index?null:index;
+   if(selected===null)closeCardInspector();
    audio.playCue('select');
    render();
    if(selected!==null){
@@ -225,9 +302,11 @@ function renderHand(){
       (chosen.kind==='unit'?'召唤到场中央。':'立即发动事件。'),'selected');
    }else announce('已取消选牌。重新选择一张手牌即可。');
   });
-  fragment.append(card);
+  fragment.append(slot);
  });
  $('hand').replaceChildren(fragment);
+ if(selected!==null&&g.hand.player[selected])
+  showCardInspector(g.hand.player[selected],{pin:true});
  const lesson=tutorialMode?tutorialStatus(g):null;
  $('hand-count').textContent=String(lesson?(lesson.completed?0:1):g.hand.player.length);
  if(lesson?.completed){
@@ -560,12 +639,13 @@ $('play').addEventListener('click',()=>{
  if(g.phase==='ended'){showResult();return;}
  if(selected===null||!cardCanPlay(selected))return;
  const previousSerial=g.serial;
+ launchCardFlight(g.hand.player[selected]);
  const id=g.hand.player[selected],c=BY_ID[id],preHp={...g.hp},
    result=tutorialMode?playTutorialCard(g,selected,0):playCard(g,selected,0);
  if(!result.ok){
   announce('出牌失败：'+result.reason,'warning');render();return;
  }
- selected=null;
+ selected=null;closeCardInspector();
  render();syncScene();
  const played=g.events.findLast(e=>e.type==='card_play'&&
   e.side==='player'&&e.card===id&&e.serial>previousSerial);
@@ -776,6 +856,7 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get selected(){return selected},
   get lastFightSerial(){return lastFightSerial},
   get audio(){return audio.status()},
+  get cardPresentation(){return{inspectedCardId,cardInspectCount,cardFlights,cardInspectorPinned}},
   get comedy(){return{lastQwenSubtitle,spokenSubtitleCount,
     asideHistory:[...asideHistory],allTextLines:
       Object.values(COMIC_ASIDE_LINES).reduce((n,lines)=>n+lines.length,0)}},
