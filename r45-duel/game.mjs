@@ -173,8 +173,18 @@ function renderHand(){
   fragment.append(card);
  });
  $('hand').replaceChildren(fragment);
- $('hand-count').textContent=String(tutorialMode?(tutorialStatus(g).completed?0:1):g.hand.player.length);
- if(!g.hand.player.length)$('hand').append($make('div','empty-hand','手牌用完，点击「结束回合」即可继续抽牌'));
+ const lesson=tutorialMode?tutorialStatus(g):null;
+ $('hand-count').textContent=String(lesson?(lesson.completed?0:1):g.hand.player.length);
+ if(lesson?.completed){
+  const finish=$make('div','lesson-finished-hand');
+  finish.append($make('strong',null,'✓ '+lesson.title+' · 挑战成功'),
+   $make('span',null,lesson.success),
+   $make('span','lesson-finished-hint',
+    lesson.level===LESSONS.length?'点击下方金色按钮，进入正式自由对战。':'点击下方金色「进入下一关」，继续玩。'));
+  $('hand').append(finish);
+ }else if(!g.hand.player.length){
+  $('hand').append($make('div','empty-hand','手牌用完，点击「结束回合」即可继续抽牌'));
+ }
 }
 function scoreboardSnapshot(){
  return{type:'ASDC_R81_SCORE',player:g.hp.player,ai:g.hp.ai,round:g.round,
@@ -206,10 +216,25 @@ function renderHUD(){
   g.active==='player'?'轮到你出牌':'AI 正在回应';
 }
 function renderActions(){
- const ended=g.phase==='ended';
+ const ended=g.phase==='ended',lesson=tutorialMode?tutorialStatus(g):null;
+ const completed=!!lesson?.completed;
  const card=selected===null?null:BY_ID[g.hand.player[selected]];
  const canPlay=selected!==null&&cardCanPlay(selected);
- const btn=$('play');
+ const btn=$('play'),endBtn=$('end');
+ if(lesson){
+  btn.disabled=!sceneReady||sceneError||(!completed&&!canPlay);
+  btn.textContent=completed?
+   (lesson.level===LESSONS.length?'✓ 开始自由对战':'✓ 进入下一关 · '+(lesson.level+1)+'/3'):
+   card?'出牌 · '+(card.kind==='unit'?'召唤':'发动'):'选择高亮的卡牌';
+  $('selected-title').textContent=completed?'✓ 本关成功！':
+   card?card.name+' · '+card.cost+' 能量':'教学第 '+lesson.level+' 关 · 步骤 '+(lesson.step+1)+'/2';
+  $('selected-info').textContent=completed?
+   (lesson.level===LESSONS.length?'点击金色按钮，正式开始自由对战。':'点击金色按钮进入下一关，不用再找手牌。'):
+   lesson.steps[lesson.step].replace(/^[①②]\s*/,'');
+  endBtn.hidden=true;endBtn.disabled=true;
+  return;
+ }
+ endBtn.hidden=false;
  btn.disabled=ended?false:!canPlay;
  btn.textContent=ended?'查看本局战绩':card?'出牌 · '+(card.kind==='unit'?'召唤':'发动'):'先选一张牌';
  $('selected-title').textContent=ended?'本局已结束':card?card.name+' · '+card.cost+' 能量':'还没有选牌';
@@ -217,8 +242,8 @@ function renderActions(){
   sceneError?'三维资源加载失败。请在场景中点击「重新加载三维场景」，完成后再出牌。':
   !sceneReady?'三维体育馆和角色模型正在加载，载入后即可出牌。':
   card?describeCard(card):'点击手牌选择，无需选择教室、走廊或其他部署位置';
- $('end').disabled=tutorialMode||(!ended&&!gameReady());
- $('end').textContent=tutorialMode?'教学中 · 完成两步后继续':ended?'↻ 再来一局':'结束回合 → AI 出牌';
+ endBtn.disabled=!ended&&!gameReady();
+ endBtn.textContent=ended?'↻ 再来一局':'结束回合 → AI 出牌';
 }
 function renderLesson(){
  const launch=$('tutorial-start'),panel=$('lesson-panel');
@@ -238,7 +263,9 @@ function renderLesson(){
    (result.defeated?' · 对方单位退场':''):
   status.steps[status.step];
  const next=$('lesson-next');
- next.hidden=!status.completed;
+ // The bottom gold CTA is the sole progression action. Keep this old node
+ // hidden to avoid two conflicting next-step locations.
+ next.hidden=true;
  next.textContent=status.level===LESSONS.length?'完成教学 · 开始自由对战':'下一关 · '+LESSONS[status.level].title;
 }
 function freeDuelUrl(){
@@ -252,8 +279,8 @@ $('tutorial-start').addEventListener('click',()=>{
  location.assign(u.href);
 });
 $('tutorial-exit').addEventListener('click',()=>location.assign(freeDuelUrl().href));
-$('lesson-next').addEventListener('click',()=>{
- if(!tutorialMode||!tutorialStatus(g).completed)return;
+function advanceLesson(){
+ if(!tutorialMode||!tutorialStatus(g).completed||!sceneReady||sceneError)return;
  const level=g.tutorial.level;
  if(level===LESSONS.length){location.assign(freeDuelUrl().href);return;}
  // A fresh lesson is a fresh actual duel instance. The stadium itself stays
@@ -262,8 +289,9 @@ $('lesson-next').addEventListener('click',()=>{
  selected=null;lastFightSerial=0;
  hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
  render();syncScene();
- announce('开始'+LESSONS[level].title+'：请按上方提示出两张真实卡牌。','selected');
-});
+ announce('开始'+LESSONS[level].title+'：请按底部提示依次出两张卡牌。','selected');
+}
+$('lesson-next').addEventListener('click',advanceLesson);
 
 function renderGuide(){
  if(tutorialMode){
@@ -408,6 +436,7 @@ function playFight(e){
  // Actual damage was already resolved by the engine; scene animation is visual.
 }
 $('play').addEventListener('click',()=>{
+ if(tutorialMode&&tutorialStatus(g).completed){advanceLesson();return;}
  if(g.phase==='ended'){showResult();return;}
  if(selected===null||!cardCanPlay(selected))return;
  const id=g.hand.player[selected],c=BY_ID[id],preHp={...g.hp},
@@ -437,7 +466,12 @@ $('play').addEventListener('click',()=>{
  }
  const suffix=c.kind==='unit'?'已进入中央竞技场。本回合待命，下次轮到你才会攻击。':
   '已立即结算事件效果。';
- announce('已出牌：「'+c.name+'」。'+suffix+'　还可以继续出牌，或点击「结束回合」。','played');
+ const lesson=tutorialMode?tutorialStatus(g):null;
+ announce(lesson?.completed?
+  '本关成功！'+lesson.success+' 请点击底部金色「'+
+   (lesson.level===LESSONS.length?'开始自由对战':'进入下一关')+'」继续。':
+  tutorialMode?'已打出「'+c.name+'」。'+lesson.steps[lesson.step]:
+  '已出牌：「'+c.name+'」。'+suffix+'　还可以继续出牌，或点击「结束回合」。','played');
  if(g.phase==='ended'){
   audio.gameFinished(g.winner);
   announce('决斗结束！'+(g.winner==='player'?'你赢了！':'AI 获胜。'),'ended');

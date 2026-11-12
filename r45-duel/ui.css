@@ -517,3 +517,27 @@ html,body{width:100%;height:100%;overflow:hidden}
   background:#071c2af2;border-color:#daa764}
  .game:has(.lesson-panel:not([hidden])) .battle-toast{display:none}
 }
+
+/* R99: one clear tutorial progression on the PRIMARY hand/action bar. */
+.end-btn[hidden]{display:none!important}
+.game:has(.lesson-panel:not([hidden])) .actions{
+ grid-template-columns:minmax(0,1fr) minmax(260px,360px)}
+.game:has(.lesson-panel:not([hidden])) .actions .play-btn{
+ font-size:clamp(15px,1.7vw,23px);min-height:48px;
+ border:2px solid #ffe2a6;box-shadow:0 0 24px #ffc86d55}
+.lesson-finished-hand{width:min(100%,790px);min-height:100%;margin:auto;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ text-align:center;gap:6px;padding:12px;background:#193a43b9;
+ border:1px solid #d3b97d;border-radius:13px;color:#e6edf1}
+.lesson-finished-hand strong{font-size:clamp(17px,2vw,25px);color:#fbd69f}
+.lesson-finished-hand span{font-size:clamp(12px,1.25vw,16px);line-height:1.4}
+.lesson-finished-hand .lesson-finished-hint{font-weight:900;color:#ffd58a}
+.game:has(.lesson-panel:not([hidden])) .lesson-next{display:none!important}
+.game:has(.lesson-panel:not([hidden])) .lesson-panel{border-left:0}
+@media(max-width:650px){
+ .game:has(.lesson-panel:not([hidden])) .actions{grid-template-columns:1fr}
+ .game:has(.lesson-panel:not([hidden])) .actions .play-btn{font-size:16px}
+ .lesson-finished-hand{padding:6px 8px;gap:3px}
+ .lesson-finished-hand strong{font-size:14px}
+ .lesson-finished-hand span{font-size:11px}
+}

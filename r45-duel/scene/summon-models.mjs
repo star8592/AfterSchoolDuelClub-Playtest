@@ -122,6 +122,14 @@ const isG03R86Study=(()=>{
  try{return window.parent!==window&&new URLSearchParams(window.parent.location.search).get('g03Study')==='rig'}catch{return false}
 })();
 
+// Temporary R99 recovery switch for the original unaccessorized M02 GLB.
+const r99ChefOld=(()=>{
+ const search=new URLSearchParams(location.search);
+ if(search.get('r99Chef')==='old')return true;
+ try{return window.parent!==window&&
+   new URLSearchParams(window.parent.location.search).get('r99Chef')==='old';}
+ catch{return false}
+})();
 export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
@@ -132,7 +140,7 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  G03:{file:'G03-Jay-Landing-R97.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-Victoria-Landing-R97.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  M01:{file:'M01-MusicTeacher-PolyforkSchoolTeacher.glb',label:'音乐老师',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- M02:{file:'M02-CafeteriaAunt-CartoonR76.glb',label:'食堂阿姨',targetHeight:2.07,maxWidth:2.35,kind:'character'},
+ M02:{file:'M02-CafeteriaAunt-ChefHat-Spatula-R99.glb',label:'食堂阿姨',targetHeight:2.35,maxWidth:2.35,kind:'character'},
  T01:{file:'T01-Owl-Innerscene-R84.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
  T03:{file:'T03-Rain-Landing-R97.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
@@ -143,8 +151,10 @@ export async function preloadSummonModels(THREE,loader){
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
   const baseSpec=UNIT_MODEL_SPECS[id];
   const spec=id==='T02'&&isT02DuoStudy?
-   {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:baseSpec;
-  const selectedFile=id==='T02'&&isT02DuoStudy?
+   {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:
+   id==='M02'&&r99ChefOld?{...baseSpec,targetHeight:2.07}:baseSpec;
+  const selectedFile=id==='M02'&&r99ChefOld?'M02-CafeteriaAunt-CartoonR76.glb':
+   id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
    isR93Previous&&Object.hasOwn(R93_PREVIOUS,id)?
    R93_PREVIOUS[id]:

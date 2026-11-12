@@ -25,7 +25,7 @@ const FINAL_MUSIC=Object.freeze(['final_overtime','duel_tension','heroic_comebac
 
 const base='./assets/audio/';
 const clamp=n=>Math.min(1,Math.max(0,Number(n)||0));
-const defaults={music:.44,sfx:.75,voice:.86};
+const defaults={music:.32,sfx:.75,voice:1};
 const SOUND_INTENT_KEY='asdc_r83_sound_on';
 function savedSoundIntent(){
   try{return localStorage.getItem(SOUND_INTENT_KEY)!=='off'}
@@ -35,6 +35,10 @@ function savedSoundIntent(){
 function savedVolume(){
  try{
   const stored=JSON.parse(localStorage.getItem('asdc_r70_audio_mix')||'null');
+  // Upgrade only the exact untouched R94 default mix once. If a listener
+  // ever adjusted a slider, preserve all of their own settings unchanged.
+  if(stored&&stored.music===.44&&stored.sfx===.75&&stored.voice===.86)
+   return {...defaults};
   return Object.fromEntries(Object.entries(defaults).map(([k,v])=>[k,
    stored&&Number.isFinite(stored[k])?clamp(stored[k]):v]));
  }catch{return {...defaults}}
@@ -61,7 +65,7 @@ export function createDuelAudio(){
  };
  const soundPath=name=>base+SOUNDS[name];
  function updateMusicVolume(){
-  const current=clamp(volume.music*(musicDucked?.29:1));
+  const current=clamp(volume.music*(musicDucked?.20:1));
   if(musicAudio)musicAudio.volume=clamp(current*fadeRatio);
   if(fadingMusic)fadingMusic.volume=clamp(current*(1-fadeRatio));
  }
@@ -246,7 +250,7 @@ export function createDuelAudio(){
  function playQueuedVoice(){
   if(!enabled||voiceAudio||voiceQueue.length===0)return;
   const {id,kind,file,variant}=voiceQueue.shift();
-  const a=new Audio(base+'voices/'+file);
+  const a=new Audio(base+'voices/'+file+'?mix=r99');
   voiceAudio=a;currentVoiceKey=id+':'+kind;
   a.volume=volume.voice;a.preload='auto';
   log('voice-variant',id+':'+kind+'='+variant);
