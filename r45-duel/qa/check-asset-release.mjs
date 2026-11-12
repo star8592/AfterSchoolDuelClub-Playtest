@@ -53,10 +53,16 @@ for(const [generation,entries] of [['legacy-R85',old],['production-R91+',current
   let httpStatus=null;
   if(remote){
    const uri=new URL('assets/summons/'+encodeURIComponent(file),remote);
-   const res=await fetch(uri,{method:'HEAD',signal:AbortSignal.timeout(20000)});
+   // Ask the CDN for raw bytes; if it still sends gzip/br, Content-Length
+   // measures the compressed transfer rather than the decoded GLB payload.
+   const res=await fetch(uri,{method:'HEAD',
+    headers:{'accept-encoding':'identity'},signal:AbortSignal.timeout(20000)});
    if(!res.ok)throw Error('Serving '+generation+' '+file+' returned HTTP '+res.status);
-   const size=Number(res.headers.get('content-length'));
-   if(Number.isFinite(size)&&size!==buf.byteLength)throw Error('Served length mismatch '+file+' '+size+' vs '+buf.byteLength);
+   const encoding=(res.headers.get('content-encoding')||'identity').toLowerCase();
+   const contentLength=res.headers.get('content-length');
+   const size=contentLength===null?null:Number(contentLength);
+   if(encoding==='identity'&&size!==null&&Number.isFinite(size)&&size!==buf.byteLength)
+    throw Error('Served length mismatch '+file+' '+size+' vs '+buf.byteLength);
    httpStatus=res.status;
   }
   results.push({generation,id,file,bytes:buf.byteLength,meshes:data.meshes.length,httpStatus});
