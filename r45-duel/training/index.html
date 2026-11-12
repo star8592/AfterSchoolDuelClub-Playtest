@@ -1,0 +1,54 @@
+<!doctype html><html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="第一次玩卡牌游戏？《放学后决斗社》60 秒轻量新手试炼场，亲手学会费用、召唤、事件与粉笔连携。无需下载完整 3D 模型。">
+<meta name="theme-color" content="#0f2133">
+<title>新手试炼场｜放学后决斗社</title>
+<link rel="stylesheet" href="./training.css"><script type="module" src="./training.mjs"></script>
+</head><body>
+<header><a class="brand" href="../../">✦ 放学后决斗社</a>
+<nav><a href="../../">试玩首页</a><a href="../cards/">卡牌图鉴</a><a href="../">自由对战</a></nav></header>
+<main><section class="trial-hero">
+ <span class="eyebrow">新手试炼场 · 真实规则 · 无需等待大型三维模型</span>
+ <h1>第一次玩卡牌？<br><em>四个动作就能入门。</em></h1>
+ <p>没有漫长说明书。让你用真实规则亲自出牌，学会费用、人物、事件、攻击与连携，再进入正式三维体育馆。</p>
+ <div class="quick-rule"><span>① 选牌：看费用</span><span>② 出牌：人物或事件</span><span>③ 结束回合：人物攻击</span><span>④ 两种风格：触发连携</span></div>
+</section>
+<section class="training-room" aria-label="四关卡牌新手试炼">
+ <div class="trial-heading"><span class="eyebrow">PRACTICE FIELD / LIVE ENGINE</span><h2>亲手完成四关试炼</h2>
+ <p>每一步都由正式牌局的引擎计算；这里的数字不是假的互动动画。</p></div>
+ <div id="trial-tabs" class="trial-tabs" role="group" aria-label="选择教学关卡"></div>
+ <div class="trial-board">
+  <section class="trial-story">
+   <span class="trial-step" id="trial-step">01 / 04</span>
+   <h3 id="trial-name"></h3><p id="trial-story"></p>
+   <div class="trial-task"><b>你的任务</b><p id="trial-task"></p></div>
+   <details open><summary>本关规则提示</summary><p id="trial-tip"></p></details>
+   <div class="trial-feedback" id="trial-feedback" role="status" aria-live="polite"></div>
+   <div class="trial-footer"><button id="trial-next" type="button" class="gold-button" hidden>进入下一关 →</button>
+    <button id="trial-reset" type="button">↻ 重新尝试</button></div>
+  </section>
+  <section class="trial-field" aria-label="真实规则模拟竞技场">
+   <div class="trial-hp"><div><small>你的剩余人气</small><strong id="hp-player">20</strong></div>
+   <div class="versus">VS</div><div><small>AI 剩余人气</small><strong id="hp-ai">20</strong></div></div>
+   <div class="trial-field-units"><span>我方实际登场人物</span><div id="field-unit-list"></div></div>
+   <div class="trial-energy">✧ 本回合能量 <strong id="trial-energy">2</strong> / 9</div>
+   <div id="trial-hand" class="trial-hand" aria-label="试炼手牌"></div>
+   <button id="trial-end" class="trial-action gold-button" type="button">结束回合 → 触发真实攻击</button>
+   <div id="trial-event-log" class="trial-event-log" aria-live="polite"></div>
+  </section>
+ </div>
+ <div class="training-complete" id="training-complete" hidden>
+  <span>✦ 四关试炼通关</span><h2>恭喜！你已经知道怎么打牌了。</h2>
+  <p>下一步去三维体育馆，实际体验粉笔弹射、广播串台与社团海报三关连携剧情。</p>
+  <a href="../?mode=tutorial&amp;level=1" class="gold-button">▶ 进入三维连携剧情教学</a>
+  <a href="../">直接自由对战</a>
+ </div>
+</section>
+<section class="learning-bridge"><h2>记住这四个核心概念就够了</h2>
+ <div class="learning-grid"><article><b>费用</b><p>卡牌左上角的数字就是花费的能量。能量不够就不能出牌。</p></article>
+ <article><b>人物牌</b><p>放到场上待命，轮到自己下次结束回合时，才会参与攻击。</p></article>
+ <article><b>事件牌</b><p>立即产生说明里的效果；是否真的加血或伤害，由规则结算。</p></article>
+ <article><b>连携</b><p>首次在同一场对战中使用两种不同风格，触发一次校园奇招；不要求一定是连续两张牌。</p></article></div>
+ <p class="learning-truth">说明：玩家与 AI 各从 20 点人气开始；当前有 20 种正式卡，每种在牌库中有 2 张。卡牌扩充不影响这套基础操作。</p>
+</section></main><footer><a href="../../">试玩首页</a><a href="../cards/">浏览全部 20 张卡牌</a><span>新手练习直接运行正式 engine.mjs，不构造虚假的伤害结果</span></footer>
+</body></html>
