@@ -1,0 +1,130 @@
+{
+  "pass": true,
+  "errors": [],
+  "checks": [
+    {
+      "name": "desktop",
+      "pass": true,
+      "opening": "mischief_shuffle",
+      "tracks": [
+        "school_duel_theme",
+        "campus_parade",
+        "mischief_shuffle",
+        "tactical_pulse",
+        "heroic_comeback",
+        "duel_tension",
+        "final_overtime"
+      ],
+      "roundTrack": "campus_parade",
+      "musicHistory": [
+        "campus_parade"
+      ],
+      "selectedVoiceVariants": [
+        "enter",
+        "enter_v3",
+        "enter_v2"
+      ],
+      "voicesPlayed": 3,
+      "voiceHistory": [
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast"
+        },
+        {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter_v2"
+        },
+        {
+          "id": "HOST_AI",
+          "kind": "cast",
+          "variant": "cast_v3"
+        },
+        {
+          "id": "G02",
+          "kind": "enter",
+          "variant": "enter_v3"
+        },
+        {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter"
+        },
+        {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter_v3"
+        },
+        {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter_v2"
+        }
+      ],
+      "audioErrors": 0
+    },
+    {
+      "name": "mobile",
+      "pass": true,
+      "opening": "school_duel_theme",
+      "tracks": [
+        "school_duel_theme",
+        "campus_parade",
+        "mischief_shuffle",
+        "tactical_pulse",
+        "heroic_comeback",
+        "duel_tension",
+        "final_overtime"
+      ],
+      "roundTrack": "mischief_shuffle",
+      "musicHistory": [
+        "mischief_shuffle"
+      ],
+      "selectedVoiceVariants": [
+        "enter",
+        "enter_v2",
+        "enter_v3"
+      ],
+      "voicesPlayed": 3,
+      "voiceHistory": [
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v4"
+        },
+        {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter_v3"
+        },
+        {
+          "id": "HOST_AI",
+          "kind": "cast",
+          "variant": "cast_v2"
+        },
+        {
+          "id": "G02",
+          "kind": "enter",
+          "variant": "enter"
+        },
+        {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter"
+        },
+        {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter_v2"
+        },
+        {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter_v3"
+        }
+      ],
+      "audioErrors": 0
+    }
+  ]
+}

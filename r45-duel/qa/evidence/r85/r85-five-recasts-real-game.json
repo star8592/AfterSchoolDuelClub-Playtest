@@ -1,0 +1,247 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "five distinct film models on real two-sided game board",
+      "pass": true,
+      "names": {
+        "E03": "E03-CheerCaptain-Phil-R85-Acting.glb",
+        "E04": "E04-CanteenRelay-Gabby-R85-Acting.glb",
+        "G02": "G02-BlackboardExpert-Lunte-R85-Acting.glb",
+        "G04": "G04-ClubDirector-Victoria-R85-Acting.glb",
+        "T03": "T03-MailPair-Ellie-R85-Acting.glb"
+      },
+      "allVisible": true,
+      "dimensions": [
+        {
+          "id": "E03",
+          "w": 0.755,
+          "h": 2.082,
+          "foot": 0.003,
+          "front": 1,
+          "withinFrame": true,
+          "actor": {
+            "meshes": 29,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "E04",
+          "w": 1.126,
+          "h": 2.082,
+          "foot": 0.006,
+          "front": 1,
+          "withinFrame": true,
+          "actor": {
+            "meshes": 17,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "G02",
+          "w": 1.692,
+          "h": 2.083,
+          "foot": 0,
+          "front": 1,
+          "withinFrame": true,
+          "actor": {
+            "meshes": 16,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "G04",
+          "w": 0.392,
+          "h": 2.081,
+          "foot": 0.004,
+          "front": 1,
+          "withinFrame": true,
+          "actor": {
+            "meshes": 34,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "T03",
+          "w": 0.466,
+          "h": 2.086,
+          "foot": 0.006,
+          "front": 1,
+          "withinFrame": true,
+          "actor": {
+            "meshes": 64,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        }
+      ],
+      "action": {
+        "attack": {
+          "meshes": 29,
+          "targets": [
+            "show",
+            "attack",
+            "hit"
+          ],
+          "live": [
+            0,
+            1,
+            0
+          ],
+          "mode": "attack"
+        },
+        "hit": {
+          "meshes": 34,
+          "targets": [
+            "show",
+            "attack",
+            "hit"
+          ],
+          "live": [
+            0,
+            0,
+            0.818
+          ],
+          "mode": "hit"
+        }
+      },
+      "restored": [
+        {
+          "id": "E03",
+          "morph": {
+            "meshes": 29,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "E04",
+          "morph": {
+            "meshes": 17,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "G02",
+          "morph": {
+            "meshes": 16,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "G04",
+          "morph": {
+            "meshes": 34,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "T03",
+          "morph": {
+            "meshes": 64,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

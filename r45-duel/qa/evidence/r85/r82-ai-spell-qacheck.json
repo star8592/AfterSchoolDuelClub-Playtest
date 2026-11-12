@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "errors": [],
+  "cases": [
+    {
+      "name": "AI event G05, real zero-damage visual, no fake hit",
+      "pass": true,
+      "outcome": {
+        "effect": "repair",
+        "directDamage": 0,
+        "unitDamage": 0,
+        "targetUids": [],
+        "healed": 0
+      },
+      "spell": {
+        "played": 1,
+        "hits": 0,
+        "noHit": 1,
+        "expired": 0,
+        "active": 1,
+        "activeKinds": [
+          "repair"
+        ],
+        "ruleMutations": 0
+      },
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "hostDamage": {
+        "player": {
+          "started": -100,
+          "damage": 0
+        },
+        "ai": {
+          "started": -100,
+          "damage": 0
+        }
+      },
+      "score": {
+        "player": 20,
+        "ai": 20,
+        "round": 2,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 3,
+        "type": "ASDC_R81_SCORE"
+      },
+      "hostAction": {
+        "started": 0.12579999999701977,
+        "kind": "spell"
+      }
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "real scene artist rig morph for Jay/Rex and game event",
+      "pass": true,
+      "idle": [
+        {
+          "id": "G03",
+          "file": "R85_artist_morph_idle",
+          "artMorph": {
+            "meshes": 38,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0.041,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "T04",
+          "file": "R85_artist_morph_idle",
+          "artMorph": {
+            "meshes": 38,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0.041,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        }
+      ],
+      "active": [
+        {
+          "id": "G03",
+          "morph": {
+            "meshes": 38,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              1,
+              0
+            ],
+            "mode": "attack"
+          }
+        },
+        {
+          "id": "T04",
+          "morph": {
+            "meshes": 38,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0,
+              0,
+              0.801
+            ],
+            "mode": "hit"
+          }
+        }
+      ],
+      "return": [
+        {
+          "id": "G03",
+          "morph": {
+            "meshes": 38,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0.008,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        },
+        {
+          "id": "T04",
+          "morph": {
+            "meshes": 38,
+            "targets": [
+              "show",
+              "attack",
+              "hit"
+            ],
+            "live": [
+              0.008,
+              0,
+              0
+            ],
+            "mode": "idle"
+          }
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

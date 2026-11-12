@@ -1,0 +1,139 @@
+{
+  "producer": "Blender Studio original CC-BY artist rigs; transformed with qa/r85-export-native-morphs.py",
+  "note": "The source rigs were downloaded for use in local R85 reproduction. Raw blend files are kept out of web game and GitHub. Creator attribution and art role matching remain mandatory.",
+  "entries": [
+    {
+      "card_id": "E03",
+      "artist_role": "phil",
+      "source_url": "https://studio.blender.org/characters/phil/v1/",
+      "source_license": "CC BY 4.0 (Blender Studio)",
+      "raw_blender_sha256": "b9671b4add7a7e52000c5dba3ddfa322fb0c0c85abf70ea3ad5fcf6499947e59",
+      "raw_blender_bytes": 15081086,
+      "source_stored_outside_game_bundle": true,
+      "web_glb_path": "assets/summons/E03-CheerCaptain-Phil-R85-Acting.glb",
+      "web_glb_sha256": "d0e232adbbd27990b6db5ba14da6f63a78203ee7302aafa0a3d8dd119b8cd0e1",
+      "web_glb_bytes": 2497348,
+      "native_rig_poses_baked": [
+        "idle",
+        "show",
+        "attack",
+        "hit"
+      ],
+      "card_identity_look_final_approved": false
+    },
+    {
+      "card_id": "E04",
+      "artist_role": "gabby",
+      "source_url": "https://studio.blender.org/characters/gabby/v3/",
+      "source_license": "CC BY 4.0 (Blender Studio)",
+      "raw_blender_sha256": "80e0c2e8a7d97746bfa192104f07d36caecd32ff4bfc423f2a7ddbefacc065c4",
+      "raw_blender_bytes": 15542730,
+      "source_stored_outside_game_bundle": true,
+      "web_glb_path": "assets/summons/E04-CanteenRelay-Gabby-R85-Acting.glb",
+      "web_glb_sha256": "8638ab62d2ed98fcb13b0da7878b4af6caf3c19494a89e3bfa43467e53de4560",
+      "web_glb_bytes": 1367072,
+      "native_rig_poses_baked": [
+        "idle",
+        "show",
+        "attack",
+        "hit"
+      ],
+      "card_identity_look_final_approved": false
+    },
+    {
+      "card_id": "G02",
+      "artist_role": "lunte",
+      "source_url": "https://studio.blender.org/characters/lunte/v4/",
+      "source_license": "CC BY 4.0 (Blender Studio)",
+      "raw_blender_sha256": "8c95c3a929dbceae20a0028d6e0066a3c855fe74ccb62829ff84072150f51360",
+      "raw_blender_bytes": 13812814,
+      "source_stored_outside_game_bundle": true,
+      "web_glb_path": "assets/summons/G02-BlackboardExpert-Lunte-R85-Acting.glb",
+      "web_glb_sha256": "307991090e54d117e21024bbeee687613146e81d3841f3d8692f4cc7afd7da44",
+      "web_glb_bytes": 1117032,
+      "native_rig_poses_baked": [
+        "idle",
+        "show",
+        "attack",
+        "hit"
+      ],
+      "card_identity_look_final_approved": false
+    },
+    {
+      "card_id": "G03",
+      "artist_role": "jay",
+      "source_url": "https://studio.blender.org/characters/jay/v1/",
+      "source_license": "CC BY 4.0 (Blender Studio)",
+      "raw_blender_sha256": "18383a3d25d68c6a91208e4240f2e4dfe67592739078f18b21cf257be91a8458",
+      "raw_blender_bytes": 14231930,
+      "source_stored_outside_game_bundle": true,
+      "web_glb_path": "assets/summons/G03-Jay-BlenderStudio-R85-Acting.glb",
+      "web_glb_sha256": "80081bf0e2f6370897aa72f6002e610d01216c9a836ba5042fd10c8045c28279",
+      "web_glb_bytes": 4446744,
+      "native_rig_poses_baked": [
+        "idle",
+        "show",
+        "attack",
+        "hit"
+      ],
+      "card_identity_look_final_approved": false
+    },
+    {
+      "card_id": "G04",
+      "artist_role": "victoria",
+      "source_url": "https://studio.blender.org/characters/victoria/v1/",
+      "source_license": "CC BY 4.0 (Blender Studio)",
+      "raw_blender_sha256": "852dc7bea686db2d59302679609bd0c438ef88936f3684dd193a74b3b292cd6b",
+      "raw_blender_bytes": 11090748,
+      "source_stored_outside_game_bundle": true,
+      "web_glb_path": "assets/summons/G04-ClubDirector-Victoria-R85-Acting.glb",
+      "web_glb_sha256": "3e33638f814c275af7707d9016b3d851c50957d5e66a494ce7d073997ce4c0c2",
+      "web_glb_bytes": 4833632,
+      "native_rig_poses_baked": [
+        "idle",
+        "show",
+        "attack",
+        "hit"
+      ],
+      "card_identity_look_final_approved": false
+    },
+    {
+      "card_id": "T03",
+      "artist_role": "ellie",
+      "source_url": "https://studio.blender.org/characters/ellie/v1/",
+      "source_license": "CC BY 4.0 (Blender Studio)",
+      "raw_blender_sha256": "3dd235218725a9e68890073bbeacb4820f9b34db65d44f80c31bb88696a3c54c",
+      "raw_blender_bytes": 21851981,
+      "source_stored_outside_game_bundle": true,
+      "web_glb_path": "assets/summons/T03-MailPair-Ellie-R85-Acting.glb",
+      "web_glb_sha256": "78ed398d248722107c35cf15111ac6a188c8e377c45a5a4b8e615eb2d6e2dbad",
+      "web_glb_bytes": 6386076,
+      "native_rig_poses_baked": [
+        "idle",
+        "show",
+        "attack",
+        "hit"
+      ],
+      "card_identity_look_final_approved": false
+    },
+    {
+      "card_id": "T04",
+      "artist_role": "rex",
+      "source_url": "https://studio.blender.org/characters/rex/v1/",
+      "source_license": "CC BY 4.0 (Blender Studio)",
+      "raw_blender_sha256": "7e0a774da5f309cde4eb9ba313890b554b9fd8d284d2b668a28f72b1380e5335",
+      "raw_blender_bytes": 88742805,
+      "source_stored_outside_game_bundle": true,
+      "web_glb_path": "assets/summons/T04-Rex-BlenderStudio-R85-Acting.glb",
+      "web_glb_sha256": "fc6a722e863b06b7e7ab24ca64f62aabd84f549d3337ef4a75c8dcf05f166343",
+      "web_glb_bytes": 6166592,
+      "native_rig_poses_baked": [
+        "idle",
+        "show",
+        "attack",
+        "hit"
+      ],
+      "card_identity_look_final_approved": false
+    }
+  ]
+}

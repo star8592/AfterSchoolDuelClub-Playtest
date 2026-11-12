@@ -5,6 +5,11 @@ Source data, licenses and checksums preserved; no render dependency on art lab.
 """
 from pathlib import Path
 import json, hashlib, shutil
+# Legacy R61 model copier is archive-only. It must never overwrite R85 animated
+# character binaries or the live model manifest by being run accidentally.
+import os
+if os.environ.get('ASDC_ALLOW_LEGACY_R61_RESTORE') != 'ARCHIVED_ONLY':
+ raise SystemExit('R85: R61 low-poly copier disabled; use qa/audit-r85-live-cast.py for live assets')
 ROOT=Path(__file__).resolve().parents[2]
 OUT=Path(__file__).resolve().parent
 AUD=ROOT/'art-lab/r55-audition'

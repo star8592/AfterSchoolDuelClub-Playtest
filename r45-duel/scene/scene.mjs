@@ -17,6 +17,8 @@ import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
 import {preloadSummonModels} from './summon-models.mjs';
 import {extractVrm0Expressions} from './vrm-character-acting.mjs';
+import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
+import {createVrmCharacterActing} from './vrm-character-acting.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
 const MODEL_SPECS=[
@@ -385,33 +387,109 @@ function makeDuelistHosts(){
   m.forEach((bone,key)=>base.set(key,bone.quaternion.clone()));
   if(skins<actor.skins||bones<actor.boneCount)
    throw Error('R74 permanent duelist clone lost source VRM skin/bones '+actor.id);
-  return{id:actor.id,pivot,bones:m,base,side:i===0?'player':'ai',baseX:pivot.position.x,
+  const pose=createVrmTwoBonePose(THREE,pivot,actor.id);
+  if(!pose)throw Error('R85 two-bone IK control missing for duelist '+actor.id);
+  const face=createVrmCharacterActing(THREE,pivot,{id:actor.id,
+   expressions:actor.faceExpressions,sourceRest:actor.base});
+  return{id:actor.id,pivot,bones:m,base,pose,face,
+   choreography:{phase:'idle',draw:0,display:0,cast:0,recoil:0},
+   side:i===0?'player':'ai',baseX:pivot.position.x,
    sourceRig:actor.source,sourceBones:bones,skinnedMeshes:skins};
  });
 }
+// R85: A full-body, believable baseline for permanent podium duelists.
+// We solve BOTH real shoulder-elbow-wrist chains every frame, including when
+// no cards are played; old R74 only rolled shoulders, leaving open A/T arms.
+const DUELIST_POSE_SPEC=Object.freeze({
+ E01:{hold:{R:[.035,-.12,-.16],L:[-.14,-.27,-.06]},
+  draw:{R:[.06,-.23,-.04],L:[-.11,-.16,-.12]},
+  show:{R:[.13,.16,-.26],L:[-.17,-.12,-.17]},
+  cast:{R:[.27,.13,-.31],L:[-.13,-.11,-.20]},
+  guard:{R:[.07,.14,-.19],L:[-.14,.10,-.21]}},
+ G01:{hold:{R:[.045,.12,-.18],L:[-.17,-.26,-.07]},
+  draw:{R:[.05,-.23,-.05],L:[-.15,-.13,-.11]},
+  show:{R:[.15,.19,-.25],L:[-.15,-.11,-.19]},
+  cast:{R:[.30,.13,-.27],L:[-.12,-.10,-.22]},
+  guard:{R:[.10,.17,-.17],L:[-.16,.12,-.19]}}
+});
 function updateDuelistHosts(seconds){
+ const targetVector=new THREE.Vector3(),targetOut={R:[0,0,0],L:[0,0,0]};
  for(const host of duelistHosts){
   const side=host.side,gesture=hostAction[side],strike=hostDamage[side];
-  const breath=Math.sin(seconds*1.36+(side==='player'?0:1.4))*.025;
   const age=seconds-gesture.started,hitAge=seconds-strike.started;
-  // Actor deliberately turns toward the other duelist and physically raises
-  // a hand to present the card, casts it forward, then recovers.
-  const finish=side==='player'?2.60:2.20;
-  const g=smoothPulse(age,.06,.25,finish-.46,finish)*(1-.65*smoothPulse(hitAge,.02,.10,.26,.60));
-  const h=smoothPulse(hitAge,.02,.11,.27,.71);
+  const breath=Math.sin(seconds*1.18+(side==='player'?0:1.6));
+  const glance=Math.sin(seconds*.52+(side==='player'?.4:2.1));
   const sign=side==='player'?1:-1;
-  host.pivot.position.x=host.baseX+sign*.065*g-sign*.16*h;
-  host.pivot.rotation.z=-sign*.06*g+sign*.14*h;
-  setBone(host,'R_UpperArm',-.09+breath*.12-g*.76,0,-.92+g*.79);
-  setBone(host,'L_UpperArm',-.08-breath*.12-g*.30,0,.92-g*.47);
-  setBone(host,'R_LowerArm',-.17-g*.55,0,-.06+g*.28);
-  setBone(host,'L_LowerArm',-.17-g*.28,0,.06-g*.22);
-  setBone(host,'C_Chest',breath*.12-g*.18+h*.19,0,-sign*.08*g+sign*.14*h);
-  setBone(host,'C_Spine',-g*.06+h*.07,0,sign*.09*h);
-  setBone(host,'C_Head',breath*.18-g*.10+h*.13,0,sign*.07*h);
-  setBone(host,'R_UpperLeg',-.05*g,0,0);
-  setBone(host,'L_UpperLeg',.05*g,0,0);
+  const draw=smoothPulse(age,.025,.21,.38,.74);
+  const display=smoothPulse(age,.22,.51,1.15,1.60);
+  const cast=smoothPulse(age,1.23,1.49,2.02,2.43);
+  const recoil=smoothPulse(hitAge,.015,.12,.24,.74);
+  // Periodic conversational, non-synchronized idle: glance at card hand,
+  // shift weight, look up; no continuous waving or military marching.
+  const beatSec=seconds+(side==='player'?1.5:4.9),beat=beatSec%9.7;
+  const inspectCard=smoothPulse(beat,2.1,2.56,3.08,3.48)*
+   (1-Math.max(draw,display,cast,recoil));
+  const ambient=.014*breath;
+  const actionStrength=Math.max(draw,display,cast,recoil);
+  host.pivot.position.x=host.baseX+sign*.08*cast-sign*.13*recoil+
+    .018*glance*(1-actionStrength);
+  host.pivot.position.y=.48+.012*breath;
+  host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.11*display+.16*cast);
+  host.pivot.rotation.z=-sign*.045*cast+sign*.115*recoil+.011*glance;
+  // Facial blink and the source VRM blendshapes remain animated independently.
+  host.face.update(seconds,{seed:side==='player'?.35:2.7,
+   suppressEntrance:true,suppressGesture:true});
+  setBone(host,'C_Spine',.014*breath-.07*cast+.09*recoil,0,
+   sign*(.015*glance-.055*cast+.12*recoil));
+  setBone(host,'C_Chest',.015*breath-.11*display-.17*cast+.16*recoil,
+   sign*.055*display,sign*(-.065*cast+.10*recoil));
+  setBone(host,'C_Head',-.030*inspectCard-.055*display-.10*cast+.125*recoil,
+   sign*(.065*glance+.075*display),sign*.02*glance);
+  setBone(host,'L_UpperLeg',.026*glance-.046*cast+.05*recoil,0,0);
+  setBone(host,'R_UpperLeg',-.026*glance+.046*cast-.05*recoil,0,0);
+  setBone(host,'L_LowerLeg',.014*cast,0,0);
+  setBone(host,'R_LowerLeg',-.012*cast,0,0);
+  // We restore BOTH source arm segments before IK, avoiding accumulating
+  // twist from frame to frame or mixing cinematic and game idle rigs.
+  for(const name of ['R_UpperArm','R_LowerArm','L_UpperArm','L_LowerArm']){
+   const key='J_Bip_'+name,bone=host.bones.get(key),base=host.base.get(key);
+   if(bone&&base)bone.quaternion.copy(base);
+  }
+  const specs=DUELIST_POSE_SPEC[host.id];
+  for(const hand of ['R','L']){
+   targetVector.set(...specs.hold[hand]);
+   const idleShift=hand==='R'?.011*breath:-.009*breath;
+   targetVector.y+=idleShift;
+   if(hand==='R')targetVector.y+=.08*inspectCard;
+   for(const [phase,amount] of [[specs.draw,draw],[specs.show,display],
+      [specs.cast,cast],[specs.guard,recoil]]){
+    targetVector.lerp(new THREE.Vector3(...phase[hand]),Math.min(1,amount));
+   }
+   targetOut[hand]=targetVector.toArray();
+  }
+  host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
+  host.choreography={phase:recoil>.1?'hit':cast>.1?'cast':
+    display>.1?'show':draw>.1?'draw':inspectCard>.12?'inspect':'idle',
+    draw:+draw.toFixed(3),display:+display.toFixed(3),
+    cast:+cast.toFixed(3),recoil:+recoil.toFixed(3),
+    inspected:+inspectCard.toFixed(3)};
  }
+}
+function inspectDuelistPosture(host){
+ const measure=side=>{
+  const base='J_Bip_'+side+'_';
+  const upper=host.bones.get(base+'UpperArm'),elbow=host.bones.get(base+'LowerArm'),
+   hand=host.bones.get(base+'Hand');
+  if(!upper||!elbow||!hand)return null;
+  const a=upper.getWorldPosition(new THREE.Vector3()),b=elbow.getWorldPosition(new THREE.Vector3()),
+   w=hand.getWorldPosition(new THREE.Vector3()),upperDir=b.clone().sub(a).normalize();
+  return {drop:+upperDir.y.toFixed(3),spread:+Math.abs(upperDir.x).toFixed(3),
+   worldHand:w.toArray().map(v=>+v.toFixed(3)),
+   wristToShoulder:+w.distanceTo(a).toFixed(3)};
+ };
+ return {phase:host.choreography.phase,...host.choreography,
+  arms:{R:measure('R'),L:measure('L')},
+  ik:host.pose.inspect().arms,face:host.face.inspect().mode};
 }
 
 function play(payload){
@@ -595,7 +673,8 @@ function exposeQA(){
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
   get duelistHosts(){return duelistHosts.map(a=>({id:a.id,visible:a.pivot.visible,
    x:Number(a.pivot.position.x.toFixed(3)),y:Number(a.pivot.position.y.toFixed(3)),
-   z:Number(a.pivot.position.z.toFixed(3)),bones:a.sourceBones,skins:a.skinnedMeshes}))},
+   z:Number(a.pivot.position.z.toFixed(3)),bones:a.sourceBones,skins:a.skinnedMeshes,
+   posture:inspectDuelistPosture(a)}))},
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
    bones:a.boneCount,skinnedMeshes:a.skins,triangles:a.triangles,
    recoloredMeshes:a.style.recolored,accessories:a.style.accessories}))},

@@ -10,17 +10,17 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
  E02:{file:'E02-PaperPlane-R57.glb',label:'拐弯纸飞机',targetHeight:.42,maxWidth:1.75,maxDepth:1.75,hover:.48,kind:'object'},
- E03:{file:'E03-CheerCaptain-Schoolkid.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- E04:{file:'E04-CanteenRelay-FoodCourier.glb',label:'食堂接力员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- G02:{file:'G02-BlackboardExpert-ItEngineer.glb',label:'黑板密码专家',targetHeight:2.48,maxWidth:3.55,kind:'character'},
- G03:{file:'G03-Jay-BlenderStudio-R80.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- G04:{file:'G04-ClubDirector-OfficeManager.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ E03:{file:'E03-CheerCaptain-Phil-R85-Acting.glb',label:'加油队长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ E04:{file:'E04-CanteenRelay-Gabby-R85-Acting.glb',label:'食堂接力员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ G02:{file:'G02-BlackboardExpert-Lunte-R85-Acting.glb',label:'黑板密码专家',targetHeight:2.08,maxWidth:3.55,kind:'character'},
+ G03:{file:'G03-Jay-BlenderStudio-R85-Acting.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ G04:{file:'G04-ClubDirector-Victoria-R85-Acting.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  M01:{file:'M01-MusicTeacher-PolyforkSchoolTeacher.glb',label:'音乐老师',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  M02:{file:'M02-CafeteriaAunt-CartoonR76.glb',label:'食堂阿姨',targetHeight:2.07,maxWidth:2.35,kind:'character'},
  T01:{file:'T01-BroadcastOwl-PolyforkRadio-R73.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
- T03:{file:'T03-MailPair-DeliveryRider.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- T04:{file:'T04-Rex-BlenderStudio-R80.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
+ T03:{file:'T03-MailPair-Ellie-R85-Acting.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
+ T04:{file:'T04-Rex-BlenderStudio-R85-Acting.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
 const smooth=x=>{const v=Math.max(0,Math.min(1,x));return v*v*(3-2*v)};
@@ -54,7 +54,12 @@ export async function preloadSummonModels(THREE,loader){
   const gltf=await loader.loadAsync(url.href);
   const source=gltf.scene;
   source.updateMatrixWorld(true);
-  const bounds=new THREE.Box3().setFromObject(source);
+  // GLTF morph targets expand geometry.boundingBox beyond current actual
+  // vertices. Conservative Box3 produced floating feet / wrong scale even
+  // when all morph influence values were zero. Use precise source geometry
+  // for R85 native artist morphs, preserving older rigs' fitting policy.
+  const isArtistMorph=/-R85-Acting\.glb$/.test(spec.file);
+  const bounds=new THREE.Box3().setFromObject(source,isArtistMorph);
   const size=bounds.getSize(new THREE.Vector3()),center=bounds.getCenter(new THREE.Vector3());
   if(bounds.isEmpty()||!Number.isFinite(size.y)||size.y<.02)throw Error('Invalid actual GLB bounds for '+id);
   let meshes=0;
@@ -85,7 +90,20 @@ export function instantiateSummon(THREE,template){
  // R80: user-approved film-quality geometry is ahead of legacy Gobkit looks.
  // Exported film shader meshes have zero GLB bone clips: do NOT claim native animation.
  // Small, reversible root motions keep turn-combat responsive until retargeted rigs land.
- const filmStatic=(template.id==='G03'||template.id==='T04')&&!template.clips.length;
+ const expectsArtistMorph=/-R85-Acting\.glb$/.test(template.spec.file);
+ const filmStatic=expectsArtistMorph&&!template.clips.length;
+ // R85: movement is genuinely derived from the original Blender Studio
+ // shoulder/wrist rig, baked to THREE morph targets on the artist mesh.
+ // No torso-shaped proxy geometry or generic fake shoulder rotation.
+ const morphMeshes=[];
+ if(filmStatic){
+  instance.traverse(o=>{
+   if(!o.isMesh||!o.morphTargetDictionary||!o.morphTargetInfluences)return;
+   if(['show','attack','hit'].every(n=>Number.isInteger(o.morphTargetDictionary[n])))
+    morphMeshes.push(o);
+  });
+  if(morphMeshes.length<8)throw Error('R85 artist-animated morph targets missing '+template.id);
+ }
  let staticPhase=0,staticAge=0,staticState='idle';
  const staticDurations={attack:.72,hit:.54,walk:.66,death:.95,gesture:.78};
  const pose=filmStatic?null:template.id==='M01'?createMusicTeacherSummonPose(THREE,instance):
@@ -120,7 +138,7 @@ export function instantiateSummon(THREE,template){
    const step=Math.max(0,Math.min(dt,.09));
    staticPhase+=step;staticAge+=step;
    if(staticState!=='idle'&&staticAge>=(staticDurations[staticState]||.8)){
-    staticState='idle';staticAge=0;current='R80_static_idle';
+    staticState='idle';staticAge=0;current='R85_artist_idle';
    }
    const cycle=staticState==='idle'?.012*Math.sin(staticPhase*1.5):0;
    const t=staticAge/Math.max(.01,staticDurations[staticState]||1);
@@ -128,6 +146,24 @@ export function instantiateSummon(THREE,template){
    scaled.rotation.x=cycle+(staticState==='attack'?-.10*pulse:staticState==='hit'?.065*pulse:0);
    scaled.rotation.z=.006*Math.sin(staticPhase*.86)+(staticState==='attack'?.075*pulse:staticState==='hit'?-.08*pulse:0);
    scaled.position.y=staticState==='walk'?.055*Math.abs(Math.sin(staticAge*12)):0;
+   // Native artist action-posed vertices form a smoothly interpolated
+   // character animation: show/card gesture, attack swing and hit guard.
+   // Transition in and out rather than locking at an endpoint.
+   const enter=Math.min(1,Math.max(0,staticAge/.14));
+   const release=Math.min(1,Math.max(0,(staticDurations[staticState]-staticAge)/.23));
+   const weight=staticState==='idle'?0:Math.min(enter,release);
+   const ambient=staticState==='idle'?Math.max(0,Math.sin(staticPhase*.9))*.055:0;
+   const animationWeight={
+    show:staticState==='gesture'?weight:ambient,
+    attack:staticState==='attack'?weight:0,
+    hit:staticState==='hit'?weight:0
+   };
+   for(const mesh of morphMeshes){
+    for(const name of ['show','attack','hit']){
+     const index=mesh.morphTargetDictionary[name];
+     mesh.morphTargetInfluences[index]=animationWeight[name];
+    }
+   }
    return;
   }
   if(!mixer)return;
@@ -200,7 +236,7 @@ export function instantiateSummon(THREE,template){
   if((kind==='attack'||kind==='hit')&&template.id==='M01')pose?.pulseCombat?.();
   if(filmStatic){
    staticState=['idle','attack','hit','walk','death','gesture'].includes(kind)?kind:'idle';
-   staticAge=0;current='R80_static_'+staticState;
+   staticAge=0;current='R85_artist_morph_'+staticState;
    return true;
   }
   if(!mixer)return false;
@@ -261,6 +297,8 @@ export function instantiateSummon(THREE,template){
   get currentClip(){return current},get clipRunning(){return activeAction?.isRunning()||false},
   get transitions(){return transitions},
   revive(){
+   for(const mesh of morphMeshes)for(const name of ['show','attack','hit'])
+    mesh.morphTargetInfluences[mesh.morphTargetDictionary[name]]=0;
    mixer?.stopAllAction();
    fading.clear();current=null;activeAction=null;
    pose?.reset();gestureClock=nativeBeat?.offset||0;gestureTime=0;settleTime=0;gestureCount=0;
@@ -270,6 +308,11 @@ export function instantiateSummon(THREE,template){
   },
   get fadingClips(){return fading.size},
   get posture(){return pose?.inspect()||null},
+  get nativeMorphs(){return {meshes:morphMeshes.length,
+    targets:morphMeshes.length?['show','attack','hit']:[],
+    live:morphMeshes.length?['show','attack','hit'].map(n=>
+      Number((morphMeshes[0].morphTargetInfluences[morphMeshes[0].morphTargetDictionary[n]]||0).toFixed(3))):[],
+    mode:filmStatic?staticState:null};},
   get acting(){return {name:characterBeat?.name||null,native:!!nativeBeat,
    gestureCount,gestureActive:gestureTime>0,gestureClock:Number(gestureClock.toFixed(2))}},
   artApproved:false,kind:'real-gltf-prototype'};

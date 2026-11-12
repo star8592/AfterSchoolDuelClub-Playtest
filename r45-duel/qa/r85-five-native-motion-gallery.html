@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-Hans"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R85 · 五名动画电影风角色实际动态候选</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>*{box-sizing:border-box}html,body{margin:0;background:#10192b;color:#fff3e4;font:14px system-ui;overflow:hidden}canvas{display:block;width:100vw;height:100vh}
+header{position:absolute;top:12px;left:18px;right:18px;z-index:2;pointer-events:none}
+h1{font-size:20px;margin:0}p{margin:5px 0;color:#afc6d6;font-size:12px}
+#message{color:#ffd5a5;margin:8px 0;font-size:11px}
+#controls{position:absolute;top:105px;left:18px;right:18px;z-index:5;display:flex;gap:8px;flex-wrap:wrap}
+button{border:1px solid #9eabbf65;border-radius:7px;background:#223a58e6;color:white;padding:9px 14px;cursor:pointer;font-weight:bold}
+button:hover{background:#40658e}
+#labels{position:absolute;bottom:16px;left:1%;right:1%;display:flex;gap:8px;justify-content:space-around;pointer-events:none}
+label{width:19%;background:#111d32db;text-align:center;border:1px solid #9bafbe66;border-radius:8px;padding:10px;font-weight:700;font-size:13px}
+small{display:block;font-size:11px;color:#b4c4d2;font-weight:400}
+@media(max-width:700px){header{top:6px;left:8px}h1{font-size:14px}p,#message{font-size:9px}#controls{top:76px;left:8px;gap:4px}button{padding:6px 8px;font-size:10px}label{font-size:10px;padding:5px 2px}small{font-size:8px}}
+</style></head><body>
+<header><h1>R85 · 电影风人物真实网格 + 原作者骨骼动作</h1>
+<p>独立高精度角色动态试装，不是五张卡美术最终签收；原始艺术家网格经本地 Blender IK 烘焙，鼠标拖动转向检查。</p>
+<div id="message">加载真正的 WebGL 3D 模型……</div></header>
+<div id="controls"><button data-action="idle">自然站姿</button><button data-action="show">举牌亮相</button><button data-action="attack">攻击施法</button><button data-action="hit">受击防御</button></div>
+<canvas id="stage"></canvas>
+<div id="labels"><label>Phil<small>加油队长候选</small></label><label>Gabby<small>食堂接力员候选</small></label><label>Lunte<small>黑板专家候选</small></label><label>Victoria<small>社团总监候选</small></label><label>Ellie<small>默契收发员候选</small></label></div>
+<script type="module">
+import * as THREE from 'three';
+import{GLTFLoader}from'three/addons/loaders/GLTFLoader.js';
+const names=['phil','gabby','lunte','victoria','ellie'];
+const actualFiles={
+ phil:'E03-CheerCaptain-Phil-R85-Acting.glb',
+ gabby:'E04-CanteenRelay-Gabby-R85-Acting.glb',
+ lunte:'G02-BlackboardExpert-Lunte-R85-Acting.glb',
+ victoria:'G04-ClubDirector-Victoria-R85-Acting.glb',
+ ellie:'T03-MailPair-Ellie-R85-Acting.glb'
+};
+const canvas=document.querySelector('#stage');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.28;
+const scene=new THREE.Scene();scene.background=new THREE.Color('#142439');
+const camera=new THREE.PerspectiveCamera(39,1,.1,75);camera.position.set(0,3.7,21);camera.lookAt(0,1.4,0);
+scene.add(new THREE.HemisphereLight('#dae9ff','#4b555a',2.1));
+const light=new THREE.DirectionalLight('#fff1d4',2.8);light.position.set(-4,8,7);scene.add(light);
+const back=new THREE.DirectionalLight('#7dbbff',1.7);back.position.set(7,6,-5);scene.add(back);
+const loader=new GLTFLoader(),exhibit=[],report=[];
+const xPos=[-5.5,-2.75,0,2.75,5.5];
+for(let i=0;i<names.length;i++){
+ const name=names[i];
+ try{
+  const gltf=await loader.loadAsync('../assets/summons/'+actualFiles[name]);
+  const group=new THREE.Group();scene.add(group);group.position.set(xPos[i],.13,0);
+  const base=new THREE.Mesh(new THREE.CylinderGeometry(1.28,1.35,.15,48),
+    new THREE.MeshStandardMaterial({color:'#365574',roughness:.52,metalness:.15}));
+  base.position.y=-.1;group.add(base);
+  const root=gltf.scene,bounds=new THREE.Box3().setFromObject(root);
+  const dim=bounds.getSize(new THREE.Vector3()),center=bounds.getCenter(new THREE.Vector3());
+  if(bounds.isEmpty()||dim.y<.01)throw Error('empty source');
+  root.position.set(-center.x,-bounds.min.y,-center.z);
+  const holder=new THREE.Group();holder.scale.setScalar(2.65/dim.y);holder.add(root);group.add(holder);
+  let tris=0,meshes=0;const morph=[];
+  root.traverse(obj=>{
+   if(!obj.isMesh)return;
+   meshes++;const geo=obj.geometry;tris+=Math.floor((geo.index?.count||geo.attributes.position.count)/3);
+   if(['show','attack','hit'].every(k=>Number.isInteger(obj.morphTargetDictionary?.[k])))morph.push(obj);
+  });
+  exhibit.push({name,group,root,morph});
+  report.push({name,meshes,triangles:tris,morphMeshes:morph.length,loadOk:true});
+ }catch(e){report.push({name,loadOk:false,error:String(e)})}
+}
+let action='idle',angle=0,frames=0,drag=null;
+function apply(actionName,amount=1){
+ action=actionName;
+ for(const item of exhibit){
+  for(const o of item.morph)for(const state of ['show','attack','hit'])
+   o.morphTargetInfluences[o.morphTargetDictionary[state]]=state===actionName?amount:0;
+ }
+}
+document.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>apply(btn.dataset.action)));
+canvas.addEventListener('pointerdown',e=>{drag=e.clientX;canvas.setPointerCapture(e.pointerId)});
+canvas.addEventListener('pointermove',e=>{if(drag===null)return;angle+=(e.clientX-drag)*.006;drag=e.clientX});
+canvas.addEventListener('pointerup',()=>drag=null);
+function resize(){const w=innerWidth,h=innerHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.fov=w<700?55:39;camera.position.z=w<700?29:21;camera.updateProjectionMatrix()}addEventListener('resize',resize);resize();
+function tick(){requestAnimationFrame(tick);frames++;for(const e of exhibit)e.group.rotation.y=angle;renderer.render(scene,camera)}tick();
+window.__R85_FILM_QA={ready:report.length===5&&report.every(x=>x.loadOk&&x.morphMeshes>=5),
+ report,get frames(){return frames},get action(){return action},
+ apply};
+document.querySelector('#message').textContent=window.__R85_FILM_QA.ready?'五个真实模型和四种骨骼烘焙姿势已加载 · 点击上方切换动作':report.map(x=>x.error||'').join(';');
+</script></body></html>

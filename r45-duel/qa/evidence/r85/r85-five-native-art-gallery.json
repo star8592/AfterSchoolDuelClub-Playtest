@@ -1,0 +1,45 @@
+{
+  "ok": true,
+  "errors": [],
+  "state": {
+    "list": [
+      {
+        "name": "phil",
+        "meshes": 29,
+        "triangles": 45698,
+        "morphMeshes": 29,
+        "loadOk": true
+      },
+      {
+        "name": "gabby",
+        "meshes": 17,
+        "triangles": 32613,
+        "morphMeshes": 17,
+        "loadOk": true
+      },
+      {
+        "name": "lunte",
+        "meshes": 16,
+        "triangles": 35566,
+        "morphMeshes": 16,
+        "loadOk": true
+      },
+      {
+        "name": "victoria",
+        "meshes": 34,
+        "triangles": 58422,
+        "morphMeshes": 34,
+        "loadOk": true
+      },
+      {
+        "name": "ellie",
+        "meshes": 64,
+        "triangles": 88331,
+        "morphMeshes": 64,
+        "loadOk": true
+      }
+    ],
+    "action": "attack",
+    "frames": 297
+  }
+}

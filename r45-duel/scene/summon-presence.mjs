@@ -74,8 +74,11 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
 
  function place(side,index){
   const sign=side==='player'?-1:1;
-  const zPositions=[0,-1.40,1.40,-.82,.82];
-  const xPositions=[1.75,2.13,2.13,3.07,3.07];
+  // R85: actually spread distinct actors across the available 3D court.
+  // Old 1.75/2.13/2.13 X coordinates stacked a whole 3-unit team almost
+  // on top of each other in the sideline spectator view.
+  const zPositions=[-.55,-.20,.45,1.60,1.76];
+  const xPositions=[1.05,2.65,4.00,2.00,3.52];
   return{x:sign*xPositions[index],y:0,z:zPositions[index]};
  }
 
@@ -245,6 +248,10 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
       root.add(object);
      }
      state={key,id,uid,side,index,kind,object,created:performance.now(),status:makeStatusTag(side,id)};
+     // A new high-fidelity summon actually presents its hands on entry,
+     // then recovers to normal breathing idle. No fake standee appears.
+     if(kind==='gltf-instance'&&/-R85-Acting\.glb$/.test(prototypes.get(id)?.spec?.file||''))
+      object.userData.r61?.play?.('gesture');
      if(VRM_IDS.has(id)){
       const source=actors.find(a=>a.id===id);
       state.vrmPersonality=object.userData.r67Controller||createVrmCharacterActing(THREE,object,{
@@ -538,7 +545,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
      crossfades:s.object.userData.r61?.transitions||0,
      fadingClips:s.object.userData.r61?.fadingClips||0,
      posture:s.object.userData.r61?.posture||null,
-     acting:s.object.userData.r61?.acting||null
+     acting:s.object.userData.r61?.acting||null,
+     artistMorph:s.object.userData.r61?.nativeMorphs||null
     }:null,
     vrmPosture:s.kind==='vrm-instance'||s.kind==='original-vrm'?measureVrmArms(s.object):null,
     vrmActing:s.vrmPersonality?.inspect()||null,

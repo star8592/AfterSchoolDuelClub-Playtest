@@ -76,6 +76,19 @@ export function createVrmTwoBonePose(THREE,model,id){
    reach:Number(wantDistance.toFixed(3)),segmentLength:Number((a+b).toFixed(3)),
    hand:[newWrist.x,newWrist.y,newWrist.z].map(x=>Number(x.toFixed(3)))};
  }
+ function applyTargets(targets,customPoles=null){
+  root.updateWorldMatrix(true,true);
+  root.getWorldQuaternion(rootQ);
+  chest.getWorldPosition(chestP);
+  for(const side of ['R','L']){
+   const values=targets?.[side]||profile.idle[side];
+   if(values.length!==3||values.some(v=>!Number.isFinite(v)))
+    throw Error('invalid native VRM hand target '+id+':'+side);
+   targetPoint.set(...values).applyQuaternion(rootQ).add(chestP);
+   pole.set(...(customPoles?.[side]||profile.pole[side])).applyQuaternion(rootQ);
+   solveSingle(side,targetPoint,pole);
+  }
+ }
  function apply(kind='idle',blend=1){
   const target=profile[kind]||profile.idle;
   root.getWorldQuaternion(rootQ);
@@ -88,6 +101,6 @@ export function createVrmTwoBonePose(THREE,model,id){
    solveSingle(side,targetPoint,pole);
   }
  }
- return{apply,inspect:()=>({name:profile.name,
+ return{apply,applyTargets,inspect:()=>({name:profile.name,
    arms:{R:{...report.R},L:{...report.L}}})};
 }

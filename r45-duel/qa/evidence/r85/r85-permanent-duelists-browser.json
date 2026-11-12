@@ -1,0 +1,264 @@
+{
+  "passes": [
+    {
+      "name": "desktop",
+      "pass": true,
+      "drops": [
+        -0.908,
+        -0.962,
+        -0.895,
+        -0.903
+      ],
+      "move": [
+        0.3139378919467991,
+        0.022158519806159814
+      ],
+      "phases": [
+        [
+          "idle",
+          "idle"
+        ],
+        [
+          "show",
+          "idle"
+        ],
+        [
+          "idle",
+          "idle"
+        ]
+      ],
+      "joints": [
+        {
+          "id": "E01",
+          "arm": {
+            "R": {
+              "drop": -0.908,
+              "spread": 0.259,
+              "worldHand": [
+                -5.307,
+                1.658,
+                0.629
+              ],
+              "wristToShoulder": 0.419
+            },
+            "L": {
+              "drop": -0.962,
+              "spread": 0.125,
+              "worldHand": [
+                -5.412,
+                1.524,
+                0.451
+              ],
+              "wristToShoulder": 0.497
+            }
+          },
+          "ik": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.067,
+              "reach": 0.419,
+              "segmentLength": 0.511,
+              "hand": [
+                -5.307,
+                1.658,
+                0.629
+              ]
+            },
+            "L": {
+              "error": 0.0174,
+              "elbowOut": 0.032,
+              "reach": 0.514,
+              "segmentLength": 0.511,
+              "hand": [
+                -5.412,
+                1.524,
+                0.451
+              ]
+            }
+          }
+        },
+        {
+          "id": "G01",
+          "arm": {
+            "R": {
+              "drop": -0.895,
+              "spread": 0.311,
+              "worldHand": [
+                5.356,
+                2.131,
+                0.569
+              ],
+              "wristToShoulder": 0.232
+            },
+            "L": {
+              "drop": -0.903,
+              "spread": 0.042,
+              "worldHand": [
+                5.466,
+                1.729,
+                0.781
+              ],
+              "wristToShoulder": 0.473
+            }
+          },
+          "ik": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.075,
+              "reach": 0.232,
+              "segmentLength": 0.517,
+              "hand": [
+                5.356,
+                2.131,
+                0.569
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.01,
+              "reach": 0.473,
+              "segmentLength": 0.517,
+              "hand": [
+                5.466,
+                1.729,
+                0.781
+              ]
+            }
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "phone",
+      "pass": true,
+      "drops": [
+        -0.908,
+        -0.962,
+        -0.895,
+        -0.903
+      ],
+      "move": [
+        0.3123859791988113,
+        0.013152946437965739
+      ],
+      "phases": [
+        [
+          "idle",
+          "idle"
+        ],
+        [
+          "show",
+          "idle"
+        ],
+        [
+          "idle",
+          "idle"
+        ]
+      ],
+      "joints": [
+        {
+          "id": "E01",
+          "arm": {
+            "R": {
+              "drop": -0.908,
+              "spread": 0.259,
+              "worldHand": [
+                -5.307,
+                1.658,
+                0.629
+              ],
+              "wristToShoulder": 0.419
+            },
+            "L": {
+              "drop": -0.962,
+              "spread": 0.125,
+              "worldHand": [
+                -5.412,
+                1.524,
+                0.451
+              ],
+              "wristToShoulder": 0.497
+            }
+          },
+          "ik": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.067,
+              "reach": 0.419,
+              "segmentLength": 0.511,
+              "hand": [
+                -5.307,
+                1.658,
+                0.629
+              ]
+            },
+            "L": {
+              "error": 0.0174,
+              "elbowOut": 0.032,
+              "reach": 0.514,
+              "segmentLength": 0.511,
+              "hand": [
+                -5.412,
+                1.524,
+                0.451
+              ]
+            }
+          }
+        },
+        {
+          "id": "G01",
+          "arm": {
+            "R": {
+              "drop": -0.895,
+              "spread": 0.311,
+              "worldHand": [
+                5.356,
+                2.131,
+                0.569
+              ],
+              "wristToShoulder": 0.232
+            },
+            "L": {
+              "drop": -0.903,
+              "spread": 0.042,
+              "worldHand": [
+                5.466,
+                1.729,
+                0.781
+              ],
+              "wristToShoulder": 0.473
+            }
+          },
+          "ik": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.075,
+              "reach": 0.232,
+              "segmentLength": 0.517,
+              "hand": [
+                5.356,
+                2.131,
+                0.569
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.01,
+              "reach": 0.473,
+              "segmentLength": 0.517,
+              "hand": [
+                5.466,
+                1.729,
+                0.781
+              ]
+            }
+          }
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "ok": true
+}
