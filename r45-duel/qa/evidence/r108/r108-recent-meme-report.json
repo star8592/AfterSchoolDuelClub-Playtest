@@ -1,0 +1,159 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "exactly 60 total cards",
+      "detail": 60
+    },
+    {
+      "pass": true,
+      "label": "exactly 8 evidence-backed 2026 recent memes"
+    },
+    {
+      "pass": true,
+      "label": "all 8 updated and playable",
+      "detail": [
+        "蛤蟆布丁警报",
+        "披甲巧克力香蕉",
+        "神兽返校通知书",
+        "全寝室公开播放",
+        "粉笔画地为牢",
+        "狂风炸毛超人",
+        "排球误入篮筐",
+        "黑天鹅冰面慢动作"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "each has its own source/date"
+    },
+    {
+      "pass": true,
+      "label": "all appear in playable theme decks"
+    },
+    {
+      "pass": true,
+      "label": "the original eggplant banana card remains"
+    },
+    {
+      "pass": true,
+      "label": "desktop full catalog maintained"
+    },
+    {
+      "pass": true,
+      "label": "desktop RECENT memes first on full homepage",
+      "detail": "✦ 默契 · Q08\n2\n粉笔画地为牢\n\n值日生给自己画了一个圈，谁也没想到它真的成了护盾。\n\n2026热梗 · 事件牌 · 教室怪谈 · 己方前排攻击 +1、护盾 +1"
+    },
+    {
+      "pass": true,
+      "label": "desktop recent filter 8 cards"
+    },
+    {
+      "pass": true,
+      "label": "desktop frog cake included"
+    },
+    {
+      "pass": true,
+      "label": "desktop reset 60 cards"
+    },
+    {
+      "pass": true,
+      "label": "game library shows all 8 recent memes"
+    },
+    {
+      "pass": true,
+      "label": "game library includes 2026 November school meme"
+    },
+    {
+      "pass": true,
+      "label": "game library closes and stadium stays playable"
+    },
+    {
+      "pass": true,
+      "label": "real WebGL stadium still ready"
+    },
+    {
+      "pass": true,
+      "label": "desktop no JS/HTTP errors",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "label": "mobile full catalog maintained"
+    },
+    {
+      "pass": true,
+      "label": "mobile RECENT memes first on full homepage",
+      "detail": "✦ 默契 · Q08\n2\n粉笔画地为牢\n\n值日生给自己画了一个圈，谁也没想到它真的成了护盾。\n\n2026热梗 · 事件牌 · 教室怪谈 · 己方前排攻击 +1、护盾 +1"
+    },
+    {
+      "pass": true,
+      "label": "mobile recent filter 8 cards"
+    },
+    {
+      "pass": true,
+      "label": "mobile frog cake included"
+    },
+    {
+      "pass": true,
+      "label": "mobile reset 60 cards"
+    },
+    {
+      "pass": true,
+      "label": "mobile no JS/HTTP errors",
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "editedCards": [
+    {
+      "id": "K07",
+      "name": "蛤蟆布丁警报",
+      "source": "https://www.ccwb.cn/content/202610/19/c928718.html",
+      "strength": "媒体采访"
+    },
+    {
+      "id": "K08",
+      "name": "披甲巧克力香蕉",
+      "source": "https://m.thepaper.cn/newsDetail_forward_33048822",
+      "strength": "媒体实访"
+    },
+    {
+      "id": "Q02",
+      "name": "神兽返校通知书",
+      "source": "https://www.toutiao.com/article/7680841272650629642/",
+      "strength": "开学季二创，传播数据待核"
+    },
+    {
+      "id": "Q04",
+      "name": "全寝室公开播放",
+      "source": "https://www.douyin.com/video/7683374251287035496",
+      "strength": "原始校园短视频"
+    },
+    {
+      "id": "Q08",
+      "name": "粉笔画地为牢",
+      "source": "https://www.sina.cn/news/detail/5363798093332483.html",
+      "strength": "认证校园账号"
+    },
+    {
+      "id": "P01",
+      "name": "狂风炸毛超人",
+      "source": "https://www.sohu.com/a/1099549024_120914498",
+      "strength": "记者采访"
+    },
+    {
+      "id": "P05",
+      "name": "排球误入篮筐",
+      "source": "https://video.sina.cn/finance/2026-11-07/detail-inixwxqa8248927.d.html",
+      "strength": "中国新闻社采访"
+    },
+    {
+      "id": "P07",
+      "name": "黑天鹅冰面慢动作",
+      "source": "https://www.sina.cn/media/2001658431",
+      "strength": "校园博主视频线索，待独立核对"
+    }
+  ]
+}

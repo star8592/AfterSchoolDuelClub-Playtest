@@ -655,3 +655,6 @@ html,body{width:100%;height:100%;overflow:hidden}
  text-shadow:0 6px 15px #0007;transform:translateY(1px)}
 .card .symbol{font-family:Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,Georgia,serif}
 .card .card-stats{max-width:100%;line-height:1.25}
+
+/* R108: mark meme-lifecycle refresh without modifying authoritative card stats. */
+.library-tile.fresh-meme{border-color:#e9bf78;box-shadow:inset 0 0 0 1px #e6bc5528}

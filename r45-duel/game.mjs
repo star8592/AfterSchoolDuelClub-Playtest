@@ -88,10 +88,10 @@ const pictogram={
 const MAX_CARDS_ON_FIELD=5;
 const NEW_EVENT_ICONS={K:'🍲',Q:'📚',S:'⚗',P:'🏃',X:'⏳'};
 const R107_CARD_SIGILS=Object.freeze({
- K01:'🍆',K02:'🍉',K03:'🍇',K04:'🌶️',K05:'🥣',K06:'🧋',K07:'🍢',K08:'🌈',
- Q01:'✏️',Q02:'📕',Q03:'✦',Q04:'🧹',Q05:'🎤',Q06:'💡',Q07:'🌙',Q08:'🥷',
+ K01:'🍆',K02:'🍉',K03:'🍇',K04:'🌶️',K05:'🥣',K06:'🧋',K07:'🐸',K08:'🍌',
+ Q01:'✏️',Q02:'🎒',Q03:'✦',Q04:'🔊',Q05:'🎤',Q06:'💡',Q07:'🌙',Q08:'⭕',
  S01:'⏰',S02:'🖊️',S03:'🪄',S04:'⚡',S05:'🤖',S06:'🪀',S07:'🕳️',S08:'🥤',
- P01:'👟',P02:'🧱',P03:'🦖',P04:'📣',P05:'⚽',P06:'🏃',P07:'🍌',P08:'☄️',
+ P01:'🌬️',P02:'🧱',P03:'🦖',P04:'📣',P05:'🏀',P06:'🏃',P07:'🦢',P08:'☄️',
  X01:'⏳',X02:'👕',X03:'🚓',X04:'🛏️',X05:'📓',X06:'🔁',X07:'📆',X08:'🕰️'
 });
 const $make=(tag,className,text)=>{
@@ -806,7 +806,7 @@ deckSelector.addEventListener('change',()=>{
 // additional GLB asset downloads, with source/licensing left distinct.
 const library=$('card-library'),libraryCards=$('library-cards');
 const libraryFilters=$('library-filters');
-const categories=['全部','经典社团','黑暗食堂','教室怪谈','社团实验','体育荒诞','时空校园'];
+const categories=['全部','近期热梗','经典社团','黑暗食堂','教室怪谈','社团实验','体育荒诞','时空校园'];
 let libraryFilter='全部';
 for(const name of categories){
  const btn=$make('button',null,name);
@@ -819,7 +819,7 @@ for(const name of categories){
  libraryFilters.append(btn);
 }
 function paintLibrary(){
- const cards=CARDS.filter(c=>libraryFilter==='全部'||
+ const cards=CARDS.filter(c=>libraryFilter==='近期热梗'?!!c.trend:libraryFilter==='全部'||
   (libraryFilter==='经典社团'?!c.theme:c.theme===libraryFilter));
  libraryFilters.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',
   String(b.dataset.category===libraryFilter)));
@@ -828,9 +828,9 @@ function paintLibrary(){
   cards.filter(c=>c.kind==='spell').length+' 张事件';
  const result=document.createDocumentFragment();
  for(const c of cards){
-  const box=$make('article','library-tile '+c.style);
+  const box=$make('article','library-tile '+c.style+(c.trend?' fresh-meme':''));
   const head=$make('div','library-tile-head');
-  head.append($make('span',null,(c.theme||'经典社团')+' · '+(c.kind==='unit'?'人物':'事件')),
+  head.append($make('span',null,(c.trend?'近期热梗 · ':'')+(c.theme||'经典社团')+' · '+(c.kind==='unit'?'人物':'事件')),
     $make('b',null,String(c.cost)));
   const art=$make('div','library-tile-art',R107_CARD_SIGILS[c.id]||NEW_EVENT_ICONS[c.id[0]]||pictogram[c.id]||'✦');
   box.append(head,art,$make('h3',null,c.name),$make('p',null,c.line),

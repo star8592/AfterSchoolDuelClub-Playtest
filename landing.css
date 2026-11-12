@@ -104,3 +104,8 @@ main{max-width:1420px;margin:auto}
  .footer{padding:25px 15px;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}
+
+/* R108: recent verified campus-meme inspirations, distinct from timeless cards. */
+.mini-card[data-trend="2026"]{border-color:#e0b56f9c;
+ background-image:linear-gradient(160deg,#ffbd6415,transparent 48%)}
+.mini-card[data-trend="2026"] .mini-top{color:#f7c983}
