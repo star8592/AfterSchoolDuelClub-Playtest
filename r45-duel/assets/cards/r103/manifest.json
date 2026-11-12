@@ -1,0 +1,167 @@
+{
+  "version": "R103",
+  "status": "real art assets; no new external source models",
+  "rule_cards_unchanged": true,
+  "art": {
+    "E01": {
+      "file": "./assets/cards/r103/E01.webp",
+      "name": "铃声追不上",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "clock",
+      "bytes": 36222,
+      "sha256": "b1c73919c603566c601aaf618cfb420a40c0448b5ac88a1ca46e545ba446e3e6"
+    },
+    "E02": {
+      "file": "./assets/cards/r103/E02.webp",
+      "name": "拐弯纸飞机",
+      "source_kind": "original project vector illustration",
+      "source_visual": "plane",
+      "bytes": 35978,
+      "sha256": "085ee0cda08f4e45c19f06722643eb9f440a008583222ea75651709948f63c5b"
+    },
+    "E03": {
+      "file": "./assets/cards/r103/E03.webp",
+      "name": "加油过头的队长",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "cheer",
+      "bytes": 39520,
+      "sha256": "1d4d1389c12f214671729dd264367a0a2d215700d8a62153ab4e003c15b52589"
+    },
+    "E04": {
+      "file": "./assets/cards/r103/E04.webp",
+      "name": "食堂接力冠军",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "race",
+      "bytes": 35318,
+      "sha256": "8e4478e53b11820e65af524f699b31188a48bd1f2a97a16d882a31c2f3602a03"
+    },
+    "G01": {
+      "file": "./assets/cards/r103/G01.webp",
+      "name": "橡皮筋建筑师",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "rubber",
+      "bytes": 37880,
+      "sha256": "1918d2d6d61c8a84cc909bd3b48fa412ce9bbd9983f16d864c5b234f7ba0abb1"
+    },
+    "G02": {
+      "file": "./assets/cards/r103/G02.webp",
+      "name": "黑板密码专家",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "blackboard",
+      "bytes": 38272,
+      "sha256": "0cb86408913e29b48c30bac28918c9b936cf3d52e1294a8303c93cf1e2f66d9d"
+    },
+    "G03": {
+      "file": "./assets/cards/r103/G03.webp",
+      "name": "反向实验学长",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "experiment",
+      "bytes": 40876,
+      "sha256": "4586908bd6eee4c79c4d845fec1e237817eee62d4fd75dd74e9dd15b8344092d"
+    },
+    "G04": {
+      "file": "./assets/cards/r103/G04.webp",
+      "name": "社团计划总监",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "folder",
+      "bytes": 41372,
+      "sha256": "b0f4d4d4c090c4a1c1dd088177d38d1fce781321c79b365fbf4a2df8860a91b7"
+    },
+    "M01": {
+      "file": "./assets/cards/r103/M01.webp",
+      "name": "音乐老师",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "music",
+      "bytes": 32102,
+      "sha256": "41143533b8caddf8f025a3c4e09c6ca528a3e66b73bac867529d07e4cd63dcf4"
+    },
+    "M02": {
+      "file": "./assets/cards/r103/M02.webp",
+      "name": "食堂阿姨",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "canteen",
+      "bytes": 36630,
+      "sha256": "025a55f9261b02b421ffe434402e0b7e2afe8707ddd8ac50635175584ee36ba4"
+    },
+    "T01": {
+      "file": "./assets/cards/r103/T01.webp",
+      "name": "迟到的播音员",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "mic",
+      "bytes": 33766,
+      "sha256": "d3303db2da0d743144e031724f405cf6e7cd625f2b286a6229b930efc557084c"
+    },
+    "T02": {
+      "file": "./assets/cards/r103/T02.webp",
+      "name": "食堂隐藏菜单",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "menu",
+      "bytes": 30198,
+      "sha256": "87479981e36410596da5a4def32ea852fd68af7b4ef71c46e0edd8ead4313684"
+    },
+    "T03": {
+      "file": "./assets/cards/r103/T03.webp",
+      "name": "默契收发员",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "letter",
+      "bytes": 31920,
+      "sha256": "e8d3f4d126d1a58021fd018e027ceb1439e1c6763d3779b8b7e55d03768935c9"
+    },
+    "T04": {
+      "file": "./assets/cards/r103/T04.webp",
+      "name": "活动室守门人",
+      "source_kind": "actual 3D model render from project GLB/VRM",
+      "source_visual": "gate",
+      "bytes": 35506,
+      "sha256": "09657c06ee4470bb9f8bbe21e1a273dbda472e692f15b0b0d32ca353d07790d1"
+    },
+    "E05": {
+      "file": "./assets/cards/r103/E05.webp",
+      "name": "超速呐喊",
+      "source_kind": "original project vector illustration",
+      "source_visual": "shout",
+      "bytes": 39036,
+      "sha256": "76672f07613227924be8d54ef211a2e45725799d820fc4d5afbf071e7a33bcc7"
+    },
+    "E06": {
+      "file": "./assets/cards/r103/E06.webp",
+      "name": "飞来的巨大黑板擦",
+      "source_kind": "original project vector illustration",
+      "source_visual": "eraser",
+      "bytes": 34886,
+      "sha256": "c34406e6bccf2c7e1f46d3314dc8cc8670998421054fc00ce1b2c47b566c5c3c"
+    },
+    "G05": {
+      "file": "./assets/cards/r103/G05.webp",
+      "name": "课桌紧急修补",
+      "source_kind": "original project vector illustration",
+      "source_visual": "repair",
+      "bytes": 35458,
+      "sha256": "c3ccb10e91752bd439881a04c4865b697f27bc1a84dddb6fcddc6731689c1a14"
+    },
+    "G06": {
+      "file": "./assets/cards/r103/G06.webp",
+      "name": "翻到第二页的方案",
+      "source_kind": "original project vector illustration",
+      "source_visual": "pages",
+      "bytes": 32440,
+      "sha256": "fa47aa33113e4fcdf609968ab9bbab10ef77b022d05c911fcfab5e9b6bbc73d9"
+    },
+    "T05": {
+      "file": "./assets/cards/r103/T05.webp",
+      "name": "食堂暖心加餐",
+      "source_kind": "original project vector illustration",
+      "source_visual": "soup",
+      "bytes": 29874,
+      "sha256": "320df452d42d5c3be24c61ef4876435b10b2475cd95e436caf0c409da954dbc1"
+    },
+    "T06": {
+      "file": "./assets/cards/r103/T06.webp",
+      "name": "误播的放学广播",
+      "source_kind": "original project vector illustration",
+      "source_visual": "radio",
+      "bytes": 31328,
+      "sha256": "12a61a920042d5e5d2eeeec7d0ac0f5a42822b667a4b3ee7b3098b15b3b5c295"
+    }
+  }
+}
