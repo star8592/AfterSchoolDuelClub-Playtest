@@ -1,0 +1,46 @@
+{
+  "source": "original numpy synthesis",
+  "algorithm": "bounded deterministic t=sample/SR; fixed seed=81",
+  "assets": {
+    "card_flip": {
+      "file": "card_flip.ogg",
+      "sha256": "6a1a3d4de28e56773bf23f7ecb99815856975b3601c53e10941d3d13b30f2314",
+      "bytes": 2409
+    },
+    "spell_charge": {
+      "file": "spell_charge.ogg",
+      "sha256": "7062fd51dc270586c5361e9a397c77222e2da214aeef195e69b684c695995998",
+      "bytes": 5659
+    },
+    "meteor_impact": {
+      "file": "meteor_impact.ogg",
+      "sha256": "74a8aaa70a475cc7d1f86478bfc7358fc2becc95964d72c8c5e554f9e2b4d890",
+      "bytes": 10717
+    },
+    "sonic_wave": {
+      "file": "sonic_wave.ogg",
+      "sha256": "0b408e69b7357f8e42ad3d8d780a75680dcf240ea2c3fce0ad335e3e13fc490d",
+      "bytes": 8611
+    },
+    "ice_shatter": {
+      "file": "ice_shatter.ogg",
+      "sha256": "bba3ddb64f818a4c5f809e0d6e9618be2cd446172e1afe2fcb15100bc7cdb53a",
+      "bytes": 6504
+    },
+    "stadium_cheer": {
+      "file": "stadium_cheer.ogg",
+      "sha256": "0bd0529ded8e66366ff608c46ea8d67a8fe03c7cb462091a7677429a8d577cfc",
+      "bytes": 14459
+    },
+    "score_chime": {
+      "file": "score_chime.ogg",
+      "sha256": "3bfd12c610e2316219e9f5bd72e62a70f483cecba3f0fdfa8ac9dd0fcbe5f50f",
+      "bytes": 4923
+    },
+    "shield_block": {
+      "file": "shield_block.ogg",
+      "sha256": "0ff900b1292251a999ea6472090c47e1f336c4e7291f61a8a585c0cedd176277",
+      "bytes": 5482
+    }
+  }
+}

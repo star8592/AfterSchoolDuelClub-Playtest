@@ -1,5 +1,5 @@
 /**
- * R45 Clean Room — single-arena deterministic 18-card core.
+ * R45 Clean Room — single-arena deterministic 20-card core.
  * Pure module: no browser, network, user identifiers, or storage.
  */
 export const STYLES = Object.freeze(['ember', 'grove', 'tide']);
@@ -18,6 +18,8 @@ export const CARDS = Object.freeze([
   {id:'G02',style:'grove',kind:'unit',cost:2,attack:2,hp:3,name:'黑板密码专家',line:'答案原来就写在黑板上。'},
   {id:'G03',style:'grove',kind:'unit',cost:3,attack:2,hp:5,name:'反向实验学长',line:'按下红钮，蓝钮先自己按了。'},
   {id:'G04',style:'grove',kind:'unit',cost:5,attack:4,hp:5,name:'社团计划总监',line:'连校长都看不懂计划表。'},
+  {id:'M01',style:'tide',kind:'unit',cost:3,attack:2,hp:5,name:'音乐老师',line:'一二三，跟着节奏一起出牌！'},
+  {id:'M02',style:'tide',kind:'unit',cost:3,attack:3,hp:4,name:'食堂阿姨',line:'这份加餐，是给勇敢的决斗者准备的！'},
   {id:'T01',style:'tide',kind:'unit',cost:1,attack:1,hp:2,name:'迟到的播音员',line:'赛后宣布：比赛马上开始。'},
   {id:'T02',style:'tide',kind:'unit',cost:2,attack:2,hp:3,name:'食堂隐藏菜单',line:'今天的套餐叫胜利。'},
   {id:'T03',style:'tide',kind:'unit',cost:3,attack:3,hp:3,name:'默契收发员',line:'把吵架变成排队。'},
@@ -107,6 +109,14 @@ export function playCard(g,index,lane) {
   const id=g.hand[side][index],c=BY_ID[id];
   if(c.cost>g.energy[side])return {ok:false,reason:'insufficient energy'};
   if(c.kind==='unit'&&g.board[side][lane].length>=MAX_FIELD_UNITS)return {ok:false,reason:'arena full'};
+  // R82: capture the exact rule-authoritative spell outcome AT THIS CARD,
+  // not the aggregate delta after several AI cards and combat exchanges.
+  // This is event metadata only and cannot alter combat arithmetic.
+  const preSpell=c.kind==='spell'?{
+    hp:{...g.hp},
+    units:Object.fromEntries(['player','ai'].map(team=>[team,
+      g.board[team][lane].map(u=>({uid:u.uid,hp:u.hp,shield:u.shield||0}))]))
+  }:null;
   g.hand[side].splice(index,1);g.energy[side]-=c.cost;
   if(c.kind==='unit') {
     g.board[side][lane].push({uid:'U'+(g.serial+1),id,style:c.style,attack:c.attack,hp:c.hp,buff:0,shield:0,summonedAt:g.turns[side]});
@@ -123,7 +133,17 @@ export function playCard(g,index,lane) {
       default:throw new Error('Unknown effect');
     }
   }
-  event(g,'card_play',{card:id,lane});
+  const spellOutcome=preSpell?(()=>{
+    const before=preSpell.units[other],after=new Map(g.board[other][lane].map(u=>[u.uid,u]));
+    const affected=before.filter(u=>u.hp>(after.get(u.uid)?.hp??0));
+    return{effect:c.effect,
+      directDamage:Math.max(0,preSpell.hp[other]-g.hp[other]),
+      unitDamage:affected.reduce((n,u)=>n+u.hp-(after.get(u.uid)?.hp??0),0),
+      targetUids:affected.map(u=>u.uid),
+      healed:Math.max(0,g.hp[side]-preSpell.hp[side])
+    };
+  })():null;
+  event(g,'card_play',{card:id,lane,...(spellOutcome?{spellOutcome}:{})});
   if(!g.stylesPlayed[side].includes(c.style))g.stylesPlayed[side].push(c.style);
   if(!g.comboTriggered[side]&&g.stylesPlayed[side].length>=2){
     g.comboTriggered[side]=true;g.comboSerial++;g.comboCounts[side]++;

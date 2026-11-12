@@ -17,7 +17,7 @@ const browserOptions={headless:true,executablePath:'/usr/bin/google-chrome',args
    models:scene?.summonModels?.map(m=>({id:m.id,file:m.file,meshes:m.meshes}))??[],
    error:document.querySelector('#stadium').contentDocument?.querySelector('#loading')?.textContent||null};
  });
- if(!report.scene.ready||report.scene.models.length!==10||report.scene.models.some(x=>x.meshes<=0))throw Error('3D models not ready or not actual meshes');
+ if(!report.scene.ready||report.scene.models.length!==12||report.scene.models.some(x=>x.meshes<=0))throw Error('3D models not ready or not actual meshes');
  const legacyFiles=[
   'E03-CheerCaptain-Phil-R85-Acting.glb','E04-CanteenRelay-Gabby-R85-Acting.glb',
   'G02-BlackboardExpert-Lunte-R85-Acting.glb','G03-Jay-BlenderStudio-R85-Acting.glb',

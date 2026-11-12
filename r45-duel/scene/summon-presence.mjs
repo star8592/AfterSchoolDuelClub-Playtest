@@ -2,8 +2,8 @@
  * R50 · Exact board-unit presence. This is a VISUAL projection of the real
  * single-arena board: it never creates units, applies damage, or changes turns.
  *
- * R61 gameplay gate: all 12 unit IDs now render actual 3D mesh assets.
- * E01/G01 use established VRMs, other 10 load independently verified GLBs.
+ * R61 gameplay gate: all 14 unit IDs now render actual 3D mesh assets.
+ * E01/G01 use established VRMs, other 12 load independently verified GLBs.
  * These temporary 3D meshes are NOT approved final character art.
  */
 import {BY_ID} from '../engine.mjs';
@@ -15,9 +15,9 @@ import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mj
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
 export function createSummonPresence(THREE,scene,{actors,prototypes}){
- if(!(prototypes instanceof Map)||prototypes.size!==10||
+ if(!(prototypes instanceof Map)||prototypes.size!==12||
    UNIT_MODEL_IDS.some(id=>!prototypes.has(id))){
-   throw Error('R61 fail-closed: all ten summoned GLB prototypes must load');
+   throw Error('R61 fail-closed: all twelve summoned GLB prototypes must load');
  }
  const root=new THREE.Group();
  root.name='R50_Board_Units_Only';

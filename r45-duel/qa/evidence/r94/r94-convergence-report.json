@@ -1,0 +1,228 @@
+{
+  "origin": "http://127.0.0.1:11094",
+  "ok": true,
+  "tests": [
+    {
+      "name": "default audio, voice catalog and seven soundtracks ready",
+      "pass": true,
+      "provider": "Qwen3-TTS",
+      "requested": true,
+      "assetsReady": true,
+      "voiceClipCount": 16,
+      "musicTracks": 7
+    },
+    {
+      "name": "current R93 model registry plus M01/M02 are genuine 3D",
+      "pass": true,
+      "ids": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ]
+    },
+    {
+      "name": "M01 is playable and has a visible real 3D summon",
+      "pass": true
+    },
+    {
+      "name": "real audio cues successfully decoded without source errors",
+      "pass": true,
+      "requested": true,
+      "enabled": true,
+      "musicStart": 2,
+      "decodedCues": 17,
+      "errors": 0,
+      "voiceClips": 16
+    },
+    {
+      "name": "M02 cafeteria aunt is playable and rendered with actual GLB",
+      "pass": true
+    },
+    {
+      "name": "actual 20-card duel reaches player",
+      "pass": true,
+      "phase": "ended",
+      "round": 12,
+      "actions": 31,
+      "hp": {
+        "player": 11,
+        "ai": 0
+      },
+      "engineWinner": "player"
+    },
+    {
+      "name": "player real match score dialog and responsive layout",
+      "pass": true,
+      "winner": "player",
+      "hp": {
+        "player": 11,
+        "ai": 0
+      },
+      "width": 510
+    },
+    {
+      "name": "rematch resets full game after player",
+      "pass": true,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "units": 0,
+      "hidden": true
+    },
+    {
+      "name": "actual 20-card duel reaches ai",
+      "pass": true,
+      "phase": "ended",
+      "round": 9,
+      "actions": 22,
+      "hp": {
+        "player": 0,
+        "ai": 17
+      },
+      "engineWinner": "ai"
+    },
+    {
+      "name": "ai real match score dialog and responsive layout",
+      "pass": true,
+      "winner": "ai",
+      "hp": {
+        "player": 0,
+        "ai": 17
+      },
+      "width": 510
+    },
+    {
+      "name": "rematch resets full game after ai",
+      "pass": true,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "units": 0,
+      "hidden": true
+    },
+    {
+      "name": "actual 20-card duel reaches draw",
+      "pass": true,
+      "phase": "ended",
+      "round": 12,
+      "actions": 29,
+      "hp": {
+        "player": 14,
+        "ai": 14
+      },
+      "engineWinner": "draw"
+    },
+    {
+      "name": "draw real match score dialog and responsive layout",
+      "pass": true,
+      "winner": "draw",
+      "hp": {
+        "player": 14,
+        "ai": 14
+      },
+      "width": 394
+    },
+    {
+      "name": "rematch resets full game after draw",
+      "pass": true,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "units": 0,
+      "hidden": true
+    }
+  ],
+  "errors": [],
+  "versions": {},
+  "models": [
+    {
+      "id": "E02",
+      "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+      "meshes": 17
+    },
+    {
+      "id": "E03",
+      "file": "E03-Ellie-Footwork-R93.glb",
+      "meshes": 64
+    },
+    {
+      "id": "E04",
+      "file": "E04-Phil-Footwork-R93.glb",
+      "meshes": 29
+    },
+    {
+      "id": "G02",
+      "file": "G02-Snow-Footwork-R93.glb",
+      "meshes": 22
+    },
+    {
+      "id": "G03",
+      "file": "G03-Jay-Footwork-R93.glb",
+      "meshes": 40
+    },
+    {
+      "id": "G04",
+      "file": "G04-Victoria-Footwork-R93.glb",
+      "meshes": 34
+    },
+    {
+      "id": "M01",
+      "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "meshes": 10
+    },
+    {
+      "id": "M02",
+      "file": "M02-CafeteriaAunt-CartoonR76.glb",
+      "meshes": 1
+    },
+    {
+      "id": "T01",
+      "file": "T01-Owl-Innerscene-R84.glb",
+      "meshes": 129
+    },
+    {
+      "id": "T02",
+      "file": "T02-LivingMenu-R59.glb",
+      "meshes": 43
+    },
+    {
+      "id": "T03",
+      "file": "T03-Rain-Footwork-R93.glb",
+      "meshes": 23
+    },
+    {
+      "id": "T04",
+      "file": "T04-Rex-Footwork-R93.glb",
+      "meshes": 38
+    }
+  ],
+  "sound": {
+    "initial": {
+      "provider": "Qwen3-TTS",
+      "requested": true,
+      "assetsReady": true,
+      "voiceClipCount": 16,
+      "musicTracks": 7
+    },
+    "afterGesture": {
+      "requested": true,
+      "enabled": true,
+      "musicStart": 2,
+      "decodedCues": 17,
+      "errors": 0,
+      "voiceClips": 16
+    }
+  }
+}

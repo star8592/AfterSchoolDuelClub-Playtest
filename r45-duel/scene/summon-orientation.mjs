@@ -7,7 +7,7 @@
  * Per-card correction stays explicit for future art upgrades.
  */
 export const SOURCE_FRONT_YAW=Object.freeze({
- E01:0,E02:0,E03:0,E04:0,G01:0,G02:0,G03:0,G04:0,
+ E01:0,E02:0,E03:0,E04:0,G01:0,G02:0,G03:0,G04:0,M01:0,M02:Math.PI/2,
  T01:Math.PI/2,T02:0,T03:0,T04:0
 });
 export function faceOpponentYaw(id,side){

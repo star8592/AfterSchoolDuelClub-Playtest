@@ -32,7 +32,7 @@ const current=()=>{
  if(end===-1)throw Error('Unterminated production model registry');
  const rows=Object.fromEntries([...s.slice(start,end).matchAll(/\b([A-Z][0-9]{2}):\s*\{file:'([^']+\.glb)'/g)]
    .map(x=>[x[1],x[2]]));
- if(Object.keys(rows).length!==10)throw Error('Expected 10 current GLB character/object specs, got '+Object.keys(rows).length);
+ if(Object.keys(rows).length!==12)throw Error('Expected 12 current GLB character/object specs, got '+Object.keys(rows).length);
  return rows;
 };
 const remote=process.argv[2] ? new URL(process.argv[2].replace(/\/?$/,'/') ) :null;
