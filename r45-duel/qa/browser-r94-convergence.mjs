@@ -34,9 +34,13 @@ try {
  check(start.sound.requested&&start.sound.provider==='Qwen3-TTS'&&
   start.sound.assetsReady&&start.sound.voiceClipCount===16&&
   start.sound.musicTracks.length===7,'default audio, voice catalog and seven soundtracks ready',report.sound.initial);
+ // The official mainline advanced seven animation-capable summons from
+ // Footwork-R93 to Knee-R96. Do not fail the unrelated R94 audio/gameplay gate
+ // merely because production model names were correctly upgraded.
+ const kneeIds=['E03','E04','G02','G03','G04','T03','T04'];
  check(start.models.length===12&&['M01','M02'].every(id=>start.models.some(x=>x.id===id&&x.meshes>0)) &&
-  ['E03','G03','T04'].every(id=>start.models.some(x=>x.id===id&&x.file.includes('Footwork-R93'))),
-  'current R93 model registry plus M01/M02 are genuine 3D', {ids:start.models.map(x=>x.id)});
+  kneeIds.every(id=>start.models.some(x=>x.id===id&&x.file.includes('Knee-R96')&&x.meshes>=18)),
+  'current R96 knee model registry plus M01/M02 are genuine 3D', {ids:start.models.map(x=>x.id)});
  await p.locator('#end').click();
  await p.locator('.card[data-card-id="M01"]:not([disabled])').first().click();
  await p.locator('#play').click();

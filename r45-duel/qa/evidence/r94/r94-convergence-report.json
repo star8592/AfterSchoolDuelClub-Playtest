@@ -1,5 +1,5 @@
 {
-  "origin": "http://127.0.0.1:11094",
+  "origin": "http://127.0.0.1:1024",
   "ok": true,
   "tests": [
     {
@@ -12,7 +12,7 @@
       "musicTracks": 7
     },
     {
-      "name": "current R93 model registry plus M01/M02 are genuine 3D",
+      "name": "current R96 knee model registry plus M01/M02 are genuine 3D",
       "pass": true,
       "ids": [
         "E02",
@@ -154,27 +154,27 @@
     },
     {
       "id": "E03",
-      "file": "E03-Ellie-Footwork-R93.glb",
+      "file": "E03-Ellie-Knee-R96.glb",
       "meshes": 64
     },
     {
       "id": "E04",
-      "file": "E04-Phil-Footwork-R93.glb",
+      "file": "E04-Phil-Knee-R96.glb",
       "meshes": 29
     },
     {
       "id": "G02",
-      "file": "G02-Snow-Footwork-R93.glb",
+      "file": "G02-Snow-Knee-R96.glb",
       "meshes": 22
     },
     {
       "id": "G03",
-      "file": "G03-Jay-Footwork-R93.glb",
+      "file": "G03-Jay-Knee-R96.glb",
       "meshes": 40
     },
     {
       "id": "G04",
-      "file": "G04-Victoria-Footwork-R93.glb",
+      "file": "G04-Victoria-Knee-R96.glb",
       "meshes": 34
     },
     {
@@ -199,12 +199,12 @@
     },
     {
       "id": "T03",
-      "file": "T03-Rain-Footwork-R93.glb",
+      "file": "T03-Rain-Knee-R96.glb",
       "meshes": 23
     },
     {
       "id": "T04",
-      "file": "T04-Rex-Footwork-R93.glb",
+      "file": "T04-Rex-Knee-R96.glb",
       "meshes": 38
     }
   ],
