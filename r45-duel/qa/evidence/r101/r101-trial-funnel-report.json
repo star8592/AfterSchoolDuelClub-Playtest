@@ -1,11 +1,11 @@
 {
-  "origin": "http://127.0.0.1:11101",
+  "origin": "https://star8592.github.io/AfterSchoolDuelClub-Playtest",
   "ok": true,
   "checks": [
     {
       "pass": true,
       "name": "desktop keeps ultra-light landing visible instead of immediate 3D redirect",
-      "detail": "http://127.0.0.1:11101/"
+      "detail": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/"
     },
     {
       "pass": true,
@@ -50,14 +50,14 @@
       "name": "desktop 0 heavy GLB/VRM/music requests before intentional play",
       "detail": {
         "requests": [
-          "http://127.0.0.1:11101/",
-          "http://127.0.0.1:11101/landing.css",
-          "http://127.0.0.1:11101/landing.mjs",
-          "http://127.0.0.1:11101/share/duel-og.jpg",
-          "http://127.0.0.1:11101/r45-duel/engine.mjs",
-          "http://127.0.0.1:11101/share/chalk.webp",
-          "http://127.0.0.1:11101/share/broadcast.webp",
-          "http://127.0.0.1:11101/share/poster.webp"
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/landing.css",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/landing.mjs",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/duel-og.jpg",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/engine.mjs",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/chalk.webp",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/broadcast.webp",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/poster.webp"
         ]
       }
     },
@@ -121,7 +121,7 @@
       "name": "desktop reproducible UTC daily challenge, not fake leaderboard",
       "detail": {
         "today": 20261112,
-        "challenge": "http://127.0.0.1:11101/r45-duel/?seed=20261112&ref=daily"
+        "challenge": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/?seed=20261112&ref=daily"
       }
     },
     {
@@ -142,7 +142,7 @@
     {
       "pass": true,
       "name": "desktop share copies a real same-seed playable link",
-      "detail": "放学后决斗社：今天的牌局是 20261112。来看看你能不能赢过 AI！ http://127.0.0.1:11101/r45-duel/?seed=20261112&ref=daily"
+      "detail": "放学后决斗社：今天的牌局是 20261112。来看看你能不能赢过 AI！ https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/?seed=20261112&ref=daily"
     },
     {
       "pass": true,
@@ -184,7 +184,7 @@
     {
       "pass": true,
       "name": "mobile keeps ultra-light landing visible instead of immediate 3D redirect",
-      "detail": "http://127.0.0.1:11101/"
+      "detail": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/"
     },
     {
       "pass": true,
@@ -229,14 +229,14 @@
       "name": "mobile 0 heavy GLB/VRM/music requests before intentional play",
       "detail": {
         "requests": [
-          "http://127.0.0.1:11101/",
-          "http://127.0.0.1:11101/landing.css",
-          "http://127.0.0.1:11101/landing.mjs",
-          "http://127.0.0.1:11101/share/duel-og.jpg",
-          "http://127.0.0.1:11101/share/chalk.webp",
-          "http://127.0.0.1:11101/share/broadcast.webp",
-          "http://127.0.0.1:11101/share/poster.webp",
-          "http://127.0.0.1:11101/r45-duel/engine.mjs"
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/landing.css",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/landing.mjs",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/duel-og.jpg",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/chalk.webp",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/broadcast.webp",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/poster.webp",
+          "https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/engine.mjs"
         ]
       }
     },
@@ -300,7 +300,7 @@
       "name": "mobile reproducible UTC daily challenge, not fake leaderboard",
       "detail": {
         "today": 20261112,
-        "challenge": "http://127.0.0.1:11101/r45-duel/?seed=20261112&ref=daily"
+        "challenge": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/?seed=20261112&ref=daily"
       }
     },
     {
@@ -321,7 +321,7 @@
     {
       "pass": true,
       "name": "mobile share copies a real same-seed playable link",
-      "detail": "放学后决斗社：今天的牌局是 20261112。来看看你能不能赢过 AI！ http://127.0.0.1:11101/r45-duel/?seed=20261112&ref=daily"
+      "detail": "放学后决斗社：今天的牌局是 20261112。来看看你能不能赢过 AI！ https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/?seed=20261112&ref=daily"
     },
     {
       "pass": true,
@@ -364,7 +364,7 @@
       "pass": true,
       "name": "14/14 VERIFIED actual models before first legal move, never fake ready",
       "detail": {
-        "url": "http://127.0.0.1:11101/r45-duel/?qa=1&seed=150265819",
+        "url": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/?qa=1&seed=1011848532",
         "loaded": 14,
         "max": 14,
         "count": "已验证 14 / 14 个三维人物资源",
@@ -379,67 +379,67 @@
       "name": "measured all 14 VRM/GLB HTTP network bodies, not guessed file size",
       "detail": [
         {
-          "file": "Fumiriya-original-CC0.vrm",
-          "bodyBytes": 19342280
-        },
-        {
           "file": "Shino-original-CC0.vrm",
-          "bodyBytes": 15074328
+          "bodyBytes": 11760861
         },
         {
-          "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
-          "bodyBytes": 1116092
-        },
-        {
-          "file": "E04-Phil-Landing-R97.glb",
-          "bodyBytes": 3670340
+          "file": "Fumiriya-original-CC0.vrm",
+          "bodyBytes": 15818444
         },
         {
           "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
-          "bodyBytes": 836836
+          "bodyBytes": 105485
         },
         {
-          "file": "G04-Victoria-Landing-R97.glb",
-          "bodyBytes": 10249516
+          "file": "E04-Phil-Landing-R97.glb",
+          "bodyBytes": 1708176
         },
         {
-          "file": "G02-Snow-Landing-R97.glb",
-          "bodyBytes": 14616772
+          "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+          "bodyBytes": 837948
         },
         {
           "file": "G03-Jay-Landing-R97.glb",
-          "bodyBytes": 6491140
+          "bodyBytes": 3082207
         },
         {
           "file": "E03-Ellie-Landing-R97.glb",
-          "bodyBytes": 8845968
+          "bodyBytes": 3907771
+        },
+        {
+          "file": "G04-Victoria-Landing-R97.glb",
+          "bodyBytes": 4429900
         },
         {
           "file": "M02-CafeteriaAunt-ChefHat-Spatula-R99.glb",
-          "bodyBytes": 2869280
+          "bodyBytes": 1727896
         },
         {
           "file": "T02-LivingMenu-R59.glb",
-          "bodyBytes": 2519624
+          "bodyBytes": 1807576
+        },
+        {
+          "file": "G02-Snow-Landing-R97.glb",
+          "bodyBytes": 12761402
         },
         {
           "file": "T03-Rain-Landing-R97.glb",
-          "bodyBytes": 10312392
+          "bodyBytes": 7164626
         },
         {
           "file": "T04-Rex-Landing-R97.glb",
-          "bodyBytes": 7791296
+          "bodyBytes": 3677255
         },
         {
           "file": "T01-Owl-Innerscene-R84.glb",
-          "bodyBytes": 20671040
+          "bodyBytes": 19669029
         }
       ]
     },
     {
       "pass": true,
       "name": "seed reflected in game URL for reproducible share",
-      "detail": "http://127.0.0.1:11101/r45-duel/?qa=1&seed=150265819"
+      "detail": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/?qa=1&seed=1011848532"
     },
     {
       "pass": true,
@@ -467,11 +467,11 @@
     }
   ],
   "game": {
-    "ms": 2273,
+    "ms": 20226,
     "models": 14,
-    "modelBodyBytes": 124406904,
+    "modelBodyBytes": 88458576,
     "loading": {
-      "url": "http://127.0.0.1:11101/r45-duel/?qa=1&seed=150265819",
+      "url": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/?qa=1&seed=1011848532",
       "loaded": 14,
       "max": 14,
       "count": "已验证 14 / 14 个三维人物资源",
