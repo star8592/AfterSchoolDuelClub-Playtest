@@ -1,0 +1,2092 @@
+{
+  "origin": "http://127.0.0.1:11100",
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "name": "desktop real 3D cinematic assets exist",
+      "detail": {
+        "initial": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": null,
+          "played": 0,
+          "completed": 0,
+          "skipped": 0,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop no ghost skip before real combo"
+    },
+    {
+      "pass": true,
+      "name": "desktop no leaked 3D props before chapter 1"
+    },
+    {
+      "pass": true,
+      "name": "desktop first card alone did NOT fake combo",
+      "detail": {
+        "before": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": null,
+          "played": 0,
+          "completed": 0,
+          "skipped": 0,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop 3D director only sees real event chalk_hit",
+      "detail": {
+        "started": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "prepare",
+          "playing": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 0,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": true,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop accessible skip for actual story animation"
+    },
+    {
+      "pass": true,
+      "name": "desktop chapter 1 live scene phases",
+      "detail": {
+        "mid": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "action",
+          "playing": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 0,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": true,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop correct true 3D prop family chalk",
+      "detail": {
+        "chalk": true,
+        "broadcast": false,
+        "poster": false,
+        "shield": false
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop skip stops props only, never changes real combo receipt",
+      "detail": {
+        "skipped": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop skipped pre-impact chalk never plays delayed fake hit",
+      "detail": {
+        "phantom": 0
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop skip never disables real next chapter"
+    },
+    {
+      "pass": true,
+      "name": "desktop R99 gold main continuation is still working"
+    },
+    {
+      "pass": true,
+      "name": "desktop same iframe new chapter clears old 3D event",
+      "detail": {
+        "pre": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        },
+        "post": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop no ghost skip before real combo"
+    },
+    {
+      "pass": true,
+      "name": "desktop no leaked 3D props before chapter 2"
+    },
+    {
+      "pass": true,
+      "name": "desktop first card alone did NOT fake combo",
+      "detail": {
+        "before": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop 3D director only sees real event broadcast_draw",
+      "detail": {
+        "started": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "prepare",
+          "playing": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": true,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop accessible skip for actual story animation"
+    },
+    {
+      "pass": true,
+      "name": "desktop chapter 2 live scene phases",
+      "detail": {
+        "mid": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "action",
+          "playing": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": true,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop correct true 3D prop family broadcast",
+      "detail": {
+        "chalk": false,
+        "broadcast": true,
+        "poster": false,
+        "shield": false
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop natural animation completion removes every prop",
+      "detail": {
+        "completed": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 50,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop actual broadcast speaker emits ONE synchronized source SFX",
+      "detail": {
+        "cue": 1
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop R99 gold main continuation is still working"
+    },
+    {
+      "pass": true,
+      "name": "desktop same iframe new chapter clears old 3D event",
+      "detail": {
+        "pre": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 50,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        },
+        "post": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 50,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop no ghost skip before real combo"
+    },
+    {
+      "pass": true,
+      "name": "desktop no leaked 3D props before chapter 3"
+    },
+    {
+      "pass": true,
+      "name": "desktop first card alone did NOT fake combo",
+      "detail": {
+        "before": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 50,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop 3D director only sees real event poster_shield",
+      "detail": {
+        "started": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "prepare",
+          "playing": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "last": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "played": 3,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 50,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": true,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop accessible skip for actual story animation"
+    },
+    {
+      "pass": true,
+      "name": "desktop chapter 3 live scene phases",
+      "detail": {
+        "mid": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "action",
+          "playing": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "last": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "played": 3,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 50,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": true,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop correct true 3D prop family poster",
+      "detail": {
+        "chalk": false,
+        "broadcast": false,
+        "poster": true,
+        "shield": false
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop final 3D scene live before graduation"
+    },
+    {
+      "pass": true,
+      "name": "desktop R99 gold main continuation is still working"
+    },
+    {
+      "pass": true,
+      "name": "desktop finishes tutorial into playable real free duel"
+    },
+    {
+      "pass": true,
+      "name": "desktop 0 JavaScript/GLB HTTP errors",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "name": "mobile real 3D cinematic assets exist",
+      "detail": {
+        "initial": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": null,
+          "played": 0,
+          "completed": 0,
+          "skipped": 0,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile no ghost skip before real combo"
+    },
+    {
+      "pass": true,
+      "name": "mobile no leaked 3D props before chapter 1"
+    },
+    {
+      "pass": true,
+      "name": "mobile first card alone did NOT fake combo",
+      "detail": {
+        "before": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": null,
+          "played": 0,
+          "completed": 0,
+          "skipped": 0,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile 3D director only sees real event chalk_hit",
+      "detail": {
+        "started": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "prepare",
+          "playing": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 0,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": true,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile accessible skip for actual story animation"
+    },
+    {
+      "pass": true,
+      "name": "mobile chapter 1 live scene phases",
+      "detail": {
+        "mid": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "action",
+          "playing": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 0,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": true,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile correct true 3D prop family chalk",
+      "detail": {
+        "chalk": true,
+        "broadcast": false,
+        "poster": false,
+        "shield": false
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile skip stops props only, never changes real combo receipt",
+      "detail": {
+        "skipped": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile skipped pre-impact chalk never plays delayed fake hit",
+      "detail": {
+        "phantom": 0
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile skip never disables real next chapter"
+    },
+    {
+      "pass": true,
+      "name": "mobile R99 gold main continuation is still working"
+    },
+    {
+      "pass": true,
+      "name": "mobile same iframe new chapter clears old 3D event",
+      "detail": {
+        "pre": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        },
+        "post": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile no ghost skip before real combo"
+    },
+    {
+      "pass": true,
+      "name": "mobile no leaked 3D props before chapter 2"
+    },
+    {
+      "pass": true,
+      "name": "mobile first card alone did NOT fake combo",
+      "detail": {
+        "before": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile 3D director only sees real event broadcast_draw",
+      "detail": {
+        "started": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "prepare",
+          "playing": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": true,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile accessible skip for actual story animation"
+    },
+    {
+      "pass": true,
+      "name": "mobile chapter 2 live scene phases",
+      "detail": {
+        "mid": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "action",
+          "playing": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 0,
+          "skipped": 1,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": true,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile correct true 3D prop family broadcast",
+      "detail": {
+        "chalk": false,
+        "broadcast": true,
+        "poster": false,
+        "shield": false
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile natural animation completion removes every prop",
+      "detail": {
+        "completed": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 54,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile actual broadcast speaker emits ONE synchronized source SFX",
+      "detail": {
+        "cue": 1
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile R99 gold main continuation is still working"
+    },
+    {
+      "pass": true,
+      "name": "mobile same iframe new chapter clears old 3D event",
+      "detail": {
+        "pre": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 54,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        },
+        "post": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 54,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile no ghost skip before real combo"
+    },
+    {
+      "pass": true,
+      "name": "mobile no leaked 3D props before chapter 3"
+    },
+    {
+      "pass": true,
+      "name": "mobile first card alone did NOT fake combo",
+      "detail": {
+        "before": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 2,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 54,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile 3D director only sees real event poster_shield",
+      "detail": {
+        "started": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "prepare",
+          "playing": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "last": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "played": 3,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 54,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": true,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile accessible skip for actual story animation"
+    },
+    {
+      "pass": true,
+      "name": "mobile chapter 3 live scene phases",
+      "detail": {
+        "mid": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "action",
+          "playing": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "last": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "played": 3,
+          "completed": 1,
+          "skipped": 1,
+          "realImpactFrames": 54,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": true,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile correct true 3D prop family poster",
+      "detail": {
+        "chalk": false,
+        "broadcast": false,
+        "poster": true,
+        "shield": false
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile final 3D scene live before graduation"
+    },
+    {
+      "pass": true,
+      "name": "mobile R99 gold main continuation is still working"
+    },
+    {
+      "pass": true,
+      "name": "mobile finishes tutorial into playable real free duel"
+    },
+    {
+      "pass": true,
+      "name": "mobile 0 JavaScript/GLB HTTP errors",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "name": "free duel starts without artificial combo"
+    },
+    {
+      "pass": true,
+      "name": "same real broadcast 3D effect works without tutorial",
+      "detail": {
+        "free": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": true,
+          "phase": "prepare",
+          "playing": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 0
+          },
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 0
+          },
+          "played": 1,
+          "completed": 0,
+          "skipped": 0,
+          "realImpactFrames": 0,
+          "actualProps": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": true,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "free duel visual receipt is exactly authoritative event",
+      "detail": {
+        "engine": {
+          "serial": 5,
+          "type": "combo_effect",
+          "side": "player",
+          "lane": 0,
+          "effect": "broadcast_draw",
+          "draw": 1
+        },
+        "visual": {
+          "serial": 5,
+          "effect": "broadcast_draw",
+          "side": "player",
+          "lane": 0,
+          "damage": 0,
+          "blocked": 0,
+          "draw": 1,
+          "shield": 0,
+          "target": null,
+          "defeated": false,
+          "title": "广播室串台",
+          "duration": 2.36,
+          "chapter": 0
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "unrestricted duel visual matches actual chalk_direct",
+      "detail": {
+        "actual": {
+          "serial": 5,
+          "type": "combo_effect",
+          "side": "player",
+          "lane": 0,
+          "effect": "chalk_direct",
+          "damage": 1
+        },
+        "visual": {
+          "serial": 5,
+          "effect": "chalk_direct",
+          "side": "player",
+          "lane": 0,
+          "damage": 1,
+          "blocked": 0,
+          "draw": 0,
+          "shield": 0,
+          "target": null,
+          "defeated": false,
+          "title": "粉笔直击",
+          "duration": 2.48,
+          "chapter": 0
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "chalk direct damage cannot render a fake targeted enemy",
+      "detail": {
+        "serial": 5,
+        "effect": "chalk_direct",
+        "side": "player",
+        "lane": 0,
+        "damage": 1,
+        "blocked": 0,
+        "draw": 0,
+        "shield": 0,
+        "target": null,
+        "defeated": false,
+        "title": "粉笔直击",
+        "duration": 2.48,
+        "chapter": 0
+      }
+    },
+    {
+      "pass": true,
+      "name": "unrestricted duel visual matches actual poster_draw",
+      "detail": {
+        "actual": {
+          "serial": 5,
+          "type": "combo_effect",
+          "side": "player",
+          "lane": 0,
+          "effect": "poster_draw",
+          "draw": 1
+        },
+        "visual": {
+          "serial": 5,
+          "effect": "poster_draw",
+          "side": "player",
+          "lane": 0,
+          "damage": 0,
+          "blocked": 0,
+          "draw": 1,
+          "shield": 0,
+          "target": null,
+          "defeated": false,
+          "title": "招新启事",
+          "duration": 2.46,
+          "chapter": 0
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "poster DRAW cannot render a fake shield",
+      "detail": {
+        "chalk": false,
+        "broadcast": false,
+        "poster": true,
+        "shield": false
+      }
+    },
+    {
+      "pass": true,
+      "name": "reduced-motion setting reaches actual 3D scene"
+    },
+    {
+      "pass": true,
+      "name": "real combo completes quickly without prolonged movement for reduced-motion players",
+      "detail": {
+        "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+        "active": false,
+        "phase": "idle",
+        "playing": null,
+        "last": {
+          "serial": 5,
+          "effect": "chalk_hit",
+          "side": "player",
+          "lane": 0,
+          "damage": 2,
+          "blocked": 0,
+          "draw": 0,
+          "shield": 0,
+          "target": "U999",
+          "defeated": true,
+          "title": "粉笔弹射",
+          "duration": 2.48,
+          "chapter": 1
+        },
+        "played": 1,
+        "completed": 1,
+        "skipped": 0,
+        "realImpactFrames": 16,
+        "actualProps": {
+          "chalkSticks": 3,
+          "chalkFragments": 18,
+          "broadcastSpeakers": 2,
+          "broadcastWaveMeshes": 4,
+          "posterMeshes": 3,
+          "shieldMeshes": 2
+        },
+        "activeEffects": {
+          "chalk": false,
+          "broadcast": false,
+          "poster": false,
+          "shield": false
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "motion preference cannot block the gold next-chapter action"
+    }
+  ],
+  "views": [
+    {
+      "name": "desktop",
+      "width": 1550,
+      "combos": [
+        {
+          "id": "chalk",
+          "effect": "chalk_hit",
+          "serial": 5,
+          "seen3D": "chalk",
+          "phase": "action",
+          "props": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          }
+        },
+        {
+          "id": "broadcast",
+          "effect": "broadcast_draw",
+          "serial": 5,
+          "seen3D": "broadcast",
+          "phase": "action",
+          "props": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          }
+        },
+        {
+          "id": "poster",
+          "effect": "poster_shield",
+          "serial": 5,
+          "seen3D": "poster",
+          "phase": "action",
+          "props": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          }
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "width": 430,
+      "combos": [
+        {
+          "id": "chalk",
+          "effect": "chalk_hit",
+          "serial": 5,
+          "seen3D": "chalk",
+          "phase": "action",
+          "props": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          }
+        },
+        {
+          "id": "broadcast",
+          "effect": "broadcast_draw",
+          "serial": 5,
+          "seen3D": "broadcast",
+          "phase": "action",
+          "props": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          }
+        },
+        {
+          "id": "poster",
+          "effect": "poster_shield",
+          "serial": 5,
+          "seen3D": "poster",
+          "phase": "action",
+          "props": {
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 3,
+            "shieldMeshes": 2
+          }
+        }
+      ]
+    }
+  ],
+  "freeDuel": {
+    "effect": "broadcast_draw",
+    "serial": 5,
+    "actualDraw": 1
+  },
+  "errors": []
+}

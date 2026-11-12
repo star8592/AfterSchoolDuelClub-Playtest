@@ -11,6 +11,7 @@ import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-a
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
+import {createComboDirector} from './combo-director.mjs';
 import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
 import {createSpellImpact} from './spell-impact.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
@@ -128,6 +129,7 @@ function keepArenaVisible(){
 }
 let stadiumEvidence=null;
 let duelEffects=null;
+let comboDirector=null;
 let liveScoreboard=null;
 let spellImpact=null;
 const spellSerials=new Set();
@@ -175,6 +177,11 @@ function makeScene(){
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
  stadiumEvidence=createStadium(THREE,scene,{detail:'medium'});
  duelEffects=createDuelEffects(THREE,scene);
+ // The R100 director uses only validated real engine.combo_effect payloads.
+ // The 3D stadium, summoners, permanent VRMs and canonical rules stay intact.
+ comboDirector=createComboDirector(THREE,scene,{
+  caption:$('combo-caption'),skipButton:$('skip-combo')
+ });
  liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
  spellImpact=createSpellImpact(THREE,scene);
  podiumCards=createCardHolograms(THREE,scene);
@@ -518,6 +525,12 @@ function loop(){
  absoluteSeconds+=delta;
  liveScoreboard?.update(performance.now());
  spellImpact?.update(absoluteSeconds);
+ // All props update inside the 3D arena; 3 phases, then remove cleanly.
+ comboDirector?.update(absoluteSeconds,reduced);
+ const impactCombo=comboDirector?.drainImpact();
+ if(impactCombo)reply('ASDC_R100_COMBO_IMPACT',impactCombo);
+ const finishedCombo=comboDirector?.drainDone();
+ if(finishedCombo)reply('ASDC_R100_COMBO_DONE',finishedCombo);
  for(let i=pendingSpellUnitHits.length-1;i>=0;i--){
   const pending=pendingSpellUnitHits[i];
   if(absoluteSeconds<pending.due)continue;
@@ -588,6 +601,15 @@ function onMessage(ev){
  }
  if(msg?.type==='ASDC_R48_CAMERA_DELTA'){
   setOrbit(orbitTargetYaw+Number(msg.degrees));return;
+ }
+ if(msg?.type==='ASDC_R100_COMBO_RESET'){
+  comboDirector?.reset();return;
+ }
+ if(msg?.type==='ASDC_R100_REAL_COMBO'){
+  const accepted=comboDirector?.play(msg.event,absoluteSeconds,msg.chapter)===true;
+  reply('ASDC_R100_COMBO_ACCEPTED',{accepted,
+    serial:msg.event?.serial??null,effect:msg.event?.effect??null});
+  return;
  }
  if(msg?.type==='ASDC_R81_SCORE'){
   liveScoreboard?.setState(msg,performance.now());
@@ -669,6 +691,7 @@ function exposeQA(){
   get spellReactions(){return summonPresence?.spellReactions||0},
   get scoreboard(){return liveScoreboard?.stats||null},
   get spellImpact(){return spellImpact?.stats||null},
+  get comboDirector(){return comboDirector?.stats||null},
   get hostHits(){return structuredClone(hostHits)},
   get actualHostHits(){return actualHostHits},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
