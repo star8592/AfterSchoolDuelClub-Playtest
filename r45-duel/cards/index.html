@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0c2232">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="《放学后决斗社》20 张精美卡牌图鉴：14 位校园角色、6 张荒诞事件牌、真实攻击生命和风格连携。点击查看收藏级全卡面。">
+<meta property="og:title" content="放学后决斗社 · 20 张收藏卡牌图鉴">
+<meta property="og:description" content="食堂阿姨、橡皮筋建筑师、广播员……真实三维角色卡面与校园荒诞事件牌。">
+<link rel="canonical" href="https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/cards/">
+<link rel="stylesheet" href="./deck.css">
+<title>卡牌图鉴 · 放学后决斗社</title>
+<script type="module" src="./deck.mjs"></script>
+</head>
+<body>
+<a class="skip-link" href="#card-grid">跳转到卡牌</a>
+<header class="museum-nav">
+ <a href="../../" class="museum-brand"><span class="museum-sigil">✦</span> 放学后决斗社 <small>THE CARD COLLECTION</small></a>
+ <nav aria-label="主要导航"><a href="../../">试玩首页</a><a href="../training/">新手试炼</a><a href="../?mode=tutorial&amp;level=1">三关教学</a><a href="../" class="nav-primary">现在对决</a></nav>
+</header>
+<main>
+ <section class="museum-hero">
+  <span class="eyebrow">AFTER SCHOOL · THE COLLECTION / 001</span>
+  <h1>二十张牌，<br><em>整个校园都是戏。</em></h1>
+  <p>真正的角色造型、认真包装的荒诞日常。查看每张卡牌的收藏插画、角色设定和真实游戏效果，发现不同风格如何引发连携。</p>
+  <div class="museum-numbers"><span><strong id="total-count">20</strong> 张正式卡</span><span><strong>14</strong> 人物 / 单位</span><span><strong>6</strong> 事件牌</span><span><strong>3</strong> 风格</span></div>
+ </section>
+ <section class="collection-shell" aria-labelledby="collection-title">
+  <div class="collection-head">
+   <div><span class="eyebrow">CARD LIBRARY / EXPLORE</span><h2 id="collection-title">校园卡牌图鉴</h2></div>
+   <p>点击任意卡牌欣赏完整插画、阅读效果和连携规则。</p>
+  </div>
+  <div id="card-filters" class="collection-filters" aria-label="筛选图鉴">
+   <button type="button" data-filter="all" aria-pressed="true">全部 <b>20</b></button>
+   <button type="button" data-filter="unit" aria-pressed="false">人物 / 单位 <b>14</b></button>
+   <button type="button" data-filter="spell" aria-pressed="false">事件 <b>6</b></button>
+   <button type="button" data-filter="ember" aria-pressed="false">活力</button>
+   <button type="button" data-filter="grove" aria-pressed="false">创意</button>
+   <button type="button" data-filter="tide" aria-pressed="false">默契</button>
+  </div>
+  <div id="card-grid" class="collection-grid" aria-live="polite"></div>
+  <p class="collection-count" id="collection-count"></p>
+ </section>
+ <section class="museum-callout">
+  <span class="eyebrow">真正的对战，不止是收藏</span>
+  <h2>看完卡面，试试放学后的第一场决斗。</h2>
+  <p>无需注册或安装；拥有 20 张真实规则卡牌和三维校园演出。</p>
+  <a href="../?mode=tutorial&amp;level=1">进入三关剧情教学</a>
+  <a href="../" class="secondary-play">直接自由对战</a>
+ </section>
+</main>
+<dialog id="card-detail" class="card-detail" aria-labelledby="detail-title">
+ <div class="card-detail-shell">
+  <div class="card-detail-image" id="detail-cover">
+   <img id="detail-art" alt="" width="620" height="780">
+   <div class="card-detail-foil" aria-hidden="true"></div>
+   <div class="card-detail-image-head"><span id="detail-style"></span><span id="detail-cost"></span></div>
+   <div class="card-detail-image-foot"><strong id="detail-title"></strong><span id="detail-role"></span></div>
+  </div>
+  <div class="card-detail-info">
+   <div class="detail-header"><span>CARDS / DETAIL</span><button id="detail-close" type="button" aria-label="关闭卡牌详情">×</button></div>
+   <h2 id="detail-name"></h2>
+   <p id="detail-scene"></p>
+   <div id="detail-stats" class="detail-stats"></div>
+   <h3>实际游戏效果</h3><p id="detail-rule"></p>
+   <h3>角色风味</h3><blockquote id="detail-flavor"></blockquote>
+   <p id="detail-hook"></p>
+   <h3>风格连携</h3><div id="detail-combos" class="detail-combos"></div>
+   <small id="detail-note"></small>
+   <a class="detail-play" href="../?mode=tutorial&amp;level=1">去体育馆试试这张牌</a>
+  </div>
+ </div>
+</dialog>
+<footer><a href="../../">返回试玩首页</a><a href="../../credits.html">素材来源与许可状态</a>
+ <span>R103 · 内容展示层，不改变原 20 张卡牌的任何实际规则</span></footer>
+</body></html>

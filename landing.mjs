@@ -80,7 +80,11 @@ function paintCards(filter='all'){
   const meta=document.createElement('small');
   meta.textContent=kinds[card.kind]+
    (card.kind==='unit'?' · 攻 '+card.attack+' / ♥ '+card.hp:'');
-  article.append(top,title,joke,meta);frag.append(article);
+  const img=document.createElement('img');
+  img.className='mini-card-painting';
+  img.src='./r45-duel/assets/cards/r103/'+card.id+'.webp';
+  img.alt='';img.loading='lazy';img.decoding='async';
+  article.append(img,top,title,joke,meta);frag.append(article);
  }
  gallery.append(frag);
 }
