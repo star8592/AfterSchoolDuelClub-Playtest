@@ -6,8 +6,15 @@
 <style>
 html,body{width:100%;height:100%;overflow:hidden;margin:0;background:#17283b}
 canvas{display:block;width:100%;height:100%}
-#loading{position:absolute;inset:0;display:grid;place-items:center;background:#15253bbd;color:#ffe4b6;font:13px system-ui,sans-serif;text-align:center;padding:12px;z-index:8}
+#loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#15253bdc;color:#ffe4b6;font:13px system-ui,sans-serif;text-align:center;padding:12px;z-index:8}
 #loading[hidden]{display:none}
+#loading[data-error="true"]{background:#15253bf0}
+#loading .load-error{max-width:560px;line-height:1.6;overflow-wrap:anywhere}
+#retry-scene{padding:12px 23px;min-height:48px;min-width:170px;
+ border:1px solid #ffe6ad;border-radius:10px;background:#f2bf72;color:#15263d;
+ font:800 16px system-ui,sans-serif;cursor:pointer;box-shadow:0 6px 20px #0007}
+#retry-scene:hover{filter:brightness(1.10)}#retry-scene:focus-visible{outline:3px solid #fff}
+
 #info{position:absolute;top:9px;left:10px;z-index:3;padding:5px 10px;border:1px solid #d2b58577;background:#14243bc8;color:#fbe3bb;border-radius:7px;font:11px system-ui,sans-serif}
 #details,#identity,#identity-left,#identity-right,#replay,#evidence{display:none}
 #impact{position:absolute;top:22%;left:50%;transform:translateX(-50%);font-weight:900;font:900 clamp(16px,3vw,34px) system-ui,sans-serif;color:#fff0d4;text-shadow:0 4px 14px #000,0 0 20px #fd875f;z-index:4}

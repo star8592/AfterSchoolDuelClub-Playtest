@@ -743,6 +743,19 @@ try{
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();
 }catch(e){
  console.error('R45_SCENE_MODEL_LOAD_FAILED',e);
- $('loading').textContent='召唤用三维模型加载失败（阻止虚假就绪）：'+String(e.message||e);
- $('loading').dataset.error='true';
+ // Never pretend a partially loaded arena is ready. Show a playable recovery
+ // action instead of leaving the player stuck with an unclickable error.
+ const loading=$('loading');
+ loading.dataset.error='true';
+ const message=document.createElement('div');
+ message.className='load-error';
+ message.textContent='三维资源加载失败，游戏已暂停出牌以避免错误。'+
+  String(e.message||e).slice(0,240);
+ const retry=document.createElement('button');
+ retry.id='retry-scene';
+ retry.type='button';
+ retry.textContent='↻ 重新加载三维场景';
+ retry.addEventListener('click',()=>location.reload());
+ loading.replaceChildren(message,retry);
+ reply('ASDC_R45_SCENE_FAILED',{retryAvailable:true,modelReady:false});
 }
