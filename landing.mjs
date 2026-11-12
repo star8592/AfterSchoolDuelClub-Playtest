@@ -64,11 +64,14 @@ const kinds={unit:'人物 / 单位',spell:'事件牌'};
 function paintCards(filter='all'){
  const gallery=$('card-gallery');
  gallery.replaceChildren();
- const list=CARDS.filter(card=>filter==='all'||card.kind===filter);
+ const list=CARDS.filter(card=>filter==='all'||(filter==='trend'?!!card.trend:card.kind===filter))
+  .sort((a,b)=>(!!b.trend)-(!!a.trend)||
+   (b.trend?.date||'').localeCompare(a.trend?.date||''));
  const frag=document.createDocumentFragment();
  for(const card of list){
   const article=document.createElement('article');
   article.className='mini-card';article.dataset.kind=card.kind;
+  if(card.trend)article.dataset.trend='2026';
   const top=document.createElement('div');top.className='mini-top';
   const ident=document.createElement('span');
   ident.textContent=styleIcons[card.style]+' '+styleNames[card.style]+' · '+card.id;
@@ -78,7 +81,7 @@ function paintCards(filter='all'){
   const title=document.createElement('h3');title.textContent=card.name;
   const joke=document.createElement('p');joke.textContent=card.line;
   const meta=document.createElement('small');
-  meta.textContent=kinds[card.kind]+(card.theme?' · '+card.theme:'')+
+  meta.textContent=(card.trend?'2026热梗 · ':'')+kinds[card.kind]+(card.theme?' · '+card.theme:'')+
    (card.kind==='unit'?' · 攻 '+card.attack+' / ♥ '+card.hp:'')+
    (card.rule?' · '+card.rule:'');
   article.append(top,title,joke,meta);frag.append(article);
