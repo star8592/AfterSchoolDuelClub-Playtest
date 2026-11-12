@@ -1,5 +1,5 @@
 {
-  "origin": "http://127.0.0.1:11098",
+  "origin": "http://127.0.0.1:11099",
   "pass": true,
   "checks": [
     {
@@ -277,7 +277,7 @@
     },
     {
       "pass": true,
-      "name": "desktop next chapter button appears only after real combo",
+      "name": "desktop bottom gold action directly advances completed lesson",
       "detail": null
     },
     {
@@ -548,7 +548,7 @@
     },
     {
       "pass": true,
-      "name": "desktop next chapter button appears only after real combo",
+      "name": "desktop bottom gold action directly advances completed lesson",
       "detail": null
     },
     {
@@ -823,7 +823,7 @@
     },
     {
       "pass": true,
-      "name": "desktop next chapter button appears only after real combo",
+      "name": "desktop bottom gold action directly advances completed lesson",
       "detail": null
     },
     {
@@ -1118,7 +1118,7 @@
     },
     {
       "pass": true,
-      "name": "mobile next chapter button appears only after real combo",
+      "name": "mobile bottom gold action directly advances completed lesson",
       "detail": null
     },
     {
@@ -1142,9 +1142,9 @@
           "ai": 20,
           "round": 1,
           "turn": "player",
-          "comboPlayer": 1,
+          "comboPlayer": 0,
           "comboAi": 0,
-          "energy": 1,
+          "energy": 2,
           "type": "ASDC_R81_SCORE"
         }
       }
@@ -1389,7 +1389,7 @@
     },
     {
       "pass": true,
-      "name": "mobile next chapter button appears only after real combo",
+      "name": "mobile bottom gold action directly advances completed lesson",
       "detail": null
     },
     {
@@ -1664,7 +1664,7 @@
     },
     {
       "pass": true,
-      "name": "mobile next chapter button appears only after real combo",
+      "name": "mobile bottom gold action directly advances completed lesson",
       "detail": null
     },
     {

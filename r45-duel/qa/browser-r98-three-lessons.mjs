@@ -78,14 +78,16 @@ try{
        name+' poster adds actual two-point unit shield');
      lessons.push({level:i+1,id:lesson.id,combo:state.combo.effect,
        damage:state.combo.damage||0,shield:state.combo.shield||0,draw:state.combo.draw||0});
-     check(await page.locator('#lesson-next').isVisible(),name+' next chapter button appears only after real combo');
+     check(await page.locator('#play').isVisible()&&await page.locator('#play').isEnabled()&&
+      (await page.locator('#play').innerText()).includes(i===2?'自由对战':'进入下一关'),
+      name+' bottom gold action directly advances completed lesson');
      check(await page.locator('.card:not([disabled])').count()===0,name+' completed chapter stops extra card plays');
      const nameFile=name+'-lesson-'+(i+1)+'-finished.png';
      if(i===0||i===2)await page.screenshot({path:resolve(out,nameFile)});
     }
    }
    if(i<LESSONS.length-1){
-    await page.locator('#lesson-next').click();
+    await page.locator('#play').click();
     check(await page.evaluate(()=>window.__r98Iframe===document.querySelector('#stadium').contentWindow),
      name+' advance without redownloading large 3D stadium');
     const next=await page.evaluate(()=>({
@@ -95,7 +97,7 @@ try{
     check(next.level===i+2&&next.scene&&next.score.player===20&&next.score.ai===20,
      name+' next story scene resets core score but preserves 3D iframe',next);
    }else{
-    await page.locator('#lesson-next').click();
+    await page.locator('#play').click();
     await page.waitForFunction(()=>window.__r45QA?.sceneReady===true&&!window.__r45QA?.tutorial,
      null,{timeout:150000});
     check(await page.locator('#end').isEnabled()&&await page.locator('#tutorial-start').isVisible(),
