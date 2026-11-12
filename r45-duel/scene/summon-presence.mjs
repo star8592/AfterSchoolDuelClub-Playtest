@@ -688,7 +688,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     });
     if(parts.wing_left&&parts.wing_right)wingMorph=parts;
    }
-   return{side:s.side,uid:s.uid,id:s.id,kind:s.kind,visible:s.object.visible,metrics,wingMorph,
+   return{side:s.side,uid:s.uid,id:s.id,kind:s.kind,visible:s.object.visible,
+    trueWorldYaw:Number(s.object.rotation.y.toFixed(6)),metrics,wingMorph,
     hp:s.hp,attack:s.attack,shield:s.shield,
     hpTag:!!s.status?.label.visible,
     hpTagPosition:s.status?.label.position.toArray().map(v=>Number(v.toFixed(2))),
