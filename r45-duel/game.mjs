@@ -1,14 +1,19 @@
 /**
  * R45 — independent game application. NO legacy R14..R44 UI/director imports.
- * Only 5 game actions: select card, confirm play, end turn, view rules, reset via URL.
+ * Free duel + R98 optional in-game tutorial; core gameplay always stays in engine.mjs.
  * Real rules and 3D rendering are separate; visual animation never mutates HP.
  */
 import {BY_ID,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
+import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
 
 const $=id=>document.getElementById(id);
-const seed=Number(new URLSearchParams(location.search).get('seed')??'1')||1;
-const g=createGame(seed);
+const params=new URLSearchParams(location.search);
+const seed=Number(params.get('seed')??'1')||1;
+const tutorialMode=params.get('mode')==='tutorial';
+const requestedLevel=Number(params.get('level')??'1');
+const initialLevel=tutorialMode&&Number.isInteger(requestedLevel)&&requestedLevel>=1&&requestedLevel<=LESSONS.length?requestedLevel:1;
+let g=tutorialMode?createTutorialGame(initialLevel,seed):createGame(seed);
 const scene=$('stadium');
 const audio=createDuelAudio();
 audio.setOpeningMusic(seed);
@@ -88,7 +93,8 @@ function cardSound(c){
 }
 function gameReady(){return sceneReady&&!sceneError&&g.phase==='playing'&&g.active==='player';}
 function cardCanPlay(index){
- return gameReady()&&legalMoves(g).some(m=>m.index===index&&m.lane===0);
+ return gameReady()&&tutorialCanPlay(g,index)&&
+  legalMoves(g).some(m=>m.index===index&&m.lane===0);
 }
 function describeCard(c){
  if(c.kind==='unit')return '攻 '+c.attack+' / 生命 '+c.hp+' · 上场后下次轮到你才攻击';
@@ -121,6 +127,7 @@ function renderBoard(){
 function renderHand(){
  const fragment=document.createDocumentFragment();
  g.hand.player.forEach((id,index)=>{
+  if(tutorialMode&&!tutorialCanPlay(g,index))return;
   const c=BY_ID[id],available=cardCanPlay(index);
   const card=$make('button','card '+c.style+(selected===index?' selected':''));
   card.type='button';
@@ -166,7 +173,7 @@ function renderHand(){
   fragment.append(card);
  });
  $('hand').replaceChildren(fragment);
- $('hand-count').textContent=String(g.hand.player.length);
+ $('hand-count').textContent=String(tutorialMode?(tutorialStatus(g).completed?0:1):g.hand.player.length);
  if(!g.hand.player.length)$('hand').append($make('div','empty-hand','手牌用完，点击「结束回合」即可继续抽牌'));
 }
 function scoreboardSnapshot(){
@@ -210,10 +217,60 @@ function renderActions(){
   sceneError?'三维资源加载失败。请在场景中点击「重新加载三维场景」，完成后再出牌。':
   !sceneReady?'三维体育馆和角色模型正在加载，载入后即可出牌。':
   card?describeCard(card):'点击手牌选择，无需选择教室、走廊或其他部署位置';
- $('end').disabled=!ended&&!gameReady();
- $('end').textContent=ended?'↻ 再来一局':'结束回合 → AI 出牌';
+ $('end').disabled=tutorialMode||(!ended&&!gameReady());
+ $('end').textContent=tutorialMode?'教学中 · 完成两步后继续':ended?'↻ 再来一局':'结束回合 → AI 出牌';
 }
+function renderLesson(){
+ const launch=$('tutorial-start'),panel=$('lesson-panel');
+ launch.hidden=tutorialMode;
+ panel.hidden=!tutorialMode;
+ if(!tutorialMode)return;
+ const status=tutorialStatus(g);
+ $('lesson-progress').textContent='剧情教学 '+status.level+' / '+LESSONS.length;
+ $('lesson-title').textContent=status.title+(status.completed?' · 完成！':'');
+ $('lesson-story').textContent=status.completed?status.success:status.story;
+ const result=status.result;
+ $('lesson-instruction').textContent=status.completed?
+  '实际连携：'+result.effect+(result.damage?' · 伤害 '+result.damage:'')+
+   (result.blocked?' · 格挡 '+result.blocked:'')+
+   (result.shield?' · 护盾 +'+result.shield:'')+
+   (result.draw?' · 额外抽牌 '+result.draw:'')+
+   (result.defeated?' · 对方单位退场':''):
+  status.steps[status.step];
+ const next=$('lesson-next');
+ next.hidden=!status.completed;
+ next.textContent=status.level===LESSONS.length?'完成教学 · 开始自由对战':'下一关 · '+LESSONS[status.level].title;
+}
+function freeDuelUrl(){
+ const u=new URL(location.href);
+ u.searchParams.delete('mode');u.searchParams.delete('level');
+ return u;
+}
+$('tutorial-start').addEventListener('click',()=>{
+ const u=new URL(location.href);
+ u.searchParams.set('mode','tutorial');u.searchParams.set('level','1');
+ location.assign(u.href);
+});
+$('tutorial-exit').addEventListener('click',()=>location.assign(freeDuelUrl().href));
+$('lesson-next').addEventListener('click',()=>{
+ if(!tutorialMode||!tutorialStatus(g).completed)return;
+ const level=g.tutorial.level;
+ if(level===LESSONS.length){location.assign(freeDuelUrl().href);return;}
+ // A fresh lesson is a fresh actual duel instance. The stadium itself stays
+ // mounted, avoiding repeat 70MB VRM/GLB downloads between chapters.
+ g=createTutorialGame(level+1,seed+level);
+ selected=null;lastFightSerial=0;
+ hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
+ render();syncScene();
+ announce('开始'+LESSONS[level].title+'：请按上方提示出两张真实卡牌。','selected');
+});
+
 function renderGuide(){
+ if(tutorialMode){
+  const t=tutorialStatus(g);
+  $('guide-step').textContent=t.completed?'本关连携已经真实触发，点击「下一关」继续':t.steps[t.step];
+  return;
+ }
  $('guide-step').textContent=g.phase==='ended'?'本局结束 · '+(g.winner==='player'?'你赢了！':g.winner==='ai'?'AI 获胜':'平局'):
   selected!==null?'② 点击下方金色「出牌」，人物便会进入中央竞技场':
   g.active==='player'?'① 选择手牌　② 点击「出牌」　③ 按「结束回合」让 AI 回应':
@@ -225,6 +282,7 @@ function render(){
  renderBoard();
  renderHand();
  renderActions();
+ renderLesson();
  renderGuide();
  sendScene(scoreboardSnapshot());
 }
@@ -353,7 +411,7 @@ $('play').addEventListener('click',()=>{
  if(g.phase==='ended'){showResult();return;}
  if(selected===null||!cardCanPlay(selected))return;
  const id=g.hand.player[selected],c=BY_ID[id],preHp={...g.hp},
-   result=playCard(g,selected,0);
+   result=tutorialMode?playTutorialCard(g,selected,0):playCard(g,selected,0);
  if(!result.ok){
   announce('出牌失败：'+result.reason,'warning');render();return;
  }
@@ -387,7 +445,7 @@ $('play').addEventListener('click',()=>{
 });
 $('end').addEventListener('click',()=>{
  if(g.phase==='ended'){startRematch();return;}
- if(!gameReady())return;
+ if(tutorialMode||!gameReady())return;
  audio.playCue('turn');
  const pre=boardSnapshot().units;
  const preHp={...g.hp};
@@ -503,6 +561,7 @@ render();
 announce('开始决斗：你在左，对手在右；选牌并按「出牌」，召唤物会进入同一个三维体育馆。');
 if(new URLSearchParams(location.search).get('qa')==='1'){
  Object.defineProperty(window,'__r45QA',{value:{
+  get tutorial(){return tutorialStatus(g)},
   get board(){return structuredClone(g.board)},
   get round(){return g.round},
   get hp(){return {...g.hp}},

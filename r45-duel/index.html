@@ -37,6 +37,19 @@
       <strong>首次决斗只要三步</strong>
       <span id="guide-step">① 选下方的卡牌　② 按「出牌」召唤　③ 按「结束回合」等 AI 回应</span>
     </div>
+    <div class="lesson-shell">
+      <button id="tutorial-start" type="button" class="lesson-launch">玩三关剧情教学</button>
+      <section id="lesson-panel" class="lesson-panel" aria-label="三关真实连携教学" hidden>
+        <span id="lesson-progress" class="lesson-progress">教学 1/3</span>
+        <div class="lesson-copy">
+          <strong id="lesson-title">第 1 关 · 粉笔弹射</strong>
+          <span id="lesson-story">按提示选择牌，再触发真实连携。</span>
+          <span id="lesson-instruction" aria-live="polite"></span>
+        </div>
+        <button id="lesson-next" type="button" class="lesson-next" hidden>进入下一关</button>
+        <button id="tutorial-exit" type="button" class="lesson-exit">自由对战</button>
+      </section>
+    </div>
     <details class="help" id="help">
       <summary>规则说明 <span aria-hidden="true">▾</span></summary>
       <div class="help-content">
