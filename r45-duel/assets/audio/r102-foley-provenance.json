@@ -1,0 +1,167 @@
+{
+  "release": "R102",
+  "copyright": "Original mathematical synthesizer in qa/generate-r102-original-foley.py; no third-party source samples",
+  "sample_rate": 24000,
+  "sounds": [
+    {
+      "file": "r102_school_bell.ogg",
+      "duration_seconds": 1.15,
+      "sha256": "5ee017f3d990569342fad14a66592ece14b3b7df69329f6c78111e0bf1355b3b",
+      "bytes": 5130,
+      "method": "bell",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_chalk_swoosh.ogg",
+      "duration_seconds": 0.67,
+      "sha256": "ddd1336078c28db7398bfa6a2909d66691d15fffee09446f96e7839e85736b89",
+      "bytes": 2873,
+      "method": "swoosh",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_chalk_snap.ogg",
+      "duration_seconds": 0.49,
+      "sha256": "ddc64f45ae793cf3d3a784ffe1a15194c9e40feaa5770907d413b6ad10de5029",
+      "bytes": 2132,
+      "method": "crack",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_paper_flap.ogg",
+      "duration_seconds": 0.7,
+      "sha256": "f3d9e9dcdfa6e152134e1babe32abb501e2b2ecbf2a34bba9aaa0c5278e339dc",
+      "bytes": 2955,
+      "method": "flutter",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_poster_unfurl.ogg",
+      "duration_seconds": 0.99,
+      "sha256": "97c6927441f7ad7e1ee99959f14c882abde7733bd1737810b4d36427faf227c7",
+      "bytes": 4187,
+      "method": "unfurl",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_stamp_pop.ogg",
+      "duration_seconds": 0.47,
+      "sha256": "2d8632ecf95b3d30b7940deeb6f98085f9a66aad4a041d18f22747c820c18258",
+      "bytes": 2060,
+      "method": "pop",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_radio_tune.ogg",
+      "duration_seconds": 0.86,
+      "sha256": "585ec82382c64254e4d41e9be6bb4ef11e88ae609951334c6a97fda775032fa3",
+      "bytes": 3713,
+      "method": "tune",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_radio_glitch.ogg",
+      "duration_seconds": 0.62,
+      "sha256": "7abe0c9f9d2bdfb0c9e294c628ea077c2864e8628bd1747da2bd5a63e12f5f07",
+      "bytes": 2677,
+      "method": "glitch",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_spring_boing.ogg",
+      "duration_seconds": 0.69,
+      "sha256": "147191f36b71bd0f8607f0a15d34f1fc8ec9d99d197b8a44bafc47fc5c371413",
+      "bytes": 2988,
+      "method": "boing",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_comedy_whistle.ogg",
+      "duration_seconds": 0.8,
+      "sha256": "1bef178df2176a5fee90d007c7a0bde1f56acf129444c6edd370cea07aa81261",
+      "bytes": 3590,
+      "method": "whistle",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_magic_tingle.ogg",
+      "duration_seconds": 1.06,
+      "sha256": "178bea3f0599a2aec0f4120d5fa905423bfa33d59e682dc67c79cc5c91014412",
+      "bytes": 5302,
+      "method": "spark",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_confetti_pop.ogg",
+      "duration_seconds": 0.82,
+      "sha256": "412be222fb21894de7d12eef7c6ba170fc594cd7e71caba84b53c194d985fb23",
+      "bytes": 4212,
+      "method": "confetti",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_school_steps.ogg",
+      "duration_seconds": 0.48,
+      "sha256": "563f6da97860e7f365fab6d046bacad383bc5a7e17b524e4921309899bc1b7a9",
+      "bytes": 1729,
+      "method": "step",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_music_gliss.ogg",
+      "duration_seconds": 0.81,
+      "sha256": "65a3ef30e67aa2048c2cc80570733b47fb1ad4b39c942f7791e20a7570a31bd7",
+      "bytes": 4127,
+      "method": "gliss",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_erase_scribble.ogg",
+      "duration_seconds": 0.61,
+      "sha256": "a896e27837defb8c85130155f2306acd05bdb1cb4c1c43d6de01e40b064350ba",
+      "bytes": 2566,
+      "method": "scribble",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_hearts_pulse.ogg",
+      "duration_seconds": 0.92,
+      "sha256": "5f0186cdd0d6d4a1003b9167d6f6ef86040a2f797f77e9899b37e1065e968a9d",
+      "bytes": 4426,
+      "method": "heart",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_shield_chime.ogg",
+      "duration_seconds": 1.21,
+      "sha256": "c6434734e60392bd7f875b9ac11d821202c6138de56adc9833aca80bf72067ae",
+      "bytes": 5262,
+      "method": "chime",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_crowd_gasp.ogg",
+      "duration_seconds": 0.76,
+      "sha256": "0300c37002641b5bc657ebb2f7652245dfda794056afd38240a6c0d90674e249",
+      "bytes": 3915,
+      "method": "gasp",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_score_trumpet.ogg",
+      "duration_seconds": 1.29,
+      "sha256": "0b47bb7dde27f149bd5972b332489b4467acea1e846d6fee4d0d9594f3a2b18a",
+      "bytes": 5495,
+      "method": "trumpet",
+      "license": "Original project-generated sound effects; no external source audio"
+    },
+    {
+      "file": "r102_rubber_squeak.ogg",
+      "duration_seconds": 0.58,
+      "sha256": "983d3be3324696605c80668488dbd925b60ddf0bb8c47290e675654a37ae4edd",
+      "bytes": 2626,
+      "method": "squeak",
+      "license": "Original project-generated sound effects; no external source audio"
+    }
+  ]
+}

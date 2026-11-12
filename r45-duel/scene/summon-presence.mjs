@@ -11,10 +11,11 @@ import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {instantiateSummon,UNIT_MODEL_IDS} from './summon-models.mjs';
 import {faceOpponentYaw,faceOpponentDot} from './summon-orientation.mjs';
 import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mjs';
+import {ACTOR_COMEDY_SIGNATURES} from './actor-comedy-signatures.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
-export function createSummonPresence(THREE,scene,{actors,prototypes}){
+export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpact}={}){
  if(!(prototypes instanceof Map)||prototypes.size!==12||
    UNIT_MODEL_IDS.some(id=>!prototypes.has(id))){
    throw Error('R61 fail-closed: all twelve summoned GLB prototypes must load');
@@ -24,6 +25,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
  scene.add(root);
  const entries=new Map(),pool=new Map();
  let current={player:[],ai:[]},revision=0,lastUpdateSeconds=null;
+ let comicGestures=0,comicBoneFrames=0,comicSummons=0,comicComboReacts=0;
+ let lastComic=null;
  let sequence=null,playedEvents=0,finishedSequences=0;
  let hpDisplayMode='auto';
  const hpModes=new Set(['auto','full','compact','hidden']);
@@ -248,7 +251,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
       object=cloneGltf(id);kind='gltf-instance';
       root.add(object);
      }
-     state={key,id,uid,side,index,kind,object,created:performance.now(),status:makeStatusTag(side,id)};
+     state={key,id,uid,side,index,kind,object,created:performance.now(),
+      comic:null,comicBones:null,status:makeStatusTag(side,id)};
      entries.set(key,state);
     }
     state.index=index;
@@ -311,6 +315,75 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
    phase:sequence&&lastUpdateSeconds!==null?
     Number((((lastUpdateSeconds-sequence.started)%secondsPerHit)/secondsPerHit).toFixed(3)):null};
  }
+ // Distinct gestures of the CURRENT REAL GLB/VRM body: short sleeve
+ // swings, proud presenting poses, shocked recoil or schoolyard bounce.
+ // This reads bones already present in the asset; it never fabricates actors.
+ function realComicBones(state){
+  if(state.comicBones)return state.comicBones;
+  const bones=[];
+  state.object.traverse(node=>{
+   if(!node.isBone)return;
+   const name=node.name.toLowerCase();
+   if(!/(shoulder|upper.?arm|j_bip_[lr]_upperarm)/.test(name))return;
+   const left=/(left|_l_|\.l|shoulderl|j_bip_l_)/.test(name);
+   const right=/(right|_r_|\.r|shoulderr|j_bip_r_)/.test(name);
+   if(left===right)return;
+   bones.push({bone:node,side:left?-1:1,rest:node.quaternion.clone()});
+  });
+  state.comicBones=bones.slice(0,4);
+  return state.comicBones;
+ }
+ const COMIC_MOTIONS=Object.freeze({
+  salute:{duration:1.10,lift:.11,lean:.09,arm:.20,taps:1},
+  chalk_hit:{duration:2.25,lift:.15,lean:.17,arm:.43,taps:1},
+  chalk_direct:{duration:2.1,lift:.12,lean:.17,arm:.38,taps:1},
+  broadcast_draw:{duration:2.0,lift:.12,lean:.09,arm:.37,taps:3},
+  poster_shield:{duration:2.1,lift:.17,lean:-.12,arm:.46,taps:2},
+  poster_draw:{duration:1.9,lift:.12,lean:-.07,arm:.28,taps:2}
+ });
+ function setComicGesture(state,type,now,serial){
+  const motion=COMIC_MOTIONS[type];
+  if(!state||!motion||!Number.isFinite(now)||!Number.isInteger(serial)||serial<=0)return false;
+  // React with its existing native morph/rig animation FIRST.
+  // True shoulder bones (when present) are layered in the update function.
+  state.object.userData.r61?.play?.(type.startsWith('chalk')?'attack':
+   type==='poster_shield'?'hit':'idle');
+  const signature=ACTOR_COMEDY_SIGNATURES[state.id];
+  state.comic={type,started:now,serial,motion,signature,
+   baseYaw:state.object.rotation.y};
+  realComicBones(state);
+  comicGestures++;
+  lastComic={type,id:state.id,side:state.side,serial,
+   signature:signature?.name||'original',realBones:state.comicBones.length};
+  return true;
+ }
+ function reactToSummon(side,id,serial,now){
+  const found=[...entries.values()].filter(x=>x.side===side&&x.id===id).at(-1);
+  if(!found)return false;
+  if(setComicGesture(found,'salute',now,serial)){comicSummons++;return true}
+  return false;
+ }
+ function reactToCombo(side,effect,target,serial,now){
+  if(!['player','ai'].includes(side)||!Object.hasOwn(COMIC_MOTIONS,effect))return false;
+  const own=[...entries.values()].filter(e=>e.side===side);
+  if(!own.length)return false;
+  // On a real shield, the engine's target UID chooses who performs the
+  // protective gesture; otherwise the latest CURRENT real ally performs it.
+  const subject=effect==='poster_shield'?
+   own.find(e=>e.uid===target)||own.at(-1):own.at(-1);
+  if(!setComicGesture(subject,effect,now,serial))return false;
+  comicComboReacts++;
+  return true;
+ }
+ function clearComicCombo(){
+  for(const state of entries.values())if(state.comic){
+   const baseYaw=state.comic.baseYaw;
+   state.comic=null;
+   state.object.userData.r61?.setCombatPose?.(null);
+   state.object.rotation.y=baseYaw;
+   for(const item of state.comicBones||[])item.bone.quaternion.copy(item.rest);
+  }
+ }
  let actualSpellReactions=0;
  function reactToSpell(side,uids,now){
   if(!['player','ai'].includes(side)||!Array.isArray(uids)||uids.length>5)return 0;
@@ -337,6 +410,38 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     r61?.setClipRate?.(1);
    }
    if(r61?.update)r61.update(dt);else r61?.mixer?.update(dt);
+   if(state.comic&&!sequence){
+    const c=state.comic,m=c.motion,elapsed=seconds-c.started;
+    const p=Math.max(0,Math.min(1,elapsed/m.duration));
+    if(elapsed>=m.duration){
+     state.object.rotation.y=c.baseYaw;
+     state.comic=null;
+     state.object.userData.r61?.setCombatPose?.(null);
+     for(const b of state.comicBones||[])b.bone.quaternion.copy(b.rest);
+    }else{
+     const envelope=Math.sin(Math.PI*p);
+     const sig=c.signature||{name:'default',turn:0,arm:1,taps:1,lift:1};
+     const bounce=Math.sin(p*Math.PI*2*(m.taps+Math.max(0,sig.taps-2)*.36));
+     state.object.rotation.y=c.baseYaw+sig.turn*envelope*bounce;
+     const asym=state.side==='player'?1:-1;
+     // Pose the genuine loaded GLB skeleton through its real shoulder bones.
+     // Use a fixed rest reference so there is NEVER cumulative T-/A-pose
+     // distortion after the short gesture ends.
+     for(const entry of state.comicBones||[]){
+      const turn=m.arm*sig.arm*envelope*(.63+.37*bounce)*entry.side*asym;
+      entry.bone.quaternion.copy(entry.rest);
+      entry.bone.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
+       new THREE.Vector3(0,0,1),turn));
+      comicBoneFrames++;
+     }
+     // This is an additional small whole-character performance layer,
+     // NOT a synthetic replacement mesh or a fake skeleton.
+     state.object.userData.r61?.setCombatPose?.({
+      lean:asym*m.lean*envelope,
+      upperTwist:asym*(m.arm*.19)*bounce*envelope,
+      lift:m.lift*sig.lift*Math.abs(bounce)*envelope});
+    }
+   }
    if(state.status&&labelStyle!=='hidden')drawStatusTag(state,labelStyle);
    const object=state.object;
    if(state.kind==='vrm-instance'||state.kind==='gltf-instance'){
@@ -405,6 +510,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
       const hit=anchor(event.side==='player'?'ai':'player',event.target_uid,event.to);
       hit?.object.userData.r61?.play('hit');
      }
+     if(typeof onCombatImpact==='function')
+      onCombatImpact({...event});
      r90ImpactTriggers++;
      if(event.damage>0)r90SparkBursts++;
     }
@@ -559,11 +666,20 @@ export function createSummonPresence(THREE,scene,{actors,prototypes}){
     r90ClipRate:s.kind==='gltf-instance'?s.object.userData.r61?.getClipRate?.():undefined,
     artApproved:false};
   });
-  return{revision,hpDisplayMode,activeHpStyle:activeHpStyle(camera),
+  return{revision,
+   r102Comedy:{gestures:comicGestures,summons:comicSummons,
+    comboReactions:comicComboReacts,boneFrames:comicBoneFrames,
+    active:[...entries.values()].filter(x=>!!x.comic).map(x=>({
+     id:x.id,uid:x.uid,type:x.comic.type,serial:x.comic.serial,
+     shoulderBoneCount:x.comicBones?.length||0})),
+    lastComic},
+   hpDisplayMode,activeHpStyle:activeHpStyle(camera),
   visibleHpTags:[...entries.values()].filter(x=>x.status?.label.visible).length,
   total:list.length,models:list.length,
    pendingArt:0,prototypeArt:list.filter(x=>x.kind==='gltf-instance').length,
    loadedPrototypeIds:[...prototypes.keys()],cardIds:[...UNIT_IDS],entries:list};
  }
- return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,reactToSpell,get spellReactions(){return actualSpellReactions}};
+ return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,
+  reactToSpell,reactToSummon,reactToCombo,clearComicCombo,
+  get spellReactions(){return actualSpellReactions}};
 }

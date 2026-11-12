@@ -554,3 +554,47 @@ html,body{width:100%;height:100%;overflow:hidden}
  .result-actions{display:flex;flex-wrap:wrap}
  .result-actions>*{flex:1 1 145px}
 }
+
+/* R102: explicit distinction between actually spoken Qwen subtitles
+   and the much larger collection of authored TEXT-ONLY schoolyard asides. */
+.comedy-aside[hidden],.spoken-dialogue[hidden]{display:none!important}
+.comedy-aside,.spoken-dialogue{
+ position:absolute;left:50%;transform:translateX(-50%);
+ max-width:min(480px,82%);width:max-content;z-index:6;
+ pointer-events:none;display:grid;gap:3px;text-align:center;
+ padding:8px 15px;border:1px solid #edd095ba;border-radius:11px;
+ box-shadow:0 8px 24px #061524a8;text-shadow:0 1px 2px #061321a0;
+ animation:r102DialogueIn .2s ease-out;
+}
+.comedy-aside{top:42px;background:#193b49dc}
+.spoken-dialogue{bottom:92px;background:#12283de8;border-color:#96d9efba}
+.comedy-aside[data-side="ai"],.spoken-dialogue[data-side="ai"]{
+ border-color:#9ed4f1b8;background:#183049e8
+}
+.comedy-aside span,.spoken-dialogue span{
+ display:block;color:#e7ca9a;font-size:10px;font-weight:800;
+ letter-spacing:.04em
+}
+.spoken-dialogue span{color:#a5daf6}
+.comedy-aside strong,.spoken-dialogue strong{
+ display:block;color:#fff3d7;font-size:clamp(12px,1.18vw,16px);
+ line-height:1.43;font-weight:750
+}
+.result-comic{margin:5px auto 16px!important;font-size:13px;
+ color:#ffdead;line-height:1.5}
+@keyframes r102DialogueIn{
+ from{opacity:0;transform:translate(-50%,8px) scale(.97)}
+ to{opacity:1;transform:translate(-50%,0) scale(1)}
+}
+@media(max-width:650px){
+ .comedy-aside{top:31px}
+ .spoken-dialogue{bottom:76px}
+ .comedy-aside,.spoken-dialogue{
+  max-width:76%;padding:5px 8px;border-radius:8px}
+ .comedy-aside span,.spoken-dialogue span{font-size:9px}
+ .comedy-aside strong,.spoken-dialogue strong{font-size:11px}
+ .result-comic{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){
+ .comedy-aside,.spoken-dialogue{animation:none}
+}

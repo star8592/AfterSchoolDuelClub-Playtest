@@ -1,0 +1,2164 @@
+{
+  "origin": "http://127.0.0.1:11102",
+  "ok": true,
+  "checks": [
+    {
+      "pass": true,
+      "name": "126+ authored school jokes cover true 20 card IDs",
+      "data": 126
+    },
+    {
+      "pass": true,
+      "name": "20 authored original Foley sets and 16 actual 3D visual styles",
+      "data": {
+        "soundSets": [
+          "summon_ember",
+          "summon_grove",
+          "summon_tide",
+          "spell_buff",
+          "spell_blast",
+          "spell_repair",
+          "spell_draw",
+          "spell_heal",
+          "spell_confuse",
+          "combo_chalk_hit",
+          "combo_chalk_direct",
+          "combo_broadcast_draw",
+          "combo_poster_shield",
+          "combo_poster_draw",
+          "direct_hit",
+          "actual_exchange",
+          "game_finish"
+        ],
+        "effects": [
+          "summon_ember",
+          "summon_grove",
+          "summon_tide",
+          "spell_buff",
+          "spell_blast",
+          "spell_repair",
+          "spell_draw",
+          "spell_heal",
+          "spell_confuse",
+          "combo_chalk_hit",
+          "combo_chalk_direct",
+          "combo_broadcast_draw",
+          "combo_poster_shield",
+          "combo_poster_draw",
+          "actual_exchange",
+          "direct_hit"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop L1 preserve 2 genuine VRM + 12 real 3D glb loading",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "desktop chalk_hit actual engine triggers real rig choreography",
+      "data": {
+        "played": 1,
+        "actors": {
+          "gestures": 3,
+          "summons": 2,
+          "comboReactions": 1,
+          "boneFrames": 56,
+          "active": [
+            {
+              "id": "E01",
+              "uid": "U2",
+              "type": "salute",
+              "serial": 2,
+              "shoulderBoneCount": 4
+            },
+            {
+              "id": "G01",
+              "uid": "U3",
+              "type": "salute",
+              "serial": 3,
+              "shoulderBoneCount": 4
+            }
+          ],
+          "lastComic": {
+            "type": "salute",
+            "id": "G01",
+            "side": "player",
+            "serial": 3,
+            "signature": "橡皮筋弹射准备",
+            "realBones": 4
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop original 3D spectrum + volumetric comic flyers retained",
+      "data": {
+        "schoolBroadcastSpectrumBars": 11,
+        "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+        "posterFlyers": 16,
+        "chalkSticks": 3,
+        "chalkFragments": 18,
+        "broadcastSpeakers": 2,
+        "broadcastWaveMeshes": 4,
+        "posterMeshes": 4,
+        "shieldMeshes": 2
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop chalk_hit comic dialogue actually appears",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "desktop chalk_hit volumetric 3D layer ACTUALLY renders at real impact",
+      "data": {
+        "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+        "played": 3,
+        "completed": 2,
+        "active": 1,
+        "maxActive": 2,
+        "visibleFrames": 118,
+        "typesSeen": [
+          "summon_ember",
+          "summon_grove",
+          "combo_chalk_hit"
+        ],
+        "last": {
+          "type": "combo_chalk_hit",
+          "side": "player",
+          "serial": 5,
+          "shape": "chalk"
+        },
+        "activeShots": [
+          {
+            "type": "combo_chalk_hit",
+            "side": "player",
+            "serial": 5,
+            "instances": 30,
+            "age": 0
+          }
+        ],
+        "availableTypes": 16,
+        "geometryKinds": 5,
+        "authorizedByRealEventsOnly": true
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop chalk_hit audible SFX layers at true combo impact",
+      "data": {
+        "decoded": 37,
+        "beats": [
+          {
+            "type": "summon_ember",
+            "side": "player",
+            "serial": 2,
+            "layers": 2
+          },
+          {
+            "type": "summon_grove",
+            "side": "player",
+            "serial": 3,
+            "layers": 2
+          },
+          {
+            "type": "combo_chalk_hit",
+            "side": "player",
+            "serial": 5,
+            "layers": 3
+          }
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop chalk_hit text MUST match actual Qwen voice file",
+      "data": {
+        "last": {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter_v2",
+          "text": "当心！我可不是来迟到的，是来赢的！",
+          "duration_seconds": 3.93,
+          "name": "铃声追不上"
+        },
+        "audio": {
+          "id": "E01",
+          "kind": "enter",
+          "variant": "enter_v2",
+          "text": "当心！我可不是来迟到的，是来赢的！",
+          "duration_seconds": 3.93
+        },
+        "count": 2
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop chalk_hit all comic 3D particle meshes cleaned after movie",
+      "data": {
+        "spectacle": {
+          "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+          "played": 3,
+          "completed": 3,
+          "active": 0,
+          "maxActive": 2,
+          "visibleFrames": 181,
+          "typesSeen": [
+            "summon_ember",
+            "summon_grove",
+            "combo_chalk_hit"
+          ],
+          "last": {
+            "type": "combo_chalk_hit",
+            "side": "player",
+            "serial": 5,
+            "shape": "chalk"
+          },
+          "activeShots": [],
+          "availableTypes": 16,
+          "geometryKinds": 5,
+          "authorizedByRealEventsOnly": true
+        },
+        "combo": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 1,
+          "skipped": 0,
+          "realImpactFrames": 69,
+          "actualProps": {
+            "schoolBroadcastSpectrumBars": 11,
+            "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+            "posterFlyers": 16,
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 4,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop chalk_hit next lesson CTA stays playable",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "desktop chalk_hit zero JS / 404 errors",
+      "data": []
+    },
+    {
+      "pass": true,
+      "name": "desktop L2 preserve 2 genuine VRM + 12 real 3D glb loading",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast_draw actual engine triggers real rig choreography",
+      "data": {
+        "played": 1,
+        "actors": {
+          "gestures": 3,
+          "summons": 2,
+          "comboReactions": 1,
+          "boneFrames": 32,
+          "active": [
+            {
+              "id": "E01",
+              "uid": "U2",
+              "type": "salute",
+              "serial": 2,
+              "shoulderBoneCount": 4
+            },
+            {
+              "id": "T01",
+              "uid": "U3",
+              "type": "salute",
+              "serial": 3,
+              "shoulderBoneCount": 0
+            }
+          ],
+          "lastComic": {
+            "type": "salute",
+            "id": "T01",
+            "side": "player",
+            "serial": 3,
+            "signature": "猫头鹰直播抢麦",
+            "realBones": 0
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop original 3D spectrum + volumetric comic flyers retained",
+      "data": {
+        "schoolBroadcastSpectrumBars": 11,
+        "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+        "posterFlyers": 16,
+        "chalkSticks": 3,
+        "chalkFragments": 18,
+        "broadcastSpeakers": 2,
+        "broadcastWaveMeshes": 4,
+        "posterMeshes": 4,
+        "shieldMeshes": 2
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast_draw comic dialogue actually appears",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast_draw volumetric 3D layer ACTUALLY renders at real impact",
+      "data": {
+        "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+        "played": 3,
+        "completed": 0,
+        "active": 3,
+        "maxActive": 3,
+        "visibleFrames": 103,
+        "typesSeen": [
+          "summon_ember",
+          "summon_tide",
+          "combo_broadcast_draw"
+        ],
+        "last": {
+          "type": "combo_broadcast_draw",
+          "side": "player",
+          "serial": 5,
+          "shape": "note"
+        },
+        "activeShots": [
+          {
+            "type": "summon_ember",
+            "side": "player",
+            "serial": 2,
+            "instances": 30,
+            "age": 1.1
+          },
+          {
+            "type": "summon_tide",
+            "side": "player",
+            "serial": 3,
+            "instances": 30,
+            "age": 0.9
+          },
+          {
+            "type": "combo_broadcast_draw",
+            "side": "player",
+            "serial": 5,
+            "instances": 30,
+            "age": 0
+          }
+        ],
+        "availableTypes": 16,
+        "geometryKinds": 5,
+        "authorizedByRealEventsOnly": true
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast_draw audible SFX layers at true combo impact",
+      "data": {
+        "decoded": 37,
+        "beats": [
+          {
+            "type": "summon_ember",
+            "side": "player",
+            "serial": 2,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "player",
+            "serial": 3,
+            "layers": 2
+          },
+          {
+            "type": "combo_broadcast_draw",
+            "side": "player",
+            "serial": 5,
+            "layers": 3
+          }
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast_draw text MUST match actual Qwen voice file",
+      "data": {
+        "last": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v4",
+          "text": "现在轮到我进攻，接招吧！",
+          "duration_seconds": 2.97,
+          "name": "我方决斗者"
+        },
+        "audio": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v4",
+          "text": "现在轮到我进攻，接招吧！",
+          "duration_seconds": 2.97
+        },
+        "count": 1
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast_draw all comic 3D particle meshes cleaned after movie",
+      "data": {
+        "spectacle": {
+          "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+          "played": 3,
+          "completed": 3,
+          "active": 0,
+          "maxActive": 3,
+          "visibleFrames": 172,
+          "typesSeen": [
+            "summon_ember",
+            "summon_tide",
+            "combo_broadcast_draw"
+          ],
+          "last": {
+            "type": "combo_broadcast_draw",
+            "side": "player",
+            "serial": 5,
+            "shape": "note"
+          },
+          "activeShots": [],
+          "availableTypes": 16,
+          "geometryKinds": 5,
+          "authorizedByRealEventsOnly": true
+        },
+        "combo": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 1,
+          "completed": 1,
+          "skipped": 0,
+          "realImpactFrames": 52,
+          "actualProps": {
+            "schoolBroadcastSpectrumBars": 11,
+            "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+            "posterFlyers": 16,
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 4,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast_draw next lesson CTA stays playable",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "desktop broadcast_draw zero JS / 404 errors",
+      "data": []
+    },
+    {
+      "pass": true,
+      "name": "desktop L3 preserve 2 genuine VRM + 12 real 3D glb loading",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "desktop poster_shield actual engine triggers real rig choreography",
+      "data": {
+        "played": 1,
+        "actors": {
+          "gestures": 3,
+          "summons": 2,
+          "comboReactions": 1,
+          "boneFrames": 52,
+          "active": [
+            {
+              "id": "G01",
+              "uid": "U2",
+              "type": "poster_shield",
+              "serial": 5,
+              "shoulderBoneCount": 4
+            },
+            {
+              "id": "T01",
+              "uid": "U3",
+              "type": "salute",
+              "serial": 3,
+              "shoulderBoneCount": 0
+            }
+          ],
+          "lastComic": {
+            "type": "salute",
+            "id": "T01",
+            "side": "player",
+            "serial": 3,
+            "signature": "猫头鹰直播抢麦",
+            "realBones": 0
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop original 3D spectrum + volumetric comic flyers retained",
+      "data": {
+        "schoolBroadcastSpectrumBars": 11,
+        "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+        "posterFlyers": 16,
+        "chalkSticks": 3,
+        "chalkFragments": 18,
+        "broadcastSpeakers": 2,
+        "broadcastWaveMeshes": 4,
+        "posterMeshes": 4,
+        "shieldMeshes": 2
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop poster_shield comic dialogue actually appears",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "desktop poster_shield volumetric 3D layer ACTUALLY renders at real impact",
+      "data": {
+        "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+        "played": 3,
+        "completed": 2,
+        "active": 1,
+        "maxActive": 2,
+        "visibleFrames": 115,
+        "typesSeen": [
+          "summon_grove",
+          "summon_tide",
+          "combo_poster_shield"
+        ],
+        "last": {
+          "type": "combo_poster_shield",
+          "side": "player",
+          "serial": 5,
+          "shape": "paper"
+        },
+        "activeShots": [
+          {
+            "type": "combo_poster_shield",
+            "side": "player",
+            "serial": 5,
+            "instances": 30,
+            "age": 0
+          }
+        ],
+        "availableTypes": 16,
+        "geometryKinds": 5,
+        "authorizedByRealEventsOnly": true
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop poster_shield audible SFX layers at true combo impact",
+      "data": {
+        "decoded": 37,
+        "beats": [
+          {
+            "type": "summon_grove",
+            "side": "player",
+            "serial": 2,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "player",
+            "serial": 3,
+            "layers": 2
+          },
+          {
+            "type": "combo_poster_shield",
+            "side": "player",
+            "serial": 5,
+            "layers": 3
+          }
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop poster_shield text MUST match actual Qwen voice file",
+      "data": {
+        "last": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v3",
+          "text": "看我的新招式，准备好了没有？",
+          "duration_seconds": 2.73,
+          "name": "我方决斗者"
+        },
+        "audio": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v3",
+          "text": "看我的新招式，准备好了没有？",
+          "duration_seconds": 2.73
+        },
+        "count": 1
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop poster_shield all comic 3D particle meshes cleaned after movie",
+      "data": {
+        "spectacle": {
+          "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+          "played": 3,
+          "completed": 3,
+          "active": 0,
+          "maxActive": 2,
+          "visibleFrames": 174,
+          "typesSeen": [
+            "summon_grove",
+            "summon_tide",
+            "combo_poster_shield"
+          ],
+          "last": {
+            "type": "combo_poster_shield",
+            "side": "player",
+            "serial": 5,
+            "shape": "paper"
+          },
+          "activeShots": [],
+          "availableTypes": 16,
+          "geometryKinds": 5,
+          "authorizedByRealEventsOnly": true
+        },
+        "combo": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "played": 1,
+          "completed": 1,
+          "skipped": 0,
+          "realImpactFrames": 51,
+          "actualProps": {
+            "schoolBroadcastSpectrumBars": 11,
+            "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+            "posterFlyers": 16,
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 4,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop poster_shield next lesson CTA stays playable",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "desktop poster_shield zero JS / 404 errors",
+      "data": []
+    },
+    {
+      "pass": true,
+      "name": "desktop skip-before-impact never plays a fake late hit",
+      "data": {
+        "skipped": {
+          "spectacle": {
+            "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+            "played": 2,
+            "completed": 0,
+            "active": 0,
+            "maxActive": 2,
+            "visibleFrames": 25,
+            "typesSeen": [
+              "summon_ember",
+              "summon_grove"
+            ],
+            "last": null,
+            "activeShots": [],
+            "availableTypes": 16,
+            "geometryKinds": 5,
+            "authorizedByRealEventsOnly": true
+          },
+          "combo": {
+            "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+            "active": false,
+            "phase": "idle",
+            "playing": null,
+            "last": {
+              "serial": 5,
+              "effect": "chalk_hit",
+              "side": "player",
+              "lane": 0,
+              "damage": 2,
+              "blocked": 0,
+              "draw": 0,
+              "shield": 0,
+              "target": "U999",
+              "defeated": true,
+              "title": "粉笔弹射",
+              "duration": 2.48,
+              "chapter": 1
+            },
+            "played": 1,
+            "completed": 0,
+            "skipped": 1,
+            "realImpactFrames": 0,
+            "actualProps": {
+              "schoolBroadcastSpectrumBars": 11,
+              "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+              "posterFlyers": 16,
+              "chalkSticks": 3,
+              "chalkFragments": 18,
+              "broadcastSpeakers": 2,
+              "broadcastWaveMeshes": 4,
+              "posterMeshes": 4,
+              "shieldMeshes": 2
+            },
+            "activeEffects": {
+              "chalk": false,
+              "broadcast": false,
+              "poster": false,
+              "shield": false
+            }
+          },
+          "actors": {
+            "gestures": 3,
+            "summons": 2,
+            "comboReactions": 1,
+            "boneFrames": 104,
+            "active": [],
+            "lastComic": {
+              "type": "salute",
+              "id": "G01",
+              "side": "player",
+              "serial": 3,
+              "signature": "橡皮筋弹射准备",
+              "realBones": 4
+            }
+          },
+          "models": 12
+        },
+        "sound": [
+          {
+            "type": "summon_ember",
+            "side": "player",
+            "serial": 2,
+            "layers": 2
+          },
+          {
+            "type": "summon_grove",
+            "side": "player",
+            "serial": 3,
+            "layers": 2
+          }
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop skip cleans real actor reaction",
+      "data": {
+        "gestures": 3,
+        "summons": 2,
+        "comboReactions": 1,
+        "boneFrames": 104,
+        "active": [],
+        "lastComic": {
+          "type": "salute",
+          "id": "G01",
+          "side": "player",
+          "serial": 3,
+          "signature": "橡皮筋弹射准备",
+          "realBones": 4
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop overall zero real browser errors",
+      "data": []
+    },
+    {
+      "pass": true,
+      "name": "phone L1 preserve 2 genuine VRM + 12 real 3D glb loading",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "phone chalk_hit actual engine triggers real rig choreography",
+      "data": {
+        "played": 1,
+        "actors": {
+          "gestures": 3,
+          "summons": 2,
+          "comboReactions": 1,
+          "boneFrames": 32,
+          "active": [
+            {
+              "id": "E01",
+              "uid": "U2",
+              "type": "salute",
+              "serial": 2,
+              "shoulderBoneCount": 4
+            },
+            {
+              "id": "G01",
+              "uid": "U3",
+              "type": "salute",
+              "serial": 3,
+              "shoulderBoneCount": 4
+            }
+          ],
+          "lastComic": {
+            "type": "salute",
+            "id": "G01",
+            "side": "player",
+            "serial": 3,
+            "signature": "橡皮筋弹射准备",
+            "realBones": 4
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone original 3D spectrum + volumetric comic flyers retained",
+      "data": {
+        "schoolBroadcastSpectrumBars": 11,
+        "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+        "posterFlyers": 16,
+        "chalkSticks": 3,
+        "chalkFragments": 18,
+        "broadcastSpeakers": 2,
+        "broadcastWaveMeshes": 4,
+        "posterMeshes": 4,
+        "shieldMeshes": 2
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone chalk_hit comic dialogue actually appears",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "phone chalk_hit volumetric 3D layer ACTUALLY renders at real impact",
+      "data": {
+        "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+        "played": 3,
+        "completed": 2,
+        "active": 1,
+        "maxActive": 2,
+        "visibleFrames": 123,
+        "typesSeen": [
+          "summon_ember",
+          "summon_grove",
+          "combo_chalk_hit"
+        ],
+        "last": {
+          "type": "combo_chalk_hit",
+          "side": "player",
+          "serial": 5,
+          "shape": "chalk"
+        },
+        "activeShots": [
+          {
+            "type": "combo_chalk_hit",
+            "side": "player",
+            "serial": 5,
+            "instances": 30,
+            "age": 0
+          }
+        ],
+        "availableTypes": 16,
+        "geometryKinds": 5,
+        "authorizedByRealEventsOnly": true
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone chalk_hit audible SFX layers at true combo impact",
+      "data": {
+        "decoded": 37,
+        "beats": [
+          {
+            "type": "summon_ember",
+            "side": "player",
+            "serial": 2,
+            "layers": 2
+          },
+          {
+            "type": "summon_grove",
+            "side": "player",
+            "serial": 3,
+            "layers": 2
+          },
+          {
+            "type": "combo_chalk_hit",
+            "side": "player",
+            "serial": 5,
+            "layers": 3
+          }
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone chalk_hit text MUST match actual Qwen voice file",
+      "data": {
+        "last": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v4",
+          "text": "现在轮到我进攻，接招吧！",
+          "duration_seconds": 2.97,
+          "name": "我方决斗者"
+        },
+        "audio": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v4",
+          "text": "现在轮到我进攻，接招吧！",
+          "duration_seconds": 2.97
+        },
+        "count": 1
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone chalk_hit all comic 3D particle meshes cleaned after movie",
+      "data": {
+        "spectacle": {
+          "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+          "played": 3,
+          "completed": 3,
+          "active": 0,
+          "maxActive": 2,
+          "visibleFrames": 189,
+          "typesSeen": [
+            "summon_ember",
+            "summon_grove",
+            "combo_chalk_hit"
+          ],
+          "last": {
+            "type": "combo_chalk_hit",
+            "side": "player",
+            "serial": 5,
+            "shape": "chalk"
+          },
+          "activeShots": [],
+          "availableTypes": 16,
+          "geometryKinds": 5,
+          "authorizedByRealEventsOnly": true
+        },
+        "combo": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "chalk_hit",
+            "side": "player",
+            "lane": 0,
+            "damage": 2,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 0,
+            "target": "U999",
+            "defeated": true,
+            "title": "粉笔弹射",
+            "duration": 2.48,
+            "chapter": 1
+          },
+          "played": 1,
+          "completed": 1,
+          "skipped": 0,
+          "realImpactFrames": 71,
+          "actualProps": {
+            "schoolBroadcastSpectrumBars": 11,
+            "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+            "posterFlyers": 16,
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 4,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone chalk_hit next lesson CTA stays playable",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "phone chalk_hit zero JS / 404 errors",
+      "data": []
+    },
+    {
+      "pass": true,
+      "name": "phone L2 preserve 2 genuine VRM + 12 real 3D glb loading",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "phone broadcast_draw actual engine triggers real rig choreography",
+      "data": {
+        "played": 1,
+        "actors": {
+          "gestures": 3,
+          "summons": 2,
+          "comboReactions": 1,
+          "boneFrames": 36,
+          "active": [
+            {
+              "id": "E01",
+              "uid": "U2",
+              "type": "salute",
+              "serial": 2,
+              "shoulderBoneCount": 4
+            },
+            {
+              "id": "T01",
+              "uid": "U3",
+              "type": "salute",
+              "serial": 3,
+              "shoulderBoneCount": 0
+            }
+          ],
+          "lastComic": {
+            "type": "salute",
+            "id": "T01",
+            "side": "player",
+            "serial": 3,
+            "signature": "猫头鹰直播抢麦",
+            "realBones": 0
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone original 3D spectrum + volumetric comic flyers retained",
+      "data": {
+        "schoolBroadcastSpectrumBars": 11,
+        "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+        "posterFlyers": 16,
+        "chalkSticks": 3,
+        "chalkFragments": 18,
+        "broadcastSpeakers": 2,
+        "broadcastWaveMeshes": 4,
+        "posterMeshes": 4,
+        "shieldMeshes": 2
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone broadcast_draw comic dialogue actually appears",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "phone broadcast_draw volumetric 3D layer ACTUALLY renders at real impact",
+      "data": {
+        "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+        "played": 3,
+        "completed": 0,
+        "active": 3,
+        "maxActive": 3,
+        "visibleFrames": 116,
+        "typesSeen": [
+          "summon_ember",
+          "summon_tide",
+          "combo_broadcast_draw"
+        ],
+        "last": {
+          "type": "combo_broadcast_draw",
+          "side": "player",
+          "serial": 5,
+          "shape": "note"
+        },
+        "activeShots": [
+          {
+            "type": "summon_ember",
+            "side": "player",
+            "serial": 2,
+            "instances": 30,
+            "age": 1.1
+          },
+          {
+            "type": "summon_tide",
+            "side": "player",
+            "serial": 3,
+            "instances": 30,
+            "age": 1
+          },
+          {
+            "type": "combo_broadcast_draw",
+            "side": "player",
+            "serial": 5,
+            "instances": 30,
+            "age": 0
+          }
+        ],
+        "availableTypes": 16,
+        "geometryKinds": 5,
+        "authorizedByRealEventsOnly": true
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone broadcast_draw audible SFX layers at true combo impact",
+      "data": {
+        "decoded": 37,
+        "beats": [
+          {
+            "type": "summon_ember",
+            "side": "player",
+            "serial": 2,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "player",
+            "serial": 3,
+            "layers": 2
+          },
+          {
+            "type": "combo_broadcast_draw",
+            "side": "player",
+            "serial": 5,
+            "layers": 3
+          }
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone broadcast_draw text MUST match actual Qwen voice file",
+      "data": {
+        "last": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v2",
+          "text": "这张牌，就交给你啦！",
+          "duration_seconds": 1.61,
+          "name": "我方决斗者"
+        },
+        "audio": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v2",
+          "text": "这张牌，就交给你啦！",
+          "duration_seconds": 1.61
+        },
+        "count": 1
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone broadcast_draw all comic 3D particle meshes cleaned after movie",
+      "data": {
+        "spectacle": {
+          "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+          "played": 3,
+          "completed": 3,
+          "active": 0,
+          "maxActive": 3,
+          "visibleFrames": 192,
+          "typesSeen": [
+            "summon_ember",
+            "summon_tide",
+            "combo_broadcast_draw"
+          ],
+          "last": {
+            "type": "combo_broadcast_draw",
+            "side": "player",
+            "serial": 5,
+            "shape": "note"
+          },
+          "activeShots": [],
+          "availableTypes": 16,
+          "geometryKinds": 5,
+          "authorizedByRealEventsOnly": true
+        },
+        "combo": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "broadcast_draw",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 1,
+            "shield": 0,
+            "target": null,
+            "defeated": false,
+            "title": "广播室串台",
+            "duration": 2.36,
+            "chapter": 2
+          },
+          "played": 1,
+          "completed": 1,
+          "skipped": 0,
+          "realImpactFrames": 54,
+          "actualProps": {
+            "schoolBroadcastSpectrumBars": 11,
+            "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+            "posterFlyers": 16,
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 4,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone broadcast_draw next lesson CTA stays playable",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "phone broadcast_draw zero JS / 404 errors",
+      "data": []
+    },
+    {
+      "pass": true,
+      "name": "phone L3 preserve 2 genuine VRM + 12 real 3D glb loading",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "phone poster_shield actual engine triggers real rig choreography",
+      "data": {
+        "played": 1,
+        "actors": {
+          "gestures": 3,
+          "summons": 2,
+          "comboReactions": 1,
+          "boneFrames": 56,
+          "active": [
+            {
+              "id": "G01",
+              "uid": "U2",
+              "type": "poster_shield",
+              "serial": 5,
+              "shoulderBoneCount": 4
+            },
+            {
+              "id": "T01",
+              "uid": "U3",
+              "type": "salute",
+              "serial": 3,
+              "shoulderBoneCount": 0
+            }
+          ],
+          "lastComic": {
+            "type": "salute",
+            "id": "T01",
+            "side": "player",
+            "serial": 3,
+            "signature": "猫头鹰直播抢麦",
+            "realBones": 0
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone original 3D spectrum + volumetric comic flyers retained",
+      "data": {
+        "schoolBroadcastSpectrumBars": 11,
+        "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+        "posterFlyers": 16,
+        "chalkSticks": 3,
+        "chalkFragments": 18,
+        "broadcastSpeakers": 2,
+        "broadcastWaveMeshes": 4,
+        "posterMeshes": 4,
+        "shieldMeshes": 2
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone poster_shield comic dialogue actually appears",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "phone poster_shield volumetric 3D layer ACTUALLY renders at real impact",
+      "data": {
+        "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+        "played": 3,
+        "completed": 2,
+        "active": 1,
+        "maxActive": 2,
+        "visibleFrames": 123,
+        "typesSeen": [
+          "summon_grove",
+          "summon_tide",
+          "combo_poster_shield"
+        ],
+        "last": {
+          "type": "combo_poster_shield",
+          "side": "player",
+          "serial": 5,
+          "shape": "paper"
+        },
+        "activeShots": [
+          {
+            "type": "combo_poster_shield",
+            "side": "player",
+            "serial": 5,
+            "instances": 30,
+            "age": 0
+          }
+        ],
+        "availableTypes": 16,
+        "geometryKinds": 5,
+        "authorizedByRealEventsOnly": true
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone poster_shield audible SFX layers at true combo impact",
+      "data": {
+        "decoded": 37,
+        "beats": [
+          {
+            "type": "summon_grove",
+            "side": "player",
+            "serial": 2,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "player",
+            "serial": 3,
+            "layers": 2
+          },
+          {
+            "type": "combo_poster_shield",
+            "side": "player",
+            "serial": 5,
+            "layers": 3
+          }
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone poster_shield text MUST match actual Qwen voice file",
+      "data": {
+        "last": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v3",
+          "text": "看我的新招式，准备好了没有？",
+          "duration_seconds": 2.73,
+          "name": "我方决斗者"
+        },
+        "audio": {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v3",
+          "text": "看我的新招式，准备好了没有？",
+          "duration_seconds": 2.73
+        },
+        "count": 1
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone poster_shield all comic 3D particle meshes cleaned after movie",
+      "data": {
+        "spectacle": {
+          "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+          "played": 3,
+          "completed": 3,
+          "active": 0,
+          "maxActive": 2,
+          "visibleFrames": 188,
+          "typesSeen": [
+            "summon_grove",
+            "summon_tide",
+            "combo_poster_shield"
+          ],
+          "last": {
+            "type": "combo_poster_shield",
+            "side": "player",
+            "serial": 5,
+            "shape": "paper"
+          },
+          "activeShots": [],
+          "availableTypes": 16,
+          "geometryKinds": 5,
+          "authorizedByRealEventsOnly": true
+        },
+        "combo": {
+          "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+          "active": false,
+          "phase": "idle",
+          "playing": null,
+          "last": {
+            "serial": 5,
+            "effect": "poster_shield",
+            "side": "player",
+            "lane": 0,
+            "damage": 0,
+            "blocked": 0,
+            "draw": 0,
+            "shield": 2,
+            "target": "U2",
+            "defeated": false,
+            "title": "招新海报",
+            "duration": 2.46,
+            "chapter": 3
+          },
+          "played": 1,
+          "completed": 1,
+          "skipped": 0,
+          "realImpactFrames": 55,
+          "actualProps": {
+            "schoolBroadcastSpectrumBars": 11,
+            "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+            "posterFlyers": 16,
+            "chalkSticks": 3,
+            "chalkFragments": 18,
+            "broadcastSpeakers": 2,
+            "broadcastWaveMeshes": 4,
+            "posterMeshes": 4,
+            "shieldMeshes": 2
+          },
+          "activeEffects": {
+            "chalk": false,
+            "broadcast": false,
+            "poster": false,
+            "shield": false
+          }
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone poster_shield next lesson CTA stays playable",
+      "data": null
+    },
+    {
+      "pass": true,
+      "name": "phone poster_shield zero JS / 404 errors",
+      "data": []
+    },
+    {
+      "pass": true,
+      "name": "phone skip-before-impact never plays a fake late hit",
+      "data": {
+        "skipped": {
+          "spectacle": {
+            "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+            "played": 2,
+            "completed": 0,
+            "active": 0,
+            "maxActive": 2,
+            "visibleFrames": 16,
+            "typesSeen": [
+              "summon_ember",
+              "summon_grove"
+            ],
+            "last": null,
+            "activeShots": [],
+            "availableTypes": 16,
+            "geometryKinds": 5,
+            "authorizedByRealEventsOnly": true
+          },
+          "combo": {
+            "layer": "R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR",
+            "active": false,
+            "phase": "idle",
+            "playing": null,
+            "last": {
+              "serial": 5,
+              "effect": "chalk_hit",
+              "side": "player",
+              "lane": 0,
+              "damage": 2,
+              "blocked": 0,
+              "draw": 0,
+              "shield": 0,
+              "target": "U999",
+              "defeated": true,
+              "title": "粉笔弹射",
+              "duration": 2.48,
+              "chapter": 1
+            },
+            "played": 1,
+            "completed": 0,
+            "skipped": 1,
+            "realImpactFrames": 0,
+            "actualProps": {
+              "schoolBroadcastSpectrumBars": 11,
+              "canteenReversalDisplay": "R102_SCHOOL_ANNOUNCEMENT_SCREEN",
+              "posterFlyers": 16,
+              "chalkSticks": 3,
+              "chalkFragments": 18,
+              "broadcastSpeakers": 2,
+              "broadcastWaveMeshes": 4,
+              "posterMeshes": 4,
+              "shieldMeshes": 2
+            },
+            "activeEffects": {
+              "chalk": false,
+              "broadcast": false,
+              "poster": false,
+              "shield": false
+            }
+          },
+          "actors": {
+            "gestures": 3,
+            "summons": 2,
+            "comboReactions": 1,
+            "boneFrames": 72,
+            "active": [],
+            "lastComic": {
+              "type": "salute",
+              "id": "G01",
+              "side": "player",
+              "serial": 3,
+              "signature": "橡皮筋弹射准备",
+              "realBones": 4
+            }
+          },
+          "models": 12
+        },
+        "sound": [
+          {
+            "type": "summon_ember",
+            "side": "player",
+            "serial": 2,
+            "layers": 2
+          },
+          {
+            "type": "summon_grove",
+            "side": "player",
+            "serial": 3,
+            "layers": 2
+          }
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone skip cleans real actor reaction",
+      "data": {
+        "gestures": 3,
+        "summons": 2,
+        "comboReactions": 1,
+        "boneFrames": 72,
+        "active": [],
+        "lastComic": {
+          "type": "salute",
+          "id": "G01",
+          "side": "player",
+          "serial": 3,
+          "signature": "橡皮筋弹射准备",
+          "realBones": 4
+        }
+      }
+    },
+    {
+      "pass": true,
+      "name": "phone overall zero real browser errors",
+      "data": []
+    }
+  ],
+  "errors": [],
+  "chapters": [
+    {
+      "device": "desktop",
+      "level": 1,
+      "effect": "chalk_hit",
+      "actor": {
+        "gestures": 3,
+        "summons": 2,
+        "comboReactions": 1,
+        "boneFrames": 456,
+        "active": [],
+        "lastComic": {
+          "type": "salute",
+          "id": "G01",
+          "side": "player",
+          "serial": 3,
+          "signature": "橡皮筋弹射准备",
+          "realBones": 4
+        }
+      },
+      "scene3d": {
+        "type": "combo_chalk_hit",
+        "side": "player",
+        "serial": 5,
+        "shape": "chalk"
+      }
+    },
+    {
+      "device": "desktop",
+      "level": 2,
+      "effect": "broadcast_draw",
+      "actor": {
+        "gestures": 3,
+        "summons": 2,
+        "comboReactions": 1,
+        "boneFrames": 220,
+        "active": [
+          {
+            "id": "E01",
+            "uid": "U2",
+            "type": "salute",
+            "serial": 2,
+            "shoulderBoneCount": 4
+          },
+          {
+            "id": "T01",
+            "uid": "U3",
+            "type": "salute",
+            "serial": 3,
+            "shoulderBoneCount": 0
+          }
+        ],
+        "lastComic": {
+          "type": "salute",
+          "id": "T01",
+          "side": "player",
+          "serial": 3,
+          "signature": "猫头鹰直播抢麦",
+          "realBones": 0
+        }
+      },
+      "scene3d": {
+        "type": "combo_broadcast_draw",
+        "side": "player",
+        "serial": 5,
+        "shape": "note"
+      }
+    },
+    {
+      "device": "desktop",
+      "level": 3,
+      "effect": "poster_shield",
+      "actor": {
+        "gestures": 3,
+        "summons": 2,
+        "comboReactions": 1,
+        "boneFrames": 340,
+        "active": [
+          {
+            "id": "G01",
+            "uid": "U2",
+            "type": "poster_shield",
+            "serial": 5,
+            "shoulderBoneCount": 4
+          }
+        ],
+        "lastComic": {
+          "type": "salute",
+          "id": "T01",
+          "side": "player",
+          "serial": 3,
+          "signature": "猫头鹰直播抢麦",
+          "realBones": 0
+        }
+      },
+      "scene3d": {
+        "type": "combo_poster_shield",
+        "side": "player",
+        "serial": 5,
+        "shape": "paper"
+      }
+    },
+    {
+      "device": "phone",
+      "level": 1,
+      "effect": "chalk_hit",
+      "actor": {
+        "gestures": 3,
+        "summons": 2,
+        "comboReactions": 1,
+        "boneFrames": 472,
+        "active": [],
+        "lastComic": {
+          "type": "salute",
+          "id": "G01",
+          "side": "player",
+          "serial": 3,
+          "signature": "橡皮筋弹射准备",
+          "realBones": 4
+        }
+      },
+      "scene3d": {
+        "type": "combo_chalk_hit",
+        "side": "player",
+        "serial": 5,
+        "shape": "chalk"
+      }
+    },
+    {
+      "device": "phone",
+      "level": 2,
+      "effect": "broadcast_draw",
+      "actor": {
+        "gestures": 3,
+        "summons": 2,
+        "comboReactions": 1,
+        "boneFrames": 244,
+        "active": [
+          {
+            "id": "T01",
+            "uid": "U3",
+            "type": "salute",
+            "serial": 3,
+            "shoulderBoneCount": 0
+          }
+        ],
+        "lastComic": {
+          "type": "salute",
+          "id": "T01",
+          "side": "player",
+          "serial": 3,
+          "signature": "猫头鹰直播抢麦",
+          "realBones": 0
+        }
+      },
+      "scene3d": {
+        "type": "combo_broadcast_draw",
+        "side": "player",
+        "serial": 5,
+        "shape": "note"
+      }
+    },
+    {
+      "device": "phone",
+      "level": 3,
+      "effect": "poster_shield",
+      "actor": {
+        "gestures": 3,
+        "summons": 2,
+        "comboReactions": 1,
+        "boneFrames": 356,
+        "active": [
+          {
+            "id": "G01",
+            "uid": "U2",
+            "type": "poster_shield",
+            "serial": 5,
+            "shoulderBoneCount": 4
+          }
+        ],
+        "lastComic": {
+          "type": "salute",
+          "id": "T01",
+          "side": "player",
+          "serial": 3,
+          "signature": "猫头鹰直播抢麦",
+          "realBones": 0
+        }
+      },
+      "scene3d": {
+        "type": "combo_poster_shield",
+        "side": "player",
+        "serial": 5,
+        "shape": "paper"
+      }
+    }
+  ],
+  "realVoice": [
+    {
+      "device": "desktop",
+      "level": 1,
+      "last": {
+        "id": "E01",
+        "kind": "enter",
+        "variant": "enter_v2",
+        "text": "当心！我可不是来迟到的，是来赢的！",
+        "duration_seconds": 3.93,
+        "name": "铃声追不上"
+      },
+      "audio": {
+        "id": "E01",
+        "kind": "enter",
+        "variant": "enter_v2",
+        "text": "当心！我可不是来迟到的，是来赢的！",
+        "duration_seconds": 3.93
+      },
+      "count": 2
+    },
+    {
+      "device": "desktop",
+      "level": 2,
+      "last": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v4",
+        "text": "现在轮到我进攻，接招吧！",
+        "duration_seconds": 2.97,
+        "name": "我方决斗者"
+      },
+      "audio": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v4",
+        "text": "现在轮到我进攻，接招吧！",
+        "duration_seconds": 2.97
+      },
+      "count": 1
+    },
+    {
+      "device": "desktop",
+      "level": 3,
+      "last": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v3",
+        "text": "看我的新招式，准备好了没有？",
+        "duration_seconds": 2.73,
+        "name": "我方决斗者"
+      },
+      "audio": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v3",
+        "text": "看我的新招式，准备好了没有？",
+        "duration_seconds": 2.73
+      },
+      "count": 1
+    },
+    {
+      "device": "phone",
+      "level": 1,
+      "last": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v4",
+        "text": "现在轮到我进攻，接招吧！",
+        "duration_seconds": 2.97,
+        "name": "我方决斗者"
+      },
+      "audio": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v4",
+        "text": "现在轮到我进攻，接招吧！",
+        "duration_seconds": 2.97
+      },
+      "count": 1
+    },
+    {
+      "device": "phone",
+      "level": 2,
+      "last": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v2",
+        "text": "这张牌，就交给你啦！",
+        "duration_seconds": 1.61,
+        "name": "我方决斗者"
+      },
+      "audio": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v2",
+        "text": "这张牌，就交给你啦！",
+        "duration_seconds": 1.61
+      },
+      "count": 1
+    },
+    {
+      "device": "phone",
+      "level": 3,
+      "last": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v3",
+        "text": "看我的新招式，准备好了没有？",
+        "duration_seconds": 2.73,
+        "name": "我方决斗者"
+      },
+      "audio": {
+        "id": "HOST_PLAYER",
+        "kind": "cast",
+        "variant": "cast_v3",
+        "text": "看我的新招式，准备好了没有？",
+        "duration_seconds": 2.73
+      },
+      "count": 1
+    }
+  ],
+  "skips": [
+    {
+      "device": "desktop",
+      "skip": 1,
+      "sounds": 2
+    },
+    {
+      "device": "phone",
+      "skip": 1,
+      "sounds": 2
+    }
+  ],
+  "sfx": [
+    {
+      "device": "desktop",
+      "effect": "chalk_hit",
+      "beats": [
+        {
+          "type": "summon_ember",
+          "side": "player",
+          "serial": 2,
+          "layers": 2
+        },
+        {
+          "type": "summon_grove",
+          "side": "player",
+          "serial": 3,
+          "layers": 2
+        },
+        {
+          "type": "combo_chalk_hit",
+          "side": "player",
+          "serial": 5,
+          "layers": 3
+        }
+      ]
+    },
+    {
+      "device": "desktop",
+      "effect": "broadcast_draw",
+      "beats": [
+        {
+          "type": "summon_ember",
+          "side": "player",
+          "serial": 2,
+          "layers": 2
+        },
+        {
+          "type": "summon_tide",
+          "side": "player",
+          "serial": 3,
+          "layers": 2
+        },
+        {
+          "type": "combo_broadcast_draw",
+          "side": "player",
+          "serial": 5,
+          "layers": 3
+        }
+      ]
+    },
+    {
+      "device": "desktop",
+      "effect": "poster_shield",
+      "beats": [
+        {
+          "type": "summon_grove",
+          "side": "player",
+          "serial": 2,
+          "layers": 2
+        },
+        {
+          "type": "summon_tide",
+          "side": "player",
+          "serial": 3,
+          "layers": 2
+        },
+        {
+          "type": "combo_poster_shield",
+          "side": "player",
+          "serial": 5,
+          "layers": 3
+        }
+      ]
+    },
+    {
+      "device": "phone",
+      "effect": "chalk_hit",
+      "beats": [
+        {
+          "type": "summon_ember",
+          "side": "player",
+          "serial": 2,
+          "layers": 2
+        },
+        {
+          "type": "summon_grove",
+          "side": "player",
+          "serial": 3,
+          "layers": 2
+        },
+        {
+          "type": "combo_chalk_hit",
+          "side": "player",
+          "serial": 5,
+          "layers": 3
+        }
+      ]
+    },
+    {
+      "device": "phone",
+      "effect": "broadcast_draw",
+      "beats": [
+        {
+          "type": "summon_ember",
+          "side": "player",
+          "serial": 2,
+          "layers": 2
+        },
+        {
+          "type": "summon_tide",
+          "side": "player",
+          "serial": 3,
+          "layers": 2
+        },
+        {
+          "type": "combo_broadcast_draw",
+          "side": "player",
+          "serial": 5,
+          "layers": 3
+        }
+      ]
+    },
+    {
+      "device": "phone",
+      "effect": "poster_shield",
+      "beats": [
+        {
+          "type": "summon_grove",
+          "side": "player",
+          "serial": 2,
+          "layers": 2
+        },
+        {
+          "type": "summon_tide",
+          "side": "player",
+          "serial": 3,
+          "layers": 2
+        },
+        {
+          "type": "combo_poster_shield",
+          "side": "player",
+          "serial": 5,
+          "layers": 3
+        }
+      ]
+    }
+  ]
+}

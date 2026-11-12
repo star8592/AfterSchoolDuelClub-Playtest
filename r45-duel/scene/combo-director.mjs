@@ -74,6 +74,36 @@ export function createComboDirector(THREE,scene,{caption,skipButton}={}){
    [0,1.15,.93]);
   broadcastWaves.push(ring);
  }
+ // The school broadcasting console is a 3D object too; a real sign changes
+ // from a serious announcement to an absurd canteen interruption.
+ const airCanvas=document.createElement('canvas');
+ airCanvas.width=512;airCanvas.height=176;
+ const airCtx=airCanvas.getContext('2d');
+ const airTexture=new THREE.CanvasTexture(airCanvas);
+ airTexture.colorSpace=THREE.SRGBColorSpace;
+ const airPlate=put(broadcast,new THREE.BoxGeometry(1.56,.46,.061),
+  matte('#253c51'),'R102_REAL_BROADCAST_PANEL',[0,2.20,.58]);
+ const airText=put(broadcast,new THREE.PlaneGeometry(1.48,.42),
+  new THREE.MeshBasicMaterial({map:airTexture,side:THREE.DoubleSide}),
+  'R102_SCHOOL_ANNOUNCEMENT_SCREEN',[0,2.20,.620]);
+ function paintAir(kind='school'){
+  if(!airCtx)return;
+  airCtx.fillStyle=kind==='canteen'?'#8f3750':'#21495c';
+  airCtx.fillRect(0,0,512,176);
+  airCtx.strokeStyle='#f1d492';airCtx.lineWidth=12;airCtx.strokeRect(11,11,490,154);
+  airCtx.font='bold 69px sans-serif';airCtx.textAlign='center';
+  airCtx.fillStyle='#fff2d6';
+  airCtx.fillText(kind==='canteen'?'食堂串台':'校园广播',256,114);
+  airTexture.needsUpdate=true;
+ }
+ paintAir();
+ const spectrum=[];
+ for(let i=0;i<11;i++){
+  const bar=put(broadcast,new THREE.BoxGeometry(.063,.28,.078),
+   shine(i%3===0?gold:cyan,.70),'R102_3D_ON_AIR_BAR',
+   [(i-5)*.12,1.79,.73]);
+  spectrum.push(bar);
+ }
  const dial=put(broadcast,new THREE.CylinderGeometry(.19,.19,.17,32),
   matte('#e5be79'),'broadcast_microphone',[0,1.58,.75],[Math.PI/2,0,0]);
  const stand=put(broadcast,new THREE.CylinderGeometry(.02,.025,.72,18),
@@ -98,6 +128,28 @@ export function createComboDirector(THREE,scene,{caption,skipButton}={}){
  const textPlane=put(poster,new THREE.PlaneGeometry(1.36,.81),
   new THREE.MeshBasicMaterial({map:texture,transparent:false,side:THREE.DoubleSide}),
   'poster_authorized_text_surface',[0,0,.032]);
+ // Scattered original 3D paper flyers are not flat UI sprites. Their
+ // trajectories change depending on the TRUE engine shield/draw fallback.
+ const flyers=new THREE.Group();flyers.name='R102_3D_POSTER_FLYER_CONFETTI';poster.add(flyers);
+ for(let i=0;i<16;i++){
+  const square=put(flyers,new THREE.BoxGeometry(.10+(i%3)*.025,.13,.007),
+   matte(i%3===0?'#bceaf3':i%3===1?'#f5d2a2':'#e8a9b0'),
+   'R102_VOL_METRIC_PAPER_FLYER');
+  square.userData.index=i;
+  square.position.set((i-8)*.10,-.14,.05+(i%2)*.008);
+ }
+ function paintPosterByOutcome(effect){
+  ctx.clearRect(0,0,512,320);
+  ctx.fillStyle='#fff1cc';ctx.fillRect(0,0,512,320);
+  ctx.fillStyle=effect==='poster_shield'?'#509db1':'#db9462';
+  ctx.fillRect(0,0,512,57);
+  ctx.fillStyle='#213b54';ctx.textAlign='center';
+  ctx.font='bold 94px sans-serif';ctx.fillText('社团招新',256,174);
+  ctx.font='bold 43px sans-serif';
+  ctx.fillText(effect==='poster_shield'?'报名送护盾 +2':'加入补抽牌 +1',256,252);
+  ctx.fillStyle='#e2ab6e';ctx.fillRect(30,275,452,10);
+  texture.needsUpdate=true;
+ }
  const shield=new THREE.Group();shield.name='R100_REAL_SHIELD_BUBBLE';world.add(shield);
  const dome=put(shield,new THREE.SphereGeometry(1.13,32,20,0,Math.PI*2,0,Math.PI),
   shine('#8ed9ff',.13),'three_dimensional_shield_sphere');
@@ -152,6 +204,10 @@ export function createComboDirector(THREE,scene,{caption,skipButton}={}){
   chalkGroup.visible=chalkEffect;
   broadcast.visible=valid.effect==='broadcast_draw';
   poster.visible=posterEffect;
+  if(posterEffect)paintPosterByOutcome(valid.effect);
+  if(valid.effect==='broadcast_draw'){
+   paintAir('school');airText.userData.mode='school';
+  }
   shield.visible=valid.effect==='poster_shield';
   const side=valid.side==='player'?-1:1;
   poster.position.set(side*1.75,1.84,.55);
@@ -219,6 +275,21 @@ export function createComboDirector(THREE,scene,{caption,skipButton}={}){
    if(payoff>.02)realImpactFrames++;
    flash.intensity=payoff*9;
   }else if(p.effect==='broadcast_draw'){
+   if(t>.47&&t<.48&&!reducedMotion)paintAir('canteen');
+   else if(t>.49&&airText.userData?.mode!=='canteen'){
+    paintAir('canteen');airText.userData.mode='canteen';
+   }
+   if(t<.39&&airText.userData?.mode==='canteen'){
+    airText.userData.mode='school';paintAir('school');
+   }
+   spectrum.forEach((bar,i)=>{
+    const intensity=Math.max(0,Math.sin(now*(17+i*.9)+i*.64));
+    const h=.36+(reducedMotion?.1:.8*intensity)*payoff;
+    bar.scale.y=h;
+    bar.position.y=1.79+(h-.5)*.07;
+   });
+   airPlate.rotation.y=reducedMotion?0:Math.sin(now*4)*.024;
+   airText.rotation.y=airPlate.rotation.y;
    speakers.forEach((sp,i)=>{
     sp.rotation.z=reducedMotion?0:(i===0?-1:1)*.07*Math.sin(now*28)*(1-payoff);
     sp.scale.setScalar(.9+.1*smooth(t/.30));
@@ -233,6 +304,16 @@ export function createComboDirector(THREE,scene,{caption,skipButton}={}){
    if(t>.48&&t<.86)realImpactFrames++;
    flash.intensity=payoff*4;
   }else if(p.effect.startsWith('poster')){
+   flyers.children.forEach((leaf,i)=>{
+    const phase=Math.max(0,Math.min(1,(t-.22-(i%5)*.032)/.64));
+    const theta=i*2.39996;
+    const spread=phase*(.40+.12*(i%5));
+    leaf.position.set(Math.cos(theta)*spread,
+      .22-Math.sin(theta)*spread-.75*phase*phase,
+      .05+Math.sin(theta)*.15*phase);
+    leaf.rotation.set(phase*4.1+i*.12,phase*5.4,phase*8.5+i*.18);
+    leaf.visible=phase>.01&&!reducedMotion&&t<.88;
+   });
    poster.position.y=1.64+.5*(1-smooth(t/.38))+
     (reducedMotion?0:.045*Math.sin(now*7));
    const appearance=smooth((t-.08)/.24);
@@ -262,7 +343,9 @@ export function createComboDirector(THREE,scene,{caption,skipButton}={}){
   layer:'R100_REAL_RULE_DRIVEN_3D_COMBO_DIRECTOR',
   active:!!playing,phase:lastPhase,playing:playing?{...playing}:null,
   last:last?{...last}:null,played,completed,skipped,realImpactFrames,
-  actualProps:{chalkSticks:chalk.length,chalkFragments:chalkDust.children.length,
+  actualProps:{schoolBroadcastSpectrumBars:spectrum.length,
+   canteenReversalDisplay:airText.name,posterFlyers:flyers.children.length,
+   chalkSticks:chalk.length,chalkFragments:chalkDust.children.length,
    broadcastSpeakers:speakers.length,broadcastWaveMeshes:broadcastWaves.length,
    posterMeshes:poster.children.length,shieldMeshes:shield.children.length},
   activeEffects:{chalk:chalkGroup.visible,broadcast:broadcast.visible,
