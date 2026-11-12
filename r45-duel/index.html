@@ -105,6 +105,17 @@
   <main class="arena" aria-label="唯一全三维体育馆战斗空间">
     <iframe id="stadium" src="./scene/" title="真正的三维体育馆，左右决斗者，中间是唯一的召唤竞技场"
       loading="eager" referrerpolicy="same-origin"></iframe>
+    <!-- R110 genuine played-card artwork, visible briefly beside the actual 3D podium projection. -->
+    <div id="played-card-reveal" class="played-card-reveal" aria-hidden="true" hidden>
+      <div class="played-card-visual">
+        <img id="played-card-image" alt="" width="620" height="780" decoding="async">
+        <div class="played-card-caption">
+          <span id="played-card-kind">荒诞事件</span>
+          <strong id="played-card-name"></strong>
+          <small id="played-card-cost"></small>
+        </div>
+      </div>
+    </div>
     <div class="arena-tint" aria-hidden="true"></div>
     <div class="arena-title"><span class="arena-mark">✦</span> 中央召唤竞技场 <small>唯一战场 · 自动入场</small></div>
     <section id="comedy-aside" class="comedy-aside" role="status" aria-live="polite" hidden>

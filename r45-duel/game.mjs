@@ -538,10 +538,35 @@ $('result-review').addEventListener('click',()=>{
  $('result-overlay').hidden=true;
  $('end').focus({preventScroll:true});
 });
+// R110 short visual-only card entrance. It does not affect engine timings,
+ // legal moves, buffs, health, voice, or any input handlers.
+let playedArtTimer=null,playedArtSerial=0;
+function revealPlayedArt(card,side){
+ const node=$('played-card-reveal'),img=$('played-card-image');
+ if(!node||!img||!card)return;
+ const url=cardArtURL(card.id);
+ if(!url)return;
+ const serial=++playedArtSerial;
+ clearTimeout(playedArtTimer);
+ node.dataset.side=side;
+ node.classList.remove('played-card-enter');
+ node.hidden=false;
+ img.src=url;
+ $('played-card-kind').textContent=card.kind==='unit'?'人物召唤 · SUMMON':'荒诞事件 · EVENT';
+ $('played-card-name').textContent=card.name;
+ $('played-card-cost').textContent=card.cost+' 能量 · '+card.id;
+ void node.offsetWidth;
+ node.classList.add('played-card-enter');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ playedArtTimer=setTimeout(()=>{
+  if(serial===playedArtSerial){node.hidden=true;node.classList.remove('played-card-enter')}
+ },reduced?1400:2500);
+}
 // A visually projected physical card from the correct side duelist platform.
 // This is a secondary presentation event; it never changes core rules.
 function projectPlayedCard(id,side='player',serial=null){
  const card=BY_ID[id];if(!card)return;
+ revealPlayedArt(card,side);
  sendScene({type:'ASDC_R46_CARD_PLAY',side,id,name:card.name,
    kind:card.kind,cost:card.cost,serial});
 }

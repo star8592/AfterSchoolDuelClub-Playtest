@@ -1,0 +1,440 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop actual eggplant-banana card in player hand",
+      "evidence": [
+        "E01",
+        "E03",
+        "K01",
+        "T01",
+        "E01"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop real 3D podium card meshes",
+      "evidence": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 0,
+          "ai": 0
+        },
+        "painted": {
+          "player": 0,
+          "ai": 0
+        },
+        "last": {
+          "player": null,
+          "ai": null
+        },
+        "lastPainted": {
+          "player": null,
+          "ai": null
+        },
+        "active": {
+          "player": false,
+          "ai": false
+        },
+        "artRequestsCached": 0,
+        "failedImages": [],
+        "drawnFrames": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop no illustration prefetch before actual play",
+      "evidence": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 0,
+          "ai": 0
+        },
+        "painted": {
+          "player": 0,
+          "ai": 0
+        },
+        "last": {
+          "player": null,
+          "ai": null
+        },
+        "lastPainted": {
+          "player": null,
+          "ai": null
+        },
+        "active": {
+          "player": false,
+          "ai": false
+        },
+        "artRequestsCached": 0,
+        "failedImages": [],
+        "drawnFrames": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop real playable card gains large cinematic art entrance",
+      "evidence": {
+        "visible": true,
+        "side": "player",
+        "image": "./assets/cards/r109/K01.webp",
+        "title": "茄子炒香蕉",
+        "cost": "2 能量 · K01"
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop genuine engine damage -1 from K01",
+      "evidence": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop authoritative spell receipt",
+      "evidence": [
+        {
+          "serial": 2,
+          "type": "card_play",
+          "side": "player",
+          "card": "K01",
+          "lane": 0,
+          "spellOutcome": {
+            "effect": "stew",
+            "directDamage": 1,
+            "unitDamage": 0,
+            "targetUids": [],
+            "healed": 0,
+            "allyHeal": 0,
+            "cardDraw": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop image visible as Three.CanvasTexture",
+      "evidence": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 1,
+          "ai": 0
+        },
+        "painted": {
+          "player": 1,
+          "ai": 0
+        },
+        "last": {
+          "player": "K01",
+          "ai": null
+        },
+        "lastPainted": {
+          "player": "K01",
+          "ai": null
+        },
+        "active": {
+          "player": true,
+          "ai": false
+        },
+        "artRequestsCached": 1,
+        "failedImages": [],
+        "drawnFrames": 17
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop no re-download of 3D assets when painting projection"
+    },
+    {
+      "pass": true,
+      "label": "desktop painted 3D projection asset loaded cleanly",
+      "evidence": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 1,
+          "ai": 0
+        },
+        "painted": {
+          "player": 1,
+          "ai": 0
+        },
+        "last": {
+          "player": "K01",
+          "ai": null
+        },
+        "lastPainted": {
+          "player": "K01",
+          "ai": null
+        },
+        "active": {
+          "player": true,
+          "ai": false
+        },
+        "artRequestsCached": 1,
+        "failedImages": [],
+        "drawnFrames": 17
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop zero page or asset errors",
+      "evidence": []
+    },
+    {
+      "pass": true,
+      "label": "phone actual eggplant-banana card in player hand",
+      "evidence": [
+        "E01",
+        "E03",
+        "K01",
+        "T01",
+        "E01"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "phone real 3D podium card meshes",
+      "evidence": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 0,
+          "ai": 0
+        },
+        "painted": {
+          "player": 0,
+          "ai": 0
+        },
+        "last": {
+          "player": null,
+          "ai": null
+        },
+        "lastPainted": {
+          "player": null,
+          "ai": null
+        },
+        "active": {
+          "player": false,
+          "ai": false
+        },
+        "artRequestsCached": 0,
+        "failedImages": [],
+        "drawnFrames": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone no illustration prefetch before actual play",
+      "evidence": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 0,
+          "ai": 0
+        },
+        "painted": {
+          "player": 0,
+          "ai": 0
+        },
+        "last": {
+          "player": null,
+          "ai": null
+        },
+        "lastPainted": {
+          "player": null,
+          "ai": null
+        },
+        "active": {
+          "player": false,
+          "ai": false
+        },
+        "artRequestsCached": 0,
+        "failedImages": [],
+        "drawnFrames": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone real playable card gains large cinematic art entrance",
+      "evidence": {
+        "visible": true,
+        "side": "player",
+        "image": "./assets/cards/r109/K01.webp",
+        "title": "茄子炒香蕉",
+        "cost": "2 能量 · K01"
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone genuine engine damage -1 from K01",
+      "evidence": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone authoritative spell receipt",
+      "evidence": [
+        {
+          "serial": 2,
+          "type": "card_play",
+          "side": "player",
+          "card": "K01",
+          "lane": 0,
+          "spellOutcome": {
+            "effect": "stew",
+            "directDamage": 1,
+            "unitDamage": 0,
+            "targetUids": [],
+            "healed": 0,
+            "allyHeal": 0,
+            "cardDraw": 0
+          }
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "phone image visible as Three.CanvasTexture",
+      "evidence": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 1,
+          "ai": 0
+        },
+        "painted": {
+          "player": 1,
+          "ai": 0
+        },
+        "last": {
+          "player": "K01",
+          "ai": null
+        },
+        "lastPainted": {
+          "player": "K01",
+          "ai": null
+        },
+        "active": {
+          "player": true,
+          "ai": false
+        },
+        "artRequestsCached": 1,
+        "failedImages": [],
+        "drawnFrames": 13
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone no re-download of 3D assets when painting projection"
+    },
+    {
+      "pass": true,
+      "label": "phone painted 3D projection asset loaded cleanly",
+      "evidence": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 1,
+          "ai": 0
+        },
+        "painted": {
+          "player": 1,
+          "ai": 0
+        },
+        "last": {
+          "player": "K01",
+          "ai": null
+        },
+        "lastPainted": {
+          "player": "K01",
+          "ai": null
+        },
+        "active": {
+          "player": true,
+          "ai": false
+        },
+        "artRequestsCached": 1,
+        "failedImages": [],
+        "drawnFrames": 13
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone zero page or asset errors",
+      "evidence": []
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "models": 16,
+      "podium": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 1,
+          "ai": 0
+        },
+        "painted": {
+          "player": 1,
+          "ai": 0
+        },
+        "last": {
+          "player": "K01",
+          "ai": null
+        },
+        "lastPainted": {
+          "player": "K01",
+          "ai": null
+        },
+        "active": {
+          "player": true,
+          "ai": false
+        },
+        "artRequestsCached": 1,
+        "failedImages": [],
+        "drawnFrames": 17
+      }
+    },
+    {
+      "view": "phone",
+      "models": 16,
+      "podium": {
+        "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+        "projectionMeshes": 6,
+        "shown": {
+          "player": 1,
+          "ai": 0
+        },
+        "painted": {
+          "player": 1,
+          "ai": 0
+        },
+        "last": {
+          "player": "K01",
+          "ai": null
+        },
+        "lastPainted": {
+          "player": "K01",
+          "ai": null
+        },
+        "active": {
+          "player": true,
+          "ai": false
+        },
+        "artRequestsCached": 1,
+        "failedImages": [],
+        "drawnFrames": 13
+      }
+    }
+  ]
+}

@@ -1,0 +1,584 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop 60 canonical cards",
+      "data": 60
+    },
+    {
+      "pass": true,
+      "label": "desktop every one of 60 genuine played cards accepted",
+      "data": {
+        "catalog": 60,
+        "allAccepted": true,
+        "accepted": 60,
+        "tampered": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "rendered": [
+          {
+            "id": "K07",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "K07"
+          },
+          {
+            "id": "Q04",
+            "side": "ai",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "Q04"
+          },
+          {
+            "id": "Q08",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "Q08"
+          },
+          {
+            "id": "E01",
+            "side": "ai",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "E01"
+          },
+          {
+            "id": "X08",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "X08"
+          }
+        ],
+        "stats": {
+          "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+          "projectionMeshes": 6,
+          "shown": {
+            "player": 3,
+            "ai": 2
+          },
+          "painted": {
+            "player": 3,
+            "ai": 2
+          },
+          "last": {
+            "player": "X08",
+            "ai": "E01"
+          },
+          "lastPainted": {
+            "player": "X08",
+            "ai": "E01"
+          },
+          "active": {
+            "player": true,
+            "ai": false
+          },
+          "artRequestsCached": 5,
+          "failedImages": [],
+          "drawnFrames": 5
+        },
+        "sceneObjects": 1
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop reject malformed/fake play receipts",
+      "data": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop actual original illustrations in 3D CanvasTexture",
+      "data": [
+        {
+          "id": "K07",
+          "side": "player",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "K07"
+        },
+        {
+          "id": "Q04",
+          "side": "ai",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "Q04"
+        },
+        {
+          "id": "Q08",
+          "side": "player",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "Q08"
+        },
+        {
+          "id": "E01",
+          "side": "ai",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "E01"
+        },
+        {
+          "id": "X08",
+          "side": "player",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "X08"
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop bounded prefetch"
+    },
+    {
+      "pass": true,
+      "label": "desktop no missing image assets",
+      "data": []
+    },
+    {
+      "pass": true,
+      "label": "desktop genuinely 3D card meshes"
+    },
+    {
+      "pass": true,
+      "label": "desktop standalone card art QA downloads zero VRM/GLB"
+    },
+    {
+      "pass": true,
+      "label": "desktop zero JS/network errors",
+      "data": []
+    },
+    {
+      "pass": true,
+      "label": "phone 60 canonical cards",
+      "data": 60
+    },
+    {
+      "pass": true,
+      "label": "phone every one of 60 genuine played cards accepted",
+      "data": {
+        "catalog": 60,
+        "allAccepted": true,
+        "accepted": 60,
+        "tampered": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "rendered": [
+          {
+            "id": "K07",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "K07"
+          },
+          {
+            "id": "Q04",
+            "side": "ai",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "Q04"
+          },
+          {
+            "id": "Q08",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "Q08"
+          },
+          {
+            "id": "E01",
+            "side": "ai",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "E01"
+          },
+          {
+            "id": "X08",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "X08"
+          }
+        ],
+        "stats": {
+          "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+          "projectionMeshes": 6,
+          "shown": {
+            "player": 3,
+            "ai": 2
+          },
+          "painted": {
+            "player": 3,
+            "ai": 2
+          },
+          "last": {
+            "player": "X08",
+            "ai": "E01"
+          },
+          "lastPainted": {
+            "player": "X08",
+            "ai": "E01"
+          },
+          "active": {
+            "player": true,
+            "ai": false
+          },
+          "artRequestsCached": 5,
+          "failedImages": [],
+          "drawnFrames": 5
+        },
+        "sceneObjects": 1
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone reject malformed/fake play receipts",
+      "data": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "pass": true,
+      "label": "phone actual original illustrations in 3D CanvasTexture",
+      "data": [
+        {
+          "id": "K07",
+          "side": "player",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "K07"
+        },
+        {
+          "id": "Q04",
+          "side": "ai",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "Q04"
+        },
+        {
+          "id": "Q08",
+          "side": "player",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "Q08"
+        },
+        {
+          "id": "E01",
+          "side": "ai",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "E01"
+        },
+        {
+          "id": "X08",
+          "side": "player",
+          "accepted": true,
+          "painted": true,
+          "colorful": true,
+          "textureWidth": 384,
+          "textureHeight": 520,
+          "last": "X08"
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "phone bounded prefetch"
+    },
+    {
+      "pass": true,
+      "label": "phone no missing image assets",
+      "data": []
+    },
+    {
+      "pass": true,
+      "label": "phone genuinely 3D card meshes"
+    },
+    {
+      "pass": true,
+      "label": "phone standalone card art QA downloads zero VRM/GLB"
+    },
+    {
+      "pass": true,
+      "label": "phone zero JS/network errors",
+      "data": []
+    }
+  ],
+  "errors": [],
+  "viewports": [
+    {
+      "viewport": "desktop",
+      "result": {
+        "catalog": 60,
+        "allAccepted": true,
+        "accepted": 60,
+        "tampered": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "rendered": [
+          {
+            "id": "K07",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "K07"
+          },
+          {
+            "id": "Q04",
+            "side": "ai",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "Q04"
+          },
+          {
+            "id": "Q08",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "Q08"
+          },
+          {
+            "id": "E01",
+            "side": "ai",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "E01"
+          },
+          {
+            "id": "X08",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "X08"
+          }
+        ],
+        "stats": {
+          "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+          "projectionMeshes": 6,
+          "shown": {
+            "player": 3,
+            "ai": 2
+          },
+          "painted": {
+            "player": 3,
+            "ai": 2
+          },
+          "last": {
+            "player": "X08",
+            "ai": "E01"
+          },
+          "lastPainted": {
+            "player": "X08",
+            "ai": "E01"
+          },
+          "active": {
+            "player": true,
+            "ai": false
+          },
+          "artRequestsCached": 5,
+          "failedImages": [],
+          "drawnFrames": 5
+        },
+        "sceneObjects": 1
+      }
+    },
+    {
+      "viewport": "phone",
+      "result": {
+        "catalog": 60,
+        "allAccepted": true,
+        "accepted": 60,
+        "tampered": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "rendered": [
+          {
+            "id": "K07",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "K07"
+          },
+          {
+            "id": "Q04",
+            "side": "ai",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "Q04"
+          },
+          {
+            "id": "Q08",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "Q08"
+          },
+          {
+            "id": "E01",
+            "side": "ai",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "E01"
+          },
+          {
+            "id": "X08",
+            "side": "player",
+            "accepted": true,
+            "painted": true,
+            "colorful": true,
+            "textureWidth": 384,
+            "textureHeight": 520,
+            "last": "X08"
+          }
+        ],
+        "stats": {
+          "name": "R110_ILLUSTRATED_REAL_CARD_PROJECTION",
+          "projectionMeshes": 6,
+          "shown": {
+            "player": 3,
+            "ai": 2
+          },
+          "painted": {
+            "player": 3,
+            "ai": 2
+          },
+          "last": {
+            "player": "X08",
+            "ai": "E01"
+          },
+          "lastPainted": {
+            "player": "X08",
+            "ai": "E01"
+          },
+          "active": {
+            "player": true,
+            "ai": false
+          },
+          "artRequestsCached": 5,
+          "failedImages": [],
+          "drawnFrames": 5
+        },
+        "sceneObjects": 1
+      }
+    }
+  ]
+}
