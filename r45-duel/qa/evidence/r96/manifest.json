@@ -1,0 +1,252 @@
+{
+  "release": "R96_KNEE_SUPPORT",
+  "parent": "833f1452eaae1daccc042566b9206462537ac302",
+  "state": "LOCAL_CHROME_QA_PASS",
+  "assets": [
+    {
+      "id": "E03",
+      "character": "Ellie",
+      "previous": "E03-Ellie-Footwork-R93.glb",
+      "new": "E03-Ellie-Knee-R96.glb",
+      "bytes": 7934528,
+      "sha256": "09252a5c9e1fc99bea423e169854eb925850dc9f2611a26ad97b920af0bc7f63",
+      "source": "Blender Studio / Blender Foundation",
+      "license": "CC BY 4.0",
+      "morph_meshes": 14,
+      "max_step": 0.1585,
+      "max_retreat": 0.0681,
+      "support_foot_metrics": [
+        {
+          "mesh": "GEO-ellie_boots",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 9244
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "character": "Phil",
+      "previous": "E04-Phil-Footwork-R93.glb",
+      "new": "E04-Phil-Knee-R96.glb",
+      "bytes": 3391320,
+      "sha256": "d01b60ce6b016022bc6b7d39cf95d193a5ead86e523c3b1312f5454e74b04641",
+      "source": "Blender Studio / Blender Foundation",
+      "license": "CC BY 4.0",
+      "morph_meshes": 14,
+      "max_step": 0.0726,
+      "max_retreat": 0.0472,
+      "support_foot_metrics": [
+        {
+          "mesh": "GEO-phil_flippers",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 2508
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "character": "Snow",
+      "previous": "G02-Snow-Footwork-R93.glb",
+      "new": "G02-Snow-Knee-R96.glb",
+      "bytes": 13008424,
+      "sha256": "dafa7aaf06f885b6b82426874d78d1447418e61602b39f35572b5a26dd5ce173",
+      "source": "Blender Studio / Blender Foundation",
+      "license": "CC BY 4.0",
+      "morph_meshes": 17,
+      "max_step": 0.6533,
+      "max_retreat": 0.6573,
+      "support_foot_metrics": [
+        {
+          "mesh": "GEO-snow-shoes_base",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 2286
+        },
+        {
+          "mesh": "GEO-snow-shoes_parts",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 2956
+        },
+        {
+          "mesh": "GEO-snow_shoes_base_deformer",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 2286
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "character": "Jay",
+      "previous": "G03-Jay-Footwork-R93.glb",
+      "new": "G03-Jay-Knee-R96.glb",
+      "bytes": 5753952,
+      "sha256": "d51cb52db6251dcbe9bc8f83afaa35ab7231d254de1b8876adbbb8c6468f5b8f",
+      "source": "Blender Studio / Blender Foundation",
+      "license": "CC BY 4.0",
+      "morph_meshes": 6,
+      "max_step": 0.078,
+      "max_retreat": 0.0447,
+      "support_foot_metrics": [
+        {
+          "mesh": "GEO-jay_shoes_base",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 4032
+        },
+        {
+          "mesh": "GEO-jay_shoes_extra",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 4708
+        }
+      ]
+    },
+    {
+      "id": "G04",
+      "character": "Victoria",
+      "previous": "G04-Victoria-Footwork-R93.glb",
+      "new": "G04-Victoria-Knee-R96.glb",
+      "bytes": 7881100,
+      "sha256": "79a83a943e71d56fd60e0c6f66a3b985672dbb848a472ea9a130b3d303822f5b",
+      "source": "Blender Studio / Blender Foundation",
+      "license": "CC BY 4.0",
+      "morph_meshes": 35,
+      "max_step": 0.2445,
+      "max_retreat": 0.2447,
+      "support_foot_metrics": [
+        {
+          "mesh": "GEO-victoria_boots",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 2228
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "character": "Rain",
+      "previous": "T03-Rain-Footwork-R93.glb",
+      "new": "T03-Rain-Knee-R96.glb",
+      "bytes": 9537252,
+      "sha256": "8dab7ced31330bdfb7431d3bce85f2aab246f62855d67d3cc6d47aa2178ff324",
+      "source": "Blender Studio / Blender Foundation",
+      "license": "CC BY 4.0",
+      "morph_meshes": 5,
+      "max_step": 0.1742,
+      "max_retreat": 0.0925,
+      "support_foot_metrics": [
+        {
+          "mesh": "GEO-rain-shoes",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 6634
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "character": "Rex",
+      "previous": "T04-Rex-Footwork-R93.glb",
+      "new": "T04-Rex-Knee-R96.glb",
+      "bytes": 7192024,
+      "sha256": "f90c17fabbf973ccbd5b41c768b7b7c5be44ff337878bc3f31faef950cb8d5f2",
+      "source": "Blender Studio / Blender Foundation",
+      "license": "CC BY 4.0",
+      "morph_meshes": 9,
+      "max_step": 0.0968,
+      "max_retreat": 0.0499,
+      "support_foot_metrics": [
+        {
+          "mesh": "GEO-rex_shoes",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 7020
+        },
+        {
+          "mesh": "GEO-rex_shoes_laces",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 1932
+        },
+        {
+          "mesh": "GEO-rex_shoes_tab",
+          "attack_support_max": 0.0,
+          "hit_support_max": 0.0,
+          "vertices": 200
+        }
+      ]
+    }
+  ],
+  "release_changes": [
+    "Knee / shin FK control now contributes to Step & Retreat on all seven Blender Studio originals",
+    "One planted support sole stays fixed in original mesh coordinates per half-action",
+    "Independent upper-body Strike/Recoil and lower-body Step/Retreat prevent double-counting leg motion",
+    "Slight FK-Spine bend during step adds weight-transfer cue",
+    "Viewer loops action for inspection; actual arena retains one-shot clips",
+    "R95 scoreboard/spells/result/rematch remain untouched"
+  ],
+  "rollback": "?r96Knee=old loads original R93 GLBs",
+  "footwork_qa": [
+    {
+      "view": "desktop",
+      "pass": true,
+      "roles": [
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "T03",
+        "T04"
+      ]
+    },
+    {
+      "view": "portrait",
+      "pass": true,
+      "roles": [
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "T03",
+        "T04"
+      ]
+    }
+  ],
+  "court_qa": [
+    {
+      "view": "desktop",
+      "mode": "new",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "view": "desktop",
+      "mode": "old",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "view": "portrait",
+      "mode": "new",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "view": "portrait",
+      "mode": "old",
+      "pass": true,
+      "errors": []
+    }
+  ],
+  "limits": [
+    "Offline shape-key foot pinning at peak poses, not full realtime IK/physics",
+    "Lifted leg must be refined with landing anticipation and dynamic root motion",
+    "Browser geometry min-height check does not guarantee perfect visual ground contact on all terrain"
+  ]
+}
