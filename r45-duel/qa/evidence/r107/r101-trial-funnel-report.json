@@ -1,0 +1,495 @@
+{
+  "origin": "http://127.0.0.1:11107",
+  "ok": true,
+  "checks": [
+    {
+      "pass": true,
+      "name": "desktop keeps ultra-light landing visible instead of immediate 3D redirect",
+      "detail": "http://127.0.0.1:11107/"
+    },
+    {
+      "pass": true,
+      "name": "desktop SEO and share metadata crawlable",
+      "detail": {
+        "robots": "index,follow,max-image-preview:large",
+        "title": "放学后决斗社 · 免费试玩校园荒诞喜剧卡牌对战",
+        "desc": "《放学后决斗社》免费网页试玩：校园荒诞喜剧、三维角色对战、粉笔弹射、广播串台、社团招新。三关剧情引导或直接自由对战，无需安装和注册。",
+        "og": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/duel-og.jpg",
+        "canonical": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/",
+        "cards": 60,
+        "images": [
+          {
+            "ok": true,
+            "src": "./share/duel-og.jpg"
+          },
+          {
+            "ok": true,
+            "src": "./share/chalk.webp"
+          },
+          {
+            "ok": true,
+            "src": "./share/broadcast.webp"
+          },
+          {
+            "ok": true,
+            "src": "./share/poster.webp"
+          }
+        ],
+        "scroll": 1440,
+        "body": 1440,
+        "seed": "20261112"
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop uses real 60-card engine catalog without loading game assets",
+      "detail": 60
+    },
+    {
+      "pass": true,
+      "name": "desktop 0 heavy GLB/VRM/music requests before intentional play",
+      "detail": {
+        "requests": [
+          "http://127.0.0.1:11107/",
+          "http://127.0.0.1:11107/landing.css",
+          "http://127.0.0.1:11107/landing.mjs",
+          "http://127.0.0.1:11107/share/duel-og.jpg",
+          "http://127.0.0.1:11107/r45-duel/engine.mjs",
+          "http://127.0.0.1:11107/r45-duel/cards-r107.mjs",
+          "http://127.0.0.1:11107/share/chalk.webp",
+          "http://127.0.0.1:11107/share/broadcast.webp",
+          "http://127.0.0.1:11107/share/poster.webp"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop all compact game-capture preview images really decode",
+      "detail": [
+        {
+          "ok": true,
+          "src": "./share/duel-og.jpg"
+        },
+        {
+          "ok": true,
+          "src": "./share/chalk.webp"
+        },
+        {
+          "ok": true,
+          "src": "./share/broadcast.webp"
+        },
+        {
+          "ok": true,
+          "src": "./share/poster.webp"
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "name": "desktop no mobile/desktop horizontal overflow",
+      "detail": {
+        "robots": "index,follow,max-image-preview:large",
+        "title": "放学后决斗社 · 免费试玩校园荒诞喜剧卡牌对战",
+        "desc": "《放学后决斗社》免费网页试玩：校园荒诞喜剧、三维角色对战、粉笔弹射、广播串台、社团招新。三关剧情引导或直接自由对战，无需安装和注册。",
+        "og": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/duel-og.jpg",
+        "canonical": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/",
+        "cards": 60,
+        "images": [
+          {
+            "ok": true,
+            "src": "./share/duel-og.jpg"
+          },
+          {
+            "ok": true,
+            "src": "./share/chalk.webp"
+          },
+          {
+            "ok": true,
+            "src": "./share/broadcast.webp"
+          },
+          {
+            "ok": true,
+            "src": "./share/poster.webp"
+          }
+        ],
+        "scroll": 1440,
+        "body": 1440,
+        "seed": "20261112"
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop reproducible UTC daily challenge, not fake leaderboard",
+      "detail": {
+        "today": 20261112,
+        "challenge": "http://127.0.0.1:11107/r45-duel/?seed=20261112&ref=daily"
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop exactly 46 spell cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop exactly 14 actual units",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop filter restores all cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop share copies a real same-seed playable link",
+      "detail": "放学后决斗社：今天的牌局是 20261112。来看看你能不能赢过 AI！ http://127.0.0.1:11107/r45-duel/?seed=20261112&ref=daily"
+    },
+    {
+      "pass": true,
+      "name": "desktop real copyable feedback, no invented backend",
+      "detail": "《放学后决斗社》试玩反馈\n类型：加载缓慢或无法进入\n具体描述：第三关最有趣，声音比以前清晰，首次载入仍慢。\n版本：R101 公开试玩\n可选：设备/浏览器、进入游戏的等待体验、最喜欢的连携。"
+    },
+    {
+      "pass": true,
+      "name": "desktop 14 actual art provenance records, no false commercial approval",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop robots no longer block entire site",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop sitemap includes rights disclosure",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop public credits page actually exists",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "desktop feedback link targets repository with actual tester text",
+      "detail": {
+        "issueHref": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/issues/new?title=%5B%E8%AF%95%E7%8E%A9%E5%8F%8D%E9%A6%88%5D+%E5%8A%A0%E8%BD%BD%E7%BC%93%E6%85"
+      }
+    },
+    {
+      "pass": true,
+      "name": "desktop zero public landing page JS/HTTP errors",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "name": "mobile keeps ultra-light landing visible instead of immediate 3D redirect",
+      "detail": "http://127.0.0.1:11107/"
+    },
+    {
+      "pass": true,
+      "name": "mobile SEO and share metadata crawlable",
+      "detail": {
+        "robots": "index,follow,max-image-preview:large",
+        "title": "放学后决斗社 · 免费试玩校园荒诞喜剧卡牌对战",
+        "desc": "《放学后决斗社》免费网页试玩：校园荒诞喜剧、三维角色对战、粉笔弹射、广播串台、社团招新。三关剧情引导或直接自由对战，无需安装和注册。",
+        "og": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/duel-og.jpg",
+        "canonical": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/",
+        "cards": 60,
+        "images": [
+          {
+            "ok": true,
+            "src": "./share/duel-og.jpg"
+          },
+          {
+            "ok": true,
+            "src": "./share/chalk.webp"
+          },
+          {
+            "ok": true,
+            "src": "./share/broadcast.webp"
+          },
+          {
+            "ok": true,
+            "src": "./share/poster.webp"
+          }
+        ],
+        "scroll": 430,
+        "body": 430,
+        "seed": "20261112"
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile uses real 60-card engine catalog without loading game assets",
+      "detail": 60
+    },
+    {
+      "pass": true,
+      "name": "mobile 0 heavy GLB/VRM/music requests before intentional play",
+      "detail": {
+        "requests": [
+          "http://127.0.0.1:11107/",
+          "http://127.0.0.1:11107/landing.css",
+          "http://127.0.0.1:11107/landing.mjs",
+          "http://127.0.0.1:11107/share/duel-og.jpg",
+          "http://127.0.0.1:11107/share/chalk.webp",
+          "http://127.0.0.1:11107/share/broadcast.webp",
+          "http://127.0.0.1:11107/share/poster.webp",
+          "http://127.0.0.1:11107/r45-duel/engine.mjs",
+          "http://127.0.0.1:11107/r45-duel/cards-r107.mjs"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile all compact game-capture preview images really decode",
+      "detail": [
+        {
+          "ok": true,
+          "src": "./share/duel-og.jpg"
+        },
+        {
+          "ok": true,
+          "src": "./share/chalk.webp"
+        },
+        {
+          "ok": true,
+          "src": "./share/broadcast.webp"
+        },
+        {
+          "ok": true,
+          "src": "./share/poster.webp"
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "name": "mobile no mobile/desktop horizontal overflow",
+      "detail": {
+        "robots": "index,follow,max-image-preview:large",
+        "title": "放学后决斗社 · 免费试玩校园荒诞喜剧卡牌对战",
+        "desc": "《放学后决斗社》免费网页试玩：校园荒诞喜剧、三维角色对战、粉笔弹射、广播串台、社团招新。三关剧情引导或直接自由对战，无需安装和注册。",
+        "og": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/share/duel-og.jpg",
+        "canonical": "https://star8592.github.io/AfterSchoolDuelClub-Playtest/",
+        "cards": 60,
+        "images": [
+          {
+            "ok": true,
+            "src": "./share/duel-og.jpg"
+          },
+          {
+            "ok": true,
+            "src": "./share/chalk.webp"
+          },
+          {
+            "ok": true,
+            "src": "./share/broadcast.webp"
+          },
+          {
+            "ok": true,
+            "src": "./share/poster.webp"
+          }
+        ],
+        "scroll": 430,
+        "body": 430,
+        "seed": "20261112"
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile reproducible UTC daily challenge, not fake leaderboard",
+      "detail": {
+        "today": 20261112,
+        "challenge": "http://127.0.0.1:11107/r45-duel/?seed=20261112&ref=daily"
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile exactly 46 spell cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile exactly 14 actual units",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile filter restores all cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile share copies a real same-seed playable link",
+      "detail": "放学后决斗社：今天的牌局是 20261112。来看看你能不能赢过 AI！ http://127.0.0.1:11107/r45-duel/?seed=20261112&ref=daily"
+    },
+    {
+      "pass": true,
+      "name": "mobile real copyable feedback, no invented backend",
+      "detail": "《放学后决斗社》试玩反馈\n类型：加载缓慢或无法进入\n具体描述：第三关最有趣，声音比以前清晰，首次载入仍慢。\n版本：R101 公开试玩\n可选：设备/浏览器、进入游戏的等待体验、最喜欢的连携。"
+    },
+    {
+      "pass": true,
+      "name": "mobile 14 actual art provenance records, no false commercial approval",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile robots no longer block entire site",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile sitemap includes rights disclosure",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile public credits page actually exists",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "mobile feedback link targets repository with actual tester text",
+      "detail": {
+        "issueHref": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/issues/new?title=%5B%E8%AF%95%E7%8E%A9%E5%8F%8D%E9%A6%88%5D+%E5%8A%A0%E8%BD%BD%E7%BC%93%E6%85"
+      }
+    },
+    {
+      "pass": true,
+      "name": "mobile zero public landing page JS/HTTP errors",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "name": "16/16 VERIFIED actual models before first legal move, never fake ready",
+      "detail": {
+        "url": "http://127.0.0.1:11107/r45-duel/?qa=1&seed=1918400156",
+        "loaded": 16,
+        "max": 16,
+        "count": "已验证 16 / 16 个三维人物资源",
+        "three": 12,
+        "vrm": 2,
+        "firstDraw": 1,
+        "canPlay": true
+      }
+    },
+    {
+      "pass": true,
+      "name": "measured all 16 VRM/GLB HTTP network bodies, not guessed file size",
+      "detail": [
+        {
+          "file": "Fumiriya-original-CC0.vrm",
+          "bodyBytes": 19342280
+        },
+        {
+          "file": "Shino-original-CC0.vrm",
+          "bodyBytes": 15074328
+        },
+        {
+          "file": "Host-HairSample_Male-CC0.vrm",
+          "bodyBytes": 18481892
+        },
+        {
+          "file": "Host-HairSample_Female-CC0.vrm",
+          "bodyBytes": 17518216
+        },
+        {
+          "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+          "bodyBytes": 1116092
+        },
+        {
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "bodyBytes": 836836
+        },
+        {
+          "file": "E04-Phil-Landing-R97.glb",
+          "bodyBytes": 3670340
+        },
+        {
+          "file": "G04-Victoria-Landing-R97.glb",
+          "bodyBytes": 10249516
+        },
+        {
+          "file": "G03-Jay-Landing-R97.glb",
+          "bodyBytes": 6491140
+        },
+        {
+          "file": "E03-Ellie-Landing-R97.glb",
+          "bodyBytes": 8845968
+        },
+        {
+          "file": "M02-CafeteriaAunt-ChefHat-Spatula-R99.glb",
+          "bodyBytes": 2869280
+        },
+        {
+          "file": "G02-Snow-Landing-R97.glb",
+          "bodyBytes": 14616772
+        },
+        {
+          "file": "T02-LivingMenu-R59.glb",
+          "bodyBytes": 2519624
+        },
+        {
+          "file": "T03-Rain-Landing-R97.glb",
+          "bodyBytes": 10312392
+        },
+        {
+          "file": "T04-Rex-Landing-R97.glb",
+          "bodyBytes": 7791296
+        },
+        {
+          "file": "T01-Owl-Innerscene-R84.glb",
+          "bodyBytes": 20671040
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "name": "seed reflected in game URL for reproducible share",
+      "detail": "http://127.0.0.1:11107/r45-duel/?qa=1&seed=1918400156"
+    },
+    {
+      "pass": true,
+      "name": "game remains playable after actual 16 source load",
+      "detail": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "seed": 20261112,
+      "networkRequests": 9,
+      "prePlayHeavyDownloads": 0
+    },
+    {
+      "name": "mobile",
+      "width": 430,
+      "seed": 20261112,
+      "networkRequests": 9,
+      "prePlayHeavyDownloads": 0
+    }
+  ],
+  "game": {
+    "ms": 2685,
+    "models": 16,
+    "modelBodyBytes": 160407012,
+    "loading": {
+      "url": "http://127.0.0.1:11107/r45-duel/?qa=1&seed=1918400156",
+      "loaded": 16,
+      "max": 16,
+      "count": "已验证 16 / 16 个三维人物资源",
+      "three": 12,
+      "vrm": 2,
+      "firstDraw": 1,
+      "canPlay": true
+    },
+    "errors": []
+  }
+}

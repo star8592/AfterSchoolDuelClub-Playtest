@@ -3,7 +3,7 @@
  * Free duel + R98 optional in-game tutorial; core gameplay always stays in engine.mjs.
  * Real rules and 3D rendering are separate; visual animation never mutates HP.
  */
-import {BY_ID,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
+import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
@@ -32,7 +32,9 @@ if(!params.has('seed')||seed!==suppliedSeed){
 const tutorialMode=params.get('mode')==='tutorial';
 const requestedLevel=Number(params.get('level')??'1');
 const initialLevel=tutorialMode&&Number.isInteger(requestedLevel)&&requestedLevel>=1&&requestedLevel<=LESSONS.length?requestedLevel:1;
-let g=tutorialMode?createTutorialGame(initialLevel,seed):createGame(seed);
+const requestedDeck=params.get('deck');
+const activeDeck=(!tutorialMode&&Object.hasOwn(DECK_PRESETS,requestedDeck))?requestedDeck:'classic';
+let g=tutorialMode?createTutorialGame(initialLevel,seed):createGame(seed,activeDeck);
 const scene=$('stadium');
 const comedyScript=makeComedyScript(seed);
 let lastQwenSubtitle=null,spokenSubtitleCount=0,asideSeq=0,speechSeq=0;
@@ -84,6 +86,14 @@ const pictogram={
  E05:'✦',E06:'✹',G05:'╋',G06:'▤',T05:'☼',T06:'◉'
 };
 const MAX_CARDS_ON_FIELD=5;
+const NEW_EVENT_ICONS={K:'🍲',Q:'📚',S:'⚗',P:'🏃',X:'⏳'};
+const R107_CARD_SIGILS=Object.freeze({
+ K01:'🍆',K02:'🍉',K03:'🍇',K04:'🌶️',K05:'🥣',K06:'🧋',K07:'🍢',K08:'🌈',
+ Q01:'✏️',Q02:'📕',Q03:'✦',Q04:'🧹',Q05:'🎤',Q06:'💡',Q07:'🌙',Q08:'🥷',
+ S01:'⏰',S02:'🖊️',S03:'🪄',S04:'⚡',S05:'🤖',S06:'🪀',S07:'🕳️',S08:'🥤',
+ P01:'👟',P02:'🧱',P03:'🦖',P04:'📣',P05:'⚽',P06:'🏃',P07:'🍌',P08:'☄️',
+ X01:'⏳',X02:'👕',X03:'🚓',X04:'🛏️',X05:'📓',X06:'🔁',X07:'📆',X08:'🕰️'
+});
 const $make=(tag,className,text)=>{
  const node=document.createElement(tag);
  if(className)node.className=className;
@@ -144,7 +154,10 @@ if(audio.status().requested){
 }
 function cardSound(c){
  if(c.kind==='unit')return 'cast';
- return ({buff:'cast',blast:'spell_charge',confuse:'spell_charge',repair:'heal',heal:'heal',draw:'select'})[c.effect]||'turn';
+ return ({buff:'cast',blast:'spell_charge',confuse:'spell_charge',repair:'heal',heal:'heal',draw:'select',
+  stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'spell_charge',banquet:'heal',
+  insight:'select',updraft:'spell_charge',reroute:'card_flip',boomerang:'spell_charge',
+  eclipse:'sonic_wave',trick:'spell_charge'})[c.effect]||'turn';
 }
 function gameReady(){return sceneReady&&!sceneError&&g.phase==='playing'&&g.active==='player';}
 function cardCanPlay(index){
@@ -153,6 +166,7 @@ function cardCanPlay(index){
 }
 function describeCard(c){
  if(c.kind==='unit')return '攻 '+c.attack+' / 生命 '+c.hp+' · 上场后下次轮到你才攻击';
+ if(c.rule)return c.rule;
  const effects={
   buff:'使场上第一个己方角色攻击力 +2',
   blast:'直接对对手人气造成 3 点伤害',
@@ -207,14 +221,15 @@ function renderHand(){
    img.alt='';img.decoding='async';img.loading='eager';
    art.append(img);
   }else{
-   const symbol=$make('span','symbol',pictogram[id]||'✦');
+   const symbol=$make('span','symbol',pictogram[id]||R107_CARD_SIGILS[id]||NEW_EVENT_ICONS[id[0]]||'✦');
    art.append(symbol);
   }
   card.dataset.art=isPortrait?'actual-vrm':'symbol-only';
-  card.title=(isPortrait?'已实装3D角色：':'仍待独立角色美术：')+c.name;
+  card.title=c.kind==='spell'?(c.name+' · '+describeCard(c)):
+    (isPortrait?'已实装3D角色：':'仍待独立角色美术：')+c.name;
   card.append(head,$make('strong','card-name',c.name),art,
     $make('div','card-desc',c.line),
-    $make('div','card-stats',c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'✦ '+(c.cost===1?'轻量事件':'战术事件')));
+    $make('div','card-stats',c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'✦ '+describeCard(c)));
   card.addEventListener('click',()=>{
    selected=selected===index?null:index;
    audio.playCue('select');
@@ -473,11 +488,12 @@ function startRematch(){
  location.assign(target.href);
 }
 $('result-rematch').addEventListener('click',startRematch);
-// Exactly the same seed, same 20-card deck, same deterministic core.
+// Exactly the same seed AND deck preset, same deterministic core.
 function sameDuelChallengeUrl(){
  const url=new URL('./',location.href);
  url.search='';url.hash='';
  url.searchParams.set('seed',String(seed));
+ if(g.deckPreset!=='classic')url.searchParams.set('deck',g.deckPreset);
  url.searchParams.set('ref','challenge');
  return url.href;
 }
@@ -586,7 +602,10 @@ $('play').addEventListener('click',()=>{
  if(c.kind==='spell'){
   sendSpellImpact(g.events.findLast(e=>e.type==='card_play'&&e.side==='player'&&e.card===id));
   const sound={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
-    repair:'ice_shatter',draw:'card_flip',heal:'shield_block'}[c.effect];
+    repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
+    stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
+    banquet:'heal',insight:'card_flip',updraft:'shield_block',reroute:'card_flip',
+    boomerang:'spell_charge',eclipse:'sonic_wave',trick:'spell_charge'}[c.effect];
   if(sound){
    if(c.effect==='blast'||c.effect==='confuse')
      setTimeout(()=>audio.playCue(sound,'player'),460);
@@ -651,7 +670,10 @@ $('end').addEventListener('click',()=>{
   if(enemyCard?.kind==='spell') {
    sendSpellImpact(event);
    const fx={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
-     repair:'ice_shatter',draw:'card_flip',heal:'shield_block'}[enemyCard.effect];
+     repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
+     stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
+     banquet:'heal',insight:'card_flip',updraft:'shield_block',reroute:'card_flip',
+     boomerang:'spell_charge',eclipse:'sonic_wave',trick:'spell_charge'}[enemyCard.effect];
    if(fx){
     if(enemyCard.effect==='blast'||enemyCard.effect==='confuse')
       setTimeout(()=>audio.playCue(fx,'ai'),460);
@@ -758,6 +780,74 @@ window.addEventListener('keydown',event=>{
   sendScene({type:'ASDC_R48_CAMERA_SET',degrees:0});
  }
 });
+// R107: keep the heavy 3D stage mounted while switching a themed 40-card
+// deck. This resets the actual deterministic engine and clears stale effects.
+const deckSelector=$('deck-select');
+deckSelector.value=activeDeck;
+deckSelector.disabled=tutorialMode;
+deckSelector.title=tutorialMode?'剧情教学使用基础卡组':'切换会重新开局，三维模型无需再次下载';
+deckSelector.addEventListener('change',()=>{
+ if(tutorialMode)return;
+ const next=deckSelector.value;
+ if(!Object.hasOwn(DECK_PRESETS,next))return;
+ g=createGame(seed,next);
+ selected=null;lastFightSerial=0;
+ comboAudioReceipts.clear();combatAudioReceipts.clear();
+ hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
+ sendScene({type:'ASDC_R100_COMBO_RESET'});
+ const url=new URL(location.href);
+ if(next==='classic')url.searchParams.delete('deck');
+ else url.searchParams.set('deck',next);
+ history.replaceState(null,'',url.href);
+ render();syncScene();
+ announce('已切换「'+DECK_PRESETS[next].name+'」：真正的 40 张主题卡组已重新洗牌。','selected');
+});
+// R107 card encyclopedia is on demand; 60 record thumbnails are NOT
+// additional GLB asset downloads, with source/licensing left distinct.
+const library=$('card-library'),libraryCards=$('library-cards');
+const libraryFilters=$('library-filters');
+const categories=['全部','经典社团','黑暗食堂','教室怪谈','社团实验','体育荒诞','时空校园'];
+let libraryFilter='全部';
+for(const name of categories){
+ const btn=$make('button',null,name);
+ btn.type='button';btn.dataset.category=name;
+ btn.addEventListener('click',()=>{
+  libraryFilter=name;
+  libraryFilters.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+  paintLibrary();
+ });
+ libraryFilters.append(btn);
+}
+function paintLibrary(){
+ const cards=CARDS.filter(c=>libraryFilter==='全部'||
+  (libraryFilter==='经典社团'?!c.theme:c.theme===libraryFilter));
+ libraryFilters.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',
+  String(b.dataset.category===libraryFilter)));
+ $('library-count').textContent='显示 '+cards.length+' / '+CARDS.length+' 张 · '+
+  cards.filter(c=>c.kind==='unit').length+' 张人物 · '+
+  cards.filter(c=>c.kind==='spell').length+' 张事件';
+ const result=document.createDocumentFragment();
+ for(const c of cards){
+  const box=$make('article','library-tile '+c.style);
+  const head=$make('div','library-tile-head');
+  head.append($make('span',null,(c.theme||'经典社团')+' · '+(c.kind==='unit'?'人物':'事件')),
+    $make('b',null,String(c.cost)));
+  const art=$make('div','library-tile-art',R107_CARD_SIGILS[c.id]||NEW_EVENT_ICONS[c.id[0]]||pictogram[c.id]||'✦');
+  box.append(head,art,$make('h3',null,c.name),$make('p',null,c.line),
+    $make('strong','library-effect',describeCard(c)));
+  result.append(box);
+ }
+ libraryCards.replaceChildren(result);
+}
+$('card-library-open').addEventListener('click',()=>{
+ library.hidden=false;libraryFilter='全部';paintLibrary();
+ $('card-library-close').focus({preventScroll:true});
+});
+$('card-library-close').addEventListener('click',()=>library.hidden=true);
+library.addEventListener('click',e=>{if(e.target===library)library.hidden=true});
+window.addEventListener('keydown',e=>{
+ if(e.key==='Escape'&&!library.hidden){library.hidden=true;e.preventDefault();}
+});
 render();
 announce('开始决斗：你在左，对手在右；选牌并按「出牌」，召唤物会进入同一个三维体育馆。');
 if(new URLSearchParams(location.search).get('qa')==='1'){
@@ -772,6 +862,8 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get sceneReady(){return sceneReady},
   get sceneError(){return sceneError},
   get cardCount(){return Object.keys(BY_ID).length},
+  get deckPreset(){return g.deckPreset},
+  get deckTotal(){return g.deck.player.length+g.hand.player.length+g.discard.player.length+g.board.player[0].length},
   get events(){return structuredClone(g.events)},
   get selected(){return selected},
   get lastFightSerial(){return lastFightSerial},

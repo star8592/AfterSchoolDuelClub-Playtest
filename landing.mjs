@@ -78,8 +78,9 @@ function paintCards(filter='all'){
   const title=document.createElement('h3');title.textContent=card.name;
   const joke=document.createElement('p');joke.textContent=card.line;
   const meta=document.createElement('small');
-  meta.textContent=kinds[card.kind]+
-   (card.kind==='unit'?' · 攻 '+card.attack+' / ♥ '+card.hp:'');
+  meta.textContent=kinds[card.kind]+(card.theme?' · '+card.theme:'')+
+   (card.kind==='unit'?' · 攻 '+card.attack+' / ♥ '+card.hp:'')+
+   (card.rule?' · '+card.rule:'');
   article.append(top,title,joke,meta);frag.append(article);
  }
  gallery.append(frag);

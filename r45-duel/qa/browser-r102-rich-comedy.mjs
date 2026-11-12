@@ -23,9 +23,9 @@ const scene=async p=>p.evaluate(()=>{
   actors:s.summonPresence?.r102Comedy,models:s.summonModels.length};
 });
 try{
- verify(CARDS.length===20&&COMIC_ASIDE_LINES.E01.length>=4&&
+ verify(CARDS.length===60&&CARDS.every(c=>COMIC_ASIDE_LINES[c.id]?.length>=4)&&COMIC_ASIDE_LINES.E01.length>=4&&
   Object.values(COMIC_ASIDE_LINES).reduce((n,x)=>n+x.length,0)>=120,
-  '126+ authored school jokes cover true 20 card IDs',Object.values(COMIC_ASIDE_LINES).reduce((n,x)=>n+x.length,0));
+  '126+ authored school jokes cover true 60 card IDs',Object.values(COMIC_ASIDE_LINES).reduce((n,x)=>n+x.length,0));
  verify(Object.keys(COMIC_BEATS).length>=17&&Object.keys(R102_SPECTACLES).length>=16,
   '20 authored original Foley sets and 16 actual 3D visual styles',
   {soundSets:Object.keys(COMIC_BEATS),effects:Object.keys(R102_SPECTACLES)});

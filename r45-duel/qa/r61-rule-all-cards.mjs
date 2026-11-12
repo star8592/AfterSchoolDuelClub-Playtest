@@ -29,9 +29,20 @@ for(const c of CARDS){
    repair:g.board.player[0][0].hp>pre.ally,
    draw:g.hand.player.length>pre.hand-1,
    heal:g.hp.player>pre.playerHp,
-   confuse:g.board.ai[0][0]?.hp<pre.foe || g.board.ai[0].length===0
+   confuse:g.board.ai[0][0]?.hp<pre.foe || g.board.ai[0].length===0,
+   stew:g.hp.player>pre.playerHp&&g.hp.ai<pre.aiHp,
+   shield:(g.board.player[0][0]?.shield||0)>0,
+   splash:g.board.ai[0][0]?.hp<pre.foe,
+   chaos:g.board.ai[0][0]?.attack<1,
+   banquet:g.hp.player>pre.playerHp,
+   insight:g.hand.player.length>=pre.hand-1,
+   updraft:g.board.player[0][0].attack>2,
+   reroute:g.hand.player.length>pre.hand-1,
+   boomerang:g.board.ai[0][0]?.hp<pre.foe,
+   eclipse:g.hp.player>pre.playerHp,
+   trick:g.board.ai[0][0]?.hp<pre.foe
  };
- const pass=result.ok&&play?.card===c.id&&g.energy.player===pre.energy-c.cost&&
+ const pass=result.ok&&play?.card===c.id&&g.energy.player===pre.energy-c.cost+(c.effect==='insight'?1:0)&&
   (c.kind==='unit'?actuallySpawned:effects[c.effect]);
  const row={id:c.id,kind:c.kind,cost:c.cost,pass,actuallySpawned,
   effect:c.kind==='spell'?c.effect:null,ruleEvent:play?.card};
@@ -39,5 +50,5 @@ for(const c of CARDS){
  console.log('R61_RULE_CARD_GATE',JSON.stringify(row));
 }
 const passed=checks.filter(x=>x.pass).length;
-console.log('R61_RULE_18_TOTAL',JSON.stringify({passed,total:checks.length,units:checks.filter(x=>x.kind==='unit').length,spells:checks.filter(x=>x.kind==='spell').length}));
-if(passed!==18)process.exitCode=3;
+console.log('R107_RULE_60_TOTAL',JSON.stringify({passed,total:checks.length,units:checks.filter(x=>x.kind==='unit').length,spells:checks.filter(x=>x.kind==='spell').length}));
+if(passed!==60)process.exitCode=3;

@@ -26,9 +26,9 @@ for(const strategy of ['first','last']){
   highestCards:sorted.slice(0,6).map(([id,count])=>({id,count})),
   leastCards:sorted.slice(-6).map(([id,count])=>({id,count}))};
 }
-const out=resolve(import.meta.dirname,'evidence/r101');
+const out=resolve(import.meta.dirname,'evidence/r107');
 mkdirSync(out,{recursive:true});
-writeFileSync(resolve(out,'r101-repeat-play-baseline.json'),JSON.stringify(report,null,2));
+writeFileSync(resolve(out,'r107-repeat-play-balance.json'),JSON.stringify(report,null,2));
 console.log('R101_5000_DETERMINISTIC_MATCHES',JSON.stringify(report));
-if(report.cardKinds.total!==20||report.cardKinds.unit!==14||report.cardKinds.spell!==6)
+if(report.cardKinds.total!==60||report.cardKinds.unit!==14||report.cardKinds.spell!==46)
  process.exitCode=6;

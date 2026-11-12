@@ -50,7 +50,7 @@ export function createTutorialGame(level=1,seed=20261112){
  if(!Number.isInteger(level)||level<1||level>LESSONS.length)throw Error('Unknown lesson '+level);
  const lesson=LESSONS[level-1],game=createGame(seed);
  const selected=lesson.cards.map(id=>takeExisting(game,'player',id));
- game.hand.player.unshift(...selected); // both are from the 40-card deck
+ game.hand.player.unshift(...selected); // both are from the 40-card classic preset deck
  // Scripted starting opponent is removed from its actual deck/hand first.
  const foe=takeExisting(game,'ai',lesson.foe),card=BY_ID[foe];
  game.board.ai[0].push({uid:'U'+(level*1000-1),id:foe,style:card.style,

@@ -39,7 +39,7 @@ try{
   ok(index.robots.startsWith('index')&&index.og.includes('/share/duel-og.jpg')&&
    index.desc.includes('免费网页试玩')&&index.canonical.includes('AfterSchoolDuelClub-Playtest'),
    name+' SEO and share metadata crawlable',index);
-  ok(index.cards===20,name+' uses real 20-card engine deck without loading game assets',index.cards);
+  ok(index.cards===60,name+' uses real 60-card engine catalog without loading game assets',index.cards);
   ok(!requests.some(x=>/\.(?:glb|vrm|ogg|mp3)(\?|$)/i.test(x.url))&&
      !requests.some(x=>x.url.includes('/r45-duel/scene/')),
    name+' 0 heavy GLB/VRM/music requests before intentional play',{requests:requests.map(x=>x.url).slice(0,22)});
@@ -50,11 +50,11 @@ try{
   ok(Number(index.seed)===today&&Number(new URL(challenge).searchParams.get('seed'))===today,
    name+' reproducible UTC daily challenge, not fake leaderboard',{today,challenge});
   await page.locator('[data-filter="spell"]').click();
-  ok(await page.locator('.mini-card').count()===6,name+' exactly 6 spell cards');
+  ok(await page.locator('.mini-card').count()===46,name+' exactly 46 spell cards');
   await page.locator('[data-filter="unit"]').click();
   ok(await page.locator('.mini-card').count()===14,name+' exactly 14 actual units');
   await page.locator('[data-filter="all"]').click();
-  ok(await page.locator('.mini-card').count()===20,name+' filter restores all cards');
+  ok(await page.locator('.mini-card').count()===60,name+' filter restores all cards');
   await page.locator('#daily-share').click();
   const copy=await page.evaluate(()=>navigator.clipboard.readText());
   ok(copy.includes('seed='+today)&&copy.includes('来看看你能不能赢过 AI'),
@@ -121,12 +121,12 @@ try{
    firstDraw:f.__r45SceneQA.frameCount,
    canPlay:!document.querySelector('#end').disabled,seed:window.__r45QA.seed};
  });
- ok(loaded.loaded===14&&loaded.max===14&&loaded.three===12&&loaded.vrm===2&&loaded.canPlay,
-  '14/14 VERIFIED actual models before first legal move, never fake ready',loaded);
- ok(network.length===14&&network.every(x=>x.bodyBytes>10000),
-  'measured all 14 VRM/GLB HTTP network bodies, not guessed file size',network);
+ ok(loaded.loaded===16&&loaded.max===16&&loaded.three===12&&loaded.vrm===2&&loaded.canPlay,
+  '16/16 VERIFIED actual models before first legal move, never fake ready',loaded);
+ ok(network.length===16&&network.every(x=>x.bodyBytes>10000),
+  'measured all 16 VRM/GLB HTTP network bodies, not guessed file size',network);
  ok(/seed=[0-9]+/.test(loaded.url),'seed reflected in game URL for reproducible share',loaded.url);
- ok(errors.length===0,'game remains playable after actual 14 source load',{errors});
+ ok(errors.length===0,'game remains playable after actual 16 source load',{errors});
  await page.screenshot({path:resolve(out,'desktop-game-after-verified-load.png')});
  report.game={ms,models:network.length,modelBodyBytes:network.reduce((n,x)=>n+x.bodyBytes,0),
   loading:loaded,errors};
@@ -139,7 +139,7 @@ finally{
   errors:report.errors,views:report.views,game:report.game&&{
    initialLoadMs:report.game.ms,models:report.game.models,
    measuredModelNetworkMiB:Number((report.game.modelBodyBytes/1048576).toFixed(2)),
-   verified14:report.game.loading.loaded}}));
+   verified16:report.game.loading.loaded}}));
  await browser.close();
 }
 if(!report.ok)process.exitCode=6;

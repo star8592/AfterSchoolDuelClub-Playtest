@@ -32,7 +32,7 @@ for(const [key,notes] of Object.entries(COMIC_BEATS)){
    key+' safe audio mix parameters');
  }
 }
-ok(CARDS.length===20,'20 original card/engine balance untouched');
+ok(CARDS.length===60,'60 original card catalog, 20 classics retained');
 const units=CARDS.filter(c=>c.kind==='unit');
 ok(units.length===14&&Object.keys(ACTOR_COMEDY_SIGNATURES).length===14,
  'all 14 genuine characters have unique performance choreography');
@@ -47,7 +47,7 @@ for(const c of units){
   c.id+' real 3D gesture is constrained, expressive and reversible');
 }
 
-ok(CARDS.every(c=>COMIC_ASIDE_LINES[c.id]?.length>=4),'all 20 cards have 4+ unique story quips');
+ok(CARDS.every(c=>COMIC_ASIDE_LINES[c.id]?.length>=4),'all 60 cards have 4+ unique story quips');
 const scripts=Object.values(COMIC_ASIDE_LINES).reduce((n,x)=>n+x.length,0);
 ok(scripts>=126,'more than 126 authored text-only jokes');
 for(const id of ['chalk_hit','chalk_direct','broadcast_draw','poster_shield','poster_draw']){

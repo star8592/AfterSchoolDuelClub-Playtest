@@ -37,6 +37,18 @@
       <strong>首次决斗只要三步</strong>
       <span id="guide-step">① 选下方的卡牌　② 按「出牌」召唤　③ 按「结束回合」等 AI 回应</span>
     </div>
+    <div class="deck-switcher" aria-label="本局卡组">
+      <label for="deck-select">本局卡组</label>
+      <select id="deck-select" aria-label="选择主题卡组重新开始一局">
+        <option value="classic">经典社团</option>
+        <option value="kitchen">黑暗食堂</option>
+        <option value="classroom">教室怪谈</option>
+        <option value="science">社团实验</option>
+        <option value="sports">体育荒诞</option>
+        <option value="cosmos">时空校园</option>
+      </select>
+      <button type="button" id="card-library-open" aria-label="浏览全部60张卡牌">60 张图鉴</button>
+    </div>
     <div class="lesson-shell">
       <button id="tutorial-start" type="button" class="lesson-launch">玩三关剧情教学</button>
       <section id="lesson-panel" class="lesson-panel" aria-label="三关真实连携教学" hidden>
@@ -58,6 +70,7 @@
         <p><b>事件牌：</b>立刻产生加成、伤害、回复、抽牌等效果，不需要选位置。</p>
         <p><b>回合：</b>花费能量出牌，可以连续出多张；按「结束回合」后，已有角色攻击，AI 自动出牌并回应。</p>
         <p><b>风格与连携：</b>活力克创意、创意克默契、默契克活力。同回合打出不同风格的牌会触发一次连携。</p>
+        <p><b>60 张图鉴与卡组：</b>总共有 14 张人物牌和 46 张事件牌。每局只使用主题卡组中的 40 张：20 种卡各两份。切换卡组会重新开始本局，不重复加载人物模型。</p>
 
         <p><b>角色素材：</b>G03「实验学长」改编自 Blender Studio <a href="https://studio.blender.org/characters/jay/v1/" target="_blank" rel="noopener noreferrer">Jay</a>；T04「活动室守门人」改编自 <a href="https://studio.blender.org/characters/rex/v1/" target="_blank" rel="noopener noreferrer">Rex</a>；作者 Blender Foundation，许可 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。本游戏转换为 Web GLB，简化材质并添加临时战斗动作。</p>
 
@@ -150,6 +163,20 @@
     </div>
   </section>
 </div>
+<section id="card-library" class="card-library" role="dialog" aria-modal="true"
+ aria-labelledby="library-title" hidden>
+ <div class="library-panel">
+  <div class="library-head">
+   <div><small>校园荒诞卡牌百科</small><h2 id="library-title">60 张真正可玩的卡牌</h2>
+    <p>14 张人物牌 · 46 张事件牌。主题卡组各 40 张，6 套预设可直接使用。</p>
+   </div>
+   <button type="button" id="card-library-close" aria-label="关闭卡牌图鉴">✕ 关闭</button>
+  </div>
+  <div id="library-filters" class="library-filters"></div>
+  <div id="library-count" class="library-count" role="status"></div>
+  <div id="library-cards" class="library-cards"></div>
+ </div>
+</section>
 <script type="module" src="./game.mjs"></script>
 </body>
 </html>

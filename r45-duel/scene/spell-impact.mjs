@@ -5,13 +5,30 @@
  * blackboard eraser strike, sonic broadcast, repair crystals,
  * field-note glyphs, warm canteen magic and rally energy.
  */
+import {EXTRA_CARDS} from '../cards-r107.mjs';
+const R107_SPELL_STYLES=Object.freeze({
+ stew:{kind:'warmth',target:'enemy'},
+ shield:{kind:'repair',target:'allies'},
+ splash:{kind:'sonic',target:'enemy'},
+ chaos:{kind:'sonic',target:'enemy'},
+ banquet:{kind:'warmth',target:'allies'},
+ insight:{kind:'pages',target:'allies'},
+ updraft:{kind:'rally',target:'allies'},
+ reroute:{kind:'pages',target:'allies'},
+ boomerang:{kind:'sonic',target:'enemy'},
+ eclipse:{kind:'sonic',target:'enemy'},
+ trick:{kind:'eraser',target:'enemy'}
+});
 export const SPELL_CHOREOGRAPHY=Object.freeze({
  E05:{kind:'rally',label:'声浪加速',target:'allies'},
  E06:{kind:'eraser',label:'巨型黑板擦撞击',target:'enemy'},
  G05:{kind:'repair',label:'水晶修补',target:'allies'},
  G06:{kind:'pages',label:'立体书页符阵',target:'allies'},
  T05:{kind:'warmth',label:'暖汤光潮',target:'allies'},
- T06:{kind:'sonic',label:'广播声浪冲击',target:'enemy'}
+ T06:{kind:'sonic',label:'广播声浪冲击',target:'enemy'},
+ ...Object.fromEntries(EXTRA_CARDS.map(c=>[c.id,{...(R107_SPELL_STYLES[c.effect]||
+  {kind:c.effect==='blast'?'eraser':c.effect==='heal'?'warmth':c.effect==='draw'?'pages':'rally',
+   target:c.effect==='blast'?'enemy':'allies'}),label:c.name}]))
 });
 const smooth=v=>{const x=Math.min(1,Math.max(0,v));return x*x*(3-2*x)};
 export function createSpellImpact(THREE,scene){
