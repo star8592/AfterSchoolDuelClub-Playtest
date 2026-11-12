@@ -4,6 +4,7 @@
  * Real rules and 3D rendering are separate; visual animation never mutates HP.
  */
 import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
+import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
@@ -212,21 +213,23 @@ function renderHand(){
   const head=$make('div','card-type');
   head.append($make('span',null,styleName[c.style]+' · '+(c.kind==='unit'?'人物':'事件')),
     $make('span','cost',c.cost));
-  const isPortrait=id==='E01'||id==='G01';
-  const art=$make('span','card-illustration'+(isPortrait?' true-3d-portrait':' original-card-symbol'));
+  const artURL=cardArtURL(id);
+  const art=$make('span','card-illustration'+
+    (artURL?' painted-card-art':' original-card-symbol'));
   art.setAttribute('aria-hidden','true');
-  if(isPortrait){
-   const img=$make('img','real-actor-portrait');
-   img.src='./assets/cards/'+id+'-vrm-card-bust.png';
-   img.alt='';img.decoding='async';img.loading='eager';
+  if(artURL){
+   const img=$make('img','painted-card-image');
+   img.src=artURL;img.alt='';img.width=620;img.height=780;
+   img.decoding='async';img.loading='lazy';
    art.append(img);
   }else{
-   const symbol=$make('span','symbol',pictogram[id]||R107_CARD_SIGILS[id]||NEW_EVENT_ICONS[id[0]]||'✦');
+   const symbol=$make('span','symbol',pictogram[id]||R107_CARD_SIGILS[id]||
+     NEW_EVENT_ICONS[id[0]]||'✦');
    art.append(symbol);
   }
-  card.dataset.art=isPortrait?'actual-vrm':'symbol-only';
-  card.title=c.kind==='spell'?(c.name+' · '+describeCard(c)):
-    (isPortrait?'已实装3D角色：':'仍待独立角色美术：')+c.name;
+  card.dataset.art=cardArtStatus(id);
+  card.title=(artURL?'点击选择；可在图鉴放大查看插画：':'原创插画尚未完成：')+
+    c.name+' · '+describeCard(c);
   card.append(head,$make('strong','card-name',c.name),art,
     $make('div','card-desc',c.line),
     $make('div','card-stats',c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'✦ '+describeCard(c)));
@@ -832,13 +835,71 @@ function paintLibrary(){
   const head=$make('div','library-tile-head');
   head.append($make('span',null,(c.trend?'近期热梗 · ':'')+(c.theme||'经典社团')+' · '+(c.kind==='unit'?'人物':'事件')),
     $make('b',null,String(c.cost)));
-  const art=$make('div','library-tile-art',R107_CARD_SIGILS[c.id]||NEW_EVENT_ICONS[c.id[0]]||pictogram[c.id]||'✦');
+  const art=$make('div','library-tile-art');
+  const artwork=cardArtURL(c.id);
+  if(artwork){
+   const img=$make('img','library-tile-image');
+   img.src=artwork;img.alt='';img.width=620;img.height=780;
+   img.loading='lazy';img.decoding='async';art.append(img);
+   box.dataset.art='illustrated';
+  }else{
+   const span=$make('span','library-art-pending','独立插画制作中');
+   art.append(span);box.dataset.art='pending';
+  }
+  box.tabIndex=0;box.setAttribute('role','button');
+  box.setAttribute('aria-label','放大查看 '+c.name);
+  box.addEventListener('click',()=>showCardArtDetail(c));
+  box.addEventListener('keydown',e=>{
+   if(e.key==='Enter'||e.key===' '){e.preventDefault();showCardArtDetail(c)}
+  });
   box.append(head,art,$make('h3',null,c.name),$make('p',null,c.line),
     $make('strong','library-effect',describeCard(c)));
   result.append(box);
  }
  libraryCards.replaceChildren(result);
 }
+// The zoom dialog is independent of the active battle and never mutates rules.
+const artDetail=$make('div','card-zoom');
+artDetail.hidden=true;
+artDetail.setAttribute('role','dialog');
+artDetail.setAttribute('aria-modal','true');
+artDetail.setAttribute('aria-label','卡牌高清图');
+document.body.append(artDetail);
+let artDetailReturnFocus=null;
+function closeCardArtDetail(){
+ if(artDetail.hidden)return;
+ artDetail.hidden=true;artDetail.replaceChildren();
+ artDetailReturnFocus?.focus?.({preventScroll:true});
+}
+function showCardArtDetail(c){
+ if(!c)return;
+ artDetailReturnFocus=document.activeElement;
+ artDetail.replaceChildren();
+ const panel=$make('section','card-zoom-panel '+c.style);
+ const close=$make('button','card-zoom-close','✕ 关闭');
+ close.type='button';close.addEventListener('click',closeCardArtDetail);
+ const picture=$make('figure','card-zoom-picture');
+ const src=cardArtURL(c.id);
+ if(src){
+  const img=$make('img','card-zoom-image');
+  img.src=src;img.alt=c.name+'的独立插画';img.width=620;img.height=780;
+  img.decoding='async';picture.append(img);
+ }else picture.append($make('span','card-zoom-unfinished','本卡独立插画仍在制作中'));
+ const body=$make('div','card-zoom-copy');
+ body.append($make('span',null,c.id+' · '+(c.theme||'经典社团')+' · '+c.cost+' 能量'),
+  $make('h2',null,c.name),$make('p',null,c.line),
+  $make('strong',null,describeCard(c)));
+ panel.append(close,picture,body);artDetail.append(panel);
+ artDetail.hidden=false;close.focus({preventScroll:true});
+}
+artDetail.addEventListener('click',e=>{if(e.target===artDetail)closeCardArtDetail()});
+window.addEventListener('keydown',e=>{
+ if(e.key==='Escape'&&!artDetail.hidden){e.preventDefault();closeCardArtDetail()}
+});
+$('card-selected-art').addEventListener('click',()=>{
+ const id=selected!==null?g.hand.player[selected]:g.hand.player[0];
+ if(id)showCardArtDetail(BY_ID[id]);
+});
 $('card-library-open').addEventListener('click',()=>{
  library.hidden=false;libraryFilter='全部';paintLibrary();
  $('card-library-close').focus({preventScroll:true});

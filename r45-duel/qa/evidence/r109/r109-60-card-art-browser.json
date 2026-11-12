@@ -1,0 +1,176 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "60/60 ID to physical art registry"
+    },
+    {
+      "pass": true,
+      "label": "desktop 60 catalog cards"
+    },
+    {
+      "pass": true,
+      "label": "desktop all catalog cards have genuine images"
+    },
+    {
+      "pass": true,
+      "label": "desktop no emoji / missing-illustration fallbacks"
+    },
+    {
+      "pass": true,
+      "label": "desktop 60/60 actual images decoded at 620x780",
+      "evidence": []
+    },
+    {
+      "pass": true,
+      "label": "desktop exactly 60 unique WebP responses",
+      "evidence": 60
+    },
+    {
+      "pass": true,
+      "label": "desktop 2026 fresh meme tags remain"
+    },
+    {
+      "pass": true,
+      "label": "desktop full-size card art dialog"
+    },
+    {
+      "pass": true,
+      "label": "desktop image detail 620x780"
+    },
+    {
+      "pass": true,
+      "label": "desktop picture zoom closes"
+    },
+    {
+      "pass": true,
+      "label": "desktop 46 spell cards illustrated"
+    },
+    {
+      "pass": true,
+      "label": "desktop landing zero JS or resource errors",
+      "evidence": []
+    },
+    {
+      "pass": true,
+      "label": "desktop artwork library entry exists"
+    },
+    {
+      "pass": true,
+      "label": "desktop game gallery 60 images"
+    },
+    {
+      "pass": true,
+      "label": "desktop game gallery no missing art"
+    },
+    {
+      "pass": true,
+      "label": "desktop eight pictured recent campus memes"
+    },
+    {
+      "pass": true,
+      "label": "desktop enlarged game illustration"
+    },
+    {
+      "pass": true,
+      "label": "desktop back to duel hand"
+    },
+    {
+      "pass": true,
+      "label": "desktop game UI zero runtime/resource errors",
+      "evidence": []
+    },
+    {
+      "pass": true,
+      "label": "phone 60 catalog cards"
+    },
+    {
+      "pass": true,
+      "label": "phone all catalog cards have genuine images"
+    },
+    {
+      "pass": true,
+      "label": "phone no emoji / missing-illustration fallbacks"
+    },
+    {
+      "pass": true,
+      "label": "phone 60/60 actual images decoded at 620x780",
+      "evidence": []
+    },
+    {
+      "pass": true,
+      "label": "phone exactly 60 unique WebP responses",
+      "evidence": 60
+    },
+    {
+      "pass": true,
+      "label": "phone 2026 fresh meme tags remain"
+    },
+    {
+      "pass": true,
+      "label": "phone full-size card art dialog"
+    },
+    {
+      "pass": true,
+      "label": "phone image detail 620x780"
+    },
+    {
+      "pass": true,
+      "label": "phone picture zoom closes"
+    },
+    {
+      "pass": true,
+      "label": "phone 46 spell cards illustrated"
+    },
+    {
+      "pass": true,
+      "label": "phone landing zero JS or resource errors",
+      "evidence": []
+    },
+    {
+      "pass": true,
+      "label": "phone artwork library entry exists"
+    },
+    {
+      "pass": true,
+      "label": "phone game gallery 60 images"
+    },
+    {
+      "pass": true,
+      "label": "phone game gallery no missing art"
+    },
+    {
+      "pass": true,
+      "label": "phone eight pictured recent campus memes"
+    },
+    {
+      "pass": true,
+      "label": "phone enlarged game illustration"
+    },
+    {
+      "pass": true,
+      "label": "phone back to duel hand"
+    },
+    {
+      "pass": true,
+      "label": "phone game UI zero runtime/resource errors",
+      "evidence": []
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "illustrations": 60,
+      "gameGallery": 60,
+      "scope": "artwork UI only; game 3D acceptance is separate"
+    },
+    {
+      "view": "phone",
+      "illustrations": 60,
+      "gameGallery": 60,
+      "scope": "artwork UI only; game 3D acceptance is separate"
+    }
+  ]
+}

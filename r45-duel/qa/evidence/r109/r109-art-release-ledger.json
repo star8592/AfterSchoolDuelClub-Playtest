@@ -1,0 +1,731 @@
+{
+  "illustrated": 60,
+  "expected": 60,
+  "classic": 20,
+  "new": 40,
+  "complete": true,
+  "totalWebPBytes": 3592016,
+  "nearDuplicateHashWarnings": [],
+  "cards": {
+    "E01": {
+      "file": "assets/cards/r109/E01.webp",
+      "sha256": "b1c73919c603566c601aaf618cfb420a40c0448b5ac88a1ca46e545ba446e3e6",
+      "bytes": 36222,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xfb2aa96b2aaccb2"
+    },
+    "E02": {
+      "file": "assets/cards/r109/E02.webp",
+      "sha256": "085ee0cda08f4e45c19f06722643eb9f440a008583222ea75651709948f63c5b",
+      "bytes": 35978,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x38cf1c306269886"
+    },
+    "E03": {
+      "file": "assets/cards/r109/E03.webp",
+      "sha256": "1d4d1389c12f214671729dd264367a0a2d215700d8a62153ab4e003c15b52589",
+      "bytes": 39520,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x1fe0a4a4a4a4a484"
+    },
+    "E04": {
+      "file": "assets/cards/r109/E04.webp",
+      "sha256": "8e4478e53b11820e65af524f699b31188a48bd1f2a97a16d882a31c2f3602a03",
+      "bytes": 35318,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x13acccacb8b8cecc"
+    },
+    "E05": {
+      "file": "assets/cards/r109/E05.webp",
+      "sha256": "76672f07613227924be8d54ef211a2e45725799d820fc4d5afbf071e7a33bcc7",
+      "bytes": 39036,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xfe08c0c84a0838a"
+    },
+    "E06": {
+      "file": "assets/cards/r109/E06.webp",
+      "sha256": "c34406e6bccf2c7e1f46d3314dc8cc8670998421054fc00ce1b2c47b566c5c3c",
+      "bytes": 34886,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xfe2987c2196d8a2"
+    },
+    "G01": {
+      "file": "assets/cards/r109/G01.webp",
+      "sha256": "1918d2d6d61c8a84cc909bd3b48fa412ce9bbd9983f16d864c5b234f7ba0abb1",
+      "bytes": 37880,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x13c8cc96b2b2b2b2"
+    },
+    "G02": {
+      "file": "assets/cards/r109/G02.webp",
+      "sha256": "0cb86408913e29b48c30bac28918c9b936cf3d52e1294a8303c93cf1e2f66d9d",
+      "bytes": 38272,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x13c8c89096929a8c"
+    },
+    "G03": {
+      "file": "assets/cards/r109/G03.webp",
+      "sha256": "4586908bd6eee4c79c4d845fec1e237817eee62d4fd75dd74e9dd15b8344092d",
+      "bytes": 40876,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x13cce8aacccccccc"
+    },
+    "G04": {
+      "file": "assets/cards/r109/G04.webp",
+      "sha256": "b0f4d4d4c090c4a1c1dd088177d38d1fce781321c79b365fbf4a2df8860a91b7",
+      "bytes": 41372,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x13cccccccccccc8c"
+    },
+    "G05": {
+      "file": "assets/cards/r109/G05.webp",
+      "sha256": "c3ccb10e91752bd439881a04c4865b697f27bc1a84dddb6fcddc6731689c1a14",
+      "bytes": 35458,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xbe0d81ba7b2ac82"
+    },
+    "G06": {
+      "file": "assets/cards/r109/G06.webp",
+      "sha256": "fa47aa33113e4fcdf609968ab9bbab10ef77b022d05c911fcfab5e9b6bbc73d9",
+      "bytes": 32440,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x238e9f939686829c"
+    },
+    "K01": {
+      "file": "assets/cards/r109/K01.webp",
+      "sha256": "8eba83544307c5728864cb84bc81d71ebdaff8242739b0130f0d6de2dd248195",
+      "bytes": 65402,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x13938d8de367466e"
+    },
+    "K02": {
+      "file": "assets/cards/r109/K02.webp",
+      "sha256": "ea40e71be0fbee64745cf8d52f4b3a6cfbafba4b867afcbfab3f8830fe4662a8",
+      "bytes": 64858,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xe43438496d6edc7c"
+    },
+    "K03": {
+      "file": "assets/cards/r109/K03.webp",
+      "sha256": "c9718466ff6a7b1e93dcc1b6ace55e976c1c791626e60e2db9df2727037b48a5",
+      "bytes": 70024,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xf160e248c4c6c2b"
+    },
+    "K04": {
+      "file": "assets/cards/r109/K04.webp",
+      "sha256": "30538a0552d4c03dba7389526e9397abcea0a1b03dd5ceb5c50b1a743167ca45",
+      "bytes": 86810,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xdffb69cd3292dc78"
+    },
+    "K05": {
+      "file": "assets/cards/r109/K05.webp",
+      "sha256": "b6de2fdbf3445d7a82ddcd1a660204825f8c414cfe868ad8b80758c22ecfdd72",
+      "bytes": 57130,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xdade9c9999991919"
+    },
+    "K06": {
+      "file": "assets/cards/r109/K06.webp",
+      "sha256": "b5eff51cd8522c86877529d5fe2e0e7bc4a38885e9e42b40bf6afbbc11939ae6",
+      "bytes": 86766,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x1faef9d1999b333f"
+    },
+    "K07": {
+      "file": "assets/cards/r109/K07.webp",
+      "sha256": "25a500b7bccd4b93aefcac2b179e66aa69d893ee0bba8a76c9e0f350090d5c5b",
+      "bytes": 81402,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x8c8c464d339fb633"
+    },
+    "K08": {
+      "file": "assets/cards/r109/K08.webp",
+      "sha256": "528a81ca94817a669569c57233f28e2bd798221bc0792131a580257cb1eab717",
+      "bytes": 82666,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x7b7becf8b3766dac"
+    },
+    "M01": {
+      "file": "assets/cards/r109/M01.webp",
+      "sha256": "41143533b8caddf8f025a3c4e09c6ca528a3e66b73bac867529d07e4cd63dcf4",
+      "bytes": 32102,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x7cac88cca8ccccc"
+    },
+    "M02": {
+      "file": "assets/cards/r109/M02.webp",
+      "sha256": "025a55f9261b02b421ffe434402e0b7e2afe8707ddd8ac50635175584ee36ba4",
+      "bytes": 36630,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x13cccc92cecece8c"
+    },
+    "P01": {
+      "file": "assets/cards/r109/P01.webp",
+      "sha256": "c63b426f080164acd190b9670e999d388090c0c407efae88bedea1742ca701d6",
+      "bytes": 97166,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xf06873322d474693"
+    },
+    "P02": {
+      "file": "assets/cards/r109/P02.webp",
+      "sha256": "7baaf1e7d481d6e1abcd9a829a3714408169409f36b9d8a8113eb9891a30bbe5",
+      "bytes": 88332,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x5a65d1a99b234b86"
+    },
+    "P03": {
+      "file": "assets/cards/r109/P03.webp",
+      "sha256": "b656519cc52057e499c588f2d22f21ce52c141e269c3f8516548b27bfe799ac6",
+      "bytes": 66582,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x43232081c999ac44"
+    },
+    "P04": {
+      "file": "assets/cards/r109/P04.webp",
+      "sha256": "a624df825af9dace308a521235cb013d1cd9d52fbd1fb2f1ece1eb9e02df1ec6",
+      "bytes": 70966,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x78d454b6ba9cdc18"
+    },
+    "P05": {
+      "file": "assets/cards/r109/P05.webp",
+      "sha256": "7af9e6ce2179ab5a7525c255a714b9d90d4c446d95ff3b8d1fc71ee1979146e8",
+      "bytes": 88064,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x391bd0d22a6393aa"
+    },
+    "P06": {
+      "file": "assets/cards/r109/P06.webp",
+      "sha256": "5fb6d9ee5a22203aab07bd3da6831d529acd7a9f1dc6b140dfcd181ae5156fb4",
+      "bytes": 70898,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xf86946c6544c2cc8"
+    },
+    "P07": {
+      "file": "assets/cards/r109/P07.webp",
+      "sha256": "51a4ec98c88bc9bc26a7e3b1775c50da54a5472980d30e2832986ad28eed9a0c",
+      "bytes": 78856,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xfd9bcce7f438b87c"
+    },
+    "P08": {
+      "file": "assets/cards/r109/P08.webp",
+      "sha256": "c0510ece2d5eec5397643cca5738f6690abac4dfea20c81f4f8b6f391c3dec63",
+      "bytes": 103444,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x6c1b1cd8e96b2a2"
+    },
+    "Q01": {
+      "file": "assets/cards/r109/Q01.webp",
+      "sha256": "a67c243cd0bbc7d1cbb7301df40be58b1a08476aa28edab4efebc2aa8ba3c659",
+      "bytes": 42156,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xffafb79d9c2b27e4"
+    },
+    "Q02": {
+      "file": "assets/cards/r109/Q02.webp",
+      "sha256": "7a3feb318d29f81fe447c984a6361550764dbdad7ce003e49f239f0d32dae99d",
+      "bytes": 95312,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x134cd49561ced2cd"
+    },
+    "Q03": {
+      "file": "assets/cards/r109/Q03.webp",
+      "sha256": "b556b795d3280bdce112d7e6090ecfc059878ded5bf89881f5da544be41dd7f9",
+      "bytes": 54276,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xbc3633fecd0d2329"
+    },
+    "Q04": {
+      "file": "assets/cards/r109/Q04.webp",
+      "sha256": "99259a8347c4ccddad09b721a22dbaf67aae48c3c55881e9d406b168bc891869",
+      "bytes": 61758,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x6e4d922b6d16176b"
+    },
+    "Q05": {
+      "file": "assets/cards/r109/Q05.webp",
+      "sha256": "0148765492a0076c34a64416accdefa216ce2be8a441681ecdaca72dfcdd1c3f",
+      "bytes": 41662,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xfeb6ae9a71c892d2"
+    },
+    "Q06": {
+      "file": "assets/cards/r109/Q06.webp",
+      "sha256": "0deb12741fae8ea1da41ebebeb020bc9d9ce06457debd96f9865670254d711f9",
+      "bytes": 51320,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xcad2dcc49686969e"
+    },
+    "Q07": {
+      "file": "assets/cards/r109/Q07.webp",
+      "sha256": "3bbff2a244fbb5c6bbcabeb8b4134ff394ebe52b5dc696152b2dbc3b4d7a8783",
+      "bytes": 64470,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x6f6cc5d39b2c248f"
+    },
+    "Q08": {
+      "file": "assets/cards/r109/Q08.webp",
+      "sha256": "b2724f941dc6770850a3c947edb4c4b223648711eedfdfe3938175cb9886457d",
+      "bytes": 73714,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xfce4c5981eb9394b"
+    },
+    "S01": {
+      "file": "assets/cards/r109/S01.webp",
+      "sha256": "0eaa5c229c9299b75128abb56f0d5db6247abd329045621d001703608d553b8d",
+      "bytes": 77940,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xf02c69559668b246"
+    },
+    "S02": {
+      "file": "assets/cards/r109/S02.webp",
+      "sha256": "e5877094bd44620f8c3d61a44a60ff037e2995a9aa8494a30e69ca2d4a41d111",
+      "bytes": 61522,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xf564e4ed6be9e870"
+    },
+    "S03": {
+      "file": "assets/cards/r109/S03.webp",
+      "sha256": "a0ae199c149e2dd8aeaf9b110bb5f39528871149bd354134cd301c2606a30006",
+      "bytes": 52960,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xbe84d88e8e161a1a"
+    },
+    "S04": {
+      "file": "assets/cards/r109/S04.webp",
+      "sha256": "f112c61321093219e27d36cc8566f950971cc36260c280bb77f121612decddef",
+      "bytes": 78600,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x9f9fad469b8fbb03"
+    },
+    "S05": {
+      "file": "assets/cards/r109/S05.webp",
+      "sha256": "3e309046628f7dfb9167bd3bda25e2787c7611f690d13934e80b5e5afae51442",
+      "bytes": 50548,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xdf8f8f8e6d4d9676"
+    },
+    "S06": {
+      "file": "assets/cards/r109/S06.webp",
+      "sha256": "6ac39dcf40fcb2829042b13aace47739ee67d69ed3454fdfaa9cc272c562548f",
+      "bytes": 44000,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xfebebade1e4b6ccc"
+    },
+    "S07": {
+      "file": "assets/cards/r109/S07.webp",
+      "sha256": "8efd5819407295fa17f8f56a4640f01688af9a38029a5703d8c22a26202d60f2",
+      "bytes": 100320,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x911705162317161b"
+    },
+    "S08": {
+      "file": "assets/cards/r109/S08.webp",
+      "sha256": "70952f8faa1e24d8466e9231cb3679622da79fd3b108299cf5458f5130ff1f98",
+      "bytes": 70174,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x7031321e6d460c29"
+    },
+    "T01": {
+      "file": "assets/cards/r109/T01.webp",
+      "sha256": "d3303db2da0d743144e031724f405cf6e7cd625f2b286a6229b930efc557084c",
+      "bytes": 33766,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x7d0a6a6c694b688"
+    },
+    "T02": {
+      "file": "assets/cards/r109/T02.webp",
+      "sha256": "87479981e36410596da5a4def32ea852fd68af7b4ef71c46e0edd8ead4313684",
+      "bytes": 30198,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x13cccc960f9496aa"
+    },
+    "T03": {
+      "file": "assets/cards/r109/T03.webp",
+      "sha256": "e8d3f4d126d1a58021fd018e027ceb1439e1c6763d3779b8b7e55d03768935c9",
+      "bytes": 31920,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x7a8c8cccc928a8c"
+    },
+    "T04": {
+      "file": "assets/cards/r109/T04.webp",
+      "sha256": "09657c06ee4470bb9f8bbe21e1a273dbda472e692f15b0b0d32ca353d07790d1",
+      "bytes": 35506,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x17e8cc8e8e8ccccc"
+    },
+    "T05": {
+      "file": "assets/cards/r109/T05.webp",
+      "sha256": "320df452d42d5c3be24c61ef4876435b10b2475cd95e436caf0c409da954dbc1",
+      "bytes": 29874,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x3e8928e0b979660"
+    },
+    "T06": {
+      "file": "assets/cards/r109/T06.webp",
+      "sha256": "12a61a920042d5e5d2eeeec7d0ac0f5a42822b667a4b3ee7b3098b15b3b5c295",
+      "bytes": 31328,
+      "source": "R103 3D render / project illustration",
+      "license_review": "R103 upstream character license needs release audit",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x363ab31318b8682"
+    },
+    "X01": {
+      "file": "assets/cards/r109/X01.webp",
+      "sha256": "29f7935a745cf0f060d04b6e5a2adfad3d7bc7f9e487a7239c2fc78375c6be69",
+      "bytes": 80064,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xc869673639994a4a"
+    },
+    "X02": {
+      "file": "assets/cards/r109/X02.webp",
+      "sha256": "41b3cef52f86f74e76d3808df82ffb2815e1dab5eddf7a1d332ce10ef18c8fda",
+      "bytes": 44834,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x56d3e16fd7978ded"
+    },
+    "X03": {
+      "file": "assets/cards/r109/X03.webp",
+      "sha256": "c0a9485e9a03d2702703675522843302ccd149bcb665b8583b3de906abfd43a8",
+      "bytes": 72362,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x7135a45d9a867c3c"
+    },
+    "X04": {
+      "file": "assets/cards/r109/X04.webp",
+      "sha256": "29905ee59758009ec84cb09b50713b941084633ee7174fa4048c2daf76310e42",
+      "bytes": 84824,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x533329115d05da49"
+    },
+    "X05": {
+      "file": "assets/cards/r109/X05.webp",
+      "sha256": "3f7ded3eee49bbdfd471d5bf1bdbdaac2608a9be339c44914d7c675cb053bea3",
+      "bytes": 86350,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x94c6ceb2e24a9286"
+    },
+    "X06": {
+      "file": "assets/cards/r109/X06.webp",
+      "sha256": "703dc960247ada744639a3c60b539bc47cd5a1ce2d613f65f9e13c2696295b04",
+      "bytes": 72244,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x7d6faf7965ed29e8"
+    },
+    "X07": {
+      "file": "assets/cards/r109/X07.webp",
+      "sha256": "67b7179d92a3fc5771277c1a37684dfaa62cf754ff25e09ae6e434e62d9d35c7",
+      "bytes": 61212,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0xfffacd0e4e4d787b"
+    },
+    "X08": {
+      "file": "assets/cards/r109/X08.webp",
+      "sha256": "0d6cc1685903f0be5d3e523fd0b26738ec1c778ce06326d823bd744f019d3fef",
+      "bytes": 101446,
+      "source": "Z-Image Turbo original local generation",
+      "license_review": "Z-Image Turbo Apache-2.0; review individual image before publication",
+      "image_size": [
+        620,
+        780
+      ],
+      "difference_hash": "0x51e1b3311b39e1a6"
+    }
+  }
+}
