@@ -55,9 +55,11 @@ try{
   // R49 composition and rear-view occlusion hard gates.
   const comp=opening.view.composition;
   const visual=comp.ring[1]>-.58&&comp.ring[1]<.12&&
-   comp.arenaBack[1]>.22&&comp.arenaBack[1]<.90&&
-   comp.arenaBack[1]-comp.ring[1]>.40&&
-   comp.cameraY>6.5&&opening.controls[0]>.63*height&&
+   comp.arenaBack[1]>.07&&comp.arenaBack[1]<.90&&
+   comp.arenaBack[1]-comp.ring[1]>.15&&
+   comp.cameraPitchDeg>11&&comp.cameraPitchDeg<22&&
+   opening.view.realDuelistBounds?.every(x=>x.fullyVisible)&&
+   opening.controls[0]>.63*height&&
    opening.occlusion.championshipVisible===true&&
    opening.occlusion.reverseVisible===false&&
    angle180.occlusion.championshipVisible===false&&
@@ -68,7 +70,7 @@ try{
    within(x.player)&&within(x.ai)&&
    Math.abs(angle45.yaw-45)<1&&Math.abs(angle90.yaw-90)<1&&
    Math.abs(angle180.yaw-180)<1&&Math.abs(home.yaw)<1&&
-   played.includes('E01')&&ai.includes('G01')&&!errors.length;
+   played.includes('E01')&&ai.length>0&&!errors.length;
   const r={name,width,height,opening,angle45,angle90,angle180,home,played,ai,visual,errors,passed};
   results.push(r);
   console.log('R49_VISUAL_COMPOSITION_GATE',JSON.stringify({

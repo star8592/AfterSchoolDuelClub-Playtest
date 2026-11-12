@@ -41,6 +41,17 @@ let lastSourceIds=[],source3DAssetsVerified=false;
 let horizontalFov=0;
 let orbitYaw=0, orbitTargetYaw=0, orbitZoom=1, orbitBaseDistance=12;
 const CAMERA_LOOK_AT=new THREE.Vector3(0,.68,-1.65);
+// R104 frontal camera: actors must be legible, not top-down chess pieces.
+// The R49 venue overview (8.35 units high) was an art direction regression.
+const FRONT_PITCH_DESKTOP=.28; // ~15.6°; near human audience sightline
+const FRONT_PITCH_PORTRAIT=.255; // preserve overview on narrow screens
+const legacyCamera=(()=>{
+ const v=PARAMS.get('r104Camera');
+ if(v==='old'||v==='new')return v==='old';
+ try{return window.parent!==window&&new URLSearchParams(window.parent.location.search).get('r104Camera')==='old'}
+ catch{return false}
+})();
+
 const orbitBound=180;
 let pointerDrag=null;
 let lastOcclusionMode='';
@@ -83,7 +94,23 @@ function cameraFrameStats(){
   return {x:Number(v.x.toFixed(3)),y:Number(v.y.toFixed(3)),front:v.z>-1&&v.z<1};
  };
  const edge=camera.aspect<.85?2.55:4.45;
+ const realDuelistBounds=duelistHosts.map(host=>{
+  const b=new THREE.Box3().setFromObject(host.pivot,true),corners=[];
+  for(const x of [b.min.x,b.max.x])
+   for(const y of [b.min.y,b.max.y])
+    for(const z of [b.min.z,b.max.z])
+     corners.push(new THREE.Vector3(x,y,z).project(camera));
+  const rect={
+   left:Math.min(...corners.map(v=>v.x)),
+   right:Math.max(...corners.map(v=>v.x)),
+   bottom:Math.min(...corners.map(v=>v.y)),
+   top:Math.max(...corners.map(v=>v.y))};
+  return{side:host.side,id:host.id,
+   screenRect:Object.fromEntries(Object.entries(rect).map(([k,v])=>[k,Number(v.toFixed(3))])),
+   fullyVisible:rect.left>-1&&rect.right<1&&rect.top<1&&rect.bottom>-1};
+ });
  return{yaw:Number(orbitYaw.toFixed(2)),targetYaw:orbitTargetYaw,
+  realDuelistBounds,
   distance:Number(camera.position.distanceTo(new THREE.Vector3(0,1.3,0)).toFixed(2)),
   aspect:Number(camera.aspect.toFixed(3)),
   podiums:{player:ndc(-edge),ai:ndc(edge)},
@@ -92,7 +119,10 @@ function cameraFrameStats(){
    arenaBack:new THREE.Vector3(0,1.2,-7).project(camera).toArray().map(v=>Number(v.toFixed(3))),
    stageFloor:new THREE.Vector3(0,.07,4).project(camera).toArray().map(v=>Number(v.toFixed(3))),
    lookAt:CAMERA_LOOK_AT.toArray(),
-   cameraY:Number(camera.position.y.toFixed(2))
+   cameraY:Number(camera.position.y.toFixed(2)),
+   cameraPitchDeg:Number((Math.atan2(camera.position.y-(CAMERA_LOOK_AT.y),
+     Math.hypot(camera.position.x-CAMERA_LOOK_AT.x,camera.position.z-CAMERA_LOOK_AT.z))*180/Math.PI).toFixed(2)),
+   frontalCharacterStaging:!legacyCamera
   }};
 }
 function keepArenaVisible(){
@@ -169,7 +199,7 @@ function makeScene(){
  renderer.toneMappingExposure=1.15;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
  camera=new THREE.PerspectiveCamera(36,1,.1,60);
- camera.position.set(0,2.9,8.7);camera.lookAt(0,1.29,0);
+ camera.position.set(0,4.1,9.0);camera.lookAt(CAMERA_LOOK_AT);
  scene.add(new THREE.HemisphereLight('#cddffe','#425769',1.40));
  const key=new THREE.DirectionalLight('#ffdfc3',2.70);
  key.position.set(-4,8,5);key.castShadow=true;key.shadow.mapSize.set(2048,2048);
@@ -210,7 +240,12 @@ function onResize(){
  const extent=narrow?4.72:5.8;
  // Respect the visible safe region for BOTH card projections and side decks.
  // An orbit changes perspective but must never change the rules or actor IDs.
- orbitBaseDistance=Math.max(narrow?11.6:10.0,extent/(tan*camera.aspect*.94)+(narrow?.35:.85));
+ // Both real VRM duelists stand on x=+/-5.55 podiums. R49 only fitted
+ // +/-4.45 and the lower R104 eye-line exposed that cropping bug.
+ // Fit ALL actual visible performers with a modest safety margin, on phone too.
+ orbitBaseDistance=Math.max(narrow?11.6:10.0,
+  extent/(tan*camera.aspect*.94)+(narrow?.35:.85))*
+  (legacyCamera?1:1.30);
  camera.updateProjectionMatrix();
  horizontalFov=2*Math.atan(tan*camera.aspect)*180/Math.PI;
 }
@@ -572,9 +607,12 @@ function loop(){
  const diagonalFit=1+.14*Math.abs(Math.sin(2*angle));
  const distance=orbitBaseDistance*orbitZoom*diagonalFit-push*(narrow?.10:.25);
  const arc=playing&&!reduced?Math.sin(Math.PI*clamp((t-1.5)/3.6,0,1))*(narrow?.035:.11):0;
- // R49: elevate the camera and aim into the gym, not at empty sky.
- // Orbit about the same center of action; pitch stays consistent as yaw changes.
- const height=(narrow?7.65:Math.max(8.35,distance*.66));
+ // R104: natural *front-row audience* camera; no overhead-isometric shot.
+ // Scale the modest elevation with fitted orbit distance so desktop and phone
+ // always share a stable 15-degree viewing pitch despite aspect differences.
+ // Keep the old high camera behind explicit ?r104Camera=old rollback only.
+ const height=legacyCamera?(narrow?7.65:Math.max(8.35,distance*.66)):
+  CAMERA_LOOK_AT.y+distance*(narrow?FRONT_PITCH_PORTRAIT:FRONT_PITCH_DESKTOP);
  camera.position.set(Math.sin(angle)*distance+Math.cos(angle)*arc,
   height+push*.055,CAMERA_LOOK_AT.z+Math.cos(angle)*distance-Math.sin(angle)*arc);
  choreographyQA.cameraOrbit=Number(arc.toFixed(4));
