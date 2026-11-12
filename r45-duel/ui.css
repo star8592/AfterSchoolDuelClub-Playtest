@@ -658,3 +658,92 @@ html,body{width:100%;height:100%;overflow:hidden}
 
 /* R108: mark meme-lifecycle refresh without modifying authoritative card stats. */
 .library-tile.fresh-meme{border-color:#e9bf78;box-shadow:inset 0 0 0 1px #e6bc5528}
+
+/* R109: actual 620x780 illustrations, replacing the old emoji-only hand. */
+.card[data-art="illustrated"]{background:#1b3043!important;isolation:isolate}
+.card .card-illustration.painted-card-art{position:absolute!important;
+ top:22px!important;right:0!important;width:71%!important;height:calc(100% - 22px)!important;
+ max-height:none!important;opacity:1!important;overflow:hidden}
+.card .card-illustration.painted-card-art .painted-card-image{width:100%;height:100%;
+ display:block;object-fit:cover;object-position:center 22%;
+ -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 15%,#000 92%);
+ mask-image:linear-gradient(to right,transparent 0%,#000 15%,#000 92%);
+ filter:saturate(1.08) contrast(1.05)}
+.card[data-art="illustrated"] .card-name,
+.card[data-art="illustrated"] .card-type,
+.card[data-art="illustrated"] .card-stats,
+.card[data-art="illustrated"] .card-desc{z-index:2;position:relative;text-shadow:0 1px 4px #03101e,0 2px 8px #03101e}
+.card[data-art="illustrated"] .card-name{max-width:71%}
+.library-tile{cursor:zoom-in}
+.library-tile:focus-visible{outline:3px solid #f8dca7;outline-offset:1px}
+.library-tile-art{height:160px;min-height:0!important;font-size:unset!important;
+ background:linear-gradient(155deg,#354e60,#142d45);border-radius:9px;
+ overflow:hidden;display:grid;place-items:center}
+.library-tile-art .library-tile-image{width:100%;height:100%;object-fit:cover;display:block}
+.library-art-pending{font-size:11px;color:#a8c5d5;line-height:1.4;padding:10px;text-align:center}
+.card-zoom[hidden]{display:none!important}
+.card-zoom{position:fixed;inset:0;z-index:160;display:grid;place-items:center;
+ padding:12px;background:#04121fe6;backdrop-filter:blur(12px)}
+.card-zoom-panel{position:relative;display:grid;
+ grid-template-columns:minmax(0,360px) minmax(240px,1fr);align-items:center;
+ max-width:800px;width:100%;max-height:95dvh;overflow:auto;
+ gap:24px;padding:20px;background:linear-gradient(145deg,#254159,#101f32);
+ border:2px solid #c59e62;border-radius:18px;box-shadow:0 20px 70px #000b}
+.card-zoom-picture{margin:0;aspect-ratio:620/780;max-height:82dvh;overflow:hidden;
+ display:grid;place-items:center;border-radius:11px;background:#0e2032}
+.card-zoom-image{display:block;width:100%;height:100%;object-fit:contain}
+.card-zoom-copy{display:flex;flex-direction:column;gap:12px;color:#dbe8ed}
+.card-zoom-copy span{font-size:12px;color:#f6d39a}
+.card-zoom-copy h2{font-size:clamp(22px,2.5vw,31px);color:#ffe7b7;margin:0}
+.card-zoom-copy p{line-height:1.65;font-size:15px}
+.card-zoom-copy strong{color:#f9d69e;line-height:1.5}
+.card-zoom-unfinished{color:#bdceda;font-size:15px;text-align:center;padding:24px}
+.card-zoom-close{position:absolute;right:12px;top:12px;z-index:2;
+ padding:7px 14px;color:#ffe5b8;background:#314c61;border:1px solid #c7a37d;
+ border-radius:8px}
+@media(max-width:680px){
+ .card-zoom-panel{grid-template-columns:1fr;gap:10px;padding:12px;max-width:380px}
+ .card-zoom-picture{max-height:60dvh}
+ .card-zoom-copy{gap:3px}
+ .card-zoom-copy h2{font-size:20px}
+ .card-zoom-copy p{font-size:12px;margin:4px 0}
+ .library-tile-art{height:125px}
+ .card .card-illustration.painted-card-art{top:23px!important}
+}
+
+/* R109 full-frame painted cards: imagery is the actual face, not a tiny icon. */
+.card[data-art="illustrated"]{
+ background:#0f2134!important;
+ border-color:#c7a772!important;
+ overflow:hidden;
+}
+.card[data-art="illustrated"]::before{
+ content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(180deg,#0b1925c7 0%,#0b192527 28%,transparent 46%,
+   #07162424 56%,#0a1426e8 100%);
+}
+.card[data-art="illustrated"] .card-illustration.painted-card-art{
+ left:0!important;right:0!important;top:0!important;bottom:0!important;
+ width:100%!important;height:100%!important;max-height:none!important;
+ opacity:1!important;z-index:0!important;display:block!important;
+}
+.card[data-art="illustrated"] .card-illustration.painted-card-art .painted-card-image{
+ width:100%!important;height:100%!important;object-fit:cover!important;
+ object-position:50% 37%!important;
+ mask-image:none!important;-webkit-mask-image:none!important;
+ filter:saturate(1.09) contrast(1.07)!important;
+}
+.card[data-art="illustrated"] .card-type,
+.card[data-art="illustrated"] .card-name,
+.card[data-art="illustrated"] .card-desc,
+.card[data-art="illustrated"] .card-stats{position:relative;z-index:2;text-shadow:0 1px 4px #000,0 2px 9px #000}
+.card[data-art="illustrated"] .card-name{
+ max-width:100%!important;
+ font-weight:950;
+ color:#fff3d3!important;
+}
+.card[data-art="illustrated"] .card-desc{
+ padding:2px 3px;border-radius:5px;background:#081b2c66
+}
+.library-tile-art{height:auto!important;min-height:0!important;aspect-ratio:620/780}
+.library-tile-art .library-tile-image{object-fit:cover;object-position:50% 30%}

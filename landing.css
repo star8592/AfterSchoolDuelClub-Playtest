@@ -109,3 +109,41 @@ main{max-width:1420px;margin:auto}
 .mini-card[data-trend="2026"]{border-color:#e0b56f9c;
  background-image:linear-gradient(160deg,#ffbd6415,transparent 48%)}
 .mini-card[data-trend="2026"] .mini-top{color:#f7c983}
+
+/* R109: real 2D illustrations from R103, not decorative emoji tiles. */
+.mini-card{min-height:335px;cursor:zoom-in;transition:transform .15s,border-color .15s}
+.mini-card:hover{transform:translateY(-3px);border-color:#eac487}
+.mini-card:focus-visible{outline:3px solid #e5bd75;outline-offset:2px}
+.mini-art-box{position:relative;aspect-ratio:620/780;width:100%;min-height:140px;
+ overflow:hidden;border:1px solid #a2a4b055;border-radius:9px;
+ background:radial-gradient(ellipse at 55% 37%,#44697a,#142d40 68%)}
+.mini-card-image{display:block;width:100%;height:100%;object-fit:cover}
+.mini-art-pending{display:grid;place-items:center;width:100%;height:100%;
+ font-size:12px;line-height:1.5;text-align:center;color:#b3cad6;padding:14px}
+.mini-card .mini-art-pending{background:repeating-linear-gradient(135deg,#ffffff04,#ffffff04 8px,#00000005 8px,#00000005 16px)}
+.card-art-detail[hidden]{display:none!important}
+.card-art-detail{position:fixed;inset:0;z-index:999;display:grid;place-items:center;
+ padding:16px;background:#06111beb;backdrop-filter:blur(12px)}
+.card-art-detail-panel{display:grid;grid-template-columns:minmax(0,360px) minmax(240px,1fr);
+ gap:25px;position:relative;align-items:center;max-width:800px;width:100%;
+ max-height:94dvh;overflow-y:auto;border-radius:18px;padding:22px;
+ border:2px solid #b69663;background:linear-gradient(135deg,#233e56,#101a2b);
+ box-shadow:0 25px 80px #000c}
+.card-art-detail figure{margin:0;aspect-ratio:620/780;overflow:hidden;border-radius:12px;
+ background:#101f31}
+.card-art-detail figure img{display:block;width:100%;height:100%;object-fit:cover}
+.card-art-detail section h2{font-size:clamp(21px,2.5vw,32px);color:#ffdaa6}
+.card-art-detail section p{font-size:15px;line-height:1.7;color:#d8e5ea}
+.card-art-detail section strong{display:block;color:#ffd997;margin-top:20px}
+.card-art-detail .close-art{position:absolute;right:14px;top:12px;z-index:2;
+ background:#314e60;border:1px solid #c3a478;color:white;border-radius:7px;padding:8px 12px}
+.art-placeholder{display:grid;place-items:center;height:100%;color:#adc9db;padding:25px;text-align:center}
+@media(max-width:680px){
+ .mini-card{min-height:265px;padding:9px}
+ .mini-art-box{min-height:115px}
+ .card-art-detail-panel{grid-template-columns:1fr;gap:10px;padding:13px;max-width:390px}
+ .card-art-detail figure{max-height:55dvh}
+ .card-art-detail section h2{font-size:21px;margin:4px 0}
+ .card-art-detail section p{font-size:12px;margin:5px 0}
+ .card-art-detail .close-art{top:8px;right:8px}
+}
