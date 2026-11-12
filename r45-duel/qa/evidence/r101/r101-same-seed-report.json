@@ -1,5 +1,5 @@
 {
-  "origin": "http://127.0.0.1:11101",
+  "origin": "https://star8592.github.io/AfterSchoolDuelClub-Playtest",
   "ok": true,
   "checks": [
     {
@@ -24,7 +24,7 @@
       "pass": true,
       "name": "copied challenge link preserves same deterministic seed for friends",
       "detail": {
-        "clipboard": "放学后决斗社同局挑战：我打到了第 5 回合，剩余人气 0:20。同一副起始牌，敢不敢来比一局？ http://127.0.0.1:11101/r45-duel/?seed=1&ref=challenge"
+        "clipboard": "放学后决斗社同局挑战：我打到了第 5 回合，剩余人气 0:20。同一副起始牌，敢不敢来比一局？ https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/?seed=1&ref=challenge"
       }
     },
     {
@@ -42,19 +42,19 @@
     {
       "pass": true,
       "name": "new visit uses valid random seed even without opening assets",
-      "detail": 1427840720
+      "detail": 1994220743
     },
     {
       "pass": true,
       "name": "new visit uses valid random seed even without opening assets",
-      "detail": 461864283
+      "detail": 1465017203
     },
     {
       "pass": true,
       "name": "two independent visits are not forced into identical first-hand seed",
       "detail": [
-        1427840720,
-        461864283
+        1994220743,
+        1465017203
       ]
     }
   ],
@@ -69,7 +69,7 @@
       },
       "winner": "ai"
     },
-    "copy": "放学后决斗社同局挑战：我打到了第 5 回合，剩余人气 0:20。同一副起始牌，敢不敢来比一局？ http://127.0.0.1:11101/r45-duel/?seed=1&ref=challenge",
+    "copy": "放学后决斗社同局挑战：我打到了第 5 回合，剩余人气 0:20。同一副起始牌，敢不敢来比一局？ https://star8592.github.io/AfterSchoolDuelClub-Playtest/r45-duel/?seed=1&ref=challenge",
     "issue": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/issues/new?title=%5B%E8%AF%95%E7%8E%A9%E5%8F%8D%E9%A6%88%5D+%E7%AC%AC+5+%E5%9B%9E%E5%90%88+%C"
   }
 }

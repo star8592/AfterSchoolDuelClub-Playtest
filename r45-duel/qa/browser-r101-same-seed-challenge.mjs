@@ -40,7 +40,13 @@ try{
  const clipboard=await page.evaluate(()=>navigator.clipboard.readText());
  const link=clipboard.match(/https?:\/\/[^\s]+/g)?.at(-1);
  const url=link&&new URL(link);
- check(url&&url.pathname==='/r45-duel/'&&url.searchParams.get('seed')==='1'&&
+ // Project Pages hosts /owner-repo/r45-duel/, whereas local root is
+ // /r45-duel/. Evaluate the link against the current genuine deployment
+ // base, not a hardcoded origin-root pathname.
+ const deployment=new URL(origin.endsWith('/')?origin:origin+'/');
+ const actualGame=new URL('r45-duel/',deployment);
+ check(url&&url.origin===actualGame.origin&&url.pathname===actualGame.pathname&&
+  url.searchParams.get('seed')==='1'&&
   url.searchParams.get('ref')==='challenge',
   'copied challenge link preserves same deterministic seed for friends',{clipboard});
  const issue=await page.evaluate(()=>{
