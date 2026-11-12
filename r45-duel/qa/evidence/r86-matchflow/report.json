@@ -74,6 +74,68 @@
     {
       "name": "bottom rematch starts another new match",
       "pass": true
+    },
+    {
+      "name": "real UI completes player seed",
+      "pass": true,
+      "actions": 29,
+      "phase": "ended",
+      "hp": {
+        "player": 14,
+        "ai": 0
+      },
+      "winner": "player"
+    },
+    {
+      "name": "result panel is correct for player",
+      "pass": true,
+      "outcome": "player",
+      "hp": {
+        "player": 14,
+        "ai": 0
+      },
+      "width": 510
+    },
+    {
+      "name": "result dialog fits viewport 1440px",
+      "pass": true,
+      "width": 1440,
+      "actual": 510
+    },
+    {
+      "name": "rematch succeeds after player",
+      "pass": true
+    },
+    {
+      "name": "real UI completes draw seed",
+      "pass": true,
+      "actions": 32,
+      "phase": "ended",
+      "hp": {
+        "player": 4,
+        "ai": 4
+      },
+      "winner": "draw"
+    },
+    {
+      "name": "result panel is correct for draw",
+      "pass": true,
+      "outcome": "draw",
+      "hp": {
+        "player": 4,
+        "ai": 4
+      },
+      "width": 394
+    },
+    {
+      "name": "result dialog fits viewport 430px",
+      "pass": true,
+      "width": 430,
+      "actual": 394
+    },
+    {
+      "name": "rematch succeeds after draw",
+      "pass": true
     }
   ],
   "errors": [],
