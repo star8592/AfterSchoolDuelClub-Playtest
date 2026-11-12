@@ -1,6 +1,10 @@
-# 放学后决斗社 — R45 Clean Rebuild
+# 放学后决斗社 — 3D 卡牌对战统一主线
 
 游戏唯一公开入口为 [r45-duel/](./r45-duel/)。
+
+**2026-11-12 统一研发总账：**[docs/DUEL_CONVERGENCE_20261112.md](docs/DUEL_CONVERGENCE_20261112.md)，完整 Git 分支/旧 PR 清单：[docs/DUEL_BRANCH_INVENTORY_20261112.json](docs/DUEL_BRANCH_INVENTORY_20261112.json)。
+
+从 R93 三维角色脚步/攻击演出继续升级，融合 R84–R85 的 20 张可玩卡、7 曲原创音乐、98 条 Qwen3-TTS 配音（默认有声）、M01 音乐老师/M02 食堂阿姨，并保留 R91 结算重赛、R92 旧模型兼容。正式发布以 GitHub main + 公网 QA 为准，旧 PR/worktree 为来源证据，不直接覆盖主线。
 
 本分支清理了所有旧游戏、旧演出、旧页面及旧三战线工程的可部署文件，不是只把旧内容隐藏。
 当前所有运行代码、三维场馆、已实现的两套人物骨骼网格、Three.js 依赖和测试都在 r45-duel/ 中。

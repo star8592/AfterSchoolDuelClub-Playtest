@@ -449,7 +449,7 @@ function onMessage(ev){
  }
  if(msg?.type==='ASDC_R45_BOARD'){
   if(!Array.isArray(msg.player)||!Array.isArray(msg.ai))return;
-  const validId=id=>typeof id==='string'&&/^[EGT][0-9]{2}$/.test(id);
+  const validId=id=>typeof id==='string'&&/^[EGTM][0-9]{2}$/.test(id);
   const safe=list=>list.filter(validId).slice(0,5);
   const wasShown=structuredClone(shownCards);
   shownCards={player:safe(msg.player),ai:safe(msg.ai)};
@@ -539,7 +539,7 @@ try{
  $('loading').hidden=true;
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,
-  loadedSummonGlbs:summonModels.size,unit3dKinds:12,finalArtApproved:false});
+  loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false});
  broadcastCamera();
  requestAnimationFrame(loop);
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();

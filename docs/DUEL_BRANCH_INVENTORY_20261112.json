@@ -1,0 +1,760 @@
+{
+  "checkedAt": "2026-11-12",
+  "repo": "star8592/AfterSchoolDuelClub-Playtest",
+  "currentMainAtInventory": "b8ebbde503ad1f94b23b2deb52f6282eb8d8c6e7",
+  "note": "History ancestry is NOT functional equivalence. Superseded branches can remain unmerged; do not delete without preserving valuable files.",
+  "remoteBranchCount": 84,
+  "remoteBranches": [
+    {
+      "ref": "origin/main",
+      "commit": "b8ebbde",
+      "timestamp": "2026-11-12 13:35:28 +0800",
+      "subject": "R93 seven animated characters gain source-rig foot steps and retreat",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/fix/duel-r92-cdn-encoded-head-20261112",
+      "commit": "555e9ee",
+      "timestamp": "2026-11-12 13:25:26 +0800",
+      "subject": "R92.1: account for CDN compressed content length in asset QA",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/fix/duel-r92-legacy-model-compat-20261112",
+      "commit": "228379f",
+      "timestamp": "2026-11-12 13:21:03 +0800",
+      "subject": "R92: preserve real R85 summon GLBs for already-open tabs",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/fix/duel-r91-matchflow-on-main-20261112",
+      "commit": "e603925",
+      "timestamp": "2026-11-12 13:12:14 +0800",
+      "subject": "R91: verify win loss draw rematch on desktop and phone",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/fix/duel-r86-finish-rematch-20261112",
+      "commit": "2cde366",
+      "timestamp": "2026-11-12 13:03:06 +0800",
+      "subject": "R86: show match result and enable replay after win loss draw",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r85-character-action-recast-20261112",
+      "commit": "69502d2",
+      "timestamp": "2026-11-12 12:54:36 +0800",
+      "subject": "R85 live five high-fidelity recasts, native motion, natural IK duelists, retire lowpoly",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r90-iframe-mode-race-20261112",
+      "commit": "5acfe82",
+      "timestamp": "2026-11-12 10:00:57 +0800",
+      "subject": "R90.1 wait for actual iframe motion mode before allowing combat preview",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r90-impact-choreography-20261112",
+      "commit": "d6d3f16",
+      "timestamp": "2026-11-12 09:52:02 +0800",
+      "subject": "R90 event-linked attack impact recoil and seven-character combat review",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r84-music-dialogue-art-audit-20261112",
+      "commit": "f440609",
+      "timestamp": "2026-11-12 06:47:38 +0800",
+      "subject": "R84 pose artist character auditions with their native rigs, discard unposed exports",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r89-natural-standing-cast-20261112",
+      "commit": "f158e61",
+      "timestamp": "2026-11-12 06:11:34 +0800",
+      "subject": "R89 fix seven film character FK shoulder and wrist chains for natural stances",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r88-interactive-animation-review-20261112",
+      "commit": "67b0aca",
+      "timestamp": "2026-11-12 05:35:03 +0800",
+      "subject": "R88 add interactive seven-character GLB animation review page",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r88-five-animated-cast-20261112",
+      "commit": "580ce4c",
+      "timestamp": "2026-11-12 05:21:21 +0800",
+      "subject": "R88 animate remaining five film characters with real morph Attack and Hit",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r87-jay-real-morph-20261112",
+      "commit": "09d5a27",
+      "timestamp": "2026-11-12 04:02:36 +0800",
+      "subject": "R87 Jay native local morph combat clips and safe old model rollback",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r86-snow-real-morph-20261112",
+      "commit": "2d343b8",
+      "timestamp": "2026-11-12 03:55:27 +0800",
+      "subject": "R86 Snow true morph target Idle Attack Hit animation with R83 rollback",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r86-jay-bone-motion-20261112",
+      "commit": "cba0a52",
+      "timestamp": "2026-11-12 02:55:18 +0800",
+      "subject": "R86 opt-in genuine Jay skinned GLB with runtime skeletal combat tracks",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r81-impact-audio-score-seats-20261112",
+      "commit": "747c76a",
+      "timestamp": "2026-11-12 02:53:19 +0800",
+      "subject": "R83 enable game sound by default with browser-safe first-action playback",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r85-paper-plane-default-20261112",
+      "commit": "77c20f9",
+      "timestamp": "2026-11-12 01:42:32 +0800",
+      "subject": "R85 default to animated R60 paper plane with explicit R57 rollback",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r84-real-owl-20261112",
+      "commit": "6ba65ad",
+      "timestamp": "2026-11-12 01:14:30 +0800",
+      "subject": "R84 replace 520-triangle owl with high-resolution CC0 owl and corrected facing",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r83-seven-film-cast-20261112",
+      "commit": "d6f34ed",
+      "timestamp": "2026-11-12 01:00:45 +0800",
+      "subject": "R83 upgrade E03 G02 T03 to textured high-fidelity animated-film bases",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r79-original-elemental-vfx-20261112",
+      "commit": "2c5498e",
+      "timestamp": "2026-11-12 00:43:13 +0800",
+      "subject": "R79 original elemental casting VFX: real card events and browser preview",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r82-second-film-cast-20261112",
+      "commit": "120e7cb",
+      "timestamp": "2026-11-12 00:31:39 +0800",
+      "subject": "R82 replace E04 and G04 with Blender Studio Phil Victoria film assets",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r80-mainport-20261111",
+      "commit": "a5cbbff",
+      "timestamp": "2026-11-11 23:54:51 +0800",
+      "subject": "R81 verify main-compatible Jay Rex cast in real Chrome arena",
+      "historyAncestorOfMain": true
+    },
+    {
+      "ref": "origin/feature/duel-r80-film-native",
+      "commit": "13b7d93",
+      "timestamp": "2026-11-11 23:21:13 +0800",
+      "subject": "R80 use Blender Studio Jay and Rex as playable summons with fallback combat motion",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r78-high-fidelity-casting-20261111",
+      "commit": "cccb72e",
+      "timestamp": "2026-11-11 22:48:19 +0800",
+      "subject": "R78 establish high-fidelity stylized character baseline with licensed official previews",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r77-character-recast-20261111",
+      "commit": "833ab69",
+      "timestamp": "2026-11-11 18:02:54 +0800",
+      "subject": "R77 audition three mismatched roles, prove real dual couriers, reject poor art matches",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r76-real-cartoon-cast-20261111",
+      "commit": "dd26d94",
+      "timestamp": "2026-11-11 17:36:54 +0800",
+      "subject": "R76 add native high-detail playable cafeteria aunt, original rig motion and Qwen3 voice",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r75-selection-animation-20261111",
+      "commit": "bdfcf07",
+      "timestamp": "2026-11-11 16:58:52 +0800",
+      "subject": "R75 audition high-quality native MIT characters and real retargeted bone motions",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r74-eye-level-camera-20261111",
+      "commit": "f104aac",
+      "timestamp": "2026-11-11 16:10:31 +0800",
+      "subject": "R74 keep two real 3D duelists permanently visible independently of summoned cards",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r73-blender-cast-enhancement-20261111",
+      "commit": "ea81ed2",
+      "timestamp": "2026-11-11 14:15:56 +0800",
+      "subject": "R73 enhance T01 broadcaster with Blender rigged headset, QA and art inventory",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r72-music-teacher-playable-20261111",
+      "commit": "311c075",
+      "timestamp": "2026-11-11 13:51:54 +0800",
+      "subject": "R72 make music teacher M01 playable with real rigged Blender source",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r71-audio-events-20261111",
+      "commit": "aed6c2e",
+      "timestamp": "2026-11-11 12:15:19 +0800",
+      "subject": "R71 queue Qwen3 voices and prioritize real combat speech",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r70-audio-blender-20261111",
+      "commit": "e283524",
+      "timestamp": "2026-11-11 11:59:35 +0800",
+      "subject": "R70 add original game music and sfx with Qwen3-TTS character voices",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r69-modelvault-refit-20261111",
+      "commit": "8ac1994",
+      "timestamp": "2026-11-11 09:39:01 +0800",
+      "subject": "R69 adopt ModelVault school teacher for M01 audition and stage owl candidate",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/preview/r68-t02-fit-template-comparison-20261111",
+      "commit": "1a1812e",
+      "timestamp": "2026-11-11 09:31:25 +0800",
+      "subject": "preview(r68): fit-tested CC0 MPFB and MIT Rocketbox chef template comparison",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r68-hero-poses-20261111",
+      "commit": "e470f91",
+      "timestamp": "2026-11-11 09:12:14 +0800",
+      "subject": "R68 pose nine humanoid summons with IK hero entrances and character acting",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r67-vrm-personality-20261111",
+      "commit": "69aad97",
+      "timestamp": "2026-11-11 01:44:20 +0800",
+      "subject": "R67 correct two VRM source front axes and animate original facial morphs",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/preview/r67-t02-full-duo-20261111",
+      "commit": "80bfe66",
+      "timestamp": "2026-11-11 01:38:24 +0800",
+      "subject": "preview(r67): true T02 aunt and living menu dual GLB with opt-in real arena",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r66-character-personality-20261111",
+      "commit": "687542e",
+      "timestamp": "2026-11-11 01:15:51 +0800",
+      "subject": "R66 give seven humanoid summons unique short comedic acting beats",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r65-natural-pose-20261111",
+      "commit": "e5e2cf4",
+      "timestamp": "2026-11-11 00:42:46 +0800",
+      "subject": "R65 relax seven humanoid rigs and VRM clone arm poses",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/preview/r63-e02-r60-arena-20261111",
+      "commit": "cf3c5e7",
+      "timestamp": "2026-11-11 00:31:17 +0800",
+      "subject": "preview(r63): opt-in R60 paper-wing summon in real R62 arena with tested visual compare",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r64-natural-motion-20261111",
+      "commit": "ae2f7cb",
+      "timestamp": "2026-11-11 00:14:31 +0800",
+      "subject": "R64 smooth authored summon clips and paper plane combat motion",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r63-front-visual-20261110",
+      "commit": "024e5bd",
+      "timestamp": "2026-11-10 23:54:55 +0800",
+      "subject": "R63: independent GPU source-front evidence and fail-closed camera gates",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r62-scale-audit-20261110",
+      "commit": "fa0a7bf",
+      "timestamp": "2026-11-10 23:13:29 +0800",
+      "subject": "R62 calibrate 12 summon fronts, world scale, floor and orbit framing",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r61-all-12-summon-20261110",
+      "commit": "5ef4167",
+      "timestamp": "2026-11-10 22:38:19 +0800",
+      "subject": "R61 make all 12 card summons real independent 3D actors in live arena",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/preview/r60-e02-paper-morph-20261110",
+      "commit": "aadeb10",
+      "timestamp": "2026-11-10 21:22:03 +0800",
+      "subject": "preview: R60 E02 scanned CC0 paper PBR and native independent wing morph",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r59-g01-architect-20261110",
+      "commit": "cc76bb3",
+      "timestamp": "2026-11-10 20:53:03 +0800",
+      "subject": "Integrate parallel R59 menu and architect audition features",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/preview/r59-e02-native-20261110",
+      "commit": "12f1527",
+      "timestamp": "2026-11-10 20:50:30 +0800",
+      "subject": "preview: isolated E02 R59 true GLB native motion viewer",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r59-t02-material-20261110",
+      "commit": "8abac48",
+      "timestamp": "2026-11-10 20:50:13 +0800",
+      "subject": "R59 T02 add real double-sided illustrated PBR menu pages",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r58-t02-menu-20261110",
+      "commit": "5e9e8aa",
+      "timestamp": "2026-11-10 20:17:04 +0800",
+      "subject": "R58 add native GLB page, hat, arm animations to T02 living menu audition",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r57-e02-paper-polish-20261110",
+      "commit": "f3e6d3c",
+      "timestamp": "2026-11-10 19:37:51 +0800",
+      "subject": "R57 polish E02 folded paper mesh and add 3D flight-motion audition",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r56-owl-character-study-20261110",
+      "commit": "21c63c9",
+      "timestamp": "2026-11-10 19:16:35 +0800",
+      "subject": "R56 prototype rigged owl broadcaster accessories with original face preserved",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r55-global-assets-20261110",
+      "commit": "ed8993a",
+      "timestamp": "2026-11-10 18:50:20 +0800",
+      "subject": "R55 stage 18-card 3D asset audition and Batch 1 image-to-3D preflight",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r54-click-unit-inspect-20261110",
+      "commit": "9eda1eb",
+      "timestamp": "2026-11-10 17:59:05 +0800",
+      "subject": "R54 raycast click-to-inspect real summoned units in 3D arena",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r53-compact-hp-20261110",
+      "commit": "fd0a7dc",
+      "timestamp": "2026-11-10 17:52:12 +0800",
+      "subject": "R53 adaptive compact unit HP labels and fullscreen battle HUD toggle",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r53-character-pipeline-20261110",
+      "commit": "fef3c1b",
+      "timestamp": "2026-11-10 17:51:44 +0800",
+      "subject": "R53 inspect real GLB VRM skeletal metadata before character art release",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r52-live-unit-hud-20261110",
+      "commit": "65686af",
+      "timestamp": "2026-11-10 17:27:24 +0800",
+      "subject": "R52 per-unit 3D health HUD and slot-accurate avatar positioning",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r52-art-intake-20261110",
+      "commit": "a9e5b75",
+      "timestamp": "2026-11-10 17:23:59 +0800",
+      "subject": "R52 audit existing character candidates and enforce no-false-art acceptance",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r51-event-combat-20261110",
+      "commit": "4aed266",
+      "timestamp": "2026-11-10 16:44:25 +0800",
+      "subject": "R51 bind real combat events to summoned units with UID-specific hit feedback",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/fix/duel-r50-summon-visibility-20261110",
+      "commit": "1904a37",
+      "timestamp": "2026-11-10 16:30:30 +0800",
+      "subject": "R50 fix vanished summons across both teams and duplicate VRM instances",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/fix/duel-r49-cinematic-composition-20261110",
+      "commit": "667fd53",
+      "timestamp": "2026-11-10 14:32:25 +0800",
+      "subject": "R49 restore full-frame stadium composition and 180-degree unobstructed view",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r48-immersive-orbit-responsive-20261110",
+      "commit": "968da1d",
+      "timestamp": "2026-11-10 14:06:54 +0800",
+      "subject": "R48 immersive fullscreen HUD responsive camera framing and 180-degree orbit",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r47-choreography-20261110",
+      "commit": "b54d520",
+      "timestamp": "2026-11-10 13:48:42 +0800",
+      "subject": "R47 animate true VRM stride and gentle dolly arc with browser QA",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/art/duel-r46-3d-cinematic-stadium-20261110",
+      "commit": "7e7003e",
+      "timestamp": "2026-11-10 13:09:10 +0800",
+      "subject": "R46 art pass: CC0 PBR gym, real VRM card portraits, 3D duel lighting and VFX",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/rebuild/r45-clean-one-stadium-20261110",
+      "commit": "a9cc413",
+      "timestamp": "2026-11-10 10:58:22 +0800",
+      "subject": "R45 rebuild single-stadium card duel as isolated clean runtime; remove legacy deployables",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/archive/duel-legacy-before-r45-20261110",
+      "commit": "5d939a9",
+      "timestamp": "2026-11-10 09:35:42 +0800",
+      "subject": "Merge isolated R42 selection-confirm UX and source-bound real character duel",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/fix/duel-r42-r22-actual-characters-20261110",
+      "commit": "e565ae7",
+      "timestamp": "2026-11-10 09:34:12 +0800",
+      "subject": "R42 restore select-confirm card duel flow and bind battle to R22 card actors",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/qa/duel-r41-hardware-webgl2-evidence-20261110",
+      "commit": "c5b91ec",
+      "timestamp": "2026-11-10 03:39:01 +0800",
+      "subject": "R41 archive actual Z890 RTX 5070 Ti Vulkan browser acceptance and model-frame proof",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/fix/duel-r41-death-action-frames-20261110",
+      "commit": "aa580c8",
+      "timestamp": "2026-11-10 03:30:22 +0800",
+      "subject": "R41 retain dying 3D actor long enough to visibly finish actual impact animation",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r41-parallel-enhancements-20261110",
+      "commit": "3e5af8c",
+      "timestamp": "2026-11-10 03:25:52 +0800",
+      "subject": "R41 record independent model-motion scope and GPU-aware acceptance criteria",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/feature/duel-r40-visible-all-card-impact-20261110",
+      "commit": "4595601",
+      "timestamp": "2026-11-10 03:04:01 +0800",
+      "subject": "R40 add read-only combat feedback and replay for 18-card demo",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/fix/duel-r39-visible-3d-combat-20261110",
+      "commit": "2ea4fde",
+      "timestamp": "2026-11-10 00:54:26 +0800",
+      "subject": "R39 repair 3D duel scenes, restore live combat animations and fix R38 bookmarks",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/release/duel-r38-player-demo-20261109",
+      "commit": "049e407",
+      "timestamp": "2026-11-10 00:09:43 +0800",
+      "subject": "R38 player demo from existing 18 cards and real 3D scenes",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r37-head-transfer-20261109",
+      "commit": "bcfb8ac",
+      "timestamp": "2026-11-09 23:49:19 +0800",
+      "subject": "R37 research: rejected facial sculpt and saved glasses LOD evidence",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r36-hybrid-geometry-20261109",
+      "commit": "94db716",
+      "timestamp": "2026-11-09 23:26:40 +0800",
+      "subject": "R36 research: true Pixal-guided 163-bone torso GLB, LOD and browser QA",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r35-real3d-entry-20261109",
+      "commit": "689abfa",
+      "timestamp": "2026-11-09 22:51:00 +0800",
+      "subject": "R35 point music teacher game-home entry at real R34 GLB review, not R32 2.5D",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r34-m01-true3d-20261109",
+      "commit": "226734e",
+      "timestamp": "2026-11-09 22:40:36 +0800",
+      "subject": "R34 deliver local Pixal3D music teacher GLB and independent 3D viewer with four-view QA",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r33-m01-art-preview-in-playable-home-20261109",
+      "commit": "00a3f4a",
+      "timestamp": "2026-11-09 21:34:46 +0800",
+      "subject": "fix(playtest): route music teacher homepage CTA to original-art R32 playable, not rejected 3D",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r32-public-standalone-preview-20261109",
+      "commit": "b3066f9",
+      "timestamp": "2026-11-09 21:23:09 +0800",
+      "subject": "feat(playtest): publish isolated R32 original-art 2.5D music teacher interactive preview",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r25-music-teacher-preview-20261109",
+      "commit": "12ac37a",
+      "timestamp": "2026-11-09 15:55:19 +0800",
+      "subject": "feat(playtest): R25 music teacher interactive 3D conductor preview linked from unchanged playable game",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r23-real-card-glb-battle-integration-20261109",
+      "commit": "b870f29",
+      "timestamp": "2026-11-09 14:24:41 +0800",
+      "subject": "feat(playtest): R23 actual E02 T02 GLB battle summons, core-driven stage and 3D card portraits",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r22-label-doc-sync-20261109",
+      "commit": "aa85023",
+      "timestamp": "2026-11-09 13:56:48 +0800",
+      "subject": "fix(playtest): R22 accurate three-actor label and current preview evidence status",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r22-pbr-3d-card-home-20261109",
+      "commit": "381ccc0",
+      "timestamp": "2026-11-09 13:53:05 +0800",
+      "subject": "feat(playtest): R22 PBR depth-lit three-actor homepage and two real card GLB model trials",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r21-trio-playable-home-20261109",
+      "commit": "302067c",
+      "timestamp": "2026-11-09 13:19:36 +0800",
+      "subject": "feat(playtest): R21 three VRM actors E01 G01 T01 on fully playable 3D homepage",
+      "historyAncestorOfMain": false
+    },
+    {
+      "ref": "origin/research/duel-r20-playtest-home-20261109",
+      "commit": "a32d96a",
+      "timestamp": "2026-11-09 13:09:01 +0800",
+      "subject": "feat(playtest): R20 playable 3D homepage with reversible R18 visual comparison and GPU evidence",
+      "historyAncestorOfMain": false
+    }
+  ],
+  "openPullCount": 20,
+  "openPulls": [
+    {
+      "number": 61,
+      "title": "R85 · 双方出牌者原生IK动作与五名旧低模实际换模、七名高精度人物战斗动作",
+      "draft": true,
+      "head": "feature/duel-r85-character-action-recast-20261112",
+      "base": "feature/duel-r84-music-dialogue-art-audit-20261112",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/61"
+    },
+    {
+      "number": 60,
+      "title": "R84 · 七曲动态配乐、98条轮换配音与高精度人物重新选模",
+      "draft": true,
+      "head": "feature/duel-r84-music-dialogue-art-audit-20261112",
+      "base": "feature/duel-r81-impact-audio-score-seats-20261112",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/60"
+    },
+    {
+      "number": 59,
+      "title": "R82 · 全三维卡牌魔法命中、双决斗者配音动作、实时比分与实体座椅",
+      "draft": true,
+      "head": "feature/duel-r81-impact-audio-score-seats-20261112",
+      "base": "main",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/59"
+    },
+    {
+      "number": 58,
+      "title": "R78 · 淘汰低精度Q版美术路线，建立高质量风格化人物同源选角与授权评审",
+      "draft": true,
+      "head": "feature/duel-r78-high-fidelity-casting-20261111",
+      "base": "feature/duel-r77-character-recast-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/58"
+    },
+    {
+      "number": 57,
+      "title": "R77 · E03/G02/T03 真实新旧高模试镜、双人完整骨骼动作与严格艺术筛选",
+      "draft": true,
+      "head": "feature/duel-r77-character-recast-20261111",
+      "base": "feature/duel-r76-real-cartoon-cast-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/57"
+    },
+    {
+      "number": 56,
+      "title": "R76 · 原生高质量卡通人物 + 食堂阿姨 M02 实战与 Qwen3 双语音",
+      "draft": true,
+      "head": "feature/duel-r76-real-cartoon-cast-20261111",
+      "base": "feature/duel-r75-selection-animation-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/56"
+    },
+    {
+      "number": 55,
+      "title": "R75 · 原始高质量角色底模 + 成人/儿童原生骨骼动作 + 体育馆实际试镜",
+      "draft": false,
+      "head": "feature/duel-r75-selection-animation-20261111",
+      "base": "feature/duel-r74-eye-level-camera-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/55"
+    },
+    {
+      "number": 54,
+      "title": "R74 · 体育馆改为场边平视 + 高质量角色基底重新选角",
+      "draft": false,
+      "head": "feature/duel-r74-eye-level-camera-20261111",
+      "base": "feature/duel-r73-blender-cast-enhancement-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/54"
+    },
+    {
+      "number": 53,
+      "title": "R73 · Blender 角色美术增强：猫头鹰播音员实体改造 + 13 人资产质检台账",
+      "draft": false,
+      "head": "feature/duel-r73-blender-cast-enhancement-20261111",
+      "base": "feature/duel-r72-music-teacher-playable-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/53"
+    },
+    {
+      "number": 52,
+      "title": "R72 · 音乐老师 M01 正式成为第 19 张可玩卡牌",
+      "draft": false,
+      "head": "feature/duel-r72-music-teacher-playable-20261111",
+      "base": "feature/duel-r71-audio-events-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/52"
+    },
+    {
+      "number": 51,
+      "title": "R71 · Qwen3-TTS 多角色配音队列与真实攻击音画同步",
+      "draft": false,
+      "head": "feature/duel-r71-audio-events-20261111",
+      "base": "feature/duel-r70-audio-blender-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/51"
+    },
+    {
+      "number": 50,
+      "title": "R70 · 原创游戏音乐/音效 + Qwen3-TTS 角色语音正式接入",
+      "draft": false,
+      "head": "feature/duel-r70-audio-blender-20261111",
+      "base": "feature/duel-r69-modelvault-refit-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/50"
+    },
+    {
+      "number": 49,
+      "title": "R69 · 选定 Polyfork School Teacher 作为 M01 音乐老师候选，真实骨骼手势试镜",
+      "draft": false,
+      "head": "feature/duel-r69-modelvault-refit-20261111",
+      "base": "feature/duel-r68-hero-poses-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/49"
+    },
+    {
+      "number": 47,
+      "title": "R68 · 九名人形召唤角色独立出场 Pose，真实双骨骼 IK 消除八字形僵直手臂",
+      "draft": false,
+      "head": "feature/duel-r68-hero-poses-20261111",
+      "base": "feature/duel-r67-vrm-personality-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/47"
+    },
+    {
+      "number": 45,
+      "title": "R67 · 两名 VRM 原始正面轴纠正与真实表情动作",
+      "draft": false,
+      "head": "feature/duel-r67-vrm-personality-20261111",
+      "base": "feature/duel-r66-character-personality-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/45"
+    },
+    {
+      "number": 44,
+      "title": "R66 · 七种角色独立喜剧待机动作与零漂浮验收",
+      "draft": false,
+      "head": "feature/duel-r66-character-personality-20261111",
+      "base": "feature/duel-r65-natural-pose-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/44"
+    },
+    {
+      "number": 43,
+      "title": "R65 · 修复全部人形召唤物 T-pose，改为自然下垂与个性站姿",
+      "draft": false,
+      "head": "feature/duel-r65-natural-pose-20261111",
+      "base": "feature/duel-r64-natural-motion-20261111",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/43"
+    },
+    {
+      "number": 41,
+      "title": "R64 · 召唤实体自然动作与动画平滑过渡",
+      "draft": false,
+      "head": "feature/duel-r64-natural-motion-20261111",
+      "base": "feature/duel-r63-front-visual-20261110",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/41"
+    },
+    {
+      "number": 40,
+      "title": "R63 · 10 GLB 正面可视化审查与完整入镜强校验",
+      "draft": false,
+      "head": "feature/duel-r63-front-visual-20261110",
+      "base": "feature/duel-r62-scale-audit-20261110",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/40"
+    },
+    {
+      "number": 29,
+      "title": "R54 场内点击召唤物查看真实属性与模型状态",
+      "draft": false,
+      "head": "feature/duel-r54-click-unit-inspect-20261110",
+      "base": "main",
+      "url": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/pull/29"
+    }
+  ]
+}

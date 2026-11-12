@@ -67,7 +67,7 @@ export function createCardHolograms(THREE,scene){
   return texture;
  };
  const show=(item,now)=>{
-  if(!item||!['player','ai'].includes(item.side)||!/^([EGT])\d{2}$/.test(item.id)||
+  if(!item||!['player','ai'].includes(item.side)||!/^([EGTM])\d{2}$/.test(item.id)||
     !Number.isInteger(item.cost)||item.cost<0||item.cost>9||
     !['unit','event'].includes(item.kind)||typeof item.name!=='string')return false;
   const state=states[item.side];
