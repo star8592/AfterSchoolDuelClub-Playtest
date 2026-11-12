@@ -199,17 +199,17 @@ function renderHUD(){
   g.active==='player'?'轮到你出牌':'AI 正在回应';
 }
 function renderActions(){
+ const ended=g.phase==='ended';
  const card=selected===null?null:BY_ID[g.hand.player[selected]];
  const canPlay=selected!==null&&cardCanPlay(selected);
  const btn=$('play');
- btn.disabled=!canPlay;
- btn.textContent=card?'出牌 · '+(card.kind==='unit'?'召唤':'发动'):'先选一张牌';
- $('selected-title').textContent=card?card.name+' · '+card.cost+' 能量':'还没有选牌';
- $('selected-info').textContent=card?describeCard(card):
-  '点击手牌选择，无需选择教室、走廊或其他部署位置';
- $('end').disabled=!gameReady();
- $('end').textContent=g.phase==='ended'?'本局结束':
-  '结束回合 → AI 出牌';
+ btn.disabled=ended?false:!canPlay;
+ btn.textContent=ended?'查看本局战绩':card?'出牌 · '+(card.kind==='unit'?'召唤':'发动'):'先选一张牌';
+ $('selected-title').textContent=ended?'本局已结束':card?card.name+' · '+card.cost+' 能量':'还没有选牌';
+ $('selected-info').textContent=ended?'点击「再来一局」重新抽牌，开启新决斗':
+  card?describeCard(card):'点击手牌选择，无需选择教室、走廊或其他部署位置';
+ $('end').disabled=!ended&&!gameReady();
+ $('end').textContent=ended?'↻ 再来一局':'结束回合 → AI 出牌';
 }
 function renderGuide(){
  $('guide-step').textContent=g.phase==='ended'?'本局结束 · '+(g.winner==='player'?'你赢了！':g.winner==='ai'?'AI 获胜':'平局'):
@@ -218,6 +218,7 @@ function renderGuide(){
   'AI 正在出牌 · 请看中央竞技场与对局提示';
 }
 function render(){
+ if(g.phase==='ended')scheduleResult();
  renderHUD();
  renderBoard();
  renderHand();
@@ -270,6 +271,46 @@ function syncScene(){
  sendScene(boardSnapshot());
  sendScene(scoreboardSnapshot());
 }
+// Every terminal engine path (HP depletion or turn limit, on either side)
+// must lead to a visible result and a one-click fresh match. Re-navigation
+// recreates BOTH the rule engine and 3D iframe, preventing stale summoned units.
+let resultScheduled=false;
+function showResult(){
+ if(g.phase!=='ended')return;
+ const overlay=$('result-overlay');
+ const outcome={
+  player:{title:'胜利！',summary:'你赢得了这场卡牌决斗！',symbol:'★'},
+  ai:{title:'本局挑战结束',summary:'AI 赢得本局，换一手牌再战！',symbol:'↻'},
+  draw:{title:'势均力敌！',summary:'双方战平，再来一局分胜负。',symbol:'✦'}
+ }[g.winner]||{title:'决斗结束',summary:'本局已经结算。',symbol:'✦'};
+ overlay.dataset.outcome=g.winner||'draw';
+ $('result-title').textContent=outcome.title;
+ $('result-summary').textContent=outcome.summary;
+ $('result-symbol').textContent=outcome.symbol;
+ $('result-player-hp').textContent=String(g.hp.player);
+ $('result-ai-hp').textContent=String(g.hp.ai);
+ $('result-round').textContent='第 '+g.round+' 回合 · 决斗结束';
+ overlay.hidden=false;
+ $('result-rematch').focus({preventScroll:true});
+}
+function scheduleResult(){
+ if(resultScheduled)return;
+ resultScheduled=true;
+ // Allow the final score hit and character reaction to land before the panel.
+ window.setTimeout(showResult,1100);
+}
+function startRematch(){
+ if(g.phase!=='ended')return;
+ const target=new URL(location.href);
+ // The next seed changes both starting hands and the AI's random sequence.
+ target.searchParams.set('seed',String((Math.abs(seed)%2147483646)+1));
+ location.assign(target.href);
+}
+$('result-rematch').addEventListener('click',startRematch);
+$('result-review').addEventListener('click',()=>{
+ $('result-overlay').hidden=true;
+ $('end').focus({preventScroll:true});
+});
 // A visually projected physical card from the correct side duelist platform.
 // This is a secondary presentation event; it never changes core rules.
 function projectPlayedCard(id,side='player'){
@@ -307,6 +348,7 @@ function playFight(e){
  // Actual damage was already resolved by the engine; scene animation is visual.
 }
 $('play').addEventListener('click',()=>{
+ if(g.phase==='ended'){showResult();return;}
  if(selected===null||!cardCanPlay(selected))return;
  const id=g.hand.player[selected],c=BY_ID[id],preHp={...g.hp},
    result=playCard(g,selected,0);
@@ -342,6 +384,7 @@ $('play').addEventListener('click',()=>{
  }
 });
 $('end').addEventListener('click',()=>{
+ if(g.phase==='ended'){startRematch();return;}
  if(!gameReady())return;
  audio.playCue('turn');
  const pre=boardSnapshot().units;
