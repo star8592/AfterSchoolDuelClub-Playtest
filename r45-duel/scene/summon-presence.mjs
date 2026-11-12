@@ -8,6 +8,7 @@
  */
 import {BY_ID} from '../engine.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+import {createVrmCharacterActing} from './vrm-character-acting.mjs';
 import {instantiateSummon,UNIT_MODEL_IDS} from './summon-models.mjs';
 import {faceOpponentYaw,faceOpponentDot} from './summon-orientation.mjs';
 import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mjs';
@@ -251,7 +252,20 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
       object=cloneGltf(id);kind='gltf-instance';
       root.add(object);
      }
+     // R105: every E01/G01 board instance (including pooled opposite-side
+     // copies) needs its OWN authentic VRM shoulder/elbow/wrist IK.
+     // R96 only animated the two podium hosts; the cloned summons still
+     // displayed the unposed source binding arms in normal gameplay.
+     if(VRM_IDS.has(id)){
+      const actor=actors.find(a=>a.id===id);
+      if(!actor)throw Error('R105 missing source VRM identity '+id);
+      if(!object.userData.r105Acting){
+       object.userData.r105Acting=createVrmCharacterActing(THREE,object,{
+        id,expressions:actor.faceExpressions,sourceRest:actor.base});
+      }else object.userData.r105Acting.revive();
+     }
      state={key,id,uid,side,index,kind,object,created:performance.now(),
+      acting:object.userData.r105Acting||null,
       comic:null,comicBones:null,status:makeStatusTag(side,id)};
      entries.set(key,state);
     }
@@ -410,6 +424,13 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     r61?.setClipRate?.(1);
    }
    if(r61?.update)r61.update(dt);else r61?.mixer?.update(dt);
+   // Board VRMs must not be left in their bind T/A pose. During the
+   // independent R45 fight sequence the original actor is driven by its
+   // cinematic controller, so never double-write that same skeleton.
+   if(state.acting&&!(cinematic&&state.kind==='original-vrm')){
+    state.acting.update(seconds,{seed:state.side==='player'?.4:2.1,
+     suppressEntrance:true});
+   }
    if(state.comic&&!sequence){
     const c=state.comic,m=c.motion,elapsed=seconds-c.started;
     const p=Math.max(0,Math.min(1,elapsed/m.duration));
@@ -635,6 +656,23 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     ndcBounds:Object.fromEntries(Object.entries(screenBBox).map(([k,n])=>[k,Number(n.toFixed(3))]))
    };
    metrics.frontDot=Number(faceOpponentDot(THREE,s.object,s.side,s.id).toFixed(4));
+   if(s.acting){
+    const arms={};
+    for(const hand of ['R','L']){
+     const upper=s.object.getObjectByName('J_Bip_'+hand+'_UpperArm');
+     const lower=s.object.getObjectByName('J_Bip_'+hand+'_LowerArm');
+     const wrist=s.object.getObjectByName('J_Bip_'+hand+'_Hand');
+     if(!upper||!lower||!wrist){arms[hand]={valid:false};continue}
+     const u=upper.getWorldPosition(new THREE.Vector3());
+     const e=lower.getWorldPosition(new THREE.Vector3());
+     const w=wrist.getWorldPosition(new THREE.Vector3());
+     const dir=e.clone().sub(u).normalize();
+     arms[hand]={valid:true,drop:+dir.y.toFixed(3),
+      spread:+Math.hypot(dir.x,dir.z).toFixed(3),
+      wristToShoulder:+w.distanceTo(u).toFixed(3)};
+    }
+    metrics.pose={arms,animation:s.acting.inspect().mode};
+   }
    // R63 read-only visual evidence: distinguish real per-wing GLB morphs
    // from an unchanged R62 plane or an animated whole-scene transform.
    let wingMorph=null;

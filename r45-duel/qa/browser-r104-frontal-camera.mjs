@@ -16,8 +16,8 @@ const batches=[ids.slice(0,4),ids.slice(4,8),ids.slice(8,12),ids.slice(12)];
 for(const id of ids)for(const side of ['player','ai']){
  const yaw=faceOpponentYaw(id,side)+SOURCE_FRONT_YAW[id];
  const opponentDot=Math.sin(yaw)*(side==='player'?1:-1),spectatorDot=Math.cos(yaw);
- check(opponentDot>.60&&spectatorDot>.79,
-  'actual '+id+' '+side+' front is visible to viewer AND faces opponent',
+ check(opponentDot>.999&&Math.abs(spectatorDot)<.001,
+  'actual '+id+' '+side+' faces the opponent, not the spectator',
   {opponentDot,spectatorDot});
  report.frontalDots[id+':'+side]={opponentDot,spectatorDot};
 }
@@ -65,8 +65,8 @@ try{
    const sight=await screen(page);
    const visible=sight.units.entries.filter(u=>u.visible);
    check(visible.length===batch.length*2,view+' group '+i+' actor count',sight.units.total);
-   check(visible.every(u=>u.metrics.frontDot>.60),
-     view+' group '+i+' all 3D actors face opposing half in new composition',
+   check(visible.every(u=>u.metrics.frontDot>.98),
+     view+' group '+i+' all 3D actors face their opponent directly',
      visible.map(u=>({id:u.id,side:u.side,dot:u.metrics.frontDot})));
    check(visible.every(u=>u.inView),view+' group '+i+' actors framed correctly',
      visible.map(u=>({id:u.id,side:u.side,inView:u.inView,position:u.position})));

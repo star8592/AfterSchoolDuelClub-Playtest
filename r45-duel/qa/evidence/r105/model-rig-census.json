@@ -1,0 +1,258 @@
+{
+  "passed": true,
+  "count": 16,
+  "models": {
+    "E01": {
+      "file": "model/Shino-original-CC0.vrm",
+      "sha256": "1e177c1a7b14f783a9c48395831db8616260d3bddd4154cb2784b779adca49b5",
+      "bytes": 15074328,
+      "skins": 3,
+      "joint_count": 148,
+      "clips": [],
+      "morph_channels": 0,
+      "animated_skin_rotations": 0,
+      "license": "CC0",
+      "commercial_allowed": "Allow"
+    },
+    "G01": {
+      "file": "model/Fumiriya-original-CC0.vrm",
+      "sha256": "d8fb05f33e377df028cb6b9d58c441ce68326c41fa23f6c735d40c65ae3dc710",
+      "bytes": 19342280,
+      "skins": 3,
+      "joint_count": 107,
+      "clips": [],
+      "morph_channels": 0,
+      "animated_skin_rotations": 0,
+      "license": "CC0",
+      "commercial_allowed": "Allow"
+    },
+    "E02": {
+      "file": "summons/E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+      "sha256": "904ab9930af985af752095718966b265b1c96b1efc73fa74beadae722f135a90",
+      "bytes": 1116092,
+      "skins": 0,
+      "joint_count": 0,
+      "clips": [
+        "Idle_Glide",
+        "Bank_Left",
+        "Bank_Right",
+        "Attack_Dart",
+        "Hit_Recoil"
+      ],
+      "morph_channels": 10,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "E03": {
+      "file": "summons/E03-Ellie-Landing-R97.glb",
+      "sha256": "5b99927f770926ef2c0045e0df11c845a27ce1b93517dc0e90b235dc86091d1e",
+      "bytes": 8845968,
+      "skins": 1,
+      "joint_count": 1887,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_channels": 23,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "E04": {
+      "file": "summons/E04-Phil-Landing-R97.glb",
+      "sha256": "67fef013407e35adbc207dfa86a3fd259cdbe047f4f4fae8541113c515910e7a",
+      "bytes": 3670340,
+      "skins": 1,
+      "joint_count": 1383,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_channels": 24,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "G02": {
+      "file": "summons/G02-Snow-Landing-R97.glb",
+      "sha256": "a57cd54bdbc79991621e9d37aa1cc66b5d8cb173edfb5de5d66df31b2a006bac",
+      "bytes": 14616772,
+      "skins": 1,
+      "joint_count": 1494,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_channels": 36,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "G03": {
+      "file": "summons/G03-Jay-Landing-R97.glb",
+      "sha256": "bbc5611dba4e3453467c55a00a60a6eeec55cb535e8c16d5add93da20c909e3c",
+      "bytes": 6491140,
+      "skins": 1,
+      "joint_count": 1605,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_channels": 14,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "G04": {
+      "file": "summons/G04-Victoria-Landing-R97.glb",
+      "sha256": "331579db0d20c1262dbf9ca036f8c2e46192c39e9db7667ca7729c4d557990b2",
+      "bytes": 10249516,
+      "skins": 1,
+      "joint_count": 1618,
+      "clips": [
+        "Attack",
+        "Hit",
+        "Idle"
+      ],
+      "morph_channels": 73,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "M01": {
+      "file": "summons/M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "sha256": "1df7f472476de641a015e7dd7172d6a2d3d28e753ee78294add6838414de89e7",
+      "bytes": 836836,
+      "skins": 10,
+      "joint_count": 31,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run"
+      ],
+      "morph_channels": 0,
+      "animated_skin_rotations": 66,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "M02": {
+      "file": "summons/M02-CafeteriaAunt-ChefHat-Spatula-R99.glb",
+      "sha256": "f3010ff08c6a052ec38f057a5d8c1ee9a2dc28eee173831f619719d9a99da24f",
+      "bytes": 2869280,
+      "skins": 1,
+      "joint_count": 24,
+      "clips": [
+        "Angry_Stomp",
+        "Big_Wave_Hello",
+        "Cheer_with_Both_Hands_Up",
+        "Confused_Scratch",
+        "FunnyDancing_01",
+        "Grip_and_Throw_Down",
+        "Idle",
+        "Jazz_Hands",
+        "Shrug",
+        "Victory_Cheer"
+      ],
+      "morph_channels": 0,
+      "animated_skin_rotations": 240,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "T01": {
+      "file": "summons/T01-Owl-Innerscene-R84.glb",
+      "sha256": "c11c94db20065c6c6f252e768e8c748f22dc69ef9b4e7199110b96de0625c12e",
+      "bytes": 20671040,
+      "skins": 0,
+      "joint_count": 0,
+      "clips": [],
+      "morph_channels": 0,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "T02": {
+      "file": "summons/T02-LivingMenu-R59.glb",
+      "sha256": "4bc18a506143786deaa86d5a807336dafb1a4afc2d217e496f49b10a6255a43a",
+      "bytes": 2519624,
+      "skins": 0,
+      "joint_count": 0,
+      "clips": [
+        "Idle_Menu_Breath",
+        "Walk_Small_Steps",
+        "Attack_Flip_Menu",
+        "Defend_Opening_Menu",
+        "Hit_Retreat"
+      ],
+      "morph_channels": 0,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "T03": {
+      "file": "summons/T03-Rain-Landing-R97.glb",
+      "sha256": "075e6a3aa1cb1a69ebcdf927039cf93d34a017610e26ec61494e682f4a6cae5c",
+      "bytes": 10312392,
+      "skins": 1,
+      "joint_count": 2166,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_channels": 13,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "T04": {
+      "file": "summons/T04-Rex-Landing-R97.glb",
+      "sha256": "86d06b51a25c7579c1692c3ddce7bbeafa99f51dc30c4fbc57d3a26d0b5627fa",
+      "bytes": 7791296,
+      "skins": 1,
+      "joint_count": 1556,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "morph_channels": 19,
+      "animated_skin_rotations": 0,
+      "license": null,
+      "commercial_allowed": null
+    },
+    "HOST_PLAYER": {
+      "file": "model/Host-HairSample_Female-CC0.vrm",
+      "sha256": "adfd242317aaabc773f31f7fff7b013979fbb5baa47e97427a78913d9cb4e979",
+      "bytes": 17518216,
+      "skins": 3,
+      "joint_count": 119,
+      "clips": [],
+      "morph_channels": 0,
+      "animated_skin_rotations": 0,
+      "license": "CC0",
+      "commercial_allowed": "Allow"
+    },
+    "HOST_AI": {
+      "file": "model/Host-HairSample_Male-CC0.vrm",
+      "sha256": "7aeca142dabbc26ba0f5b9c998c8f3cb6df341287d67788427ac837223785a3f",
+      "bytes": 18481892,
+      "skins": 3,
+      "joint_count": 91,
+      "clips": [],
+      "morph_channels": 0,
+      "animated_skin_rotations": 0,
+      "license": "CC0",
+      "commercial_allowed": "Allow"
+    }
+  },
+  "limitations": [
+    "7 film avatars use shape-key clips, not native animated shoulder joints",
+    "T01 owl is a static nonhuman model, not animated",
+    "Visual QA still needed"
+  ]
+}

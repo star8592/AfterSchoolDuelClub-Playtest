@@ -33,8 +33,8 @@ try{
   const start=await get(),hosts=start.actors;
   check(hosts?.length===2&&hosts[0].id==='E01'&&hosts[1].id==='G01',
    view+' both authentic permanent VRM hosts in separate podiums',{ids:hosts?.map(x=>x.id)});
-  check(hosts.every(x=>x.visible&&x.bones>=100&&x.skins>=60),
-   view+' original high-bone/skin rigs both visible',{rigs:hosts.map(x=>({id:x.id,bones:x.bones,skins:x.skins,visible:x.visible}))});
+  check(hosts.every(x=>x.visible&&x.bones>=80&&x.skins>=2&&x.independentFromSummons),
+   view+' independent CC0 podium rigs both visible',{rigs:hosts.map(x=>({id:x.id,bones:x.bones,skins:x.skins,visible:x.visible}))});
   check(hosts.every(x=>Math.abs(x.x)>5&&x.z===0.6),
    view+' permanent podium actors are outside summoning field');
   check(hosts.every(h=>['R','L'].every(side=>{

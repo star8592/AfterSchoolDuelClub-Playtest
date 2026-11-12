@@ -26,13 +26,22 @@ const MODEL_SPECS=[
  {id:'E01',name:'铃声追不上',source:'Shino-original-CC0.vrm',minBones:140,minSkins:60,color:'#fc9e73'},
  {id:'G01',name:'橡皮筋建筑师',source:'Fumiriya-original-CC0.vrm',minBones:100,minSkins:90,color:'#92b6eb'}
 ];
+// R105 independent CC0 podium personas. These never appear as summoned cards,
+// and retain full VRM 0.x J_Bip arm IK and face blendshapes.
+const HOST_MODEL_SPECS=[
+ {id:'E01',name:'我方决斗者',source:'Host-HairSample_Female-CC0.vrm',
+  minBones:100,minSkins:2,host:true},
+ {id:'G01',name:'对方决斗者',source:'Host-HairSample_Male-CC0.vrm',
+  minBones:80,minSkins:2,host:true}
+];
+const TOTAL_REAL_ASSETS=16;
 const PHASES={idle:'人物就位',approach:'双方接近',windup:'蓄力',strike:'我方攻击',
  counter:'对方反击',retreat:'双方回位',settled:'本次交锋完成'};
 const DURATION=6.45;
 let renderer,scene,camera,clock,actors=[],time=0,playing=false,mode='demo';
 // Separate, continuously visible native VRM duelists; the E01/G01 summon
 // bodies remain independently owned by SummonPresence in the arena.
-let duelistHosts=[];
+let duelistHosts=[],hostSourceActors=[];
 const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
 
 let lastTime=0,frames=0,actionFrames=0,impactFrames=0,drawCount=0,renderInfo=null;
@@ -338,13 +347,40 @@ function restoreR22Style(source,id,bones){
  return{recolored,accessories:accessory.length,palette};
 }
 
+// Distinct original-color stories for the two *operators*, applied only to
+// licensed source garments/hair, never generic geometry stand-ins or card units.
+function styleHostAvatar(source,id){
+ const palette=id==='E01'?
+  {tops:'#ef826d',bottoms:'#552f55',shoes:'#f0a45e',hair:'#63415d'}:
+  {tops:'#285d89',bottoms:'#27354e',shoes:'#a7d6ec',hair:'#614334'};
+ let recolored=0;
+ const variants=new Map();
+ source.traverse(node=>{
+  if(!node.isMesh||!node.material)return;
+  const adapt=mat=>{
+   const n=(mat.name||'').toLowerCase();
+   const key=n.includes('_tops_')?'tops':n.includes('_bottoms_')?'bottoms':
+    n.includes('_shoes_')?'shoes':n.includes('_hair_')?'hair':null;
+   if(!key)return mat;
+   if(!variants.has(mat.uuid)){
+    const copy=mat.clone();
+    copy.color?.set(palette[key]);
+    copy.name=(mat.name||'')+'_R105_DISTINCT_HOST';
+    variants.set(mat.uuid,copy);recolored++;
+   }
+   return variants.get(mat.uuid);
+  };
+  node.material=Array.isArray(node.material)?node.material.map(adapt):adapt(node.material);
+ });
+ return{recolored,accessories:0,palette};
+}
 async function loadActor(spec,idx){
  const url=new URL('../assets/model/'+spec.source,location.href).href;
  const gltf=await new GLTFLoader().loadAsync(url);
  const original=gltf.scene;
  const faceExpressions=extractVrm0Expressions(gltf);
  const {m,skins,bones,vertices}=indexBones(original);
- const style=restoreR22Style(original,spec.id,m);
+ const style=spec.host?styleHostAvatar(original,spec.id):restoreR22Style(original,spec.id,m);
  if(skins<spec.minSkins||bones<spec.minBones||vertices<20000)
   throw Error(spec.id+' R22 identity mismatch: skins='+skins+' bones='+bones);
  const box=new THREE.Box3().setFromObject(original,true),dims=box.getSize(new THREE.Vector3());
@@ -416,11 +452,13 @@ function reactActor(a,sec,absoluteSec){
  if(attack>.03||hit>.03)actionFrames++;
  if(hit>.1)impactFrames++;
 }
-// A real spectator sees two ACTUAL players at their podiums from the start.
-// They must be independent clones: the original VRMs can also be summoned
-// as cards in the central arena, and SummonPresence must still own those.
+// Two podium humans now use *different* genuine CC0 source VRMs from the
+// 14 summon identities. Never clone E01/G01 cards as their operators.
 function makeDuelistHosts(){
- duelistHosts=actors.map((actor,i)=>{
+ if(hostSourceActors.length!==2||hostSourceActors.some(h=>
+    actors.some(unit=>unit.source===h.source)))
+  throw Error('R105 host/source identity collision');
+ duelistHosts=hostSourceActors.map((actor,i)=>{
   const pivot=cloneSkeleton(actor.pivot);
   pivot.name='R74_PERMANENT_DUELIST_'+actor.id;
   pivot.position.set(i===0?-5.55:5.55,.48,.60);
@@ -437,7 +475,7 @@ function makeDuelistHosts(){
   return{id:actor.id,pivot,bones:m,base,pose,face,
    choreography:{phase:'idle',draw:0,display:0,cast:0,recoil:0},
    side:i===0?'player':'ai',baseX:pivot.position.x,
-   sourceRig:actor.source,sourceBones:bones,skinnedMeshes:skins};
+   sourceRig:actor.source,hostAvatar:i===0?'HOST_FEMALE':'HOST_MALE',sourceBones:bones,skinnedMeshes:skins};
  });
 }
 // R85: A full-body, believable baseline for permanent podium duelists.
@@ -770,6 +808,8 @@ function exposeQA(){
   get duelistHosts(){return duelistHosts.map(a=>({id:a.id,side:a.side,visible:a.pivot.visible,
     x:Number(a.pivot.position.x.toFixed(3)),y:Number(a.pivot.position.y.toFixed(3)),
     z:Number(a.pivot.position.z.toFixed(3)),bones:a.sourceBones,skins:a.skinnedMeshes,
+    modelSource:a.sourceRig,hostAvatar:a.hostAvatar,
+    independentFromSummons:!actors.some(unit=>unit.source===a.sourceRig),
     posture:inspectDuelistPosture(a),expression:a.face.inspect()}))},
   get duelistAction(){return structuredClone(hostAction)},
 
@@ -810,8 +850,8 @@ function verifiedModelLoaded(id){
  if(loadedResourceIds.has(id))return;
  loadedResourceIds.add(id);loadedRealResources++;
  const count=$('load-count'),bar=$('load-progress');
- if(count)count.textContent='已验证 '+loadedRealResources+' / 14 个三维人物资源';
- if(bar){bar.value=loadedRealResources;bar.textContent=loadedRealResources+'/14';}
+ if(count)count.textContent='已验证 '+loadedRealResources+' / '+TOTAL_REAL_ASSETS+' 个三维人物资源';
+ if(bar){bar.value=loadedRealResources;bar.textContent=loadedRealResources+'/'+TOTAL_REAL_ASSETS;}
 }
 try{
  makeScene();
@@ -823,12 +863,17 @@ try{
  source3DAssetsVerified=actors[0].source==='Shino-original-CC0.vrm'&&
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
+ hostSourceActors=await Promise.all(HOST_MODEL_SPECS.map(async(spec,idx)=>{
+  const actor=await loadActor(spec,idx);
+  verifiedModelLoaded('HOST:'+spec.source);
+  return actor;
+ }));
  makeDuelistHosts();
  summonModels=await preloadSummonModels(THREE,new GLTFLoader(),{
   onLoaded:({id})=>verifiedModelLoaded('GLB:'+id)
  });
- if(loadedRealResources!==14||summonModels.size!==12)
-  throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/14');
+ if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
+  throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,
   onCombatImpact:(event)=>{
@@ -842,7 +887,7 @@ try{
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
- $('load-explain').textContent='14 / 14 个真实模型已载入，正在绘制首次完整体育馆画面…';
+ $('load-explain').textContent=TOTAL_REAL_ASSETS+' / '+TOTAL_REAL_ASSETS+' 个真实模型已载入，正在绘制首次完整体育馆画面…';
  exposeQA();
  const warmupStarted=performance.now();
  let warmupFrames=0;
@@ -858,7 +903,7 @@ try{
  } while((performance.now()-warmupStarted<850||warmupFrames<7)&&warmupFrames<95);
  $('loading').hidden=true;
  ready=true;
- reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,
+ reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,independentHostVRMRigs:hostSourceActors.length,
   loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false});
  broadcastCamera();
  requestAnimationFrame(loop);
