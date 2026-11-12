@@ -809,6 +809,7 @@ function exposeQA(){
     x:Number(a.pivot.position.x.toFixed(3)),y:Number(a.pivot.position.y.toFixed(3)),
     z:Number(a.pivot.position.z.toFixed(3)),bones:a.sourceBones,skins:a.skinnedMeshes,
     modelSource:a.sourceRig,hostAvatar:a.hostAvatar,
+    trueWorldYaw:Number(a.pivot.rotation.y.toFixed(6)),
     independentFromSummons:!actors.some(unit=>unit.source===a.sourceRig),
     posture:inspectDuelistPosture(a),expression:a.face.inspect()}))},
   get duelistAction(){return structuredClone(hostAction)},
