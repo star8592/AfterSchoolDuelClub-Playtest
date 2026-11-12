@@ -1,0 +1,114 @@
+{
+  "ok": true,
+  "cases": [
+    {
+      "name": "result panel not visible in active match",
+      "pass": true
+    },
+    {
+      "name": "end turn button initially enabled",
+      "pass": true
+    },
+    {
+      "name": "ordinary turns reach terminal end",
+      "pass": true,
+      "clicks": 5,
+      "phase": "ended",
+      "hp": {
+        "player": 0,
+        "ai": 20
+      },
+      "round": 5,
+      "winner": "ai"
+    },
+    {
+      "name": "visible prominent rematch action",
+      "pass": true
+    },
+    {
+      "name": "bottom rematch action also enabled",
+      "pass": true
+    },
+    {
+      "name": "result matches authoritative engine",
+      "pass": true,
+      "player": 0,
+      "ai": 20,
+      "outcome": "ai",
+      "title": "本局挑战结束"
+    },
+    {
+      "name": "review battlefield dismisses result",
+      "pass": true
+    },
+    {
+      "name": "result can reopen from bottom controls",
+      "pass": true
+    },
+    {
+      "name": "new match resets scores, actors, rounds and controls",
+      "pass": true,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "board": {
+        "player": [
+          []
+        ],
+        "ai": [
+          []
+        ]
+      },
+      "phase": "playing",
+      "overlayHidden": true,
+      "endEnabled": true
+    },
+    {
+      "name": "second match can also complete",
+      "pass": true,
+      "clicks": 5,
+      "phase": "ended"
+    },
+    {
+      "name": "bottom rematch starts another new match",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "states": [
+    {
+      "terminal": {
+        "clicks": 5,
+        "phase": "ended",
+        "hp": {
+          "player": 0,
+          "ai": 20
+        },
+        "round": 5,
+        "winner": "ai"
+      }
+    },
+    {
+      "reset": {
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "round": 1,
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        },
+        "phase": "playing",
+        "overlayHidden": true,
+        "endEnabled": true
+      }
+    }
+  ]
+}

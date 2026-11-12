@@ -95,6 +95,25 @@
       <button id="end" class="end-btn" type="button">结束回合 <span aria-hidden="true">→</span></button>
     </div>
   </section>
+  <section id="result-overlay" class="result-overlay" role="dialog" aria-modal="true"
+    aria-labelledby="result-title" aria-describedby="result-summary" hidden>
+    <div class="result-panel">
+      <div class="result-kicker">放学后决斗社 · 本局结算</div>
+      <div class="result-symbol" id="result-symbol" aria-hidden="true">✦</div>
+      <h2 id="result-title">本局结束</h2>
+      <p id="result-summary">查看战绩，开始新的决斗。</p>
+      <div class="result-scores" aria-label="本局最终比分">
+        <div><small>你的剩余人气</small><strong id="result-player-hp">0</strong></div>
+        <div class="result-vs">VS</div>
+        <div><small>AI 剩余人气</small><strong id="result-ai-hp">0</strong></div>
+      </div>
+      <p class="result-round" id="result-round">第 1 回合 · 决斗结束</p>
+      <div class="result-actions">
+        <button type="button" id="result-rematch" class="result-rematch">↻ 再来一局</button>
+        <button type="button" id="result-review" class="result-review">查看战场</button>
+      </div>
+    </div>
+  </section>
 </div>
 <script type="module" src="./game.mjs"></script>
 </body>
