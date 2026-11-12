@@ -1,0 +1,1787 @@
+{
+  "origin": "http://127.0.0.1:11104",
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "title": "actual E01 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual E01 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual E02 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual E02 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual E03 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual E03 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual E04 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual E04 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual G01 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual G01 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual G02 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual G02 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual G03 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual G03 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual G04 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual G04 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual M01 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual M01 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual M02 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual M02 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual T01 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual T01 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.609159243329415,
+        "spectatorDot": 0.7930479281016594
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual T02 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual T02 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual T03 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual T03 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual T04 player front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "actual T04 ai front is visible to viewer AND faces opponent",
+      "detail": {
+        "opponentDot": 0.6091592433294148,
+        "spectatorDot": 0.7930479281016595
+      }
+    },
+    {
+      "pass": true,
+      "title": "desktop truly low audience cinematic pitch",
+      "detail": {
+        "yaw": 0,
+        "targetYaw": 0,
+        "realDuelistBounds": [
+          {
+            "side": "player",
+            "id": "E01",
+            "screenRect": {
+              "left": -0.802,
+              "right": -0.651,
+              "bottom": -0.179,
+              "top": 0.279
+            },
+            "fullyVisible": true
+          },
+          {
+            "side": "ai",
+            "id": "G01",
+            "screenRect": {
+              "left": 0.653,
+              "right": 0.803,
+              "bottom": -0.178,
+              "top": 0.282
+            },
+            "fullyVisible": true
+          }
+        ],
+        "distance": 12.95,
+        "aspect": 1.6,
+        "podiums": {
+          "player": {
+            "x": -0.639,
+            "y": 0.041,
+            "front": true
+          },
+          "ai": {
+            "x": 0.639,
+            "y": 0.041,
+            "front": true
+          }
+        },
+        "composition": {
+          "ring": [
+            0,
+            -0.202,
+            0.988
+          ],
+          "arenaBack": [
+            0,
+            0.257,
+            0.993
+          ],
+          "stageFloor": [
+            0,
+            -0.583,
+            0.982
+          ],
+          "lookAt": [
+            0,
+            0.68,
+            -1.65
+          ],
+          "cameraY": 4.65,
+          "cameraPitchDeg": 15.64,
+          "frontalCharacterStaging": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "title": "desktop real GLB registry preserved",
+      "detail": 12
+    },
+    {
+      "pass": true,
+      "title": "desktop BOTH genuine platform duelists full body IN FRAME, not cropped",
+      "detail": [
+        {
+          "side": "player",
+          "id": "E01",
+          "screenRect": {
+            "left": -0.802,
+            "right": -0.651,
+            "bottom": -0.179,
+            "top": 0.279
+          },
+          "fullyVisible": true
+        },
+        {
+          "side": "ai",
+          "id": "G01",
+          "screenRect": {
+            "left": 0.653,
+            "right": 0.803,
+            "bottom": -0.178,
+            "top": 0.282
+          },
+          "fullyVisible": true
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "desktop group 0 actor count",
+      "detail": 8
+    },
+    {
+      "pass": true,
+      "title": "desktop group 0 all 3D actors face opposing half in new composition",
+      "detail": [
+        {
+          "id": "E01",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "E02",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "E04",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "E01",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "E02",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "E03",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "E04",
+          "side": "ai",
+          "dot": 0.6092
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "desktop group 0 actors framed correctly",
+      "detail": [
+        {
+          "id": "E01",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -1.75,
+            0.01,
+            0
+          ]
+        },
+        {
+          "id": "E02",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            0.48,
+            -1.4
+          ]
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            -0.01,
+            1.4
+          ]
+        },
+        {
+          "id": "E04",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -3.07,
+            -0.01,
+            -0.82
+          ]
+        },
+        {
+          "id": "E01",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            1.75,
+            0.01,
+            0
+          ]
+        },
+        {
+          "id": "E02",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            0.48,
+            -1.4
+          ]
+        },
+        {
+          "id": "E03",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            -0.01,
+            1.4
+          ]
+        },
+        {
+          "id": "E04",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            3.07,
+            -0.01,
+            -0.82
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "desktop group 1 actor count",
+      "detail": 8
+    },
+    {
+      "pass": true,
+      "title": "desktop group 1 all 3D actors face opposing half in new composition",
+      "detail": [
+        {
+          "id": "G01",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "G02",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "G03",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "G04",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "G03",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "dot": 0.6092
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "desktop group 1 actors framed correctly",
+      "detail": [
+        {
+          "id": "G01",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -1.75,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "G02",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            -0.01,
+            -1.4
+          ]
+        },
+        {
+          "id": "G03",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            -0.01,
+            1.4
+          ]
+        },
+        {
+          "id": "G04",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -3.07,
+            0,
+            -0.82
+          ]
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ]
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            -0.01,
+            -1.4
+          ]
+        },
+        {
+          "id": "G03",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            -0.01,
+            1.4
+          ]
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            3.07,
+            0,
+            -0.82
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "desktop group 2 actor count",
+      "detail": 8
+    },
+    {
+      "pass": true,
+      "title": "desktop group 2 all 3D actors face opposing half in new composition",
+      "detail": [
+        {
+          "id": "M01",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "M02",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "T01",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "T02",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "M01",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "M02",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "T01",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "T02",
+          "side": "ai",
+          "dot": 0.6092
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "desktop group 2 actors framed correctly",
+      "detail": [
+        {
+          "id": "M01",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -1.75,
+            -0.01,
+            0
+          ]
+        },
+        {
+          "id": "M02",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            -0.01,
+            -1.4
+          ]
+        },
+        {
+          "id": "T01",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            0,
+            1.4
+          ]
+        },
+        {
+          "id": "T02",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -3.07,
+            0.01,
+            -0.82
+          ]
+        },
+        {
+          "id": "M01",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ]
+        },
+        {
+          "id": "M02",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            -0.01,
+            -1.4
+          ]
+        },
+        {
+          "id": "T01",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            0,
+            1.4
+          ]
+        },
+        {
+          "id": "T02",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            3.07,
+            0.01,
+            -0.82
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "desktop group 3 actor count",
+      "detail": 4
+    },
+    {
+      "pass": true,
+      "title": "desktop group 3 all 3D actors face opposing half in new composition",
+      "detail": [
+        {
+          "id": "T03",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "T04",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "T03",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "T04",
+          "side": "ai",
+          "dot": 0.6092
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "desktop group 3 actors framed correctly",
+      "detail": [
+        {
+          "id": "T03",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -1.75,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "T04",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            0,
+            -1.4
+          ]
+        },
+        {
+          "id": "T03",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            1.75,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "T04",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            0,
+            -1.4
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "desktop 45-degree orbit remains functional",
+      "detail": 44.61
+    },
+    {
+      "pass": true,
+      "title": "desktop front camera reset stays correct",
+      "detail": 0.41
+    },
+    {
+      "pass": true,
+      "title": "desktop zero errors/GLB 404",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "title": "phone truly low audience cinematic pitch",
+      "detail": {
+        "yaw": 0,
+        "targetYaw": 0,
+        "realDuelistBounds": [
+          {
+            "side": "player",
+            "id": "E01",
+            "screenRect": {
+              "left": -0.935,
+              "right": -0.797,
+              "bottom": -0.06,
+              "top": 0.104
+            },
+            "fullyVisible": true
+          },
+          {
+            "side": "ai",
+            "id": "G01",
+            "screenRect": {
+              "left": 0.802,
+              "right": 0.937,
+              "bottom": -0.06,
+              "top": 0.105
+            },
+            "fullyVisible": true
+          }
+        ],
+        "distance": 30.39,
+        "aspect": 0.478,
+        "podiums": {
+          "player": {
+            "x": -0.402,
+            "y": 0.04,
+            "front": true
+          },
+          "ai": {
+            "x": 0.402,
+            "y": 0.04,
+            "front": true
+          }
+        },
+        "composition": {
+          "ring": [
+            0,
+            -0.073,
+            0.997
+          ],
+          "arenaBack": [
+            0,
+            0.11,
+            0.998
+          ],
+          "stageFloor": [
+            0,
+            -0.166,
+            0.996
+          ],
+          "lookAt": [
+            0,
+            0.68,
+            -1.65
+          ],
+          "cameraY": 8.62,
+          "cameraPitchDeg": 14.31,
+          "frontalCharacterStaging": true
+        }
+      }
+    },
+    {
+      "pass": true,
+      "title": "phone real GLB registry preserved",
+      "detail": 12
+    },
+    {
+      "pass": true,
+      "title": "phone BOTH genuine platform duelists full body IN FRAME, not cropped",
+      "detail": [
+        {
+          "side": "player",
+          "id": "E01",
+          "screenRect": {
+            "left": -0.935,
+            "right": -0.797,
+            "bottom": -0.06,
+            "top": 0.104
+          },
+          "fullyVisible": true
+        },
+        {
+          "side": "ai",
+          "id": "G01",
+          "screenRect": {
+            "left": 0.802,
+            "right": 0.937,
+            "bottom": -0.06,
+            "top": 0.105
+          },
+          "fullyVisible": true
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "phone group 0 actor count",
+      "detail": 8
+    },
+    {
+      "pass": true,
+      "title": "phone group 0 all 3D actors face opposing half in new composition",
+      "detail": [
+        {
+          "id": "E01",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "E02",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "E04",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "E01",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "E02",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "E03",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "E04",
+          "side": "ai",
+          "dot": 0.6092
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "phone group 0 actors framed correctly",
+      "detail": [
+        {
+          "id": "E01",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -1.75,
+            0.01,
+            0
+          ]
+        },
+        {
+          "id": "E02",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            0.49,
+            -1.4
+          ]
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            -0.01,
+            1.4
+          ]
+        },
+        {
+          "id": "E04",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -3.07,
+            -0.01,
+            -0.82
+          ]
+        },
+        {
+          "id": "E01",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            1.75,
+            0.01,
+            0
+          ]
+        },
+        {
+          "id": "E02",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            0.49,
+            -1.4
+          ]
+        },
+        {
+          "id": "E03",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            -0.01,
+            1.4
+          ]
+        },
+        {
+          "id": "E04",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            3.07,
+            -0.01,
+            -0.82
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "phone group 1 actor count",
+      "detail": 8
+    },
+    {
+      "pass": true,
+      "title": "phone group 1 all 3D actors face opposing half in new composition",
+      "detail": [
+        {
+          "id": "G01",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "G02",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "G03",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "G04",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "G03",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "dot": 0.6092
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "phone group 1 actors framed correctly",
+      "detail": [
+        {
+          "id": "G01",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -1.75,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "G02",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            -0.01,
+            -1.4
+          ]
+        },
+        {
+          "id": "G03",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            -0.01,
+            1.4
+          ]
+        },
+        {
+          "id": "G04",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -3.07,
+            0,
+            -0.82
+          ]
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ]
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            -0.01,
+            -1.4
+          ]
+        },
+        {
+          "id": "G03",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            -0.01,
+            1.4
+          ]
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            3.07,
+            0,
+            -0.82
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "phone group 2 actor count",
+      "detail": 8
+    },
+    {
+      "pass": true,
+      "title": "phone group 2 all 3D actors face opposing half in new composition",
+      "detail": [
+        {
+          "id": "M01",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "M02",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "T01",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "T02",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "M01",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "M02",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "T01",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "T02",
+          "side": "ai",
+          "dot": 0.6092
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "phone group 2 actors framed correctly",
+      "detail": [
+        {
+          "id": "M01",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -1.75,
+            -0.01,
+            0
+          ]
+        },
+        {
+          "id": "M02",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            -0.01,
+            -1.4
+          ]
+        },
+        {
+          "id": "T01",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            0,
+            1.4
+          ]
+        },
+        {
+          "id": "T02",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -3.07,
+            0,
+            -0.82
+          ]
+        },
+        {
+          "id": "M01",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ]
+        },
+        {
+          "id": "M02",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            -0.01,
+            -1.4
+          ]
+        },
+        {
+          "id": "T01",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            0,
+            1.4
+          ]
+        },
+        {
+          "id": "T02",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            3.07,
+            0,
+            -0.82
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "phone group 3 actor count",
+      "detail": 4
+    },
+    {
+      "pass": true,
+      "title": "phone group 3 all 3D actors face opposing half in new composition",
+      "detail": [
+        {
+          "id": "T03",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "T04",
+          "side": "player",
+          "dot": 0.6092
+        },
+        {
+          "id": "T03",
+          "side": "ai",
+          "dot": 0.6092
+        },
+        {
+          "id": "T04",
+          "side": "ai",
+          "dot": 0.6092
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "phone group 3 actors framed correctly",
+      "detail": [
+        {
+          "id": "T03",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -1.75,
+            -0.01,
+            0
+          ]
+        },
+        {
+          "id": "T04",
+          "side": "player",
+          "inView": true,
+          "position": [
+            -2.13,
+            0,
+            -1.4
+          ]
+        },
+        {
+          "id": "T03",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ]
+        },
+        {
+          "id": "T04",
+          "side": "ai",
+          "inView": true,
+          "position": [
+            2.13,
+            0,
+            -1.4
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "title": "phone 45-degree orbit remains functional",
+      "detail": 44.63
+    },
+    {
+      "pass": true,
+      "title": "phone front camera reset stays correct",
+      "detail": 0.42
+    },
+    {
+      "pass": true,
+      "title": "phone zero errors/GLB 404",
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "snapshots": [
+    {
+      "view": "desktop",
+      "mode": "front",
+      "camera": {
+        "yaw": 0,
+        "targetYaw": 0,
+        "realDuelistBounds": [
+          {
+            "side": "player",
+            "id": "E01",
+            "screenRect": {
+              "left": -0.802,
+              "right": -0.651,
+              "bottom": -0.179,
+              "top": 0.279
+            },
+            "fullyVisible": true
+          },
+          {
+            "side": "ai",
+            "id": "G01",
+            "screenRect": {
+              "left": 0.653,
+              "right": 0.803,
+              "bottom": -0.178,
+              "top": 0.282
+            },
+            "fullyVisible": true
+          }
+        ],
+        "distance": 12.95,
+        "aspect": 1.6,
+        "podiums": {
+          "player": {
+            "x": -0.639,
+            "y": 0.041,
+            "front": true
+          },
+          "ai": {
+            "x": 0.639,
+            "y": 0.041,
+            "front": true
+          }
+        },
+        "composition": {
+          "ring": [
+            0,
+            -0.202,
+            0.988
+          ],
+          "arenaBack": [
+            0,
+            0.257,
+            0.993
+          ],
+          "stageFloor": [
+            0,
+            -0.583,
+            0.982
+          ],
+          "lookAt": [
+            0,
+            0.68,
+            -1.65
+          ],
+          "cameraY": 4.65,
+          "cameraPitchDeg": 15.64,
+          "frontalCharacterStaging": true
+        }
+      }
+    },
+    {
+      "view": "desktop",
+      "batch": [
+        "E01",
+        "E02",
+        "E03",
+        "E04"
+      ],
+      "visible": 8,
+      "pitch": 15.64
+    },
+    {
+      "view": "desktop",
+      "batch": [
+        "G01",
+        "G02",
+        "G03",
+        "G04"
+      ],
+      "visible": 8,
+      "pitch": 15.64
+    },
+    {
+      "view": "desktop",
+      "batch": [
+        "M01",
+        "M02",
+        "T01",
+        "T02"
+      ],
+      "visible": 8,
+      "pitch": 15.64
+    },
+    {
+      "view": "desktop",
+      "batch": [
+        "T03",
+        "T04"
+      ],
+      "visible": 4,
+      "pitch": 15.64
+    },
+    {
+      "view": "phone",
+      "mode": "front",
+      "camera": {
+        "yaw": 0,
+        "targetYaw": 0,
+        "realDuelistBounds": [
+          {
+            "side": "player",
+            "id": "E01",
+            "screenRect": {
+              "left": -0.935,
+              "right": -0.797,
+              "bottom": -0.06,
+              "top": 0.104
+            },
+            "fullyVisible": true
+          },
+          {
+            "side": "ai",
+            "id": "G01",
+            "screenRect": {
+              "left": 0.802,
+              "right": 0.937,
+              "bottom": -0.06,
+              "top": 0.105
+            },
+            "fullyVisible": true
+          }
+        ],
+        "distance": 30.39,
+        "aspect": 0.478,
+        "podiums": {
+          "player": {
+            "x": -0.402,
+            "y": 0.04,
+            "front": true
+          },
+          "ai": {
+            "x": 0.402,
+            "y": 0.04,
+            "front": true
+          }
+        },
+        "composition": {
+          "ring": [
+            0,
+            -0.073,
+            0.997
+          ],
+          "arenaBack": [
+            0,
+            0.11,
+            0.998
+          ],
+          "stageFloor": [
+            0,
+            -0.166,
+            0.996
+          ],
+          "lookAt": [
+            0,
+            0.68,
+            -1.65
+          ],
+          "cameraY": 8.62,
+          "cameraPitchDeg": 14.31,
+          "frontalCharacterStaging": true
+        }
+      }
+    },
+    {
+      "view": "phone",
+      "batch": [
+        "E01",
+        "E02",
+        "E03",
+        "E04"
+      ],
+      "visible": 8,
+      "pitch": 14.31
+    },
+    {
+      "view": "phone",
+      "batch": [
+        "G01",
+        "G02",
+        "G03",
+        "G04"
+      ],
+      "visible": 8,
+      "pitch": 14.31
+    },
+    {
+      "view": "phone",
+      "batch": [
+        "M01",
+        "M02",
+        "T01",
+        "T02"
+      ],
+      "visible": 8,
+      "pitch": 14.31
+    },
+    {
+      "view": "phone",
+      "batch": [
+        "T03",
+        "T04"
+      ],
+      "visible": 4,
+      "pitch": 14.31
+    }
+  ],
+  "frontalDots": {
+    "E01:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "E01:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "E02:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "E02:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "E03:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "E03:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "E04:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "E04:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "G01:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "G01:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "G02:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "G02:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "G03:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "G03:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "G04:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "G04:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "M01:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "M01:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "M02:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "M02:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "T01:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "T01:ai": {
+      "opponentDot": 0.609159243329415,
+      "spectatorDot": 0.7930479281016594
+    },
+    "T02:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "T02:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "T03:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "T03:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "T04:player": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    },
+    "T04:ai": {
+      "opponentDot": 0.6091592433294148,
+      "spectatorDot": 0.7930479281016595
+    }
+  }
+}

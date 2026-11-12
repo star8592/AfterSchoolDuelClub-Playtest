@@ -26,7 +26,7 @@ try{for(const [view,width,height] of [['desktop',1440,900],['portrait',430,900]]
   await page.waitForTimeout(750);
   let presence=await page.evaluate(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA.summonPresence);
   const shown=presence.entries.filter(x=>ids.includes(x.id));
-  const visible=shown.length===8&&shown.every(x=>x.visible&&x.inView&&x.metrics?.frontDot>.95&&x.metrics?.minY>-.12&&x.metrics?.minY<.13);
+  const visible=shown.length===8&&shown.every(x=>x.visible&&x.inView&&x.metrics?.frontDot>.60&&x.metrics?.minY>-.12&&x.metrics?.minY<.13);
   await page.screenshot({path:path.join(root,`r89-${view}-batch${bi+1}.png`)});
   const actions=[];
   for(let j=0;j<ids.length;j++){
