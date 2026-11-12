@@ -5,6 +5,7 @@
  */
 import {BY_ID,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
+import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
 
 const $=id=>document.getElementById(id);
@@ -25,6 +26,7 @@ function sayHostOnce(side){
 }
 
 let selected=null,sceneReady=false,sceneError=false,lastToast='',lastFightSerial=0;
+const comboAudioReceipts=new Set();
 const styleName={ember:'活力',grove:'创意',tide:'默契'};
 const pictogram={
  E02:'➤',E03:'⚑',E04:'★',
@@ -285,6 +287,9 @@ function advanceLesson(){
  if(level===LESSONS.length){location.assign(freeDuelUrl().href);return;}
  // A fresh lesson is a fresh actual duel instance. The stadium itself stays
  // mounted, avoiding repeat 70MB VRM/GLB downloads between chapters.
+ // Stop the previous chapter's props immediately; no effect leaks into the next one.
+ sendScene({type:'ASDC_R100_COMBO_RESET'});
+ comboAudioReceipts.clear();
  g=createTutorialGame(level+1,seed+level);
  selected=null;lastFightSerial=0;
  hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
@@ -325,6 +330,20 @@ function sendScene(msg){
  scene.contentWindow.postMessage(msg,location.origin);
  return true;
 }
+// R100: only genuine events written by engine.mjs can launch a 3D school
+// comedy cinematic. The director receives read-only outcome metadata and
+// never gets a reference to the mutable game state.
+function presentRealCombos(sinceSerial){
+ for(const raw of g.events.filter(e=>e.type==='combo_effect'&&e.serial>sinceSerial)){
+  const event=normalizeRealCombo(raw);
+  if(!event)throw Error('R100 real combo contract invalid: '+raw.effect);
+  sendScene({type:'ASDC_R100_REAL_COMBO',event:raw,
+   chapter:tutorialMode?g.tutorial.level:0});
+  // Character/card gesture audio happens immediately; the impact cue
+  // arrives from the real 3D payoff frame, not a timer or guessed duration.
+ }
+}
+
 function updateCameraAngle(angle){
  const node=$('camera-angle');
  if(node)node.textContent=Math.round(angle)+'°';
@@ -439,6 +458,7 @@ $('play').addEventListener('click',()=>{
  if(tutorialMode&&tutorialStatus(g).completed){advanceLesson();return;}
  if(g.phase==='ended'){showResult();return;}
  if(selected===null||!cardCanPlay(selected))return;
+ const previousSerial=g.serial;
  const id=g.hand.player[selected],c=BY_ID[id],preHp={...g.hp},
    result=tutorialMode?playTutorialCard(g,selected,0):playCard(g,selected,0);
  if(!result.ok){
@@ -446,6 +466,7 @@ $('play').addEventListener('click',()=>{
  }
  selected=null;
  render();syncScene();
+ presentRealCombos(previousSerial);
  audio.playCue(cardSound(c),'player');
  projectPlayedCard(id,'player');
  audio.playCue('card_flip','player');
@@ -489,6 +510,7 @@ $('end').addEventListener('click',()=>{
  const fresh=g.events.filter(e=>e.serial>serial);
  selected=null;
  render();syncScene();
+ presentRealCombos(serial);
  for(const side of ['player','ai']){
   const delta=Math.max(0,preHp[side]-g.hp[side]);
   // An AI spell already has its own precise impact event; don't count it a
@@ -571,6 +593,20 @@ window.addEventListener('message',event=>{
   sceneReady=false;sceneError=true;
   render();
   announce('三维人物没有加载成功，出牌已暂停。请在竞技场中点击重新加载。','error');
+  return;
+ }
+ if(event.data?.type==='ASDC_R100_COMBO_IMPACT'){
+  const {serial,effect,side,chapter}=event.data;
+  const key=chapter+':'+side+':'+serial+':'+effect;
+  const raw=g.events.find(e=>e.type==='combo_effect'&&e.serial===serial&&
+   e.side===side&&e.effect===effect);
+  if(raw&&chapter===(tutorialMode?g.tutorial.level:0)&&
+     normalizeRealCombo(raw)&&!comboAudioReceipts.has(key)){
+   comboAudioReceipts.add(key);
+   const cue=effect.startsWith('chalk')?'meteor_impact':
+    effect==='broadcast_draw'?'sonic_wave':'shield_block';
+   audio.playCue(cue,side);
+  }
   return;
  }
  if(event.data?.type==='ASDC_R45_FIGHT_ACCEPTED'){
