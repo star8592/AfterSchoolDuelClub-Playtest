@@ -732,18 +732,36 @@ function exposeQA(){
    source:'INDEPENDENT_CORE_GENERATED_DEMO_NOT_CURRENT_MATCH'});}
  }});
 }
+let loadedRealResources=0;
+const loadedResourceIds=new Set();
+function verifiedModelLoaded(id){
+ if(loadedResourceIds.has(id))return;
+ loadedResourceIds.add(id);loadedRealResources++;
+ const count=$('load-count'),bar=$('load-progress');
+ if(count)count.textContent='已验证 '+loadedRealResources+' / 14 个三维人物资源';
+ if(bar){bar.value=loadedRealResources;bar.textContent=loadedRealResources+'/14';}
+}
 try{
  makeScene();
- actors=await Promise.all(MODEL_SPECS.map(loadActor));
+ actors=await Promise.all(MODEL_SPECS.map(async(spec,idx)=>{
+  const actor=await loadActor(spec,idx);
+  verifiedModelLoaded('VRM:'+spec.id);
+  return actor;
+ }));
  source3DAssetsVerified=actors[0].source==='Shino-original-CC0.vrm'&&
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
  makeDuelistHosts();
- summonModels=await preloadSummonModels(THREE,new GLTFLoader());
+ summonModels=await preloadSummonModels(THREE,new GLTFLoader(),{
+  onLoaded:({id})=>verifiedModelLoaded('GLB:'+id)
+ });
+ if(loadedRealResources!==14||summonModels.size!==12)
+  throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/14');
  summonPresence=createSummonPresence(THREE,scene,{actors,prototypes:summonModels});
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
+ $('load-explain').textContent='14 / 14 个真实模型已载入，正在绘制首次完整体育馆画面…';
  exposeQA();
  const warmupStarted=performance.now();
  let warmupFrames=0;

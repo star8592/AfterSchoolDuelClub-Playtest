@@ -1,0 +1,207 @@
+{
+  "schema": "R101-LIVE-COMMERCIAL-ASSETS-1",
+  "as_of": "2026-11-12",
+  "scope": "Only exact active 14 VRM/GLB model selections, plus Qwen and PBR source categories. Historical alternatives and tool modules not fully audited.",
+  "not_a_legal_opinion": true,
+  "commercial_final_signoff": false,
+  "game_card_count": 20,
+  "active_3d_models": 14,
+  "active_3d_total_bytes": 123923080,
+  "character_assets": [
+    {
+      "card_id": "E01",
+      "file": "r45-duel/assets/model/Shino-original-CC0.vrm",
+      "size_bytes": 15074328,
+      "sha256": "1e177c1a7b14f783a9c48395831db8616260d3bddd4154cb2784b779adca49b5",
+      "source": "Original Shino VRM",
+      "claimed_license": "CC0 claimed in filename, origin missing",
+      "source_url": "",
+      "status": "PENDING_PROVENANCE",
+      "todo_before_paid_launch": "Locate original creator/license receipt and the exact VRM source hash",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "E02",
+      "file": "r45-duel/assets/summons/E02-PaperPlane-R57.glb",
+      "size_bytes": 632268,
+      "sha256": "39ea3edd5e365210e94530c7f1b23cf0d490417a9b5f655be2dbf33e0b7a5478",
+      "source": "Project paper-plane study",
+      "claimed_license": "Project-owned provisional artwork",
+      "source_url": "",
+      "status": "PENDING_TEXTURE_REVIEW",
+      "todo_before_paid_launch": "Prove every embedded paper/texture input is original or cleared",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "E03",
+      "file": "r45-duel/assets/summons/E03-Ellie-Landing-R97.glb",
+      "size_bytes": 8845968,
+      "sha256": "5b99927f770926ef2c0045e0df11c845a27ce1b93517dc0e90b235dc86091d1e",
+      "source": "Ellie — Blender Studio",
+      "claimed_license": "CC BY 4.0",
+      "source_url": "https://studio.blender.org/characters/ellie/v1/",
+      "status": "UPSTREAM_LICENSE_VERIFIED",
+      "todo_before_paid_launch": "Preserve original attribution and document precise GLB conversion/hashes",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "E04",
+      "file": "r45-duel/assets/summons/E04-Phil-Landing-R97.glb",
+      "size_bytes": 3670340,
+      "sha256": "67fef013407e35adbc207dfa86a3fd259cdbe047f4f4fae8541113c515910e7a",
+      "source": "Phil — Blender Studio",
+      "claimed_license": "CC BY 4.0",
+      "source_url": "https://studio.blender.org/characters/phil/v1/",
+      "status": "UPSTREAM_LICENSE_VERIFIED",
+      "todo_before_paid_launch": "Preserve original attribution and document precise GLB conversion/hashes",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "G01",
+      "file": "r45-duel/assets/model/Fumiriya-original-CC0.vrm",
+      "size_bytes": 19342280,
+      "sha256": "d8fb05f33e377df028cb6b9d58c441ce68326c41fa23f6c735d40c65ae3dc710",
+      "source": "Original Fumiriya VRM",
+      "claimed_license": "CC0 claimed in filename, origin missing",
+      "source_url": "",
+      "status": "PENDING_PROVENANCE",
+      "todo_before_paid_launch": "Locate original creator/license receipt and the exact VRM source hash",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "G02",
+      "file": "r45-duel/assets/summons/G02-Snow-Landing-R97.glb",
+      "size_bytes": 14616772,
+      "sha256": "a57cd54bdbc79991621e9d37aa1cc66b5d8cb173edfb5de5d66df31b2a006bac",
+      "source": "Snow — Blender Studio",
+      "claimed_license": "CC BY 4.0",
+      "source_url": "https://studio.blender.org/characters/snow/v4/",
+      "status": "UPSTREAM_LICENSE_VERIFIED",
+      "todo_before_paid_launch": "Preserve original attribution and document precise GLB conversion/hashes",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "G03",
+      "file": "r45-duel/assets/summons/G03-Jay-Landing-R97.glb",
+      "size_bytes": 6491140,
+      "sha256": "bbc5611dba4e3453467c55a00a60a6eeec55cb535e8c16d5add93da20c909e3c",
+      "source": "Jay — Blender Studio",
+      "claimed_license": "CC BY 4.0",
+      "source_url": "https://studio.blender.org/characters/jay/v1/",
+      "status": "UPSTREAM_LICENSE_VERIFIED",
+      "todo_before_paid_launch": "Preserve original attribution and document precise GLB conversion/hashes",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "G04",
+      "file": "r45-duel/assets/summons/G04-Victoria-Landing-R97.glb",
+      "size_bytes": 10249516,
+      "sha256": "331579db0d20c1262dbf9ca036f8c2e46192c39e9db7667ca7729c4d557990b2",
+      "source": "Victoria — Blender Studio",
+      "claimed_license": "CC BY 4.0",
+      "source_url": "https://studio.blender.org/characters/victoria/v1/",
+      "status": "UPSTREAM_LICENSE_VERIFIED",
+      "todo_before_paid_launch": "Preserve original attribution and document precise GLB conversion/hashes",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "M01",
+      "file": "r45-duel/assets/summons/M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "size_bytes": 836836,
+      "sha256": "1df7f472476de641a015e7dd7172d6a2d3d28e753ee78294add6838414de89e7",
+      "source": "School Teacher — Polyfork",
+      "claimed_license": "Free mesh CC BY 4.0 per general licensing page",
+      "source_url": "https://polyfork.dev/licensing",
+      "status": "SOURCE_MATCH_PENDING",
+      "todo_before_paid_launch": "Find exact School Teacher product page and prove asset is free CC BY mesh, not HD/module edition",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "M02",
+      "file": "r45-duel/assets/summons/M02-CafeteriaAunt-ChefHat-Spatula-R99.glb",
+      "size_bytes": 2869280,
+      "sha256": "f3010ff08c6a052ec38f057a5d8c1ee9a2dc28eee173831f619719d9a99da24f",
+      "source": "Cafeteria Aunt, R99 bone-attached costume",
+      "claimed_license": "CC0 claimed for original R76 without original source URL",
+      "source_url": "",
+      "status": "SOURCE_MATCH_PENDING",
+      "todo_before_paid_launch": "Locate CC0 original model URL & SHA and prove upstream embedded textures; R99 hat/spatula authored in repo",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "T01",
+      "file": "r45-duel/assets/summons/T01-Owl-Innerscene-R84.glb",
+      "size_bytes": 20671040,
+      "sha256": "c11c94db20065c6c6f252e768e8c748f22dc69ef9b4e7199110b96de0625c12e",
+      "source": "Owl — Innerscene original 3D part",
+      "claimed_license": "CC0 1.0",
+      "source_url": "https://www.innerscene.com/tools/library/3d-parts/owl-d696472a",
+      "status": "UPSTREAM_LICENSE_VERIFIED",
+      "todo_before_paid_launch": "Archive source page plus original-versus-current GLB mesh/texture hashes",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "T02",
+      "file": "r45-duel/assets/summons/T02-LivingMenu-R59.glb",
+      "size_bytes": 2519624,
+      "sha256": "4bc18a506143786deaa86d5a807336dafb1a4afc2d217e496f49b10a6255a43a",
+      "source": "Living Menu — original project illustration",
+      "claimed_license": "Project-owned provisional animated menu",
+      "source_url": "",
+      "status": "PENDING_TEXTURE_REVIEW",
+      "todo_before_paid_launch": "Clear/replace underlying illustrated texture layers before commercial launch",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "T03",
+      "file": "r45-duel/assets/summons/T03-Rain-Landing-R97.glb",
+      "size_bytes": 10312392,
+      "sha256": "075e6a3aa1cb1a69ebcdf927039cf93d34a017610e26ec61494e682f4a6cae5c",
+      "source": "Rain — Blender Studio",
+      "claimed_license": "CC BY 4.0",
+      "source_url": "https://studio.blender.org/characters/rain/v3/",
+      "status": "UPSTREAM_LICENSE_VERIFIED",
+      "todo_before_paid_launch": "Preserve original attribution and document precise GLB conversion/hashes",
+      "commercial_final_approval": false
+    },
+    {
+      "card_id": "T04",
+      "file": "r45-duel/assets/summons/T04-Rex-Landing-R97.glb",
+      "size_bytes": 7791296,
+      "sha256": "86d06b51a25c7579c1692c3ddce7bbeafa99f51dc30c4fbc57d3a26d0b5627fa",
+      "source": "Rex — Blender Studio",
+      "claimed_license": "CC BY 4.0",
+      "source_url": "https://studio.blender.org/characters/rex/v1/",
+      "status": "UPSTREAM_LICENSE_VERIFIED",
+      "todo_before_paid_launch": "Preserve original attribution and document precise GLB conversion/hashes",
+      "commercial_final_approval": false
+    }
+  ],
+  "additional_assets": [
+    {
+      "name": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "license": "Apache-2.0 stated on official Hugging Face model page",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "files_verified_sha256": 98,
+      "todo": "Voice/speaker provenance and complete human listening review remain; no assumption of rights in third-party reference voices"
+    },
+    {
+      "name": "Gym floor WoodFloor045 1K",
+      "license": "CC0 stated on ambientCG page",
+      "source_url": "https://ambientcg.com/view?id=WoodFloor045",
+      "todo": "Original 1K JPG color/normal/roughness source files referenced by existing textures LICENSE.txt"
+    },
+    {
+      "name": "Background music / SFX",
+      "license": "Project-authored per R70 source comments; license chain not independently proven",
+      "source_url": "",
+      "todo": "Record DAW source files/composition ownership and samples before paid commercial distribution"
+    }
+  ],
+  "release_caveats": [
+    "Public playtest ≠ commercial clearance",
+    "CC BY demands attribution, source and modifications",
+    "All 98 voice clips include SHA check but review_status still pending-human-listening",
+    "All old rollback 3D assets hosted in the public repository must also be audited before full commercial distribution"
+  ]
+}

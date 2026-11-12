@@ -1,0 +1,75 @@
+{
+  "origin": "http://127.0.0.1:11101",
+  "ok": true,
+  "checks": [
+    {
+      "pass": true,
+      "name": "same original engine ends authentic match, no synthetic win",
+      "detail": {
+        "clicks": 5,
+        "phase": "ended",
+        "hp": {
+          "player": 0,
+          "ai": 20
+        },
+        "winner": "ai"
+      }
+    },
+    {
+      "pass": true,
+      "name": "result shows accessible Share and Feedback actions",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "copied challenge link preserves same deterministic seed for friends",
+      "detail": {
+        "clipboard": "放学后决斗社同局挑战：我打到了第 5 回合，剩余人气 0:20。同一副起始牌，敢不敢来比一局？ http://127.0.0.1:11101/r45-duel/?seed=1&ref=challenge"
+      }
+    },
+    {
+      "pass": true,
+      "name": "real match feedback includes seed and actual scores",
+      "detail": {
+        "issue": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/issues/new?title=%5B%E8%AF%95%E7%8E%A9%E5%8F%8D%E9%A6%88%5D+%E7%AC%AC+5+%E5%9B%9E%E5%90%88+%C"
+      }
+    },
+    {
+      "pass": true,
+      "name": "sharing does not break R91 real rematch and new seed",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "name": "new visit uses valid random seed even without opening assets",
+      "detail": 1427840720
+    },
+    {
+      "pass": true,
+      "name": "new visit uses valid random seed even without opening assets",
+      "detail": 461864283
+    },
+    {
+      "pass": true,
+      "name": "two independent visits are not forced into identical first-hand seed",
+      "detail": [
+        1427840720,
+        461864283
+      ]
+    }
+  ],
+  "errors": [],
+  "state": {
+    "terminal": {
+      "clicks": 5,
+      "phase": "ended",
+      "hp": {
+        "player": 0,
+        "ai": 20
+      },
+      "winner": "ai"
+    },
+    "copy": "放学后决斗社同局挑战：我打到了第 5 回合，剩余人气 0:20。同一副起始牌，敢不敢来比一局？ http://127.0.0.1:11101/r45-duel/?seed=1&ref=challenge",
+    "issue": "https://github.com/star8592/AfterSchoolDuelClub-Playtest/issues/new?title=%5B%E8%AF%95%E7%8E%A9%E5%8F%8D%E9%A6%88%5D+%E7%AC%AC+5+%E5%9B%9E%E5%90%88+%C"
+  }
+}

@@ -1,2 +1,10 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /r45-duel/assets/
+Disallow: /r45-duel/qa/
+Disallow: /r45-duel/art-lab/
+Disallow: /r59-e02-native/
+Disallow: /r60-e02-paper/
+Disallow: /r67-t02-duo/
+Disallow: /r68-t02-fit/
+Sitemap: https://star8592.github.io/AfterSchoolDuelClub-Playtest/sitemap.xml

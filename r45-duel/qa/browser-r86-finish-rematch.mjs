@@ -13,7 +13,10 @@ page.on('pageerror',e=>report.errors.push(e.message));
 const assert=(ok,name,extra={})=>{report.cases.push({name,pass:!!ok,...extra});if(!ok)throw new Error('FAILED: '+name)};
 try{
  await page.goto(origin+'/r45-duel/?seed=1&qa=1',{waitUntil:'domcontentloaded',timeout:90000});
- await page.waitForFunction(()=>window.__r45QA?.phase==='playing',{timeout:30000});
+ // R101 retains the strict genuine 2-VRM + 12-GLB rendering gate.
+ // Engine phase can be playing while the truthful progress meter is below 14/14.
+ await page.waitForFunction(()=>window.__r45QA?.phase==='playing'&&
+  window.__r45QA?.sceneReady===true,{timeout:145000});
  assert(await page.locator('#result-overlay').isHidden(),'result panel not visible in active match');
  assert(await page.locator('#end').isEnabled(),'end turn button initially enabled');
  const terminal=await page.evaluate(()=>{
@@ -47,7 +50,10 @@ try{
  assert(await page.locator('#result-overlay').isVisible(),'result can reopen from bottom controls');
  await page.locator('#result-rematch').click();
  await page.waitForURL(/seed=2/,{timeout:90000});
- await page.waitForFunction(()=>window.__r45QA?.phase==='playing',{timeout:30000});
+ // R101 retains the strict genuine 2-VRM + 12-GLB rendering gate.
+ // Engine phase can be playing while the truthful progress meter is below 14/14.
+ await page.waitForFunction(()=>window.__r45QA?.phase==='playing'&&
+  window.__r45QA?.sceneReady===true,{timeout:145000});
  const reset=await page.evaluate(()=>({
    hp:window.__r45QA.hp,round:window.__r45QA.round,
    board:window.__r45QA.board,
@@ -70,10 +76,17 @@ try{
 
  // Exercise a real player victory and a real tied turn-limit game from
  // deterministic seeds, using UI clicks rather than changing the engine state.
- for(const [scenarioSeed,expectedOutcome,width] of [[3,'player',1440],[32,'draw',430]]){
+ // Current 20-card engine's deterministic first-legal-move policy produces
+ // real player wins on seed 6 and an HP-equal tie on seed 28. R91's old seed
+ // 3/32 expectations came from a different historic card/AI rule baseline;
+ // never force game rules to match stale QA seed assumptions.
+ for(const [scenarioSeed,expectedOutcome,width] of [[6,'player',1440],[28,'draw',430]]){
   await page.setViewportSize({width,height:900});
   await page.goto(origin+'/r45-duel/?seed='+scenarioSeed+'&qa=1',{waitUntil:'domcontentloaded',timeout:90000});
-  await page.waitForFunction(()=>window.__r45QA?.phase==='playing',{timeout:30000});
+  // R101 retains the strict genuine 2-VRM + 12-GLB rendering gate.
+ // Engine phase can be playing while the truthful progress meter is below 14/14.
+ await page.waitForFunction(()=>window.__r45QA?.phase==='playing'&&
+  window.__r45QA?.sceneReady===true,{timeout:145000});
   const simulated=await page.evaluate(()=>{
    let actions=0;
    while(window.__r45QA.phase==='playing'&&actions<250){
@@ -107,7 +120,7 @@ try{
   assert(displayed.width<=width,'result dialog fits viewport '+width+'px',{width,actual:displayed.width});
   await page.screenshot({path:resolve(dir,'result-'+expectedOutcome+'-'+width+'.png')});
   await page.locator('#result-rematch').click();
-  await page.waitForFunction(()=>window.__r45QA?.round===1&&window.__r45QA?.phase==='playing',{timeout:30000});
+  await page.waitForFunction(()=>window.__r45QA?.round===1&&window.__r45QA?.phase==='playing'&&window.__r45QA?.sceneReady===true,{timeout:145000});
   assert(await page.locator('#result-overlay').isHidden(),
    'rematch succeeds after '+expectedOutcome);
  }

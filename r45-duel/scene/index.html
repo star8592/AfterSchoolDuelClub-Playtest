@@ -10,6 +10,10 @@ canvas{display:block;width:100%;height:100%}
 #loading[hidden]{display:none}
 #loading[data-error="true"]{background:#15253bf0}
 #loading .load-error{max-width:560px;line-height:1.6;overflow-wrap:anywhere}
+#load-progress{width:min(370px,82vw);height:12px;accent-color:#f7c87f}
+#load-progress[hidden]{display:none}
+#load-count{font:800 17px system-ui,sans-serif;color:#ffe0a3}
+#load-explain{font:12px system-ui,sans-serif;color:#bad0d8;max-width:min(460px,84vw);line-height:1.7}
 #retry-scene{padding:12px 23px;min-height:48px;min-width:170px;
  border:1px solid #ffe6ad;border-radius:10px;background:#f2bf72;color:#15263d;
  font:800 16px system-ui,sans-serif;cursor:pointer;box-shadow:0 6px 20px #0007}
@@ -52,6 +56,11 @@ canvas{display:block;width:100%;height:100%}
   <span id="combo-caption" hidden></span>
   <button id="skip-combo" type="button" hidden>跳过演出</button>
 </div>
-<div id="loading" role="status">正在加载体育馆、两名 VRM 人物与另外十种真实三维召唤物…</div>
+<div id="loading" role="status">
+  <strong>正在载入真实三维人物与体育馆</strong>
+  <span id="load-count">已完成 0 / 14 个三维人物资源</span>
+  <progress id="load-progress" value="0" max="14" aria-label="已验证的三维模型加载进度">0/14</progress>
+  <span id="load-explain">首次需要较大的模型文件；只在实际模型完整加载并验证通过后累计。请使用稳定网络，出牌前会严格检查。</span>
+</div>
 <script type="module" src="./scene.mjs"></script>
 </body></html>
