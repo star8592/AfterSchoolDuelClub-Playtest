@@ -10,7 +10,49 @@ const SOUNDS=Object.freeze({
  card_flip:'card_flip.ogg',spell_charge:'spell_charge.ogg',
  meteor_impact:'meteor_impact.ogg',sonic_wave:'sonic_wave.ogg',
  ice_shatter:'ice_shatter.ogg',stadium_cheer:'stadium_cheer.ogg',
- score_chime:'score_chime.ogg',shield_block:'shield_block.ogg'
+ score_chime:'score_chime.ogg',shield_block:'shield_block.ogg',
+ r102_school_bell:'r102_school_bell.ogg',
+ r102_chalk_swoosh:'r102_chalk_swoosh.ogg',
+ r102_chalk_snap:'r102_chalk_snap.ogg',
+ r102_paper_flap:'r102_paper_flap.ogg',
+ r102_poster_unfurl:'r102_poster_unfurl.ogg',
+ r102_stamp_pop:'r102_stamp_pop.ogg',
+ r102_radio_tune:'r102_radio_tune.ogg',
+ r102_radio_glitch:'r102_radio_glitch.ogg',
+ r102_spring_boing:'r102_spring_boing.ogg',
+ r102_comedy_whistle:'r102_comedy_whistle.ogg',
+ r102_magic_tingle:'r102_magic_tingle.ogg',
+ r102_confetti_pop:'r102_confetti_pop.ogg',
+ r102_school_steps:'r102_school_steps.ogg',
+ r102_music_gliss:'r102_music_gliss.ogg',
+ r102_erase_scribble:'r102_erase_scribble.ogg',
+ r102_hearts_pulse:'r102_hearts_pulse.ogg',
+ r102_shield_chime:'r102_shield_chime.ogg',
+ r102_crowd_gasp:'r102_crowd_gasp.ogg',
+ r102_score_trumpet:'r102_score_trumpet.ogg',
+ r102_rubber_squeak:'r102_rubber_squeak.ogg'
+});
+// R102 original, local, digitally authored school-comedy Foley.
+ // Every set follows a genuine engine/card presentation event. Layers are
+ // scheduled by the same WebAudio clock, never by a fragile 460ms timeout.
+export const COMIC_BEATS=Object.freeze({
+ 'summon_ember':[['r102_school_steps',0,.95,.50],['r102_spring_boing',.08,1.06,.52]],
+ 'summon_grove':[['r102_erase_scribble',0,.90,.58],['r102_magic_tingle',.12,1.05,.36]],
+ 'summon_tide':[['r102_paper_flap',0,1,.54],['r102_music_gliss',.12,.96,.39]],
+ 'spell_buff':[['r102_comedy_whistle',0,1.08,.56],['r102_confetti_pop',.23,1.15,.32]],
+ 'spell_blast':[['r102_chalk_swoosh',0,.95,.58],['r102_chalk_snap',.23,.92,.7]],
+ 'spell_repair':[['r102_erase_scribble',0,.90,.46],['r102_stamp_pop',.19,1.02,.55]],
+ 'spell_draw':[['r102_paper_flap',0,1.0,.63],['r102_magic_tingle',.18,1.12,.35]],
+ 'spell_heal':[['r102_hearts_pulse',0,.92,.48],['r102_shield_chime',.15,1.12,.42]],
+ 'spell_confuse':[['r102_radio_tune',0,1.02,.55],['r102_radio_glitch',.17,.83,.50]],
+ 'combo_chalk_hit':[['r102_chalk_swoosh',0,1,.68],['r102_chalk_snap',.065,1.03,.70],['r102_crowd_gasp',.17,.88,.33]],
+ 'combo_chalk_direct':[['r102_comedy_whistle',0,1.1,.55],['r102_chalk_snap',.1,1.06,.72]],
+ 'combo_broadcast_draw':[['r102_radio_tune',0,1.02,.70],['r102_radio_glitch',.10,1,.40],['r102_school_bell',.24,1.12,.36]],
+ 'combo_poster_shield':[['r102_poster_unfurl',0,.98,.60],['r102_stamp_pop',.11,.90,.52],['r102_shield_chime',.20,.92,.47]],
+ 'combo_poster_draw':[['r102_paper_flap',0,1,.51],['r102_magic_tingle',.14,1.04,.48]],
+ 'direct_hit':[['r102_score_trumpet',0,.93,.48],['r102_crowd_gasp',.19,1.08,.32]],
+ 'actual_exchange':[['r102_school_steps',0,1.13,.38],['r102_rubber_squeak',.15,.88,.30]],
+ 'game_finish':[['r102_score_trumpet',0,1,.54],['r102_confetti_pop',.25,1,.51]]
 });
 const VOICE_MODEL='Qwen3-TTS';
 export const MUSIC_TRACKS=Object.freeze([
@@ -44,7 +86,7 @@ function savedVolume(){
  }catch{return {...defaults}}
 }
 
-export function createDuelAudio(){
+export function createDuelAudio({onVoiceLine}={}){
  let requested=savedSoundIntent(),enabled=false,ctx=null,decoded=new Map(),voiceManifest={clips:{}},voiceAudio=null;
  let assetsLoading=null,assetsReady=false,musicAttemptInFlight=false;
  const pendingCues=[],pendingVoices=[];
@@ -53,6 +95,8 @@ export function createDuelAudio(){
  let fadingMusic=null,fadeRatio=1,musicTransitionToken=0;
  let musicCycle=0,openingSeed=0,lastBattleMusicKey='',lastMusicChangeAt=-Infinity;
  const musicHistory=[],voiceVariantHistory=[],variantBags=new Map(),lastVoiceVariant=new Map(),recentVariants=new Map();
+ const speechHistory=[],comicBeatHistory=[];
+ let lastSpoken=null;
 
  let activeSfx=0,voiceQueue=[],currentVoiceKey=null;
  const recentVoiceKeys=new Map();
@@ -139,7 +183,7 @@ export function createDuelAudio(){
  function flushPending(){
   if(!requested||!enabled)return;
   for(const item of pendingCues.splice(0,8))
-    playCue(item.key,item.side);
+    playCue(item.key,item.side,item.options);
   if(voiceManifest.clips){
     for(const item of pendingVoices.splice(0,3))
       playCharacter(item.id,item.kind);
@@ -192,17 +236,20 @@ export function createDuelAudio(){
   if(channel==='voice'&&voiceAudio)voiceAudio.volume=volume.voice;
   log('volume',channel+':'+volume[channel]);
  }
- function playCue(key,side='center'){
+ function playCue(key,side='center',{rate=1,delay=0,gainScale=1}={}){
   if(!requested||!SOUNDS[key]||volume.sfx===0)return false;
   if(!enabled||!ctx||!decoded.has(key)){
-    if(pendingCues.length<8)pendingCues.push({key,side});
+    if(pendingCues.length<8)pendingCues.push({key,side,options:{rate,delay,gainScale}});
     return true;
   }
   try{
    const source=ctx.createBufferSource(),gain=ctx.createGain();
    source.buffer=decoded.get(key);
    const simultaneous=activeSfx>=5;
-   gain.gain.value=volume.sfx*(simultaneous?.25:.57);
+   const level=volume.sfx*(simultaneous?.25:.57)*
+    Math.max(0,Math.min(1.1,Number(gainScale)||0));
+   gain.gain.value=level;
+   source.playbackRate.value=Math.max(.65,Math.min(1.55,Number(rate)||1));
    source.connect(gain);
    let panner=null;
    if(ctx.createStereoPanner){
@@ -214,8 +261,26 @@ export function createDuelAudio(){
     activeSfx=Math.max(0,activeSfx-1);
     source.disconnect();gain.disconnect();panner?.disconnect();
    };
-   source.start();counters.cue++;log('cue',key+':'+side);return true;
+   source.start(ctx.currentTime+Math.max(0,Math.min(.48,Number(delay)||0)));
+   counters.cue++;log('cue',key+':'+side);return true;
   }catch(e){counters.errors++;log('cue-play-error',String(e));return false}
+ }
+ // Musical layers share the audio-clock: repeated cards vary pitch gently,
+ // with an authored limit of three sound instances, preserving mix headroom.
+ function playComicBeat(type,side='center',serial=1){
+  const pattern=COMIC_BEATS[type];
+  if(!pattern||!requested||volume.sfx<=0)return false;
+  const n=Number.isInteger(serial)&&serial>0?serial:1;
+  const pitch=1+((n%7)-3)*.016;
+  let count=0;
+  for(const [key,delay,rate,gainScale] of pattern){
+   if(playCue(key,side,{rate:rate*pitch,delay,gainScale}))count++;
+  }
+  if(count){
+   comicBeatHistory.push({type,side,serial:n,layers:count});
+   if(comicBeatHistory.length>60)comicBeatHistory.shift();
+  }
+  return count>0;
  }
  // Never overlap character speech: a brief queue keeps AI multi-summons
  // intelligible. Real attacks interrupt the weaker entrance line immediately.
@@ -249,7 +314,7 @@ export function createDuelAudio(){
  }
  function playQueuedVoice(){
   if(!enabled||voiceAudio||voiceQueue.length===0)return;
-  const {id,kind,file,variant}=voiceQueue.shift();
+  const {id,kind,file,variant,text,duration_seconds}=voiceQueue.shift();
   const a=new Audio(base+'voices/'+file+'?mix=r99');
   voiceAudio=a;currentVoiceKey=id+':'+kind;
   a.volume=volume.voice;a.preload='auto';
@@ -265,7 +330,14 @@ export function createDuelAudio(){
   a.addEventListener('error',()=>{counters.errors++;done()},{once:true});
   try{
    a.play().then(()=>{
-    if(voiceAudio===a){counters.voice++;log('voice',id+':'+kind)}
+    if(voiceAudio===a){
+     counters.voice++;log('voice',id+':'+kind);
+     lastSpoken={id,kind,variant,text,duration_seconds};
+     speechHistory.push(lastSpoken);
+     if(speechHistory.length>60)speechHistory.shift();
+     if(typeof onVoiceLine==='function'&&typeof text==='string')
+      try{onVoiceLine({...lastSpoken})}catch(e){log('subtitle-error',String(e))}
+    }
    }).catch(e=>{
     // Expected AbortError when an attack intentionally preempts an entrance.
     if(voiceAudio!==a)return;
@@ -287,7 +359,7 @@ export function createDuelAudio(){
   if(now-(recentVoiceKeys.get(key)??-Infinity)<700)return false;
   recentVoiceKeys.set(key,now);
   if(recentVoiceKeys.size>45)recentVoiceKeys.clear();
-  const item={id,kind,file:clip.file,variant:clip.variant};
+  const item={id,kind,file:clip.file,variant:clip.variant,text:clip.text,duration_seconds:clip.duration_seconds};
   if(kind==='attack'||kind==='hurt'||kind==='cast'){
    // Attack VO must accompany the actual animation; cancel the old line,
    // leaving pending entrances behind this higher priority combat call.
@@ -383,8 +455,9 @@ export function createDuelAudio(){
   pendingCues:pendingCues.length,pendingVoices:pendingVoices.length,
   musicKind,musicDucked,musicTracks:[...MUSIC_TRACKS],
   musicHistory:[...musicHistory],voiceVariantHistory:[...voiceVariantHistory],
+  lastSpoken:lastSpoken?{...lastSpoken}:null,speechHistory:[...speechHistory],comicBeatHistory:[...comicBeatHistory],
   voicePlaying:!!voiceAudio,currentVoiceKey,
   voiceQueue:voiceQueue.map(x=>x.id+':'+x.kind),decodedCues:decoded.size,voiceClipCount:Object.keys(voiceManifest.clips||{}).length,
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
- return {prepare,unlock,turnOn,stop,setVolume,playCue,playCharacter,switchMusic,setOpeningMusic,musicForBattle,gameFinished,status};
+ return {prepare,unlock,turnOn,stop,setVolume,playCue,playComicBeat,playCharacter,switchMusic,setOpeningMusic,musicForBattle,gameFinished,status};
 }

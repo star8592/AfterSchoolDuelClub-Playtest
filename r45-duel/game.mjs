@@ -5,6 +5,7 @@
  */
 import {BY_ID,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
+import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
 
@@ -33,7 +34,37 @@ const requestedLevel=Number(params.get('level')??'1');
 const initialLevel=tutorialMode&&Number.isInteger(requestedLevel)&&requestedLevel>=1&&requestedLevel<=LESSONS.length?requestedLevel:1;
 let g=tutorialMode?createTutorialGame(initialLevel,seed):createGame(seed);
 const scene=$('stadium');
-const audio=createDuelAudio();
+const comedyScript=makeComedyScript(seed);
+let lastQwenSubtitle=null,spokenSubtitleCount=0,asideSeq=0,speechSeq=0;
+const asideHistory=[];
+function showSpokenLine(entry){
+ if(!entry||typeof entry.text!=='string'||!entry.text.trim())return;
+ const node=$('spoken-dialogue'),speaker=$('spoken-speaker'),words=$('spoken-words');
+ if(!node||!speaker||!words)return;
+ const name=BY_ID[entry.id]?.name||({
+  HOST_PLAYER:'我方决斗者',HOST_AI:'对方决斗者'})[entry.id]||entry.id;
+ speaker.textContent=name+' · Qwen3 角色配音';
+ words.textContent=entry.text;
+ node.dataset.side=entry.id==='HOST_AI'?'ai':'player';
+ node.hidden=false;spokenSubtitleCount++;
+ lastQwenSubtitle={...entry,name};
+ const serial=++speechSeq;
+ const ms=Math.max(950,Math.min(9500,Math.round((Number(entry.duration_seconds)||2.4)*1000)+450));
+ setTimeout(()=>{if(serial===speechSeq)node.hidden=true},ms);
+}
+function showComedyAside(line){
+ if(!line?.text)return;
+ const node=$('comedy-aside');
+ if(!node)return;
+ $('comedy-quip-text').textContent=line.text;
+ $('comedy-quip-speaker').textContent='校园场边吐槽 · 文字';
+ node.dataset.side=line.side||'center';
+ node.hidden=false;
+ const serial=++asideSeq;
+ asideHistory.push(line);if(asideHistory.length>90)asideHistory.shift();
+ setTimeout(()=>{if(serial===asideSeq)node.hidden=true},3000);
+}
+const audio=createDuelAudio({onVoiceLine:showSpokenLine});
 audio.setOpeningMusic(seed);
 const hostSpeechTurn={player:-1,ai:-1};
 function sayHostOnce(side){
@@ -44,6 +75,7 @@ function sayHostOnce(side){
 
 let selected=null,sceneReady=false,sceneError=false,lastToast='',lastFightSerial=0;
 const comboAudioReceipts=new Set();
+const combatAudioReceipts=new Set();
 const styleName={ember:'活力',grove:'创意',tide:'默契'};
 const pictogram={
  E02:'➤',E03:'⚑',E04:'★',
@@ -82,7 +114,11 @@ function paintSoundToggle(){
 }
 paintSoundToggle();
 soundToggle.addEventListener('click',()=>{
- if(audio.status().requested){audio.stop();paintSoundToggle();return}
+ if(audio.status().requested){
+  audio.stop();paintSoundToggle();
+  ++speechSeq;$('spoken-dialogue').hidden=true;
+  return;
+ }
  // This click is already an explicit playback user gesture.
  void audio.turnOn().catch(e=>console.warn('Game audio unavailable:',String(e)));
  paintSoundToggle();
@@ -307,6 +343,9 @@ function advanceLesson(){
  // Stop the previous chapter's props immediately; no effect leaks into the next one.
  sendScene({type:'ASDC_R100_COMBO_RESET'});
  comboAudioReceipts.clear();
+ combatAudioReceipts.clear();
+ ++asideSeq;++speechSeq;
+ $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  g=createTutorialGame(level+1,seed+level);
  selected=null;lastFightSerial=0;
  hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
@@ -356,6 +395,7 @@ function presentRealCombos(sinceSerial){
   if(!event)throw Error('R100 real combo contract invalid: '+raw.effect);
   sendScene({type:'ASDC_R100_REAL_COMBO',event:raw,
    chapter:tutorialMode?g.tutorial.level:0});
+  showComedyAside(comedyScript.forCombo(event));
   // Character/card gesture audio happens immediately; the impact cue
   // arrives from the real 3D payoff frame, not a timer or guessed duration.
  }
@@ -410,6 +450,8 @@ function showResult(){
  overlay.dataset.outcome=g.winner||'draw';
  $('result-title').textContent=outcome.title;
  $('result-summary').textContent=outcome.summary;
+ const ending=comedyScript.outcome(g.winner,g.serial);
+ $('result-comic').textContent=ending?.text||'';
  $('result-symbol').textContent=outcome.symbol;
  $('result-player-hp').textContent=String(g.hp.player);
  $('result-ai-hp').textContent=String(g.hp.ai);
@@ -479,10 +521,10 @@ $('result-review').addEventListener('click',()=>{
 });
 // A visually projected physical card from the correct side duelist platform.
 // This is a secondary presentation event; it never changes core rules.
-function projectPlayedCard(id,side='player'){
+function projectPlayedCard(id,side='player',serial=null){
  const card=BY_ID[id];if(!card)return;
  sendScene({type:'ASDC_R46_CARD_PLAY',side,id,name:card.name,
-   kind:card.kind,cost:card.cost});
+   kind:card.kind,cost:card.cost,serial});
 }
 function stateSummary(eventList){
  const newCards=eventList.filter(e=>e.type==='card_play'&&e.side==='ai');
@@ -525,9 +567,17 @@ $('play').addEventListener('click',()=>{
  }
  selected=null;
  render();syncScene();
+ const played=g.events.findLast(e=>e.type==='card_play'&&
+  e.side==='player'&&e.card===id&&e.serial>previousSerial);
+ if(!played)throw Error('Successful play must produce canonical card_play');
+ showComedyAside(c.kind==='unit'?
+  comedyScript.forCard(id,played.serial,'player'):
+  comedyScript.forSpell(id,played.serial,'player'));
  presentRealCombos(previousSerial);
  audio.playCue(cardSound(c),'player');
- projectPlayedCard(id,'player');
+ projectPlayedCard(id,'player',played.serial);
+ audio.playComicBeat(c.kind==='unit'?'summon_'+c.style:
+  'spell_'+c.effect,'player',played.serial);
  audio.playCue('card_flip','player');
  // The host announces once per turn, then the freshly summoned unit gets a
  // distinct entrance sentence. Previously host cast cut off every unit voice.
@@ -554,6 +604,7 @@ $('play').addEventListener('click',()=>{
   '已出牌：「'+c.name+'」。'+suffix+'　还可以继续出牌，或点击「结束回合」。','played');
  if(g.phase==='ended'){
   audio.gameFinished(g.winner);
+  audio.playComicBeat('game_finish',g.winner==='ai'?'ai':'player',g.serial);
   announce('决斗结束！'+(g.winner==='player'?'你赢了！':'AI 获胜。'),'ended');
  }
 });
@@ -589,7 +640,12 @@ $('end').addEventListener('click',()=>{
  for(const event of fresh.filter(e=>e.type==='card_play'&&e.side==='ai').slice(-3)){
   const enemyCard=BY_ID[event.card];
   audio.playCue(enemyCard?.kind==='unit'?'enemy_cast':cardSound(enemyCard),'ai');
-  projectPlayedCard(event.card,'ai');
+  projectPlayedCard(event.card,'ai',event.serial);
+  if(enemyCard)audio.playComicBeat(enemyCard.kind==='unit'?
+   'summon_'+enemyCard.style:'spell_'+enemyCard.effect,'ai',event.serial);
+  showComedyAside(enemyCard?.kind==='unit'?
+    comedyScript.forCard(event.card,event.serial,'ai'):
+    comedyScript.forSpell(event.card,event.serial,'ai'));
   sayHostOnce('ai');
   if(enemyCard?.kind==='unit')audio.playCharacter(event.card,'enter');
   if(enemyCard?.kind==='spell') {
@@ -615,6 +671,7 @@ $('end').addEventListener('click',()=>{
  if(clashes.length){
   audio.playCue('attack',clashes[0].side);
   audio.playCue('hit',clashes[0].side==='player'?'ai':'player');
+  showComedyAside(comedyScript.reply(clashes[0].side,clashes[0].serial));
   // Qwen3-TTS attack voice only for the actual attacker and when available.
   // The turn can contain many simultaneous exchanges. One intelligible
   // characteristic battle shout is better than three voices interrupting.
@@ -632,6 +689,7 @@ $('end').addEventListener('click',()=>{
  if(g.phase==='ended'){
   const endText=g.winner==='player'?'你赢得了对决！':g.winner==='ai'?'AI 获胜，再试一局！':'平局。';
   audio.gameFinished(g.winner);
+  audio.playComicBeat('game_finish',g.winner==='ai'?'ai':'player',g.serial);
   announce(endText+' '+summary,'ended');
  }else{
   audio.musicForBattle({round:g.round,playerHp:g.hp.player,aiHp:g.hp.ai,
@@ -665,6 +723,20 @@ window.addEventListener('message',event=>{
    const cue=effect.startsWith('chalk')?'meteor_impact':
     effect==='broadcast_draw'?'sonic_wave':'shield_block';
    audio.playCue(cue,side);
+   // Additional authored, layered sounds only on the verified R100
+   // actual 3D impact frame; skip-before-impact stays completely silent.
+   audio.playComicBeat('combo_'+effect,side,serial);
+  }
+  return;
+ }
+ if(event.data?.type==='ASDC_R102_COMBAT_IMPACT'){
+  const {serial,side,effect}=event.data;
+  const real=g.events.find(e=>e.serial===serial&&e.side===side&&
+   (e.type==='exchange'||e.type==='direct_hit'));
+  if(real&&effect===(real.type==='direct_hit'?'direct_hit':'actual_exchange')&&
+   !combatAudioReceipts.has(serial)){
+   combatAudioReceipts.add(serial);
+   audio.playComicBeat(effect,side,serial);
   }
   return;
  }
@@ -704,6 +776,10 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get selected(){return selected},
   get lastFightSerial(){return lastFightSerial},
   get audio(){return audio.status()},
+  get comedy(){return{lastQwenSubtitle,spokenSubtitleCount,
+    asideHistory:[...asideHistory],allTextLines:
+      Object.values(COMIC_ASIDE_LINES).reduce((n,lines)=>n+lines.length,0)}},
+
   audioVoiceSample(id,kind='enter'){return audio.playCharacter(id,kind)}
  }});
 }

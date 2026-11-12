@@ -12,6 +12,8 @@ import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createComboDirector} from './combo-director.mjs';
+import {createComedySpectacle} from './comedy-spectacle.mjs';
+import {BY_ID} from '../engine.mjs';
 import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
 import {createSpellImpact} from './spell-impact.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
@@ -130,6 +132,7 @@ function keepArenaVisible(){
 let stadiumEvidence=null;
 let duelEffects=null;
 let comboDirector=null;
+let comedySpectacle=null;
 let liveScoreboard=null;
 let spellImpact=null;
 const spellSerials=new Set();
@@ -181,6 +184,11 @@ function makeScene(){
  // The 3D stadium, summoners, permanent VRMs and canonical rules stay intact.
  comboDirector=createComboDirector(THREE,scene,{
   caption:$('combo-caption'),skipButton:$('skip-combo')
+ });
+ comedySpectacle=createComedySpectacle(THREE,scene);
+ $('skip-combo').addEventListener('click',()=>{
+  summonPresence?.clearComicCombo();
+  comedySpectacle?.clear();
  });
  liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
  spellImpact=createSpellImpact(THREE,scene);
@@ -527,8 +535,15 @@ function loop(){
  spellImpact?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
  comboDirector?.update(absoluteSeconds,reduced);
+ comedySpectacle?.update(absoluteSeconds,reduced);
  const impactCombo=comboDirector?.drainImpact();
- if(impactCombo)reply('ASDC_R100_COMBO_IMPACT',impactCombo);
+ if(impactCombo){
+  // The R100 source event has already been strictly normalized, and only
+  // the exact animation payoff frame may start the extra 3D celebration.
+  comedySpectacle?.trigger('combo_'+impactCombo.effect,
+   impactCombo.side,impactCombo.serial,absoluteSeconds,{reduced});
+  reply('ASDC_R100_COMBO_IMPACT',impactCombo);
+ }
  const finishedCombo=comboDirector?.drainDone();
  if(finishedCombo)reply('ASDC_R100_COMBO_DONE',finishedCombo);
  for(let i=pendingSpellUnitHits.length-1;i>=0;i--){
@@ -603,10 +618,16 @@ function onMessage(ev){
   setOrbit(orbitTargetYaw+Number(msg.degrees));return;
  }
  if(msg?.type==='ASDC_R100_COMBO_RESET'){
-  comboDirector?.reset();return;
+  comboDirector?.reset();
+  comedySpectacle?.clear();
+  summonPresence?.clearComicCombo();
+  return;
  }
  if(msg?.type==='ASDC_R100_REAL_COMBO'){
   const accepted=comboDirector?.play(msg.event,absoluteSeconds,msg.chapter)===true;
+  if(accepted)summonPresence?.reactToCombo(
+    msg.event.side,msg.event.effect,msg.event.target||null,
+    msg.event.serial,absoluteSeconds);
   reply('ASDC_R100_COMBO_ACCEPTED',{accepted,
     serial:msg.event?.serial??null,effect:msg.event?.effect??null});
   return;
@@ -630,6 +651,9 @@ function onMessage(ev){
   const accepted=spellImpact?.play(msg,absoluteSeconds);
   if(!accepted)return;
   spellSerials.add(msg.serial);
+  if(['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
+   comedySpectacle?.trigger('spell_'+msg.effect,
+    msg.side,msg.serial,absoluteSeconds,{reduced});
   if(spellSerials.size>500)spellSerials.clear();
   const victim=msg.side==='player'?'ai':'player';
   const uids=Array.isArray(msg.targetUids)?
@@ -650,8 +674,17 @@ function onMessage(ev){
   return;
  }
  if(msg?.type==='ASDC_R46_CARD_PLAY'){
-  if(['player','ai'].includes(msg.side)&&['unit','spell'].includes(msg.kind))
+  const card=BY_ID[msg.id];
+  const authorized=['player','ai'].includes(msg.side)&&
+    card?.kind===msg.kind&&Number.isInteger(msg.serial)&&msg.serial>0;
+  if(authorized){
    hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind};
+   if(card.kind==='unit'){
+    summonPresence?.reactToSummon(msg.side,msg.id,msg.serial,absoluteSeconds);
+    comedySpectacle?.trigger('summon_'+card.style,
+      msg.side,msg.serial,absoluteSeconds,{reduced});
+   }
+  }
   podiumCards?.show(msg,absoluteSeconds);
   return;
  }
@@ -692,6 +725,7 @@ function exposeQA(){
   get scoreboard(){return liveScoreboard?.stats||null},
   get spellImpact(){return spellImpact?.stats||null},
   get comboDirector(){return comboDirector?.stats||null},
+  get comedySpectacle(){return comedySpectacle?.stats||null},
   get hostHits(){return structuredClone(hostHits)},
   get actualHostHits(){return actualHostHits},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
@@ -757,7 +791,16 @@ try{
  });
  if(loadedRealResources!==14||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/14');
- summonPresence=createSummonPresence(THREE,scene,{actors,prototypes:summonModels});
+ summonPresence=createSummonPresence(THREE,scene,{
+  actors,prototypes:summonModels,
+  onCombatImpact:(event)=>{
+   // Only the accepted actual exchange sequence can emit this receipt.
+   const type=event.type==='direct_hit'?'direct_hit':'actual_exchange';
+   comedySpectacle?.trigger(type,event.side,event.serial,absoluteSeconds,{reduced});
+   reply('ASDC_R102_COMBAT_IMPACT',{serial:event.serial,side:event.side,
+    effect:type,damage:event.damage});
+  }
+ });
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');

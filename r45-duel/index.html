@@ -93,6 +93,14 @@
       loading="eager" referrerpolicy="same-origin"></iframe>
     <div class="arena-tint" aria-hidden="true"></div>
     <div class="arena-title"><span class="arena-mark">✦</span> 中央召唤竞技场 <small>唯一战场 · 自动入场</small></div>
+    <section id="comedy-aside" class="comedy-aside" role="status" aria-live="polite" hidden>
+      <span id="comedy-quip-speaker">校园场边吐槽 · 文字</span>
+      <strong id="comedy-quip-text"></strong>
+    </section>
+    <section id="spoken-dialogue" class="spoken-dialogue" role="status" aria-live="polite" hidden>
+      <span id="spoken-speaker">人物 · Qwen 配音</span>
+      <strong id="spoken-words"></strong>
+    </section>
     <div class="side-label ours"><strong>你的决斗台</strong><span>左侧出牌</span></div>
     <div class="side-label theirs"><strong>对方决斗台</strong><span>右侧出牌</span></div>
     <section class="battle-history" aria-live="polite" aria-label="对局动作反馈">
@@ -125,6 +133,7 @@
       <div class="result-symbol" id="result-symbol" aria-hidden="true">✦</div>
       <h2 id="result-title">本局结束</h2>
       <p id="result-summary">查看战绩，开始新的决斗。</p>
+      <p id="result-comic" class="result-comic" aria-label="赛后校园喜剧对白"></p>
       <div class="result-scores" aria-label="本局最终比分">
         <div><small>你的剩余人气</small><strong id="result-player-hp">0</strong></div>
         <div class="result-vs">VS</div>
