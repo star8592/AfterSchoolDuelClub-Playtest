@@ -8,6 +8,8 @@ import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
+import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
+import {createSpellImpact} from './spell-impact.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
@@ -85,6 +87,9 @@ function cameraFrameStats(){
 function keepArenaVisible(){
  if(!stadiumEvidence?.group)return;
  const at=Math.abs(orbitYaw);
+ // The physical jumbotron faces the front grandstand. Hide its opaque back
+ // when orbiting behind the court, without affecting the authoritative HUD.
+ if(liveScoreboard?.root)liveScoreboard.root.visible=at<100;
  const side=orbitYaw>=0?1:-1;
  const mode=at>=120?'back':at>=58?(side>0?'right':'left'):'front';
  if(mode===lastOcclusionMode)return;
@@ -115,6 +120,12 @@ function keepArenaVisible(){
 }
 let stadiumEvidence=null;
 let duelEffects=null;
+let liveScoreboard=null;
+let spellImpact=null;
+const spellSerials=new Set();
+const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
+let actualHostHits=0;
+const pendingSpellUnitHits=[];
 let podiumCards=null;
 let absoluteSeconds=0;
 let renderFrameTiming=0;
@@ -156,6 +167,8 @@ function makeScene(){
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
  stadiumEvidence=createStadium(THREE,scene,{detail:'medium'});
  duelEffects=createDuelEffects(THREE,scene);
+ liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
+ spellImpact=createSpellImpact(THREE,scene);
  podiumCards=createCardHolograms(THREE,scene);
   clock=new THREE.Clock();
  onResize();window.addEventListener('resize',onResize);
@@ -371,6 +384,14 @@ function loop(){
  else if(t<5.25)stageText('retreat');
  else stageText('settled');
  absoluteSeconds+=delta;
+ liveScoreboard?.update(performance.now());
+ spellImpact?.update(absoluteSeconds);
+ for(let i=pendingSpellUnitHits.length-1;i>=0;i--){
+  const pending=pendingSpellUnitHits[i];
+  if(absoluteSeconds<pending.due)continue;
+  pendingSpellUnitHits.splice(i,1);
+  summonPresence?.reactToSpell?.(pending.side,pending.uids,absoluteSeconds);
+ }
  actors.forEach(a=>reactActor(a,t,absoluteSeconds));
  duelEffects?.update({absoluteSec:absoluteSeconds,fightTime:t,playing,
    visible:actors.map(a=>a.pivot.visible),
@@ -435,6 +456,36 @@ function onMessage(ev){
  if(msg?.type==='ASDC_R48_CAMERA_DELTA'){
   setOrbit(orbitTargetYaw+Number(msg.degrees));return;
  }
+ if(msg?.type==='ASDC_R81_SCORE'){
+  liveScoreboard?.setState(msg,performance.now());
+  return;
+ }
+ if(msg?.type==='ASDC_R81_HIT_HOST'){
+  if(['player','ai'].includes(msg.side)&&Number.isInteger(msg.damage)&&msg.damage>0&&msg.damage<=20){
+   hostHits[msg.side]={time:absoluteSeconds,damage:msg.damage};
+   actualHostHits++;
+   duelEffects?.pulse(msg.side,absoluteSeconds);
+  }
+  return;
+ }
+ if(msg?.type==='ASDC_R81_SPELL_RESULT'){
+  // Only rule-emitted card identifiers and serials are permitted; this layer
+  // displays the authoritative result but cannot mutate HP or winner.
+  if(!Number.isInteger(msg.serial)||msg.serial<=0||spellSerials.has(msg.serial))return;
+  const accepted=spellImpact?.play(msg,absoluteSeconds);
+  if(!accepted)return;
+  spellSerials.add(msg.serial);
+  if(spellSerials.size>500)spellSerials.clear();
+  const victim=msg.side==='player'?'ai':'player';
+  const uids=Array.isArray(msg.targetUids)?
+   msg.targetUids.filter(uid=>typeof uid==='string'&&/^U\d+$/.test(uid)).slice(0,5):[];
+  if(uids.length)pendingSpellUnitHits.push({side:victim,uids,due:absoluteSeconds+.46});
+  if(Number.isInteger(msg.directDamage)&&msg.directDamage>0){
+   hostHits[victim]={time:absoluteSeconds+.46,damage:msg.directDamage};
+   actualHostHits++;
+  }
+  return;
+ }
  if(msg?.type==='ASDC_R51_COMBAT_EVENTS'){
   let ok=false;
   if(playing){
@@ -480,6 +531,11 @@ function exposeQA(){
   get summonPresence(){return summonPresence?.inspect(camera)||null},
   get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.selectedFile||x.spec.file,baselineFile:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale,measured:x.measured})):[];},
   get combatEvents(){return summonPresence?.sequenceStats()||null},
+  get spellReactions(){return summonPresence?.spellReactions||0},
+  get scoreboard(){return liveScoreboard?.stats||null},
+  get spellImpact(){return spellImpact?.stats||null},
+  get hostHits(){return structuredClone(hostHits)},
+  get actualHostHits(){return actualHostHits},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
    bones:a.boneCount,skinnedMeshes:a.skins,triangles:a.triangles,
