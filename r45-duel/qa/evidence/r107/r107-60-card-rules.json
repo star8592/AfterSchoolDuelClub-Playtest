@@ -1,0 +1,64 @@
+{
+  "ok": true,
+  "checks": 1238,
+  "failures": [],
+  "catalog": 60,
+  "presets": [
+    "classic",
+    "kitchen",
+    "classroom",
+    "science",
+    "sports",
+    "cosmos"
+  ],
+  "simulation": {
+    "classic": {
+      "wins": {
+        "player": 45,
+        "ai": 72,
+        "draw": 3
+      },
+      "meanRounds": 11.23
+    },
+    "kitchen": {
+      "wins": {
+        "player": 41,
+        "ai": 77,
+        "draw": 2
+      },
+      "meanRounds": 11.28
+    },
+    "classroom": {
+      "wins": {
+        "player": 45,
+        "ai": 72,
+        "draw": 3
+      },
+      "meanRounds": 11.15
+    },
+    "science": {
+      "wins": {
+        "player": 37,
+        "ai": 80,
+        "draw": 3
+      },
+      "meanRounds": 11.1
+    },
+    "sports": {
+      "wins": {
+        "player": 39,
+        "ai": 79,
+        "draw": 2
+      },
+      "meanRounds": 11.31
+    },
+    "cosmos": {
+      "wins": {
+        "player": 34,
+        "ai": 82,
+        "draw": 4
+      },
+      "meanRounds": 11.39
+    }
+  }
+}

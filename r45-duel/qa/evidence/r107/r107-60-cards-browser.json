@@ -1,0 +1,420 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop homepage real 60-card gallery",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop homepage keeps zero 3D download",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop homepage 46 actual event cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop kitchen original card appears in list",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop 14 3D summon cards unchanged",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop landing zero runtime/network errors",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "label": "desktop real 40-card kitchen match",
+      "detail": {
+        "count": 60,
+        "preset": "kitchen",
+        "cards": 40,
+        "hand": [
+          "E01",
+          "E03",
+          "K01",
+          "T01",
+          "E01"
+        ],
+        "scene": true,
+        "energy": 2
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop K01 eggplant-banana playable",
+      "detail": {
+        "count": 60,
+        "preset": "kitchen",
+        "cards": 40,
+        "hand": [
+          "E01",
+          "E03",
+          "K01",
+          "T01",
+          "E01"
+        ],
+        "scene": true,
+        "energy": 2
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop deck picker correctly initialized",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop full 60-card library modal",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop 8 actual kitchen cards filter",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop actual K01 details read",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop modal closes and battlefield resumes",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop K01 actual enemy HP reduction to 19",
+      "detail": {
+        "hp": {
+          "player": 20,
+          "ai": 19
+        },
+        "events": [
+          {
+            "serial": 1,
+            "type": "start",
+            "side": "player",
+            "seed": 8
+          },
+          {
+            "serial": 2,
+            "type": "card_play",
+            "side": "player",
+            "card": "K01",
+            "lane": 0,
+            "spellOutcome": {
+              "effect": "stew",
+              "directDamage": 1,
+              "unitDamage": 0,
+              "targetUids": [],
+              "healed": 0,
+              "allyHeal": 0,
+              "cardDraw": 0
+            }
+          }
+        ],
+        "spell": {
+          "played": 1,
+          "hits": 1,
+          "noHit": 0,
+          "expired": 0,
+          "active": 1,
+          "activeKinds": [
+            "warmth"
+          ],
+          "ruleMutations": 0
+        }
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop K01 canonical game receipt",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop actual 3D spell effect for new kitchen card",
+      "detail": {
+        "played": 1,
+        "hits": 1,
+        "noHit": 0,
+        "expired": 0,
+        "active": 1,
+        "activeKinds": [
+          "warmth"
+        ],
+        "ruleMutations": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop switch to sports no 3D reload and game reset",
+      "detail": {
+        "deck": "sports",
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "cards": 40,
+        "sceneReady": true,
+        "url": "http://127.0.0.1:11107/r45-duel/?qa=1&seed=8&deck=sports"
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop shareable deck identity URL",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "desktop duel zero JS and HTTP errors",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "label": "phone homepage real 60-card gallery",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone homepage keeps zero 3D download",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone homepage 46 actual event cards",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone kitchen original card appears in list",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone 14 3D summon cards unchanged",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone landing zero runtime/network errors",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "label": "phone real 40-card kitchen match",
+      "detail": {
+        "count": 60,
+        "preset": "kitchen",
+        "cards": 40,
+        "hand": [
+          "E01",
+          "E03",
+          "K01",
+          "T01",
+          "E01"
+        ],
+        "scene": true,
+        "energy": 2
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone K01 eggplant-banana playable",
+      "detail": {
+        "count": 60,
+        "preset": "kitchen",
+        "cards": 40,
+        "hand": [
+          "E01",
+          "E03",
+          "K01",
+          "T01",
+          "E01"
+        ],
+        "scene": true,
+        "energy": 2
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone deck picker correctly initialized",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone full 60-card library modal",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone 8 actual kitchen cards filter",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone actual K01 details read",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone modal closes and battlefield resumes",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone K01 actual enemy HP reduction to 19",
+      "detail": {
+        "hp": {
+          "player": 20,
+          "ai": 19
+        },
+        "events": [
+          {
+            "serial": 1,
+            "type": "start",
+            "side": "player",
+            "seed": 8
+          },
+          {
+            "serial": 2,
+            "type": "card_play",
+            "side": "player",
+            "card": "K01",
+            "lane": 0,
+            "spellOutcome": {
+              "effect": "stew",
+              "directDamage": 1,
+              "unitDamage": 0,
+              "targetUids": [],
+              "healed": 0,
+              "allyHeal": 0,
+              "cardDraw": 0
+            }
+          }
+        ],
+        "spell": {
+          "played": 1,
+          "hits": 1,
+          "noHit": 0,
+          "expired": 0,
+          "active": 1,
+          "activeKinds": [
+            "warmth"
+          ],
+          "ruleMutations": 0
+        }
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone K01 canonical game receipt",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone actual 3D spell effect for new kitchen card",
+      "detail": {
+        "played": 1,
+        "hits": 1,
+        "noHit": 0,
+        "expired": 0,
+        "active": 1,
+        "activeKinds": [
+          "warmth"
+        ],
+        "ruleMutations": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone switch to sports no 3D reload and game reset",
+      "detail": {
+        "deck": "sports",
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "cards": 40,
+        "sceneReady": true,
+        "url": "http://127.0.0.1:11107/r45-duel/?qa=1&seed=8&deck=sports"
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone shareable deck identity URL",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "phone duel zero JS and HTTP errors",
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "passed": true,
+      "heavyDownloads": 16,
+      "switch": {
+        "deck": "sports",
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "cards": 40,
+        "sceneReady": true,
+        "url": "http://127.0.0.1:11107/r45-duel/?qa=1&seed=8&deck=sports"
+      },
+      "spell": {
+        "played": 1,
+        "hits": 1,
+        "noHit": 0,
+        "expired": 0,
+        "active": 1,
+        "activeKinds": [
+          "warmth"
+        ],
+        "ruleMutations": 0
+      }
+    },
+    {
+      "view": "phone",
+      "passed": true,
+      "heavyDownloads": 16,
+      "switch": {
+        "deck": "sports",
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "cards": 40,
+        "sceneReady": true,
+        "url": "http://127.0.0.1:11107/r45-duel/?qa=1&seed=8&deck=sports"
+      },
+      "spell": {
+        "played": 1,
+        "hits": 1,
+        "noHit": 0,
+        "expired": 0,
+        "active": 1,
+        "activeKinds": [
+          "warmth"
+        ],
+        "ruleMutations": 0
+      }
+    }
+  ]
+}

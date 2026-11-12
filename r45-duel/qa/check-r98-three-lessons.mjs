@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {CARDS,createGame,playCard} from '../engine.mjs';
+import {DECK_PRESETS,createGame,playCard} from '../engine.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from '../tutorial.mjs';
 
 let checks=0,scenarios=0;
@@ -14,7 +14,8 @@ for(let seed=1;seed<=100;seed++)for(let level=1;level<=LESSONS.length;level++){
   const counts=new Map;
   for(const id of [...game.deck[side],...game.hand[side],...game.board[side][0].map(x=>x.id)])
    counts.set(id,(counts.get(id)||0)+1);
-  assertCheck(CARDS.every(x=>counts.get(x.id)===2),'no ghost or missing cards '+side);
+  assertCheck(DECK_PRESETS.classic.cards.every(id=>counts.get(id)===2)&&
+   [...counts.values()].reduce((a,b)=>a+b,0)===40,'no ghost or missing classic cards '+side);
  }
  assertCheck(game.hand.player[0]===lesson.cards[0]&&game.hand.player[1]===lesson.cards[1],'actual required cards in hand');
  assertCheck(tutorialStatus(game).step===0,'lesson starts step zero');

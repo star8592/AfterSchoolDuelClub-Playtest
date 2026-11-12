@@ -1,7 +1,9 @@
 /**
- * R45 Clean Room — single-arena deterministic 20-card core.
+ * R107 — single-arena deterministic 60-card catalog and 40-card themed decks.
  * Pure module: no browser, network, user identifiers, or storage.
  */
+import {EXTRA_CARDS,DECK_PRESETS} from './cards-r107.mjs';
+export {DECK_PRESETS};
 export const STYLES = Object.freeze(['ember', 'grove', 'tide']);
 export const COUNTER = Object.freeze({ember: 'grove', grove: 'tide', tide: 'ember'});
 // ONE arena only. No legacy 3-lane feature or three-scene mode exists.
@@ -30,21 +32,23 @@ export const CARDS = Object.freeze([
   {id:'G06',style:'grove',kind:'spell',cost:2,effect:'draw',name:'翻到第二页的方案',line:'被涂掉的计划居然更好用。'},
   {id:'T05',style:'tide',kind:'spell',cost:1,effect:'heal',name:'食堂暖心加餐',line:'一碗汤可以解决社团矛盾。'},
   {id:'T06',style:'tide',kind:'spell',cost:3,effect:'confuse',name:'误播的放学广播',line:'一半人回家，一半继续比赛。'}
-]);
+].concat(EXTRA_CARDS));
 export const BY_ID = Object.freeze(Object.fromEntries(CARDS.map(c => [c.id,Object.freeze(c)])));
 function rand(g) {let x=g.rng|0;x^=x<<13;x^=x>>>17;x^=x<<5;g.rng=x>>>0;return g.rng/4294967296;}
 function shuffle(g,arr) {for(let i=arr.length-1;i>0;i--){const j=Math.floor(rand(g)*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
 function draw(g,side,n=1) {for(let k=0;k<n;k++){if(g.hand[side].length>=8)break;if(!g.deck[side].length){if(!g.discard[side].length)break;g.deck[side]=shuffle(g,g.discard[side].splice(0));}g.hand[side].push(g.deck[side].pop());}}
 function event(g,type,data={}){g.serial++;g.events.push({serial:g.serial,type,side:g.active,...data});if(g.events.length>160)g.events.shift();}
 export const opponent = side => side==='player'?'ai':'player';
-export function createGame(seed=20261108) {
+export function createGame(seed=20261108,deckPreset='classic') {
   if(!Number.isFinite(seed))throw new Error('Invalid seed');
-  const g={version:'r45-clean-1.0',seed:seed>>>0,rng:(seed>>>0)||0xA11CE,serial:0,active:'player',phase:'playing',
+  if(!Object.hasOwn(DECK_PRESETS,deckPreset))throw new Error('Unknown deck preset '+deckPreset);
+  const selected=DECK_PRESETS[deckPreset];
+  const g={version:'r107-campus-60',deckPreset,seed:seed>>>0,rng:(seed>>>0)||0xA11CE,serial:0,active:'player',phase:'playing',
     winner:null,round:1,turns:{player:1,ai:0},hp:{player:MAX_HP,ai:MAX_HP},
     energy:{player:2,ai:0},deck:{player:[],ai:[]},hand:{player:[],ai:[]},discard:{player:[],ai:[]},
     board:{player:[[]],ai:[[]]},stylesPlayed:{player:[],ai:[]},
     comboTriggered:{player:false,ai:false},comboSerial:0,comboCounts:{player:0,ai:0},events:[]};
-  for(const side of ['player','ai']){g.deck[side]=shuffle(g,CARDS.flatMap(c=>[c.id,c.id]));draw(g,side,5);}
+  for(const side of ['player','ai']){g.deck[side]=shuffle(g,selected.cards.flatMap(id=>[id,id]));draw(g,side,5);}
   event(g,'start',{seed:g.seed});return g;
 }
 export function legalMoves(g) {
@@ -125,22 +129,56 @@ export function playCard(g,index,lane) {
     const ally=g.board[side][lane],enemy=g.board[other][lane];
     switch(c.effect) {
       case 'buff': if(ally.length)ally[0].buff+=2;break;
-      case 'blast':g.hp[other]=Math.max(0,g.hp[other]-3);break;
+      case 'blast':g.hp[other]=Math.max(0,g.hp[other]-(c.power??3));break;
       case 'repair':for(const u of ally)u.hp+=2;break;
       case 'draw':draw(g,side,2);break;
       case 'heal':g.hp[side]=Math.min(MAX_HP,g.hp[side]+3);break;
       case 'confuse':for(const u of enemy)hitUnit(u,2);g.board[other][lane]=enemy.filter(u=>u.hp>0);break;
+      // R107: all effects are real, deterministic engine changes. No
+      // arbitrary animation-only spells or phantom HP deltas.
+      case 'stew':
+        g.hp[side]=Math.min(MAX_HP,g.hp[side]+2);
+        g.hp[other]=Math.max(0,g.hp[other]-1);break;
+      case 'shield':
+        if(ally.length)ally[0].shield=(ally[0].shield||0)+2;
+        else g.hp[side]=Math.min(MAX_HP,g.hp[side]+1);break;
+      case 'splash':
+        for(const u of enemy)hitUnit(u,1);
+        g.board[other][lane]=enemy.filter(u=>u.hp>0);break;
+      case 'chaos':
+        for(const u of enemy)u.attack=Math.max(0,u.attack-1);break;
+      case 'banquet':
+        g.hp[side]=Math.min(MAX_HP,g.hp[side]+2);
+        for(const u of ally)u.hp+=1;break;
+      case 'insight':
+        draw(g,side,1);g.energy[side]=Math.min(9,g.energy[side]+1);break;
+      case 'updraft':
+        if(ally.length){ally[0].attack+=1;ally[0].shield=(ally[0].shield||0)+1;}break;
+      case 'reroute':
+        draw(g,side,2);g.hp[side]=Math.max(1,g.hp[side]-1);break;
+      case 'boomerang':
+        if(enemy.length){hitUnit(enemy[0],1);g.board[other][lane]=enemy.filter(u=>u.hp>0);}
+        if(ally.length)ally[0].hp+=1;break;
+      case 'eclipse':
+        if(enemy.length){hitUnit(enemy[0],2);g.board[other][lane]=enemy.filter(u=>u.hp>0);}
+        g.hp[side]=Math.min(MAX_HP,g.hp[side]+1);break;
+      case 'trick':
+        if(enemy.length){hitUnit(enemy[0],3);g.board[other][lane]=enemy.filter(u=>u.hp>0);}
+        else g.hp[other]=Math.max(0,g.hp[other]-1);break;
       default:throw new Error('Unknown effect');
     }
   }
   const spellOutcome=preSpell?(()=>{
     const before=preSpell.units[other],after=new Map(g.board[other][lane].map(u=>[u.uid,u]));
+    const alliesBefore=preSpell.units[side];const alliesAfter=new Map(g.board[side][lane].map(u=>[u.uid,u]));
     const affected=before.filter(u=>u.hp>(after.get(u.uid)?.hp??0));
     return{effect:c.effect,
       directDamage:Math.max(0,preSpell.hp[other]-g.hp[other]),
       unitDamage:affected.reduce((n,u)=>n+u.hp-(after.get(u.uid)?.hp??0),0),
       targetUids:affected.map(u=>u.uid),
-      healed:Math.max(0,g.hp[side]-preSpell.hp[side])
+      healed:Math.max(0,g.hp[side]-preSpell.hp[side]),
+      allyHeal:alliesBefore.reduce((n,u)=>n+Math.max(0,(alliesAfter.get(u.uid)?.hp??0)-u.hp),0),
+      cardDraw:c.effect==='draw'?2:c.effect==='insight'?1:c.effect==='reroute'?2:0
     };
   })():null;
   event(g,'card_play',{card:id,lane,...(spellOutcome?{spellOutcome}:{})});
@@ -229,7 +267,19 @@ export function aiTurn(g) {
       let score=c.kind==='unit'?5+c.attack*.7+enemies.length*.9-allies.length*.6:
         c.effect==='blast'?7:c.effect==='draw'?(g.hand.ai.length<5?7:1):
         c.effect==='confuse'?(enemies.length?6+enemies.length:0):
-        c.effect==='heal'?(g.hp.ai<14?6:1):allies.length?5:0;
+        c.effect==='heal'?(g.hp.ai<14?6:1):
+        c.effect==='stew'?6:
+        c.effect==='insight'?7.5:
+        c.effect==='reroute'?6:
+        c.effect==='splash'?enemies.length*2+1:
+        c.effect==='chaos'?enemies.length*1.2+1:
+        c.effect==='banquet'?3+allies.length*1.1:
+        c.effect==='shield'?allies.length?5:2:
+        c.effect==='updraft'?allies.length?6:0:
+        c.effect==='boomerang'?enemies.length?5:0:
+        c.effect==='eclipse'?enemies.length?6:1:
+        c.effect==='trick'?enemies.length?7:2:
+        allies.length?5:0;
       score+=comboOpportunityScore(g,'ai',c.style,m.lane,c.kind);
       return {m,score:score-c.cost*.13};
     }).sort((a,b)=>b.score-a.score||a.m.index-b.m.index||a.m.lane-b.m.lane);
@@ -240,8 +290,8 @@ export function aiTurn(g) {
   if(g.phase==='playing')endTurn(g);
   return {ok:true,plays};
 }
-export function simulate(seed=1,strategy='first') {
-  const g=createGame(seed);let guard=0;
+export function simulate(seed=1,strategy='first',deckPreset='classic') {
+  const g=createGame(seed,deckPreset);let guard=0;
   while(g.phase==='playing'&&guard++<200){
     if(g.active==='ai'){aiTurn(g);continue;}
     for(let i=0;i<7&&g.phase==='playing';i++){
