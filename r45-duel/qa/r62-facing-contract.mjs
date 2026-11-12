@@ -10,10 +10,10 @@ for(const id of ALL){
   const yaw=faceOpponentYaw(id,side);
   const frontX=Math.sin(yaw+SOURCE_FRONT_YAW[id]);
   const delta=frontX*(side==='player'?1:-1);
-  // Since R99 both teams face their opponents while revealing 18 degrees
+  // R104 now balances both teams facing their opponent while revealing 52 degrees
   // more of their source face to the spectator (camera from +Z).
   const frontZ=Math.cos(yaw+SOURCE_FRONT_YAW[id]);
-  if(delta<.95||frontZ<.30)throw Error(id+' reversed or not legible: '+side);
+  if(delta<.60||frontZ<.79)throw Error(id+' not both audience-visible and opponent-facing: '+side);
   ok++;
  }
 }

@@ -19,7 +19,7 @@ try{for(const [viewport,width,height] of [['wide',1440,900],['portrait',430,900]
  const combat=await page.evaluate(()=>({presence:document.querySelector('#stadium').contentWindow.__r45SceneQA?.summonPresence,seq:document.querySelector('#stadium').contentWindow.__r45SceneQA?.summonSequence}));
  await page.screenshot({path:path.join(out,`r83-${viewport}-combat.png`)});
  const newActors=state?.entries.filter(x=>['E03','G02','T03','G03'].includes(x.id))||[];
- const actorPass=newActors.length===8&&newActors.every(x=>x.visible&&x.inView&&x.metrics?.height>1.8&&x.metrics?.height<2.65&&Math.abs(x.metrics?.minY)<.10&&x.metrics?.frontDot>.95);
+ const actorPass=newActors.length===8&&newActors.every(x=>x.visible&&x.inView&&x.metrics?.height>1.8&&x.metrics?.height<2.65&&Math.abs(x.metrics?.minY)<.10&&x.metrics?.frontDot>.60);
  const pass=errors.length===0&&response.status()===200&&pageLoaded.ready===true&&pageLoaded.modelCount===10&&pageLoaded.models.length===4&&pageLoaded.models.every(x=>x.file.includes('BlenderStudio-R80')||x.file.includes('BlenderStudio-R83'))&&actorPass&&combat.presence?.total===8;
  rows.push({viewport,pass,pageLoaded,actorPass,entries:newActors.map(x=>({id:x.id,side:x.side,height:x.metrics.height,minY:x.metrics.minY,frontDot:x.metrics.frontDot,inView:x.inView,clips:x.clips})),combatCount:combat.presence?.total,errors});
  console.log('R80_MAINPORT_GAMING_GATE',JSON.stringify(rows.at(-1)));await page.close();

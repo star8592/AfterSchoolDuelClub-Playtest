@@ -23,7 +23,7 @@ ok(SOURCE_FRONT_YAW.M02===0,'face source calibrated from real headfront bone');
 for(const id of Object.keys(SOURCE_FRONT_YAW)){
  for(const side of ['player','ai']){
   const yaw=faceOpponentYaw(id,side)+SOURCE_FRONT_YAW[id];
-  ok(Math.sin(yaw)*(side==='player'?1:-1)>.95&&Math.cos(yaw)>.30,
+  ok(Math.sin(yaw)*(side==='player'?1:-1)>.60&&Math.cos(yaw)>.79,
    'towards opponent and camera '+id+' '+side);
  }
 }
