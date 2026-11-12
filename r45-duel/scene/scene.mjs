@@ -6,6 +6,9 @@
  */
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-acting.mjs';
+import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
@@ -24,6 +27,11 @@ const PHASES={idle:'人物就位',approach:'双方接近',windup:'蓄力',strike
  counter:'对方反击',retreat:'双方回位',settled:'本次交锋完成'};
 const DURATION=6.45;
 let renderer,scene,camera,clock,actors=[],time=0,playing=false,mode='demo';
+// Separate, continuously visible native VRM duelists; the E01/G01 summon
+// bodies remain independently owned by SummonPresence in the arena.
+let duelistHosts=[];
+const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
+
 let lastTime=0,frames=0,actionFrames=0,impactFrames=0,drawCount=0,renderInfo=null;
 let currentPayload=null,activePhase='idle',ready=false,hadContact=false;
 let lastSourceIds=[],source3DAssetsVerified=false;
@@ -284,6 +292,7 @@ async function loadActor(spec,idx){
  const url=new URL('../assets/model/'+spec.source,location.href).href;
  const gltf=await new GLTFLoader().loadAsync(url);
  const original=gltf.scene;
+ const faceExpressions=extractVrm0Expressions(gltf);
  const {m,skins,bones,vertices}=indexBones(original);
  const style=restoreR22Style(original,spec.id,m);
  if(skins<spec.minSkins||bones<spec.minBones||vertices<20000)
@@ -302,7 +311,7 @@ async function loadActor(spec,idx){
  // and mesh identity; do not replace character geometry with generic proxy.
  const actor={id:spec.id,name:spec.name,source:spec.source,model:original,
   pivot,character,bones:m,base,skins,boneCount:bones,triangles:Math.round(vertices/3),style,
-  restX:idx===0?-1.75:1.75,side:idx===0?'left':'right'};
+  restX:idx===0?-1.75:1.75,side:idx===0?'left':'right',faceExpressions};
  return actor;
 }
 function stageText(phase,details){
@@ -357,6 +366,129 @@ function reactActor(a,sec,absoluteSec){
  if(attack>.03||hit>.03)actionFrames++;
  if(hit>.1)impactFrames++;
 }
+// A real spectator sees two ACTUAL players at their podiums from the start.
+// They must be independent clones: the original VRMs can also be summoned
+// as cards in the central arena, and SummonPresence must still own those.
+function makeDuelistHosts(){
+ duelistHosts=actors.map((actor,i)=>{
+  const pivot=cloneSkeleton(actor.pivot);
+  pivot.name='R74_PERMANENT_DUELIST_'+actor.id;
+  pivot.position.set(i===0?-5.55:5.55,.48,.60);
+  pivot.rotation.y=faceOpponentYaw(actor.id,i===0?'player':'ai');
+  pivot.visible=true;scene.add(pivot);
+  const {m,bones,skins}=indexBones(pivot),base=new Map();
+  m.forEach((bone,key)=>base.set(key,bone.quaternion.clone()));
+  if(skins<actor.skins||bones<actor.boneCount)
+   throw Error('R74 permanent duelist clone lost source VRM skin/bones '+actor.id);
+  const pose=createVrmTwoBonePose(THREE,pivot,actor.id);
+  if(!pose)throw Error('R85 two-bone IK control missing for duelist '+actor.id);
+  const face=createVrmCharacterActing(THREE,pivot,{id:actor.id,
+   expressions:actor.faceExpressions,sourceRest:actor.base});
+  return{id:actor.id,pivot,bones:m,base,pose,face,
+   choreography:{phase:'idle',draw:0,display:0,cast:0,recoil:0},
+   side:i===0?'player':'ai',baseX:pivot.position.x,
+   sourceRig:actor.source,sourceBones:bones,skinnedMeshes:skins};
+ });
+}
+// R85: A full-body, believable baseline for permanent podium duelists.
+// We solve BOTH real shoulder-elbow-wrist chains every frame, including when
+// no cards are played; old R74 only rolled shoulders, leaving open A/T arms.
+const DUELIST_POSE_SPEC=Object.freeze({
+ E01:{hold:{R:[.035,-.12,-.16],L:[-.14,-.27,-.06]},
+  draw:{R:[.06,-.23,-.04],L:[-.11,-.16,-.12]},
+  show:{R:[.13,.16,-.26],L:[-.17,-.12,-.17]},
+  cast:{R:[.27,.13,-.31],L:[-.13,-.11,-.20]},
+  guard:{R:[.07,.14,-.19],L:[-.14,.10,-.21]}},
+ G01:{hold:{R:[.045,.12,-.18],L:[-.17,-.26,-.07]},
+  draw:{R:[.05,-.23,-.05],L:[-.15,-.13,-.11]},
+  show:{R:[.15,.19,-.25],L:[-.15,-.11,-.19]},
+  cast:{R:[.30,.13,-.27],L:[-.12,-.10,-.22]},
+  guard:{R:[.10,.17,-.17],L:[-.16,.12,-.19]}}
+});
+function updateDuelistHosts(seconds){
+ const targetVector=new THREE.Vector3(),targetOut={R:[0,0,0],L:[0,0,0]};
+ for(const host of duelistHosts){
+  const side=host.side,gesture=hostAction[side],strike=hostHits[side];
+  const age=seconds-gesture.started,hitAge=seconds-strike.time;
+  const breath=Math.sin(seconds*1.18+(side==='player'?0:1.6));
+  const glance=Math.sin(seconds*.52+(side==='player'?.4:2.1));
+  const sign=side==='player'?1:-1;
+  const draw=smoothPulse(age,.025,.21,.38,.74);
+  const display=smoothPulse(age,.22,.51,1.15,1.60);
+  const cast=smoothPulse(age,1.23,1.49,2.02,2.43);
+  const recoil=smoothPulse(hitAge,.015,.12,.24,.74);
+  // Periodic conversational, non-synchronized idle: glance at card hand,
+  // shift weight, look up; no continuous waving or military marching.
+  const beatSec=seconds+(side==='player'?1.5:4.9),beat=beatSec%9.7;
+  const inspectCard=smoothPulse(beat,2.1,2.56,3.08,3.48)*
+   (1-Math.max(draw,display,cast,recoil));
+  const ambient=.014*breath;
+  const actionStrength=Math.max(draw,display,cast,recoil);
+  host.pivot.position.x=host.baseX+sign*.08*cast-sign*.13*recoil+
+    .018*glance*(1-actionStrength);
+  host.pivot.position.y=.48+.012*breath;
+  host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.11*display+.16*cast);
+  host.pivot.rotation.z=-sign*.045*cast+sign*.115*recoil+.011*glance;
+  // Facial blink and the source VRM blendshapes remain animated independently.
+  host.face.update(seconds,{seed:side==='player'?.35:2.7,
+   suppressEntrance:true,suppressGesture:true,
+   // Trigger authentic VRM joy/fun morphs for card reveal/cast; during hits
+   // return the face to neutral instead of smiling through damage.
+   previewAmount:recoil>.12?0:Math.max(display*.46,cast*.68,inspectCard*.20)});
+  setBone(host,'C_Spine',.014*breath-.07*cast+.09*recoil,0,
+   sign*(.015*glance-.055*cast+.12*recoil));
+  setBone(host,'C_Chest',.015*breath-.11*display-.17*cast+.16*recoil,
+   sign*.055*display,sign*(-.065*cast+.10*recoil));
+  setBone(host,'C_Head',-.030*inspectCard-.055*display-.10*cast+.125*recoil,
+   sign*(.065*glance+.075*display),sign*.02*glance);
+  setBone(host,'L_UpperLeg',.026*glance-.046*cast+.05*recoil,0,0);
+  setBone(host,'R_UpperLeg',-.026*glance+.046*cast-.05*recoil,0,0);
+  setBone(host,'L_LowerLeg',.014*cast,0,0);
+  setBone(host,'R_LowerLeg',-.012*cast,0,0);
+  // We restore BOTH source arm segments before IK, avoiding accumulating
+  // twist from frame to frame or mixing cinematic and game idle rigs.
+  for(const name of ['R_UpperArm','R_LowerArm','L_UpperArm','L_LowerArm']){
+   const key='J_Bip_'+name,bone=host.bones.get(key),base=host.base.get(key);
+   if(bone&&base)bone.quaternion.copy(base);
+  }
+  const specs=DUELIST_POSE_SPEC[host.id];
+  for(const hand of ['R','L']){
+   targetVector.set(...specs.hold[hand]);
+   const idleShift=hand==='R'?.011*breath:-.009*breath;
+   targetVector.y+=idleShift;
+   if(hand==='R')targetVector.y+=.08*inspectCard;
+   for(const [phase,amount] of [[specs.draw,draw],[specs.show,display],
+      [specs.cast,cast],[specs.guard,recoil]]){
+    targetVector.lerp(new THREE.Vector3(...phase[hand]),Math.min(1,amount));
+   }
+   targetOut[hand]=targetVector.toArray();
+  }
+  host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
+  host.choreography={phase:recoil>.1?'hit':cast>.1?'cast':
+    display>.1?'show':draw>.1?'draw':inspectCard>.12?'inspect':'idle',
+    draw:+draw.toFixed(3),display:+display.toFixed(3),
+    cast:+cast.toFixed(3),recoil:+recoil.toFixed(3),
+    inspected:+inspectCard.toFixed(3)};
+ }
+}
+function inspectDuelistPosture(host){
+ const measure=side=>{
+  const base='J_Bip_'+side+'_';
+  const upper=host.bones.get(base+'UpperArm'),elbow=host.bones.get(base+'LowerArm'),
+   hand=host.bones.get(base+'Hand');
+  if(!upper||!elbow||!hand)return null;
+  const a=upper.getWorldPosition(new THREE.Vector3()),b=elbow.getWorldPosition(new THREE.Vector3()),
+   w=hand.getWorldPosition(new THREE.Vector3()),upperDir=b.clone().sub(a).normalize();
+  return {drop:+upperDir.y.toFixed(3),spread:+Math.abs(upperDir.x).toFixed(3),
+   worldHand:w.toArray().map(v=>+v.toFixed(3)),
+   wristToShoulder:+w.distanceTo(a).toFixed(3)};
+ };
+ return {phase:host.choreography.phase,...host.choreography,
+  arms:{R:measure('R'),L:measure('L')},
+  ik:host.pose.inspect().arms,face:host.face.inspect().mode};
+}
+
+
 function play(payload){
  if(!checkIncoming(payload))throw Error('R45 fight validation: only real E01 vs G01 roles accepted');
  currentPayload=structuredClone(payload);mode=payload.mode;playing=true;
@@ -393,6 +525,7 @@ function loop(){
   summonPresence?.reactToSpell?.(pending.side,pending.uids,absoluteSeconds);
  }
  actors.forEach(a=>reactActor(a,t,absoluteSeconds));
+ updateDuelistHosts(absoluteSeconds);
  duelEffects?.update({absoluteSec:absoluteSeconds,fightTime:t,playing,
    visible:actors.map(a=>a.pivot.visible),
    reducedMotion:reduced});
@@ -495,6 +628,8 @@ function onMessage(ev){
   return;
  }
  if(msg?.type==='ASDC_R46_CARD_PLAY'){
+  if(['player','ai'].includes(msg.side)&&['unit','spell'].includes(msg.kind))
+   hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind};
   podiumCards?.show(msg,absoluteSeconds);
   return;
  }
@@ -537,6 +672,12 @@ function exposeQA(){
   get hostHits(){return structuredClone(hostHits)},
   get actualHostHits(){return actualHostHits},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
+  get duelistHosts(){return duelistHosts.map(a=>({id:a.id,side:a.side,visible:a.pivot.visible,
+    x:Number(a.pivot.position.x.toFixed(3)),y:Number(a.pivot.position.y.toFixed(3)),
+    z:Number(a.pivot.position.z.toFixed(3)),bones:a.sourceBones,skins:a.skinnedMeshes,
+    posture:inspectDuelistPosture(a),expression:a.face.inspect()}))},
+  get duelistAction(){return structuredClone(hostAction)},
+
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
    bones:a.boneCount,skinnedMeshes:a.skins,triangles:a.triangles,
    recoloredMeshes:a.style.recolored,accessories:a.style.accessories}))},
@@ -574,6 +715,7 @@ try{
  source3DAssetsVerified=actors[0].source==='Shino-original-CC0.vrm'&&
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
+ makeDuelistHosts();
  summonModels=await preloadSummonModels(THREE,new GLTFLoader());
  summonPresence=createSummonPresence(THREE,scene,{actors,prototypes:summonModels});
  // Do not signal scene readiness before Chrome actually paints the first
