@@ -1,0 +1,2845 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11152",
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop BOTH source VRMs retain all five A/I/U/E/O real mouth morphs",
+      "d": [
+        {
+          "a": 10,
+          "i": 10,
+          "u": 10,
+          "e": 10,
+          "o": 10
+        },
+        {
+          "a": 10,
+          "i": 10,
+          "u": 10,
+          "e": 10,
+          "o": 10
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop neither child pretends to talk before a confirmed Qwen sample",
+      "d": {
+        "speech": {
+          "speakers": {
+            "player": null,
+            "ai": null
+          },
+          "started": 0,
+          "stopped": 0,
+          "ignored": 0
+        },
+        "lens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 0,
+          "visible": false,
+          "inset": null,
+          "faceNdc": null,
+          "lastDrawCalls": 0
+        },
+        "hosts": [
+          {
+            "side": "player",
+            "face": {
+              "role": "铃声追不上",
+              "beat": "发现要迟到，慌忙挥手",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0,
+              "expression": "joy",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 0,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "护住邮差包·俏皮挥手",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.132,
+                    "reach": 0.533,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.243,
+                      1.742,
+                      0.519
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0013,
+                    "elbowOut": 0.039,
+                    "reach": 0.537,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.408,
+                      1.618,
+                      0.424
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 2
+            },
+            "posture": {
+              "phase": "idle",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "idle",
+              "footContact": null,
+              "livingStrength": 0,
+              "arms": {
+                "R": {
+                  "drop": -0.905,
+                  "spread": 0.228,
+                  "worldHand": [
+                    -5.318,
+                    1.773,
+                    0.628
+                  ],
+                  "wristToShoulder": 0.435
+                },
+                "L": {
+                  "drop": -0.96,
+                  "spread": 0.114,
+                  "worldHand": [
+                    -5.418,
+                    1.621,
+                    0.454
+                  ],
+                  "wristToShoulder": 0.53
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.063,
+                  "reach": 0.435,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.318,
+                    1.773,
+                    0.628
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.032,
+                  "reach": 0.53,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.418,
+                    1.621,
+                    0.454
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          },
+          {
+            "side": "ai",
+            "face": {
+              "role": "橡皮筋建筑师",
+              "beat": "认真扶眼镜，突然灵机一动",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0.096,
+              "expression": "fun",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 0,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0.096,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "托腮思考·一手叉腰",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.175,
+                    "reach": 0.261,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.37,
+                      2.173,
+                      0.59
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0269,
+                    "elbowOut": 0.019,
+                    "reach": 0.563,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.506,
+                      1.612,
+                      0.832
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 2
+            },
+            "posture": {
+              "phase": "idle",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "idle",
+              "footContact": null,
+              "livingStrength": 0,
+              "arms": {
+                "R": {
+                  "drop": -0.911,
+                  "spread": 0.262,
+                  "worldHand": [
+                    5.395,
+                    2.064,
+                    0.569
+                  ],
+                  "wristToShoulder": 0.241
+                },
+                "L": {
+                  "drop": -0.879,
+                  "spread": 0.018,
+                  "worldHand": [
+                    5.505,
+                    1.662,
+                    0.78
+                  ],
+                  "wristToShoulder": 0.485
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.068,
+                  "reach": 0.241,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.395,
+                    2.064,
+                    0.569
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.005,
+                  "reach": 0.485,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.505,
+                    1.662,
+                    0.78
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          }
+        ],
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": true,
+          "requested": true,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "running",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "mischief_shuffle",
+          "musicDucked": false,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "tutorialClipCount": 14,
+          "finaleVoiceGuard": false,
+          "musicHistory": [],
+          "voiceVariantHistory": [],
+          "lastSpoken": null,
+          "speechHistory": [],
+          "comicBeatHistory": [],
+          "voicePlaying": false,
+          "currentVoiceKey": null,
+          "voiceQueue": [],
+          "decodedCues": 52,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 0,
+            "voice": 0,
+            "voiceMissing": 0,
+            "voiceDropped": 0,
+            "voiceInterrupted": 0,
+            "unlock": 1,
+            "musicStart": 1,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 62
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 391
+            },
+            {
+              "type": "music",
+              "detail": "mischief_shuffle",
+              "at": 402
+            }
+          ]
+        },
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        }
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop playing genuine recorded host female Qwen cast",
+      "d": true
+    },
+    {
+      "pass": true,
+      "label": "desktop female source face really moves distinct real mouth blendshapes in sync with the recording",
+      "d": {
+        "max": 0.8378,
+        "shapes": [
+          "i",
+          "e",
+          "a",
+          "o",
+          "u"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop female voice moves ONLY corresponding host, no cross-talk",
+      "d": {
+        "speakers": {
+          "player": {
+            "id": "cast",
+            "serial": 1,
+            "duration": 2.97,
+            "age": 1.462
+          },
+          "ai": null
+        },
+        "started": 1,
+        "stopped": 0,
+        "ignored": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop authentic female speaker owns temporary face camera during live sound",
+      "d": {
+        "side": "player",
+        "phase": "actual_qwen_voice_closeup",
+        "frames": 81,
+        "visible": true,
+        "inset": {
+          "x": 1041,
+          "y": 378,
+          "width": 381,
+          "height": 306,
+          "topMarginPx": 216,
+          "bottomMarginPx": 378
+        },
+        "faceNdc": [
+          0,
+          0.197,
+          0.876
+        ],
+        "cardNdc": [
+          -0.307,
+          -0.327,
+          0.848
+        ],
+        "faceCardSeparation": 0.6066,
+        "lastDrawCalls": 1102
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop mute stops actual mouth morphology; no fake silent lip movement",
+      "d": {
+        "speech": {
+          "speakers": {
+            "player": null,
+            "ai": null
+          },
+          "started": 1,
+          "stopped": 1,
+          "ignored": 0
+        },
+        "lens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 110,
+          "visible": false,
+          "inset": {
+            "x": 1041,
+            "y": 378,
+            "width": 381,
+            "height": 306,
+            "topMarginPx": 216,
+            "bottomMarginPx": 378
+          },
+          "faceNdc": [
+            0,
+            0.197,
+            0.876
+          ],
+          "cardNdc": [
+            -0.312,
+            -0.328,
+            0.848
+          ],
+          "faceCardSeparation": 0.61,
+          "lastDrawCalls": 1102
+        },
+        "hosts": [
+          {
+            "side": "player",
+            "face": {
+              "role": "铃声追不上",
+              "beat": "发现要迟到，慌忙挥手",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0,
+              "expression": "joy",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 103,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "护住邮差包·俏皮挥手",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.132,
+                    "reach": 0.534,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.236,
+                      1.747,
+                      0.499
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0001,
+                    "elbowOut": 0.038,
+                    "reach": 0.536,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.404,
+                      1.621,
+                      0.411
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 132
+            },
+            "posture": {
+              "phase": "half_wave",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "half_wave",
+              "footContact": null,
+              "livingStrength": 1.55,
+              "arms": {
+                "R": {
+                  "drop": -0.384,
+                  "spread": 0.211,
+                  "worldHand": [
+                    -5.272,
+                    2.05,
+                    0.762
+                  ],
+                  "wristToShoulder": 0.267
+                },
+                "L": {
+                  "drop": -0.966,
+                  "spread": 0.12,
+                  "worldHand": [
+                    -5.413,
+                    1.622,
+                    0.441
+                  ],
+                  "wristToShoulder": 0.533
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.059,
+                  "reach": 0.267,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.272,
+                    2.05,
+                    0.762
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.033,
+                  "reach": 0.533,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.413,
+                    1.622,
+                    0.441
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          },
+          {
+            "side": "ai",
+            "face": {
+              "role": "橡皮筋建筑师",
+              "beat": "认真扶眼镜，突然灵机一动",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0,
+              "expression": "fun",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 0,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "托腮思考·一手叉腰",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.17,
+                    "reach": 0.255,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.351,
+                      2.15,
+                      0.573
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0236,
+                    "elbowOut": 0.017,
+                    "reach": 0.559,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.485,
+                      1.588,
+                      0.822
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 132
+            },
+            "posture": {
+              "phase": "idle",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "idle",
+              "footContact": null,
+              "livingStrength": 0,
+              "arms": {
+                "R": {
+                  "drop": -0.922,
+                  "spread": 0.168,
+                  "worldHand": [
+                    5.376,
+                    2.021,
+                    0.553
+                  ],
+                  "wristToShoulder": 0.24
+                },
+                "L": {
+                  "drop": -0.837,
+                  "spread": 0.016,
+                  "worldHand": [
+                    5.486,
+                    1.658,
+                    0.769
+                  ],
+                  "wristToShoulder": 0.464
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.043,
+                  "reach": 0.24,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.376,
+                    2.021,
+                    0.553
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.004,
+                  "reach": 0.464,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.486,
+                    1.658,
+                    0.769
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          }
+        ],
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": false,
+          "requested": false,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "suspended",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "mischief_shuffle",
+          "musicDucked": false,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "tutorialClipCount": 14,
+          "finaleVoiceGuard": false,
+          "musicHistory": [],
+          "voiceVariantHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast_v4"
+            }
+          ],
+          "lastSpoken": {
+            "id": "HOST_PLAYER",
+            "kind": "cast",
+            "variant": "cast_v4",
+            "text": "现在轮到我进攻，接招吧！",
+            "duration_seconds": 2.97,
+            "serial": 1
+          },
+          "speechHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast_v4",
+              "text": "现在轮到我进攻，接招吧！",
+              "duration_seconds": 2.97,
+              "serial": 1
+            }
+          ],
+          "comicBeatHistory": [],
+          "voicePlaying": false,
+          "currentVoiceKey": null,
+          "voiceQueue": [],
+          "decodedCues": 52,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 0,
+            "voice": 1,
+            "voiceMissing": 0,
+            "voiceDropped": 0,
+            "voiceInterrupted": 0,
+            "unlock": 1,
+            "musicStart": 1,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 62
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 391
+            },
+            {
+              "type": "music",
+              "detail": "mischief_shuffle",
+              "at": 402
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_PLAYER:cast=cast_v4",
+              "at": 2641
+            },
+            {
+              "type": "voice",
+              "detail": "HOST_PLAYER:cast",
+              "at": 2656
+            },
+            {
+              "type": "muted",
+              "detail": "explicit user preference",
+              "at": 4577
+            }
+          ]
+        },
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        }
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop playing genuine recorded male Qwen cast",
+      "d": true
+    },
+    {
+      "pass": true,
+      "label": "desktop male original face physically opens/closes with own Qwen voice",
+      "d": {
+        "max": 0.8021,
+        "shapes": [
+          "a",
+          "o",
+          "u",
+          "e"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop no leftover female talking when male speaks"
+    },
+    {
+      "pass": true,
+      "label": "desktop authentic male speaker owns camera only while talking",
+      "d": {
+        "side": "ai",
+        "phase": "actual_qwen_voice_closeup",
+        "frames": 172,
+        "visible": true,
+        "inset": {
+          "x": 18,
+          "y": 378,
+          "width": 381,
+          "height": 306,
+          "topMarginPx": 216,
+          "bottomMarginPx": 378
+        },
+        "faceNdc": [
+          0,
+          0.197,
+          0.876
+        ],
+        "cardNdc": [
+          -0.041,
+          -0.236,
+          0.868
+        ],
+        "faceCardSeparation": 0.4342,
+        "lastDrawCalls": 1102
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop audio stop returns both original source mouths to closed",
+      "d": {
+        "speech": {
+          "speakers": {
+            "player": null,
+            "ai": null
+          },
+          "started": 2,
+          "stopped": 2,
+          "ignored": 0
+        },
+        "lens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 194,
+          "visible": false,
+          "inset": {
+            "x": 18,
+            "y": 378,
+            "width": 381,
+            "height": 306,
+            "topMarginPx": 216,
+            "bottomMarginPx": 378
+          },
+          "faceNdc": [
+            0,
+            0.197,
+            0.876
+          ],
+          "cardNdc": [
+            -0.045,
+            -0.23,
+            0.868
+          ],
+          "faceCardSeparation": 0.429,
+          "lastDrawCalls": 1102
+        },
+        "hosts": [
+          {
+            "side": "player",
+            "face": {
+              "role": "铃声追不上",
+              "beat": "发现要迟到，慌忙挥手",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 1,
+              "expression": "joy",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 103,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 1,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "护住邮差包·俏皮挥手",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.13,
+                    "reach": 0.531,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.237,
+                      1.729,
+                      0.515
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0007,
+                    "elbowOut": 0.037,
+                    "reach": 0.537,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.402,
+                      1.604,
+                      0.421
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 239
+            },
+            "posture": {
+              "phase": "idle",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "idle",
+              "footContact": null,
+              "livingStrength": 0,
+              "arms": {
+                "R": {
+                  "drop": -0.913,
+                  "spread": 0.212,
+                  "worldHand": [
+                    -5.312,
+                    1.749,
+                    0.625
+                  ],
+                  "wristToShoulder": 0.443
+                },
+                "L": {
+                  "drop": -0.948,
+                  "spread": 0.086,
+                  "worldHand": [
+                    -5.412,
+                    1.618,
+                    0.451
+                  ],
+                  "wristToShoulder": 0.52
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.059,
+                  "reach": 0.443,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.312,
+                    1.749,
+                    0.625
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.024,
+                  "reach": 0.52,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.412,
+                    1.618,
+                    0.451
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          },
+          {
+            "side": "ai",
+            "face": {
+              "role": "橡皮筋建筑师",
+              "beat": "认真扶眼镜，突然灵机一动",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0,
+              "expression": "fun",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 81,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "托腮思考·一手叉腰",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.167,
+                    "reach": 0.25,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.335,
+                      2.16,
+                      0.56
+                    ]
+                  },
+                  "L": {
+                    "error": 0.021,
+                    "elbowOut": 0.016,
+                    "reach": 0.557,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.469,
+                      1.598,
+                      0.813
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 239
+            },
+            "posture": {
+              "phase": "focus",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "focus",
+              "footContact": null,
+              "livingStrength": 1.55,
+              "arms": {
+                "R": {
+                  "drop": -0.929,
+                  "spread": 0.131,
+                  "worldHand": [
+                    5.361,
+                    2.04,
+                    0.542
+                  ],
+                  "wristToShoulder": 0.221
+                },
+                "L": {
+                  "drop": -0.837,
+                  "spread": 0.041,
+                  "worldHand": [
+                    5.471,
+                    1.662,
+                    0.76
+                  ],
+                  "wristToShoulder": 0.467
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.034,
+                  "reach": 0.221,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.361,
+                    2.04,
+                    0.542
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.011,
+                  "reach": 0.467,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.471,
+                    1.662,
+                    0.76
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          }
+        ],
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": false,
+          "requested": false,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "suspended",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "mischief_shuffle",
+          "musicDucked": false,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "tutorialClipCount": 14,
+          "finaleVoiceGuard": false,
+          "musicHistory": [],
+          "voiceVariantHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast_v4"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast_v2"
+            }
+          ],
+          "lastSpoken": {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast_v2",
+            "text": "这回可要认真点了。",
+            "duration_seconds": 1.53,
+            "serial": 2
+          },
+          "speechHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast_v4",
+              "text": "现在轮到我进攻，接招吧！",
+              "duration_seconds": 2.97,
+              "serial": 1
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast_v2",
+              "text": "这回可要认真点了。",
+              "duration_seconds": 1.53,
+              "serial": 2
+            }
+          ],
+          "comicBeatHistory": [],
+          "voicePlaying": false,
+          "currentVoiceKey": null,
+          "voiceQueue": [],
+          "decodedCues": 52,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 0,
+            "voice": 2,
+            "voiceMissing": 0,
+            "voiceDropped": 0,
+            "voiceInterrupted": 0,
+            "unlock": 2,
+            "musicStart": 2,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 62
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 391
+            },
+            {
+              "type": "music",
+              "detail": "mischief_shuffle",
+              "at": 402
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_PLAYER:cast=cast_v4",
+              "at": 2641
+            },
+            {
+              "type": "voice",
+              "detail": "HOST_PLAYER:cast",
+              "at": 2656
+            },
+            {
+              "type": "muted",
+              "detail": "explicit user preference",
+              "at": 4577
+            },
+            {
+              "type": "music",
+              "detail": "mischief_shuffle",
+              "at": 4861
+            },
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 4861
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_AI:cast=cast_v2",
+              "at": 4877
+            },
+            {
+              "type": "voice",
+              "detail": "HOST_AI:cast",
+              "at": 4881
+            },
+            {
+              "type": "muted",
+              "detail": "explicit user preference",
+              "at": 6396
+            }
+          ]
+        },
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        }
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop expression and live voice never mutate authoritative cards/HP"
+    },
+    {
+      "pass": true,
+      "label": "desktop no webgl/JS/HTTP exceptions",
+      "d": {
+        "errors": []
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone BOTH source VRMs retain all five A/I/U/E/O real mouth morphs",
+      "d": [
+        {
+          "a": 10,
+          "i": 10,
+          "u": 10,
+          "e": 10,
+          "o": 10
+        },
+        {
+          "a": 10,
+          "i": 10,
+          "u": 10,
+          "e": 10,
+          "o": 10
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "phone neither child pretends to talk before a confirmed Qwen sample",
+      "d": {
+        "speech": {
+          "speakers": {
+            "player": null,
+            "ai": null
+          },
+          "started": 0,
+          "stopped": 0,
+          "ignored": 0
+        },
+        "lens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 0,
+          "visible": false,
+          "inset": null,
+          "faceNdc": null,
+          "lastDrawCalls": 0
+        },
+        "hosts": [
+          {
+            "side": "player",
+            "face": {
+              "role": "铃声追不上",
+              "beat": "发现要迟到，慌忙挥手",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0,
+              "expression": "joy",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 0,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "护住邮差包·俏皮挥手",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.132,
+                    "reach": 0.533,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.243,
+                      1.742,
+                      0.519
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0013,
+                    "elbowOut": 0.039,
+                    "reach": 0.537,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.408,
+                      1.618,
+                      0.424
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 2
+            },
+            "posture": {
+              "phase": "idle",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "idle",
+              "footContact": null,
+              "livingStrength": 0,
+              "arms": {
+                "R": {
+                  "drop": -0.905,
+                  "spread": 0.228,
+                  "worldHand": [
+                    -5.318,
+                    1.773,
+                    0.628
+                  ],
+                  "wristToShoulder": 0.435
+                },
+                "L": {
+                  "drop": -0.96,
+                  "spread": 0.115,
+                  "worldHand": [
+                    -5.418,
+                    1.621,
+                    0.454
+                  ],
+                  "wristToShoulder": 0.53
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.063,
+                  "reach": 0.435,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.318,
+                    1.773,
+                    0.628
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.032,
+                  "reach": 0.53,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.418,
+                    1.621,
+                    0.454
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          },
+          {
+            "side": "ai",
+            "face": {
+              "role": "橡皮筋建筑师",
+              "beat": "认真扶眼镜，突然灵机一动",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0.016,
+              "expression": "fun",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 0,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0.016,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "托腮思考·一手叉腰",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.175,
+                    "reach": 0.261,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.37,
+                      2.173,
+                      0.59
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0269,
+                    "elbowOut": 0.019,
+                    "reach": 0.563,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.506,
+                      1.612,
+                      0.832
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 2
+            },
+            "posture": {
+              "phase": "idle",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "idle",
+              "footContact": null,
+              "livingStrength": 0,
+              "arms": {
+                "R": {
+                  "drop": -0.911,
+                  "spread": 0.262,
+                  "worldHand": [
+                    5.395,
+                    2.064,
+                    0.569
+                  ],
+                  "wristToShoulder": 0.241
+                },
+                "L": {
+                  "drop": -0.879,
+                  "spread": 0.018,
+                  "worldHand": [
+                    5.505,
+                    1.662,
+                    0.78
+                  ],
+                  "wristToShoulder": 0.485
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.068,
+                  "reach": 0.241,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.395,
+                    2.064,
+                    0.569
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.005,
+                  "reach": 0.485,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.505,
+                    1.662,
+                    0.78
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          }
+        ],
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": true,
+          "requested": true,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "running",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "school_duel_theme",
+          "musicDucked": false,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "tutorialClipCount": 14,
+          "finaleVoiceGuard": false,
+          "musicHistory": [],
+          "voiceVariantHistory": [],
+          "lastSpoken": null,
+          "speechHistory": [],
+          "comicBeatHistory": [],
+          "voicePlaying": false,
+          "currentVoiceKey": null,
+          "voiceQueue": [],
+          "decodedCues": 52,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 0,
+            "voice": 0,
+            "voiceMissing": 0,
+            "voiceDropped": 0,
+            "voiceInterrupted": 0,
+            "unlock": 1,
+            "musicStart": 1,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 58
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 157
+            },
+            {
+              "type": "music",
+              "detail": "school_duel_theme",
+              "at": 163
+            }
+          ]
+        },
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        }
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone playing genuine recorded host female Qwen cast",
+      "d": true
+    },
+    {
+      "pass": true,
+      "label": "phone female source face really moves distinct real mouth blendshapes in sync with the recording",
+      "d": {
+        "max": 0.84,
+        "shapes": [
+          "a",
+          "o",
+          "u",
+          "i"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone female voice moves ONLY corresponding host, no cross-talk",
+      "d": {
+        "speakers": {
+          "player": {
+            "id": "cast",
+            "serial": 1,
+            "duration": 2.89,
+            "age": 1.4
+          },
+          "ai": null
+        },
+        "started": 1,
+        "stopped": 0,
+        "ignored": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone authentic female speaker owns temporary face camera during live sound",
+      "d": {
+        "side": "player",
+        "phase": "actual_qwen_voice_closeup",
+        "frames": 77,
+        "visible": true,
+        "inset": {
+          "x": 240,
+          "y": 360,
+          "width": 172,
+          "height": 235,
+          "topMarginPx": 305,
+          "bottomMarginPx": 360
+        },
+        "faceNdc": [
+          0,
+          0.175,
+          0.876
+        ],
+        "cardNdc": [
+          -0.395,
+          -0.375,
+          0.85
+        ],
+        "faceCardSeparation": 0.677,
+        "lastDrawCalls": 1100
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone mute stops actual mouth morphology; no fake silent lip movement",
+      "d": {
+        "speech": {
+          "speakers": {
+            "player": null,
+            "ai": null
+          },
+          "started": 1,
+          "stopped": 1,
+          "ignored": 0
+        },
+        "lens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 93,
+          "visible": false,
+          "inset": {
+            "x": 240,
+            "y": 360,
+            "width": 172,
+            "height": 235,
+            "topMarginPx": 305,
+            "bottomMarginPx": 360
+          },
+          "faceNdc": [
+            0,
+            0.175,
+            0.876
+          ],
+          "cardNdc": [
+            -0.47,
+            -0.288,
+            0.848
+          ],
+          "faceCardSeparation": 0.6598,
+          "lastDrawCalls": 1100
+        },
+        "hosts": [
+          {
+            "side": "player",
+            "face": {
+              "role": "铃声追不上",
+              "beat": "发现要迟到，慌忙挥手",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0,
+              "expression": "joy",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 75,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "护住邮差包·俏皮挥手",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.132,
+                    "reach": 0.534,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.237,
+                      1.751,
+                      0.5
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0001,
+                    "elbowOut": 0.038,
+                    "reach": 0.536,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.405,
+                      1.625,
+                      0.411
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 114
+            },
+            "posture": {
+              "phase": "half_wave",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "half_wave",
+              "footContact": null,
+              "livingStrength": 1.55,
+              "arms": {
+                "R": {
+                  "drop": -0.379,
+                  "spread": 0.219,
+                  "worldHand": [
+                    -5.272,
+                    2.056,
+                    0.763
+                  ],
+                  "wristToShoulder": 0.267
+                },
+                "L": {
+                  "drop": -0.968,
+                  "spread": 0.128,
+                  "worldHand": [
+                    -5.414,
+                    1.623,
+                    0.442
+                  ],
+                  "wristToShoulder": 0.535
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.061,
+                  "reach": 0.267,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.272,
+                    2.056,
+                    0.763
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.036,
+                  "reach": 0.535,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.414,
+                    1.623,
+                    0.442
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          },
+          {
+            "side": "ai",
+            "face": {
+              "role": "橡皮筋建筑师",
+              "beat": "认真扶眼镜，突然灵机一动",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0,
+              "expression": "fun",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 0,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "托腮思考·一手叉腰",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.171,
+                    "reach": 0.256,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.354,
+                      2.153,
+                      0.576
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0241,
+                    "elbowOut": 0.018,
+                    "reach": 0.56,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.488,
+                      1.591,
+                      0.823
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 114
+            },
+            "posture": {
+              "phase": "idle",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "idle",
+              "footContact": null,
+              "livingStrength": 0,
+              "arms": {
+                "R": {
+                  "drop": -0.922,
+                  "spread": 0.179,
+                  "worldHand": [
+                    5.379,
+                    2.026,
+                    0.556
+                  ],
+                  "wristToShoulder": 0.24
+                },
+                "L": {
+                  "drop": -0.842,
+                  "spread": 0.012,
+                  "worldHand": [
+                    5.489,
+                    1.659,
+                    0.771
+                  ],
+                  "wristToShoulder": 0.467
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.046,
+                  "reach": 0.24,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.379,
+                    2.026,
+                    0.556
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.003,
+                  "reach": 0.467,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.489,
+                    1.659,
+                    0.771
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          }
+        ],
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": false,
+          "requested": false,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "suspended",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "school_duel_theme",
+          "musicDucked": false,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "tutorialClipCount": 14,
+          "finaleVoiceGuard": false,
+          "musicHistory": [],
+          "voiceVariantHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast"
+            }
+          ],
+          "lastSpoken": {
+            "id": "HOST_PLAYER",
+            "kind": "cast",
+            "variant": "cast",
+            "text": "看好了！这张牌，轮到我出手！",
+            "duration_seconds": 2.89,
+            "serial": 1
+          },
+          "speechHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast",
+              "text": "看好了！这张牌，轮到我出手！",
+              "duration_seconds": 2.89,
+              "serial": 1
+            }
+          ],
+          "comicBeatHistory": [],
+          "voicePlaying": false,
+          "currentVoiceKey": null,
+          "voiceQueue": [],
+          "decodedCues": 52,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 0,
+            "voice": 1,
+            "voiceMissing": 0,
+            "voiceDropped": 0,
+            "voiceInterrupted": 0,
+            "unlock": 1,
+            "musicStart": 1,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 58
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 157
+            },
+            {
+              "type": "music",
+              "detail": "school_duel_theme",
+              "at": 163
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_PLAYER:cast=cast",
+              "at": 2467
+            },
+            {
+              "type": "voice",
+              "detail": "HOST_PLAYER:cast",
+              "at": 2480
+            },
+            {
+              "type": "muted",
+              "detail": "explicit user preference",
+              "at": 4134
+            }
+          ]
+        },
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        }
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone playing genuine recorded male Qwen cast",
+      "d": true
+    },
+    {
+      "pass": true,
+      "label": "phone male original face physically opens/closes with own Qwen voice",
+      "d": {
+        "max": 0.7667,
+        "shapes": [
+          "e",
+          "i",
+          "a"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone no leftover female talking when male speaks"
+    },
+    {
+      "pass": true,
+      "label": "phone authentic male speaker owns camera only while talking",
+      "d": {
+        "side": "ai",
+        "phase": "actual_qwen_voice_closeup",
+        "frames": 155,
+        "visible": true,
+        "inset": {
+          "x": 18,
+          "y": 360,
+          "width": 172,
+          "height": 235,
+          "topMarginPx": 305,
+          "bottomMarginPx": 360
+        },
+        "faceNdc": [
+          0,
+          0.175,
+          0.876
+        ],
+        "cardNdc": [
+          -0.069,
+          -0.22,
+          0.867
+        ],
+        "faceCardSeparation": 0.4011,
+        "lastDrawCalls": 1100
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone audio stop returns both original source mouths to closed",
+      "d": {
+        "speech": {
+          "speakers": {
+            "player": null,
+            "ai": null
+          },
+          "started": 2,
+          "stopped": 2,
+          "ignored": 0
+        },
+        "lens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 168,
+          "visible": false,
+          "inset": {
+            "x": 18,
+            "y": 360,
+            "width": 172,
+            "height": 235,
+            "topMarginPx": 305,
+            "bottomMarginPx": 360
+          },
+          "faceNdc": [
+            0,
+            0.175,
+            0.876
+          ],
+          "cardNdc": [
+            -0.062,
+            -0.21,
+            0.868
+          ],
+          "faceCardSeparation": 0.3905,
+          "lastDrawCalls": 1100
+        },
+        "hosts": [
+          {
+            "side": "player",
+            "face": {
+              "role": "铃声追不上",
+              "beat": "发现要迟到，慌忙挥手",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0,
+              "expression": "joy",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 75,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "护住邮差包·俏皮挥手",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.13,
+                    "reach": 0.532,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.234,
+                      1.731,
+                      0.512
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0003,
+                    "elbowOut": 0.038,
+                    "reach": 0.536,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.399,
+                      1.605,
+                      0.418
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 211
+            },
+            "posture": {
+              "phase": "idle",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "idle",
+              "footContact": null,
+              "livingStrength": 0,
+              "arms": {
+                "R": {
+                  "drop": -0.911,
+                  "spread": 0.214,
+                  "worldHand": [
+                    -5.309,
+                    1.752,
+                    0.622
+                  ],
+                  "wristToShoulder": 0.442
+                },
+                "L": {
+                  "drop": -0.95,
+                  "spread": 0.09,
+                  "worldHand": [
+                    -5.409,
+                    1.618,
+                    0.448
+                  ],
+                  "wristToShoulder": 0.521
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.059,
+                  "reach": 0.442,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.309,
+                    1.752,
+                    0.622
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.025,
+                  "reach": 0.521,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.409,
+                    1.618,
+                    0.448
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          },
+          {
+            "side": "ai",
+            "face": {
+              "role": "橡皮筋建筑师",
+              "beat": "认真扶眼镜，突然灵机一动",
+              "mode": "idle",
+              "amount": 0,
+              "blink": 0,
+              "expression": "fun",
+              "faceAmount": 0,
+              "emotion": "idle",
+              "emotionAmount": 0,
+              "viseme": "closed",
+              "visemeAmount": 0,
+              "actualViseme": 0,
+              "visemeFrames": 71,
+              "activeSpeechSerial": null,
+              "mouthBindings": {
+                "a": 10,
+                "i": 10,
+                "u": 10,
+                "e": 10,
+                "o": 10
+              },
+              "actualMood": 0,
+              "emotionBindings": {
+                "joy": 10,
+                "fun": 10,
+                "angry": 10,
+                "sorrow": 10,
+                "surprised": 10
+              },
+              "actualBlink": 0,
+              "actualExpression": 0,
+              "heroPose": {
+                "name": "托腮思考·一手叉腰",
+                "arms": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.167,
+                    "reach": 0.249,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.337,
+                      2.154,
+                      0.563
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0212,
+                    "elbowOut": 0.015,
+                    "reach": 0.557,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.471,
+                      1.592,
+                      0.815
+                    ]
+                  }
+                }
+              },
+              "entranceAmount": 0,
+              "faceMeshes": 10,
+              "blinkBindings": 10,
+              "expressionBindings": 10,
+              "frames": 211
+            },
+            "posture": {
+              "phase": "focus",
+              "draw": 0,
+              "display": 0,
+              "cast": 0,
+              "follow": 0,
+              "victory": 0,
+              "defeat": 0,
+              "hop": 0,
+              "recoil": 0,
+              "speaking": false,
+              "speechSerial": null,
+              "inspected": 0,
+              "livingBeat": "focus",
+              "footContact": null,
+              "livingStrength": 1.55,
+              "arms": {
+                "R": {
+                  "drop": -0.928,
+                  "spread": 0.111,
+                  "worldHand": [
+                    5.362,
+                    2.029,
+                    0.544
+                  ],
+                  "wristToShoulder": 0.221
+                },
+                "L": {
+                  "drop": -0.828,
+                  "spread": 0.049,
+                  "worldHand": [
+                    5.472,
+                    1.66,
+                    0.762
+                  ],
+                  "wristToShoulder": 0.462
+                }
+              },
+              "ik": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.029,
+                  "reach": 0.221,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.362,
+                    2.029,
+                    0.544
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.013,
+                  "reach": 0.462,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.472,
+                    1.66,
+                    0.762
+                  ]
+                }
+              },
+              "face": "idle"
+            }
+          }
+        ],
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": false,
+          "requested": false,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "suspended",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "school_duel_theme",
+          "musicDucked": false,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "tutorialClipCount": 14,
+          "finaleVoiceGuard": false,
+          "musicHistory": [],
+          "voiceVariantHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast"
+            }
+          ],
+          "lastSpoken": {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast",
+            "text": "该我反击了！看看这一招！",
+            "duration_seconds": 2.17,
+            "serial": 2
+          },
+          "speechHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast",
+              "text": "看好了！这张牌，轮到我出手！",
+              "duration_seconds": 2.89,
+              "serial": 1
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast",
+              "text": "该我反击了！看看这一招！",
+              "duration_seconds": 2.17,
+              "serial": 2
+            }
+          ],
+          "comicBeatHistory": [],
+          "voicePlaying": false,
+          "currentVoiceKey": null,
+          "voiceQueue": [],
+          "decodedCues": 52,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 0,
+            "voice": 2,
+            "voiceMissing": 0,
+            "voiceDropped": 0,
+            "voiceInterrupted": 0,
+            "unlock": 2,
+            "musicStart": 2,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 58
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 157
+            },
+            {
+              "type": "music",
+              "detail": "school_duel_theme",
+              "at": 163
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_PLAYER:cast=cast",
+              "at": 2467
+            },
+            {
+              "type": "voice",
+              "detail": "HOST_PLAYER:cast",
+              "at": 2480
+            },
+            {
+              "type": "muted",
+              "detail": "explicit user preference",
+              "at": 4134
+            },
+            {
+              "type": "music",
+              "detail": "school_duel_theme",
+              "at": 4394
+            },
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 4394
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_AI:cast=cast",
+              "at": 4411
+            },
+            {
+              "type": "voice",
+              "detail": "HOST_AI:cast",
+              "at": 4415
+            },
+            {
+              "type": "muted",
+              "detail": "explicit user preference",
+              "at": 5750
+            }
+          ]
+        },
+        "board": {
+          "player": [
+            []
+          ],
+          "ai": [
+            []
+          ]
+        }
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone expression and live voice never mutate authoritative cards/HP"
+    },
+    {
+      "pass": true,
+      "label": "phone no webgl/JS/HTTP exceptions",
+      "d": {
+        "errors": []
+      }
+    }
+  ],
+  "errors": [],
+  "voices": [
+    {
+      "view": "desktop",
+      "player": {
+        "max": 0.8378,
+        "shapes": [
+          "i",
+          "e",
+          "a",
+          "o",
+          "u"
+        ]
+      },
+      "ai": {
+        "max": 0.8021,
+        "shapes": [
+          "a",
+          "o",
+          "u",
+          "e"
+        ]
+      },
+      "lastSpeech": {
+        "speakers": {
+          "player": null,
+          "ai": null
+        },
+        "started": 2,
+        "stopped": 2,
+        "ignored": 0
+      },
+      "errors": []
+    },
+    {
+      "view": "phone",
+      "player": {
+        "max": 0.84,
+        "shapes": [
+          "a",
+          "o",
+          "u",
+          "i"
+        ]
+      },
+      "ai": {
+        "max": 0.7667,
+        "shapes": [
+          "e",
+          "i",
+          "a"
+        ]
+      },
+      "lastSpeech": {
+        "speakers": {
+          "player": null,
+          "ai": null
+        },
+        "started": 2,
+        "stopped": 2,
+        "ignored": 0
+      },
+      "errors": []
+    }
+  ]
+}
