@@ -1,0 +1,44 @@
+{
+  "provider": "Qwen3-TTS",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "version": "R123",
+  "review_status": "pending-human-listening",
+  "clips": {
+    "popcorn": {
+      "file": "r123_pa_popcorn.ogg",
+      "text": "体育馆广播通知！刚才的爆米花已经提前退场，请同学们停止空中接玉米！",
+      "speaker": "ryan",
+      "duration_seconds": 8.81,
+      "sha256": "ba9dca7b412364c65868cbb16d488e194d044b7dc1e9c1eba049a8a6602bb6e3",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "juice": {
+      "file": "r123_pa_juice.ogg",
+      "text": "本场紧急提醒！观众席不是饮料喷泉！喝奶茶的同学请把吸管收好！",
+      "speaker": "ryan",
+      "duration_seconds": 6.81,
+      "sha256": "f9de5b8eb5e630164b0b5627fa68d1936d4353490c9680bcae5321e30c1ff34c",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "homework": {
+      "file": "r123_pa_homework.ogg",
+      "text": "紧急通知！飞进校长室的作业，不算自动上交！请同学们原地捡回！",
+      "speaker": "ryan",
+      "duration_seconds": 5.51,
+      "sha256": "6587a822dc52b40f57d2928a6a6f024085306ea9b95627f0a8299c8d47629952",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "backpack": {
+      "file": "r123_pa_backpack.ogg",
+      "text": "体育馆消息！一只书包刚刚刷新了本校跳高纪录！主人请去领奖！",
+      "speaker": "ryan",
+      "duration_seconds": 5.91,
+      "sha256": "ec565053e4dab24b7dfde833eeb2505463eaa7d45c28474e41a28beb1bde3732",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    }
+  }
+}
