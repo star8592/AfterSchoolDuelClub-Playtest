@@ -56,6 +56,11 @@ let duelistHosts=[],hostSourceActors=[];
 const arenaLife=createArenaLifeWorld(Number(PARAMS.get('seed'))||20261113);
 const livingCast=createLivingCastDirector(Number(PARAMS.get('seed'))||20261113,arenaLife);
 const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
+// R122: REAL Qwen voice playback only (not subtitles) drives real VRM
+// mouth morphs. Each side independently owns its own original face mesh.
+const hostSpeech={player:null,ai:null};
+const hostSpeechSeen={player:0,ai:0};
+const speechQA={started:0,stopped:0,ignored:0};
 // R121 secondary physical camera: an actual 3D cinematic inset of the
 // original child, with its source facial morphs and wrist-bound painted card.
 // Main wide stadium composition and manual user orbit remain untouched.
@@ -619,9 +624,13 @@ function updateDuelistHosts(seconds){
    faceMood==='joy'?.92*Math.max(victory,doCast):
    faceMood==='angry'?.79*doCast:
    faceMood==='surprised'?Math.max(.85*recoil,.68*doDisplay):0;
+  const voice=hostSpeech[side];
+  if(voice&&seconds>voice.started+voice.duration+.1)hostSpeech[side]=null;
+  const speaking=hostSpeech[side];
   host.face.update(seconds,{seed:side==='player'?.35:2.7,
    suppressEntrance:true,suppressGesture:true,
    emotion:faceMood,emotionAmount:faceMoodAmount,
+   speech:speaking,
    // Trigger authentic VRM joy/fun morphs for card reveal/cast; during hits
    // return the face to neutral instead of smiling through damage.
    previewAmount:recoil>.14||defeat>.18?0:Math.max(doDisplay*.92,
@@ -636,8 +645,13 @@ function updateDuelistHosts(seconds){
    .24*recoil-.17*victory+.24*defeat+
    (act.chest||0)*idleBlend,sign*.09*doDisplay,
    sign*(-.12*doCast+.16*recoil));
+  // A short speaking nod on the source head bone creates visible
+  // participation without rotating a proxy body away from the opponent.
+  const syllableNod=speaking?
+   Math.sin((seconds-speaking.started)*13.1+(side==='ai'?.7:0))*.032:0;
   setBone(host,'C_Head',-.030*inspectCard-.12*doDisplay-.13*doCast+
-   .27*recoil-.13*victory+.28*defeat+(act.headPitch||0)*idleBlend,
+   .27*recoil-.13*victory+.28*defeat+(act.headPitch||0)*idleBlend+
+   syllableNod,
    sign*(.065*glance+.13*doDisplay+(act.headYaw||0)*idleBlend),
    sign*.02*glance);
   setBone(host,'L_UpperLeg',.026*glance-.10*doCast+.16*recoil+
@@ -699,6 +713,7 @@ function updateDuelistHosts(seconds){
     victory:+victory.toFixed(3),defeat:+defeat.toFixed(3),
     hop:+(cardHop+winnerHop).toFixed(3),
     recoil:+recoil.toFixed(3),
+    speaking:!!speaking,speechSerial:speaking?.serial??null,
     inspected:+inspectCard.toFixed(3),livingBeat:act.type,
     footContact:footwork?{stance:footwork.stance,
       lift:+footwork.lift.toFixed(4),stage:act.stage}:null,
@@ -874,9 +889,17 @@ function loop(){
   age:absoluteSeconds-hostAction[side].started
  })).filter(x=>x.age>.28&&x.age<2.19).sort((a,b)=>b.started-a.started);
  const ending=absoluteSeconds-heroResult.started;
+ const talkingCandidates=['player','ai'].map(side=>({
+  side,speech:hostSpeech[side],age:hostSpeech[side]?
+   absoluteSeconds-hostSpeech[side].started:Infinity
+ })).filter(x=>x.speech&&x.age>=.12&&
+   x.age<Math.min(x.speech.duration,2.7))
+  .sort((a,b)=>b.speech.started-a.speech.started);
  const focus=focusCandidates[0]||
   (['player','ai'].includes(heroResult.winner)&&ending>=.38&&ending<2.25?
-   {side:heroResult.winner,age:ending,result:true}:null);
+   {side:heroResult.winner,age:ending,result:true}:null)||
+  (talkingCandidates[0]?{side:talkingCandidates[0].side,
+   age:talkingCandidates[0].age,voice:true}:null);
  heroLens.visible=false;
  if(focus&&!reduced&&!legacyCamera){
   const host=duelistHosts.find(x=>x.side===focus.side);
@@ -897,7 +920,7 @@ function loop(){
    const sign=focus.side==='player'?1:-1;
    const cx=host.pivot.position.x,cy=host.pivot.position.y;
    heroCamera.aspect=width/height;
-   heroCamera.fov=size.x<680?46:41;
+   heroCamera.fov=focus.voice?(size.x<680?39:35):size.x<680?46:41;
    heroCamera.updateProjectionMatrix();
    // Camera approaches from spectator side and slightly towards opponent,
    // so the actual card and each child's eyes remain simultaneously visible.
@@ -905,8 +928,20 @@ function loop(){
    // redundant long-shot with an oversized card eclipsing the eyes.
    // Film the eyes from the direction the child is facing (opponent side),
    // rather than filming the BACK of the raised card from the grandstand.
-   heroCamera.position.set(cx+sign*2.63,cy+2.36,host.pivot.position.z+.68);
-   const eye=new THREE.Vector3(cx+sign*.42,cy+1.72,host.pivot.position.z+.04);
+   // A speaking child gets an ACTUAL face-and-shoulders shot, aimed at the
+   // source head bone. Card play retains the wider physical-hand framing.
+   host.pivot.updateWorldMatrix(true,true);
+   const sourceHead=host.pivot.getObjectByName('J_Bip_C_Head');
+   const sourceFace=sourceHead?.getWorldPosition(new THREE.Vector3());
+   let eye;
+   if(focus.voice&&sourceFace){
+    heroCamera.position.set(sourceFace.x+sign*1.48,
+     sourceFace.y+.22,sourceFace.z+.52);
+    eye=sourceFace.clone().add(new THREE.Vector3(0,-.10,0));
+   }else{
+    heroCamera.position.set(cx+sign*2.63,cy+2.36,host.pivot.position.z+.68);
+    eye=new THREE.Vector3(cx+sign*.42,cy+1.72,host.pivot.position.z+.04);
+   }
    heroCamera.lookAt(eye);
    renderer.setScissorTest(true);
    renderer.setViewport(x,y,width,height);
@@ -928,6 +963,7 @@ function loop(){
     .add(new THREE.Vector3(0,.070,.067)).project(heroCamera);
    const separation=face&&card?Math.hypot(face.x-card.x,face.y-card.y):0;
    heroLens={side:focus.side,phase:focus.result?'victory_closeup':
+    focus.voice?'actual_qwen_voice_closeup':
     focus.age<1.25?'card_reveal_closeup':'card_cast_closeup',
     frames:heroLens.frames+1,visible:true,
     inset:{x,y,width,height,
@@ -950,7 +986,9 @@ function loop(){
    portrait.style.height=inset.height+'px';
    portrait.dataset.side=side;
    $('hero-portrait-caption').textContent=phase==='victory_closeup'?
-    '决斗者 · 胜利特写':side==='player'?'我方 · 举牌特写':'对手 · 举牌特写';
+    '决斗者 · 胜利特写':phase==='actual_qwen_voice_closeup'?
+    (side==='player'?'我方决斗者 · 原声发言':'对方决斗者 · 原声发言'):
+    side==='player'?'我方 · 举牌特写':'对手 · 举牌特写';
   }
  }
  frames++;drawCount=currentDraws;
@@ -964,6 +1002,29 @@ function reply(type,other={}){
 function onMessage(ev){
  if(ev.source!==window.parent||ev.origin!==location.origin||!ready)return;
  const msg=ev.data;
+ if(msg?.type==='ASDC_R122_VOICE_START'){
+  const side=msg.actor==='HOST_PLAYER'?'player':
+   msg.actor==='HOST_AI'?'ai':null;
+  const valid=side&&Number.isInteger(msg.serial)&&msg.serial>hostSpeechSeen[side]&&
+   msg.serial<=100000000&&typeof msg.text==='string'&&
+   msg.text.length>0&&msg.text.length<=180&&
+   Number.isFinite(msg.duration_seconds)&&
+   msg.duration_seconds>=.5&&msg.duration_seconds<=18;
+  if(!valid){speechQA.ignored++;return;}
+  hostSpeechSeen[side]=msg.serial;
+  hostSpeech[side]={started:absoluteSeconds,duration:msg.duration_seconds,
+   text:msg.text,serial:msg.serial,kind:String(msg.kind||'voice').slice(0,40)};
+  speechQA.started++;
+  return;
+ }
+ if(msg?.type==='ASDC_R122_VOICE_STOP'){
+  const side=msg.actor==='HOST_PLAYER'?'player':
+   msg.actor==='HOST_AI'?'ai':null;
+  if(side&&hostSpeech[side]&&msg.serial===hostSpeech[side].serial){
+   hostSpeech[side]=null;speechQA.stopped++;
+  }else speechQA.ignored++;
+  return;
+ }
  if(msg?.type==='ASDC_R53_HP_MODE'){
   summonPresence?.setHpDisplayMode(msg.mode);
   return;
@@ -980,6 +1041,7 @@ function onMessage(ev){
   summonPresence?.clearComicCombo();
   summonPresence?.clearSpellTargets?.();
   pendingSpellContacts.length=0;
+  hostSpeech.player=null;hostSpeech.ai=null;
   spellSerials.clear(); // serials restart at each tutorial stage / deck
   spellContactFX?.reset();
   hostHits.player={time:-100,damage:0};
@@ -1135,6 +1197,12 @@ function exposeQA(){
     independentFromSummons:!actors.some(unit=>unit.source===a.sourceRig),
     posture:inspectDuelistPosture(a),expression:a.face.inspect()}))},
   get duelistAction(){return structuredClone(hostAction)},
+  get realVoiceActing(){return {
+   speakers:Object.fromEntries(Object.entries(hostSpeech).map(([side,speech])=>
+    [side,speech?{id:speech.kind,serial:speech.serial,duration:speech.duration,
+     age:+(absoluteSeconds-speech.started).toFixed(3)}:null])),
+   ...speechQA
+  }},
   get heroLens(){return structuredClone(heroLens)},
   get livingCast(){return livingCast.inspect()},
   get arenaLife(){return arenaLife.inspect()},

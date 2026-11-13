@@ -1,4 +1,5 @@
 import {createVrmTwoBonePose} from './vrm-hero-pose-ik.mjs';
+import {speechMouthAt,MOUTH_SHAPES} from './voice-mouth-timing.mjs';
 /**
  * R67 — source-VRM facial blendshapes + individual short acting beats.
  * Uses the original VRM 0.x expression bindings from the GLTF parser and
@@ -84,13 +85,16 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
  // facial morphs: use these instead of painting expression decals.
  const theatreEmotions=Object.freeze(['joy','fun','angry','sorrow','surprised']);
  const supported=new Set(theatreEmotions.filter(key=>(bindRows[key]||[]).length));
+ const supportedMouth=new Set(MOUTH_SHAPES.filter(key=>(bindRows[key]||[]).length));
  const managed=new Set([...bindRows.blink||[],
-  ...theatreEmotions.flatMap(key=>bindRows[key]||[])].map(x=>x.index));
+  ...theatreEmotions.flatMap(key=>bindRows[key]||[]),
+  ...MOUTH_SHAPES.flatMap(key=>bindRows[key]||[])].map(x=>x.index));
  const delta=new THREE.Quaternion(),desired=new THREE.Quaternion();
  let amount=0,blink=0,faceAmount=0,frames=0,lastMode='idle',bornAt=null,entranceAmount=0,
-  faceMood='idle',faceMoodAmount=0;
+  faceMood='idle',faceMoodAmount=0,lastViseme='closed',visemeAmount=0,
+  visemeFrames=0,activeSpeechSerial=null;
  function update(seconds,{cinematic=false,combat=null,preview=false,previewAmount=null,previewEntrance=false,suppressEntrance=false,suppressGesture=false,seed=0,
-   emotion=null,emotionAmount=0}={}){
+   emotion=null,emotionAmount=0,speech=null}={}){
   if(bornAt===null)bornAt=seconds;
   const age=Math.max(0,seconds-bornAt);
   const phase=(seconds+cfg.offset+seed*.71)%cfg.period;
@@ -105,6 +109,14 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
   faceMoodAmount=faceMood!=='idle'?
    Math.max(0,Math.min(1,Number(emotionAmount)||0)):0;
   faceAmount=(cinematic||combat||faceMoodAmount>.02)?0:cfg.strength*amount;
+  // Real Qwen audio starts/ends via parent playback receipts. This is an
+  // honest approximate syllable timing, not phoneme-aligned transcription.
+  const mouth=speechMouthAt(speech,seconds);
+  const speechKey=mouth&&supportedMouth.has(mouth.shape)?mouth.shape:null;
+  lastViseme=speechKey||'closed';
+  visemeAmount=speechKey?mouth.openness:0;
+  activeSpeechSerial=speechKey?mouth.serial:null;
+  if(visemeAmount>.018)visemeFrames++;
   if(!cinematic){
    // Reset only the actual upper body and two elbow joints; the original
    // VRM legs/hips retain native motion from the game. IK is solved after
@@ -139,7 +151,7 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
   const targets=new Map();
   for(const mesh of faceMeshes)targets.set(mesh,new Map());
   for(const [key,value] of [['blink',blink],[cfg.face,faceAmount],
-   [faceMood,faceMoodAmount]]){
+   [faceMood,faceMoodAmount],[lastViseme,visemeAmount]]){
    for(const b of bindRows[key]||[]){
     const t=targets.get(b.mesh);t.set(b.index,Math.max(t.get(b.index)||0,value*b.weight));
    }
@@ -159,6 +171,11 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
    amount:Number(amount.toFixed(3)),blink:Number(blink.toFixed(3)),
    expression:cfg.face,faceAmount:Number(faceAmount.toFixed(3)),
    emotion:faceMood,emotionAmount:Number(faceMoodAmount.toFixed(3)),
+   viseme:lastViseme,visemeAmount:+visemeAmount.toFixed(4),
+   actualViseme:+(lastViseme==='closed'?0:Math.max(...(bindRows[lastViseme]||[])
+    .filter(x=>x.mesh===sample).map(x=>sample.morphTargetInfluences[x.index]||0),0)).toFixed(4),
+   visemeFrames,activeSpeechSerial,
+   mouthBindings:Object.fromEntries(MOUTH_SHAPES.map(key=>[key,(bindRows[key]||[]).length])),
    actualMood:+(faceMood==='idle'?0:Math.max(...(bindRows[faceMood]||[])
     .filter(x=>x.mesh===sample).map(x=>sample.morphTargetInfluences[x.index]||0),0)).toFixed(3),
    emotionBindings:Object.fromEntries(theatreEmotions.map(key=>[key,(bindRows[key]||[]).length])),
@@ -168,7 +185,7 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
    faceMeshes:faceMeshes.length,blinkBindings:bindRows.blink.length,
    expressionBindings:bindRows[cfg.face].length,frames};
  }
- function revive(){amount=blink=faceAmount=entranceAmount=faceMoodAmount=0;bornAt=null;lastMode=faceMood='idle';for(const mesh of faceMeshes){
+ function revive(){amount=blink=faceAmount=entranceAmount=faceMoodAmount=visemeAmount=0;bornAt=null;lastMode=faceMood='idle';lastViseme='closed';activeSpeechSerial=null;for(const mesh of faceMeshes){
   for(const index of managed)if(index<mesh.morphTargetInfluences.length)
    mesh.morphTargetInfluences[index]=0;
  }}

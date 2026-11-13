@@ -73,7 +73,25 @@ function showComedyAside(line){
  asideHistory.push(line);if(asideHistory.length>90)asideHistory.shift();
  setTimeout(()=>{if(serial===asideSeq)node.hidden=true},3000);
 }
-const audio=createDuelAudio({onVoiceLine:showSpokenLine});
+// R122: speak only when a REAL Qwen audio element has started playing.
+ // The iframe contains the ORIGINAL source VRM visemes and does not
+ // receive a fictitious mouth-motion cue on a text-only fallback.
+function realVoiceStarted(entry){
+ if(sceneReady&&['HOST_PLAYER','HOST_AI'].includes(entry?.id)&&
+    Number.isInteger(entry.serial)&&entry.serial>0){
+  sendScene({type:'ASDC_R122_VOICE_START',actor:entry.id,
+   serial:entry.serial,kind:entry.kind,text:entry.text,
+   duration_seconds:entry.duration_seconds});
+ }
+ showSpokenLine(entry);
+}
+function realVoiceStopped(entry){
+ if(sceneReady&&['HOST_PLAYER','HOST_AI'].includes(entry?.id)&&
+    Number.isInteger(entry.serial)&&entry.serial>0)
+  sendScene({type:'ASDC_R122_VOICE_STOP',actor:entry.id,
+   serial:entry.serial});
+}
+const audio=createDuelAudio({onVoiceLine:realVoiceStarted,onVoiceStop:realVoiceStopped});
 audio.setOpeningMusic(seed);
 const hostSpeechTurn={player:-1,ai:-1};
 function sayHostOnce(side){
