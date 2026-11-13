@@ -1,0 +1,617 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop off original high-resolution G02 and T03 skinned GLBs in actual stadium"
+    },
+    {
+      "pass": true,
+      "label": "desktop off original weighted meshes are visible and source bound"
+    },
+    {
+      "pass": true,
+      "label": "desktop off both actors aim at opponent and true source animation is running"
+    },
+    {
+      "pass": true,
+      "label": "desktop off R119 old source leg animations remain available"
+    },
+    {
+      "pass": true,
+      "label": "desktop off visual only, no rule mutation or GPU draw-call explosion"
+    },
+    {
+      "pass": true,
+      "label": "desktop off G02/T03 return to opponent-facing idle without residual action"
+    },
+    {
+      "pass": true,
+      "label": "desktop off no Chrome JS or HTTP errors"
+    },
+    {
+      "pass": true,
+      "label": "desktop on original high-resolution G02 and T03 skinned GLBs in actual stadium"
+    },
+    {
+      "pass": true,
+      "label": "desktop on original weighted meshes are visible and source bound"
+    },
+    {
+      "pass": true,
+      "label": "desktop on both actors aim at opponent and true source animation is running"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 source weighted thigh shin ankle and toe tracks, not fake bones"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 original bind world pose preserved"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 source partial hierarchy recognized and selectively fixed"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 source weighted thigh shin ankle and toe tracks, not fake bones"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 original bind world pose preserved"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 source partial hierarchy recognized and selectively fixed"
+    },
+    {
+      "pass": true,
+      "label": "desktop on visual only, no rule mutation or GPU draw-call explosion"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 animation visibly turns original deform joints over time"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 ORIGINAL skin vertex and independent feet actually move"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 animation visibly turns original deform joints over time"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 ORIGINAL skin vertex and independent feet actually move"
+    },
+    {
+      "pass": true,
+      "label": "desktop on G02/T03 return to opponent-facing idle without residual action"
+    },
+    {
+      "pass": true,
+      "label": "desktop on no Chrome JS or HTTP errors"
+    },
+    {
+      "pass": true,
+      "label": "portrait off original high-resolution G02 and T03 skinned GLBs in actual stadium"
+    },
+    {
+      "pass": true,
+      "label": "portrait off original weighted meshes are visible and source bound"
+    },
+    {
+      "pass": true,
+      "label": "portrait off both actors aim at opponent and true source animation is running"
+    },
+    {
+      "pass": true,
+      "label": "portrait off R119 old source leg animations remain available"
+    },
+    {
+      "pass": true,
+      "label": "portrait off visual only, no rule mutation or GPU draw-call explosion"
+    },
+    {
+      "pass": true,
+      "label": "portrait off G02/T03 return to opponent-facing idle without residual action"
+    },
+    {
+      "pass": true,
+      "label": "portrait off no Chrome JS or HTTP errors"
+    },
+    {
+      "pass": true,
+      "label": "portrait on original high-resolution G02 and T03 skinned GLBs in actual stadium"
+    },
+    {
+      "pass": true,
+      "label": "portrait on original weighted meshes are visible and source bound"
+    },
+    {
+      "pass": true,
+      "label": "portrait on both actors aim at opponent and true source animation is running"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 source weighted thigh shin ankle and toe tracks, not fake bones"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 original bind world pose preserved"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 source partial hierarchy recognized and selectively fixed"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 source weighted thigh shin ankle and toe tracks, not fake bones"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 original bind world pose preserved"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 source partial hierarchy recognized and selectively fixed"
+    },
+    {
+      "pass": true,
+      "label": "portrait on visual only, no rule mutation or GPU draw-call explosion"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 animation visibly turns original deform joints over time"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 ORIGINAL skin vertex and independent feet actually move"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 animation visibly turns original deform joints over time"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 ORIGINAL skin vertex and independent feet actually move"
+    },
+    {
+      "pass": true,
+      "label": "portrait on G02/T03 return to opponent-facing idle without residual action"
+    },
+    {
+      "pass": true,
+      "label": "portrait on no Chrome JS or HTTP errors"
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "mode": "off",
+      "actors": [
+        {
+          "actor": "G02",
+          "motion": null,
+          "metrics": {
+            "width": 0.609,
+            "height": 2.506,
+            "depth": 2.372,
+            "minY": -0.018,
+            "maxY": 2.488,
+            "coverageWidth": 0.062,
+            "coverageHeight": 0.307,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.266,
+              "right": -0.143,
+              "top": 0.306,
+              "bottom": -0.308
+            },
+            "frontDot": 1
+          }
+        },
+        {
+          "actor": "T03",
+          "motion": null,
+          "metrics": {
+            "width": 1.15,
+            "height": 2.074,
+            "depth": 1.76,
+            "minY": 0.022,
+            "maxY": 2.095,
+            "coverageWidth": 0.093,
+            "coverageHeight": 0.249,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.151,
+              "right": 0.338,
+              "top": 0.221,
+              "bottom": -0.277
+            },
+            "frontDot": 0.9911
+          }
+        }
+      ],
+      "drawCalls": 950
+    },
+    {
+      "view": "desktop",
+      "mode": "on",
+      "actors": [
+        {
+          "actor": "G02",
+          "motion": {
+            "actor": "G02",
+            "source": "real_original_source_weighted_vertices",
+            "hierarchy": "source-hierarchy-preserved",
+            "sourceSkinnedMeshes": 16,
+            "sourceBoneCount": 291,
+            "sourceLowerTracks": 8,
+            "jointNames": [
+              "DEF-Thigh_1L",
+              "DEF-Thigh_1R",
+              "DEF-Knee_1L",
+              "DEF-Knee_1R",
+              "DEF-FootL",
+              "DEF-FootR",
+              "DEF-ToesL",
+              "DEF-ToesR"
+            ],
+            "sourceClipCount": 7,
+            "weightedVertexMesh": "GEO-snow-body_2",
+            "weightedVertexIndex": 1529,
+            "weightedVertexBone": "DEF-FootL",
+            "weightedVertexWeight": 1,
+            "frames": 110,
+            "legFrames": 29,
+            "maxLegAngle": 0.1691,
+            "maxLegVertexTravel": 0.08031,
+            "maxFootTravel": 0.08033,
+            "hierarchyProof": {
+              "actor": "G02",
+              "kind": "source-hierarchy-preserved",
+              "chains": {
+                "L": {
+                  "sourceNames": [
+                    "DEF-Thigh_1L",
+                    "DEF-Thigh_2L",
+                    "DEF-Knee_1L",
+                    "DEF-Knee_2L",
+                    "DEF-FootL",
+                    "DEF-ToesL"
+                  ],
+                  "restDrift": 0,
+                  "alreadyLinked": true
+                },
+                "R": {
+                  "sourceNames": [
+                    "DEF-Thigh_1R",
+                    "DEF-Thigh_2R",
+                    "DEF-Knee_1R",
+                    "DEF-Knee_2R",
+                    "DEF-FootR",
+                    "DEF-ToesR"
+                  ],
+                  "restDrift": 0,
+                  "alreadyLinked": true
+                }
+              }
+            }
+          },
+          "metrics": {
+            "width": 0.481,
+            "height": 2.48,
+            "depth": 2.372,
+            "minY": -0.007,
+            "maxY": 2.473,
+            "coverageWidth": 0.056,
+            "coverageHeight": 0.304,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.282,
+              "right": -0.17,
+              "top": 0.303,
+              "bottom": -0.305
+            },
+            "frontDot": 1
+          }
+        },
+        {
+          "actor": "T03",
+          "motion": {
+            "actor": "T03",
+            "source": "real_original_source_weighted_vertices",
+            "hierarchy": "source-partial-hierarchy-repaired",
+            "sourceSkinnedMeshes": 24,
+            "sourceBoneCount": 392,
+            "sourceLowerTracks": 8,
+            "jointNames": [
+              "DEF-Thigh1L",
+              "DEF-Thigh1R",
+              "DEF-Shin1L",
+              "DEF-Shin1R",
+              "DEF-FootL",
+              "DEF-FootR",
+              "DEF-ToeL",
+              "DEF-ToeR"
+            ],
+            "sourceClipCount": 7,
+            "weightedVertexMesh": "GEO-rain-body_1",
+            "weightedVertexIndex": 2730,
+            "weightedVertexBone": "DEF-Shin1L",
+            "weightedVertexWeight": 0.9846,
+            "frames": 110,
+            "legFrames": 34,
+            "maxLegAngle": 0.1849,
+            "maxLegVertexTravel": 0.077,
+            "maxFootTravel": 0.08956,
+            "hierarchyProof": {
+              "actor": "T03",
+              "kind": "source-partial-hierarchy-repaired",
+              "chains": {
+                "L": {
+                  "sourceNames": [
+                    "DEF-Thigh1L",
+                    "DEF-Thigh2L",
+                    "DEF-Shin1L",
+                    "DEF-Shin2L",
+                    "DEF-FootL",
+                    "DEF-ToeL"
+                  ],
+                  "restDrift": 8.58801628383675e-10,
+                  "alreadyLinked": false
+                },
+                "R": {
+                  "sourceNames": [
+                    "DEF-Thigh1R",
+                    "DEF-Thigh2R",
+                    "DEF-Shin1R",
+                    "DEF-Shin2R",
+                    "DEF-FootR",
+                    "DEF-ToeR"
+                  ],
+                  "restDrift": 8.588016445592364e-10,
+                  "alreadyLinked": false
+                }
+              }
+            }
+          },
+          "metrics": {
+            "width": 1.201,
+            "height": 2.072,
+            "depth": 1.761,
+            "minY": 0.013,
+            "maxY": 2.085,
+            "coverageWidth": 0.097,
+            "coverageHeight": 0.249,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.155,
+              "right": 0.349,
+              "top": 0.219,
+              "bottom": -0.278
+            },
+            "frontDot": 0.9958
+          }
+        }
+      ],
+      "drawCalls": 944
+    },
+    {
+      "view": "portrait",
+      "mode": "off",
+      "actors": [
+        {
+          "actor": "G02",
+          "motion": null,
+          "metrics": {
+            "width": 0.483,
+            "height": 2.48,
+            "depth": 2.372,
+            "minY": -0.007,
+            "maxY": 2.473,
+            "coverageWidth": 0.05,
+            "coverageHeight": 0.11,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.323,
+              "right": -0.223,
+              "top": 0.117,
+              "bottom": -0.104
+            },
+            "frontDot": 1
+          }
+        },
+        {
+          "actor": "T03",
+          "motion": null,
+          "metrics": {
+            "width": 1.198,
+            "height": 2.069,
+            "depth": 1.758,
+            "minY": 0.017,
+            "maxY": 2.086,
+            "coverageWidth": 0.104,
+            "coverageHeight": 0.09,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.196,
+              "right": 0.403,
+              "top": 0.084,
+              "bottom": -0.096
+            },
+            "frontDot": 0.9859
+          }
+        }
+      ],
+      "drawCalls": 944
+    },
+    {
+      "view": "portrait",
+      "mode": "on",
+      "actors": [
+        {
+          "actor": "G02",
+          "motion": {
+            "actor": "G02",
+            "source": "real_original_source_weighted_vertices",
+            "hierarchy": "source-hierarchy-preserved",
+            "sourceSkinnedMeshes": 16,
+            "sourceBoneCount": 291,
+            "sourceLowerTracks": 8,
+            "jointNames": [
+              "DEF-Thigh_1L",
+              "DEF-Thigh_1R",
+              "DEF-Knee_1L",
+              "DEF-Knee_1R",
+              "DEF-FootL",
+              "DEF-FootR",
+              "DEF-ToesL",
+              "DEF-ToesR"
+            ],
+            "sourceClipCount": 7,
+            "weightedVertexMesh": "GEO-snow-body_2",
+            "weightedVertexIndex": 1529,
+            "weightedVertexBone": "DEF-FootL",
+            "weightedVertexWeight": 1,
+            "frames": 154,
+            "legFrames": 47,
+            "maxLegAngle": 0.1735,
+            "maxLegVertexTravel": 0.08234,
+            "maxFootTravel": 0.08231,
+            "hierarchyProof": {
+              "actor": "G02",
+              "kind": "source-hierarchy-preserved",
+              "chains": {
+                "L": {
+                  "sourceNames": [
+                    "DEF-Thigh_1L",
+                    "DEF-Thigh_2L",
+                    "DEF-Knee_1L",
+                    "DEF-Knee_2L",
+                    "DEF-FootL",
+                    "DEF-ToesL"
+                  ],
+                  "restDrift": 0,
+                  "alreadyLinked": true
+                },
+                "R": {
+                  "sourceNames": [
+                    "DEF-Thigh_1R",
+                    "DEF-Thigh_2R",
+                    "DEF-Knee_1R",
+                    "DEF-Knee_2R",
+                    "DEF-FootR",
+                    "DEF-ToesR"
+                  ],
+                  "restDrift": 0,
+                  "alreadyLinked": true
+                }
+              }
+            }
+          },
+          "metrics": {
+            "width": 0.481,
+            "height": 2.48,
+            "depth": 2.372,
+            "minY": -0.007,
+            "maxY": 2.473,
+            "coverageWidth": 0.05,
+            "coverageHeight": 0.11,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.323,
+              "right": -0.223,
+              "top": 0.117,
+              "bottom": -0.104
+            },
+            "frontDot": 1
+          }
+        },
+        {
+          "actor": "T03",
+          "motion": {
+            "actor": "T03",
+            "source": "real_original_source_weighted_vertices",
+            "hierarchy": "source-partial-hierarchy-repaired",
+            "sourceSkinnedMeshes": 24,
+            "sourceBoneCount": 392,
+            "sourceLowerTracks": 8,
+            "jointNames": [
+              "DEF-Thigh1L",
+              "DEF-Thigh1R",
+              "DEF-Shin1L",
+              "DEF-Shin1R",
+              "DEF-FootL",
+              "DEF-FootR",
+              "DEF-ToeL",
+              "DEF-ToeR"
+            ],
+            "sourceClipCount": 7,
+            "weightedVertexMesh": "GEO-rain-body_1",
+            "weightedVertexIndex": 2730,
+            "weightedVertexBone": "DEF-Shin1L",
+            "weightedVertexWeight": 0.9846,
+            "frames": 154,
+            "legFrames": 58,
+            "maxLegAngle": 0.1851,
+            "maxLegVertexTravel": 0.07708,
+            "maxFootTravel": 0.08972,
+            "hierarchyProof": {
+              "actor": "T03",
+              "kind": "source-partial-hierarchy-repaired",
+              "chains": {
+                "L": {
+                  "sourceNames": [
+                    "DEF-Thigh1L",
+                    "DEF-Thigh2L",
+                    "DEF-Shin1L",
+                    "DEF-Shin2L",
+                    "DEF-FootL",
+                    "DEF-ToeL"
+                  ],
+                  "restDrift": 8.58801628383675e-10,
+                  "alreadyLinked": false
+                },
+                "R": {
+                  "sourceNames": [
+                    "DEF-Thigh1R",
+                    "DEF-Thigh2R",
+                    "DEF-Shin1R",
+                    "DEF-Shin2R",
+                    "DEF-FootR",
+                    "DEF-ToeR"
+                  ],
+                  "restDrift": 8.588016445592364e-10,
+                  "alreadyLinked": false
+                }
+              }
+            }
+          },
+          "metrics": {
+            "width": 1.168,
+            "height": 2.074,
+            "depth": 1.758,
+            "minY": 0.013,
+            "maxY": 2.087,
+            "coverageWidth": 0.101,
+            "coverageHeight": 0.09,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.199,
+              "right": 0.401,
+              "top": 0.084,
+              "bottom": -0.096
+            },
+            "frontDot": 0.9859
+          }
+        }
+      ],
+      "drawCalls": 944
+    }
+  ],
+  "origin": "http://127.0.0.1:11433"
+}

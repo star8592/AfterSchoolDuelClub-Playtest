@@ -8,6 +8,7 @@ import {r125VersionedAssetURL} from '../r125-asset-urls.mjs';
 import {createR126MusicTeacherClips,R126_TEACHER_ACTION_NAMES} from './r126-music-teacher-native-acting.mjs';
 import {createR127OwlSourceFeathers} from './r127-owl-source-feather-motion.mjs';
 import {createR128PhilSourceFullBody,repairR128PhilSourceHierarchy} from './r128-source-lower-body.mjs';
+import {createR130SpecialFullBody,prepareR130SourceLegs} from './r130-special-source-legs.mjs';
 // R85: improved R60 photo-paper model and five native clips are the default.
 // Exact older R57 remains available with ?e02Study=r57 for immediate rollback.
 const isE02R60Study=(()=>{
@@ -460,12 +461,24 @@ export function instantiateSummon(THREE,template){
  const sourceBodyPilot=r119Skin&&(
   (template.id==='E04'&&r128PilotOn)||
   (r129FlatActors.has(template.id)&&r129PilotOn));
+ const r130PilotOn=(()=>{
+  const local=new URLSearchParams(location.search);
+  if(local.has('r130Body'))return local.get('r130Body')==='on';
+  try{return window.parent!==window&&
+   new URLSearchParams(window.parent.location.search).get('r130Body')==='on';}
+  catch{return false;}
+ })();
+ const r130SpecialOn=r119Skin&&r130PilotOn&&['G02','T03'].includes(template.id);
  const r128Hierarchy=sourceBodyPilot?
   repairR128PhilSourceHierarchy(THREE,instance,template.id):null;
+ const r130Hierarchy=r130SpecialOn?
+  prepareR130SourceLegs(THREE,instance,template.id):null;
  const source119Clips=r119Skin?createR119TrueSkinClips(THREE,instance,template.id):[];
  const r128Phil=sourceBodyPilot?
   createR128PhilSourceFullBody(THREE,instance,source119Clips,template.id):null;
- const r119Clips=r128Phil?r128Phil.clips:source119Clips;
+ const r130Special=r130SpecialOn?
+  createR130SpecialFullBody(THREE,instance,source119Clips,template.id):null;
+ const r119Clips=r130Special?r130Special.clips:r128Phil?r128Phil.clips:source119Clips;
  const r126Teacher=template.id==='M01'?createR126MusicTeacherClips(THREE,instance):null;
  const r127OwlDisabled=(()=>{
   const q=new URLSearchParams(location.search);
@@ -627,7 +640,7 @@ export function instantiateSummon(THREE,template){
   }
   groundedY=scaled.position.y;
  }
- return {root,mixer,play,update:r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
+ return {root,mixer,play,update:r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),
   getR127OwlMotion:()=>r127Owl?.inspect()||null,
@@ -635,6 +648,8 @@ export function instantiateSummon(THREE,template){
    {...r128Phil.inspect(),hierarchy:r128Hierarchy}:null,
   getR129FullBody:()=>template.id!=='E04'&&r128Phil?
    {...r128Phil.inspect(),hierarchy:r128Hierarchy}:null,
+  getR130FullBody:()=>r130Special?
+   {...r130Special.inspect(),hierarchyProof:r130Hierarchy}:null,
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};
