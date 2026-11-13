@@ -3,7 +3,7 @@
  * Complementary to the existing large podium hologram; not a floating actor,
  * placeholder card image or alteration of authoritative card rules.
  */
-import {BY_ID} from '../engine.mjs';
+import {BY_ID,DECK_PRESETS} from '../engine.mjs';
 import {cardArtURL} from '../card-art.mjs';
 const sides=['player','ai'];
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
@@ -54,9 +54,23 @@ export function createHandPlayCards(THREE,scene){
    img.onerror=()=>resolve(null);
    img.src=new URL(rel,import.meta.url).href;
   });
-  cache.set(id,task);if(cache.size>14)cache.delete(cache.keys().next().value);
+  cache.set(id,task);if(cache.size>28)cache.delete(cache.keys().next().value);
   return task;
  }
+ // R121-Pages: artwork must be available when the real VRM first presents
+ // the physical card. Lazy-fetching *at show()* works on loopback but is
+ // visibly blank during GitHub Pages cold-cache rendering. Prewarm only
+ // this battle's 20 unique card faces while 14 authentic models load.
+ // Never pull 60 illustrations or add a second character stand-in.
+ const chosenDeck=(()=>{
+  try{
+   const q=new URLSearchParams(window.parent.location.search);
+   return Object.hasOwn(DECK_PRESETS,q.get('deck'))?q.get('deck'):'classic';
+  }catch{return 'classic'}
+ })();
+ const prewarmIds=[...new Set(DECK_PRESETS[chosenDeck].cards)].filter(id=>BY_ID[id]);
+ for(const id of prewarmIds)void artFor(id);
+
  function attach(hosts){
   for(const host of hosts){
    if(!sides.includes(host.side)||instances.has(host.side))continue;
