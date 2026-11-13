@@ -217,8 +217,16 @@ export function createBleacherPropComedy(THREE,scene,{reducedMotion=false}={}){
    }
   }
  }
- function dispose(){
+ function reset(){
+  for(const item of props.values()){
+   item.pivot.position.copy(item.home);
+   item.pivot.rotation.set(0,0,0);
+   item.scatter.count=0;
+  }
   active.clear();
+ }
+ function dispose(){
+  reset();
   stage.traverse(o=>{
    if(o.isMesh||o.isInstancedMesh){
     o.geometry.dispose();
@@ -228,7 +236,7 @@ export function createBleacherPropComedy(THREE,scene,{reducedMotion=false}={}){
   });
   stage.removeFromParent();props.clear();
  }
- return{mount,play,update,dispose,
+ return{mount,play,update,reset,dispose,
   get stats(){return{
    mounted,types:[...props.values()].map(v=>v.detail.kind),
    propNames:[...props.values()].map(v=>v.pivot.name),
