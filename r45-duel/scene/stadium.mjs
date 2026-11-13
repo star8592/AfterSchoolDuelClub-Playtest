@@ -7,7 +7,7 @@ import {createStadiumAudience} from './stadium-audience.mjs';
  *
  * No gameplay or collision state here. This is the visual world only.
  */
-export function createStadium(THREE, scene, {detail='medium'}={}) {
+export function createStadium(THREE, scene, {detail='medium',lifeWorld=null}={}) {
   const stats={label:'R45_ONE_ARENA_GYM_3D',geometryTypes:new Set(),meshCount:0,
     instancedObjects:0,bleacherRows:0,seats:0,lights:0};
   const mat=(color,metalness=0,roughness=.7)=>new THREE.MeshStandardMaterial({color,metalness,roughness});
@@ -261,7 +261,7 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     cylinder(.22,.25,.07,20,[x,3.1,-2.1],gold,'Court_Floodlight_Head_'+sign);
   }
   const polish=addStadiumPolish(THREE,scene,group,stats);
-  const audience=createStadiumAudience(THREE,group);
+  const audience=createStadiumAudience(THREE,group,lifeWorld);
   let lastCrowdUpdate=0;
   // R112: the venue participates in the story. Existing lights and the
   // real three-dimensional scoreboard react; no extra postprocess/draw calls.
