@@ -1,0 +1,3138 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop 2 duelists and 4 spectators live independently",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.61,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.627,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.639,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.598,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.567,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.612,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop personalities are truly separate",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.61,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.627,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.639,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.598,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.567,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.612,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop real spectators reused",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 1,
+        "movementFrames": 0,
+        "events": 0,
+        "active": null,
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop player-specific summoned character profiles",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.61,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.627,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.639,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.598,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.567,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.612,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.651,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.598,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.524,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop real scene card event changes attention",
+      "data": [
+        {
+          "number": 1,
+          "type": "card",
+          "side": "player",
+          "at": 0.15
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop allies and opponents interpret same card differently",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.136,
+          "confidence": 0.655,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15209999996423723
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.193,
+          "confidence": 0.602,
+          "attention": "opponent",
+          "intent": "eye_roll",
+          "lastAction": {
+            "intent": "eye_roll",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15209999996423723
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.136,
+          "confidence": 0.684,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15209999996423723
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.136,
+          "confidence": 0.643,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15209999996423723
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.193,
+          "confidence": 0.542,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15209999996423723
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.193,
+          "confidence": 0.587,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15209999996423723
+          }
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.136,
+          "confidence": 0.696,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15209999996423723
+          }
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.136,
+          "confidence": 0.643,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15209999996423723
+          }
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.193,
+          "confidence": 0.499,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15209999996423723
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop summons have own scene-wide awareness",
+      "data": [
+        {
+          "uid": "U300",
+          "id": "M02",
+          "side": "player",
+          "life": {
+            "id": "M02",
+            "side": "player",
+            "role": "summon",
+            "emotion": "expectant",
+            "confidence": 0.696,
+            "tension": 0.136,
+            "attention": "opponent",
+            "intent": "challenge",
+            "weight": 0.196,
+            "yaw": 0.015708488920097286,
+            "tilt": 0.007854244460048643,
+            "head": 0.005890683345036482,
+            "lastAction": {
+              "intent": "challenge",
+              "reason": "observed_card",
+              "at": 0.15
+            },
+            "latestEvent": {
+              "type": "card",
+              "side": "player",
+              "kind": "unit",
+              "at": 0.15209999996423723
+            }
+          },
+          "livingClip": null
+        },
+        {
+          "uid": "U301",
+          "id": "E03",
+          "side": "player",
+          "life": {
+            "id": "E03",
+            "side": "player",
+            "role": "summon",
+            "emotion": "expectant",
+            "confidence": 0.643,
+            "tension": 0.136,
+            "attention": "opponent",
+            "intent": "challenge",
+            "weight": 0.196,
+            "yaw": 0.015708488920097286,
+            "tilt": 0.007854244460048643,
+            "head": 0.005890683345036482,
+            "lastAction": {
+              "intent": "challenge",
+              "reason": "observed_card",
+              "at": 0.15
+            },
+            "latestEvent": {
+              "type": "card",
+              "side": "player",
+              "kind": "unit",
+              "at": 0.15209999996423723
+            }
+          },
+          "livingClip": null
+        },
+        {
+          "uid": "U400",
+          "id": "G02",
+          "side": "ai",
+          "life": {
+            "id": "G02",
+            "side": "ai",
+            "role": "summon",
+            "emotion": "curious",
+            "confidence": 0.499,
+            "tension": 0.193,
+            "attention": "opponent",
+            "intent": "inspect",
+            "weight": 0.196,
+            "yaw": 0,
+            "tilt": 0,
+            "head": -0.023562733380145928,
+            "lastAction": {
+              "intent": "inspect",
+              "reason": "observed_card",
+              "at": 0.15
+            },
+            "latestEvent": {
+              "type": "card",
+              "side": "player",
+              "kind": "unit",
+              "at": 0.15209999996423723
+            }
+          },
+          "livingClip": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop director never mutates card rules or HP",
+      "data": null
+    },
+    {
+      "passed": true,
+      "label": "desktop opponent remembers being hit",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "satisfied",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.715,
+          "attention": "opponent",
+          "intent": "smirk",
+          "lastAction": {
+            "intent": "smirk",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.4,
+          "confidence": 0.507,
+          "attention": "self",
+          "intent": "headshake",
+          "lastAction": {
+            "intent": "headshake",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "satisfied",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.743,
+          "attention": "opponent",
+          "intent": "smirk",
+          "lastAction": {
+            "intent": "smirk",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.703,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.4,
+          "confidence": 0.447,
+          "attention": "self",
+          "intent": "flinch",
+          "lastAction": {
+            "intent": "flinch",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.4,
+          "confidence": 0.493,
+          "attention": "self",
+          "intent": "headshake",
+          "lastAction": {
+            "intent": "headshake",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.755,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.703,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.4,
+          "confidence": 0.404,
+          "attention": "self",
+          "intent": "flinch",
+          "lastAction": {
+            "intent": "flinch",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop chef responds as ally, not identical clone",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "satisfied",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.715,
+          "attention": "opponent",
+          "intent": "smirk",
+          "lastAction": {
+            "intent": "smirk",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.4,
+          "confidence": 0.507,
+          "attention": "self",
+          "intent": "headshake",
+          "lastAction": {
+            "intent": "headshake",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "satisfied",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.743,
+          "attention": "opponent",
+          "intent": "smirk",
+          "lastAction": {
+            "intent": "smirk",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.703,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.4,
+          "confidence": 0.447,
+          "attention": "self",
+          "intent": "flinch",
+          "lastAction": {
+            "intent": "flinch",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.4,
+          "confidence": 0.493,
+          "attention": "self",
+          "intent": "headshake",
+          "lastAction": {
+            "intent": "headshake",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.755,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.178,
+          "confidence": 0.703,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.4,
+          "confidence": 0.404,
+          "attention": "self",
+          "intent": "flinch",
+          "lastAction": {
+            "intent": "flinch",
+            "reason": "observed_hit",
+            "at": 0.39
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.3899999999701978
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop everyone responds to a common outcome according to team",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.019,
+          "confidence": 0.832,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.89
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.8859999999701976
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "disappointed",
+          "situation": "tied",
+          "tension": 0.25,
+          "confidence": 0.407,
+          "attention": "teammates",
+          "intent": "defeat",
+          "lastAction": {
+            "intent": "defeat",
+            "reason": "match_result",
+            "at": 0.89
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.8859999999701976
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.028,
+          "confidence": 0.863,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.89
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.8859999999701976
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.028,
+          "confidence": 0.822,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.89
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.8859999999701976
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "disappointed",
+          "situation": "tied",
+          "tension": 0.25,
+          "confidence": 0.347,
+          "attention": "teammates",
+          "intent": "defeat",
+          "lastAction": {
+            "intent": "defeat",
+            "reason": "match_result",
+            "at": 0.89
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.8859999999701976
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "disappointed",
+          "situation": "tied",
+          "tension": 0.25,
+          "confidence": 0.393,
+          "attention": "teammates",
+          "intent": "defeat",
+          "lastAction": {
+            "intent": "defeat",
+            "reason": "match_result",
+            "at": 0.89
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.8859999999701976
+          }
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.028,
+          "confidence": 0.875,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.89
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.8859999999701976
+          }
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.028,
+          "confidence": 0.822,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.89
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.8859999999701976
+          }
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "disappointed",
+          "situation": "tied",
+          "tension": 0.25,
+          "confidence": 0.304,
+          "attention": "teammates",
+          "intent": "defeat",
+          "lastAction": {
+            "intent": "defeat",
+            "reason": "match_result",
+            "at": 0.89
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.8859999999701976
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop spectators take part in shared victory",
+      "data": [
+        {
+          "id": "E04",
+          "team": "player",
+          "mode": "cheer",
+          "weight": 1,
+          "emotion": "elated",
+          "attention": "teammates",
+          "personalIntent": "cheer"
+        },
+        {
+          "id": "E03",
+          "team": "player",
+          "mode": "cheer",
+          "weight": 1,
+          "emotion": "elated",
+          "attention": "teammates",
+          "personalIntent": "cheer"
+        },
+        {
+          "id": "G03",
+          "team": "ai",
+          "mode": "sympathy",
+          "weight": 1,
+          "emotion": "disappointed",
+          "attention": "teammates",
+          "personalIntent": "defeat"
+        },
+        {
+          "id": "G04",
+          "team": "ai",
+          "mode": "sympathy",
+          "weight": 1,
+          "emotion": "disappointed",
+          "attention": "teammates",
+          "personalIntent": "defeat"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop no extra replacement models / drawcall blowup",
+      "data": 716
+    },
+    {
+      "passed": true,
+      "label": "desktop zero scene or asset errors",
+      "data": []
+    },
+    {
+      "passed": true,
+      "label": "phone 2 duelists and 4 spectators live independently",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.61,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.627,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.639,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.598,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.567,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.612,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone personalities are truly separate",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.61,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.627,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.639,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.598,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.567,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.12,
+          "confidence": 0.612,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone real spectators reused",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 1,
+        "movementFrames": 0,
+        "events": 0,
+        "active": null,
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone player-specific summoned character profiles",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.61,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.627,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.639,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.598,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.567,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.612,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.651,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.598,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "focused",
+          "situation": "tied",
+          "tension": 0.119,
+          "confidence": 0.524,
+          "attention": "opponent",
+          "intent": "glance",
+          "lastAction": null,
+          "eventCount": 0,
+          "latestEvent": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone real scene card event changes attention",
+      "data": [
+        {
+          "number": 1,
+          "type": "card",
+          "side": "player",
+          "at": 0.15
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone allies and opponents interpret same card differently",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.135,
+          "confidence": 0.655,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15059999999403953
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.192,
+          "confidence": 0.602,
+          "attention": "opponent",
+          "intent": "eye_roll",
+          "lastAction": {
+            "intent": "eye_roll",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15059999999403953
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.135,
+          "confidence": 0.684,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15059999999403953
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.135,
+          "confidence": 0.643,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15059999999403953
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.192,
+          "confidence": 0.542,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15059999999403953
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.192,
+          "confidence": 0.587,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15059999999403953
+          }
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.135,
+          "confidence": 0.696,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15059999999403953
+          }
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.135,
+          "confidence": 0.643,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15059999999403953
+          }
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.192,
+          "confidence": 0.499,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15059999999403953
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone summons have own scene-wide awareness",
+      "data": [
+        {
+          "uid": "U300",
+          "id": "M02",
+          "side": "player",
+          "life": {
+            "id": "M02",
+            "side": "player",
+            "role": "summon",
+            "emotion": "expectant",
+            "confidence": 0.696,
+            "tension": 0.135,
+            "attention": "opponent",
+            "intent": "challenge",
+            "weight": 0.431,
+            "yaw": 0.034482283793868314,
+            "tilt": 0.017241141896934157,
+            "head": 0.012930856422700619,
+            "lastAction": {
+              "intent": "challenge",
+              "reason": "observed_card",
+              "at": 0.15
+            },
+            "latestEvent": {
+              "type": "card",
+              "side": "player",
+              "kind": "unit",
+              "at": 0.15059999999403953
+            }
+          },
+          "livingClip": null
+        },
+        {
+          "uid": "U301",
+          "id": "E03",
+          "side": "player",
+          "life": {
+            "id": "E03",
+            "side": "player",
+            "role": "summon",
+            "emotion": "expectant",
+            "confidence": 0.643,
+            "tension": 0.135,
+            "attention": "opponent",
+            "intent": "challenge",
+            "weight": 0.431,
+            "yaw": 0.034482283793868314,
+            "tilt": 0.017241141896934157,
+            "head": 0.012930856422700619,
+            "lastAction": {
+              "intent": "challenge",
+              "reason": "observed_card",
+              "at": 0.15
+            },
+            "latestEvent": {
+              "type": "card",
+              "side": "player",
+              "kind": "unit",
+              "at": 0.15059999999403953
+            }
+          },
+          "livingClip": null
+        },
+        {
+          "uid": "U400",
+          "id": "G02",
+          "side": "ai",
+          "life": {
+            "id": "G02",
+            "side": "ai",
+            "role": "summon",
+            "emotion": "curious",
+            "confidence": 0.499,
+            "tension": 0.192,
+            "attention": "opponent",
+            "intent": "inspect",
+            "weight": 0.431,
+            "yaw": 0,
+            "tilt": 0,
+            "head": -0.051723425690802474,
+            "lastAction": {
+              "intent": "inspect",
+              "reason": "observed_card",
+              "at": 0.15
+            },
+            "latestEvent": {
+              "type": "card",
+              "side": "player",
+              "kind": "unit",
+              "at": 0.15059999999403953
+            }
+          },
+          "livingClip": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone director never mutates card rules or HP",
+      "data": null
+    },
+    {
+      "passed": true,
+      "label": "phone opponent remembers being hit",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "satisfied",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.714,
+          "attention": "opponent",
+          "intent": "smirk",
+          "lastAction": {
+            "intent": "smirk",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.399,
+          "confidence": 0.507,
+          "attention": "self",
+          "intent": "headshake",
+          "lastAction": {
+            "intent": "headshake",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "satisfied",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.743,
+          "attention": "opponent",
+          "intent": "smirk",
+          "lastAction": {
+            "intent": "smirk",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.702,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.399,
+          "confidence": 0.447,
+          "attention": "self",
+          "intent": "flinch",
+          "lastAction": {
+            "intent": "flinch",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.399,
+          "confidence": 0.493,
+          "attention": "self",
+          "intent": "headshake",
+          "lastAction": {
+            "intent": "headshake",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.755,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.702,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.399,
+          "confidence": 0.404,
+          "attention": "self",
+          "intent": "flinch",
+          "lastAction": {
+            "intent": "flinch",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone chef responds as ally, not identical clone",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "satisfied",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.714,
+          "attention": "opponent",
+          "intent": "smirk",
+          "lastAction": {
+            "intent": "smirk",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.399,
+          "confidence": 0.507,
+          "attention": "self",
+          "intent": "headshake",
+          "lastAction": {
+            "intent": "headshake",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "satisfied",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.743,
+          "attention": "opponent",
+          "intent": "smirk",
+          "lastAction": {
+            "intent": "smirk",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.702,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.399,
+          "confidence": 0.447,
+          "attention": "self",
+          "intent": "flinch",
+          "lastAction": {
+            "intent": "flinch",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.399,
+          "confidence": 0.493,
+          "attention": "self",
+          "intent": "headshake",
+          "lastAction": {
+            "intent": "headshake",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.755,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "concerned",
+          "situation": "tied",
+          "tension": 0.177,
+          "confidence": 0.702,
+          "attention": "opponent",
+          "intent": "peek",
+          "lastAction": {
+            "intent": "peek",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "hurt",
+          "situation": "tied",
+          "tension": 0.399,
+          "confidence": 0.404,
+          "attention": "self",
+          "intent": "flinch",
+          "lastAction": {
+            "intent": "flinch",
+            "reason": "observed_hit",
+            "at": 0.51
+          },
+          "eventCount": 2,
+          "latestEvent": {
+            "type": "hit",
+            "side": "ai",
+            "kind": null,
+            "at": 0.5100999999940398
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone everyone responds to a common outcome according to team",
+      "data": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.019,
+          "confidence": 0.832,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.98
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.9803000000119207
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "disappointed",
+          "situation": "tied",
+          "tension": 0.249,
+          "confidence": 0.407,
+          "attention": "teammates",
+          "intent": "defeat",
+          "lastAction": {
+            "intent": "defeat",
+            "reason": "match_result",
+            "at": 0.98
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.9803000000119207
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.027,
+          "confidence": 0.863,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.98
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.9803000000119207
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.027,
+          "confidence": 0.822,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.98
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.9803000000119207
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "disappointed",
+          "situation": "tied",
+          "tension": 0.249,
+          "confidence": 0.347,
+          "attention": "teammates",
+          "intent": "defeat",
+          "lastAction": {
+            "intent": "defeat",
+            "reason": "match_result",
+            "at": 0.98
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.9803000000119207
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "disappointed",
+          "situation": "tied",
+          "tension": 0.249,
+          "confidence": 0.393,
+          "attention": "teammates",
+          "intent": "defeat",
+          "lastAction": {
+            "intent": "defeat",
+            "reason": "match_result",
+            "at": 0.98
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.9803000000119207
+          }
+        },
+        {
+          "key": "unit:player:U300",
+          "id": "M02",
+          "side": "player",
+          "role": "summon",
+          "personality": "霸气护短的食堂阿姨",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.027,
+          "confidence": 0.875,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.98
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.9803000000119207
+          }
+        },
+        {
+          "key": "unit:player:U301",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "elated",
+          "situation": "tied",
+          "tension": 0.027,
+          "confidence": 0.822,
+          "attention": "teammates",
+          "intent": "cheer",
+          "lastAction": {
+            "intent": "cheer",
+            "reason": "match_result",
+            "at": 0.98
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.9803000000119207
+          }
+        },
+        {
+          "key": "unit:ai:U400",
+          "id": "G02",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "disappointed",
+          "situation": "tied",
+          "tension": 0.249,
+          "confidence": 0.304,
+          "attention": "teammates",
+          "intent": "defeat",
+          "lastAction": {
+            "intent": "defeat",
+            "reason": "match_result",
+            "at": 0.98
+          },
+          "eventCount": 3,
+          "latestEvent": {
+            "type": "result",
+            "side": "player",
+            "kind": null,
+            "at": 0.9803000000119207
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone spectators take part in shared victory",
+      "data": [
+        {
+          "id": "E04",
+          "team": "player",
+          "mode": "cheer",
+          "weight": 1,
+          "emotion": "elated",
+          "attention": "teammates",
+          "personalIntent": "cheer"
+        },
+        {
+          "id": "E03",
+          "team": "player",
+          "mode": "cheer",
+          "weight": 1,
+          "emotion": "elated",
+          "attention": "teammates",
+          "personalIntent": "cheer"
+        },
+        {
+          "id": "G03",
+          "team": "ai",
+          "mode": "sympathy",
+          "weight": 1,
+          "emotion": "disappointed",
+          "attention": "teammates",
+          "personalIntent": "defeat"
+        },
+        {
+          "id": "G04",
+          "team": "ai",
+          "mode": "sympathy",
+          "weight": 1,
+          "emotion": "disappointed",
+          "attention": "teammates",
+          "personalIntent": "defeat"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone no extra replacement models / drawcall blowup",
+      "data": 718
+    },
+    {
+      "passed": true,
+      "label": "phone zero scene or asset errors",
+      "data": []
+    }
+  ],
+  "errors": [],
+  "details": [
+    {
+      "view": "desktop",
+      "actors": 9,
+      "lastEvents": [
+        {
+          "number": 1,
+          "type": "card",
+          "side": "player",
+          "at": 0.15
+        },
+        {
+          "number": 2,
+          "type": "hit",
+          "side": "ai",
+          "at": 0.39
+        },
+        {
+          "number": 3,
+          "type": "result",
+          "side": "player",
+          "at": 0.89
+        }
+      ],
+      "spectator": [
+        {
+          "id": "E04",
+          "team": "player",
+          "mode": "cheer",
+          "weight": 1,
+          "emotion": "elated",
+          "attention": "teammates",
+          "personalIntent": "cheer"
+        },
+        {
+          "id": "E03",
+          "team": "player",
+          "mode": "cheer",
+          "weight": 1,
+          "emotion": "elated",
+          "attention": "teammates",
+          "personalIntent": "cheer"
+        },
+        {
+          "id": "G03",
+          "team": "ai",
+          "mode": "sympathy",
+          "weight": 1,
+          "emotion": "disappointed",
+          "attention": "teammates",
+          "personalIntent": "defeat"
+        },
+        {
+          "id": "G04",
+          "team": "ai",
+          "mode": "sympathy",
+          "weight": 1,
+          "emotion": "disappointed",
+          "attention": "teammates",
+          "personalIntent": "defeat"
+        }
+      ],
+      "drawCalls": 716
+    },
+    {
+      "view": "phone",
+      "actors": 9,
+      "lastEvents": [
+        {
+          "number": 1,
+          "type": "card",
+          "side": "player",
+          "at": 0.15
+        },
+        {
+          "number": 2,
+          "type": "hit",
+          "side": "ai",
+          "at": 0.51
+        },
+        {
+          "number": 3,
+          "type": "result",
+          "side": "player",
+          "at": 0.98
+        }
+      ],
+      "spectator": [
+        {
+          "id": "E04",
+          "team": "player",
+          "mode": "cheer",
+          "weight": 1,
+          "emotion": "elated",
+          "attention": "teammates",
+          "personalIntent": "cheer"
+        },
+        {
+          "id": "E03",
+          "team": "player",
+          "mode": "cheer",
+          "weight": 1,
+          "emotion": "elated",
+          "attention": "teammates",
+          "personalIntent": "cheer"
+        },
+        {
+          "id": "G03",
+          "team": "ai",
+          "mode": "sympathy",
+          "weight": 1,
+          "emotion": "disappointed",
+          "attention": "teammates",
+          "personalIntent": "defeat"
+        },
+        {
+          "id": "G04",
+          "team": "ai",
+          "mode": "sympathy",
+          "weight": 1,
+          "emotion": "disappointed",
+          "attention": "teammates",
+          "personalIntent": "defeat"
+        }
+      ],
+      "drawCalls": 718
+    }
+  ]
+}

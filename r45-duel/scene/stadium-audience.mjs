@@ -12,7 +12,7 @@ const PARTICIPANTS=Object.freeze([
 ]);
 import {crowdReactionMotion} from './stadium-crowd-motion.mjs';
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
-export function createStadiumAudience(THREE,root){
+export function createStadiumAudience(THREE,root,lifeWorld=null){
  const group=new THREE.Group();group.name='R114_RealStudentGallery';root.add(group);
  const actors=[];let active=null,events=0,frames=0,movementFrames=0;
  function mount(prototypes){
@@ -35,6 +35,8 @@ export function createStadiumAudience(THREE,root){
     const bone=object.getObjectByName('FK-UpperArm.'+side);
     return bone?{side,bone,rest:bone.quaternion.clone()}:null;
    }).filter(Boolean);
+   lifeWorld?.register('spectator:'+spec.id,
+    {id:spec.id,side:spec.team,role:'spectator'});
    actors.push({spec,instance,object,pose,arms,last:null});
   }
   return actors.length;
@@ -54,8 +56,12 @@ export function createStadiumAudience(THREE,root){
    const p=crowdReactionMotion({type:active?.type||'idle',
     winner:active?.winner,team:actor.spec.team,
     elapsed,offset:actor.spec.offset,reduced});
+   const mind=lifeWorld?.read('spectator:'+actor.spec.id,seconds);
+   const living=(!active&&mind&&!reduced)?mind:null;
    actor.object.position.set(actor.pose.x,actor.pose.y+p.bounce,actor.pose.z);
-   actor.object.rotation.set(0,p.yaw,p.tilt);
+   actor.object.rotation.set(0,p.yaw+(living?.yaw||0)*.8,
+    p.tilt+(living?.tilt||0)*.7);
+   actor.lastLife=mind;
    for(const {side,bone,rest} of actor.arms){
     // Source clips are real skeletal animations. Apply small authored
     // spectator reaction as a non-accumulating override on FK controls.
@@ -75,6 +81,9 @@ export function createStadiumAudience(THREE,root){
   skinnedRealActors:actors.filter(a=>a.instance.mixer).length,
   frames,movementFrames,events,active:active?{...active}:null,
   poses:actors.map(a=>({id:a.spec.id,team:a.spec.team,
-   mode:a.last?.mode||'idle',weight:+(a.last?.weight||0).toFixed(3)}))
+   mode:a.last?.mode||'idle',weight:+(a.last?.weight||0).toFixed(3),
+   emotion:a.lastLife?.emotion||'focused',
+   attention:a.lastLife?.attention||'arena',
+   personalIntent:a.lastLife?.intent||'idle'}))
  }}};
 }

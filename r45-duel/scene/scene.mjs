@@ -24,6 +24,7 @@ import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
 import {preloadSummonModels} from './summon-models.mjs';
 import {createLivingCastDirector} from './living-cast-director.mjs';
+import {createArenaLifeWorld} from './arena-life-world.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
 const MODEL_SPECS=[
@@ -48,7 +49,8 @@ let renderer,scene,camera,clock,actors=[],time=0,playing=false,mode='demo';
 // Separate, continuously visible native VRM duelists; the E01/G01 summon
 // bodies remain independently owned by SummonPresence in the arena.
 let duelistHosts=[],hostSourceActors=[];
-const livingCast=createLivingCastDirector(Number(PARAMS.get('seed'))||20261113);
+const arenaLife=createArenaLifeWorld(Number(PARAMS.get('seed'))||20261113);
+const livingCast=createLivingCastDirector(Number(PARAMS.get('seed'))||20261113,arenaLife);
 const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
 
 let lastTime=0,frames=0,actionFrames=0,impactFrames=0,drawCount=0,renderInfo=null;
@@ -224,7 +226,7 @@ function makeScene(){
  const rim=new THREE.DirectionalLight('#a0c9fc',2.25);rim.position.set(5,6,-4);scene.add(rim);
  const fill=new THREE.DirectionalLight('#f7d6b9',.8);fill.position.set(3,3,6);scene.add(fill);
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
- stadiumEvidence=createStadium(THREE,scene,{detail:'medium'});
+ stadiumEvidence=createStadium(THREE,scene,{detail:'medium',lifeWorld:arenaLife});
  duelEffects=createDuelEffects(THREE,scene);
  // The R100 director uses only validated real engine.combo_effect payloads.
  // The 3D stadium, summoners, permanent VRMs and canonical rules stay intact.
@@ -542,13 +544,16 @@ function updateDuelistHosts(seconds){
   host.pivot.rotation.z=-sign*.045*cast+sign*.115*recoil+.011*glance+
     sign*(act.tilt||0)*idleBlend;
   // Facial blink and the source VRM blendshapes remain animated independently.
+  const lifeMood=arenaLife.read('host:'+side,seconds);
   host.face.update(seconds,{seed:side==='player'?.35:2.7,
    suppressEntrance:true,suppressGesture:true,
    // Trigger authentic VRM joy/fun morphs for card reveal/cast; during hits
    // return the face to neutral instead of smiling through damage.
    previewAmount:recoil>.12?0:Math.max(display*.46,cast*.68,
     inspectCard*.20,(act.type==='laugh'||act.type==='smirk'||act.type==='dance'?
-      idleBlend*.44:0))});
+      idleBlend*.44:0),
+    lifeMood?.emotion==='elated'?.34:
+    lifeMood?.emotion==='playful'?.18:0)});
   setBone(host,'C_Spine',.014*breath-.07*cast+.09*recoil+
    (act.chest||0)*idleBlend*.3,0,
    sign*(.015*glance-.055*cast+.12*recoil));
@@ -667,6 +672,7 @@ function loop(){
   pendingSpellUnitHits.splice(i,1);
   summonPresence?.reactToSpell?.(pending.side,pending.uids,absoluteSeconds);
  }
+ arenaLife.tick(absoluteSeconds,{quiet:playing});
  actors.forEach(a=>reactActor(a,t,absoluteSeconds));
  updateDuelistHosts(absoluteSeconds);
  duelEffects?.update({absoluteSec:absoluteSeconds,fightTime:t,playing,
@@ -752,6 +758,7 @@ function onMessage(ev){
  }
  if(msg?.type==='ASDC_R112_VICTORY'){
   if(!['player','ai','draw'].includes(msg.winner))return;
+  arenaLife.observe('result',{side:msg.winner,winner:msg.winner,at:absoluteSeconds});
   livingCast.celebrate(msg.winner,absoluteSeconds);
   summonPresence?.celebrate?.(msg.winner,absoluteSeconds,{reduced});
   stadiumEvidence?.beginFinale?.(msg.winner,absoluteSeconds);
@@ -760,12 +767,14 @@ function onMessage(ev){
   return;
  }
  if(msg?.type==='ASDC_R81_SCORE'){
-  liveScoreboard?.setState(msg,performance.now());
+  if(liveScoreboard?.setState(msg,performance.now()))
+   arenaLife.setMatch(msg,absoluteSeconds);
   return;
  }
  if(msg?.type==='ASDC_R81_HIT_HOST'){
   if(['player','ai'].includes(msg.side)&&Number.isInteger(msg.damage)&&msg.damage>0&&msg.damage<=20){
    hostHits[msg.side]={time:absoluteSeconds,damage:msg.damage};
+   arenaLife.observe('hit',{side:msg.side,at:absoluteSeconds});
    livingCast.signal(msg.side,'hurt',absoluteSeconds);
    actualHostHits++;
    duelEffects?.pulse(msg.side,absoluteSeconds);
@@ -791,6 +800,7 @@ function onMessage(ev){
   if(uids.length)pendingSpellUnitHits.push({side:victim,uids,due:absoluteSeconds+.46});
   if(Number.isInteger(msg.directDamage)&&msg.directDamage>0){
    hostHits[victim]={time:absoluteSeconds+.46,damage:msg.directDamage};
+   arenaLife.observe('hit',{side:victim,at:absoluteSeconds});
    stadiumEvidence?.reactAudience?.('hit',victim,absoluteSeconds);
    livingCast.signal(victim,'hurt',absoluteSeconds+.46);
    actualHostHits++;
@@ -811,6 +821,7 @@ function onMessage(ev){
     card?.kind===msg.kind&&Number.isInteger(msg.serial)&&msg.serial>0;
   if(authorized){
    hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind};
+   arenaLife.observe('card',{side:msg.side,at:absoluteSeconds,kind:msg.kind});
    livingCast.signal(msg.side,'card',absoluteSeconds);
    stadiumEvidence?.reactAudience?.('card',msg.side,absoluteSeconds);
    if(card.kind==='unit'){
@@ -877,6 +888,7 @@ function exposeQA(){
     posture:inspectDuelistPosture(a),expression:a.face.inspect()}))},
   get duelistAction(){return structuredClone(hostAction)},
   get livingCast(){return livingCast.inspect()},
+  get arenaLife(){return arenaLife.inspect()},
 
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
    bones:a.boneCount,skinnedMeshes:a.skins,triangles:a.triangles,
@@ -962,7 +974,7 @@ try{
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
  summonPresence=createSummonPresence(THREE,scene,{
-  actors,prototypes:summonModels,
+  actors,prototypes:summonModels,lifeWorld:arenaLife,
   onCombatImpact:(event)=>{
    // Only the accepted actual exchange sequence can emit this receipt.
    const type=event.type==='direct_hit'?'direct_hit':'actual_exchange';

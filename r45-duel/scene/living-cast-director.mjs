@@ -45,11 +45,12 @@ const POOLS=Object.freeze({
  ai:['glance','inspect','shift','sleeve','lean','focus','challenge','whisper','shrug',
   'bow','neck_roll','headshake','peek','tap_toe','rub_palms','hands_hips','facepalm','tiny_clap']
 });
-export function createLivingCastDirector(seed=2026){
+export function createLivingCastDirector(seed=2026,lifeWorld=null){
  const cast={};
  for(const side of ['player','ai']){
   const random=rng(hash(seed,side));
   cast[side]={side,random,active:null,next:side==='player'?1.2:2.9,history:[],latest:'idle'};
+  lifeWorld?.register('host:'+side,{id:side==='player'?'E01':'G01',side,role:'duelist'});
  }
  const records=[],dialogues=[];let celebration=null;
  const exchanges={
@@ -72,11 +73,16 @@ export function createLivingCastDirector(seed=2026){
   if(reason==='ambient'&&(type==='challenge'||type==='whisper')){
    const options=exchanges[type],pair=options[Math.floor(actor.random()*options.length)];
    dialogues.push({side,text:pair[0],kind:'prompt',type,at:seconds});
+   lifeWorld?.observe('social',{side,kind:type,at:seconds});
    actor.pendingReply=pair[1];
   }else if(reason.startsWith('paired_')){
    const sender=side==='player'?'ai':'player';
    const reply=cast[sender].pendingReply;
-   if(reply){dialogues.push({side,text:reply,kind:'response',type,at:seconds});cast[sender].pendingReply=null;}
+   if(reply){
+    dialogues.push({side,text:reply,kind:'response',type,at:seconds});
+    lifeWorld?.observe('reply',{side,kind:type==='shrug'?'whisper':'challenge',at:seconds});
+    cast[sender].pendingReply=null;
+   }
   }
   return true;
  }
@@ -84,11 +90,13 @@ export function createLivingCastDirector(seed=2026){
   if(!cast[side]||!Number.isFinite(seconds)||celebration)return;
   const other=side==='player'?'ai':'player';
   if(type==='card'){
-   start(side,'cheer',seconds,'card');
+   const choice=lifeWorld?.read('host:'+side,seconds)?.intent;
+   start(side,choice&&BEATS[choice]?choice:'cheer',seconds,'card');
    // The opponent hears/sees a gesture and responds a beat later.
    cast[other].react={type:'eye_roll',at:seconds+.65,reason:'response_to_card'};
   }else if(type==='hurt'){
-   start(side,'flinch',seconds,'damage');
+   const choice=lifeWorld?.read('host:'+side,seconds)?.intent;
+   start(side,choice&&BEATS[choice]?choice:'flinch',seconds,'damage');
    cast[other].react={type:'smirk',at:seconds+.53,reason:'response_to_hit'};
   }
  }
@@ -125,7 +133,9 @@ export function createLivingCastDirector(seed=2026){
    if(!actor.active&&seconds>=actor.next&&!busy){
     const pool=POOLS[side],last=actor.history.slice(-2);
     const options=pool.filter(kind=>!last.includes(kind));
-    const type=options[Math.floor(actor.random()*options.length)];
+    const proposed=lifeWorld?.chooseFor('host:'+side,seconds,options);
+    const type=proposed&&BEATS[proposed]?proposed:
+      options[Math.floor(actor.random()*options.length)];
     start(side,type,seconds);
     if(type==='challenge'||type==='whisper'){
      const other=side==='player'?'ai':'player';
@@ -146,6 +156,8 @@ export function createLivingCastDirector(seed=2026){
  return{update,signal,celebrate,
   drainDialogue:()=>dialogues.splice(0,4),
   inspect:()=>({
-  current:Object.fromEntries(Object.entries(cast).map(([s,a])=>[s,{active:a.active?.type||'idle',latest:a.latest,history:[...a.history]}])),
+  current:Object.fromEntries(Object.entries(cast).map(([s,a])=>[s,{
+   active:a.active?.type||'idle',latest:a.latest,history:[...a.history],
+   life:lifeWorld?.read('host:'+s)||null}])),
   celebration:celebration&&{...celebration},events:records.slice(-30)})};
 }
