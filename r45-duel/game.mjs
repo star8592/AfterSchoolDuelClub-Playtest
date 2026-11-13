@@ -48,7 +48,8 @@ function showSpokenLine(entry){
  if(!node||!speaker||!words)return;
  const name=BY_ID[entry.id]?.name||({
   HOST_PLAYER:'我方决斗者',HOST_AI:'对方决斗者',
-  STADIUM_PA:'体育馆广播员'})[entry.id]||entry.id;
+  STADIUM_PA:'体育馆广播员'})[entry.id]||
+  (entry.id.startsWith('SPECTATOR_')?'看台同学 '+(Number(entry.id.slice(10))+1):entry.id);
  speaker.textContent=name+' · Qwen3 角色配音';
  words.textContent=entry.text;
  node.dataset.side=entry.id==='STADIUM_PA'?'center':
@@ -810,6 +811,7 @@ window.addEventListener('message',event=>{
   r122PlayedCrowdAccidents.add(d.serial);
   if(r122PlayedCrowdAccidents.size>400)r122PlayedCrowdAccidents.clear();
   const pitch=.86+(canonical.spectatorIndex%4)*.13;
+  audio.playCrowdYelp(d.scenario,d.spectatorIndex,d.serial);
   audio.playCue('r102_crowd_gasp',d.spectatorIndex<2?'player':'ai',
    {rate:pitch,gainScale:.85});
   audio.playCue(d.scenario==='shockwave'?'r102_paper_flap':
@@ -817,7 +819,7 @@ window.addEventListener('message',event=>{
    d.scenario==='overshoot'?'r102_spring_boing':'r102_chalk_snap',
    d.spectatorIndex<2?'player':'ai',{rate:1.02,gainScale:.6,delay:.12});
   showComedyAside({text:'看台意外！'+d.caption+'。'+d.line,
-   side:'center',speaker:'看台同学 · 搞笑字幕（非语音）'});
+   side:'center',speaker:'看台现场 · 搞笑吐槽字幕'});
   return;
  }
  if(event.data?.type==='ASDC_R121_SPELL_CONTACT'){
