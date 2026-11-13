@@ -23,6 +23,7 @@ import {describeSpellContact} from './spell-response-contract.mjs';
 import {createSpellContactFX} from './spell-contact-fx.mjs';
 import {chooseCrowdAccident} from './spectator-chaos-contract.mjs';
 import {createSpectatorChaosFX} from './spectator-chaos-fx.mjs';
+import {createBleacherPropComedy,resolveSpectatorProp} from './bleacher-prop-comedy.mjs';
 import {createElementalVfx} from './elemental-vfx.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
@@ -188,7 +189,7 @@ let duelEffects=null;
 let comboDirector=null;
 let comedySpectacle=null;
 let liveScoreboard=null;
-let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null,spectatorChaosFX=null;
+let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null,spectatorChaosFX=null,bleacherProps=null;
 const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
 let actualHostHits=0;
@@ -253,6 +254,7 @@ function makeScene(){
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
  spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
+ bleacherProps=createBleacherPropComedy(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
  handCards=createHandPlayCards(THREE,scene);
   clock=new THREE.Clock();
@@ -683,6 +685,7 @@ function loop(){
  elementalVfx?.update(absoluteSeconds);
  spellContactFX?.update(absoluteSeconds);
  spectatorChaosFX?.update(absoluteSeconds);
+ bleacherProps?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
  comboDirector?.update(absoluteSeconds,reduced);
  comedySpectacle?.update(absoluteSeconds,reduced);
@@ -749,12 +752,16 @@ function loop(){
   pendingCrowdAccidents.splice(i,1);
   const hit=stadiumEvidence?.reactSpectatorAccident?.(accident,absoluteSeconds);
   if(!hit)continue;
+  // The corresponding real 3D seat accessory already existed before the
+  // accident; it now tumbles, spills/scatters and returns to its owner.
+  const prop=bleacherProps?.play(accident,absoluteSeconds);
   r122AccidentReceipts++;
   reply('ASDC_R122_CROWD_ACCIDENT',{
    serial:accident.serial,card:accident.card,side:accident.side,
    scenario:accident.scenario,spectatorIndex:accident.spectatorIndex,
    spectatorId:hit.spectatorId,element:accident.element,
    caption:accident.caption,line:accident.line,
+   prop:prop?.kind||null,propLine:resolveSpectatorProp(accident)?.line||null,
    gameplayHit:false,ruleDamage:0
   });
  }
@@ -969,6 +976,7 @@ function exposeQA(){
   get elementalVfx(){return elementalVfx?.stats||null},
   get spellContactFX(){return spellContactFX?.stats||null},
   get spectatorChaosFX(){return spectatorChaosFX?.stats||null},
+  get bleacherProps(){return bleacherProps?.stats||null},
   get r122AccidentReceipts(){return r122AccidentReceipts},
   get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
   get r121ContactReceipts(){return r121ContactReceipts},
@@ -1110,6 +1118,7 @@ try{
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
+ bleacherProps?.mount?.([0,1,2,3].map(index=>stadiumEvidence?.spectatorAnchor?.(index)));
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,lifeWorld:arenaLife,
   onCombatImpact:(event)=>{
