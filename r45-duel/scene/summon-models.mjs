@@ -323,6 +323,24 @@ export function instantiateSummon(THREE,template){
   a.clampWhenFinished=kind!=='idle'&&kind!=='walk';
   a.play();current=clip.name;return true;
  };
+ // R116: short, true authored kitchen-theatre motions on the REAL
+ // right-hand-skinned chef, triggered by personality/match context.
+ // No clip is synthesized or borrowed from a different character identity.
+ const lifeClips=template.id==='M02'?new Set([
+  'Angry_Stomp','Big_Wave_Hello','Confused_Scratch','Jazz_Hands',
+  'Shrug','Victory_Cheer']):new Set();
+ const playLifeClip=(name)=>{
+  if(!lifeClips.has(name)||!mixer)return 0;
+  const clip=availableClips.find(x=>x.name===name);
+  if(!clip)return 0;
+  if(current===name)return clip.duration||0;
+  mixer.stopAllAction();
+  const action=mixer.clipAction(clip);
+  action.reset();action.enabled=true;action.setEffectiveWeight(1);
+  action.setLoop(THREE.LoopOnce,1);action.clampWhenFinished=true;
+  action.play();current=clip.name;
+  return clip.duration||0;
+ };
  play('idle');
  // Some skinned GLBs embed a root-motion offset that raises their boots.
  // Sample the chosen idle clip once, then seat the *real posed* feet on court.
@@ -337,6 +355,7 @@ export function instantiateSummon(THREE,template){
  }
  return {root,mixer,play,update:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
-  setCombatPose,setClipRate,getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
+  setCombatPose,setClipRate,playLifeClip,
+  getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};
 }

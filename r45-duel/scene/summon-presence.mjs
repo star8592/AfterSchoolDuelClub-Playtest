@@ -18,7 +18,7 @@ import {createFootContact} from './foot-contact.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
-export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpact}={}){
+export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpact,lifeWorld=null}={}){
  if(!(prototypes instanceof Map)||prototypes.size!==12||
    UNIT_MODEL_IDS.some(id=>!prototypes.has(id))){
    throw Error('R61 fail-closed: all twelve summoned GLB prototypes must load');
@@ -223,6 +223,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    state.status.texture.dispose();
   }
   entries.delete(key);
+  lifeWorld?.remove('unit:'+key);
  }
 
  function sync(snapshot,{cinematic=false,force=false}={}){
@@ -271,6 +272,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
       acting:object.userData.r105Acting||null,
       comic:null,comicBones:null,status:makeStatusTag(side,id)};
      entries.set(key,state);
+     lifeWorld?.register('unit:'+key,{id,side,role:'summon'});
     }
     state.index=index;
     setUnitVitals(state,unit);
@@ -534,11 +536,38 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     state.r113DanceStage=move.stage;
     celebrationFrames++;if(move.weight>.15)celebratingActors++;
    }else if(!state.comic&&!sequence&&!cinematic&&!celebration){
-    // Irregular, identity-offset ambient weight shift for every on-court unit.
-    // Never turn around or override the spine/arms of a playing clip.
-    const n=state.id.split('').reduce((v,c)=>v+c.charCodeAt(0),0)+state.index*37;
-    const glide=Math.sin(seconds*(.43+(n%7)*.073)+n*.17);
-    if(state.kind!=='original-vrm')object.rotation.z=glide*.011;
+    // Return to the original authored idle after a short contextual gesture.
+    if(state.r116LifeClip&&seconds>state.r116ClipUntil){
+     r61?.play?.('idle');state.r116LifeClip=null;
+    }
+    // The individual's attention, confidence, recent impact and personality
+    // now determine its small idle gestures. Don't move feet or fight clips.
+    const life=lifeWorld?.read('unit:'+state.key,seconds);
+    state.lifePose=life||null;
+    if(state.kind!=='original-vrm'&&life){
+     if(state.id==='M02'&&life.intent!=='idle'&&
+       life.lastAction&&state.r116LastLifeAt!==life.lastAction.at&&
+       life.weight>.32&&!state.r116LifeClip){
+      const clipByIntent={challenge:'Angry_Stomp',hands_hips:'Shrug',
+       peek:'Confused_Scratch',scratch:'Confused_Scratch',
+       half_wave:'Big_Wave_Hello',tiny_clap:'Jazz_Hands',
+       cheer:'Victory_Cheer',headshake:'Confused_Scratch'};
+      const name=clipByIntent[life.intent];
+      if(name){
+       const duration=r61?.playLifeClip?.(name)||0;
+       if(duration>0){
+        state.r116LastLifeAt=life.lastAction.at;
+        state.r116LifeClip=name;
+        state.r116ClipUntil=seconds+Math.min(duration,2.8);
+       }
+      }
+     }
+     object.rotation.z=life.tilt*.65;
+     object.rotation.y=faceOpponentYaw(state.id,state.side)+life.yaw*.25;
+    }else if(state.kind!=='original-vrm'){
+     const n=state.id.split('').reduce((v,c)=>v+c.charCodeAt(0),0)+state.index*37;
+     object.rotation.z=Math.sin(seconds*(.43+(n%7)*.073)+n*.17)*.011;
+    }
    }
    const tag=state.status?.label;
    if(tag){
@@ -786,6 +815,10 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      id:x.id,uid:x.uid,type:x.comic.type,serial:x.comic.serial,
      shoulderBoneCount:x.comicBones?.length||0})),
     lastComic},
+   r116LifeStates:[...entries.values()].map(x=>({
+    uid:x.uid,id:x.id,side:x.side,
+    life:lifeWorld?.read('unit:'+x.key,lastUpdateSeconds||0)||null,
+    livingClip:x.r116LifeClip||null})),
    r114FootContacts:[...entries.values()].map(x=>({
     id:x.id,uid:x.uid,side:x.side,
     ...(x.r114FootContact?.inspect()||{enabled:false,frames:0})
