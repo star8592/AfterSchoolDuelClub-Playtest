@@ -5,6 +5,7 @@
  * Visual-only choreography; canonical core.mjs owns all damage and winners.
  */
 import * as THREE from 'three';
+import {r125VersionedAssetURL} from '../r125-asset-urls.mjs';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from '../assets/meshopt/meshopt_decoder.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
@@ -435,7 +436,7 @@ function styleHostAvatar(source,id){
  return{recolored,accessories:0,palette};
 }
 async function loadActor(spec,idx,onTransfer){
- const url=new URL('../assets/model/'+spec.source,location.href).href;
+ const url=r125VersionedAssetURL(new URL('../assets/model/'+spec.source,location.href)).href;
  const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(
   url,event=>onTransfer?.(url,event));
  const original=gltf.scene;
