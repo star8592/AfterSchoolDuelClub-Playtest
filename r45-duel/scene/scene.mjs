@@ -60,6 +60,9 @@ const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'
 // original child, with its source facial morphs and wrist-bound painted card.
 // Main wide stadium composition and manual user orbit remain untouched.
 const heroCamera=new THREE.PerspectiveCamera(43,1,.10,90);
+// R124: layer 0 stays the complete stadium; each inset renders only its
+// original actor and physically wrist-bound card (never a replacement mesh).
+const HERO_CINEMA_LAYER=Object.freeze({player:1,ai:2});
 let heroLens={side:null,phase:'idle',frames:0,visible:false,
   inset:null,faceNdc:null,lastDrawCalls:0};
 let heroResult={winner:null,started:-100};
@@ -257,6 +260,10 @@ function makeScene(){
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
  handCards=createHandPlayCards(THREE,scene);
+ // Preserve original lighting without redrawing the gym in each portrait.
+ scene.traverse(node=>{
+  if(node.isLight){node.layers.enable(HERO_CINEMA_LAYER.player);node.layers.enable(HERO_CINEMA_LAYER.ai);}
+ });
   clock=new THREE.Clock();
  onResize();window.addEventListener('resize',onResize);
  installOrbitControls();
@@ -489,7 +496,10 @@ function makeDuelistHosts(){
   pivot.name='R74_PERMANENT_DUELIST_'+actor.id;
   pivot.position.set(i===0?-5.55:5.55,.48,.60);
   pivot.rotation.y=faceOpponentYaw(actor.id,i===0?'player':'ai');
-  pivot.visible=true;scene.add(pivot);
+  pivot.visible=true;
+  // Enable an additional layer while retaining layer 0: full arena unchanged.
+  pivot.traverse(node=>node.layers.enable(HERO_CINEMA_LAYER[i===0?'player':'ai']));
+  scene.add(pivot);
   const {m,bones,skins}=indexBones(pivot),base=new Map();
   m.forEach((bone,key)=>base.set(key,bone.quaternion.clone()));
   if(skins<actor.skins||bones<actor.boneCount)
@@ -860,6 +870,7 @@ function loop(){
    const y=Math.floor(size.y*(size.x<680?.40:.42));
    const sign=focus.side==='player'?1:-1;
    const cx=host.pivot.position.x,cy=host.pivot.position.y;
+   heroCamera.layers.set(HERO_CINEMA_LAYER[focus.side]);
    heroCamera.aspect=width/height;
    heroCamera.fov=size.x<680?46:41;
    heroCamera.updateProjectionMatrix();
@@ -876,10 +887,20 @@ function loop(){
    renderer.setViewport(x,y,width,height);
    renderer.setScissor(x,y,width,height);
    renderer.autoClear=false;
-   renderer.clear(true,true,true);
-   renderer.render(scene,heroCamera);
-   currentDraws+=renderer.info.render.calls;
-   renderer.autoClear=true;
+   const shadowAutoUpdate=renderer.shadowMap.autoUpdate;
+   // Wide shot already updated shadows; another 2048px shadow pass for a
+   // small face inset is unnecessary and causes perceptible 33ms frames.
+   renderer.shadowMap.autoUpdate=false;
+   let insetDrawCalls=0;
+   try{
+    renderer.clear(true,true,true);
+    renderer.render(scene,heroCamera);
+    insetDrawCalls=renderer.info.render.calls;
+   }finally{
+    renderer.shadowMap.autoUpdate=shadowAutoUpdate;
+    renderer.autoClear=true;
+   }
+   currentDraws+=insetDrawCalls;
    renderer.setScissorTest(false);
    renderer.setViewport(0,0,size.x,size.y);
    renderer.setScissor(0,0,size.x,size.y);
@@ -898,7 +919,7 @@ function loop(){
      [face.x,face.y,face.z].map(v=>+v.toFixed(3)):null,
     cardNdc:card?[card.x,card.y,card.z].map(v=>+v.toFixed(3)):null,
     faceCardSeparation:+separation.toFixed(4),
-    lastDrawCalls:currentDraws};
+    lastDrawCalls:currentDraws,insetDrawCalls,renderLayer:HERO_CINEMA_LAYER[focus.side]};
   }
  }
  if(!heroLens.visible){heroLens.side=null;heroLens.phase='idle'}
@@ -1216,6 +1237,11 @@ try{
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
  makeDuelistHosts();
  handCards?.attach(duelistHosts);
+ for(const side of ['player','ai']){
+  const held=scene.getObjectByName('R117_LiveCard_Held_By_'+side);
+  if(!held)throw Error('R124 original hand card missing from cinema layer '+side);
+  held.traverse(node=>node.layers.enable(HERO_CINEMA_LAYER[side]));
+ }
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
