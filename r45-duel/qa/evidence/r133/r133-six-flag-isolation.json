@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "official-default",
+      "pass": true,
+      "model": "G03-Jay-Landing-R97.glb",
+      "shoeContactEnabled": false,
+      "otherActorDisabled": true
+    },
+    {
+      "name": "untrusted-flag-without-qa",
+      "pass": true,
+      "model": "G03-Jay-Landing-R97.glb",
+      "shoeContactEnabled": false,
+      "otherActorDisabled": true
+    },
+    {
+      "name": "source-study-without-qa",
+      "pass": true,
+      "model": "G03-Jay-Skinned-R119.glb",
+      "shoeContactEnabled": false,
+      "otherActorDisabled": true
+    },
+    {
+      "name": "R119-qa-alone",
+      "pass": true,
+      "model": "G03-Jay-Skinned-R119.glb",
+      "shoeContactEnabled": false,
+      "otherActorDisabled": true
+    },
+    {
+      "name": "R132-qa-without-r133",
+      "pass": true,
+      "model": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+      "shoeContactEnabled": false,
+      "otherActorDisabled": true
+    },
+    {
+      "name": "R132-qa-with-r133",
+      "pass": true,
+      "model": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+      "shoeContactEnabled": true,
+      "otherActorDisabled": true
+    }
+  ],
+  "errors": [],
+  "origin": "http://127.0.0.1:11438"
+}
