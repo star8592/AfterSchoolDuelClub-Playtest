@@ -408,7 +408,16 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   }
  }
  let actualSpellReactions=0;
- function reactToSpell(side,uids,now){
+ function spellWorldAnchors(side,uids){
+  if(!['player','ai'].includes(side)||!Array.isArray(uids))return [];
+  return uids.slice(0,5).flatMap(uid=>{
+   const state=entries.get(side+':'+uid);
+   if(!state)return [];
+   const p=state.object.getWorldPosition(new THREE.Vector3());
+   return [{uid,id:state.id,x:p.x,y:p.y,z:p.z}];
+  });
+ }
+ function reactToSpell(side,uids,now,element='earth'){
   if(!['player','ai'].includes(side)||!Array.isArray(uids)||uids.length>5)return 0;
   let affected=0;
   for(const uid of uids){
@@ -416,6 +425,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    const state=entries.get(side+':'+uid);
    if(!state)continue; // Rule engine may already have removed defeated unit.
    state.r95SpellHit=now;
+   state.r121SpellElement=element;
    state.object.userData.r61?.play?.('hit');
    affected++;
   }
@@ -620,8 +630,18 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    const age=seconds-(state.r95SpellHit??-100);
    if(age<0||age>.73)continue;
    const envelope=Math.sin(Math.PI*age/.73);
-   state.object.rotation.z+=(state.side==='player'?-1:1)*.11*envelope;
-   state.object.position.x+=(state.side==='player'?-1:1)*.14*envelope;
+   const element=state.r121SpellElement||'earth';
+   const angle=({electric:.21,ice:.045,fire:.17,water:.15,wind:.27,
+    sound:.20,earth:.14,metal:.13,space:.22,time:.015,shadow:.18,
+    light:.15,wood:.09,mind:.22,absurd:.29})[element]??.11;
+   const sign=state.side==='player'?-1:1;
+   state.object.rotation.z+=sign*angle*envelope;
+   state.object.rotation.x+=element==='wind'?.13*envelope:
+    element==='time'?.014*envelope:element==='electric'?.10*Math.sin(age*48)*envelope:0;
+   state.object.position.x+=sign*(element==='wind'?.27:element==='time'?.02:.14)*envelope;
+   if(element==='absurd')state.object.position.y+=.13*envelope;
+   if(element==='electric')state.object.rotation.y+=.08*Math.sin(age*53)*envelope;
+   if(element==='ice')state.object.rotation.z+=.026*Math.sin(age*28)*envelope;
   }
   hitRing.visible=ribbon.visible=hitLabel.visible=false;
   sparkBurst.visible=false;
@@ -947,7 +967,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    loadedPrototypeIds:[...prototypes.keys()],cardIds:[...UNIT_IDS],entries:list};
  }
  return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,
-  reactToSpell,reactToSummon,reactToCombo,clearComicCombo,
+  reactToSpell,spellWorldAnchors,reactToSummon,reactToCombo,clearComicCombo,
   celebrate,get celebration(){return celebration&&{...celebration,frames:celebrationFrames,actorFrames:celebratingActors}},
   get spellReactions(){return actualSpellReactions}};
 }
