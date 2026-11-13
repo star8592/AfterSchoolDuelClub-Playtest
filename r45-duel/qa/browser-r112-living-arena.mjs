@@ -30,7 +30,7 @@ try{
   const open=await data();
   check(open.hosts.length===2&&open.hosts.every(h=>h.independentFromSummons),view+' unique hosts',open.hosts.length);
   check(open.stadium.seats===396,view+' 396 truly constructed front/rear seats',open.stadium.seats);
-  check(open.models.some(m=>m.id==='M02'&&m.file==='M02-CafeteriaAunt-ChefHat-Ladle-R112.glb'&&m.clips>=8),
+  check(open.models.some(m=>m.id==='M02'&&m.file==='M02-CafeteriaAunt-ChefHat-Ladle-R114.glb'&&m.clips>=8),
    view+' ladle source model loads with original animations',open.models.find(x=>x.id==='M02'));
   check(open.framing.realDuelistBounds.every(h=>h.fullyVisible),
    view+' full duelists in audience camera',open.framing.realDuelistBounds);

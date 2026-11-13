@@ -39,6 +39,8 @@ const HOST_MODEL_SPECS=[
   minBones:80,minSkins:2,host:true}
 ];
 const TOTAL_REAL_ASSETS=16;
+const loadingStartedAt=performance.now();
+window.__ASDC_LOAD_METRICS={modelsVerified:0,modelReadyMs:null,firstFrameReadyMs:null};
 const PHASES={idle:'人物就位',approach:'双方接近',windup:'蓄力',strike:'我方攻击',
  counter:'对方反击',retreat:'双方回位',settled:'本次交锋完成'};
 const DURATION=6.45;
@@ -767,6 +769,7 @@ function onMessage(ev){
    livingCast.signal(msg.side,'hurt',absoluteSeconds);
    actualHostHits++;
    duelEffects?.pulse(msg.side,absoluteSeconds);
+   stadiumEvidence?.reactAudience?.('hit',msg.side,absoluteSeconds);
   }
   return;
  }
@@ -788,6 +791,7 @@ function onMessage(ev){
   if(uids.length)pendingSpellUnitHits.push({side:victim,uids,due:absoluteSeconds+.46});
   if(Number.isInteger(msg.directDamage)&&msg.directDamage>0){
    hostHits[victim]={time:absoluteSeconds+.46,damage:msg.directDamage};
+   stadiumEvidence?.reactAudience?.('hit',victim,absoluteSeconds);
    livingCast.signal(victim,'hurt',absoluteSeconds+.46);
    actualHostHits++;
   }
@@ -808,6 +812,7 @@ function onMessage(ev){
   if(authorized){
    hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind};
    livingCast.signal(msg.side,'card',absoluteSeconds);
+   stadiumEvidence?.reactAudience?.('card',msg.side,absoluteSeconds);
    if(card.kind==='unit'){
     summonPresence?.reactToSummon(msg.side,msg.id,msg.serial,absoluteSeconds);
     // R79 recovered 3D portal effect on existing summoned characters.
@@ -913,28 +918,49 @@ function verifiedModelLoaded(id){
  const count=$('load-count'),bar=$('load-progress');
  if(count)count.textContent='已验证 '+loadedRealResources+' / '+TOTAL_REAL_ASSETS+' 个三维人物资源';
  if(bar){bar.value=loadedRealResources;bar.textContent=loadedRealResources+'/'+TOTAL_REAL_ASSETS;}
+ window.__ASDC_LOAD_METRICS.modelsVerified=loadedRealResources;
+ const step=$('load-step');
+ if(step){
+  const verifiedSummons=[...loadedResourceIds].filter(value=>value.startsWith('GLB:')).length;
+  step.textContent=verifiedSummons===12?'所有角色资源已验证':
+   verifiedSummons>0?'召唤角色集结中 · '+verifiedSummons+' / 12':
+   '正在迎接决斗者与召唤角色';
+ }
 }
 try{
  makeScene();
- actors=await Promise.all(MODEL_SPECS.map(async(spec,idx)=>{
-  const actor=await loadActor(spec,idx);
-  verifiedModelLoaded('VRM:'+spec.id);
-  return actor;
- }));
+ // Run the four priority VRMs alongside a bounded GLB pipeline. The old
+ // sequence waited for VRM group A, then VRM group B, then all 12 summons.
+ // Full readiness is still gated on every actual model, not a synthetic %.
+ const connection=navigator.connection;
+ const slowNetwork=connection?.saveData||/2g/.test(connection?.effectiveType||'');
+ const glbConcurrency=slowNetwork?2:matchMedia('(pointer:coarse)').matches?3:4;
+ const [loadedActors,loadedHosts,loadedSummons]=await Promise.all([
+  Promise.all(MODEL_SPECS.map(async(spec,idx)=>{
+   const actor=await loadActor(spec,idx);
+   verifiedModelLoaded('VRM:'+spec.id);
+   return actor;
+  })),
+  Promise.all(HOST_MODEL_SPECS.map(async(spec,idx)=>{
+   const actor=await loadActor(spec,idx);
+   verifiedModelLoaded('HOST:'+spec.source);
+   return actor;
+  })),
+  preloadSummonModels(THREE,new GLTFLoader(),{
+   concurrency:glbConcurrency,
+   onLoaded:({id})=>verifiedModelLoaded('GLB:'+id)
+  })
+ ]);
+ actors=loadedActors;
+ hostSourceActors=loadedHosts;
+ summonModels=loadedSummons;
  source3DAssetsVerified=actors[0].source==='Shino-original-CC0.vrm'&&
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
- hostSourceActors=await Promise.all(HOST_MODEL_SPECS.map(async(spec,idx)=>{
-  const actor=await loadActor(spec,idx);
-  verifiedModelLoaded('HOST:'+spec.source);
-  return actor;
- }));
  makeDuelistHosts();
- summonModels=await preloadSummonModels(THREE,new GLTFLoader(),{
-  onLoaded:({id})=>verifiedModelLoaded('GLB:'+id)
- });
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
+ stadiumEvidence?.mountAudience?.(summonModels);
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,
   onCombatImpact:(event)=>{
@@ -948,7 +974,10 @@ try{
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
- $('load-explain').textContent=TOTAL_REAL_ASSETS+' / '+TOTAL_REAL_ASSETS+' 个真实模型已载入，正在绘制首次完整体育馆画面…';
+ window.__ASDC_LOAD_METRICS.modelReadyMs=Math.round(performance.now()-loadingStartedAt);
+ const paintStage=$('load-step');
+ if(paintStage)paintStage.textContent='正在点亮正式比赛场地';
+ $('load-explain').textContent='所有真实模型已验证，正在渲染首次完整比赛画面…';
  exposeQA();
  const warmupStarted=performance.now();
  let warmupFrames=0;
@@ -961,7 +990,8 @@ try{
    resolve();
   }));
   warmupFrames++;
- } while((performance.now()-warmupStarted<850||warmupFrames<7)&&warmupFrames<95);
+ } while((performance.now()-warmupStarted<(PARAMS.has('qa')||navigator.webdriver?850:320)||warmupFrames<7)&&warmupFrames<95);
+ window.__ASDC_LOAD_METRICS.firstFrameReadyMs=Math.round(performance.now()-loadingStartedAt);
  $('loading').hidden=true;
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,independentHostVRMRigs:hostSourceActors.length,
@@ -984,6 +1014,12 @@ try{
  retry.type='button';
  retry.textContent='↻ 重新加载三维场景';
  retry.addEventListener('click',()=>location.reload());
- loading.replaceChildren(message,retry);
+ const shell=loading.querySelector('.load-shell');
+ const step=loading.querySelector('#load-step');
+ if(step)step.textContent='入场准备遇到问题';
+ const explain=loading.querySelector('#load-explain');
+ if(explain)explain.textContent='已暂停出牌，避免人物缺失或不完整的战斗。';
+ if(shell)shell.append(message,retry);
+ else loading.replaceChildren(message,retry);
  reply('ASDC_R45_SCENE_FAILED',{retryAvailable:true,modelReady:false});
 }

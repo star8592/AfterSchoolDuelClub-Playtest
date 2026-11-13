@@ -1,0 +1,408 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop four genuine high quality skinned spectators",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 1,
+        "movementFrames": 0,
+        "events": 0,
+        "active": null,
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop original sourced model provenance",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 1,
+        "movementFrames": 0,
+        "events": 0,
+        "active": null,
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop score-side crowd actually reacts to playing a card",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 12,
+        "movementFrames": 36,
+        "events": 1,
+        "active": {
+          "type": "card",
+          "winner": "player",
+          "started": 0.02019999998807907,
+          "duration": 1.65
+        },
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "card",
+            "weight": 0.95
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "card",
+            "weight": 0.95
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "card",
+            "weight": 0.95
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "card",
+            "weight": 0.95
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop stadium crowd cannot mutate canonical deck or HP",
+      "data": null
+    },
+    {
+      "passed": true,
+      "label": "desktop audience cheers winner but consoles loser",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 67,
+        "movementFrames": 244,
+        "events": 2,
+        "active": {
+          "type": "finale",
+          "winner": "ai",
+          "started": 0.23639999997615824,
+          "duration": 6.4
+        },
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "sympathy",
+            "weight": 1
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "sympathy",
+            "weight": 1
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "cheer",
+            "weight": 1
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "cheer",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop four 3D students remain performant with full seating",
+      "data": 654
+    },
+    {
+      "passed": true,
+      "label": "desktop no missing art/JS errors",
+      "data": []
+    },
+    {
+      "passed": true,
+      "label": "phone four genuine high quality skinned spectators",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 1,
+        "movementFrames": 0,
+        "events": 0,
+        "active": null,
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone original sourced model provenance",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 1,
+        "movementFrames": 0,
+        "events": 0,
+        "active": null,
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "idle",
+            "weight": 0
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone score-side crowd actually reacts to playing a card",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 24,
+        "movementFrames": 80,
+        "events": 1,
+        "active": {
+          "type": "card",
+          "winner": "player",
+          "started": 0.038399999976158145,
+          "duration": 1.65
+        },
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "card",
+            "weight": 1
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "card",
+            "weight": 1
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "card",
+            "weight": 1
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "card",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone stadium crowd cannot mutate canonical deck or HP",
+      "data": null
+    },
+    {
+      "passed": true,
+      "label": "phone audience cheers winner but consoles loser",
+      "data": {
+        "loaded": 4,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04"
+        ],
+        "skinnedRealActors": 4,
+        "frames": 78,
+        "movementFrames": 288,
+        "events": 2,
+        "active": {
+          "type": "finale",
+          "winner": "ai",
+          "started": 0.41550000000000015,
+          "duration": 6.4
+        },
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "mode": "sympathy",
+            "weight": 1
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "mode": "sympathy",
+            "weight": 1
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "mode": "cheer",
+            "weight": 1
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "mode": "cheer",
+            "weight": 1
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone four 3D students remain performant with full seating",
+      "data": 650
+    },
+    {
+      "passed": true,
+      "label": "phone no missing art/JS errors",
+      "data": []
+    }
+  ],
+  "errors": []
+}

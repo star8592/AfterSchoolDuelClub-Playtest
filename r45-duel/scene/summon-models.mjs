@@ -140,14 +140,25 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  G03:{file:'G03-Jay-Landing-R97.glb',label:'实验学长',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  G04:{file:'G04-Victoria-Landing-R97.glb',label:'社团计划总监',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  M01:{file:'M01-MusicTeacher-PolyforkSchoolTeacher.glb',label:'音乐老师',targetHeight:2.08,maxWidth:3.15,kind:'character'},
- M02:{file:'M02-CafeteriaAunt-ChefHat-Ladle-R112.glb',label:'食堂阿姨',targetHeight:2.35,maxWidth:2.35,kind:'character'},
+ M02:{file:'M02-CafeteriaAunt-ChefHat-Ladle-R114.glb',label:'食堂阿姨',targetHeight:2.35,maxWidth:2.35,kind:'character'},
  T01:{file:'T01-Owl-Innerscene-R84.glb',label:'猫头鹰播音员',targetHeight:1.15,maxWidth:1.42,kind:'creature'},
  T02:{file:'T02-LivingMenu-R59.glb',label:'食堂隐藏菜单',targetHeight:1.47,maxWidth:1.12,kind:'object'},
  T03:{file:'T03-Rain-Landing-R97.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T04:{file:'T04-Rex-Landing-R97.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
-export async function preloadSummonModels(THREE,loader,{onLoaded}={}){
+export async function preloadSummonModels(THREE,loader,{onLoaded,concurrency=4}={}){
+ // Bound GLB requests and parser work instead of firing 12 large models at once.
+ // Keep the original full 12/12 readiness and per-model validation contract.
+ const limit=Math.max(1,Math.min(12,Math.floor(Number(concurrency))||4));
+ let active=0;
+ const pending=[];
+ async function loadBounded(url){
+  if(active>=limit)await new Promise(resolve=>pending.push(resolve));
+  active++;
+  try{return await loader.loadAsync(url);}
+  finally{active--;pending.shift()?.();}
+ }
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
   const baseSpec=UNIT_MODEL_SPECS[id];
   const spec=id==='T02'&&isT02DuoStudy?
@@ -174,7 +185,7 @@ export async function preloadSummonModels(THREE,loader,{onLoaded}={}){
    'E02-R60-PhotoPaper-WingFlex-STUDY.glb':
    id==='G03'&&isG03R86Study?'G03-Jay-Skinned-R86.glb':spec.file;
   const url=new URL('../assets/summons/'+selectedFile,import.meta.url);
-  const gltf=await loader.loadAsync(url.href);
+  const gltf=await loadBounded(url.href);
   const source=gltf.scene;
   source.updateMatrixWorld(true);
   const bounds=new THREE.Box3().setFromObject(source);
