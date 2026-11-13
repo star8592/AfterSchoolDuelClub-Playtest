@@ -52,6 +52,10 @@ canvas{display:block;width:100%;height:100%}
 #load-progress::-moz-progress-bar{border-radius:999px;background:linear-gradient(90deg,#5bd9cf,#e9c58d)}
 #load-progress[hidden]{display:none}
 #load-explain{font:12px/1.65 system-ui,sans-serif;color:#b4c8d3;margin:14px 0 0;max-width:370px}
+#load-download{color:#9bcad9;font:700 11px/1.5 system-ui,sans-serif;margin:10px 0 0;font-variant-numeric:tabular-nums}
+#load-slow[hidden]{display:none}#load-slow{font:11px/1.7 system-ui,sans-serif;color:#f4d7ae;margin-top:12px}
+#load-retry-slow{background:transparent;border:1px solid #e7c18b8c;border-radius:7px;padding:5px 10px;margin-left:6px;color:#ffe3ab;cursor:pointer;font:700 11px system-ui,sans-serif}
+#load-retry-slow:focus-visible{outline:2px solid #fff}
 .load-tip{width:100%;margin-top:22px;padding:13px 13px 0;border-top:1px solid #c8d5d21d;
  color:#d8d3ba;font:11px/1.7 system-ui,sans-serif}
 .load-tip b{color:#f0d392}
@@ -113,6 +117,8 @@ canvas{display:block;width:100%;height:100%}
   <strong id="load-step" aria-live="polite">正在迎接决斗者与召唤角色</strong>
   <div class="load-progress-head"><span>已验证的三维角色资源</span><span id="load-count">0 / 16</span></div>
   <progress id="load-progress" value="0" max="16" aria-label="已验证的三维模型加载进度">0/16</progress>
+  <span id="load-download">正在接收三维角色数据…</span>
+  <div id="load-slow" hidden>连接较慢，正在继续准备真实人物。<button type="button" id="load-retry-slow">重新加载场景</button></div>
   <p id="load-explain">正在校验角色模型与动作骨架，完成后自动进入比赛。</p>
   <div class="load-tip"><b>开场提示</b>　召唤的人物会在下一次轮到你时主动出击。</div>
  </div>

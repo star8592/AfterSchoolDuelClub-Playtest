@@ -42,7 +42,7 @@ const HOST_MODEL_SPECS=[
 ];
 const TOTAL_REAL_ASSETS=16;
 const loadingStartedAt=performance.now();
-window.__ASDC_LOAD_METRICS={modelsVerified:0,modelReadyMs:null,firstFrameReadyMs:null};
+window.__ASDC_LOAD_METRICS={modelsVerified:0,modelReadyMs:null,firstFrameReadyMs:null,downloadedBytes:0,knownTotalBytes:0};
 const PHASES={idle:'人物就位',approach:'双方接近',windup:'蓄力',strike:'我方攻击',
  counter:'对方反击',retreat:'双方回位',settled:'本次交锋完成'};
 const DURATION=6.45;
@@ -386,9 +386,10 @@ function styleHostAvatar(source,id){
  });
  return{recolored,accessories:0,palette};
 }
-async function loadActor(spec,idx){
+async function loadActor(spec,idx,onTransfer){
  const url=new URL('../assets/model/'+spec.source,location.href).href;
- const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(url);
+ const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(
+  url,event=>onTransfer?.(url,event));
  const original=gltf.scene;
  const faceExpressions=extractVrm0Expressions(gltf);
  const {m,skins,bones,vertices}=indexBones(original);
@@ -924,8 +925,43 @@ function exposeQA(){
    source:'INDEPENDENT_CORE_GENERATED_DEMO_NOT_CURRENT_MATCH'});}
  }});
 }
+// R116: count actual GLB/VRM response bytes (independent from verified assets).
+// A file can be fully downloaded but still be decoding or fail validation.
+const transferProgress=new Map();
+let transferPaintPending=false;
+function updateTransferProgress(url,event){
+ const loaded=Number(event?.loaded);
+ if(!Number.isFinite(loaded)||loaded<0)return;
+ const previous=transferProgress.get(url)||{loaded:0,total:0};
+ const total=event.lengthComputable&&Number.isFinite(Number(event.total))?
+  Math.max(loaded,Number(event.total)):previous.total;
+ transferProgress.set(url,{loaded:Math.max(previous.loaded,loaded),total});
+ const entries=[...transferProgress.values()];
+ const bytes=entries.reduce((sum,item)=>sum+item.loaded,0);
+ const known=entries.reduce((sum,item)=>sum+item.total,0);
+ window.__ASDC_LOAD_METRICS.downloadedBytes=Math.round(bytes);
+ window.__ASDC_LOAD_METRICS.knownTotalBytes=Math.round(known);
+ // Render the latest sampled byte count on the next frame. A timed throttle
+ // without a final flush can leave the visible bytes behind the real count.
+ if(transferPaintPending)return;
+ transferPaintPending=true;
+ requestAnimationFrame(()=>{
+  transferPaintPending=false;
+  if(ready||loadedRealResources===TOTAL_REAL_ASSETS)return;
+  const element=$('load-download');
+  const current=window.__ASDC_LOAD_METRICS.downloadedBytes;
+  if(element)element.textContent='已接收 '+(current/1048576).toFixed(1)+' MiB 模型数据';
+ });
+}
 let loadedRealResources=0;
 const loadedResourceIds=new Set();
+// A slow connection is a recoverable state, never fake a completed arena.
+const slowLoadTimer=setTimeout(()=>{
+ if(ready||$('loading')?.dataset.error==='true')return;
+ const hint=$('load-slow');
+ if(hint)hint.hidden=false;
+},12000);
+$('load-retry-slow')?.addEventListener('click',()=>location.reload());
 function verifiedModelLoaded(id){
  if(loadedResourceIds.has(id))return;
  loadedResourceIds.add(id);loadedRealResources++;
@@ -951,18 +987,19 @@ try{
  const glbConcurrency=slowNetwork?2:matchMedia('(pointer:coarse)').matches?3:4;
  const [loadedActors,loadedHosts,loadedSummons]=await Promise.all([
   Promise.all(MODEL_SPECS.map(async(spec,idx)=>{
-   const actor=await loadActor(spec,idx);
+   const actor=await loadActor(spec,idx,updateTransferProgress);
    verifiedModelLoaded('VRM:'+spec.id);
    return actor;
   })),
   Promise.all(HOST_MODEL_SPECS.map(async(spec,idx)=>{
-   const actor=await loadActor(spec,idx);
+   const actor=await loadActor(spec,idx,updateTransferProgress);
    verifiedModelLoaded('HOST:'+spec.source);
    return actor;
   })),
   preloadSummonModels(THREE,new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
    concurrency:glbConcurrency,
-   onLoaded:({id})=>verifiedModelLoaded('GLB:'+id)
+   onLoaded:({id})=>verifiedModelLoaded('GLB:'+id),
+   onTransfer:updateTransferProgress
   })
  ]);
  actors=loadedActors;
@@ -989,6 +1026,8 @@ try{
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
  window.__ASDC_LOAD_METRICS.modelReadyMs=Math.round(performance.now()-loadingStartedAt);
+ const download=$('load-download');
+ if(download)download.textContent='所有角色已下载，正在完成三维场景渲染';
  const paintStage=$('load-step');
  if(paintStage)paintStage.textContent='正在点亮正式比赛场地';
  $('load-explain').textContent='所有真实模型已验证，正在渲染首次完整比赛画面…';
@@ -1006,6 +1045,7 @@ try{
   warmupFrames++;
  } while((performance.now()-warmupStarted<(PARAMS.has('qa')||navigator.webdriver?850:320)||warmupFrames<7)&&warmupFrames<95);
  window.__ASDC_LOAD_METRICS.firstFrameReadyMs=Math.round(performance.now()-loadingStartedAt);
+ clearTimeout(slowLoadTimer);
  $('loading').hidden=true;
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,independentHostVRMRigs:hostSourceActors.length,
@@ -1017,7 +1057,10 @@ try{
  console.error('R45_SCENE_MODEL_LOAD_FAILED',e);
  // Never pretend a partially loaded arena is ready. Show a playable recovery
  // action instead of leaving the player stuck with an unclickable error.
+ clearTimeout(slowLoadTimer);
  const loading=$('loading');
+ const slowHint=$('load-slow');
+ if(slowHint)slowHint.hidden=true;
  loading.dataset.error='true';
  const message=document.createElement('div');
  message.className='load-error';
