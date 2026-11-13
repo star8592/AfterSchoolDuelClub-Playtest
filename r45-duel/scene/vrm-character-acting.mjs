@@ -80,9 +80,17 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
   hit:{J_Bip_C_Chest:[.14,0,-.07],J_Bip_R_UpperArm:[.18,0,-.15],
    J_Bip_L_UpperArm:[.17,0,.17],J_Bip_C_Head:[.13,0,-.08]}
  };
+ // Two original source VRMs have fully authored Sorrow/Angry/Surprised
+ // facial morphs: use these instead of painting expression decals.
+ const theatreEmotions=Object.freeze(['joy','fun','angry','sorrow','surprised']);
+ const supported=new Set(theatreEmotions.filter(key=>(bindRows[key]||[]).length));
+ const managed=new Set([...bindRows.blink||[],
+  ...theatreEmotions.flatMap(key=>bindRows[key]||[])].map(x=>x.index));
  const delta=new THREE.Quaternion(),desired=new THREE.Quaternion();
- let amount=0,blink=0,faceAmount=0,frames=0,lastMode='idle',bornAt=null,entranceAmount=0;
- function update(seconds,{cinematic=false,combat=null,preview=false,previewAmount=null,previewEntrance=false,suppressEntrance=false,suppressGesture=false,seed=0}={}){
+ let amount=0,blink=0,faceAmount=0,frames=0,lastMode='idle',bornAt=null,entranceAmount=0,
+  faceMood='idle',faceMoodAmount=0;
+ function update(seconds,{cinematic=false,combat=null,preview=false,previewAmount=null,previewEntrance=false,suppressEntrance=false,suppressGesture=false,seed=0,
+   emotion=null,emotionAmount=0}={}){
   if(bornAt===null)bornAt=seconds;
   const age=Math.max(0,seconds-bornAt);
   const phase=(seconds+cfg.offset+seed*.71)%cfg.period;
@@ -93,7 +101,10 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
   lastMode=combat||cinematic?'combat':entranceAmount>.08?'entrance':amount>.02?'gesture':'idle';
   const blinkPhase=(seconds+seed*1.13+(id==='E01'?1:2.4))%5.1;
   blink=(cinematic||combat)?0:ease((blinkPhase-.15)/.08)*(1-ease((blinkPhase-.29)/.10));
-  faceAmount=(cinematic||combat)?0:cfg.strength*amount;
+  faceMood=emotion&&supported.has(emotion)?emotion:'idle';
+  faceMoodAmount=faceMood!=='idle'?
+   Math.max(0,Math.min(1,Number(emotionAmount)||0)):0;
+  faceAmount=(cinematic||combat||faceMoodAmount>.02)?0:cfg.strength*amount;
   if(!cinematic){
    // Reset only the actual upper body and two elbow joints; the original
    // VRM legs/hips retain native motion from the game. IK is solved after
@@ -127,14 +138,16 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
   // material or texture mutation; both camps can blink independently.
   const targets=new Map();
   for(const mesh of faceMeshes)targets.set(mesh,new Map());
-  for(const [key,value] of [['blink',blink],[cfg.face,faceAmount]]){
+  for(const [key,value] of [['blink',blink],[cfg.face,faceAmount],
+   [faceMood,faceMoodAmount]]){
    for(const b of bindRows[key]||[]){
     const t=targets.get(b.mesh);t.set(b.index,Math.max(t.get(b.index)||0,value*b.weight));
    }
   }
   for(const [mesh,values] of targets){
-   for(const b of bindRows.blink||[])if(b.mesh===mesh)mesh.morphTargetInfluences[b.index]=values.get(b.index)||0;
-   for(const b of bindRows[cfg.face]||[])if(b.mesh===mesh)mesh.morphTargetInfluences[b.index]=values.get(b.index)||0;
+   // Clear all managed source presets first; sorrow cannot persist under joy.
+   for(const index of managed)if(index<mesh.morphTargetInfluences.length)
+    mesh.morphTargetInfluences[index]=values.get(index)||0;
   }
   frames++;
  }
@@ -145,15 +158,19 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
   return {role:cfg.name,beat:cfg.beat,mode:lastMode,
    amount:Number(amount.toFixed(3)),blink:Number(blink.toFixed(3)),
    expression:cfg.face,faceAmount:Number(faceAmount.toFixed(3)),
+   emotion:faceMood,emotionAmount:Number(faceMoodAmount.toFixed(3)),
+   actualMood:+(faceMood==='idle'?0:Math.max(...(bindRows[faceMood]||[])
+    .filter(x=>x.mesh===sample).map(x=>sample.morphTargetInfluences[x.index]||0),0)).toFixed(3),
+   emotionBindings:Object.fromEntries(theatreEmotions.map(key=>[key,(bindRows[key]||[]).length])),
    actualBlink:Number((liveBlink||0).toFixed(3)),
    actualExpression:Number((liveExpression||0).toFixed(3)),
    heroPose:realPose.inspect(),entranceAmount:Number(entranceAmount.toFixed(3)),
    faceMeshes:faceMeshes.length,blinkBindings:bindRows.blink.length,
    expressionBindings:bindRows[cfg.face].length,frames};
  }
- function revive(){amount=blink=faceAmount=entranceAmount=0;bornAt=null;lastMode='idle';for(const mesh of faceMeshes){
-  for(const bindings of [bindRows.blink,bindRows[cfg.face]])for(const b of bindings||[])
-   if(b.mesh===mesh)mesh.morphTargetInfluences[b.index]=0;
+ function revive(){amount=blink=faceAmount=entranceAmount=faceMoodAmount=0;bornAt=null;lastMode=faceMood='idle';for(const mesh of faceMeshes){
+  for(const index of managed)if(index<mesh.morphTargetInfluences.length)
+   mesh.morphTargetInfluences[index]=0;
  }}
  return {update,inspect,revive};
 }
