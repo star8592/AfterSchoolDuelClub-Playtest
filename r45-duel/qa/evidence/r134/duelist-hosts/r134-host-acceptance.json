@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "source": "two original CC0 VRM podium rigs",
+  "defaultEnabled": true,
+  "rollbackQuery": "r134Hosts=off",
+  "tests": {
+    "realVRM15SecondIdleDesktopPortraitAndRollback": "38/38",
+    "actualGameCardGrip15FingersVoiceSpell": "18/18"
+  },
+  "validatedHostPersonalityBeats": {
+    "E01": {
+      "desktop": [
+        "challenge_opponent",
+        "ready"
+      ],
+      "portrait": [
+        "challenge_opponent",
+        "ready"
+      ]
+    },
+    "G01": {
+      "desktop": [
+        "challenge_opponent",
+        "check_hand",
+        "ready"
+      ],
+      "portrait": [
+        "challenge_opponent",
+        "check_hand",
+        "ready"
+      ]
+    }
+  },
+  "next": [
+    "human artistic closeup and full-action review",
+    "real consumer mobile device frame time",
+    "remaining eleven summon performance improvements"
+  ]
+}

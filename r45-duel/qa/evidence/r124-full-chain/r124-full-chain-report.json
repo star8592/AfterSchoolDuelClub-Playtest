@@ -1,0 +1,139 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11440",
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop real two-host skeleton/fingers"
+    },
+    {
+      "pass": true,
+      "label": "desktop ready elemental system and engine baseline"
+    },
+    {
+      "pass": true,
+      "label": "desktop real K01 available on player hand"
+    },
+    {
+      "pass": true,
+      "label": "desktop single real K01 rule damage"
+    },
+    {
+      "pass": true,
+      "label": "desktop real 3D actor receives correct magic"
+    },
+    {
+      "pass": true,
+      "label": "desktop contact receipt cannot double damage"
+    },
+    {
+      "pass": true,
+      "label": "desktop 3D actor closeup + actual painted card + source finger grasp"
+    },
+    {
+      "pass": true,
+      "label": "desktop actor hurt voice triggered by rules"
+    },
+    {
+      "pass": true,
+      "label": "desktop host-only 3D inset avoids duplicate stadium rendering, no JS/HTTP errors"
+    },
+    {
+      "pass": true,
+      "label": "portrait real two-host skeleton/fingers"
+    },
+    {
+      "pass": true,
+      "label": "portrait ready elemental system and engine baseline"
+    },
+    {
+      "pass": true,
+      "label": "portrait real K01 available on player hand"
+    },
+    {
+      "pass": true,
+      "label": "portrait single real K01 rule damage"
+    },
+    {
+      "pass": true,
+      "label": "portrait real 3D actor receives correct magic"
+    },
+    {
+      "pass": true,
+      "label": "portrait contact receipt cannot double damage"
+    },
+    {
+      "pass": true,
+      "label": "portrait 3D actor closeup + actual painted card + source finger grasp"
+    },
+    {
+      "pass": true,
+      "label": "portrait actor hurt voice triggered by rules"
+    },
+    {
+      "pass": true,
+      "label": "portrait host-only 3D inset avoids duplicate stadium rendering, no JS/HTTP errors"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "width": 1440,
+      "perf": {
+        "readyMs": 2903,
+        "load": {
+          "modelsVerified": 16,
+          "modelReadyMs": 1621,
+          "firstFrameReadyMs": 2507,
+          "downloadedBytes": 75569762,
+          "knownTotalBytes": 75569762
+        },
+        "idle": {
+          "frames": 74,
+          "p50Ms": 16.7,
+          "p95Ms": 16.8,
+          "over33ms": 1
+        },
+        "fight": {
+          "frames": 171,
+          "p50Ms": 16.7,
+          "p95Ms": 33.3,
+          "over33ms": 9
+        },
+        "maxDrawCalls": 988
+      },
+      "contacts": 1,
+      "voiceEvents": 2
+    },
+    {
+      "view": "portrait",
+      "width": 430,
+      "perf": {
+        "readyMs": 2490,
+        "load": {
+          "modelsVerified": 16,
+          "modelReadyMs": 1462,
+          "firstFrameReadyMs": 2318,
+          "downloadedBytes": 75569762,
+          "knownTotalBytes": 75569762
+        },
+        "idle": {
+          "frames": 73,
+          "p50Ms": 16.7,
+          "p95Ms": 16.7,
+          "over33ms": 0
+        },
+        "fight": {
+          "frames": 182,
+          "p50Ms": 16.7,
+          "p95Ms": 16.8,
+          "over33ms": 5
+        },
+        "maxDrawCalls": 956
+      },
+      "contacts": 1,
+      "voiceEvents": 2
+    }
+  ],
+  "errors": []
+}
