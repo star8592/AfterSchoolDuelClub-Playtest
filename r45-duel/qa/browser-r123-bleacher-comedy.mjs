@@ -46,7 +46,7 @@ try{
   },null,{timeout:17000});
   await page.waitForFunction(()=>{
    const s=document.querySelector('#stadium').contentWindow.__r45SceneQA;
-   return s.r123Camera?.weight>.65;
+   return s.r123Camera?.weight>.91;
   },null,{timeout:7000});
   const action=await page.evaluate(()=>{
    const s=document.querySelector('#stadium').contentWindow.__r45SceneQA;
@@ -57,7 +57,7 @@ try{
    name+' persistent student prop actually spills into animated instanced 3D scatter',action.props);
   check(action.props.active===1&&action.props.scatterInstances.some(n=>n>0),
    name+' 3D scatter visible while real crowd performs staged reaction',action.props);
-  check(action.camera?.cuts===1&&action.camera?.weight>.65&&action.camera?.extraRenderPasses===0,
+  check(action.camera?.cuts===1&&action.camera?.weight>.91&&action.camera?.extraRenderPasses===0,
    name+' cinematic closeup shows real spectator instead of tiny invisible stand, no second pass',action.camera);
   check(action.crowd.active?.type==='accident'&&action.crowd.accidentEvents===1,
    name+' audience reacts in three physically timed seating waves',action.crowd.active);
