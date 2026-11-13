@@ -60,7 +60,7 @@ function showComedyAside(line){
  const node=$('comedy-aside');
  if(!node)return;
  $('comedy-quip-text').textContent=line.text;
- $('comedy-quip-speaker').textContent='校园场边吐槽 · 文字';
+ $('comedy-quip-speaker').textContent=line.speaker||'校园场边吐槽 · 文字';
  node.dataset.side=line.side||'center';
  node.hidden=false;
  const serial=++asideSeq;
@@ -457,6 +457,14 @@ function syncScene(){
 // must lead to a visible result and a one-click fresh match. Re-navigation
 // recreates BOTH the rule engine and 3D iframe, preventing stale summoned units.
 let resultScheduled=false;
+const STADIUM_ANNOUNCER=Object.freeze({
+ player:['体育馆广播：本局冠军诞生！获胜方全体注意，立刻跳一段！',
+  '体育馆广播：恭喜我方获胜！音乐组注意，操场舞王申请加冕！',
+  '体育馆广播：胜利属于这一边！谁还没跳起来？记大过……开玩笑的！'],
+ ai:['体育馆广播：对手获胜！请给他们掌声，也请给输家一包纸巾！',
+  '体育馆广播：敌方社团获胜！本场最佳表演奖：整个舞蹈队！'],
+ draw:['体育馆广播：双方握手言和！奖杯先交给广播站保管！']
+});
 function showResult(){
  if(g.phase!=='ended')return;
  const overlay=$('result-overlay');
@@ -480,8 +488,12 @@ function showResult(){
 function scheduleResult(){
  if(resultScheduled)return;
  resultScheduled=true;
- // Allow the final score hit and character reaction to land before the panel.
- window.setTimeout(showResult,1100);
+ // The audience sees an authentic court-wide victory performance first.
+ sendScene({type:'ASDC_R112_VICTORY',winner:g.winner||'draw'});
+ const words=STADIUM_ANNOUNCER[g.winner]||STADIUM_ANNOUNCER.draw;
+ const line=words[Math.abs(seed+g.serial)%words.length];
+ showComedyAside({text:line,side:'center',speaker:'体育馆广播 · 赛后文字播报'});
+ window.setTimeout(showResult,4900);
 }
 function startRematch(){
  if(g.phase!=='ended')return;
@@ -777,6 +789,14 @@ window.addEventListener('message',event=>{
    // actual 3D impact frame; skip-before-impact stays completely silent.
    audio.playComicBeat('combo_'+effect,side,serial);
   }
+  return;
+ }
+ if(event.data?.type==='ASDC_R112_DIALOGUE'){
+  const line=event.data;
+  if(['player','ai'].includes(line.side)&&
+    typeof line.text==='string'&&line.text.length<=120)
+   showComedyAside({text:line.text,side:line.side,
+    speaker:(line.side==='player'?'我方':'对方')+'决斗者 · 场边小声对话'});
   return;
  }
  if(event.data?.type==='ASDC_R102_COMBAT_IMPACT'){

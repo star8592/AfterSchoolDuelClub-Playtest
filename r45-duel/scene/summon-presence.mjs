@@ -29,6 +29,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
  let comicGestures=0,comicBoneFrames=0,comicSummons=0,comicComboReacts=0;
  let lastComic=null;
  let sequence=null,playedEvents=0,finishedSequences=0;
+ let celebration=null,celebrationFrames=0,celebratingActors=0;
  let hpDisplayMode='auto';
  const hpModes=new Set(['auto','full','compact','hidden']);
  function setHpDisplayMode(next){
@@ -413,7 +414,18 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   actualSpellReactions+=affected;
   return affected;
  }
+ function celebrate(winner,seconds,{reduced=false}={}){
+  if(!['player','ai','draw'].includes(winner)||!Number.isFinite(seconds))return false;
+  if(celebration)return false;
+  celebration={winner,requested:seconds,started:null,duration:6.4,reduced};
+  return true;
+ }
  function update(seconds,camera,{cinematic=false}={}){
+  // The real attack sequence must finish BEFORE a victory dance starts.
+  if(celebration&&!sequence&&celebration.started===null)
+   celebration.started=seconds;
+  const danceTime=celebration?.started===null?-1:seconds-(celebration?.started??seconds);
+  const dancing=celebration&&danceTime>=0&&danceTime<celebration.duration;
   const dt=lastUpdateSeconds===null?0:Math.min(.07,Math.max(0,seconds-lastUpdateSeconds));
   lastUpdateSeconds=seconds;
   const labelStyle=activeHpStyle(camera);
@@ -477,6 +489,45 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     object.position.z=at.z;
    }
    if(state.kind!=='original-vrm')object.rotation.z=0;
+   // Actors on the winning side dance together on the SAME rhythmic beat;
+   // rivals perform a restrained dejected pose. Real shoulder rigs are
+   // animated when available, never replaced by proxy meshes.
+   if(dancing&&state.kind!=='art-pending'){
+    const winner=celebration.winner,win=winner===state.side;
+    const initial=Math.min(1,Math.max(0,danceTime/.5));
+    const ending=Math.min(1,Math.max(0,(celebration.duration-danceTime)/.7));
+    const strength=celebration.reduced?0:initial*ending;
+    const phase=danceTime*2*Math.PI*1.65+state.index*.27;
+    const idling=state.kind==='gltf-instance'||state.kind==='vrm-instance';
+    if(idling){
+     const baseY=place(state.side,state.index).y+
+       (state.kind==='gltf-instance'?(prototypes.get(state.id)?.spec.hover||0):0);
+     object.position.y=baseY+(win?.048*(1+Math.sin(phase*2)):.002)*strength;
+    }
+    if(state.kind!=='original-vrm'){
+     object.rotation.z=(win?.11*Math.sin(phase):-.04)*strength;
+     object.rotation.y=faceOpponentYaw(state.id,state.side)+
+      (win?.15*Math.sin(phase*.5):-.08)*strength;
+    }
+    if(win){
+     object.position.x+=(state.side==='player'?1:-1)*.105*Math.sin(phase)*strength;
+    }
+    // Do not fight existing glTF clips: layer modest angular changes only.
+    const arms=realComicBones(state);
+    for(const arm of arms){
+     if(state.comic)continue;
+     const angle=win?(.37+.35*Math.sin(phase+arm.side*Math.PI)):-.08;
+     arm.bone.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
+      new THREE.Vector3(0,0,1),angle*strength*arm.side));
+    }
+    celebrationFrames++;if(strength>.15)celebratingActors++;
+   }else if(!state.comic&&!sequence&&!cinematic&&!celebration){
+    // Irregular, identity-offset ambient weight shift for every on-court unit.
+    // Never turn around or override the spine/arms of a playing clip.
+    const n=state.id.split('').reduce((v,c)=>v+c.charCodeAt(0),0)+state.index*37;
+    const glide=Math.sin(seconds*(.43+(n%7)*.073)+n*.17);
+    if(state.kind!=='original-vrm')object.rotation.z=glide*.011;
+   }
    const tag=state.status?.label;
    if(tag){
     // Compress by card ID + HP in dense battles; one button can restore
@@ -491,6 +542,16 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     tag.position.y+=Math.max(.85,height+hover+.24)+(compact&&state.index%2?.15:0);
     tag.visible=labelStyle!=='hidden'&&object.visible;
    }
+  }
+  if(celebration&&danceTime>=celebration.duration){
+   for(const e of entries.values()){
+    for(const b of e.comicBones||[])b.bone.quaternion.copy(b.rest);
+    if(e.kind!=='original-vrm'){
+     e.object.rotation.z=0;
+     e.object.rotation.y=faceOpponentYaw(e.id,e.side);
+    }
+   }
+   celebration=null;
   }
   for(const state of entries.values()){
    const age=seconds-(state.r95SpellHit??-100);
@@ -712,6 +773,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      id:x.id,uid:x.uid,type:x.comic.type,serial:x.comic.serial,
      shoulderBoneCount:x.comicBones?.length||0})),
     lastComic},
+   r112Victory:celebration&&{...celebration,frames:celebrationFrames,
+    actorFrames:celebratingActors},
    hpDisplayMode,activeHpStyle:activeHpStyle(camera),
   visibleHpTags:[...entries.values()].filter(x=>x.status?.label.visible).length,
   total:list.length,models:list.length,
@@ -720,5 +783,6 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
  }
  return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,
   reactToSpell,reactToSummon,reactToCombo,clearComicCombo,
+  celebrate,get celebration(){return celebration&&{...celebration,frames:celebrationFrames,actorFrames:celebratingActors}},
   get spellReactions(){return actualSpellReactions}};
 }

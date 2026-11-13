@@ -3,7 +3,7 @@ from mathutils import Vector,Matrix
 from pathlib import Path
 root=Path(__file__).resolve().parents[2]
 src=root/'assets/summons/M02-CafeteriaAunt-CartoonR76.glb'
-dst=root/'assets/summons/M02-CafeteriaAunt-ChefHat-Spatula-R99.glb'
+dst=root/'assets/summons/M02-CafeteriaAunt-ChefHat-Ladle-R112.glb'
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 bpy.ops.import_scene.gltf(filepath=str(src))
 arm=next(obj for obj in bpy.data.objects if obj.type=='ARMATURE')
@@ -18,7 +18,7 @@ def mat(name,color,metal=0,rough=.5):
  bs.inputs['Roughness'].default_value=rough
  return m
 ivory=mat('R99_chef_ivory_woven_fabric',(.94,.915,.83),0,.77)
-shade=mat('R99_chef_shaded_pleats',(.83,.81,.74),0,.79)
+shade=mat('R112_chef_shaded_pleats',(.83,.81,.74),0,.79)
 band=mat('R99_warm_caramel_hat_band',(.36,.22,.13),0,.58)
 metal=mat('R99_brushed_stainless_steel',(.64,.71,.74),.86,.28)
 dark=mat('R99_cooking_spatula_oak_handle',(.18,.11,.07),0,.37)
@@ -80,23 +80,37 @@ cylinder('ChefHat_seam',(0,-.024,1.817),.163,.009,shade,96,bevel=.003)
 handle=cylinder('OakSpatula_handle',(-.495,-.115,1.185),.026,.36,dark,32,bevel=.006)
 cylinder('Spatula_handle_ring',(-.495,-.115,1.012),.031,.035,band,40,bevel=.004)
 cylinder('Spatula_steel_neck',(-.495,-.115,1.407),.014,.22,metal,32,bevel=.003)
-# rounded flat blade, front faces toward spectator (-Y)
-bpy.ops.mesh.primitive_cube_add(size=1, location=(-.495,-.124,1.578))
-blade=created('StainlessSteel_slotted_blade',metal,.018,smooth=True)
-blade.dimensions=(.248,.014,.302)
-bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)
-for i in [-1,0,1]:
- x=-.495+i*.056
- bpy.ops.mesh.primitive_cube_add(size=1,location=(x,-.134,1.574))
- slot=created('Three_actual_steam_slots_'+str(i),edge,.004)
- slot.dimensions=(.019,.004,.132)
- bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)
-# The blade joint is clean steel: no extra spherical rivets.
-# Drop the original high-floating toque onto the real hair crown.
+# R112: replace the flat slotted spatula with a deep comical serving ladle.
+# A concave dish and rolled metal rim read as a spoon from the audience.
+cx,cy,cz=-.495,-.193,1.578
+vertices=[];faces=[]
+N=64
+rings=[(0.0,.082),(.042,.074),(.085,.051),(.130,.015),(.148,0),
+       (.147,.016),(.112,.064),(.048,.096),(0,.104)]
+for r,dy in rings:
+ for j in range(N):
+  a=2*math.pi*j/N
+  vertices.append((cx+r*math.cos(a),cy+dy,cz+r*math.sin(a)))
+for i in range(len(rings)-1):
+ for j in range(N):
+  a=i*N+j;b=i*N+(j+1)%N;c=(i+1)*N+(j+1)%N;d=(i+1)*N+j
+  faces.append((a,b,c,d))
+ladleMesh=bpy.data.meshes.new('R112_ladle_scoop_polished_dish')
+ladleMesh.from_pydata(vertices,[],faces);ladleMesh.update()
+ladle=bpy.data.objects.new('R112_DeepCafeteriaSoupLadle',ladleMesh)
+bpy.context.collection.objects.link(ladle);ladle.data.materials.append(metal)
+for face in ladle.data.polygons:face.use_smooth=True
+objects.append(ladle)
+bpy.ops.mesh.primitive_torus_add(major_radius=.147,minor_radius=.012,
+ major_segments=64,minor_segments=12,location=(cx,cy,cz),rotation=(math.pi/2,0,0))
+created('LadleScoop_RolledRim',metal,smooth=True)
+# A shallow engraved seam where the bowl meets the steel shaft.
+uvball('LadleScoop_NeckRivet',(-.495,-.130,1.437),(.026,.022,.033),metal)
+# Seat the original floating toque against the real hairline (R112) onto the real hair crown.
 # In Blender -Y is the character's genuine forward direction.
 for hat in objects:
  if 'ChefHat' in hat.name:
-  hat.location.z-=.075
+  hat.location.z-=.140
 bpy.context.view_layer.update()
 # Skin each accessory's REAL vertices to the named original joint.
 # Simply setting parent_type=BONE was rejected in GLB inspection: imported

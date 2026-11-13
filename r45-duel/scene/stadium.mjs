@@ -69,24 +69,31 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     box([.74,.22,11],[x,y,0],row%2?beam:navy,'Side_Bleacher_'+sign+'_'+row);
     box([.12,.45,11],[x+sign*.32,y-.27,0],dark,'Side_Riser_'+sign+'_'+row);
   }
-  // Distant seat/color markers: instances rather than individual draw calls.
-  const seatGeo=new THREE.BoxGeometry(.43,.19,.16);
-  const seatMat=[coral,teal,mat('#b8c9d5')];
-  for(let j=0;j<3;j++){
-    const locations=[];
-    for(let row=0;row<6;row++)for(let col=0;col<33;col++){
-      if((row*17+col*11)%3!==j)continue;
-      const z=-6.5-row*.80-.20,y=.56+row*.48;
-      locations.push([-8.85+col*.55,y,z]);
-    }
-    const seats=new THREE.InstancedMesh(seatGeo,seatMat[j],locations.length);
-    seats.name='Stadium_Seats_Instanced_Color_'+j;
-    locations.forEach((p,i)=>{tr.position.set(...p);tr.updateMatrix();seats.setMatrixAt(i,tr.matrix)});
-    group.add(seats);stats.instancedObjects++;stats.seats+=locations.length;stats.meshCount++;
+  // R112: proper gym retractable-chair architecture, not floating cubes.
+  // Padded curved seat + substantial raised back + metal twin support.
+  // All hundreds of seats share a handful of InstancedMeshes / draw calls.
+  const seatColors=[
+    mat('#334963',.08,.82),mat('#477184',.09,.76),mat('#9d7259',.05,.83)
+  ];
+  const steel=mat('#293947',.32,.68);
+  const padding=mat('#27394b',.02,.9);
+  function roundedRect(w,h,r){
+    const sh=new THREE.Shape();
+    sh.moveTo(-w/2+r,-h/2);sh.lineTo(w/2-r,-h/2);
+    sh.quadraticCurveTo(w/2,-h/2,w/2,-h/2+r);
+    sh.lineTo(w/2,h/2-r);sh.quadraticCurveTo(w/2,h/2,w/2-r,h/2);
+    sh.lineTo(-w/2+r,h/2);sh.quadraticCurveTo(-w/2,h/2,-w/2,h/2-r);
+    sh.lineTo(-w/2,-h/2+r);sh.quadraticCurveTo(-w/2,-h/2,-w/2+r,-h/2);
+    return sh;
   }
-  // R49: a complete reverse-facing bank of seating for the 180-degree orbit.
-  // Kept hidden from the default entry camera, because that camera stands on
-  // this side of the court. Shown only when the camera moves behind the ring.
+  const seatGeo=new THREE.ExtrudeGeometry(roundedRect(.445,.32,.075),{
+    depth:.055,steps:1,bevelEnabled:true,bevelThickness:.012,
+    bevelSize:.012,bevelSegments:2,curveSegments:3});
+  const backGeo=new THREE.ExtrudeGeometry(roundedRect(.445,.43,.07),{
+    depth:.075,steps:1,bevelEnabled:true,bevelThickness:.018,
+    bevelSize:.012,bevelSegments:2,curveSegments:3});
+  const pedestalGeo=new THREE.BoxGeometry(.045,.20,.055);
+  const armGeo=new THREE.BoxGeometry(.075,.055,.22);
   const reverse=new THREE.Group();
   reverse.name='R49_Reverse_Grandstand';
   reverse.visible=false;
@@ -102,19 +109,54 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     rearBox([19,.25,.90],[0,y,z],row%2?beam:navy,'Reverse_Grandstand_Tier_'+row);
     rearBox([19,.45,.12],[0,y-.3,z+.43],dark,'Reverse_Grandstand_Riser_'+row);
   }
-  const mirroredSeatGeo=new THREE.BoxGeometry(.43,.19,.16);
-  for(let j=0;j<3;j++){
-    const locations=[];
-    for(let row=0;row<6;row++)for(let col=0;col<33;col++){
-      if((row*17+col*11)%3!==j)continue;
-      locations.push([-8.85+col*.55,.56+row*.48,6.5+row*.8+.2]);
+  function seatBank(back=false){
+    const destination=back?reverse:group,side=back?-1:1,tiers=6,cols=33;
+    const buckets=[[],[],[]];
+    for(let row=0;row<tiers;row++)for(let col=0;col<cols;col++){
+      // Cohesive color blocks, no random confetti checkerboard.
+      const color=Math.floor(col/11)===1?1:
+        (Math.floor(row/2)===2&&Math.floor(col/11)===2?2:0);
+      const x=-8.85+col*.55,y=.31+row*.48,z=side*(6.5+row*.8);
+      buckets[color].push({x,y,z,side});
+      stats.seats++;
     }
-    const seated=new THREE.InstancedMesh(mirroredSeatGeo,seatMat[j],locations.length);
-    seated.name='Reverse_Stadium_Seats_Instanced_'+j;
-    locations.forEach((a,i)=>{tr.position.set(...a);tr.updateMatrix();seated.setMatrixAt(i,tr.matrix)});
-    seated.receiveShadow=true;reverse.add(seated);
-    stats.instancedObjects++;stats.meshCount++;stats.seats+=locations.length;
+    const tag=back?'Reverse_Stadium_Seats_Instanced':'Stadium_Seats_Instanced';
+    function batch(name,geo,material,positions,pose){
+      const batch=new THREE.InstancedMesh(geo,material,positions.length);
+      batch.name=name;batch.receiveShadow=true;
+      positions.forEach((p,i)=>{
+        tr.position.set(0,0,0);tr.rotation.set(0,0,0);tr.scale.set(1,1,1);
+        pose(p);
+        tr.updateMatrix();batch.setMatrixAt(i,tr.matrix);
+      });
+      batch.instanceMatrix.needsUpdate=true;
+      batch.computeBoundingSphere();
+      destination.add(batch);stats.instancedObjects++;stats.meshCount++;
+    }
+    for(let j=0;j<3;j++){
+      const seats=buckets[j];if(!seats.length)continue;
+      batch(tag+'_Cushion_Color_'+j,seatGeo,seatColors[j],seats,p=>{
+        tr.position.set(p.x,p.y+.205,p.z+p.side*.14);
+        tr.rotation.set(-Math.PI/2,p.side<0?Math.PI:0,0);
+      });
+      batch(tag+'_Backrest_Color_'+j,backGeo,seatColors[j],seats,p=>{
+        tr.position.set(p.x,p.y+.44,p.z-p.side*.19);
+        tr.rotation.set(p.side>0?.09:-.09,p.side<0?Math.PI:0,0);
+      });
+    }
+    const all=buckets.flat();
+    // Left and right real posts, low shelf, two small arm rests per seat.
+    const twin=[];
+    for(const p of all)for(const xsign of [-1,1])
+      twin.push({...p,xOffset:xsign*.205});
+    batch(tag+'_Steel_Pedestals',pedestalGeo,steel,twin,p=>{
+      tr.position.set(p.x+p.xOffset,p.y+.168,p.z-p.side*.17);
+    });
+    batch(tag+'_Armrests',armGeo,padding,twin,p=>{
+      tr.position.set(p.x+p.xOffset,p.y+.33,p.z+p.side*.045);
+    });
   }
+  seatBank(false);seatBank(true);
   rearBox([24,10,.46],[0,4.7,11.85],navy,'Reverse_Gym_Wall');
   rearBox([5.2,1.45,.22],[0,6.04,11.34],dark,'Reverse_Scoreboard_Body');
   rearBox([4.7,1.05,.08],[0,6.04,11.16],teal,'Reverse_Scoreboard_Display');
@@ -168,7 +210,47 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     cylinder(.22,.25,.07,20,[x,3.1,-2.1],gold,'Court_Floodlight_Head_'+sign);
   }
   const polish=addStadiumPolish(THREE,scene,group,stats);
-  return {group,polish,stats:{...stats,geometryTypes:[...stats.geometryTypes],
+  // R112: the venue participates in the story. Existing lights and the
+  // real three-dimensional scoreboard react; no extra postprocess/draw calls.
+  const scoreDisplay=group.getObjectByName('Gym_Scoreboard_Display');
+  const keys=[];
+  group.traverse(o=>{if(o.isSpotLight&&o.name.startsWith('R46_Directional_Stage_Key_'))
+    keys.push({spot:o,base:o.intensity});});
+  let finale=null,finaleFrames=0;
+  function beginFinale(winner,seconds){
+   if(!['player','ai','draw'].includes(winner)||!Number.isFinite(seconds))return false;
+   finale={winner,start:seconds,duration:7.2};
+   scoreDisplay?.material?.emissive?.set(winner==='ai'?'#0d556d':
+    winner==='player'?'#7b4230':'#504e78');
+   return true;
+  }
+  function update(seconds,{reduced=false}={}){
+   const t=finale?seconds-finale.start:-1;
+   if(!finale||t<0||t>finale.duration){
+    keys.forEach(x=>{x.spot.intensity=x.base});
+    if(scoreDisplay?.material)scoreDisplay.material.emissiveIntensity=0;
+    if(finale&&t>finale.duration)finale=null;
+    return;
+   }
+   finaleFrames++;
+   const opening=Math.min(1,Math.max(0,t/.38));
+   const closing=Math.min(1,Math.max(0,(finale.duration-t)/.6));
+   const envelope=opening*closing;
+   if(reduced){
+    keys.forEach(x=>{x.spot.intensity=x.base});
+    scoreDisplay.material.emissiveIntensity=.14*envelope;
+   }else{
+    keys.forEach((x,i)=>{
+     x.spot.intensity=x.base*(1+(.10+.035*Math.sin(t*6+i*2))*envelope);
+    });
+    scoreDisplay.material.emissiveIntensity=
+     (.20+.22*(.5+.5*Math.sin(t*6.8)))*envelope;
+   }
+  }
+  return {group,polish,beginFinale,update,
+   get ambience(){return {finale,finaleFrames,reactiveSpotlights:keys.length,
+    displayEmissiveIntensity:scoreDisplay?.material?.emissiveIntensity||0}},
+   stats:{...stats,geometryTypes:[...stats.geometryTypes],
     totalPhysicalBleacherRows:stats.bleacherRows+8,
     distinctAreas:['LEFT_DUELIST_STATION','CENTRAL_SUMMONING_RING','RIGHT_DUELIST_STATION',
       'RAISED_BLEACHERS','ROOF_TRUSSES','SCOREBOARD']},
