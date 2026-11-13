@@ -1,0 +1,205 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11430",
+  "checks": [
+    {
+      "ok": true,
+      "name": "desktop source CC0 owl 129 genuine meshes, never replacement"
+    },
+    {
+      "ok": true,
+      "name": "desktop both real 29-mesh source wings, 6 real eye pieces and 8 tail feathers remain intact"
+    },
+    {
+      "ok": true,
+      "name": "desktop independent owl idle wing/eye movement, not just whole-body rotation"
+    },
+    {
+      "ok": true,
+      "name": "desktop true EXISTING feather vertices fly away from original locations"
+    },
+    {
+      "ok": true,
+      "name": "desktop independent original gaze and wing animation respond to source action"
+    },
+    {
+      "ok": true,
+      "name": "desktop owl acting does not change original battle rules or cause drawcall explosion"
+    },
+    {
+      "ok": true,
+      "name": "desktop no JS, WebGL, or missing resource errors"
+    },
+    {
+      "ok": true,
+      "name": "portrait source CC0 owl 129 genuine meshes, never replacement"
+    },
+    {
+      "ok": true,
+      "name": "portrait both real 29-mesh source wings, 6 real eye pieces and 8 tail feathers remain intact"
+    },
+    {
+      "ok": true,
+      "name": "portrait independent owl idle wing/eye movement, not just whole-body rotation"
+    },
+    {
+      "ok": true,
+      "name": "portrait true EXISTING feather vertices fly away from original locations"
+    },
+    {
+      "ok": true,
+      "name": "portrait independent original gaze and wing animation respond to source action"
+    },
+    {
+      "ok": true,
+      "name": "portrait owl acting does not change original battle rules or cause drawcall explosion"
+    },
+    {
+      "ok": true,
+      "name": "portrait no JS, WebGL, or missing resource errors"
+    },
+    {
+      "ok": true,
+      "name": "explicit ?r127Owl=off restores original unchanged owl animator"
+    },
+    {
+      "ok": true,
+      "name": "fallback browser has zero JS errors"
+    },
+    {
+      "ok": true,
+      "name": "reduced-motion lowers genuine feather flap to roughly one-quarter"
+    },
+    {
+      "ok": true,
+      "name": "reduced-motion keeps original source geometry and articulates real wing groups"
+    }
+  ],
+  "errors": [],
+  "samples": [
+    {
+      "view": "desktop",
+      "initial": {
+        "enabled": true,
+        "sourceGeometry": true,
+        "sourceMeshes": 129,
+        "wingMeshCounts": [
+          29,
+          29
+        ],
+        "eyeMeshCounts": [
+          3,
+          3
+        ],
+        "tuftMeshCounts": [
+          3,
+          3
+        ],
+        "tailMeshCount": 8,
+        "active": "idle",
+        "frames": 42,
+        "movingFrames": 0,
+        "peakWingAngle": 0.1,
+        "peakTipVertexTravel": 0.0137,
+        "peakEyeMovement": 0.003,
+        "sourceWingGroups": [
+          "R127_RealSourceWing_0",
+          "R127_RealSourceWing_1"
+        ],
+        "reduced": false
+      },
+      "action": {
+        "enabled": true,
+        "sourceGeometry": true,
+        "sourceMeshes": 129,
+        "wingMeshCounts": [
+          29,
+          29
+        ],
+        "eyeMeshCounts": [
+          3,
+          3
+        ],
+        "tuftMeshCounts": [
+          3,
+          3
+        ],
+        "tailMeshCount": 8,
+        "active": "walk",
+        "frames": 75,
+        "movingFrames": 26,
+        "peakWingAngle": 0.4699,
+        "peakTipVertexTravel": 0.0638,
+        "peakEyeMovement": 0.003,
+        "sourceWingGroups": [
+          "R127_RealSourceWing_0",
+          "R127_RealSourceWing_1"
+        ],
+        "reduced": false
+      },
+      "drawCalls": 1047
+    },
+    {
+      "view": "portrait",
+      "initial": {
+        "enabled": true,
+        "sourceGeometry": true,
+        "sourceMeshes": 129,
+        "wingMeshCounts": [
+          29,
+          29
+        ],
+        "eyeMeshCounts": [
+          3,
+          3
+        ],
+        "tuftMeshCounts": [
+          3,
+          3
+        ],
+        "tailMeshCount": 8,
+        "active": "idle",
+        "frames": 43,
+        "movingFrames": 0,
+        "peakWingAngle": 0.1,
+        "peakTipVertexTravel": 0.0137,
+        "peakEyeMovement": 0.003,
+        "sourceWingGroups": [
+          "R127_RealSourceWing_0",
+          "R127_RealSourceWing_1"
+        ],
+        "reduced": false
+      },
+      "action": {
+        "enabled": true,
+        "sourceGeometry": true,
+        "sourceMeshes": 129,
+        "wingMeshCounts": [
+          29,
+          29
+        ],
+        "eyeMeshCounts": [
+          3,
+          3
+        ],
+        "tuftMeshCounts": [
+          3,
+          3
+        ],
+        "tailMeshCount": 8,
+        "active": "walk",
+        "frames": 78,
+        "movingFrames": 23,
+        "peakWingAngle": 0.47,
+        "peakTipVertexTravel": 0.0638,
+        "peakEyeMovement": 0.003,
+        "sourceWingGroups": [
+          "R127_RealSourceWing_0",
+          "R127_RealSourceWing_1"
+        ],
+        "reduced": false
+      },
+      "drawCalls": 1047
+    }
+  ]
+}

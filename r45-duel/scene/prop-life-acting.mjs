@@ -13,7 +13,10 @@ const rule={
 export function createPropLifeActing(THREE,root,id){
  const parts=[];const include=rule[id]||[];
  const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
- if(SPECIAL.has(id))root.traverse(o=>{
+ // The R127 owl owns the exact same original wing/eye meshes. Never let
+ // the old tiny-angle decorator reset their real shoulder/flap transforms.
+ const nativeOwl=id==='T01'&&!!root.userData.r61?.getR127OwlMotion?.()?.enabled;
+ if(SPECIAL.has(id)&&!nativeOwl)root.traverse(o=>{
   const kind=include.find(n=>norm(o.name).includes(norm(n)));
   if(!kind)return;
   const bound={node:o,rest:o.quaternion.clone(),start:o.position.clone(),

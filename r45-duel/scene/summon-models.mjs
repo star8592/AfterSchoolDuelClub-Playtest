@@ -6,6 +6,7 @@
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {r125VersionedAssetURL} from '../r125-asset-urls.mjs';
 import {createR126MusicTeacherClips,R126_TEACHER_ACTION_NAMES} from './r126-music-teacher-native-acting.mjs';
+import {createR127OwlSourceFeathers} from './r127-owl-source-feather-motion.mjs';
 // R85: improved R60 photo-paper model and five native clips are the default.
 // Exact older R57 remains available with ?e02Study=r57 for immediate rollback.
 const isE02R60Study=(()=>{
@@ -442,6 +443,14 @@ export function instantiateSummon(THREE,template){
  const r119Skin=template.selectedFile===R119_SKIN_STUDY_FILES[template.id];
  const r119Clips=r119Skin?createR119TrueSkinClips(THREE,instance,template.id):[];
  const r126Teacher=template.id==='M01'?createR126MusicTeacherClips(THREE,instance):null;
+ const r127OwlDisabled=(()=>{
+  const q=new URLSearchParams(location.search);
+  if(q.get('r127Owl')==='off')return true;
+  try{return window.parent!==window&&new URLSearchParams(window.parent.location.search).get('r127Owl')==='off';}
+  catch{return false}
+ })();
+ const r127Owl=template.id==='T01'&&!r127OwlDisabled?
+  createR127OwlSourceFeathers(THREE,instance,{reduced:matchMedia('(prefers-reduced-motion: reduce)').matches}):null;
  // If a source-export model is missing one of the actual bound arm bones,
  // don't silently pretend the artist's character has its desired animation.
  if(r119Skin&&r119Clips.length!==7)
@@ -529,6 +538,7 @@ export function instantiateSummon(THREE,template){
  const duo=template.id==='T02' &&
   template.selectedFile==='T02-CanteenAunt-LivingMenu-Duo-STUDY.glb';
  const play=(kind)=>{
+  if(r127Owl)return r127Owl.play(kind);
   if(r126Teacher)return teacherPlay(kind);
   if(filmStatic){staticState=kind;staticElapsed=0;current='R80_static_'+kind;return true;}
   if(!mixer)return false;
@@ -593,9 +603,10 @@ export function instantiateSummon(THREE,template){
   }
   groundedY=scaled.position.y;
  }
- return {root,mixer,play,update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
+ return {root,mixer,play,update:r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),
+  getR127OwlMotion:()=>r127Owl?.inspect()||null,
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};
