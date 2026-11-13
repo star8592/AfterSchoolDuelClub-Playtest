@@ -54,7 +54,7 @@ export function createSpectatorChaosFX(THREE,scene,{reducedMotion=false}={}){
   for(const obj of [...a.shards,a.ball,a.halo,a.path]){
    if(obj!==a.ball&&obj!==a.halo&&obj!==a.path)obj.material.dispose();
   }
-  a.ball.material.dispose();a.halo.material.dispose();a.path.material.dispose();
+  a.ball.material.dispose();a.halo.material.dispose();a.halo.geometry.dispose();a.path.material.dispose();
   a.path.geometry.dispose();expired++;
  }
  function update(now=0){
