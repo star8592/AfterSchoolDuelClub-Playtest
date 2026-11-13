@@ -147,7 +147,7 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  T04:{file:'T04-Rex-Landing-R97.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
-export async function preloadSummonModels(THREE,loader,{onLoaded,concurrency=4}={}){
+export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,concurrency=4}={}){
  // Bound GLB requests and parser work instead of firing 12 large models at once.
  // Keep the original full 12/12 readiness and per-model validation contract.
  const limit=Math.max(1,Math.min(12,Math.floor(Number(concurrency))||4));
@@ -156,7 +156,7 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,concurrency=4}=
  async function loadBounded(url){
   if(active>=limit)await new Promise(resolve=>pending.push(resolve));
   active++;
-  try{return await loader.loadAsync(url);}
+  try{return await loader.loadAsync(url,event=>onTransfer?.(url,event));}
   finally{active--;pending.shift()?.();}
  }
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
