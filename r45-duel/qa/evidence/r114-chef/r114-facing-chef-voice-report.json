@@ -1,0 +1,244 @@
+{
+  "origin": "http://127.0.0.1:11117",
+  "passed": true,
+  "checks": [
+    {
+      "name": "desktop actual skinned cafeteria aunt with R112 chef hat + ladle and 10 real animations",
+      "pass": true,
+      "detail": {
+        "m02": {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      }
+    },
+    {
+      "name": "desktop M02 genuinely oriented toward opponent on BOTH teams",
+      "pass": true,
+      "detail": {
+        "entries": [
+          {
+            "side": "player",
+            "front": 1,
+            "position": [
+              -1.75,
+              0,
+              0
+            ]
+          },
+          {
+            "side": "ai",
+            "front": 1,
+            "position": [
+              1.75,
+              0,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "desktop chef gear keeps real-scale visible GLB dimensions",
+      "pass": true,
+      "detail": {
+        "entries": [
+          {
+            "side": "player",
+            "height": 2.53,
+            "meshes": 13
+          },
+          {
+            "side": "ai",
+            "height": 2.53,
+            "meshes": 13
+          }
+        ]
+      }
+    },
+    {
+      "name": "desktop default voice prioritized above BGM",
+      "pass": true,
+      "detail": {
+        "music": 0.32,
+        "sfx": 0.75,
+        "voice": 1
+      }
+    },
+    {
+      "name": "phone actual skinned cafeteria aunt with R112 chef hat + ladle and 10 real animations",
+      "pass": true,
+      "detail": {
+        "m02": {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      }
+    },
+    {
+      "name": "phone M02 genuinely oriented toward opponent on BOTH teams",
+      "pass": true,
+      "detail": {
+        "entries": [
+          {
+            "side": "player",
+            "front": 1,
+            "position": [
+              -1.75,
+              0,
+              0
+            ]
+          },
+          {
+            "side": "ai",
+            "front": 1,
+            "position": [
+              1.75,
+              0,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "phone chef gear keeps real-scale visible GLB dimensions",
+      "pass": true,
+      "detail": {
+        "entries": [
+          {
+            "side": "player",
+            "height": 2.53,
+            "meshes": 13
+          },
+          {
+            "side": "ai",
+            "height": 2.53,
+            "meshes": 13
+          }
+        ]
+      }
+    },
+    {
+      "name": "phone default voice prioritized above BGM",
+      "pass": true,
+      "detail": {
+        "music": 0.32,
+        "sfx": 0.75,
+        "voice": 1
+      }
+    },
+    {
+      "name": "real sound engine and 16 roles / 7 varied BGM tracks available",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "actual card gesture produces playable normalized Qwen3 speech without load errors",
+      "pass": true,
+      "detail": {
+        "cue": 9,
+        "voice": 2,
+        "voiceMissing": 0,
+        "voiceDropped": 0,
+        "voiceInterrupted": 1,
+        "unlock": 1,
+        "musicStart": 2,
+        "errors": 0
+      }
+    },
+    {
+      "name": "legacy original source GLB remains selectable for rollback",
+      "pass": true,
+      "detail": {
+        "prior": {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-CartoonR76.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 1,
+          "clips": 10,
+          "scale": 1.2937502504751033,
+          "measured": {
+            "width": 1.285693909978777,
+            "height": 1.5999996902337486,
+            "depth": 0.7072997834460142,
+            "scaledHeight": 2.07,
+            "scaledWidth": 1.6633668180693575,
+            "scaledDepth": 0.9150692719942671
+          }
+        }
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "name": "desktop",
+      "width": 1550,
+      "model": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+      "actors": [
+        {
+          "side": "player",
+          "front": 1,
+          "height": 2.53
+        },
+        {
+          "side": "ai",
+          "front": 1,
+          "height": 2.53
+        }
+      ],
+      "mix": {
+        "music": 0.32,
+        "sfx": 0.75,
+        "voice": 1
+      }
+    },
+    {
+      "name": "phone",
+      "width": 430,
+      "model": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+      "actors": [
+        {
+          "side": "player",
+          "front": 1,
+          "height": 2.53
+        },
+        {
+          "side": "ai",
+          "front": 1,
+          "height": 2.53
+        }
+      ],
+      "mix": {
+        "music": 0.32,
+        "sfx": 0.75,
+        "voice": 1
+      }
+    }
+  ],
+  "errors": []
+}
