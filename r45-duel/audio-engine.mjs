@@ -453,11 +453,24 @@ export function createDuelAudio({onVoiceLine}={}){
   });
   return true;
  }
+ let finaleTimer=null;
  function gameFinished(winner){
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
-  musicDucked=false;musicAudio?.pause();fadingMusic?.pause();fadingMusic=null;
+  musicDucked=false;
+  // Do not kill the auditorium soundtrack when the winning cast starts dancing.
+  // Existing project-authored parade music is played for one short finale,
+  // subject to the player's persistent mute and browser autoplay policy.
+  const song=winner==='draw'?'mischief_shuffle':'campus_parade';
+  if(requested&&enabled)switchMusic(song);
+  if(finaleTimer!==null)clearTimeout(finaleTimer);
+  finaleTimer=setTimeout(()=>{
+   if(musicAudio){musicAudio.pause();musicAudio.currentTime=0;}
+   fadingMusic?.pause();fadingMusic=null;
+   log('finale-music-finished',song);
+  },7200);
   playCue(winner==='draw'?'turn':winner==='player'?'win':'lose');
-  if(winner!=='draw')playCue('stadium_cheer');
+  if(winner!=='draw')playCue('stadium_cheer','center',{gainScale:.9});
+  playCue('r102_score_trumpet','center',{gainScale:.45,delay:.22});
   log('finished',winner);
  }
  function status(){return {provider:VOICE_MODEL,enabled,requested,

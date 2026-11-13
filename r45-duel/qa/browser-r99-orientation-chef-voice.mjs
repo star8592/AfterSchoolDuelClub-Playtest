@@ -27,8 +27,8 @@ try{
   const p=await start('/r45-duel/?qa=1&seed=6',width);
   const models=await p.evaluate(()=>document.querySelector('#stadium').contentWindow.__r45SceneQA.summonModels);
   const m02=models.find(x=>x.id==='M02');
-  ok(m02?.file==='M02-CafeteriaAunt-ChefHat-Spatula-R99.glb'&&m02.meshes>=12&&m02.clips===10,
-   name+' actual skinned cafeteria aunt with chef accessories and 10 real animations',{m02});
+  ok(m02?.file==='M02-CafeteriaAunt-ChefHat-Ladle-R112.glb'&&m02.meshes>=11&&m02.clips===10,
+   name+' actual skinned cafeteria aunt with R112 chef hat + ladle and 10 real animations',{m02});
   const v=await p.evaluate(()=>{
    const frame=document.querySelector('#stadium').contentWindow;
    frame.postMessage({type:'ASDC_R45_BOARD',player:['M02'],ai:['M02'],
@@ -47,11 +47,11 @@ try{
   });
   ok(both.length===2&&both.every(x=>x.visible&&x.metrics.frontDot>.60),
    name+' M02 genuinely oriented toward opponent on BOTH teams',{entries:both.map(x=>({side:x.side,front:x.metrics.frontDot,position:x.position}))});
-  ok(both.every(x=>x.metrics.height>=1.85&&x.metrics.height<=2.65&&x.meshes>=12),
+  ok(both.every(x=>x.metrics.height>=1.85&&x.metrics.height<=2.65&&x.meshes>=11),
    name+' chef gear keeps real-scale visible GLB dimensions',{entries:both.map(x=>({side:x.side,height:x.metrics.height,meshes:x.meshes}))});
   ok(v.requested&&v.volume.voice===1&&v.volume.music===.32,
    name+' default voice prioritized above BGM',v.volume);
-  await p.screenshot({path:resolve(dir,name+'-chef-hat-spatula-both-sides.png')});
+  await p.screenshot({path:resolve(dir,name+'-chef-hat-ladle-both-sides.png')});
   report.scenes.push({name,width,model:m02.file,actors:both.map(x=>({side:x.side,front:x.metrics.frontDot,height:x.metrics.height})),mix:v.volume});
   await p.close();
  }

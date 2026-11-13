@@ -1,0 +1,324 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop unique hosts",
+      "value": 2
+    },
+    {
+      "passed": true,
+      "label": "desktop 396 truly constructed front/rear seats",
+      "value": 396
+    },
+    {
+      "passed": true,
+      "label": "desktop ladle source model loads with original animations",
+      "value": {
+        "id": "M02",
+        "file": "M02-CafeteriaAunt-ChefHat-Ladle-R112.glb",
+        "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R112.glb",
+        "meshes": 11,
+        "clips": 10,
+        "scale": 1.207605590818463,
+        "measured": {
+          "width": 1.2968468939431372,
+          "height": 1.9459996027405533,
+          "depth": 0.7072997859928739,
+          "scaledHeight": 2.35,
+          "scaledWidth": 1.566079559561291,
+          "scaledDepth": 0.854139175949697
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop full duelists in audience camera",
+      "value": [
+        {
+          "side": "player",
+          "id": "E01",
+          "screenRect": {
+            "left": -0.814,
+            "right": -0.653,
+            "bottom": -0.19,
+            "top": 0.286
+          },
+          "fullyVisible": true
+        },
+        {
+          "side": "ai",
+          "id": "G01",
+          "screenRect": {
+            "left": 0.668,
+            "right": 0.804,
+            "bottom": -0.191,
+            "top": 0.281
+          },
+          "fullyVisible": true
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop host dance activation",
+      "value": {
+        "current": {
+          "player": {
+            "active": "idle",
+            "latest": "sleeve",
+            "history": [
+              "sleeve"
+            ]
+          },
+          "ai": {
+            "active": "idle",
+            "latest": "idle",
+            "history": []
+          }
+        },
+        "celebration": {
+          "winner": "player",
+          "started": 1.3059999999999996,
+          "duration": 6.4
+        },
+        "events": [
+          {
+            "side": "player",
+            "type": "sleeve",
+            "reason": "ambient",
+            "at": 1.22
+          },
+          {
+            "side": "player",
+            "type": "victory_dance",
+            "reason": "real_match_result",
+            "at": 1.31
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop physical gym lights and scoreboard celebrate",
+      "value": {
+        "finale": {
+          "winner": "player",
+          "start": 1.3059999999999996,
+          "duration": 7.2
+        },
+        "finaleFrames": 108,
+        "reactiveSpotlights": 2,
+        "displayEmissiveIntensity": 0.26842656319124036
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop on-court group win dance measured",
+      "value": {
+        "winner": "player",
+        "requested": 1.3059999999999996,
+        "started": 1.3219999999999996,
+        "duration": 6.4,
+        "reduced": false,
+        "frames": 540,
+        "actorFrames": 515
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop winner and losing duelist react",
+      "value": [
+        "dance",
+        "defeat"
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop opponent-facing persists during dance",
+      "value": [
+        {
+          "id": "M02",
+          "dot": 0.9994
+        },
+        {
+          "id": "E03",
+          "dot": 0.9999
+        },
+        {
+          "id": "T03",
+          "dot": 1
+        },
+        {
+          "id": "G02",
+          "dot": 0.9968
+        },
+        {
+          "id": "G04",
+          "dot": 0.9968
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop no JS/asset failures",
+      "value": []
+    },
+    {
+      "passed": true,
+      "label": "portrait unique hosts",
+      "value": 2
+    },
+    {
+      "passed": true,
+      "label": "portrait 396 truly constructed front/rear seats",
+      "value": 396
+    },
+    {
+      "passed": true,
+      "label": "portrait ladle source model loads with original animations",
+      "value": {
+        "id": "M02",
+        "file": "M02-CafeteriaAunt-ChefHat-Ladle-R112.glb",
+        "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R112.glb",
+        "meshes": 11,
+        "clips": 10,
+        "scale": 1.207605590818463,
+        "measured": {
+          "width": 1.2968468939431372,
+          "height": 1.9459996027405533,
+          "depth": 0.7072997859928739,
+          "scaledHeight": 2.35,
+          "scaledWidth": 1.566079559561291,
+          "scaledDepth": 0.854139175949697
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait full duelists in audience camera",
+      "value": [
+        {
+          "side": "player",
+          "id": "E01",
+          "screenRect": {
+            "left": -0.942,
+            "right": -0.805,
+            "bottom": -0.063,
+            "top": 0.106
+          },
+          "fullyVisible": true
+        },
+        {
+          "side": "ai",
+          "id": "G01",
+          "screenRect": {
+            "left": 0.82,
+            "right": 0.93,
+            "bottom": -0.064,
+            "top": 0.105
+          },
+          "fullyVisible": true
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait host dance activation",
+      "value": {
+        "current": {
+          "player": {
+            "active": "idle",
+            "latest": "idle",
+            "history": []
+          },
+          "ai": {
+            "active": "idle",
+            "latest": "idle",
+            "history": []
+          }
+        },
+        "celebration": {
+          "winner": "player",
+          "started": 1.1944000000059602,
+          "duration": 6.4
+        },
+        "events": [
+          {
+            "side": "player",
+            "type": "victory_dance",
+            "reason": "real_match_result",
+            "at": 1.19
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait physical gym lights and scoreboard celebrate",
+      "value": {
+        "finale": {
+          "winner": "player",
+          "start": 1.1944000000059602,
+          "duration": 7.2
+        },
+        "finaleFrames": 108,
+        "reactiveSpotlights": 2,
+        "displayEmissiveIntensity": 0.2721933600092923
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait on-court group win dance measured",
+      "value": {
+        "winner": "player",
+        "requested": 1.1944000000059602,
+        "started": 1.2075000000298022,
+        "duration": 6.4,
+        "reduced": false,
+        "frames": 540,
+        "actorFrames": 515
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait winner and losing duelist react",
+      "value": [
+        "dance",
+        "defeat"
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait opponent-facing persists during dance",
+      "value": [
+        {
+          "id": "M02",
+          "dot": 0.9996
+        },
+        {
+          "id": "E03",
+          "dot": 1
+        },
+        {
+          "id": "T03",
+          "dot": 0.9999
+        },
+        {
+          "id": "G02",
+          "dot": 0.9968
+        },
+        {
+          "id": "G04",
+          "dot": 0.9968
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait no JS/asset failures",
+      "value": []
+    }
+  ],
+  "errors": []
+}

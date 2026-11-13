@@ -20,6 +20,7 @@ import {createCardHolograms} from './card-holograms.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
 import {preloadSummonModels} from './summon-models.mjs';
+import {createLivingCastDirector} from './living-cast-director.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
 const MODEL_SPECS=[
@@ -42,6 +43,7 @@ let renderer,scene,camera,clock,actors=[],time=0,playing=false,mode='demo';
 // Separate, continuously visible native VRM duelists; the E01/G01 summon
 // bodies remain independently owned by SummonPresence in the arena.
 let duelistHosts=[],hostSourceActors=[];
+const livingCast=createLivingCastDirector(Number(PARAMS.get('seed'))||20261113);
 const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
 
 let lastTime=0,frames=0,actionFrames=0,impactFrames=0,drawCount=0,renderInfo=null;
@@ -494,6 +496,14 @@ const DUELIST_POSE_SPEC=Object.freeze({
   guard:{R:[.10,.17,-.17],L:[-.16,.12,-.19]}}
 });
 function updateDuelistHosts(seconds){
+ const ageOf=side=>seconds-hostAction[side].started;
+ const hitAgeOf=side=>seconds-hostHits[side].time;
+ const busy=side=>(ageOf(side)>=0&&ageOf(side)<2.6)||
+  (hitAgeOf(side)>=0&&hitAgeOf(side)<.9);
+ const ambientActs=livingCast.update(seconds,{
+  busyPlayer:busy('player'),busyAi:busy('ai'),reduced});
+ for(const line of livingCast.drainDialogue())
+  reply('ASDC_R112_DIALOGUE',line);
  const targetVector=new THREE.Vector3(),targetOut={R:[0,0,0],L:[0,0,0]};
  for(const host of duelistHosts){
   const side=host.side,gesture=hostAction[side],strike=hostHits[side];
@@ -505,30 +515,35 @@ function updateDuelistHosts(seconds){
   const display=smoothPulse(age,.22,.51,1.15,1.60);
   const cast=smoothPulse(age,1.23,1.49,2.02,2.43);
   const recoil=smoothPulse(hitAge,.015,.12,.24,.74);
-  // Periodic conversational, non-synchronized idle: glance at card hand,
-  // shift weight, look up; no continuous waving or military marching.
-  const beatSec=seconds+(side==='player'?1.5:4.9),beat=beatSec%9.7;
-  const inspectCard=smoothPulse(beat,2.1,2.56,3.08,3.48)*
-   (1-Math.max(draw,display,cast,recoil));
-  const ambient=.014*breath;
+  // Irregular social beats and causal answer gestures replace the fixed 9.7s loop.
+  const act=ambientActs[side],strength=act.weight||0;
   const actionStrength=Math.max(draw,display,cast,recoil);
+  const idleBlend=(1-actionStrength)*strength;
+  const inspectCard=(act.type==='inspect'?idleBlend:0);
   host.pivot.position.x=host.baseX+sign*.08*cast-sign*.13*recoil+
-    .018*glance*(1-actionStrength);
-  host.pivot.position.y=.48+.012*breath;
-  host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.11*display+.16*cast);
-  host.pivot.rotation.z=-sign*.045*cast+sign*.115*recoil+.011*glance;
+    .018*glance*(1-actionStrength)+sign*(act.step||0)*idleBlend;
+  host.pivot.position.y=.48+.012*breath+(act.jump||0)*idleBlend;
+  host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.11*display+.16*cast)+
+    sign*(act.headYaw||0)*idleBlend*.30;
+  host.pivot.rotation.z=-sign*.045*cast+sign*.115*recoil+.011*glance+
+    sign*(act.tilt||0)*idleBlend;
   // Facial blink and the source VRM blendshapes remain animated independently.
   host.face.update(seconds,{seed:side==='player'?.35:2.7,
    suppressEntrance:true,suppressGesture:true,
    // Trigger authentic VRM joy/fun morphs for card reveal/cast; during hits
    // return the face to neutral instead of smiling through damage.
-   previewAmount:recoil>.12?0:Math.max(display*.46,cast*.68,inspectCard*.20)});
-  setBone(host,'C_Spine',.014*breath-.07*cast+.09*recoil,0,
+   previewAmount:recoil>.12?0:Math.max(display*.46,cast*.68,
+    inspectCard*.20,(act.type==='laugh'||act.type==='smirk'||act.type==='dance'?
+      idleBlend*.44:0))});
+  setBone(host,'C_Spine',.014*breath-.07*cast+.09*recoil+
+   (act.chest||0)*idleBlend*.3,0,
    sign*(.015*glance-.055*cast+.12*recoil));
-  setBone(host,'C_Chest',.015*breath-.11*display-.17*cast+.16*recoil,
-   sign*.055*display,sign*(-.065*cast+.10*recoil));
-  setBone(host,'C_Head',-.030*inspectCard-.055*display-.10*cast+.125*recoil,
-   sign*(.065*glance+.075*display),sign*.02*glance);
+  setBone(host,'C_Chest',.015*breath-.11*display-.17*cast+.16*recoil+
+   (act.chest||0)*idleBlend,sign*.055*display,sign*(-.065*cast+.10*recoil));
+  setBone(host,'C_Head',-.030*inspectCard-.055*display-.10*cast+.125*recoil+
+   (act.headPitch||0)*idleBlend,
+   sign*(.065*glance+.075*display+(act.headYaw||0)*idleBlend),
+   sign*.02*glance);
   setBone(host,'L_UpperLeg',.026*glance-.046*cast+.05*recoil,0,0);
   setBone(host,'R_UpperLeg',-.026*glance+.046*cast-.05*recoil,0,0);
   setBone(host,'L_LowerLeg',.014*cast,0,0);
@@ -545,6 +560,9 @@ function updateDuelistHosts(seconds){
    const idleShift=hand==='R'?.011*breath:-.009*breath;
    targetVector.y+=idleShift;
    if(hand==='R')targetVector.y+=.08*inspectCard;
+   const actingHand=act[hand==='R'?'right':'left'];
+   if(actingHand)for(let j=0;j<3;j++)targetVector.setComponent(j,
+    targetVector.getComponent(j)+actingHand[j]*idleBlend);
    for(const [phase,amount] of [[specs.draw,draw],[specs.show,display],
       [specs.cast,cast],[specs.guard,recoil]]){
     targetVector.lerp(new THREE.Vector3(...phase[hand]),Math.min(1,amount));
@@ -553,10 +571,11 @@ function updateDuelistHosts(seconds){
   }
   host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
   host.choreography={phase:recoil>.1?'hit':cast>.1?'cast':
-    display>.1?'show':draw>.1?'draw':inspectCard>.12?'inspect':'idle',
+    display>.1?'show':draw>.1?'draw':idleBlend>.08?act.type:'idle',
     draw:+draw.toFixed(3),display:+display.toFixed(3),
     cast:+cast.toFixed(3),recoil:+recoil.toFixed(3),
-    inspected:+inspectCard.toFixed(3)};
+    inspected:+inspectCard.toFixed(3),livingBeat:act.type,
+    livingStrength:+idleBlend.toFixed(3)};
  }
 }
 function inspectDuelistPosture(host){
@@ -605,6 +624,7 @@ function loop(){
  else stageText('settled');
  absoluteSeconds+=delta;
  liveScoreboard?.update(performance.now());
+ stadiumEvidence?.update?.(absoluteSeconds,{reduced});
  spellImpact?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
  comboDirector?.update(absoluteSeconds,reduced);
@@ -708,6 +728,15 @@ function onMessage(ev){
     serial:msg.event?.serial??null,effect:msg.event?.effect??null});
   return;
  }
+ if(msg?.type==='ASDC_R112_VICTORY'){
+  if(!['player','ai','draw'].includes(msg.winner))return;
+  livingCast.celebrate(msg.winner,absoluteSeconds);
+  summonPresence?.celebrate?.(msg.winner,absoluteSeconds,{reduced});
+  stadiumEvidence?.beginFinale?.(msg.winner,absoluteSeconds);
+  stageText('settled',msg.winner==='draw'?'本场平局 · 体育馆欢呼':
+    (msg.winner==='player'?'我方':'对方')+'胜利 · 全队庆祝');
+  return;
+ }
  if(msg?.type==='ASDC_R81_SCORE'){
   liveScoreboard?.setState(msg,performance.now());
   return;
@@ -715,6 +744,7 @@ function onMessage(ev){
  if(msg?.type==='ASDC_R81_HIT_HOST'){
   if(['player','ai'].includes(msg.side)&&Number.isInteger(msg.damage)&&msg.damage>0&&msg.damage<=20){
    hostHits[msg.side]={time:absoluteSeconds,damage:msg.damage};
+   livingCast.signal(msg.side,'hurt',absoluteSeconds);
    actualHostHits++;
    duelEffects?.pulse(msg.side,absoluteSeconds);
   }
@@ -737,6 +767,7 @@ function onMessage(ev){
   if(uids.length)pendingSpellUnitHits.push({side:victim,uids,due:absoluteSeconds+.46});
   if(Number.isInteger(msg.directDamage)&&msg.directDamage>0){
    hostHits[victim]={time:absoluteSeconds+.46,damage:msg.directDamage};
+   livingCast.signal(victim,'hurt',absoluteSeconds+.46);
    actualHostHits++;
   }
   return;
@@ -755,6 +786,7 @@ function onMessage(ev){
     card?.kind===msg.kind&&Number.isInteger(msg.serial)&&msg.serial>0;
   if(authorized){
    hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind};
+   livingCast.signal(msg.side,'card',absoluteSeconds);
    if(card.kind==='unit'){
     summonPresence?.reactToSummon(msg.side,msg.id,msg.serial,absoluteSeconds);
     comedySpectacle?.trigger('summon_'+card.style,
@@ -813,6 +845,7 @@ function exposeQA(){
     independentFromSummons:!actors.some(unit=>unit.source===a.sourceRig),
     posture:inspectDuelistPosture(a),expression:a.face.inspect()}))},
   get duelistAction(){return structuredClone(hostAction)},
+  get livingCast(){return livingCast.inspect()},
 
   get roles(){return actors.map(a=>({id:a.id,name:a.name,asset:a.source,
    bones:a.boneCount,skinnedMeshes:a.skins,triangles:a.triangles,
@@ -820,6 +853,7 @@ function exposeQA(){
   get sourceMatchesR22(){return source3DAssetsVerified},
   get renderer(){return renderInfo},
   get stadium(){return stadiumEvidence?.stats||null},
+  get stadiumAmbience(){return stadiumEvidence?.ambience||null},
   get effects(){return duelEffects?.stats||null},
   get podiumCards(){return podiumCards?.stats||null},
   get cameraDistance(){return camera?.position.distanceTo(new THREE.Vector3(0,1.3,0))||null},
