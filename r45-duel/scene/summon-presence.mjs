@@ -14,6 +14,7 @@ import {faceOpponentYaw,faceOpponentDot} from './summon-orientation.mjs';
 import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mjs';
 import {ACTOR_COMEDY_SIGNATURES} from './actor-comedy-signatures.mjs';
 import {choreographVictory} from './victory-choreography.mjs';
+import {createFootContact} from './foot-contact.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
@@ -518,6 +519,18 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      arm.bone.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
       new THREE.Vector3(0,0,1),angle*arm.side));
     }
+    if(!state.r114FootContact)
+     state.r114FootContact=createFootContact(THREE,object,state.id);
+    const grounded=!(state.kind==='gltf-instance'&&
+      (prototypes.get(state.id)?.spec.hover||0)>.01);
+    if(!state.r114FootContact.enabled&&grounded&&state.kind!=='original-vrm'){
+     // Some Blender Studio GLBs expose only baked pose channels to the
+     // runtime scene graph; do not invent leg bones or lift their shoes.
+     object.position.y=at.y;
+     object.position.x=at.x+move.x*.32*(state.side==='player'?1:-1);
+    }
+    state.r114FootContact.apply(danceTime,move.stage,state.index,
+     celebration.reduced,{animated:!!r61?.mixer,grounded});
     state.r113DanceStage=move.stage;
     celebrationFrames++;if(move.weight>.15)celebratingActors++;
    }else if(!state.comic&&!sequence&&!cinematic&&!celebration){
@@ -550,6 +563,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      e.object.rotation.y=faceOpponentYaw(e.id,e.side);
     }
    }
+   for(const e of entries.values())e.r114FootContact?.reset();
    celebration=null;
   }
   for(const state of entries.values()){
@@ -772,6 +786,10 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      id:x.id,uid:x.uid,type:x.comic.type,serial:x.comic.serial,
      shoulderBoneCount:x.comicBones?.length||0})),
     lastComic},
+   r114FootContacts:[...entries.values()].map(x=>({
+    id:x.id,uid:x.uid,side:x.side,
+    ...(x.r114FootContact?.inspect()||{enabled:false,frames:0})
+   })),
    r113DanceStages:[...entries.values()].map(x=>({id:x.id,side:x.side,
     stage:x.r113DanceStage||null})),
    r112Victory:celebration&&{...celebration,frames:celebrationFrames,

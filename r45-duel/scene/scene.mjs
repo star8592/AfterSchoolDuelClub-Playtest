@@ -10,6 +10,7 @@ import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-acting.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
+import {contactStep} from './foot-contact.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createComboDirector} from './combo-director.mjs';
 import {createComedySpectacle} from './comedy-spectacle.mjs';
@@ -526,9 +527,16 @@ function updateDuelistHosts(seconds){
   const actionStrength=Math.max(draw,display,cast,recoil);
   const idleBlend=(1-actionStrength)*strength;
   const inspectCard=(act.type==='inspect'?idleBlend:0);
+  // The podium actors share the same stance schedule as the 3D summoned
+  // units. Their standing foot remains on the plinth instead of bobbing
+  // along with the entire puppet during victory choreography.
+  const footwork=act.type==='dance'?
+   contactStep(seconds,act.stage,side==='player'?0:1,reduced):null;
+  const legSwing=footwork?.lift||0;
   host.pivot.position.x=host.baseX+sign*.08*cast-sign*.13*recoil+
-    .018*glance*(1-actionStrength)+sign*(act.step||0)*idleBlend;
-  host.pivot.position.y=.48+.012*breath+(act.jump||0)*idleBlend;
+    .018*glance*(1-actionStrength)+sign*(act.step||0)*idleBlend*
+      (footwork?.stance? .32:1);
+  host.pivot.position.y=.48+.012*breath+(footwork?0:(act.jump||0)*idleBlend);
   host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.11*display+.16*cast)+
     sign*(act.headYaw||0)*idleBlend*.30;
   host.pivot.rotation.z=-sign*.045*cast+sign*.115*recoil+.011*glance+
@@ -550,10 +558,14 @@ function updateDuelistHosts(seconds){
    (act.headPitch||0)*idleBlend,
    sign*(.065*glance+.075*display+(act.headYaw||0)*idleBlend),
    sign*.02*glance);
-  setBone(host,'L_UpperLeg',.026*glance-.046*cast+.05*recoil,0,0);
-  setBone(host,'R_UpperLeg',-.026*glance+.046*cast-.05*recoil,0,0);
-  setBone(host,'L_LowerLeg',.014*cast,0,0);
-  setBone(host,'R_LowerLeg',-.012*cast,0,0);
+  setBone(host,'L_UpperLeg',.026*glance-.046*cast+.05*recoil+
+   (footwork?.swing==='L'?legSwing*2:0),0,0);
+  setBone(host,'R_UpperLeg',-.026*glance+.046*cast-.05*recoil+
+   (footwork?.swing==='R'?legSwing*2:0),0,0);
+  setBone(host,'L_LowerLeg',.014*cast+
+   (footwork?.swing==='L'?-legSwing:0),0,0);
+  setBone(host,'R_LowerLeg',-.012*cast+
+   (footwork?.swing==='R'?-legSwing:0),0,0);
   // We restore BOTH source arm segments before IK, avoiding accumulating
   // twist from frame to frame or mixing cinematic and game idle rigs.
   for(const name of ['R_UpperArm','R_LowerArm','L_UpperArm','L_LowerArm']){
@@ -581,6 +593,8 @@ function updateDuelistHosts(seconds){
     draw:+draw.toFixed(3),display:+display.toFixed(3),
     cast:+cast.toFixed(3),recoil:+recoil.toFixed(3),
     inspected:+inspectCard.toFixed(3),livingBeat:act.type,
+    footContact:footwork?{stance:footwork.stance,
+      lift:+footwork.lift.toFixed(4),stage:act.stage}:null,
     livingStrength:+idleBlend.toFixed(3)};
  }
 }
