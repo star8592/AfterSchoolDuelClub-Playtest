@@ -6,9 +6,10 @@ const origin=process.env.ASDC_QA_ORIGIN||'http://127.0.0.1:11426';
 const report={passed:false,origin,checks:[],errors:[],views:[]};
 const dir=resolve(import.meta.dirname,'evidence/r125-cache');mkdirSync(dir,{recursive:true});
 function check(ok,name,v){report.checks.push({pass:!!ok,name});if(!ok)throw Error(name+': '+JSON.stringify(v).slice(0,900));}
-const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:[
+const browserOptions={headless:true,executablePath:'/usr/bin/google-chrome',args:[
  '--no-sandbox','--enable-webgl','--use-angle=vulkan','--enable-features=Vulkan,DefaultANGLEVulkan',
- '--disable-software-rasterizer','--disable-dev-shm-usage','--autoplay-policy=no-user-gesture-required']});
+ '--disable-software-rasterizer','--disable-dev-shm-usage','--autoplay-policy=no-user-gesture-required']};
+let browser=await chromium.launch(browserOptions);
 try{
  for(const [view,width] of [['desktop',1440],['portrait',430]]){
   const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'allow'});
@@ -58,6 +59,11 @@ try{
   report.views.push({view,firstReadyMs,secondReadyMs,worker:after,
    fromServiceWorker:new Set(fromSW).size,byteCacheEntries:first.keys.length});
   await context.close();
+  // Each view represents an independent device: close the complete Chrome
+  // profile, not just its incognito context, before the second cold start.
+  if(view==='desktop'){
+   await browser.close();browser=await chromium.launch(browserOptions);
+  }
  }
  report.passed=true;
 }catch(e){report.errors.push(String(e));}
