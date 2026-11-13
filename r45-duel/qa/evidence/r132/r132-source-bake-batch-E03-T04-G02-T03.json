@@ -1,0 +1,68 @@
+[
+  {
+    "id": "T04",
+    "source": "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/rex.blend",
+    "status": "PASS",
+    "seconds": 2.0,
+    "returncode": 0,
+    "bytes": 7248864,
+    "proof": {
+      "status": "EXPORTED",
+      "sha256": "fabe89345185d8b07c21cee058ee4f0488b164b342525a295084809f4c045179",
+      "r132FKShoulderSourceBaked": true,
+      "visibleSkinnedMeshes": 21,
+      "exportedJoints": 299,
+      "posedVerticesSampled": 35461
+    }
+  },
+  {
+    "id": "E03",
+    "source": "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/ellie.blend",
+    "status": "PASS",
+    "seconds": 5.7,
+    "returncode": 0,
+    "bytes": 16979452,
+    "proof": {
+      "status": "EXPORTED",
+      "sha256": "37cf61cad46a5cf6d683d0e17c7c06898152f4555f0334d025e9e567dbba9ef6",
+      "r132FKShoulderSourceBaked": true,
+      "visibleSkinnedMeshes": 28,
+      "exportedJoints": 329,
+      "posedVerticesSampled": 42721
+    }
+  },
+  {
+    "id": "G02",
+    "source": "/home/master/.cache/asdc-r119-ccby-rigs/snow/snow_v4.2.blend",
+    "status": "FAILED",
+    "seconds": 9.2,
+    "returncode": -11,
+    "bytes": 92288188,
+    "proof": {
+      "status": "EXPORTED",
+      "sha256": "d5900e9e13201e7e78337ded5c060e51164a1b39cb16a2979d10dbf40c5f3905",
+      "r132FKShoulderSourceBaked": true,
+      "visibleSkinnedMeshes": 13,
+      "exportedJoints": 293,
+      "posedVerticesSampled": 23163
+    },
+    "error": "rticesSampled\": 23163, \"r131PoseRestBaked\": true, \"r132FKShoulderSourceBaked\": true, \"r132BakedOriginalVertices\": 23163, \"bytes\": 92288188, \"sha256\": \"d5900e9e13201e7e78337ded5c060e51164a1b39cb16a2979d10dbf40c5f3905\", \"sourceMeshes\": 13, \"visibleMeshes\": 13, \"visibleSkinnedMeshes\": 13, \"skinWeightBuffers\": 13, \"rigBones\": 1494, \"exportedJoints\": 293, \"missingTargetBones\": [], \"sourceIKWristPose\": {}, \"disabledGraphModifiers\": 28}\nBlenderMCP addon unregistered\nBlender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)\nscripts disabled for \"/home/master/.cache/asdc-r119-ccby-rigs/snow/snow_v4.2.blend\", skipping 'cloudrig.py'\nWriting: /mnt/data/cache/blender-headless/tmp/blender.crash.txt\n"
+  },
+  {
+    "id": "T03",
+    "source": "/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend",
+    "status": "FAILED",
+    "seconds": 9.0,
+    "returncode": -11,
+    "bytes": 70399636,
+    "proof": {
+      "status": "EXPORTED",
+      "sha256": "03ec42b699d1a42558dbff19cb6d7ea7b98f170adc4cd4f752f9fdb7a1eda45b",
+      "r132FKShoulderSourceBaked": true,
+      "visibleSkinnedMeshes": 18,
+      "exportedJoints": 392,
+      "posedVerticesSampled": 40115
+    },
+    "error": "99d1a42558dbff19cb6d7ea7b98f170adc4cd4f752f9fdb7a1eda45b\", \"sourceMeshes\": 18, \"visibleMeshes\": 18, \"visibleSkinnedMeshes\": 18, \"skinWeightBuffers\": 18, \"rigBones\": 2166, \"exportedJoints\": 392, \"missingTargetBones\": [\"DEF-Shoulder.L\", \"DEF-Chest\", \"DEF-Shoulder.R\"], \"sourceIKWristPose\": {}, \"disabledGraphModifiers\": 22}\nBlenderMCP addon unregistered\nBlender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)\nscripts disabled for \"/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend\", skipping 'cloudrig.py'\nscripts disabled for \"/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend\", skipping 'rain_shading.py'\nWriting: /mnt/data/cache/blender-headless/tmp/blender.crash.txt\n"
+  }
+]

@@ -1,0 +1,64 @@
+00:00.230  blend            | Read blend: "/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend"
+BlenderMCP addon registered
+INFO Draco is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_meshopt_bridge.so
+02:09:28 | INFO: Starting glTF 2.0 export
+02:09:28 | INFO: Extracting primitive: GEO-rain-body
+02:09:28 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:28 | INFO: Splitting UDIM tiles into different primitives/materials
+02:09:29 | INFO: Primitives created: 2
+02:09:29 | WARNING: There are more than 4 joint vertex influences.The 4 with highest weight will be used (and normalized).
+02:09:29 | INFO: Extracting primitive: GEO-rain-eye_cornea
+02:09:29 | INFO: Primitives created: 1
+02:09:29 | INFO: Extracting primitive: GEO-rain-eye_dots
+02:09:29 | INFO: Primitives created: 1
+02:09:29 | INFO: Extracting primitive: GEO-rain-eyebrows
+02:09:29 | INFO: Primitives created: 1
+02:09:29 | INFO: Extracting primitive: GEO-rain-eyelashes
+02:09:29 | INFO: Primitives created: 1
+02:09:29 | INFO: Extracting primitive: GEO-rain-eyes
+02:09:29 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:29 | INFO: Primitives created: 1
+02:09:29 | INFO: Extracting primitive: GEO-rain-gums_lower
+02:09:29 | INFO: Primitives created: 2
+02:09:29 | INFO: Extracting primitive: GEO-rain-gums_upper
+02:09:29 | INFO: Primitives created: 2
+02:09:29 | INFO: Extracting primitive: GEO-rain-hair_main
+02:09:29 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:29 | INFO: Primitives created: 1
+02:09:29 | INFO: Extracting primitive: GEO-rain-hair_ponytail
+02:09:29 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:29 | INFO: Primitives created: 1
+02:09:29 | INFO: Extracting primitive: GEO-rain-hair_strand
+02:09:29 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:29 | INFO: Primitives created: 1
+02:09:29 | INFO: Extracting primitive: GEO-rain-hairband
+02:09:29 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:29 | INFO: Primitives created: 1
+02:09:30 | INFO: Extracting primitive: GEO-rain-head
+02:09:30 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:30 | INFO: Splitting UDIM tiles into different primitives/materials
+02:09:30 | INFO: Primitives created: 1
+02:09:30 | INFO: Extracting primitive: GEO-rain-jeans
+02:09:31 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:31 | INFO: Primitives created: 1
+02:09:31 | INFO: Extracting primitive: GEO-rain-scarf
+02:09:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:32 | INFO: Primitives created: 1
+02:09:32 | INFO: Extracting primitive: GEO-rain-shoes
+02:09:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:32 | INFO: Primitives created: 4
+02:09:32 | INFO: Extracting primitive: GEO-rain-tongue
+02:09:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:32 | INFO: Primitives created: 1
+02:09:32 | INFO: Extracting primitive: GEO-rain-top
+02:09:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:09:32 | INFO: Primitives created: 1
+02:09:32 | INFO: Finished glTF 2.0 export in 4.200193881988525 s
+
+R119_REAL_SKIN_EXPORT {"slug": "rain", "source": "/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend", "output": "r45-duel/assets/summons/T03-Rain-Skinned-R132-BakedRest-PILOT.glb", "status": "EXPORTED", "r132MutedRainIK": [["FK-Upperarm.L", "ik_arm_left"], ["FK-Forearm.L", "ik_arm_left"], ["FK-Hand.L", "ik_arm_left * ik_hinge_hand_left"], ["FK-Hand.L", "ik_arm_left * ik_stretch_arms"], ["FK-Hand.L", "ik_arm_left"], ["FK-Upperarm.R", "ik_arm_right"], ["FK-Forearm.R", "ik_arm_right"], ["FK-Hand.R", "ik_arm_right * ik_hinge_hand_right"], ["FK-Hand.R", "ik_arm_right * ik_stretch_arms"], ["FK-Hand.R", "ik_arm_right"]], "posedVerticesSampled": 40115, "r131PoseRestBaked": true, "r132FKShoulderSourceBaked": true, "r132BakedOriginalVertices": 40115, "bytes": 70329612, "sha256": "44cb428c2f9567b06715a1ffff30827fc80e3d5bf32e92ec5ad6f690ac908edd", "sourceMeshes": 18, "visibleMeshes": 18, "visibleSkinnedMeshes": 18, "skinWeightBuffers": 18, "rigBones": 2166, "exportedJoints": 392, "missingTargetBones": ["DEF-Chest", "DEF-Shoulder.L", "DEF-Shoulder.R"], "sourceIKWristPose": {}, "disabledGraphModifiers": 22}
+BlenderMCP addon unregistered
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+scripts disabled for "/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend", skipping 'cloudrig.py'
+scripts disabled for "/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend", skipping 'rain_shading.py'
+Writing: /mnt/data/cache/blender-headless/tmp/blender.crash.txt

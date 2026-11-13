@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "sourceRigCount": 6,
+  "sourceActualSkinAndMeshIntegrity": "PASS 6/6",
+  "nearCameraDesktop": {
+    "passed": 66,
+    "total": 66,
+    "viewport": 1440
+  },
+  "nearCameraPortrait": {
+    "passed": 66,
+    "total": 66,
+    "viewport": 430
+  },
+  "rolloutIsolation": {
+    "passed": 4,
+    "total": 4,
+    "productionDefault": "R97"
+  },
+  "officialWholeGame": {
+    "passed": 18,
+    "total": 18
+  },
+  "r131PhilCompatibility": {
+    "passed": 22,
+    "total": 22
+  },
+  "perMeshGroundOwnerProbes": 12,
+  "artApproved": false,
+  "knownArtBlockers": [
+    "G03 source shoe penetrates floor (minimum -0.047 in sampled hit)",
+    "T04 source shoe penetrates floor (minimum -0.031 in sampled attack)",
+    "E03 source boot penetrates floor (minimum -0.033 in sampled attack)",
+    "E03/G04/T04 original source pose does not precisely reproduce R97 artistic proportions"
+  ],
+  "warnings": [
+    "G02/T03 Blender process terminated abnormally on shutdown after complete GLB was exported; source GLB, hashes, non-image buffers and Chrome rendering independently validated"
+  ],
+  "actors": {
+    "E03": {
+      "sha256": "37cf61cad46a5cf6d683d0e17c7c06898152f4555f0334d025e9e567dbba9ef6",
+      "bytes": 16979452,
+      "sourceSkinMeshes": 28,
+      "sourceJoints": 329
+    },
+    "G02": {
+      "sha256": "2a846ae175b1c03e36e5481934989678d43114cdf790df39574b26bab887c439",
+      "bytes": 11809228,
+      "sourceSkinMeshes": 13,
+      "sourceJoints": 293
+    },
+    "G03": {
+      "sha256": "2c9e7f6bd53cb026bd1e44deb1c6ff5d1c38dde1dd7f8fecb88dceaf61f1d498",
+      "bytes": 4844504,
+      "sourceSkinMeshes": 16,
+      "sourceJoints": 295
+    },
+    "G04": {
+      "sha256": "5fb77d05e548477c4a201774bf61fa3927f4993e334a423a8027fb895a09a000",
+      "bytes": 7286436,
+      "sourceSkinMeshes": 18,
+      "sourceJoints": 311
+    },
+    "T03": {
+      "sha256": "4f868e73ce9b37df8705dbf2a2fc40af6f8b7634d4ec2a227646a8e4458ea3c5",
+      "bytes": 18554464,
+      "sourceSkinMeshes": 18,
+      "sourceJoints": 392
+    },
+    "T04": {
+      "sha256": "fabe89345185d8b07c21cee058ee4f0488b164b342525a295084809f4c045179",
+      "bytes": 7248864,
+      "sourceSkinMeshes": 21,
+      "sourceJoints": 299
+    }
+  }
+}

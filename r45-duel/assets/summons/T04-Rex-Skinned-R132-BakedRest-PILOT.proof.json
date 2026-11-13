@@ -1,0 +1,32 @@
+{
+  "slug": "rex",
+  "source": "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/rex.blend",
+  "output": "r45-duel/assets/summons/T04-Rex-Skinned-R132-BakedRest-PILOT.glb",
+  "status": "EXPORTED",
+  "posedVerticesSampled": 35461,
+  "r131PoseRestBaked": true,
+  "r132FKShoulderSourceBaked": true,
+  "r132BakedOriginalVertices": 35461,
+  "bytes": 7248864,
+  "sha256": "fabe89345185d8b07c21cee058ee4f0488b164b342525a295084809f4c045179",
+  "sourceMeshes": 22,
+  "visibleMeshes": 21,
+  "visibleSkinnedMeshes": 21,
+  "skinWeightBuffers": 21,
+  "rigBones": 1556,
+  "exportedJoints": 299,
+  "missingTargetBones": [],
+  "sourceIKWristPose": {
+    "L": [
+      0.7065179347991943,
+      -0.0009067932842299342,
+      1.1775456666946411
+    ],
+    "R": [
+      -0.7065179944038391,
+      -0.0009067956125363708,
+      1.1775456666946411
+    ]
+  },
+  "disabledGraphModifiers": 65
+}

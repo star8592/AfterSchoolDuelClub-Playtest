@@ -1,0 +1,61 @@
+00:00.226  blend            | Read blend: "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/jay.blend"
+BlenderMCP addon registered
+INFO Draco is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_meshopt_bridge.so
+02:02:15 | INFO: Starting glTF 2.0 export
+02:02:15 | INFO: Extracting primitive: Data_GEO-jay_body
+02:02:15 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:15 | INFO: Primitives created: 1
+02:02:15 | WARNING: There are more than 4 joint vertex influences.The 4 with highest weight will be used (and normalized).
+02:02:15 | INFO: Extracting primitive: Data_GEO-jay_chain
+02:02:15 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:15 | INFO: Primitives created: 1
+02:02:15 | INFO: Extracting primitive: Data_GEO-jay_eye.L
+02:02:15 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:15 | INFO: Primitives created: 2
+02:02:15 | INFO: Extracting primitive: Data_GEO-jay_eye.R
+02:02:15 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:15 | INFO: Primitives created: 2
+02:02:15 | INFO: Extracting primitive: Data_GEO-jay_eyebrows
+02:02:15 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:15 | INFO: Primitives created: 1
+02:02:15 | INFO: Extracting primitive: Data_GEO-jay_eyedot.L
+02:02:15 | INFO: Primitives created: 1
+02:02:15 | INFO: Extracting primitive: Data_GEO-jay_eyedot.R
+02:02:15 | INFO: Primitives created: 1
+02:02:15 | INFO: Extracting primitive: Data_GEO-jay_hat
+02:02:16 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:16 | INFO: Primitives created: 1
+02:02:16 | INFO: Extracting primitive: Data_GEO-jay_head
+02:02:16 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:16 | INFO: Primitives created: 2
+02:02:16 | INFO: Extracting primitive: Data_GEO-jay_jacket
+02:02:16 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:17 | INFO: Primitives created: 5
+02:02:17 | INFO: Extracting primitive: Data_GEO-jay_jacket_zipper_pull_neck
+02:02:17 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:17 | INFO: Primitives created: 1
+02:02:17 | INFO: Extracting primitive: Data_GEO-jay_jacket_zipper_pull_pockets
+02:02:17 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:17 | INFO: Primitives created: 1
+02:02:17 | INFO: Extracting primitive: Data_GEO-jay_pants
+02:02:17 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:17 | INFO: Primitives created: 2
+02:02:17 | INFO: Extracting primitive: Data_GEO-jay_shades
+02:02:17 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:17 | INFO: Primitives created: 3
+02:02:17 | INFO: Extracting primitive: Data_GEO-jay_shoes_base
+02:02:17 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:17 | INFO: Primitives created: 3
+02:02:17 | INFO: Extracting primitive: Data_GEO-jay_tongue
+02:02:17 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:17 | INFO: Primitives created: 1
+02:02:17 | INFO: Finished glTF 2.0 export in 2.5380287170410156 s
+
+R119_REAL_SKIN_EXPORT {"slug": "jay", "source": "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/jay.blend", "output": "r45-duel/assets/summons/G03-Jay-Skinned-R132-BakedRest-PILOT.glb", "status": "EXPORTED", "posedVerticesSampled": 29059, "r131PoseRestBaked": true, "r132FKShoulderSourceBaked": true, "r132BakedOriginalVertices": 29059, "bytes": 4844504, "sha256": "2c9e7f6bd53cb026bd1e44deb1c6ff5d1c38dde1dd7f8fecb88dceaf61f1d498", "sourceMeshes": 17, "visibleMeshes": 16, "visibleSkinnedMeshes": 16, "skinWeightBuffers": 16, "rigBones": 1605, "exportedJoints": 295, "missingTargetBones": [], "sourceIKWristPose": {"L": [0.2825460433959961, -0.0014165423344820738, 0.6947999596595764], "R": [-0.2825460433959961, -0.0014165423344820738, 0.6947999596595764]}, "disabledGraphModifiers": 45}
+BlenderMCP addon unregistered
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+scripts disabled for "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/jay.blend", skipping 'cloudrig.py'
+scripts disabled for "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/jay.blend", skipping 'rigged_particle_hair.py'
+
+Blender quit

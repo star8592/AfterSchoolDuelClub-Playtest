@@ -1,0 +1,277 @@
+{
+  "file": "G02-Snow-Skinned-R132-BakedRest-PILOT.glb",
+  "originalBytes": 92288188,
+  "webBytes": 11809228,
+  "reduction": 0.872,
+  "skinCount": 1,
+  "unchangedNonimageBuffers": 815,
+  "images": [
+    {
+      "image": "skin_sss_value.1001",
+      "beforeBytes": 66762,
+      "afterBytes": 61368,
+      "from": [
+        1024,
+        1024
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "skin_roughness.1001",
+      "beforeBytes": 5776796,
+      "afterBytes": 206149,
+      "from": [
+        4096,
+        4096
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "skin_sss_value.1002",
+      "beforeBytes": 16836,
+      "afterBytes": 19061,
+      "from": [
+        512,
+        512
+      ],
+      "to": [
+        512,
+        512
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "skin_roughness.1002",
+      "beforeBytes": 615975,
+      "afterBytes": 162032,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "skin_sss_value.1003",
+      "beforeBytes": 29233,
+      "afterBytes": 23105,
+      "from": [
+        512,
+        512
+      ],
+      "to": [
+        512,
+        512
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "skin_roughness.1003",
+      "beforeBytes": 1701263,
+      "afterBytes": 229961,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "eyes_specular",
+      "beforeBytes": 141770,
+      "afterBytes": 33101,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "eyes_normal",
+      "beforeBytes": 322608,
+      "afterBytes": 38921,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "eyes_diffuse",
+      "beforeBytes": 1286452,
+      "afterBytes": 152207,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        1600,
+        1600
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "eyes_metalic",
+      "beforeBytes": 10597,
+      "afterBytes": 11234,
+      "from": [
+        512,
+        512
+      ],
+      "to": [
+        512,
+        512
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "pants_normal",
+      "beforeBytes": 24855323,
+      "afterBytes": 214853,
+      "from": [
+        4096,
+        4096
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "pants_diffuse",
+      "beforeBytes": 22205417,
+      "afterBytes": 1243878,
+      "from": [
+        4096,
+        4096
+      ],
+      "to": [
+        2048,
+        2048
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "pants_roughness",
+      "beforeBytes": 11015911,
+      "afterBytes": 144138,
+      "from": [
+        4096,
+        4096
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "shirt_normal",
+      "beforeBytes": 4157409,
+      "afterBytes": 380461,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "shirt_diffuse",
+      "beforeBytes": 1653162,
+      "afterBytes": 436855,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        2048,
+        2048
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "shirt_roughness",
+      "beforeBytes": 1214000,
+      "afterBytes": 124373,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "shoes_normal",
+      "beforeBytes": 5677803,
+      "afterBytes": 700978,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "shoes_diffuse",
+      "beforeBytes": 2910242,
+      "afterBytes": 622129,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        2048,
+        2048
+      ],
+      "mime": "image/jpeg"
+    },
+    {
+      "image": "shoes_metalness-shoes_roughness",
+      "beforeBytes": 1903056,
+      "afterBytes": 277536,
+      "from": [
+        2048,
+        2048
+      ],
+      "to": [
+        1024,
+        1024
+      ],
+      "mime": "image/jpeg"
+    }
+  ],
+  "sha256": "2a846ae175b1c03e36e5481934989678d43114cdf790df39574b26bab887c439"
+}

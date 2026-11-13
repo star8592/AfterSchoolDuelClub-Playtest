@@ -1,0 +1,67 @@
+{
+  "slug": "rain",
+  "source": "/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend",
+  "output": "r45-duel/assets/summons/T03-Rain-Skinned-R132-BakedRest-PILOT.glb",
+  "status": "EXPORTED",
+  "r132MutedRainIK": [
+    [
+      "FK-Upperarm.L",
+      "ik_arm_left"
+    ],
+    [
+      "FK-Forearm.L",
+      "ik_arm_left"
+    ],
+    [
+      "FK-Hand.L",
+      "ik_arm_left * ik_hinge_hand_left"
+    ],
+    [
+      "FK-Hand.L",
+      "ik_arm_left * ik_stretch_arms"
+    ],
+    [
+      "FK-Hand.L",
+      "ik_arm_left"
+    ],
+    [
+      "FK-Upperarm.R",
+      "ik_arm_right"
+    ],
+    [
+      "FK-Forearm.R",
+      "ik_arm_right"
+    ],
+    [
+      "FK-Hand.R",
+      "ik_arm_right * ik_hinge_hand_right"
+    ],
+    [
+      "FK-Hand.R",
+      "ik_arm_right * ik_stretch_arms"
+    ],
+    [
+      "FK-Hand.R",
+      "ik_arm_right"
+    ]
+  ],
+  "posedVerticesSampled": 40115,
+  "r131PoseRestBaked": true,
+  "r132FKShoulderSourceBaked": true,
+  "r132BakedOriginalVertices": 40115,
+  "bytes": 70329612,
+  "sha256": "44cb428c2f9567b06715a1ffff30827fc80e3d5bf32e92ec5ad6f690ac908edd",
+  "sourceMeshes": 18,
+  "visibleMeshes": 18,
+  "visibleSkinnedMeshes": 18,
+  "skinWeightBuffers": 18,
+  "rigBones": 2166,
+  "exportedJoints": 392,
+  "missingTargetBones": [
+    "DEF-Chest",
+    "DEF-Shoulder.L",
+    "DEF-Shoulder.R"
+  ],
+  "sourceIKWristPose": {},
+  "disabledGraphModifiers": 22
+}

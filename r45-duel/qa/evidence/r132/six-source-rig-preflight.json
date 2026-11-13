@@ -1,0 +1,1440 @@
+{
+  "E03": {
+    "slug": "ellie",
+    "source": "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/ellie.blend",
+    "rig": "RIG-Ellie",
+    "rigBones": 1887,
+    "geo": 36,
+    "meshVertices": 45970,
+    "controls": [
+      {
+        "name": "FK-UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "ORG-UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          },
+          {
+            "type": "STRETCH_TO",
+            "name": "Stretch To",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          },
+          {
+            "type": "STRETCH_TO",
+            "name": "Stretch To",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "IK-MSTR-Wrist.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "IK-MSTR-Wrist.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Thigh.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Thigh.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      }
+    ],
+    "objects": [
+      "GEO-ellie_body",
+      "GEO-ellie_boots",
+      "GEO-ellie_earrings",
+      "GEO-ellie_eye.L",
+      "GEO-ellie_eye.R",
+      "GEO-ellie_eye_highlights",
+      "GEO-ellie_eyebrows",
+      "GEO-ellie_eyelashes",
+      "GEO-ellie_fannypack_buckle_ext",
+      "GEO-ellie_fannypack_buckle_int"
+    ]
+  },
+  "G02": {
+    "slug": "snow",
+    "source": "/home/master/.cache/asdc-r119-ccby-rigs/snow/snow_v4.2.blend",
+    "rig": "RIG-Snow",
+    "rigBones": 1494,
+    "geo": 14,
+    "meshVertices": 24306,
+    "controls": [
+      {
+        "name": "FK-UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Thigh.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Thigh.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      }
+    ],
+    "objects": [
+      "GEO-snow-body",
+      "GEO-snow-eye_dots",
+      "GEO-snow-eyebrows",
+      "GEO-snow-eyes",
+      "GEO-snow-hair_base",
+      "GEO-snow-head",
+      "GEO-snow-pants",
+      "GEO-snow-shirt",
+      "GEO-snow-shoes_base",
+      "GEO-snow-shoes_bottom"
+    ]
+  },
+  "G03": {
+    "slug": "jay",
+    "source": "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/jay.blend",
+    "rig": "RIG-jay",
+    "rigBones": 1605,
+    "geo": 23,
+    "meshVertices": 31332,
+    "controls": [
+      {
+        "name": "FK-UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "ORG-UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "IK-MSTR-Wrist.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "IK-MSTR-Wrist.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Thigh.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Thigh.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      }
+    ],
+    "objects": [
+      "GEO-jay_body",
+      "GEO-jay_chain",
+      "GEO-jay_eye.L",
+      "GEO-jay_eye.R",
+      "GEO-jay_eyebrows",
+      "GEO-jay_eyedot.L",
+      "GEO-jay_eyedot.R",
+      "GEO-jay_hair.groom_base",
+      "GEO-jay_hair.scalp-base",
+      "GEO-jay_hair.scalp-loose"
+    ]
+  },
+  "G04": {
+    "slug": "victoria",
+    "source": "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/victoria.blend",
+    "rig": "RIG-Victoria",
+    "rigBones": 1618,
+    "geo": 34,
+    "meshVertices": 29756,
+    "controls": [
+      {
+        "name": "FK-UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "ORG-UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "IK-MSTR-Wrist.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "IK-MSTR-Wrist.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Thigh.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Thigh.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": []
+      }
+    ],
+    "objects": [
+      "GEO-victoria_belt_blue",
+      "GEO-victoria_belt_main",
+      "GEO-victoria_belt_main_buckle",
+      "GEO-victoria_belt_white",
+      "GEO-victoria_body_legs",
+      "GEO-victoria_body_upper",
+      "GEO-victoria_boots",
+      "GEO-victoria_bracelets",
+      "GEO-victoria_dress",
+      "GEO-victoria_earrings"
+    ]
+  },
+  "T03": {
+    "slug": "rain",
+    "source": "/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend",
+    "rig": "RIG-rain",
+    "rigBones": 2166,
+    "geo": 18,
+    "meshVertices": 40115,
+    "controls": [
+      {
+        "name": "FK-Upperarm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "ik_arm_left",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Upperarm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "ik_arm_right",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Forearm.L",
+        "exists": true,
+        "xyz": null,
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "ik_arm_left",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Forearm.R",
+        "exists": true,
+        "xyz": null,
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "ik_arm_right",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Hand.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_ROTATION",
+            "name": "ik_arm_left * ik_hinge_hand_left",
+            "mute": false
+          },
+          {
+            "type": "COPY_LOCATION",
+            "name": "ik_arm_left * ik_stretch_arms",
+            "mute": false
+          },
+          {
+            "type": "COPY_SCALE",
+            "name": "ik_arm_left",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Hand.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_ROTATION",
+            "name": "ik_arm_right * ik_hinge_hand_right",
+            "mute": false
+          },
+          {
+            "type": "COPY_LOCATION",
+            "name": "ik_arm_right * ik_stretch_arms",
+            "mute": false
+          },
+          {
+            "type": "COPY_SCALE",
+            "name": "ik_arm_right",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Thigh.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "ik_leg_left",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Thigh.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "ik_leg_right",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Shin.L",
+        "exists": true,
+        "xyz": null,
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "ik_leg_left",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Shin.R",
+        "exists": true,
+        "xyz": null,
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "ik_leg_right",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Foot.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "FK-Foot.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms",
+            "mute": false
+          }
+        ]
+      }
+    ],
+    "objects": [
+      "GEO-rain-body",
+      "GEO-rain-eye_cornea",
+      "GEO-rain-eye_dots",
+      "GEO-rain-eyebrows",
+      "GEO-rain-eyelashes",
+      "GEO-rain-eyes",
+      "GEO-rain-gums_lower",
+      "GEO-rain-gums_upper",
+      "GEO-rain-hair_main",
+      "GEO-rain-hair_ponytail"
+    ]
+  },
+  "T04": {
+    "slug": "rex",
+    "source": "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/rex.blend",
+    "rig": "RIG-rex",
+    "rigBones": 1556,
+    "geo": 28,
+    "meshVertices": 38036,
+    "controls": [
+      {
+        "name": "FK-UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Wrist.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "ORG-UpperArm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-UpperArm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-Forearm.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "ORG-Forearm.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": [
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms FK",
+            "mute": false
+          },
+          {
+            "type": "COPY_TRANSFORMS",
+            "name": "Copy Transforms IK",
+            "mute": false
+          }
+        ]
+      },
+      {
+        "name": "IK-MSTR-Wrist.L",
+        "exists": true,
+        "xyz": [
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "IK-MSTR-Wrist.R",
+        "exists": true,
+        "xyz": [
+          -0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Thigh.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Thigh.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Knee.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.L",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      },
+      {
+        "name": "FK-Foot.R",
+        "exists": true,
+        "xyz": [
+          0.0,
+          -0.0,
+          0.0
+        ],
+        "constraints": []
+      }
+    ],
+    "objects": [
+      "GEO-rex_belt",
+      "GEO-rex_belt_buckle",
+      "GEO-rex_body",
+      "GEO-rex_eye.L",
+      "GEO-rex_eye.R",
+      "GEO-rex_eyebrows",
+      "GEO-rex_eyedot.L",
+      "GEO-rex_eyedot.R",
+      "GEO-rex_hair.groom_base",
+      "GEO-rex_hair.scalp-base"
+    ]
+  }
+}
