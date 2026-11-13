@@ -3,6 +3,7 @@
  * IndexTTS, copied movie voices, or runtime synthesis fallback.
  * Completely presentation-only: cannot mutate the rules engine/HP.
  */
+import {GUIDED_LINES} from './guided-tutorial.mjs';
 const SOUNDS=Object.freeze({
  select:'select.ogg',cast:'cast.ogg',enemy_cast:'enemy_cast.ogg',
  turn:'turn.ogg',attack:'attack.ogg',hit:'hit.ogg',
@@ -99,7 +100,7 @@ function savedVolume(){
 
 export function createDuelAudio({onVoiceLine}={}){
  let requested=savedSoundIntent(),enabled=false,ctx=null,decoded=new Map(),
-  voiceManifest={clips:{}},paManifest={clips:{}},voiceAudio=null;
+  voiceManifest={clips:{}},paManifest={clips:{}},tutorialManifest={clips:{}},voiceAudio=null;
  let lastPAAt=-Infinity,finaleVoiceGuard=false;
  let assetsLoading=null,assetsReady=false,musicAttemptInFlight=false;
  const pendingCues=[],pendingVoices=[];
@@ -158,6 +159,22 @@ export function createDuelAudio({onVoiceLine}={}){
    paManifest=json;
   }catch(e){counters.errors++;log('pa-manifest-error',String(e))}
  }
+ async function loadTutorialManifest(){
+  try{
+   const response=await fetch(base+'tutorial/tutorial-manifest.json',{cache:'no-cache'});
+   if(!response.ok)throw Error('Guided tutorial manifest HTTP '+response.status);
+   const json=await response.json();
+   if(json.provider!=='Qwen3-TTS'||!json.clips||
+      Object.keys(GUIDED_LINES).some(key=>{
+       const meta=json.clips[key],line=GUIDED_LINES[key];
+       return !meta?.ready||meta.text!==line.text||meta.side!==line.side||
+        meta.speaker!==(line.side==='player'?'serena':'dylan')||
+        !new RegExp('^r120_'+key+'\\.ogg$').test(meta.file)||
+        !/^[a-f0-9]{64}$/.test(meta.sha256)||!(meta.duration_seconds>.6);
+      }))throw Error('Invalid or mismatched R120 original Qwen tutorial voice evidence');
+   tutorialManifest=json;
+  }catch(e){counters.errors++;log('tutorial-manifest-error',String(e))}
+ }
  async function preloadCues(){
   if(!ctx)return;
   await Promise.all(Object.entries(SOUNDS).map(async([key,file])=>{
@@ -198,7 +215,7 @@ export function createDuelAudio({onVoiceLine}={}){
     counters.errors++;log('music-error','file failed');
   });
   // Decode while suspended. First card selection must not wait for network.
-  assetsLoading=Promise.all([loadManifest(),loadPAManifest(),preloadCues()]).then(()=>{
+  assetsLoading=Promise.all([loadManifest(),loadPAManifest(),loadTutorialManifest(),preloadCues()]).then(()=>{
     assetsReady=true;flushPending();
     log('prepared','sound files ready; playback follows browser policy');
     return true;
@@ -340,7 +357,7 @@ export function createDuelAudio({onVoiceLine}={}){
  function playQueuedVoice(){
   if(!enabled||voiceAudio||voiceQueue.length===0)return;
   const {id,kind,file,variant,text,duration_seconds,source='actor'}=voiceQueue.shift();
-  const a=new Audio(base+(source==='pa'?'pa/':'voices/')+file+'?mix=r113');
+  const a=new Audio(base+(source==='pa'?'pa/':source==='tutorial'?'tutorial/':'voices/')+file+'?mix=r113');
   voiceAudio=a;currentVoiceKey=id+':'+kind;
   a.volume=volume.voice;a.preload='auto';
   log('voice-variant',id+':'+kind+'='+variant);
@@ -427,6 +444,22 @@ export function createDuelAudio({onVoiceLine}={}){
     source:'pa',file:c.file,variant:key,text:c.text,duration_seconds:c.duration_seconds});
   playQueuedVoice();
   return true;
+ }
+ // The guided battle speaks *recorded Qwen3 female/male lines* with exact
+ // transcript parity. It preempts unrelated battle barks to stay intelligible.
+ // No browser voice emulation or remote runtime TTS fallback is used.
+ function playTutorialLine(key){
+  const clip=tutorialManifest.clips?.[key];
+  if(!requested||!enabled||!assetsReady||volume.voice===0||
+     !clip?.ready||!GUIDED_LINES[key]||clip.text!==GUIDED_LINES[key].text)return 0;
+  if(!/^r120_[a-z0-9_]+\.ogg$/.test(clip.file))return 0;
+  if(voiceAudio){voiceAudio.pause();voiceAudio=null;currentVoiceKey=null;counters.voiceInterrupted++;}
+  voiceQueue=[];
+  voiceQueue.push({id:clip.side==='player'?'HOST_PLAYER':'HOST_AI',kind:key,
+   source:'tutorial',file:clip.file,variant:key,text:clip.text,
+   duration_seconds:clip.duration_seconds});
+  playQueuedVoice();
+  return clip.duration_seconds;
  }
  function setOpeningMusic(seed=0){
   if(!Number.isFinite(Number(seed)))seed=0;
@@ -531,6 +564,7 @@ export function createDuelAudio({onVoiceLine}={}){
   pendingCues:pendingCues.length,pendingVoices:pendingVoices.length,
   musicKind,musicDucked,musicTracks:[...MUSIC_TRACKS],
   paClipCount:Object.keys(paManifest.clips||{}).length,
+  tutorialClipCount:Object.keys(tutorialManifest.clips||{}).length,
   finaleVoiceGuard,
   musicHistory:[...musicHistory],voiceVariantHistory:[...voiceVariantHistory],
   lastSpoken:lastSpoken?{...lastSpoken}:null,speechHistory:[...speechHistory],comicBeatHistory:[...comicBeatHistory],
@@ -538,5 +572,5 @@ export function createDuelAudio({onVoiceLine}={}){
   voiceQueue:voiceQueue.map(x=>x.id+':'+x.kind),decodedCues:decoded.size,voiceClipCount:Object.keys(voiceManifest.clips||{}).length,
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
  return {prepare,unlock,turnOn,stop,setVolume,playCue,playComicBeat,
-  playCharacter,playPA,playSocialLine,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
+  playCharacter,playPA,playSocialLine,playTutorialLine,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
 }

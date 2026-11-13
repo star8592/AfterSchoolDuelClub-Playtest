@@ -1,0 +1,149 @@
+{
+  "provider": "Qwen3-TTS",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "version": "R120",
+  "provenance": "Z890 offline original speech; no realtime synthesis",
+  "review_status": "pending-human-listening",
+  "clips": {
+    "intro_f": {
+      "file": "r120_intro_f.ogg",
+      "text": "欢迎加入放学后决斗社！正式比赛双方各有二十点人气，谁先把对面打到零，谁就赢。为了快速学会，我们把陪练的人气设为六点。",
+      "speaker": "serena",
+      "side": "player",
+      "duration_seconds": 11.21,
+      "sha256": "07bd3e2df59dd32f286d6442882b73984fb8421e5ce6ebfcabb05b9d3029146d",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "intro_m": {
+      "file": "r120_intro_m.ogg",
+      "text": "我来当你的陪练！你出牌，我回应。你看见的每次攻击、扣血、反击，都是真实规则。",
+      "speaker": "dylan",
+      "side": "ai",
+      "duration_seconds": 8.31,
+      "sha256": "85d5c55ad613dd332090b951dfdaa9a139c1a378e34acc97521099f939d44b84",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "prompt_one": {
+      "file": "r120_prompt_one.ogg",
+      "text": "第一回合，你有两点能量。选中铃声追不上，再点击金色出牌。",
+      "speaker": "serena",
+      "side": "player",
+      "duration_seconds": 6.51,
+      "sha256": "f042d64bee18e6a7c4a92a182413848f9db4f17c0e105aeea7c0c3f52abb4a84",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "played_one": {
+      "file": "r120_played_one.ogg",
+      "text": "我召唤了铃声追不上！刚上场的伙伴先待命，下次轮到我才能攻击。",
+      "speaker": "serena",
+      "side": "player",
+      "duration_seconds": 5.71,
+      "sha256": "d7fe00d11ba33706c5a5263603d005f37900581ecc309cf55da703ef28df443d",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "prompt_end_one": {
+      "file": "r120_prompt_end_one.ogg",
+      "text": "这回合先点击结束回合。别着急，刚召唤的角色还不能立刻攻击。",
+      "speaker": "serena",
+      "side": "player",
+      "duration_seconds": 6.11,
+      "sha256": "59a4856dd950cf44cb4c36dab2d132417dfb5c4a516bfce197c50a935685fd7a",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "ai_one": {
+      "file": "r120_ai_one.ogg",
+      "text": "轮到我！我打出橡皮筋建筑师，花掉一点能量。和你一样，我刚召唤的角色也先待命。",
+      "speaker": "dylan",
+      "side": "ai",
+      "duration_seconds": 7.21,
+      "sha256": "6a75e73c05923563ce8f9104cf8e20aa0fd35de4c2c3ccc7f3758a22a9d26e75",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "round_two": {
+      "file": "r120_round_two.ogg",
+      "text": "第二回合开始！能量增加了。现在选飞来的巨大黑板擦，这是一张事件牌，发动后立刻扣对手三点人气。",
+      "speaker": "serena",
+      "side": "player",
+      "duration_seconds": 8.81,
+      "sha256": "c4ef699bf92ec36afb80ede9ace019271d06713f2ba27f1fbecbeee438fa06f7",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "played_two": {
+      "file": "r120_played_two.ogg",
+      "text": "你看！黑板擦一飞出去，陪练的人气从六点变成三点。事件牌可以马上生效，不用等到下回合。",
+      "speaker": "serena",
+      "side": "player",
+      "duration_seconds": 8.01,
+      "sha256": "c47551ff921df4e8aee18fe6ecea98ff326e28eb9fda92c0f37ca53903c56381",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "prompt_end_two": {
+      "file": "r120_prompt_end_two.ogg",
+      "text": "现在结束回合！上一回合召唤的人物终于能攻击了。对面有人守着，就先攻击对面的人物。",
+      "speaker": "serena",
+      "side": "player",
+      "duration_seconds": 8.01,
+      "sha256": "08d3caa1484ed5d757ea9807645ffd1d90930f3cb4b7002c8af284d57b66e2a3",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "exchange_m": {
+      "file": "r120_exchange_m.ogg",
+      "text": "接招！人物碰面会互相造成伤害。你看，攻击不是只打一边，防守方也会反击！",
+      "speaker": "dylan",
+      "side": "ai",
+      "duration_seconds": 7.61,
+      "sha256": "b2c91c05e359ec04253ad5c00688e4c647e2f8ecd4185393df610350a39678b7",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "ai_two": {
+      "file": "r120_ai_two.ogg",
+      "text": "我再召唤一位迟到的播音员。现在双方都有过攻防，真正决定输赢的还是上方的人气值。",
+      "speaker": "dylan",
+      "side": "ai",
+      "duration_seconds": 8.81,
+      "sha256": "602668e17f86ac49ff0f4539671ff47b70fd0cce926132b744e9f392792e21b8",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "round_three": {
+      "file": "r120_round_three.ogg",
+      "text": "第三回合了！对面只剩三点人气。再选一张巨大黑板擦，用三点能量，直接结束比赛！",
+      "speaker": "serena",
+      "side": "player",
+      "duration_seconds": 8.11,
+      "sha256": "62f88bd6907a5c93a52bf0fb2e758b95f50e58907835da81770e25395e7e7be1",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "victory_f": {
+      "file": "r120_victory_f.ogg",
+      "text": "赢啦！对手人气归零！正式比赛双方都从二十点开始，你已经学会了选牌、召唤、结束回合、攻防和事件牌。",
+      "speaker": "serena",
+      "side": "player",
+      "duration_seconds": 7.91,
+      "sha256": "2ff4096068ef7aa63dd76f28d038b04aec02b19cd918d832ad22b1ab24c1f839",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "victory_m": {
+      "file": "r120_victory_m.ogg",
+      "text": "厉害！你已经会玩了。接下来去正式对战，试试三种风格连携和更多搞笑卡牌吧！",
+      "speaker": "dylan",
+      "side": "ai",
+      "duration_seconds": 9.01,
+      "sha256": "40486056840593763ad928f7eeafd803a5ff90520467d739813c7038d2854cf3",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    }
+  }
+}

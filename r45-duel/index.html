@@ -51,7 +51,13 @@
       <button type="button" id="card-selected-art" title="先选择一张手牌，然后放大卡牌插画">选牌大图</button>
     </div>
     <div class="lesson-shell">
-      <button id="tutorial-start" type="button" class="lesson-launch">玩三关剧情教学</button>
+      <button id="guided-launch" type="button" class="lesson-launch guided-launch">▶ 新手必玩 · 男女对打教学</button>
+      <button id="tutorial-start" type="button" class="lesson-launch lesson-advanced">进阶 · 三关连携试炼</button>
+      <section id="guided-panel" class="guided-panel" aria-label="男女对打声画教学" hidden>
+       <strong id="guided-round">新手教学 · 第 1/3 回合</strong>
+       <span id="guided-instruction">先听男女双方解说，再亲自选择卡牌。</span>
+       <button id="guided-exit" class="lesson-exit" type="button">退出教学</button>
+      </section>
       <section id="lesson-panel" class="lesson-panel" aria-label="三关真实连携教学" hidden>
         <span id="lesson-progress" class="lesson-progress">教学 1/3</span>
         <div class="lesson-copy">
@@ -64,15 +70,20 @@
       </section>
     </div>
     <details class="help" id="help">
-      <summary>规则说明 <span aria-hidden="true">▾</span></summary>
+      <summary>一分钟规则 <span aria-hidden="true">▾</span></summary>
       <div class="help-content">
-        <p><b>目标：</b>你与 AI 各有 20 点人气，先将对方降为 0 就获胜。</p>
-        <p><b>人物牌：</b>按出牌按钮后，人物直接进入中央竞技场；刚上场待命，下一次轮到你才开始攻击。</p>
-        <p><b>事件牌：</b>立刻产生加成、伤害、回复、抽牌等效果，不需要选位置。</p>
-        <p><b>回合：</b>花费能量出牌，可以连续出多张；按「结束回合」后，已有角色攻击，AI 自动出牌并回应。</p>
-        <p><b>风格与连携：</b>活力克创意、创意克默契、默契克活力。同回合打出不同风格的牌会触发一次连携。</p>
-        <p><b>60 张图鉴与卡组：</b>总共有 14 张人物牌和 46 张事件牌。每局只使用主题卡组中的 40 张：20 种卡各两份。切换卡组会重新开始本局，不重复加载人物模型。</p>
-
+        <p><b>怎样获胜？</b>正式比赛双方都是 20 点人气。先把对方人气打到 0，就获胜；打满 12 回合则比剩余人气，平手就是平局。</p>
+        <p><b>① 选牌：</b>人物牌召唤队友，事件牌立即产生伤害、回血、加护盾或抽牌等效果。牌上的数字是能量花费。</p>
+        <p><b>② 出牌：</b>选中手牌，点金色「出牌」。有足够能量就能一回合连续出多张，角色自动进入同一个竞技场，最多上场 5 名。</p>
+        <p><b>③ 结束回合：</b>已准备好的人物自动攻击，对手有角色会先打角色，双方可能互相反击；没有守卫才直接攻击对方人气。然后 AI 回应。</p>
+        <p><b>人物刚入场：</b>不能马上攻击，需要下一次轮到你、按下「结束回合」才开始战斗。</p>
+        <p><b>进阶：</b>活力克创意、创意克默契、默契克活力；同一回合打出不同风格触发一次连携。完整图鉴有 60 种卡牌，每场使用 40 张、每种卡两份。</p>
+        <p><b>边玩边学：</b>点击「新手必玩 · 男女对打教学」，从 6 点人气的缩短练习赛理解胜负；正式自由对战始终从 20:20 开始。</p>
+      </div>
+    </details>
+    <details class="help credits-help" id="credits-help">
+      <summary>素材鸣谢 <span aria-hidden="true">▾</span></summary>
+      <div class="help-content credits-content">
         <p><b>角色素材：</b>G03「实验学长」改编自 Blender Studio <a href="https://studio.blender.org/characters/jay/v1/" target="_blank" rel="noopener noreferrer">Jay</a>；T04「活动室守门人」改编自 <a href="https://studio.blender.org/characters/rex/v1/" target="_blank" rel="noopener noreferrer">Rex</a>；作者 Blender Foundation，许可 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。本游戏转换为 Web GLB，简化材质并添加临时战斗动作。</p>
 
         <p><b>R82 角色追加鸣谢：</b>E04「食堂接力员」使用 Blender Studio <a href="https://studio.blender.org/characters/phil/v1/" target="_blank" rel="noopener noreferrer">Phil</a>；G04「社团计划总监」使用 <a href="https://studio.blender.org/characters/victoria/v1/" target="_blank" rel="noopener noreferrer">Victoria</a>。素材由 Blender Foundation 发布，依据 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> 署名使用。转换为兼容 GLB，临时根节点动作，不声称完整电影级着色与骨骼动作已移植。</p>
@@ -117,6 +128,15 @@
       </div>
     </div>
     <div class="arena-tint" aria-hidden="true"></div>
+    <section id="guided-narration" class="guided-narration" role="status" aria-live="polite" hidden>
+      <div class="guided-narration-top"><span id="guided-speaker">女决斗者 · 规则讲解</span><span id="guided-step-label">第 1/3 回合</span></div>
+      <strong id="guided-words">看上方双方的人气，把对手打到零就是胜利！</strong>
+      <div class="guided-narration-actions">
+       <button id="guided-begin" type="button">▶ 开始声画教学</button>
+       <button id="guided-repeat" type="button" hidden>↻ 重听这句话</button>
+       <span id="guided-voice-status">女声与男声轮流解释，每句有同步文字。</span>
+      </div>
+    </section>
     <div class="arena-title"><span class="arena-mark">✦</span> 中央召唤竞技场 <small>唯一战场 · 自动入场</small></div>
     <section id="comedy-aside" class="comedy-aside" role="status" aria-live="polite" hidden>
       <span id="comedy-quip-speaker">校园场边吐槽 · 文字</span>
