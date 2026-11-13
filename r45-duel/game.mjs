@@ -7,6 +7,8 @@ import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legal
 import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
 import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
+import {chooseCrowdAccident} from './scene/spectator-chaos-contract.mjs';
+import {resolveSpectatorProp} from './scene/bleacher-prop-comedy.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
@@ -50,7 +52,8 @@ function showSpokenLine(entry){
  if(!node||!speaker||!words)return;
  const name=BY_ID[entry.id]?.name||({
   HOST_PLAYER:'我方决斗者',HOST_AI:'对方决斗者',
-  STADIUM_PA:'体育馆广播员'})[entry.id]||entry.id;
+  STADIUM_PA:'体育馆广播员'})[entry.id]||
+  (entry.id.startsWith('SPECTATOR_')?'看台同学 '+(Number(entry.id.slice(10))+1):entry.id);
  speaker.textContent=name+' · Qwen3 角色配音';
  words.textContent=entry.text;
  node.dataset.side=entry.id==='STADIUM_PA'?'center':
@@ -495,7 +498,9 @@ function advanceLesson(){
  sendScene({type:'ASDC_R100_COMBO_RESET'});
  comboAudioReceipts.clear();
  combatAudioReceipts.clear();
- r121SpokenContacts.clear();
+
+ r121SpokenContacts.clear();r122PlayedCrowdAccidents.clear();
+
  ++asideSeq;++speechSeq;
  $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  g=createTutorialGame(level+1,seed+level);
@@ -948,8 +953,52 @@ $('end').addEventListener('click',()=>{
  }
 });
 const r121SpokenContacts=new Set();
+const r122PlayedCrowdAccidents=new Set();
 window.addEventListener('message',event=>{
  if(event.origin!==location.origin||event.source!==scene.contentWindow)return;
+ if(event.data?.type==='ASDC_R122_CROWD_ACCIDENT'){
+  const d=event.data;
+  const match=g.events.find(e=>e.type==='card_play'&&e.serial===d.serial&&
+   e.card===d.card&&e.side===d.side&&e.spellOutcome);
+  if(!match||r122PlayedCrowdAccidents.has(d.serial))return;
+  const canonical=chooseCrowdAccident({
+   type:'ASDC_R81_SPELL_RESULT',serial:match.serial,card:match.card,
+   side:match.side,effect:match.spellOutcome.effect,
+   directDamage:match.spellOutcome.directDamage,
+   damage:match.spellOutcome.directDamage+match.spellOutcome.unitDamage
+  },{force:new URLSearchParams(location.search).get('qa')==='1'&&
+    new URLSearchParams(location.search).get('r122Crowd')==='force'});
+  if(!canonical||canonical.scenario!==d.scenario||canonical.line!==d.line||
+   canonical.spectatorIndex!==d.spectatorIndex||
+   d.gameplayHit!==false||d.ruleDamage!==0)return;
+  const prop=resolveSpectatorProp(canonical);
+  if(!prop||d.prop!==prop.kind||d.propLine!==prop.line)return;
+  r122PlayedCrowdAccidents.add(d.serial);
+  if(r122PlayedCrowdAccidents.size>400)r122PlayedCrowdAccidents.clear();
+  const pitch=.86+(canonical.spectatorIndex%4)*.13;
+  audio.playCrowdYelp(d.scenario,d.spectatorIndex,d.serial);
+  audio.playCue('r102_crowd_gasp',d.spectatorIndex<2?'player':'ai',
+   {rate:pitch,gainScale:.85});
+  audio.playCue(d.scenario==='shockwave'?'r102_paper_flap':
+   d.scenario==='ricochet'?'r102_rubber_squeak':
+   d.scenario==='overshoot'?'r102_spring_boing':'r102_chalk_snap',
+   d.spectatorIndex<2?'player':'ai',{rate:1.02,gainScale:.6,delay:.12});
+  showComedyAside({text:'看台意外！'+prop.caption+'。'+prop.line,
+   side:'center',speaker:'看台现场 · 搞笑吐槽字幕'});
+  const matchGame=g,incidentSerial=d.serial;
+  // A dead-simple event-bound postscript: does not run after rematch or
+  // victory, and never cuts off the fighter's own recorded voice.
+  setTimeout(()=>{
+   if(g!==matchGame||g.phase==='ended'||!sceneReady||
+    !r122PlayedCrowdAccidents.has(incidentSerial))return;
+   if(!audio.playPropPA(prop.kind)){
+    showComedyAside({text:'体育馆广播：'+prop.caption,
+     side:'center',speaker:'看台广播 · 文字'});
+   }
+  },3500);
+
+  return;
+ }
  if(event.data?.type==='ASDC_R121_SPELL_CONTACT'){
   const d=event.data;
   const match=g.events.find(e=>e.type==='card_play'&&e.serial===d.serial&&

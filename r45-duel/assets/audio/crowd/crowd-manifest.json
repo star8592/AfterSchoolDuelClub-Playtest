@@ -1,0 +1,88 @@
+{
+  "provider": "Qwen3-TTS",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "version": "R122",
+  "clips": {
+    "ricochet_a": {
+      "file": "r122_ricochet_a.ogg",
+      "text": "啊！我的爆米花！",
+      "speaker": "vivian",
+      "scenario": "ricochet",
+      "duration_seconds": 3.21,
+      "ready": true,
+      "sha256": "f0c7eb25c35d00d1db5f5b845b7b33107c2814196caa6e372b7b05d4d776b81d",
+      "review_status": "pending-human-listening"
+    },
+    "ricochet_b": {
+      "file": "r122_ricochet_b.ogg",
+      "text": "哎呀，这玩意儿怎么会拐弯！",
+      "speaker": "dylan",
+      "scenario": "ricochet",
+      "duration_seconds": 2.09,
+      "ready": true,
+      "sha256": "a42d1db1e5da5aab465f5ba152963fe6485195417666cb927dad53a9b1482328",
+      "review_status": "pending-human-listening"
+    },
+    "overshoot_a": {
+      "file": "r122_overshoot_a.ogg",
+      "text": "啊啊啊！别往看台扔啊！",
+      "speaker": "vivian",
+      "scenario": "overshoot",
+      "duration_seconds": 3.21,
+      "ready": true,
+      "sha256": "f47459b5752e345086cb3c56ef12553ba90fd723fe58c82678f9bfccaf313830",
+      "review_status": "pending-human-listening"
+    },
+    "overshoot_b": {
+      "file": "r122_overshoot_b.ogg",
+      "text": "救命！头发炸起来啦！",
+      "speaker": "dylan",
+      "scenario": "overshoot",
+      "duration_seconds": 2.49,
+      "ready": true,
+      "sha256": "354d5ba87d67fdf2e6f649ef0784e0e2703b84cfc0206ba3e61809fb2d7e69bd",
+      "review_status": "pending-human-listening"
+    },
+    "shockwave_a": {
+      "file": "r122_shockwave_a.ogg",
+      "text": "哎哟！我的帽子！",
+      "speaker": "ryan",
+      "scenario": "shockwave",
+      "duration_seconds": 2.49,
+      "ready": true,
+      "sha256": "bb1594a8c770f365824e47b9f186d5499846fba09db8db18c9e15240a9da5919",
+      "review_status": "pending-human-listening"
+    },
+    "shockwave_b": {
+      "file": "r122_shockwave_b.ogg",
+      "text": "天呐，书包飞走啦！",
+      "speaker": "serena",
+      "scenario": "shockwave",
+      "duration_seconds": 2.97,
+      "ready": true,
+      "sha256": "0595545a1bb90c3940963dfe9422b62167ae9afa5dd42a89485752dade901939",
+      "review_status": "pending-human-listening"
+    },
+    "misfire_a": {
+      "file": "r122_misfire_a.ogg",
+      "text": "哇！打偏了！打偏了！",
+      "speaker": "ryan",
+      "scenario": "misfire",
+      "duration_seconds": 2.73,
+      "ready": true,
+      "sha256": "5dddb0d01f8f4ff2a9d96a27396db809822e3bf101dca9bb6ac0bfb702e6a8ab",
+      "review_status": "pending-human-listening"
+    },
+    "misfire_b": {
+      "file": "r122_misfire_b.ogg",
+      "text": "同学，看清楚！我只是观众！",
+      "speaker": "serena",
+      "scenario": "misfire",
+      "duration_seconds": 3.41,
+      "ready": true,
+      "sha256": "5002574d30ea12d71c740f9a4155cc553ed6756bd97db9c96d5cdd987e0cbc0a",
+      "review_status": "pending-human-listening"
+    }
+  },
+  "review_status": "pending-human-listening"
+}
