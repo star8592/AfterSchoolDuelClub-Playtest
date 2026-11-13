@@ -7,11 +7,12 @@
 <script type="module">
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptDecoder} from '../assets/meshopt/meshopt_decoder.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 const id=new URL(location.href).searchParams.get('id')||'E03';
 const data=await fetch('../assets/summons/runtime-assets.json').then(r=>r.json());
 const rec=data.models.find(x=>x.card_id===id);
-const gltf=await new GLTFLoader().loadAsync('../assets/summons/'+rec.file);
+const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync('../assets/summons/'+rec.file);
 const scene=new THREE.Scene();scene.background=new THREE.Color('#112034');
 const renderer=new THREE.WebGLRenderer({canvas:document.getElementById('canvas'),antialias:true});
 const width=document.body.clientWidth,height=window.innerHeight-46;

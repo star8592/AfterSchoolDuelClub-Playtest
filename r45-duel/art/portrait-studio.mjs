@@ -4,6 +4,7 @@
  */
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptDecoder} from '../assets/meshopt/meshopt_decoder.mjs';
 const params=new URLSearchParams(location.search);
 const id=params.get('id')==='G01'?'G01':'E01';
 const source=id==='E01'?'Shino-original-CC0.vrm':'Fumiriya-original-CC0.vrm';
@@ -23,7 +24,7 @@ const key=new THREE.DirectionalLight('#ffe0c8',3.3);key.position.set(-3,6,5);sce
 const fill=new THREE.DirectionalLight('#96bce6',1.65);fill.position.set(4,3,2);scene.add(fill);
 const rim=new THREE.DirectionalLight('#b5defd',2.6);rim.position.set(3,5,-4);scene.add(rim);
 async function main(){
- const gltf=await new GLTFLoader().loadAsync('../assets/model/'+source);
+ const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync('../assets/model/'+source);
  const model=gltf.scene;
  model.traverse(o=>{if(o.isMesh)meshCount++;if(o.isBone)boneCount++;});
  // True VRM bones, not a generic auto-posed avatar replacement.

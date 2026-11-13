@@ -8,7 +8,8 @@
 <main><aside><h2>选择召唤角色</h2><div id="characters" role="group" aria-label="角色选择"></div><p class="description">这是真正的网页三维模型，不是播放视频。<strong>鼠标拖动或手指滑动</strong>可旋转查看，滚轮可缩放。动作来自原始角色工程中的局部骨骼变形烘焙，仍需完善手指、面部与脚步表演。</p></aside>
 <section class="stage"><div class="canvas-wrap" id="viewport"><div class="hud"><strong id="name">加载中…</strong><span id="spec">正在准备角色模型</span></div><div class="loading" id="loading" role="status">正在读取真实 3D 角色和动作…</div><div class="hint">拖动旋转 · 滚动缩放</div></div><div class="controls"><h2>播放角色动作</h2><button class="anim" data-clip="Idle" aria-pressed="true">待机 Idle</button><button class="anim" data-clip="Attack" aria-pressed="false">攻击 Attack</button><button class="anim" data-clip="Hit" aria-pressed="false">受击 Hit</button><label>动作速度 <input id="speed" type="range" min="0.5" max="1.5" value="1" step="0.1"/><output id="speedDisplay">1.0×</output></label></div><p class="footnote" id="status">模型素材：Blender Studio / Blender Foundation（CC BY 4.0）。R93 展示原始骨架烘焙的腿部位移与受击后撤；完整脚掌接地仍需进一步优化，不代表最终电影级演出。</p></section></main>
 <script type="module">
-import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptDecoder} from './assets/meshopt/meshopt_decoder.mjs';import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 const characters=[
 {id:'E03',name:'加油队长',src:'Ellie',file:'E03-Ellie-Footwork-R93.glb',height:2.08},
 {id:'E04',name:'食堂接力员',src:'Phil',file:'E04-Phil-Footwork-R93.glb',height:2.08},
@@ -52,7 +53,7 @@ try{
  function setAnimUI(clip){document.querySelectorAll('.anim').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.clip===clip)));}
  function play(clip){if(!mixer)return false;const action=clipMap.get(clip);if(!action)return false;mixer.stopAllAction();for(const a of clipMap.values()){a.stop();a.enabled=true;a.reset();a.clampWhenFinished=false;}
  action.reset();action.enabled=true;action.setEffectiveWeight(1);action.setLoop(clip==='Idle'?THREE.LoopRepeat:THREE.LoopOnce,clip==='Idle'?Infinity:1);action.clampWhenFinished=clip!=='Idle';action.play();currentClip=clip;setAnimUI(clip);window.__R88_REVIEW_QA.clip=clip;return true}
- const loader=new GLTFLoader();const buttonContainer=document.querySelector('#characters');
+ const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);const buttonContainer=document.querySelector('#characters');
  function setChoice(){buttonContainer.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===currentIndex)))}
  function dispose(holder){holder.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material){for(const m of (Array.isArray(o.material)?o.material:[o.material])){for(const prop in m){const item=m[prop];if(item?.isTexture)item.dispose();}m.dispose();}}})}
  async function pick(i){if(i===currentIndex&&mixer)return;const seq=++sequence;currentIndex=i;setChoice();loading.hidden=false;loading.textContent='正在加载 '+characters[i].name+' · '+characters[i].src+'…';name.textContent=characters[i].name;spec.textContent='Blender Studio · '+characters[i].src;

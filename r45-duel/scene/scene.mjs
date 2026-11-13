@@ -6,6 +6,7 @@
  */
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptDecoder} from '../assets/meshopt/meshopt_decoder.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-acting.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
@@ -387,7 +388,7 @@ function styleHostAvatar(source,id){
 }
 async function loadActor(spec,idx){
  const url=new URL('../assets/model/'+spec.source,location.href).href;
- const gltf=await new GLTFLoader().loadAsync(url);
+ const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(url);
  const original=gltf.scene;
  const faceExpressions=extractVrm0Expressions(gltf);
  const {m,skins,bones,vertices}=indexBones(original);
@@ -959,7 +960,7 @@ try{
    verifiedModelLoaded('HOST:'+spec.source);
    return actor;
   })),
-  preloadSummonModels(THREE,new GLTFLoader(),{
+  preloadSummonModels(THREE,new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
    concurrency:glbConcurrency,
    onLoaded:({id})=>verifiedModelLoaded('GLB:'+id)
   })
