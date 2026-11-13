@@ -15,6 +15,7 @@ import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mj
 import {ACTOR_COMEDY_SIGNATURES} from './actor-comedy-signatures.mjs';
 import {choreographVictory} from './victory-choreography.mjs';
 import {createFootContact} from './foot-contact.mjs';
+import {createR133SourceShoeContact} from './r133-source-shoe-contact.mjs';
 import {createVisibleLifeActing} from './visible-life-acting.mjs';
 import {createPropLifeActing} from './prop-life-acting.mjs';
 
@@ -28,6 +29,13 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
  const root=new THREE.Group();
  root.name='R50_Board_Units_Only';
  scene.add(root);
+ const R133_SHOE_QA=(()=>{
+  const local=new URLSearchParams(location.search);
+  const parent=(()=>{try{return window.parent!==window?
+   new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+  const qa=local.get('qa')==='1'||parent?.get('qa')==='1';
+  return qa&&(local.get('r133ShoeGround')==='on'||parent?.get('r133ShoeGround')==='on');
+ })();
  const entries=new Map(),pool=new Map();
  let current={player:[],ai:[]},revision=0,lastUpdateSeconds=null;
  let comicGestures=0,comicBoneFrames=0,comicSummons=0,comicComboReacts=0;
@@ -273,6 +281,9 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      state={key,id,uid,side,index,kind,object,created:performance.now(),
       r117Rig:kind==='gltf-instance'?createVisibleLifeActing(THREE,object,id):null,
       r117Props:kind==='gltf-instance'?createPropLifeActing(THREE,object,id):null,
+      r133Contact:R133_SHOE_QA&&['E03','G03','T04'].includes(id)&&
+       kind==='gltf-instance'&&object.userData.r61?.r132BakedRestOriginalSource?
+       createR133SourceShoeContact(THREE,object,id):null,
       acting:object.userData.r105Acting||null,
       comic:null,comicBones:null,status:makeStatusTag(side,id)};
      entries.set(key,state);
@@ -881,6 +892,15 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     }
    }
   }
+  // R133 is the FINAL physical outsole contact pass, after spell recoil,
+  // actual exchange lunge, victory movement, and source-skeleton animation.
+  // A supporting original shoe is raised only by its measured penetration;
+  // its companion shoe retains its relative distance, preserving real gait.
+  if(R133_SHOE_QA)for(const state of entries.values()){
+   const receipt=state.r133Contact?.apply();
+   if(receipt?.appliedLift&&state.status?.label)
+    state.status.label.position.y+=receipt.appliedLift;
+  }
  }
  // R119 evidence: a rendered vertex really follows its weighted arm bone.
  // This path runs ONLY when the QA scene inspector is requested, never as a
@@ -1059,6 +1079,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     r129FullBody:['E03','G03','G04','T04'].includes(s.id)?s.object.userData.r61?.getR129FullBody?.():undefined,
     r130FullBody:['G02','T03'].includes(s.id)?s.object.userData.r61?.getR130FullBody?.():undefined,
     r131Arms:s.object.userData.r61?.getR131Arms?.()||null,
+    r133ShoeContact:s.r133Contact?.inspect()||null,
     r90Pose:s.kind==='gltf-instance'?s.object.userData.r61?.getCombatPose?.():undefined,
     r90ClipRate:s.kind==='gltf-instance'?s.object.userData.r61?.getClipRate?.():undefined,
     artApproved:false};

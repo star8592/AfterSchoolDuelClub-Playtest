@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "officialDefault": "R97",
+  "counts": {
+    "shoeContact": 178,
+    "flagIsolation": 6,
+    "officialGame": 18,
+    "r132Six": 132,
+    "r131Phil": 22,
+    "oldRolloutIsolation": 4
+  },
+  "contactSource": "actual original weighted SkinnedMesh outsole submeshes",
+  "subjects": [
+    "E03",
+    "G03",
+    "T04"
+  ],
+  "untouchedQAControl": "G02",
+  "floorToleranceSceneUnits": 0.0015,
+  "maxAllowedCorrectionSceneUnits": 0.082,
+  "notProven": [
+    "left/right side independence of E03 outsole submeshes",
+    "full physical ankle IK",
+    "cost on mobile GPUs",
+    "film-level artistic approval"
+  ],
+  "sourceEvidence": [
+    "r45-duel/qa/evidence/r133/r133-source-shoe-contact-report.json",
+    "r45-duel/qa/evidence/r133/r133-six-flag-isolation.json",
+    "r45-duel/qa/evidence/r132/r132-ground-owner-report.json"
+  ]
+}
