@@ -7,6 +7,7 @@ import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legal
 import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
 import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
+import {chooseCrowdAccident} from './scene/spectator-chaos-contract.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
@@ -788,8 +789,37 @@ $('end').addEventListener('click',()=>{
  }
 });
 const r121SpokenContacts=new Set();
+const r122PlayedCrowdAccidents=new Set();
 window.addEventListener('message',event=>{
  if(event.origin!==location.origin||event.source!==scene.contentWindow)return;
+ if(event.data?.type==='ASDC_R122_CROWD_ACCIDENT'){
+  const d=event.data;
+  const match=g.events.find(e=>e.type==='card_play'&&e.serial===d.serial&&
+   e.card===d.card&&e.side===d.side&&e.spellOutcome);
+  if(!match||r122PlayedCrowdAccidents.has(d.serial))return;
+  const canonical=chooseCrowdAccident({
+   type:'ASDC_R81_SPELL_RESULT',serial:match.serial,card:match.card,
+   side:match.side,effect:match.spellOutcome.effect,
+   directDamage:match.spellOutcome.directDamage,
+   damage:match.spellOutcome.directDamage+match.spellOutcome.unitDamage
+  },{force:new URLSearchParams(location.search).get('qa')==='1'&&
+    new URLSearchParams(location.search).get('r122Crowd')==='force'});
+  if(!canonical||canonical.scenario!==d.scenario||canonical.line!==d.line||
+   canonical.spectatorIndex!==d.spectatorIndex||
+   d.gameplayHit!==false||d.ruleDamage!==0)return;
+  r122PlayedCrowdAccidents.add(d.serial);
+  if(r122PlayedCrowdAccidents.size>400)r122PlayedCrowdAccidents.clear();
+  const pitch=.86+(canonical.spectatorIndex%4)*.13;
+  audio.playCue('r102_crowd_gasp',d.spectatorIndex<2?'player':'ai',
+   {rate:pitch,gainScale:.85});
+  audio.playCue(d.scenario==='shockwave'?'r102_paper_flap':
+   d.scenario==='ricochet'?'r102_rubber_squeak':
+   d.scenario==='overshoot'?'r102_spring_boing':'r102_chalk_snap',
+   d.spectatorIndex<2?'player':'ai',{rate:1.02,gainScale:.6,delay:.12});
+  showComedyAside({text:'看台意外！'+d.caption+'。'+d.line,
+   side:'center',speaker:'看台同学 · 搞笑字幕（非语音）'});
+  return;
+ }
  if(event.data?.type==='ASDC_R121_SPELL_CONTACT'){
   const d=event.data;
   const match=g.events.find(e=>e.type==='card_play'&&e.serial===d.serial&&
