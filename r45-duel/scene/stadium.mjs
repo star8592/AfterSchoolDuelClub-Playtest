@@ -56,11 +56,13 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
   ring(2.38,.026,gold,'Conjuration_Aura_Ring',.059);
   const courtDivider=box([.045,.016,11.2],[0,.049,0],paint,'Court_Center_Mark');
   courtDivider.material.transparent=true;courtDivider.material.opacity=.53;
+  const bleacherStep=mat('#5a6b77',.14,.85);
+  const bleacherFront=mat('#3f5365',.13,.88);
   // Six true 3D rows: raised bleacher steps with structural risers.
   for(let row=0;row<6;row++){
     const y=.31+row*.48;
     const z=-6.5-row*.80;
-    box([19,.25,.90],[0,y,z],row%2?beam:navy,'Grandstand_Back_Tier_'+row);
+    box([19,.25,.90],[0,y,z],row%2?bleacherStep:bleacherFront,'Grandstand_Back_Tier_'+row);
     box([19,.45,.12],[0,y-.3,z-.43],dark,'Grandstand_Riser_'+row);
     stats.bleacherRows++;
   }
@@ -72,9 +74,14 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
   // R112: proper gym retractable-chair architecture, not floating cubes.
   // Padded curved seat + substantial raised back + metal twin support.
   // All hundreds of seats share a handful of InstancedMeshes / draw calls.
+  // Individual upholstered seat backs must be legible from spectator camera.
+  // Subtle cloth self-fill is needed because their risers are in roof shadow.
   const seatColors=[
-    mat('#334963',.08,.82),mat('#477184',.09,.76),mat('#9d7259',.05,.83)
+    mat('#8ba3b7',.02,.85),mat('#7198a8',.02,.85),mat('#ad8c77',.02,.88)
   ];
+  seatColors.forEach(material=>{
+    material.emissive.set('#475565');material.emissiveIntensity=.18;
+  });
   const steel=mat('#293947',.32,.68);
   const padding=mat('#27394b',.02,.9);
   function roundedRect(w,h,r){
@@ -94,6 +101,16 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     bevelSize:.012,bevelSegments:2,curveSegments:3});
   const pedestalGeo=new THREE.BoxGeometry(.045,.20,.055);
   const armGeo=new THREE.BoxGeometry(.075,.055,.22);
+  const seatUnderframeGeo=new THREE.BoxGeometry(.36,.052,.25);
+  const chairFrameMaterial=mat('#364a59',.28,.72);
+  const stairSurface=mat('#64717c',.08,.92);
+  const stairEdge=mat('#cdb38c',.2,.55);
+  const stairGuide=mat('#ddca9e',.12,.48);
+  // Three believable seating blocks per bank: two genuine walkable aisles.
+  const seatColumnX=col=>-8.65+col*.515+
+   (col>=11?.48:0)+(col>=22?.48:0);
+  const aisleColumns=[-8.65+10.5*.515+.24,
+    -8.65+21.5*.515+.72];
   const reverse=new THREE.Group();
   reverse.name='R49_Reverse_Grandstand';
   reverse.visible=false;
@@ -106,7 +123,7 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
   };
   for(let row=0;row<6;row++){
     const y=.31+row*.48,z=6.5+row*.80;
-    rearBox([19,.25,.90],[0,y,z],row%2?beam:navy,'Reverse_Grandstand_Tier_'+row);
+    rearBox([19,.25,.90],[0,y,z],row%2?bleacherStep:bleacherFront,'Reverse_Grandstand_Tier_'+row);
     rearBox([19,.45,.12],[0,y-.3,z+.43],dark,'Reverse_Grandstand_Riser_'+row);
   }
   function seatBank(back=false){
@@ -116,7 +133,7 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
       // Cohesive color blocks, no random confetti checkerboard.
       const color=Math.floor(col/11)===1?1:
         (Math.floor(row/2)===2&&Math.floor(col/11)===2?2:0);
-      const x=-8.85+col*.55,y=.31+row*.48,z=side*(6.5+row*.8);
+      const x=seatColumnX(col),y=.31+row*.48,z=side*(6.5+row*.8);
       buckets[color].push({x,y,z,side});
       stats.seats++;
     }
@@ -155,6 +172,39 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     batch(tag+'_Armrests',armGeo,padding,twin,p=>{
       tr.position.set(p.x+p.xOffset,p.y+.33,p.z+p.side*.045);
     });
+    // Small visible supporting chassis below the cushion makes these
+    // individual mounted folding seats, not two floating rounded slabs.
+    batch(tag+'_Cushion_Underframes',seatUnderframeGeo,chairFrameMaterial,all,p=>{
+      tr.position.set(p.x,p.y+.145,p.z+p.side*.115);
+    });
+    // All stair profiles use 8 instanced draws for the ENTIRE stadium;
+    // never allocate 96 separate meshes that slow down low-end phones.
+    const steps=[],posts=[];
+    aisleColumns.forEach(x=>{
+     for(let row=0;row<6;row++){
+      const y=.31+row*.48,z=side*(6.5+row*.8);
+      steps.push({x,y,z,side});
+     }
+     for(const dx of [-.31,.31])for(let row=0;row<6;row+=2){
+      posts.push({x:x+dx,y:.31+row*.48,z:side*(6.5+row*.8)});
+     }
+    });
+    batch(tag+'_Aisle_Treads',
+      new THREE.BoxGeometry(.56,.048,.78),stairSurface,steps,p=>{
+       tr.position.set(p.x,p.y+.12,p.z);
+      });
+    batch(tag+'_Aisle_Tread_Edges',
+      new THREE.BoxGeometry(.56,.025,.075),stairEdge,steps,p=>{
+       tr.position.set(p.x,p.y+.153,p.z+p.side*.32);
+      });
+    batch(tag+'_Aisle_Anti_Slip',
+      new THREE.BoxGeometry(.34,.008,.05),stairGuide,steps,p=>{
+       tr.position.set(p.x,p.y+.165,p.z+p.side*.24);
+      });
+    batch(tag+'_Aisle_Handrail_Posts',
+      new THREE.CylinderGeometry(.023,.028,.68,10),steel,posts,p=>{
+       tr.position.set(p.x,p.y+.53,p.z-p.side*.27);
+      });
   }
   seatBank(false);seatBank(true);
   rearBox([24,10,.46],[0,4.7,11.85],navy,'Reverse_Gym_Wall');
@@ -252,6 +302,7 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     displayEmissiveIntensity:scoreDisplay?.material?.emissiveIntensity||0}},
    stats:{...stats,geometryTypes:[...stats.geometryTypes],
     totalPhysicalBleacherRows:stats.bleacherRows+8,
+    realSeatAislesPerBank:2,stairTreads:24,
     distinctAreas:['LEFT_DUELIST_STATION','CENTRAL_SUMMONING_RING','RIGHT_DUELIST_STATION',
       'RAISED_BLEACHERS','ROOF_TRUSSES','SCOREBOARD']},
     physical:true};

@@ -1,0 +1,166 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "title": "desktop 396 physical proper seats",
+      "detail": 396
+    },
+    {
+      "passed": true,
+      "title": "desktop full front and back stair aisles",
+      "detail": {
+        "label": "R45_ONE_ARENA_GYM_3D",
+        "geometryTypes": [
+          "BoxGeometry",
+          "RingGeometry",
+          "CylinderGeometry"
+        ],
+        "meshCount": 159,
+        "instancedObjects": 27,
+        "bleacherRows": 6,
+        "seats": 396,
+        "lights": 25,
+        "polish": {
+          "physicalTrim": 82,
+          "liveSigns": 3,
+          "licensedTextures": 3,
+          "lightVolumes": 2,
+          "materials": 7
+        },
+        "totalPhysicalBleacherRows": 14,
+        "realSeatAislesPerBank": 2,
+        "stairTreads": 24,
+        "distinctAreas": [
+          "LEFT_DUELIST_STATION",
+          "CENTRAL_SUMMONING_RING",
+          "RIGHT_DUELIST_STATION",
+          "RAISED_BLEACHERS",
+          "ROOF_TRUSSES",
+          "SCOREBOARD"
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "title": "desktop character frame retained",
+      "detail": [
+        {
+          "side": "player",
+          "id": "E01",
+          "screenRect": {
+            "left": -0.815,
+            "right": -0.654,
+            "bottom": -0.192,
+            "top": 0.283
+          },
+          "fullyVisible": true
+        },
+        {
+          "side": "ai",
+          "id": "G01",
+          "screenRect": {
+            "left": 0.669,
+            "right": 0.806,
+            "bottom": -0.19,
+            "top": 0.283
+          },
+          "fullyVisible": true
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "title": "desktop camera stable"
+    },
+    {
+      "passed": true,
+      "title": "desktop JS and network clean",
+      "detail": []
+    },
+    {
+      "passed": true,
+      "title": "phone 396 physical proper seats",
+      "detail": 396
+    },
+    {
+      "passed": true,
+      "title": "phone full front and back stair aisles",
+      "detail": {
+        "label": "R45_ONE_ARENA_GYM_3D",
+        "geometryTypes": [
+          "BoxGeometry",
+          "RingGeometry",
+          "CylinderGeometry"
+        ],
+        "meshCount": 159,
+        "instancedObjects": 27,
+        "bleacherRows": 6,
+        "seats": 396,
+        "lights": 25,
+        "polish": {
+          "physicalTrim": 82,
+          "liveSigns": 3,
+          "licensedTextures": 3,
+          "lightVolumes": 2,
+          "materials": 7
+        },
+        "totalPhysicalBleacherRows": 14,
+        "realSeatAislesPerBank": 2,
+        "stairTreads": 24,
+        "distinctAreas": [
+          "LEFT_DUELIST_STATION",
+          "CENTRAL_SUMMONING_RING",
+          "RIGHT_DUELIST_STATION",
+          "RAISED_BLEACHERS",
+          "ROOF_TRUSSES",
+          "SCOREBOARD"
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "title": "phone character frame retained",
+      "detail": [
+        {
+          "side": "player",
+          "id": "E01",
+          "screenRect": {
+            "left": -0.943,
+            "right": -0.806,
+            "bottom": -0.064,
+            "top": 0.105
+          },
+          "fullyVisible": true
+        },
+        {
+          "side": "ai",
+          "id": "G01",
+          "screenRect": {
+            "left": 0.822,
+            "right": 0.932,
+            "bottom": -0.063,
+            "top": 0.105
+          },
+          "fullyVisible": true
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "title": "phone camera stable"
+    },
+    {
+      "passed": true,
+      "title": "phone JS and network clean",
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "snapshots": [
+    "desktop-new-aisles-front.png",
+    "desktop-new-aisles-reverse.png",
+    "phone-new-aisles-front.png",
+    "phone-new-aisles-reverse.png"
+  ]
+}
