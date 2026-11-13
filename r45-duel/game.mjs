@@ -985,17 +985,10 @@ window.addEventListener('message',event=>{
    d.spectatorIndex<2?'player':'ai',{rate:1.02,gainScale:.6,delay:.12});
   showComedyAside({text:'看台意外！'+prop.caption+'。'+prop.line,
    side:'center',speaker:'看台现场 · 搞笑吐槽字幕'});
-  const matchGame=g,incidentSerial=d.serial;
-  // A dead-simple event-bound postscript: does not run after rematch or
-  // victory, and never cuts off the fighter's own recorded voice.
-  setTimeout(()=>{
-   if(g!==matchGame||g.phase==='ended'||!sceneReady||
-    !r122PlayedCrowdAccidents.has(incidentSerial))return;
-   if(!audio.playPropPA(prop.kind)){
-    showComedyAside({text:'体育馆广播：'+prop.caption,
-     side:'center',speaker:'看台广播 · 文字'});
-   }
-  },3500);
+  // Enqueue against this *actual engine event* rather than a fixed 3.5s
+  // timer. The audio engine waits for the duelist and spectator to finish
+  // speaking; it also survives a late first-load voice manifest.
+  audio.playPropPA(prop.kind);
 
   return;
  }
