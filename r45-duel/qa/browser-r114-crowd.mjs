@@ -24,10 +24,10 @@ try{
     units:window.__r45QA.board,stadium:f.stadium};
   });
   const before=await get();
-  check(before.crowd?.loaded===4&&before.crowd.animationMixers===4&&
+  check(before.crowd?.loaded===8&&before.crowd.animationMixers===8&&
    before.crowd.poses.every(x=>Number.isInteger(x.bones)&&Number.isInteger(x.skinnedMeshes)),
-   view+' four source animated GLBs with explicit real skeleton evidence',before.crowd);
-  check(before.crowd.realModelIds.join(',')==='E04,E03,G03,G04',
+   view+' eight source animated GLBs with explicit real skeleton evidence',before.crowd);
+  check(before.crowd.realModelIds.slice(0,4).join(',')==='E04,E03,G03,G04',
    view+' original sourced model provenance',before.crowd);
   // Verify render-only events cannot change the official rule board.
   await page.evaluate(()=>document.querySelector('#stadium').contentWindow.postMessage(

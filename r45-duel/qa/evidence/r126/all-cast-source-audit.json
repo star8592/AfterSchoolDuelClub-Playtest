@@ -1,0 +1,209 @@
+{
+  "auditPassed": true,
+  "officialSources": 16,
+  "rows": {
+    "HOST_PLAYER": {
+      "visibleMeshes": 3,
+      "skinnedMeshes": 3,
+      "morphMeshes": 1,
+      "clips": [],
+      "channels": {}
+    },
+    "HOST_AI": {
+      "visibleMeshes": 3,
+      "skinnedMeshes": 3,
+      "morphMeshes": 1,
+      "clips": [],
+      "channels": {}
+    },
+    "E01": {
+      "visibleMeshes": 3,
+      "skinnedMeshes": 3,
+      "morphMeshes": 1,
+      "clips": [],
+      "channels": {}
+    },
+    "G01": {
+      "visibleMeshes": 3,
+      "skinnedMeshes": 3,
+      "morphMeshes": 1,
+      "clips": [],
+      "channels": {}
+    },
+    "E02": {
+      "visibleMeshes": 17,
+      "skinnedMeshes": 0,
+      "morphMeshes": 2,
+      "clips": [
+        "Idle_Glide",
+        "Bank_Left",
+        "Bank_Right",
+        "Attack_Dart",
+        "Hit_Recoil"
+      ],
+      "channels": {
+        "rotation": 5,
+        "translation": 5,
+        "weights": 10
+      }
+    },
+    "E03": {
+      "visibleMeshes": 35,
+      "skinnedMeshes": 0,
+      "morphMeshes": 14,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "channels": {
+        "weights": 23
+      },
+      "R119ResearchSkin": 28
+    },
+    "E04": {
+      "visibleMeshes": 17,
+      "skinnedMeshes": 0,
+      "morphMeshes": 8,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "channels": {
+        "weights": 24
+      },
+      "R119ResearchSkin": 13
+    },
+    "G02": {
+      "visibleMeshes": 19,
+      "skinnedMeshes": 0,
+      "morphMeshes": 17,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "channels": {
+        "weights": 36
+      },
+      "R119ResearchSkin": 13
+    },
+    "G03": {
+      "visibleMeshes": 22,
+      "skinnedMeshes": 0,
+      "morphMeshes": 6,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "channels": {
+        "weights": 14
+      },
+      "R119ResearchSkin": 16
+    },
+    "G04": {
+      "visibleMeshes": 21,
+      "skinnedMeshes": 0,
+      "morphMeshes": 20,
+      "clips": [
+        "Attack",
+        "Hit",
+        "Idle"
+      ],
+      "channels": {
+        "weights": 73
+      },
+      "R119ResearchSkin": 18
+    },
+    "M01": {
+      "visibleMeshes": 10,
+      "skinnedMeshes": 10,
+      "morphMeshes": 0,
+      "clips": [
+        "Idle",
+        "Walk",
+        "Run"
+      ],
+      "channels": {
+        "rotation": 66,
+        "translation": 3
+      }
+    },
+    "M02": {
+      "visibleMeshes": 13,
+      "skinnedMeshes": 13,
+      "morphMeshes": 0,
+      "clips": [
+        "Angry_Stomp",
+        "Big_Wave_Hello",
+        "Cheer_with_Both_Hands_Up",
+        "Confused_Scratch",
+        "FunnyDancing_01",
+        "Grip_and_Throw_Down",
+        "Idle",
+        "Jazz_Hands",
+        "Shrug",
+        "Victory_Cheer"
+      ],
+      "channels": {
+        "translation": 240,
+        "rotation": 240,
+        "scale": 240
+      }
+    },
+    "T01": {
+      "visibleMeshes": 129,
+      "skinnedMeshes": 0,
+      "morphMeshes": 0,
+      "clips": [],
+      "channels": {}
+    },
+    "T02": {
+      "visibleMeshes": 43,
+      "skinnedMeshes": 0,
+      "morphMeshes": 0,
+      "clips": [
+        "Idle_Menu_Breath",
+        "Walk_Small_Steps",
+        "Attack_Flip_Menu",
+        "Defend_Opening_Menu",
+        "Hit_Retreat"
+      ],
+      "channels": {
+        "translation": 4,
+        "rotation": 18
+      }
+    },
+    "T03": {
+      "visibleMeshes": 18,
+      "skinnedMeshes": 0,
+      "morphMeshes": 5,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "channels": {
+        "weights": 13
+      },
+      "R119ResearchSkin": 18
+    },
+    "T04": {
+      "visibleMeshes": 25,
+      "skinnedMeshes": 0,
+      "morphMeshes": 9,
+      "clips": [
+        "Idle",
+        "Attack",
+        "Hit"
+      ],
+      "channels": {
+        "weights": 19
+      },
+      "R119ResearchSkin": 21
+    }
+  },
+  "artReview": "Not approved. Source audit cannot judge natural acting."
+}

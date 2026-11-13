@@ -1,0 +1,1231 @@
+{
+  "auditedAtUTC": "2026-11-13T14:28:12.930483+00:00",
+  "mainSha": "9ed5f8b13e9eeaa610d72822e1f9893f5b8d8349",
+  "remoteBranchCountExcludingMain": 152,
+  "containsMain": 49,
+  "divergent": 103,
+  "rules": [
+    "Do not merge wholesale old experimental R20-R124 branches",
+    "A divergent Git history is not evidence its feature is absent",
+    "Preserve branch SHA before any future deletion",
+    "Only new reviewed changes integrate through the current main and real-browser QA"
+  ],
+  "branches": [
+    {
+      "ref": "origin",
+      "sha": "9ed5f8b13e9eeaa610d72822e1f9893f5b8d8349",
+      "behindMain": 0,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "Merge pull request #124 from star8592/fix/duel-r125-pages-bleacher-qa-20261113"
+    },
+    {
+      "ref": "origin/archive/duel-legacy-before-r45-20261110",
+      "sha": "5d939a990278acac30aa3d8b33b9308b13e9dbd1",
+      "behindMain": 129,
+      "uniqueCommits": 55,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "Merge isolated R42 selection-confirm UX and source-bound real character duel"
+    },
+    {
+      "ref": "origin/art/duel-r46-3d-cinematic-stadium-20261110",
+      "sha": "7e7003e9868871a73aadaf20ed38e77581d3cca8",
+      "behindMain": 129,
+      "uniqueCommits": 58,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R46 art pass: CC0 PBR gym, real VRM card portraits, 3D duel lighting and VFX"
+    },
+    {
+      "ref": "origin/docs/duel-parallel-chat-convergence-20261112",
+      "sha": "8998b6be052f008a5101c14de65f73a05f0b02a1",
+      "behindMain": 103,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "docs: converge two Duel Club research conversations into one R97 mainline ledger"
+    },
+    {
+      "ref": "origin/docs/duel-r115-public-performance-20261113",
+      "sha": "2922c53494bb989965d9f6fa27629dd372f677c6",
+      "behindMain": 56,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R115 QA: record live Pages and concurrency A/B results"
+    },
+    {
+      "ref": "origin/feat/duel-r107-60-cards-20261113",
+      "sha": "97659e7da09b3793be48878592f23a828c2769aa",
+      "behindMain": 90,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R107: 60-card campus absurdity catalog and six playable themed decks"
+    },
+    {
+      "ref": "origin/feat/duel-r108-recent-campus-memes-20261113",
+      "sha": "5b69cfc5cd09e0a055924fb7a40838820eedb87d",
+      "behindMain": 88,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R108: prioritize 2026 viral campus memes in 60-card catalog"
+    },
+    {
+      "ref": "origin/feat/duel-r109-illustrated-card-art-20261113",
+      "sha": "2d52349b8914a389e725981a1ac3173128fe883b",
+      "behindMain": 86,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R109: fully illustrate all 60 cards and integrate real card artwork in every UI"
+    },
+    {
+      "ref": "origin/feat/duel-r110-painted-3d-card-projection-20261113",
+      "sha": "1a2669ddd5a24f0b1012bbb9918b8b0bcf06012d",
+      "behindMain": 84,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R110: project genuine 60-card artwork in 3D arena and cinematic card reveal"
+    },
+    {
+      "ref": "origin/feat/duel-r111-magic-arsenal-20261113",
+      "sha": "495a9436dc2fabfe0af63122fe146729fa6f8500",
+      "behindMain": 82,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R111: restore R79 magic toolkit and ship 32 distinct live WebGL2 spell motifs"
+    },
+    {
+      "ref": "origin/feat/duel-r112-living-cast-20261113",
+      "sha": "ed6a30520b247d657e0b1ada0730733fe45a9aad",
+      "behindMain": 78,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R112 QA: retest living stadium against merged R111 magic"
+    },
+    {
+      "ref": "origin/feat/duel-r113-choreo-finale-20261113",
+      "sha": "dc568e2da2323309a14f6fcb829fd015850a0826",
+      "behindMain": 76,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R113: five-scene character-specific victory choreography"
+    },
+    {
+      "ref": "origin/feat/duel-r113-gym-seating-20261113",
+      "sha": "4d8721c7efff42fb513911ed9f2a7fbc5b105b3f",
+      "behindMain": 76,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R113: aisle-separated padded arena seating with instanced steps"
+    },
+    {
+      "ref": "origin/feat/duel-r113-voice-dynamic-20261113",
+      "sha": "0497e3d4437ff6801c25289e9097e41fef7bedf8",
+      "behindMain": 72,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R113: genuine offline Qwen3 stadium PA and guarded match voice"
+    },
+    {
+      "ref": "origin/feat/duel-r114-chef-prop-20261113",
+      "sha": "f375db329c29d8b2a4371fa2d5c7c87a0c68b0f6",
+      "behindMain": 70,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R114: real skinned oversized ladle on cafeteria chef"
+    },
+    {
+      "ref": "origin/feat/duel-r114-crowd-reactions-20261113",
+      "sha": "023dd7485754ee6d1cb0c16148a72b1db26218de",
+      "behindMain": 70,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R114: original high-detail students react in real gym bleachers"
+    },
+    {
+      "ref": "origin/feat/duel-r114-foot-contact-20261113",
+      "sha": "c4682415cafafe9b8a4f7aa0e168942a7f397a5c",
+      "behindMain": 63,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into feat/duel-r114-foot-contact-20261113"
+    },
+    {
+      "ref": "origin/feat/duel-r115-lossless-assets-20261113",
+      "sha": "2f18e5562e856af88e111fdc3d4d269f45136402",
+      "behindMain": 57,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R115: lossless WebP and Meshopt shrink 16 real actors by 44 percent"
+    },
+    {
+      "ref": "origin/feat/duel-r115-seating-visibility-20261113",
+      "sha": "fdf7649e7909cf09eff90fa11140e60fd1a514ca",
+      "behindMain": 58,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into feat/duel-r115-seating-visibility-20261113"
+    },
+    {
+      "ref": "origin/feat/duel-r116-arena-life-20261113",
+      "sha": "f56b489f98fdaa4f8edeeea0345cf50b53c96bb2",
+      "behindMain": 61,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R116: shared character-life simulation drives arena cast and audience"
+    },
+    {
+      "ref": "origin/feat/duel-r116-priority-loader-20261113",
+      "sha": "ac5fe239b8cc2bffc506ee46c0851da69d3d2aac",
+      "behindMain": 55,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R116: verified download bytes and slow-network arena recovery"
+    },
+    {
+      "ref": "origin/feat/duel-r117-podium-card-theatre-20261113",
+      "sha": "beea343d2e833d35427e981702917431bf03470a",
+      "behindMain": 52,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R117: original painted 3D cards track real duelists wrist IK"
+    },
+    {
+      "ref": "origin/feat/duel-r117-rig-microacting-20261113",
+      "sha": "534435f39e16e90ef183dfcb29453353e196ee83",
+      "behindMain": 52,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R117: verified visible performance for seven film actors and four nonhuman roles"
+    },
+    {
+      "ref": "origin/feat/duel-r117-voice-reactions-20261113",
+      "sha": "f18e0b837e831c4e3603bee2ff40ee8ec851ce07",
+      "behindMain": 47,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into feat/duel-r117-voice-reactions-20261113"
+    },
+    {
+      "ref": "origin/feat/duel-r118-jay-live-skin-trial-20261113",
+      "sha": "10fdf3f9a607fe847d13b951806feae6c2ea98e3",
+      "behindMain": 45,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R118: fix real Jay skinned-bone binding in isolated artist-audition switch"
+    },
+    {
+      "ref": "origin/feat/duel-r119-artist-source-audit-20261113",
+      "sha": "109f9f2de466093743a2ba8b863b3a88ec8b9620",
+      "behindMain": 43,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R119: official Blender Studio CC-BY provenance and seven source rigs weight audit"
+    },
+    {
+      "ref": "origin/feat/duel-r119-true-skin-export-20261113",
+      "sha": "8f1659357b8bdb96fb6e6d503adb9c08905cb199",
+      "behindMain": 41,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R119: seven authored skinned characters animated by arena life behind opt-in study switch"
+    },
+    {
+      "ref": "origin/feat/duel-r120-guided-voice-tutorial-20261113",
+      "sha": "a8b62212da134ddd01bf43187e2b764c80de49b6",
+      "behindMain": 40,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R120: real three-round tutorial with female male Qwen voices and concise rules"
+    },
+    {
+      "ref": "origin/feat/duel-r120-hero-card-showdown-20261113",
+      "sha": "1d23c7a96e0f27b9f0b53cefeea6bd8808aaf6ed",
+      "behindMain": 39,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R120: real VRM duelists raise and fling cards, celebrate and despair theatrically"
+    },
+    {
+      "ref": "origin/feat/duel-r120-summon-comedy-energy-20261113",
+      "sha": "513e1633d30eba582796aae2a876ebb7230e7ecc",
+      "behindMain": 35,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into feat/duel-r120-summon-comedy-energy-20261113"
+    },
+    {
+      "ref": "origin/feat/duel-r121-card-finger-grip-20261113",
+      "sha": "14006c14d8c14b5609cc93030762dfdd2bde9774",
+      "behindMain": 33,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R121: five real source VRM fingers grip and release proportionate illustrated cards"
+    },
+    {
+      "ref": "origin/feat/duel-r121-cinematic-faces-20261113",
+      "sha": "467e8ff8cc775025ce1ce07a7641edc084aa9fe7",
+      "behindMain": 31,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R121: native facial emotions and framed true-3D card-showdown closeups"
+    },
+    {
+      "ref": "origin/feat/duel-r121-complete-integration-20261113",
+      "sha": "e53596b13e2dc1e690f5140d5c775d433880e03b",
+      "behindMain": 30,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into feat/duel-r121-complete-integration-20261113"
+    },
+    {
+      "ref": "origin/feat/duel-r121-elemental-hit-reactions-20261113",
+      "sha": "8a2bdcf7295d8c5e488269b93734c5db998cd60e",
+      "behindMain": 40,
+      "uniqueCommits": 8,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R121: browser acceptance for real card damage, 3D contact and Qwen hurt VO on desktop and portrait"
+    },
+    {
+      "ref": "origin/feat/duel-r122-spectator-chaos-20261113",
+      "sha": "548ba7db9bf8f3bce17a36df4c841597bf40f132",
+      "behindMain": 40,
+      "uniqueCommits": 25,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R122: release per-incident halo geometry to prevent spectator projectile GPU memory leaks"
+    },
+    {
+      "ref": "origin/feat/duel-r122-talking-children-20261113",
+      "sha": "affa1ba6abebd2f955a15ef3ec213bbbe65872e0",
+      "behindMain": 24,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R122: live Qwen recordings animate original VRM mouth morphs with face closeups"
+    },
+    {
+      "ref": "origin/feat/duel-r123-bleacher-props-pa-20261113",
+      "sha": "64dac75d1b59e96665ce667dce05a9cac7286b2b",
+      "behindMain": 40,
+      "uniqueCommits": 53,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R123: publish precise visual, original-voice, real-rig and desktop/mobile QA engineering audit"
+    },
+    {
+      "ref": "origin/feat/duel-r124-bleacher-main-convergence-20261113",
+      "sha": "a897adfa07a8b40f3050f768d5b719205441c38d",
+      "behindMain": 18,
+      "uniqueCommits": 2,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R124: document provenance, stale-port false-positive correction, real mainline browser QA and rollback"
+    },
+    {
+      "ref": "origin/feat/duel-r124-face-framing-regression-20261113",
+      "sha": "f5b782d7858a42d9ba86a876c54194a73ca841a1",
+      "behindMain": 19,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "docs(r124): consolidate parallel R122/R124 merges and honest full-chain GPU evidence"
+    },
+    {
+      "ref": "origin/feat/duel-r124-integrated-qa-20261113",
+      "sha": "62f5367d87d23a644003b071c3b02946a4bb38a4",
+      "behindMain": 25,
+      "uniqueCommits": 7,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "docs(r124): real rule+GPU performance evidence and animation art review"
+    },
+    {
+      "ref": "origin/feat/duel-r124-performance-main-20261113",
+      "sha": "9fcf98f2eb66cab5f74a6924c0d41bd390f592f4",
+      "behindMain": 23,
+      "uniqueCommits": 3,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R124: reconcile performance evidence with latest R122 talking cast and 28 real mouth checks"
+    },
+    {
+      "ref": "origin/feat/duel-r125-fingerprint-cache-20261113",
+      "sha": "b94617d785e277c9840e5bc0f902f744f14e90d2",
+      "behindMain": 4,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "docs(r125): add verified persistent cache across real Chrome restart"
+    },
+    {
+      "ref": "origin/feat/duel-r125-music-teacher-20261113",
+      "sha": "7ef4c5175765e9359d5e90eacdb06353e036bca8",
+      "behindMain": 17,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R125: eight original GLB spectators, active music-teacher comedy, two original Qwen lines and mainline regressions"
+    },
+    {
+      "ref": "origin/feat/duel-smart-loader-20261113",
+      "sha": "e19c7bc1c36a6765386d78bd5bcf0db60800508e",
+      "behindMain": 71,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R114: adaptive 3D loading and cinematic duel opener"
+    },
+    {
+      "ref": "origin/feature/duel-r100-combo-real-3d-20261112",
+      "sha": "4beeb4fa2aa735b29aa8ae63cde3ab4b7d45a688",
+      "behindMain": 100,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R100: genuine single-arena 3D combo story director with synchronized source outcomes"
+    },
+    {
+      "ref": "origin/feature/duel-r101-playtest-growth-20261112",
+      "sha": "c6ff983f76ed822ee2b142ff04dca0040b52a23b",
+      "behindMain": 99,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R101: lightweight shareable playtest entry, reproducible challenges and asset provenance"
+    },
+    {
+      "ref": "origin/feature/duel-r102-comedy-performance-20261112",
+      "sha": "29bb739b616f3f37381f43d9cf7aa5faa8047a32",
+      "behindMain": 97,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R102: enrich genuine 3D school comedy actions, text, Foley and true Qwen subtitles"
+    },
+    {
+      "ref": "origin/feature/duel-r103-art-catalog-20261112",
+      "sha": "934d1d19502bfac2ae7cd84c1c5beb2df795bd85",
+      "behindMain": 96,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R103 art: paint all 20 cards from genuine rigs and original event scenes"
+    },
+    {
+      "ref": "origin/feature/duel-r103-beginner-training-20261112",
+      "sha": "d1d34f67bda95c2b1a9636c9b2a5847414c36dd7",
+      "behindMain": 96,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R103 training: 4 interactive beginner trials backed by real 20-card engine"
+    },
+    {
+      "ref": "origin/feature/duel-r103-collection-gallery-20261112",
+      "sha": "f37849624947f0c37aa1fe49d1bd9bdd690bc2f0",
+      "behindMain": 96,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R103 gallery: 20-card illustrated collection, filters and full-size detail"
+    },
+    {
+      "ref": "origin/feature/duel-r103-integrated-with-r104-20261112",
+      "sha": "6c4cfa62886a704adf6d86895c7febba3de19184",
+      "behindMain": 96,
+      "uniqueCommits": 5,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R104: restore front-row 3D view and audience-visible character faces"
+    },
+    {
+      "ref": "origin/feature/duel-r103-premium-card-ui-20261112",
+      "sha": "d939ffa70ae8e2660224fd177f858dbe2fad72a2",
+      "behindMain": 96,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R103 UI: premium playable card frames, true rules inspector and card-play flight"
+    },
+    {
+      "ref": "origin/feature/duel-r40-visible-all-card-impact-20261110",
+      "sha": "4595601fec306573744282ca33b44fb39c2cf15d",
+      "behindMain": 129,
+      "uniqueCommits": 38,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R40 add read-only combat feedback and replay for 18-card demo"
+    },
+    {
+      "ref": "origin/feature/duel-r41-parallel-enhancements-20261110",
+      "sha": "3e5af8cfc1cd8d982ae498d91570d076d196c25b",
+      "behindMain": 129,
+      "uniqueCommits": 48,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R41 record independent model-motion scope and GPU-aware acceptance criteria"
+    },
+    {
+      "ref": "origin/feature/duel-r47-choreography-20261110",
+      "sha": "b54d520ed523e107242e64d4cb67b76e46ea96ee",
+      "behindMain": 129,
+      "uniqueCommits": 59,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R47 animate true VRM stride and gentle dolly arc with browser QA"
+    },
+    {
+      "ref": "origin/feature/duel-r48-immersive-orbit-responsive-20261110",
+      "sha": "968da1d16aa1b11fe439b769dfc30a472b4eb619",
+      "behindMain": 129,
+      "uniqueCommits": 60,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R48 immersive fullscreen HUD responsive camera framing and 180-degree orbit"
+    },
+    {
+      "ref": "origin/feature/duel-r51-event-combat-20261110",
+      "sha": "4aed266a67f5d177d05034c5aa042161dde39377",
+      "behindMain": 129,
+      "uniqueCommits": 67,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R51 bind real combat events to summoned units with UID-specific hit feedback"
+    },
+    {
+      "ref": "origin/feature/duel-r52-live-unit-hud-20261110",
+      "sha": "65686af6a06500354d6bd3d752366d1c97e65d36",
+      "behindMain": 129,
+      "uniqueCommits": 69,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R52 per-unit 3D health HUD and slot-accurate avatar positioning"
+    },
+    {
+      "ref": "origin/feature/duel-r53-compact-hp-20261110",
+      "sha": "fd0a7dc453f20d8dd5f54459bde8f4fa0d068c32",
+      "behindMain": 129,
+      "uniqueCommits": 73,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R53 adaptive compact unit HP labels and fullscreen battle HUD toggle"
+    },
+    {
+      "ref": "origin/feature/duel-r54-click-unit-inspect-20261110",
+      "sha": "9eda1ebef17f1e4e27ac84f83372cd6187164583",
+      "behindMain": 129,
+      "uniqueCommits": 77,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R54 raycast click-to-inspect real summoned units in 3D arena"
+    },
+    {
+      "ref": "origin/feature/duel-r61-all-12-summon-20261110",
+      "sha": "5ef4167fbd5a0d9d1ae47013f27f2afa5cedc4c2",
+      "behindMain": 129,
+      "uniqueCommits": 9,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R61 make all 12 card summons real independent 3D actors in live arena"
+    },
+    {
+      "ref": "origin/feature/duel-r62-scale-audit-20261110",
+      "sha": "fa0a7bf936ac1c27dc42e27053f58991f0da16b0",
+      "behindMain": 129,
+      "uniqueCommits": 11,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R62 calibrate 12 summon fronts, world scale, floor and orbit framing"
+    },
+    {
+      "ref": "origin/feature/duel-r63-front-visual-20261110",
+      "sha": "024e5bd41d71313c9f622be3138a6a11b41aea10",
+      "behindMain": 129,
+      "uniqueCommits": 12,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R63: independent GPU source-front evidence and fail-closed camera gates"
+    },
+    {
+      "ref": "origin/feature/duel-r64-natural-motion-20261111",
+      "sha": "ae2f7cbe812e1769830996bc55dbbfa45cfb31c3",
+      "behindMain": 129,
+      "uniqueCommits": 13,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R64 smooth authored summon clips and paper plane combat motion"
+    },
+    {
+      "ref": "origin/feature/duel-r65-natural-pose-20261111",
+      "sha": "e5e2cf46e22dead183113bfd0ab6176e247c3de1",
+      "behindMain": 129,
+      "uniqueCommits": 14,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R65 relax seven humanoid rigs and VRM clone arm poses"
+    },
+    {
+      "ref": "origin/feature/duel-r66-character-personality-20261111",
+      "sha": "687542e1d7b1bacc0f864fe6f839d4c118132d6a",
+      "behindMain": 129,
+      "uniqueCommits": 15,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R66 give seven humanoid summons unique short comedic acting beats"
+    },
+    {
+      "ref": "origin/feature/duel-r67-vrm-personality-20261111",
+      "sha": "69aad97c57c7838860a9da6adb87d5052ba21def",
+      "behindMain": 129,
+      "uniqueCommits": 16,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R67 correct two VRM source front axes and animate original facial morphs"
+    },
+    {
+      "ref": "origin/feature/duel-r68-hero-poses-20261111",
+      "sha": "e470f91db1f45616102043fdcf504c47088c91e5",
+      "behindMain": 129,
+      "uniqueCommits": 17,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R68 pose nine humanoid summons with IK hero entrances and character acting"
+    },
+    {
+      "ref": "origin/feature/duel-r69-modelvault-refit-20261111",
+      "sha": "8ac19944624506c2e1c37b2541b26e1f0708ea9e",
+      "behindMain": 129,
+      "uniqueCommits": 18,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R69 adopt ModelVault school teacher for M01 audition and stage owl candidate"
+    },
+    {
+      "ref": "origin/feature/duel-r70-audio-blender-20261111",
+      "sha": "e2835248b9f3d9156baa611d563589e36e6dd3ee",
+      "behindMain": 129,
+      "uniqueCommits": 19,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R70 add original game music and sfx with Qwen3-TTS character voices"
+    },
+    {
+      "ref": "origin/feature/duel-r71-audio-events-20261111",
+      "sha": "aed6c2edd4ba6ca9fa78be2d5108406b8716b9e0",
+      "behindMain": 129,
+      "uniqueCommits": 20,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R71 queue Qwen3 voices and prioritize real combat speech"
+    },
+    {
+      "ref": "origin/feature/duel-r72-music-teacher-playable-20261111",
+      "sha": "311c0751a335aa81f2d301e742c925d299fde8b0",
+      "behindMain": 129,
+      "uniqueCommits": 21,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R72 make music teacher M01 playable with real rigged Blender source"
+    },
+    {
+      "ref": "origin/feature/duel-r73-blender-cast-enhancement-20261111",
+      "sha": "ea81ed2896e323f6ed5ecfb77bcb1eba35da876b",
+      "behindMain": 129,
+      "uniqueCommits": 22,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R73 enhance T01 broadcaster with Blender rigged headset, QA and art inventory"
+    },
+    {
+      "ref": "origin/feature/duel-r74-eye-level-camera-20261111",
+      "sha": "f104aacfaeb97e36456da4a4b4ea142f20792bd1",
+      "behindMain": 129,
+      "uniqueCommits": 25,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R74 keep two real 3D duelists permanently visible independently of summoned cards"
+    },
+    {
+      "ref": "origin/feature/duel-r75-selection-animation-20261111",
+      "sha": "bdfcf0734879a80e6f081eb921ccc812827b185d",
+      "behindMain": 129,
+      "uniqueCommits": 26,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R75 audition high-quality native MIT characters and real retargeted bone motions"
+    },
+    {
+      "ref": "origin/feature/duel-r76-real-cartoon-cast-20261111",
+      "sha": "dd26d94f196f2be5598e5586d12f70baa8666889",
+      "behindMain": 129,
+      "uniqueCommits": 27,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R76 add native high-detail playable cafeteria aunt, original rig motion and Qwen3 voice"
+    },
+    {
+      "ref": "origin/feature/duel-r77-character-recast-20261111",
+      "sha": "833ab698c68f78bcedaca5d9a2d687b99a99c0a8",
+      "behindMain": 129,
+      "uniqueCommits": 28,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R77 audition three mismatched roles, prove real dual couriers, reject poor art matches"
+    },
+    {
+      "ref": "origin/feature/duel-r78-high-fidelity-casting-20261111",
+      "sha": "cccb72e62ae456550900e8838bef5c6bda5f4b6e",
+      "behindMain": 129,
+      "uniqueCommits": 29,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R78 establish high-fidelity stylized character baseline with licensed official previews"
+    },
+    {
+      "ref": "origin/feature/duel-r79-original-elemental-vfx-20261112",
+      "sha": "2c5498e1995e232f1fab4cb41a319acacaa39ab1",
+      "behindMain": 129,
+      "uniqueCommits": 31,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R79 original elemental casting VFX: real card events and browser preview"
+    },
+    {
+      "ref": "origin/feature/duel-r80-film-native",
+      "sha": "13b7d9324d55e9b0043d257fa930da16e8b567e2",
+      "behindMain": 129,
+      "uniqueCommits": 30,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R80 use Blender Studio Jay and Rex as playable summons with fallback combat motion"
+    },
+    {
+      "ref": "origin/feature/duel-r80-mainport-20261111",
+      "sha": "a5cbbff77e4b2b85d6e101293f2309ca6922c688",
+      "behindMain": 126,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R81 verify main-compatible Jay Rex cast in real Chrome arena"
+    },
+    {
+      "ref": "origin/feature/duel-r81-impact-audio-score-seats-20261112",
+      "sha": "747c76a4797364baacc241ccf57862e30a513e80",
+      "behindMain": 129,
+      "uniqueCommits": 33,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R83 enable game sound by default with browser-safe first-action playback"
+    },
+    {
+      "ref": "origin/feature/duel-r82-second-film-cast-20261112",
+      "sha": "120e7cbac7c3b8df790d8bff645b7ad5bf8c5054",
+      "behindMain": 125,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R82 replace E04 and G04 with Blender Studio Phil Victoria film assets"
+    },
+    {
+      "ref": "origin/feature/duel-r83-seven-film-cast-20261112",
+      "sha": "d6f34eda0ab4af9818d43b0264c0e2b24d15a172",
+      "behindMain": 124,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R83 upgrade E03 G02 T03 to textured high-fidelity animated-film bases"
+    },
+    {
+      "ref": "origin/feature/duel-r84-music-dialogue-art-audit-20261112",
+      "sha": "f440609e522cdfe12ad9fa1de201e812125b7201",
+      "behindMain": 129,
+      "uniqueCommits": 35,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R84 pose artist character auditions with their native rigs, discard unposed exports"
+    },
+    {
+      "ref": "origin/feature/duel-r84-real-owl-20261112",
+      "sha": "6ba65adea018fe29ab0aeae58f867a1c83d111e2",
+      "behindMain": 123,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R84 replace 520-triangle owl with high-resolution CC0 owl and corrected facing"
+    },
+    {
+      "ref": "origin/feature/duel-r85-character-action-recast-20261112",
+      "sha": "69502d2d3a980d866ab45ca4dad51838f479ca0e",
+      "behindMain": 129,
+      "uniqueCommits": 36,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R85 live five high-fidelity recasts, native motion, natural IK duelists, retire lowpoly"
+    },
+    {
+      "ref": "origin/feature/duel-r85-paper-plane-default-20261112",
+      "sha": "77c20f923a7707649ac546fe96d70dc441be739f",
+      "behindMain": 122,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R85 default to animated R60 paper plane with explicit R57 rollback"
+    },
+    {
+      "ref": "origin/feature/duel-r86-jay-bone-motion-20261112",
+      "sha": "cba0a52ff86db41944782fa7ca7b85f51981573e",
+      "behindMain": 121,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R86 opt-in genuine Jay skinned GLB with runtime skeletal combat tracks"
+    },
+    {
+      "ref": "origin/feature/duel-r86-snow-real-morph-20261112",
+      "sha": "2d343b8eb48b24b179c86663f62129c96651d84d",
+      "behindMain": 120,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R86 Snow true morph target Idle Attack Hit animation with R83 rollback"
+    },
+    {
+      "ref": "origin/feature/duel-r87-jay-real-morph-20261112",
+      "sha": "09d5a279da30adb457135b796798de4e71298aac",
+      "behindMain": 119,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R87 Jay native local morph combat clips and safe old model rollback"
+    },
+    {
+      "ref": "origin/feature/duel-r88-five-animated-cast-20261112",
+      "sha": "580ce4ca24c90d350e1b4c24e88d894f60d04705",
+      "behindMain": 118,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R88 animate remaining five film characters with real morph Attack and Hit"
+    },
+    {
+      "ref": "origin/feature/duel-r88-interactive-animation-review-20261112",
+      "sha": "67b0aca6f4ae0e2d24f7afc04f20b3b83d6bd76d",
+      "behindMain": 117,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R88 add interactive seven-character GLB animation review page"
+    },
+    {
+      "ref": "origin/feature/duel-r89-natural-standing-cast-20261112",
+      "sha": "f158e61229cb5d0bf024201baf7c506cdc8fd932",
+      "behindMain": 116,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R89 fix seven film character FK shoulder and wrist chains for natural stances"
+    },
+    {
+      "ref": "origin/feature/duel-r90-iframe-mode-race-20261112",
+      "sha": "5acfe82fcafcaa5daa436754b1ee9fc5cd21fa10",
+      "behindMain": 114,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R90.1 wait for actual iframe motion mode before allowing combat preview"
+    },
+    {
+      "ref": "origin/feature/duel-r90-impact-choreography-20261112",
+      "sha": "d6d3f1631891e14bce3d62ab983431a6d08779c4",
+      "behindMain": 115,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R90 event-linked attack impact recoil and seven-character combat review"
+    },
+    {
+      "ref": "origin/feature/duel-r93-natural-footwork-20261112",
+      "sha": "b8ebbde503ad1f94b23b2deb52f6282eb8d8c6e7",
+      "behindMain": 110,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R93 seven animated characters gain source-rig foot steps and retreat"
+    },
+    {
+      "ref": "origin/feature/duel-r95-true-impact-score-20261112",
+      "sha": "3745ad866fe2b91ceb7c37624f61dd15d5f83de8",
+      "behindMain": 109,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R95: reconnect authoritative 3D scoreboard and six spell impact sequences"
+    },
+    {
+      "ref": "origin/feature/duel-r96-knee-grounding-20261112",
+      "sha": "fdd6ded5c6a517911d0f2eb4fce4d1c991a6089f",
+      "behindMain": 106,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R96 articulate seven characters knees and pin planted support feet"
+    },
+    {
+      "ref": "origin/feature/duel-r96-native-duelists-20261112",
+      "sha": "b961fea48891b6060a93b91bddbfcbb5bc8a5d54",
+      "behindMain": 108,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R96: animate permanent 3D duelists with native IK and facial acting"
+    },
+    {
+      "ref": "origin/feature/duel-r97-landing-20261112",
+      "sha": "bf15e9c43e3b8f5e1e9407ab59e5b152d85920c3",
+      "behindMain": 103,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R97 seven cinematic character landing and recoil recovery poses"
+    },
+    {
+      "ref": "origin/feature/duel-r98-three-real-combo-lessons-20261112",
+      "sha": "cbd7ec3636d58aff72ce05dc5a674497e5d4bd72",
+      "behindMain": 102,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R98: add three real playable single-arena combo lessons and 3D-safe tutorial flow"
+    },
+    {
+      "ref": "origin/fix/duel-r1011-pages-qa-20261112",
+      "sha": "f75cd7d53c4fbabe0b4f3ec7b9e4be31376ed83e",
+      "behindMain": 98,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R101.1: verify project Pages share links and store true public browser receipts"
+    },
+    {
+      "ref": "origin/fix/duel-r104-camera-frontal-faces-20261112",
+      "sha": "ed074bc9ad235105903c281196fe36c389700c4d",
+      "behindMain": 96,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R104: restore frontal stadium camera and true character faces"
+    },
+    {
+      "ref": "origin/fix/duel-r105-opponent-facing-rig-audit-20261113",
+      "sha": "8c7e54b99b93f4b85b90597ed941bede03df4dfa",
+      "behindMain": 94,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R105: face opponents, rig every VRM summon and separate two podium players"
+    },
+    {
+      "ref": "origin/fix/duel-r106-real-face-forward-20261113",
+      "sha": "8c726907de73bf6275c7c562825682b8c6289c92",
+      "behindMain": 92,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R106: fix real VRM face axis with independent eye-mesh regression"
+    },
+    {
+      "ref": "origin/fix/duel-r114-cache-mix-safe-20261113",
+      "sha": "4701e960e9da6bb9a76b7661a44c6046323a5fc1",
+      "behindMain": 70,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R114.1: tolerate old cached loader HTML during Pages rollout"
+    },
+    {
+      "ref": "origin/fix/duel-r116-slow-hint-race-20261113",
+      "sha": "da100afaa3cd1632c9a9c919614e1c55f3179503",
+      "behindMain": 54,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R116.1: clear slow-network hint on arena readiness"
+    },
+    {
+      "ref": "origin/fix/duel-r121-card-face-prewarm-20261113",
+      "sha": "de4ef7796be6bed32539140f77634b6134bb206d",
+      "behindMain": 26,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "R121 Pages: prewarm current deck illustrated faces before first physical grip"
+    },
+    {
+      "ref": "origin/fix/duel-r125-bleacher-broadcast-first-cast-20261113",
+      "sha": "34d2396e7fedef308e8d022b390e2ebe17c55882",
+      "behindMain": 17,
+      "uniqueCommits": 2,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R125: document slow-network real-audio race, event-bound PA and first-cast mute regression evidence"
+    },
+    {
+      "ref": "origin/fix/duel-r125-pages-bleacher-qa-20261113",
+      "sha": "af626b0a4ea2394362a901f189a32ab70bd0f8e7",
+      "behindMain": 1,
+      "uniqueCommits": 0,
+      "classification": "contained-in-main",
+      "lastCommitSubject": "test(r125): validate exact latest game shell path for localhost and GitHub Pages prefix"
+    },
+    {
+      "ref": "origin/fix/duel-r39-visible-3d-combat-20261110",
+      "sha": "2ea4fdec7cfa6bf47c32928f289621534d718df4",
+      "behindMain": 129,
+      "uniqueCommits": 36,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R39 repair 3D duel scenes, restore live combat animations and fix R38 bookmarks"
+    },
+    {
+      "ref": "origin/fix/duel-r41-death-action-frames-20261110",
+      "sha": "aa580c8d2df1335433c989add6dbdb018587dbb7",
+      "behindMain": 129,
+      "uniqueCommits": 50,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R41 retain dying 3D actor long enough to visibly finish actual impact animation"
+    },
+    {
+      "ref": "origin/fix/duel-r42-r22-actual-characters-20261110",
+      "sha": "e565ae7056dbc14cfa592dd8c1d94e8dcc8d01c5",
+      "behindMain": 129,
+      "uniqueCommits": 54,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R42 restore select-confirm card duel flow and bind battle to R22 card actors"
+    },
+    {
+      "ref": "origin/fix/duel-r49-cinematic-composition-20261110",
+      "sha": "667fd533ff8891b3a56be88d9cfb51a7db5dfbe5",
+      "behindMain": 129,
+      "uniqueCommits": 63,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R49 restore full-frame stadium composition and 180-degree unobstructed view"
+    },
+    {
+      "ref": "origin/fix/duel-r50-summon-visibility-20261110",
+      "sha": "1904a374bddd3026029b3d83a84d4c81c551b2f1",
+      "behindMain": 129,
+      "uniqueCommits": 65,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R50 fix vanished summons across both teams and duplicate VRM instances"
+    },
+    {
+      "ref": "origin/fix/duel-r86-finish-rematch-20261112",
+      "sha": "2cde3661d39a6f1c8bb425fdfda5c031dc74887e",
+      "behindMain": 129,
+      "uniqueCommits": 37,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R86: show match result and enable replay after win loss draw"
+    },
+    {
+      "ref": "origin/fix/duel-r91-matchflow-on-main-20261112",
+      "sha": "e603925e762555dd0c7d12f58199c22bfed7113d",
+      "behindMain": 114,
+      "uniqueCommits": 2,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R91: verify win loss draw rematch on desktop and phone"
+    },
+    {
+      "ref": "origin/fix/duel-r92-cdn-encoded-head-20261112",
+      "sha": "555e9ee68a2b70b58b24c1916cf61e3cd665f9c7",
+      "behindMain": 112,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R92.1: account for CDN compressed content length in asset QA"
+    },
+    {
+      "ref": "origin/fix/duel-r92-legacy-model-compat-20261112",
+      "sha": "228379f52addfa2e4142a038461afea7a33e71f9",
+      "behindMain": 113,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R92: preserve real R85 summon GLBs for already-open tabs"
+    },
+    {
+      "ref": "origin/fix/duel-r96-retry-loading-20261112",
+      "sha": "837726571982ce0222480163bd4154557966e8ea",
+      "behindMain": 107,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R96.1: block phantom card plays and provide real 3D asset retry"
+    },
+    {
+      "ref": "origin/fix/duel-r962-knee-qa-20261112",
+      "sha": "fbb7372a572a178dc08de0ccb516d45374c6d8b7",
+      "behindMain": 105,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R96.2: update card audio QA to current seven knee models"
+    },
+    {
+      "ref": "origin/fix/duel-r99-tutorial-orientation-m02-voice-20261112",
+      "sha": "5f258c504a57561973b36d720ce1f4c2ccdb5c56",
+      "behindMain": 101,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R99: fix tutorial progression, actor facing, chef gear and Qwen voice loudness"
+    },
+    {
+      "ref": "origin/integration/duel-r93-audio-20cards-20261112",
+      "sha": "b4b27f90ae9eda97e5786cd85e1d8b7be558cf7c",
+      "behindMain": 110,
+      "uniqueCommits": 1,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R94: consolidate 20-card duel, seven music tracks, voices, R93 motion and branch ledger"
+    },
+    {
+      "ref": "origin/preview/r59-e02-native-20261110",
+      "sha": "12f15273faf76f8a0e87c884ad6336d96407241a",
+      "behindMain": 129,
+      "uniqueCommits": 2,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "preview: isolated E02 R59 true GLB native motion viewer"
+    },
+    {
+      "ref": "origin/preview/r60-e02-paper-morph-20261110",
+      "sha": "aadeb107da60e6af889ec11fc4ca6d749d9513c8",
+      "behindMain": 129,
+      "uniqueCommits": 8,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "preview: R60 E02 scanned CC0 paper PBR and native independent wing morph"
+    },
+    {
+      "ref": "origin/preview/r63-e02-r60-arena-20261111",
+      "sha": "cf3c5e70291122eab593055835b6f5e89688457f",
+      "behindMain": 129,
+      "uniqueCommits": 13,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "preview(r63): opt-in R60 paper-wing summon in real R62 arena with tested visual compare"
+    },
+    {
+      "ref": "origin/preview/r67-t02-full-duo-20261111",
+      "sha": "80bfe661b25e5a207076bba6e7607384f9dc4791",
+      "behindMain": 129,
+      "uniqueCommits": 14,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "preview(r67): true T02 aunt and living menu dual GLB with opt-in real arena"
+    },
+    {
+      "ref": "origin/preview/r68-t02-fit-template-comparison-20261111",
+      "sha": "1a1812e838eb15304cf2bf14e92e1247ab8d55bd",
+      "behindMain": 129,
+      "uniqueCommits": 15,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "preview(r68): fit-tested CC0 MPFB and MIT Rocketbox chef template comparison"
+    },
+    {
+      "ref": "origin/qa/duel-r41-hardware-webgl2-evidence-20261110",
+      "sha": "c5b91ec6b39c462f1aab06652bc9a64241cb30f0",
+      "behindMain": 129,
+      "uniqueCommits": 52,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R41 archive actual Z890 RTX 5070 Ti Vulkan browser acceptance and model-frame proof"
+    },
+    {
+      "ref": "origin/rebuild/r45-clean-one-stadium-20261110",
+      "sha": "a9cc41352f16a7ec672e9369454c1e27fe6ec36d",
+      "behindMain": 129,
+      "uniqueCommits": 56,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R45 rebuild single-stadium card duel as isolated clean runtime; remove legacy deployables"
+    },
+    {
+      "ref": "origin/release/duel-r38-player-demo-20261109",
+      "sha": "049e407ebf2d2813489426dfd58ad059c9f37e05",
+      "behindMain": 129,
+      "uniqueCommits": 34,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R38 player demo from existing 18 cards and real 3D scenes"
+    },
+    {
+      "ref": "origin/research/duel-r20-playtest-home-20261109",
+      "sha": "a32d96a6c4336f11feab6766d831ed9360888516",
+      "behindMain": 129,
+      "uniqueCommits": 18,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "feat(playtest): R20 playable 3D homepage with reversible R18 visual comparison and GPU evidence"
+    },
+    {
+      "ref": "origin/research/duel-r21-trio-playable-home-20261109",
+      "sha": "302067cfc76b4d9271572fd974c24c131c5bd6ee",
+      "behindMain": 129,
+      "uniqueCommits": 19,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "feat(playtest): R21 three VRM actors E01 G01 T01 on fully playable 3D homepage"
+    },
+    {
+      "ref": "origin/research/duel-r22-label-doc-sync-20261109",
+      "sha": "aa85023c455d15810ef991638b7a4c34bcc152a0",
+      "behindMain": 129,
+      "uniqueCommits": 21,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "fix(playtest): R22 accurate three-actor label and current preview evidence status"
+    },
+    {
+      "ref": "origin/research/duel-r22-pbr-3d-card-home-20261109",
+      "sha": "381ccc00dc94198cff8aabdd40f26b7db4a5829b",
+      "behindMain": 129,
+      "uniqueCommits": 20,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "feat(playtest): R22 PBR depth-lit three-actor homepage and two real card GLB model trials"
+    },
+    {
+      "ref": "origin/research/duel-r23-real-card-glb-battle-integration-20261109",
+      "sha": "b870f295c063f05ce01aa0c322dc7447884d782e",
+      "behindMain": 129,
+      "uniqueCommits": 22,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "feat(playtest): R23 actual E02 T02 GLB battle summons, core-driven stage and 3D card portraits"
+    },
+    {
+      "ref": "origin/research/duel-r25-music-teacher-preview-20261109",
+      "sha": "12ac37a9dea036b55002e8a8269c7ff1cacc3a16",
+      "behindMain": 129,
+      "uniqueCommits": 23,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "feat(playtest): R25 music teacher interactive 3D conductor preview linked from unchanged playable game"
+    },
+    {
+      "ref": "origin/research/duel-r32-public-standalone-preview-20261109",
+      "sha": "b3066f9cdb05ca11228872d6b81822536ed14b0f",
+      "behindMain": 129,
+      "uniqueCommits": 24,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "feat(playtest): publish isolated R32 original-art 2.5D music teacher interactive preview"
+    },
+    {
+      "ref": "origin/research/duel-r33-m01-art-preview-in-playable-home-20261109",
+      "sha": "00a3f4a0a9f8e889b41774dc02e1e33f1890c8f9",
+      "behindMain": 129,
+      "uniqueCommits": 25,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "fix(playtest): route music teacher homepage CTA to original-art R32 playable, not rejected 3D"
+    },
+    {
+      "ref": "origin/research/duel-r34-m01-true3d-20261109",
+      "sha": "226734e6e531d62510dfddd0617c5f91287bc764",
+      "behindMain": 129,
+      "uniqueCommits": 28,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R34 deliver local Pixal3D music teacher GLB and independent 3D viewer with four-view QA"
+    },
+    {
+      "ref": "origin/research/duel-r35-real3d-entry-20261109",
+      "sha": "689abfa0e8832d9775f6a04990f5d9fc75f82dc4",
+      "behindMain": 129,
+      "uniqueCommits": 30,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R35 point music teacher game-home entry at real R34 GLB review, not R32 2.5D"
+    },
+    {
+      "ref": "origin/research/duel-r36-hybrid-geometry-20261109",
+      "sha": "94db716cccb966871f7c6170a4a1b82328dc28b9",
+      "behindMain": 129,
+      "uniqueCommits": 32,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R36 research: true Pixal-guided 163-bone torso GLB, LOD and browser QA"
+    },
+    {
+      "ref": "origin/research/duel-r37-head-transfer-20261109",
+      "sha": "bcfb8acf318f2ae17463a11f6b4c1cf9e8475d56",
+      "behindMain": 129,
+      "uniqueCommits": 34,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R37 research: rejected facial sculpt and saved glasses LOD evidence"
+    },
+    {
+      "ref": "origin/research/duel-r52-art-intake-20261110",
+      "sha": "a9e5b75310fb86b025a6a8ea7d40fee8e1c71ec1",
+      "behindMain": 129,
+      "uniqueCommits": 69,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R52 audit existing character candidates and enforce no-false-art acceptance"
+    },
+    {
+      "ref": "origin/research/duel-r53-character-pipeline-20261110",
+      "sha": "fef3c1bd3f2f7ee58ee05ac6ef31cb51aaab5ea3",
+      "behindMain": 129,
+      "uniqueCommits": 73,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R53 inspect real GLB VRM skeletal metadata before character art release"
+    },
+    {
+      "ref": "origin/research/duel-r55-global-assets-20261110",
+      "sha": "ed8993a5bde990e1c9e38a316debd1c8169b8b3b",
+      "behindMain": 129,
+      "uniqueCommits": 78,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R55 stage 18-card 3D asset audition and Batch 1 image-to-3D preflight"
+    },
+    {
+      "ref": "origin/research/duel-r56-owl-character-study-20261110",
+      "sha": "21c63c9c6344e6ab120f86b1e82ec3342b2e7567",
+      "behindMain": 129,
+      "uniqueCommits": 80,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R56 prototype rigged owl broadcaster accessories with original face preserved"
+    },
+    {
+      "ref": "origin/research/duel-r57-e02-paper-polish-20261110",
+      "sha": "f3e6d3cb9d17d3cc8fe725a08a38fdc7da85384a",
+      "behindMain": 129,
+      "uniqueCommits": 82,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R57 polish E02 folded paper mesh and add 3D flight-motion audition"
+    },
+    {
+      "ref": "origin/research/duel-r58-t02-menu-20261110",
+      "sha": "5e9e8aa9499f0277551b045d54b3ca34354754d1",
+      "behindMain": 129,
+      "uniqueCommits": 84,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R58 add native GLB page, hat, arm animations to T02 living menu audition"
+    },
+    {
+      "ref": "origin/research/duel-r59-g01-architect-20261110",
+      "sha": "cc76bb35f0d4c7ccc985e5f372af008e01943e28",
+      "behindMain": 129,
+      "uniqueCommits": 6,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "Integrate parallel R59 menu and architect audition features"
+    },
+    {
+      "ref": "origin/research/duel-r59-t02-material-20261110",
+      "sha": "8abac48579a9810f2a7431d8886f2957b5e9383a",
+      "behindMain": 129,
+      "uniqueCommits": 2,
+      "classification": "divergent-needs-semantic-review",
+      "lastCommitSubject": "R59 T02 add real double-sided illustrated PBR menu pages"
+    }
+  ]
+}

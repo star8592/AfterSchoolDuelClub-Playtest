@@ -659,13 +659,19 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     const life=lifeWorld?.read('unit:'+state.key,seconds);
     state.lifePose=life||null;
     if(state.kind!=='original-vrm'&&life){
-     if((state.id==='M02'||r61?.r119Skin)&&life.intent!=='idle'&&
+     if((state.id==='M02'||state.id==='M01'||r61?.r119Skin)&&life.intent!=='idle'&&
        life.lastAction&&state.r116LastLifeAt!==life.lastAction.at&&
        life.weight>.32&&!state.r116LifeClip){
       // Characters have different physical ways of interpreting one event.
       // The five live-skin trial actors use their own bound source joints;
       // M02 retains its ten real authored source animations and hand-held prop.
-      const clipByIntent=r61?.r119Skin?{
+      const clipByIntent=state.id==='M01'?{
+       challenge:'R126_M01_Order',hands_hips:'R126_M01_Order',
+       half_wave:'R126_M01_Conduct',tiny_clap:'R126_M01_Cheer',
+       cheer:'R126_M01_Cheer',smirk:'R126_M01_Conduct',
+       flinch:'R126_M01_Shocked',peek:'R126_M01_Shocked',
+       scratch:'R126_M01_Shocked',headshake:'R126_M01_Shocked'
+      }:r61?.r119Skin?{
        challenge:'R119_Skeletal_Challenge',hands_hips:'R119_Skeletal_Challenge',
        half_wave:'R119_Skeletal_Challenge',tiny_clap:'R119_Skeletal_Celebrate',
        cheer:'R119_Skeletal_Celebrate',smirk:'R119_Skeletal_Challenge',
@@ -1034,6 +1040,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     meshes:s.kind==='gltf-instance'?s.object.userData.r61?.meshCount:undefined,
     clips:s.kind==='gltf-instance'?s.object.userData.r61?.animationCount:undefined,
     playingClips:s.kind==='gltf-instance'?s.object.userData.r61?.getPlayingClips?.():undefined,
+    r126TeacherMotion:s.id==='M01'?s.object.userData.r61?.getR126TeacherMotion?.():undefined,
     r90Pose:s.kind==='gltf-instance'?s.object.userData.r61?.getCombatPose?.():undefined,
     r90ClipRate:s.kind==='gltf-instance'?s.object.userData.r61?.getClipRate?.():undefined,
     artApproved:false};

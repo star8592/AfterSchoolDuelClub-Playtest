@@ -5,6 +5,7 @@
  */
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {r125VersionedAssetURL} from '../r125-asset-urls.mjs';
+import {createR126MusicTeacherClips,R126_TEACHER_ACTION_NAMES} from './r126-music-teacher-native-acting.mjs';
 // R85: improved R60 photo-paper model and five native clips are the default.
 // Exact older R57 remains available with ?e02Study=r57 for immediate rollback.
 const isE02R60Study=(()=>{
@@ -440,11 +441,13 @@ export function instantiateSummon(THREE,template){
  const r86Clips=template.id==='G03'&&template.selectedFile==='G03-Jay-Skinned-R86.glb'?createR86JaySkeletonClips(THREE,instance):[];
  const r119Skin=template.selectedFile===R119_SKIN_STUDY_FILES[template.id];
  const r119Clips=r119Skin?createR119TrueSkinClips(THREE,instance,template.id):[];
+ const r126Teacher=template.id==='M01'?createR126MusicTeacherClips(THREE,instance):null;
  // If a source-export model is missing one of the actual bound arm bones,
  // don't silently pretend the artist's character has its desired animation.
  if(r119Skin&&r119Clips.length!==7)
   throw Error('R119 real skin has no valid mapped 7 body clips: '+template.id);
- const availableClips=r119Clips.length?r119Clips:r86Clips.length?r86Clips:template.clips;
+ const availableClips=r119Clips.length?r119Clips:r86Clips.length?r86Clips:
+  r126Teacher?[...template.clips,...r126Teacher.clips]:template.clips;
  const mixer=availableClips.length?new THREE.AnimationMixer(instance):null;
  // R90: subtle transient whole-instance lean and lift layered over R89 glTF
  // morph clips; reset each frame. This is not live torso, leg, or foot rigging.
@@ -483,9 +486,50 @@ export function instantiateSummon(THREE,template){
   return preference.map(n=>clips.find(c=>c.name===n)).find(Boolean)||clips[0];
  };
  let current=null;
+ const teacherPerformance={sourceSkinnedMeshes:r126Teacher?.sourceSkinnedMeshes||0,
+  sourceBones:r126Teacher?.sourceBones||0,trackedJoints:0,boneFrames:0,maxRealJointAngle:0,
+  current:null};
+ const teacherRest=r126Teacher?new Map([...r126Teacher.tracked].map(([name,b])=>[name,b.quaternion.clone()])):null;
+ const teacherUpdate=dt=>{
+  mixer.update(dt);
+  teacherPerformance.boneFrames++;
+  let active=0;
+  for(const [name,bone] of r126Teacher.tracked){
+   const rest=teacherRest.get(name);
+   if(!rest||!bone.isBone)continue;
+   const angle=rest.angleTo(bone.quaternion);
+   teacherPerformance.maxRealJointAngle=Math.max(teacherPerformance.maxRealJointAngle,angle);
+   if(angle>.025)active++;
+  }
+  teacherPerformance.trackedJoints=Math.max(teacherPerformance.trackedJoints,active);
+ };
+ const teacherPlay=(kind)=>{
+  if(current===kind&&kind==='idle')return true;
+  mixer.stopAllAction();
+  const baseName=kind==='walk'?'Walk':'Idle';
+  const base=template.clips.find(x=>x.name===baseName)||template.clips[0];
+  if(!base)throw Error('R126_M01 original source clip missing');
+  const idle=mixer.clipAction(base);
+  idle.reset().setLoop(THREE.LoopRepeat,Infinity).setEffectiveWeight(1).play();
+  const gesture=kind==='attack'?'R126_M01_Order':
+   kind==='hit'?'R126_M01_Shocked':
+   kind==='celebrate'?'R126_M01_Cheer':
+   kind==='walk'?null:kind.startsWith('R126_M01_')?kind:'R126_M01_Conduct';
+  if(gesture){
+   const clip=availableClips.find(c=>c.name===gesture);
+   if(!clip)throw Error('R126_M01 missing original-joint gesture '+gesture);
+   const additive=mixer.clipAction(clip,undefined,THREE.AdditiveAnimationBlendMode);
+   const looping=kind==='idle';
+   additive.reset().setEffectiveWeight(1).setLoop(looping?THREE.LoopRepeat:THREE.LoopOnce,looping?Infinity:1);
+   additive.clampWhenFinished=false;additive.play();
+  }
+  teacherPerformance.current=kind;
+  current=kind;return true;
+ };
  const duo=template.id==='T02' &&
   template.selectedFile==='T02-CanteenAunt-LivingMenu-Duo-STUDY.glb';
  const play=(kind)=>{
+  if(r126Teacher)return teacherPlay(kind);
   if(filmStatic){staticState=kind;staticElapsed=0;current='R80_static_'+kind;return true;}
   if(!mixer)return false;
   if(duo){
@@ -520,11 +564,13 @@ export function instantiateSummon(THREE,template){
  // No clip is synthesized or borrowed from a different character identity.
  const lifeClips=r119Skin?
   new Set(['R119_Skeletal_Challenge','R119_Skeletal_Worry','R119_Skeletal_Celebrate']):
+  template.id==='M01'?new Set(R126_TEACHER_ACTION_NAMES):
   template.id==='M02'?new Set([
   'Angry_Stomp','Big_Wave_Hello','Confused_Scratch','Jazz_Hands',
   'Shrug','Victory_Cheer']):new Set();
  const playLifeClip=(name)=>{
   if(!lifeClips.has(name)||!mixer)return 0;
+  if(r126Teacher){teacherPlay(name);return availableClips.find(c=>c.name===name)?.duration||0;}
   const clip=availableClips.find(x=>x.name===name);
   if(!clip)return 0;
   if(current===name)return clip.duration||0;
@@ -547,8 +593,9 @@ export function instantiateSummon(THREE,template){
   }
   groundedY=scaled.position.y;
  }
- return {root,mixer,play,update:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length,r119Skin,
+ return {root,mixer,play,update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
+  getR126TeacherMotion:()=>({...teacherPerformance}),
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};
