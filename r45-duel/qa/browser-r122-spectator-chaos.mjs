@@ -32,6 +32,8 @@ try{
    return {crowd:s.stadiumAmbience?.audience,fx:s.spectatorChaosFX,
     hp:window.__r45QA.hp,events:s.r122AccidentReceipts};
   });
+  check(await page.evaluate(()=>window.__r45QA.audio.crowdVoiceClipCount)===8,
+   name+' eight real recorded Qwen spectator voice clips preloaded',null);
   check(before.crowd?.loaded===4,name+' 4 actual 3D audience model instances',before.crowd);
   check(before.fx?.launched===0&&before.events===0,name+' no fake accident on opening',before.fx);
   await page.locator('.card[data-card-id="K01"]:not([disabled])').first().click();
@@ -40,6 +42,7 @@ try{
    const s=document.querySelector('#stadium').contentWindow.__r45SceneQA;
    return s.r122AccidentReceipts>=1&&s.spectatorChaosFX?.impacts>=1;
   },null,{timeout:16000});
+  await page.waitForFunction(()=>window.__r45QA.audio.crowdVoicePlays>=1,null,{timeout:11000});
   const after=await page.evaluate(()=>{
    const s=document.querySelector('#stadium').contentWindow.__r45SceneQA;
    return {hp:window.__r45QA.hp,spell:window.__r45QA.events.filter(
@@ -54,6 +57,8 @@ try{
   check(after.fx?.launched>=1&&after.fx.impacts>=1&&after.fx.ruleMutations===0,
    name+' real 3D projectile hit bleacher anchor without rule mutations',after.fx);
   check(after.receipts>=1,name+' receipt emitted on spectator impact frame',after.receipts);
+  check(after.audio.crowdVoicePlays>=1&&after.audio.lastCrowdVoice?.kind==='accident',
+   name+' actual Qwen bleacher scream played with exact subtitle metadata',after.audio.lastCrowdVoice);
   check(errors.length===0,name+' no JS or HTTP errors',errors);
   await page.screenshot({path:resolve(out,name+'-real-spectator-misfire.png')});
   await page.close();
