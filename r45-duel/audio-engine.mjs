@@ -98,7 +98,9 @@ function savedVolume(){
 }
 
 export function createDuelAudio({onVoiceLine}={}){
- let requested=savedSoundIntent(),enabled=false,ctx=null,decoded=new Map(),voiceManifest={clips:{}},voiceAudio=null;
+ let requested=savedSoundIntent(),enabled=false,ctx=null,decoded=new Map(),
+  voiceManifest={clips:{}},paManifest={clips:{}},voiceAudio=null;
+ let lastPAAt=-Infinity,finaleVoiceGuard=false;
  let assetsLoading=null,assetsReady=false,musicAttemptInFlight=false;
  const pendingCues=[],pendingVoices=[];
 
@@ -144,6 +146,18 @@ export function createDuelAudio({onVoiceLine}={}){
    voiceManifest=json;
   }catch(e){counters.errors++;log('manifest-error',String(e))}
  }
+ async function loadPAManifest(){
+  try{
+   const response=await fetch(base+'pa/announcer-manifest.json',{cache:'no-cache'});
+   if(!response.ok)throw Error('PA manifest HTTP '+response.status);
+   const json=await response.json();
+   if(json.provider!=='Qwen3-TTS'||!json.clips||
+      Object.values(json.clips).some(c=>!c||!c.ready||
+        !/^r113_[a-z_]+\.ogg$/.test(c.file)||typeof c.text!=='string'||
+        c.text.length>120||!c.sha256))throw Error('Invalid R113 Qwen PA provenance');
+   paManifest=json;
+  }catch(e){counters.errors++;log('pa-manifest-error',String(e))}
+ }
  async function preloadCues(){
   if(!ctx)return;
   await Promise.all(Object.entries(SOUNDS).map(async([key,file])=>{
@@ -184,7 +198,7 @@ export function createDuelAudio({onVoiceLine}={}){
     counters.errors++;log('music-error','file failed');
   });
   // Decode while suspended. First card selection must not wait for network.
-  assetsLoading=Promise.all([loadManifest(),preloadCues()]).then(()=>{
+  assetsLoading=Promise.all([loadManifest(),loadPAManifest(),preloadCues()]).then(()=>{
     assetsReady=true;flushPending();
     log('prepared','sound files ready; playback follows browser policy');
     return true;
@@ -325,8 +339,8 @@ export function createDuelAudio({onVoiceLine}={}){
  }
  function playQueuedVoice(){
   if(!enabled||voiceAudio||voiceQueue.length===0)return;
-  const {id,kind,file,variant,text,duration_seconds}=voiceQueue.shift();
-  const a=new Audio(base+'voices/'+file+'?mix=r99');
+  const {id,kind,file,variant,text,duration_seconds,source='actor'}=voiceQueue.shift();
+  const a=new Audio(base+(source==='pa'?'pa/':'voices/')+file+'?mix=r113');
   voiceAudio=a;currentVoiceKey=id+':'+kind;
   a.volume=volume.voice;a.preload='auto';
   log('voice-variant',id+':'+kind+'='+variant);
@@ -357,7 +371,9 @@ export function createDuelAudio({onVoiceLine}={}){
   }catch(e){counters.errors++;log('voice-init-error',String(e));done()}
  }
  function playCharacter(id,kind='enter'){
-  if(!requested||volume.voice===0)return false;
+  // Delayed impact callbacks from the last strike must never steal the
+  // microphone from the real winner announcement.
+  if(finaleVoiceGuard||!requested||volume.voice===0)return false;
   if(!enabled||!assetsReady){
     if(pendingVoices.length<3)pendingVoices.push({id,kind});
     return true;
@@ -381,6 +397,35 @@ export function createDuelAudio({onVoiceLine}={}){
    voiceQueue.push(item);
   }
   if(!voiceAudio)playQueuedVoice();
+  return true;
+ }
+ // Stadium PA is a real offline Qwen3 Opus recording; never browser TTS.
+ // A named exact text mapping is essential for truthful subtitles and
+ // avoiding a speaker's voice coming from the wrong character.
+ function playPA(key){
+  const meta=paManifest.clips?.[key],now=performance.now();
+  if(!requested||!enabled||!assetsReady||volume.voice===0||
+     !meta?.ready||meta.kind!=='stadium')return false;
+  if(now-lastPAAt<4500&&!key.startsWith('win_')&&key!=='draw')return false;
+  if(voiceAudio&&!key.startsWith('win_')&&key!=='draw')return false;
+  lastPAAt=now;
+  if(voiceAudio){voiceAudio.pause();voiceAudio=null;currentVoiceKey=null;counters.voiceInterrupted++}
+  voiceQueue=voiceQueue.filter(x=>x.source!=='pa');
+  voiceQueue.unshift({id:'STADIUM_PA',kind:key,source:'pa',
+   file:meta.file,variant:key,text:meta.text,duration_seconds:meta.duration_seconds});
+  playQueuedVoice();
+  return true;
+ }
+ function playSocialLine(side,text){
+  if(finaleVoiceGuard||!['player','ai'].includes(side)||!requested||!enabled||!assetsReady||
+     !text||voiceAudio||voiceQueue.length||volume.voice===0)return false;
+  const pair=Object.entries(paManifest.clips||{}).find(([key,c])=>
+   c.kind==='social'&&key.endsWith('_'+side)&&c.text===text&&c.ready);
+  if(!pair)return false;
+  const [key,c]=pair;
+  voiceQueue.push({id:side==='player'?'HOST_PLAYER':'HOST_AI',kind:'social',
+    source:'pa',file:c.file,variant:key,text:c.text,duration_seconds:c.duration_seconds});
+  playQueuedVoice();
   return true;
  }
  function setOpeningMusic(seed=0){
@@ -454,7 +499,14 @@ export function createDuelAudio({onVoiceLine}={}){
   return true;
  }
  let finaleTimer=null;
+ function resetMatch(){
+  finaleVoiceGuard=false;lastPAAt=-Infinity;
+  if(finaleTimer!==null){clearTimeout(finaleTimer);finaleTimer=null;}
+  voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
+  musicDucked=false;updateMusicVolume();
+ }
  function gameFinished(winner){
+  finaleVoiceGuard=true;
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
   musicDucked=false;
   // Do not kill the auditorium soundtrack when the winning cast starts dancing.
@@ -478,10 +530,13 @@ export function createDuelAudio({onVoiceLine}={}){
   audioContextState:ctx?.state||'none',
   pendingCues:pendingCues.length,pendingVoices:pendingVoices.length,
   musicKind,musicDucked,musicTracks:[...MUSIC_TRACKS],
+  paClipCount:Object.keys(paManifest.clips||{}).length,
+  finaleVoiceGuard,
   musicHistory:[...musicHistory],voiceVariantHistory:[...voiceVariantHistory],
   lastSpoken:lastSpoken?{...lastSpoken}:null,speechHistory:[...speechHistory],comicBeatHistory:[...comicBeatHistory],
   voicePlaying:!!voiceAudio,currentVoiceKey,
   voiceQueue:voiceQueue.map(x=>x.id+':'+x.kind),decodedCues:decoded.size,voiceClipCount:Object.keys(voiceManifest.clips||{}).length,
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
- return {prepare,unlock,turnOn,stop,setVolume,playCue,playComicBeat,playCharacter,switchMusic,setOpeningMusic,musicForBattle,gameFinished,status};
+ return {prepare,unlock,turnOn,stop,setVolume,playCue,playComicBeat,
+  playCharacter,playPA,playSocialLine,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
 }

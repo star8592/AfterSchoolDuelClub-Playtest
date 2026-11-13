@@ -1,0 +1,334 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "title": "desktop 9 genuine Qwen3 PA/social sources",
+      "data": 9
+    },
+    {
+      "passed": true,
+      "title": "desktop original actor manifest isolated",
+      "data": 16
+    },
+    {
+      "passed": true,
+      "title": "desktop actual PA start triggers real Opus",
+      "data": true
+    },
+    {
+      "passed": true,
+      "title": "desktop audio/caption text are identical",
+      "data": {
+        "id": "STADIUM_PA",
+        "kind": "start",
+        "variant": "start",
+        "text": "同学们注意！放学后决斗社，现在开战！",
+        "duration_seconds": 3.81
+      }
+    },
+    {
+      "passed": true,
+      "title": "desktop real low-voice banter",
+      "data": true
+    },
+    {
+      "passed": true,
+      "title": "desktop cast voice and text preserve speaker identity",
+      "data": {
+        "id": "HOST_PLAYER",
+        "kind": "social",
+        "variant": "whisper_player",
+        "text": "嘘……听说食堂今天又做茄子炒香蕉。",
+        "duration_seconds": 4.01
+      }
+    },
+    {
+      "passed": true,
+      "title": "desktop persistent mute blocks new PA",
+      "data": {
+        "provider": "Qwen3-TTS",
+        "enabled": false,
+        "requested": false,
+        "activationPending": false,
+        "assetsReady": true,
+        "audioContextState": "suspended",
+        "pendingCues": 0,
+        "pendingVoices": 0,
+        "musicKind": "campus_parade",
+        "musicDucked": false,
+        "musicTracks": [
+          "school_duel_theme",
+          "campus_parade",
+          "mischief_shuffle",
+          "tactical_pulse",
+          "heroic_comeback",
+          "duel_tension",
+          "final_overtime"
+        ],
+        "paClipCount": 9,
+        "finaleVoiceGuard": false,
+        "musicHistory": [],
+        "voiceVariantHistory": [],
+        "lastSpoken": {
+          "id": "HOST_PLAYER",
+          "kind": "social",
+          "variant": "whisper_player",
+          "text": "嘘……听说食堂今天又做茄子炒香蕉。",
+          "duration_seconds": 4.01
+        },
+        "speechHistory": [
+          {
+            "id": "STADIUM_PA",
+            "kind": "start",
+            "variant": "start",
+            "text": "同学们注意！放学后决斗社，现在开战！",
+            "duration_seconds": 3.81
+          },
+          {
+            "id": "HOST_PLAYER",
+            "kind": "social",
+            "variant": "whisper_player",
+            "text": "嘘……听说食堂今天又做茄子炒香蕉。",
+            "duration_seconds": 4.01
+          }
+        ],
+        "comicBeatHistory": [],
+        "voicePlaying": false,
+        "currentVoiceKey": null,
+        "voiceQueue": [],
+        "decodedCues": 37,
+        "voiceClipCount": 16,
+        "volume": {
+          "music": 0.32,
+          "sfx": 0.75,
+          "voice": 1
+        },
+        "counters": {
+          "cue": 0,
+          "voice": 2,
+          "voiceMissing": 0,
+          "voiceDropped": 0,
+          "voiceInterrupted": 0,
+          "unlock": 1,
+          "musicStart": 1,
+          "errors": 0
+        },
+        "events": [
+          {
+            "type": "unlocked",
+            "detail": "auto on load / first game action",
+            "at": 51
+          },
+          {
+            "type": "prepared",
+            "detail": "sound files ready; playback follows browser policy",
+            "at": 281
+          },
+          {
+            "type": "music",
+            "detail": "campus_parade",
+            "at": 282
+          },
+          {
+            "type": "voice-variant",
+            "detail": "STADIUM_PA:start=start",
+            "at": 2853
+          },
+          {
+            "type": "voice",
+            "detail": "STADIUM_PA:start",
+            "at": 2857
+          },
+          {
+            "type": "voice-variant",
+            "detail": "HOST_PLAYER:social=whisper_player",
+            "at": 6684
+          },
+          {
+            "type": "voice",
+            "detail": "HOST_PLAYER:social",
+            "at": 6700
+          },
+          {
+            "type": "muted",
+            "detail": "explicit user preference",
+            "at": 6802
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "title": "desktop no JavaScript/assets failures",
+      "data": []
+    },
+    {
+      "passed": true,
+      "title": "phone 9 genuine Qwen3 PA/social sources",
+      "data": 9
+    },
+    {
+      "passed": true,
+      "title": "phone original actor manifest isolated",
+      "data": 16
+    },
+    {
+      "passed": true,
+      "title": "phone actual PA start triggers real Opus",
+      "data": true
+    },
+    {
+      "passed": true,
+      "title": "phone audio/caption text are identical",
+      "data": {
+        "id": "STADIUM_PA",
+        "kind": "start",
+        "variant": "start",
+        "text": "同学们注意！放学后决斗社，现在开战！",
+        "duration_seconds": 3.81
+      }
+    },
+    {
+      "passed": true,
+      "title": "phone real low-voice banter",
+      "data": true
+    },
+    {
+      "passed": true,
+      "title": "phone cast voice and text preserve speaker identity",
+      "data": {
+        "id": "HOST_PLAYER",
+        "kind": "social",
+        "variant": "whisper_player",
+        "text": "嘘……听说食堂今天又做茄子炒香蕉。",
+        "duration_seconds": 4.01
+      }
+    },
+    {
+      "passed": true,
+      "title": "phone persistent mute blocks new PA",
+      "data": {
+        "provider": "Qwen3-TTS",
+        "enabled": false,
+        "requested": false,
+        "activationPending": false,
+        "assetsReady": true,
+        "audioContextState": "suspended",
+        "pendingCues": 0,
+        "pendingVoices": 0,
+        "musicKind": "school_duel_theme",
+        "musicDucked": false,
+        "musicTracks": [
+          "school_duel_theme",
+          "campus_parade",
+          "mischief_shuffle",
+          "tactical_pulse",
+          "heroic_comeback",
+          "duel_tension",
+          "final_overtime"
+        ],
+        "paClipCount": 9,
+        "finaleVoiceGuard": false,
+        "musicHistory": [],
+        "voiceVariantHistory": [],
+        "lastSpoken": {
+          "id": "HOST_PLAYER",
+          "kind": "social",
+          "variant": "whisper_player",
+          "text": "嘘……听说食堂今天又做茄子炒香蕉。",
+          "duration_seconds": 4.01
+        },
+        "speechHistory": [
+          {
+            "id": "STADIUM_PA",
+            "kind": "start",
+            "variant": "start",
+            "text": "同学们注意！放学后决斗社，现在开战！",
+            "duration_seconds": 3.81
+          },
+          {
+            "id": "HOST_PLAYER",
+            "kind": "social",
+            "variant": "whisper_player",
+            "text": "嘘……听说食堂今天又做茄子炒香蕉。",
+            "duration_seconds": 4.01
+          }
+        ],
+        "comicBeatHistory": [],
+        "voicePlaying": false,
+        "currentVoiceKey": null,
+        "voiceQueue": [],
+        "decodedCues": 37,
+        "voiceClipCount": 16,
+        "volume": {
+          "music": 0.32,
+          "sfx": 0.75,
+          "voice": 1
+        },
+        "counters": {
+          "cue": 0,
+          "voice": 2,
+          "voiceMissing": 0,
+          "voiceDropped": 0,
+          "voiceInterrupted": 0,
+          "unlock": 1,
+          "musicStart": 1,
+          "errors": 0
+        },
+        "events": [
+          {
+            "type": "unlocked",
+            "detail": "auto on load / first game action",
+            "at": 54
+          },
+          {
+            "type": "prepared",
+            "detail": "sound files ready; playback follows browser policy",
+            "at": 179
+          },
+          {
+            "type": "music",
+            "detail": "school_duel_theme",
+            "at": 211
+          },
+          {
+            "type": "voice-variant",
+            "detail": "STADIUM_PA:start=start",
+            "at": 2709
+          },
+          {
+            "type": "voice",
+            "detail": "STADIUM_PA:start",
+            "at": 2721
+          },
+          {
+            "type": "voice-variant",
+            "detail": "HOST_PLAYER:social=whisper_player",
+            "at": 6572
+          },
+          {
+            "type": "voice",
+            "detail": "HOST_PLAYER:social",
+            "at": 6575
+          },
+          {
+            "type": "muted",
+            "detail": "explicit user preference",
+            "at": 6656
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "title": "phone no JavaScript/assets failures",
+      "data": []
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "desktop-qwen-pa-subtitles.png",
+    "phone-qwen-pa-subtitles.png"
+  ]
+}
