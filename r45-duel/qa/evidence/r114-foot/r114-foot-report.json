@@ -1,0 +1,310 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop chef real ankles tracked",
+      "data": {
+        "id": "M02",
+        "uid": "U111",
+        "side": "player",
+        "enabled": true,
+        "footCandidates": [
+          {
+            "name": "LeftFoot",
+            "isBone": true
+          },
+          {
+            "name": "RightFoot",
+            "isBone": true
+          }
+        ],
+        "frames": 172,
+        "corrections": 149,
+        "maxStanceError": 0,
+        "last": {
+          "stance": "R",
+          "swing": "L",
+          "lift": 0.0402,
+          "correction": -0.0362,
+          "error": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop kitchen lady planted ankle stays within 10cm",
+      "data": {
+        "id": "M02",
+        "uid": "U111",
+        "side": "player",
+        "enabled": true,
+        "footCandidates": [
+          {
+            "name": "LeftFoot",
+            "isBone": true
+          },
+          {
+            "name": "RightFoot",
+            "isBone": true
+          }
+        ],
+        "frames": 172,
+        "corrections": 149,
+        "maxStanceError": 0,
+        "last": {
+          "stance": "R",
+          "swing": "L",
+          "lift": 0.0402,
+          "correction": -0.0362,
+          "error": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop high-res GLBs without exposed ankle joints use grounded fallback",
+      "data": [
+        {
+          "id": "M02",
+          "uid": "U111",
+          "side": "player",
+          "enabled": true,
+          "footCandidates": [
+            {
+              "name": "LeftFoot",
+              "isBone": true
+            },
+            {
+              "name": "RightFoot",
+              "isBone": true
+            }
+          ],
+          "frames": 172,
+          "corrections": 149,
+          "maxStanceError": 0,
+          "last": {
+            "stance": "R",
+            "swing": "L",
+            "lift": 0.0402,
+            "correction": -0.0362,
+            "error": 0
+          }
+        },
+        {
+          "id": "E03",
+          "uid": "U112",
+          "side": "player",
+          "enabled": false,
+          "footCandidates": [],
+          "frames": 0,
+          "corrections": 0,
+          "maxStanceError": 0,
+          "last": null
+        },
+        {
+          "id": "G02",
+          "uid": "U210",
+          "side": "ai",
+          "enabled": false,
+          "footCandidates": [],
+          "frames": 0,
+          "corrections": 0,
+          "maxStanceError": 0,
+          "last": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop podium duelists use planted alternating feet",
+      "data": [
+        {
+          "stance": "R",
+          "lift": 0.034,
+          "stage": "side_step"
+        },
+        null
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop no backward facing or sunk feet",
+      "data": [
+        {
+          "id": "M02",
+          "minY": -0.027,
+          "frontDot": 0.9942
+        },
+        {
+          "id": "E03",
+          "minY": -0.011,
+          "frontDot": 0.994
+        },
+        {
+          "id": "G02",
+          "minY": -0.003,
+          "frontDot": 1
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop zero JS or resource faults",
+      "data": []
+    },
+    {
+      "passed": true,
+      "label": "phone chef real ankles tracked",
+      "data": {
+        "id": "M02",
+        "uid": "U111",
+        "side": "player",
+        "enabled": true,
+        "footCandidates": [
+          {
+            "name": "LeftFoot",
+            "isBone": true
+          },
+          {
+            "name": "RightFoot",
+            "isBone": true
+          }
+        ],
+        "frames": 171,
+        "corrections": 148,
+        "maxStanceError": 0,
+        "last": {
+          "stance": "R",
+          "swing": "L",
+          "lift": 0.0392,
+          "correction": -0.0358,
+          "error": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone kitchen lady planted ankle stays within 10cm",
+      "data": {
+        "id": "M02",
+        "uid": "U111",
+        "side": "player",
+        "enabled": true,
+        "footCandidates": [
+          {
+            "name": "LeftFoot",
+            "isBone": true
+          },
+          {
+            "name": "RightFoot",
+            "isBone": true
+          }
+        ],
+        "frames": 171,
+        "corrections": 148,
+        "maxStanceError": 0,
+        "last": {
+          "stance": "R",
+          "swing": "L",
+          "lift": 0.0392,
+          "correction": -0.0358,
+          "error": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone high-res GLBs without exposed ankle joints use grounded fallback",
+      "data": [
+        {
+          "id": "M02",
+          "uid": "U111",
+          "side": "player",
+          "enabled": true,
+          "footCandidates": [
+            {
+              "name": "LeftFoot",
+              "isBone": true
+            },
+            {
+              "name": "RightFoot",
+              "isBone": true
+            }
+          ],
+          "frames": 171,
+          "corrections": 148,
+          "maxStanceError": 0,
+          "last": {
+            "stance": "R",
+            "swing": "L",
+            "lift": 0.0392,
+            "correction": -0.0358,
+            "error": 0
+          }
+        },
+        {
+          "id": "E03",
+          "uid": "U112",
+          "side": "player",
+          "enabled": false,
+          "footCandidates": [],
+          "frames": 0,
+          "corrections": 0,
+          "maxStanceError": 0,
+          "last": null
+        },
+        {
+          "id": "G02",
+          "uid": "U210",
+          "side": "ai",
+          "enabled": false,
+          "footCandidates": [],
+          "frames": 0,
+          "corrections": 0,
+          "maxStanceError": 0,
+          "last": null
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone podium duelists use planted alternating feet",
+      "data": [
+        {
+          "stance": "R",
+          "lift": 0.0352,
+          "stage": "side_step"
+        },
+        null
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone no backward facing or sunk feet",
+      "data": [
+        {
+          "id": "M02",
+          "minY": -0.026,
+          "frontDot": 0.9943
+        },
+        {
+          "id": "E03",
+          "minY": -0.011,
+          "frontDot": 0.994
+        },
+        {
+          "id": "G02",
+          "minY": -0.003,
+          "frontDot": 1
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone zero JS or resource faults",
+      "data": []
+    }
+  ],
+  "errors": []
+}
