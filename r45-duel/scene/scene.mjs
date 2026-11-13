@@ -21,6 +21,8 @@ import {createSpellImpact} from './spell-impact.mjs';
 import {createMagicArsenal} from './magic-arsenal.mjs';
 import {describeSpellContact} from './spell-response-contract.mjs';
 import {createSpellContactFX} from './spell-contact-fx.mjs';
+import {chooseCrowdAccident} from './spectator-chaos-contract.mjs';
+import {createSpectatorChaosFX} from './spectator-chaos-fx.mjs';
 import {createElementalVfx} from './elemental-vfx.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
@@ -186,12 +188,14 @@ let duelEffects=null;
 let comboDirector=null;
 let comedySpectacle=null;
 let liveScoreboard=null;
-let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null;
+let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null,spectatorChaosFX=null;
 const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
 let actualHostHits=0;
 let r121ContactReceipts=0;
 const pendingSpellContacts=[];
+const pendingCrowdAccidents=[];
+let r122AccidentReceipts=0;
 let podiumCards=null,handCards=null;
 let absoluteSeconds=0;
 let renderFrameTiming=0;
@@ -248,6 +252,7 @@ function makeScene(){
  magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
+ spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
  handCards=createHandPlayCards(THREE,scene);
   clock=new THREE.Clock();
@@ -677,6 +682,7 @@ function loop(){
  magicArsenal?.update(absoluteSeconds);
  elementalVfx?.update(absoluteSeconds);
  spellContactFX?.update(absoluteSeconds);
+ spectatorChaosFX?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
  comboDirector?.update(absoluteSeconds,reduced);
  comedySpectacle?.update(absoluteSeconds,reduced);
@@ -727,6 +733,32 @@ function loop(){
    directDamage:d.directDamage,unitDamage:d.unitDamage,
    targetIds:targets.map(t=>t.id),contactCount:targets.length+(d.directDamage>0?1:0)});
  }
+ // R122: accidental bleacher incidents are presentation-only extensions
+ // of canonical SPELL_RESULT events, never ghost attacks or health changes.
+ for(let i=pendingCrowdAccidents.length-1;i>=0;i--){
+  const pending=pendingCrowdAccidents[i],accident=pending.incident;
+  if(!pending.launched){
+   if(absoluteSeconds<pending.launchAt)continue;
+   const anchor=stadiumEvidence?.spectatorAnchor?.(accident.spectatorIndex);
+   if(!anchor){pendingCrowdAccidents.splice(i,1);continue}
+   pending.launched=spectatorChaosFX?.play(accident,anchor,absoluteSeconds)===true;
+   if(!pending.launched){pendingCrowdAccidents.splice(i,1);continue}
+   pending.hitAt=absoluteSeconds+(reduced?.24:.49);
+  }
+  if(absoluteSeconds<pending.hitAt)continue;
+  pendingCrowdAccidents.splice(i,1);
+  const hit=stadiumEvidence?.reactSpectatorAccident?.(accident,absoluteSeconds);
+  if(!hit)continue;
+  r122AccidentReceipts++;
+  reply('ASDC_R122_CROWD_ACCIDENT',{
+   serial:accident.serial,card:accident.card,side:accident.side,
+   scenario:accident.scenario,spectatorIndex:accident.spectatorIndex,
+   spectatorId:hit.spectatorId,element:accident.element,
+   caption:accident.caption,line:accident.line,
+   gameplayHit:false,ruleDamage:0
+  });
+ }
+
  arenaLife.tick(absoluteSeconds,{quiet:playing});
  actors.forEach(a=>reactActor(a,t,absoluteSeconds));
  updateDuelistHosts(absoluteSeconds);
@@ -850,6 +882,16 @@ function onMessage(ev){
    comedySpectacle?.trigger('spell_'+msg.effect,
     msg.side,msg.serial,absoluteSeconds,{reduced});
   if(spellSerials.size>500)spellSerials.clear();
+  const chaosAllowed=PARAMS.get('r122Crowd')!=='off';
+  const accident=chaosAllowed?chooseCrowdAccident(msg,{
+   force:PARAMS.get('qa')==='1'&&PARAMS.get('r122Crowd')==='force'}):null;
+  if(accident){
+   pendingCrowdAccidents.push({incident:accident,
+    // Residual magic leaves AFTER the true contact frame where applicable.
+    launchAt:absoluteSeconds+(accident.scenario==='misfire'?.08:.54),
+    launched:false,hitAt:Infinity});
+   if(pendingCrowdAccidents.length>5)pendingCrowdAccidents.shift();
+  }
   const descriptor=describeSpellContact(msg);
   if(descriptor){
    pendingSpellContacts.push({descriptor,due:absoluteSeconds+.46});
@@ -926,6 +968,9 @@ function exposeQA(){
   get magicArsenal(){return magicArsenal?.stats||null},
   get elementalVfx(){return elementalVfx?.stats||null},
   get spellContactFX(){return spellContactFX?.stats||null},
+  get spectatorChaosFX(){return spectatorChaosFX?.stats||null},
+  get r122AccidentReceipts(){return r122AccidentReceipts},
+  get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
   get r121ContactReceipts(){return r121ContactReceipts},
   get comboDirector(){return comboDirector?.stats||null},
   get comedySpectacle(){return comedySpectacle?.stats||null},
