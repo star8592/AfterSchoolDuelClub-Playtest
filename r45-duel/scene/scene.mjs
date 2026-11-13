@@ -753,6 +753,7 @@ function onMessage(ev){
    livingCast.signal(msg.side,'hurt',absoluteSeconds);
    actualHostHits++;
    duelEffects?.pulse(msg.side,absoluteSeconds);
+   stadiumEvidence?.reactAudience?.('hit',msg.side,absoluteSeconds);
   }
   return;
  }
@@ -774,6 +775,7 @@ function onMessage(ev){
   if(uids.length)pendingSpellUnitHits.push({side:victim,uids,due:absoluteSeconds+.46});
   if(Number.isInteger(msg.directDamage)&&msg.directDamage>0){
    hostHits[victim]={time:absoluteSeconds+.46,damage:msg.directDamage};
+   stadiumEvidence?.reactAudience?.('hit',victim,absoluteSeconds);
    livingCast.signal(victim,'hurt',absoluteSeconds+.46);
    actualHostHits++;
   }
@@ -794,6 +796,7 @@ function onMessage(ev){
   if(authorized){
    hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind};
    livingCast.signal(msg.side,'card',absoluteSeconds);
+   stadiumEvidence?.reactAudience?.('card',msg.side,absoluteSeconds);
    if(card.kind==='unit'){
     summonPresence?.reactToSummon(msg.side,msg.id,msg.serial,absoluteSeconds);
     // R79 recovered 3D portal effect on existing summoned characters.
@@ -921,6 +924,7 @@ try{
  });
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
+ stadiumEvidence?.mountAudience?.(summonModels);
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,
   onCombatImpact:(event)=>{

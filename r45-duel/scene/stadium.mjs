@@ -1,4 +1,5 @@
 import {addStadiumPolish} from './stadium-polish.mjs';
+import {createStadiumAudience} from './stadium-audience.mjs';
 /**
  * R45 procedural 3D school-gymnasium battle environment.
  * All architecture (court, bleachers, roof, light rigs, podiums and screens)
@@ -260,6 +261,8 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     cylinder(.22,.25,.07,20,[x,3.1,-2.1],gold,'Court_Floodlight_Head_'+sign);
   }
   const polish=addStadiumPolish(THREE,scene,group,stats);
+  const audience=createStadiumAudience(THREE,group);
+  let lastCrowdUpdate=0;
   // R112: the venue participates in the story. Existing lights and the
   // real three-dimensional scoreboard react; no extra postprocess/draw calls.
   const scoreDisplay=group.getObjectByName('Gym_Scoreboard_Display');
@@ -270,11 +273,15 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
   function beginFinale(winner,seconds){
    if(!['player','ai','draw'].includes(winner)||!Number.isFinite(seconds))return false;
    finale={winner,start:seconds,duration:7.2};
+   audience.react('finale',winner,seconds);
    scoreDisplay?.material?.emissive?.set(winner==='ai'?'#0d556d':
     winner==='player'?'#7b4230':'#504e78');
    return true;
   }
   function update(seconds,{reduced=false}={}){
+   const delta=lastCrowdUpdate?Math.max(0,Math.min(.06,seconds-lastCrowdUpdate)):.016;
+   lastCrowdUpdate=seconds;
+   audience.update(seconds,{reduced,dt:delta});
    const t=finale?seconds-finale.start:-1;
    if(!finale||t<0||t>finale.duration){
     keys.forEach(x=>{x.spot.intensity=x.base});
@@ -298,7 +305,10 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
    }
   }
   return {group,polish,beginFinale,update,
-   get ambience(){return {finale,finaleFrames,reactiveSpotlights:keys.length,
+   mountAudience:prototypes=>audience.mount(prototypes),
+   reactAudience:(type,side,seconds)=>audience.react(type,side,seconds),
+   get ambience(){return {finale,finaleFrames,audience:audience.stats,
+    reactiveSpotlights:keys.length,
     displayEmissiveIntensity:scoreDisplay?.material?.emissiveIntensity||0}},
    stats:{...stats,geometryTypes:[...stats.geometryTypes],
     totalPhysicalBleacherRows:stats.bleacherRows+8,
