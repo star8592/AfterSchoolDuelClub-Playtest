@@ -1,0 +1,314 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop all nonhuman and teacher original art parts connected",
+      "data": [
+        {
+          "id": "E02",
+          "uid": "U510",
+          "side": "player",
+          "enabled": true,
+          "parts": [
+            "E02_left_folded_outer_wing",
+            "E02_right_folded_outer_wing"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.015
+        },
+        {
+          "id": "M01",
+          "uid": "U511",
+          "side": "player",
+          "enabled": true,
+          "parts": [
+            "Spine2",
+            "Head",
+            "LeftShoulder",
+            "RightShoulder"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0148
+        },
+        {
+          "id": "T01",
+          "uid": "U520",
+          "side": "ai",
+          "enabled": true,
+          "parts": [
+            "Cambered_folded_wing_foundation",
+            "Cambered_folded_wing_foundation001",
+            "Shallow_inset_forward-facing_owl_eye",
+            "Shallow_inset_forward-facing_owl_eye001"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0148
+        },
+        {
+          "id": "T02",
+          "uid": "U521",
+          "side": "ai",
+          "enabled": true,
+          "parts": [
+            "T02_PIVOTABLE_FRONT_PAGE"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0148
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop exact art parts move not synthetic actors",
+      "data": [
+        {
+          "id": "E02",
+          "uid": "U510",
+          "side": "player",
+          "enabled": true,
+          "parts": [
+            "E02_left_folded_outer_wing",
+            "E02_right_folded_outer_wing"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.015
+        },
+        {
+          "id": "M01",
+          "uid": "U511",
+          "side": "player",
+          "enabled": true,
+          "parts": [
+            "Spine2",
+            "Head",
+            "LeftShoulder",
+            "RightShoulder"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0148
+        },
+        {
+          "id": "T01",
+          "uid": "U520",
+          "side": "ai",
+          "enabled": true,
+          "parts": [
+            "Cambered_folded_wing_foundation",
+            "Cambered_folded_wing_foundation001",
+            "Shallow_inset_forward-facing_owl_eye",
+            "Shallow_inset_forward-facing_owl_eye001"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0148
+        },
+        {
+          "id": "T02",
+          "uid": "U521",
+          "side": "ai",
+          "enabled": true,
+          "parts": [
+            "T02_PIVOTABLE_FRONT_PAGE"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0148
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop all actors retain opponent direction",
+      "data": [
+        {
+          "id": "E02",
+          "dot": 1
+        },
+        {
+          "id": "M01",
+          "dot": 1
+        },
+        {
+          "id": "T01",
+          "dot": 1
+        },
+        {
+          "id": "T02",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop low geometry cost",
+      "data": 841
+    },
+    {
+      "passed": true,
+      "label": "desktop zero JavaScript/asset errors",
+      "data": []
+    },
+    {
+      "passed": true,
+      "label": "portrait all nonhuman and teacher original art parts connected",
+      "data": [
+        {
+          "id": "E02",
+          "uid": "U510",
+          "side": "player",
+          "enabled": true,
+          "parts": [
+            "E02_left_folded_outer_wing",
+            "E02_right_folded_outer_wing"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.015
+        },
+        {
+          "id": "M01",
+          "uid": "U511",
+          "side": "player",
+          "enabled": true,
+          "parts": [
+            "Spine2",
+            "Head",
+            "LeftShoulder",
+            "RightShoulder"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0149
+        },
+        {
+          "id": "T01",
+          "uid": "U520",
+          "side": "ai",
+          "enabled": true,
+          "parts": [
+            "Cambered_folded_wing_foundation",
+            "Cambered_folded_wing_foundation001",
+            "Shallow_inset_forward-facing_owl_eye",
+            "Shallow_inset_forward-facing_owl_eye001"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0149
+        },
+        {
+          "id": "T02",
+          "uid": "U521",
+          "side": "ai",
+          "enabled": true,
+          "parts": [
+            "T02_PIVOTABLE_FRONT_PAGE"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0149
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait exact art parts move not synthetic actors",
+      "data": [
+        {
+          "id": "E02",
+          "uid": "U510",
+          "side": "player",
+          "enabled": true,
+          "parts": [
+            "E02_left_folded_outer_wing",
+            "E02_right_folded_outer_wing"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.015
+        },
+        {
+          "id": "M01",
+          "uid": "U511",
+          "side": "player",
+          "enabled": true,
+          "parts": [
+            "Spine2",
+            "Head",
+            "LeftShoulder",
+            "RightShoulder"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0149
+        },
+        {
+          "id": "T01",
+          "uid": "U520",
+          "side": "ai",
+          "enabled": true,
+          "parts": [
+            "Cambered_folded_wing_foundation",
+            "Cambered_folded_wing_foundation001",
+            "Shallow_inset_forward-facing_owl_eye",
+            "Shallow_inset_forward-facing_owl_eye001"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0149
+        },
+        {
+          "id": "T02",
+          "uid": "U521",
+          "side": "ai",
+          "enabled": true,
+          "parts": [
+            "T02_PIVOTABLE_FRONT_PAGE"
+          ],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "maxMovement": 0.0149
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait all actors retain opponent direction",
+      "data": [
+        {
+          "id": "E02",
+          "dot": 1
+        },
+        {
+          "id": "M01",
+          "dot": 1
+        },
+        {
+          "id": "T01",
+          "dot": 1
+        },
+        {
+          "id": "T02",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait low geometry cost",
+      "data": 841
+    },
+    {
+      "passed": true,
+      "label": "portrait zero JavaScript/asset errors",
+      "data": []
+    }
+  ],
+  "errors": []
+}

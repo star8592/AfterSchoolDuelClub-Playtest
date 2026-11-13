@@ -21,6 +21,7 @@ import {createSpellImpact} from './spell-impact.mjs';
 import {createMagicArsenal} from './magic-arsenal.mjs';
 import {createElementalVfx} from './elemental-vfx.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
+import {createHandPlayCards} from './hand-play-cards.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
 import {preloadSummonModels} from './summon-models.mjs';
@@ -188,7 +189,7 @@ const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
 let actualHostHits=0;
 const pendingSpellUnitHits=[];
-let podiumCards=null;
+let podiumCards=null,handCards=null;
 let absoluteSeconds=0;
 let renderFrameTiming=0;
 let choreographyQA={stride:0,guard:0,cameraOrbit:0,maxStride:0,maxOrbit:0};
@@ -244,6 +245,7 @@ function makeScene(){
  magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
+ handCards=createHandPlayCards(THREE,scene);
   clock=new THREE.Clock();
  onResize();window.addEventListener('resize',onResize);
  installOrbitControls();
@@ -681,6 +683,7 @@ function loop(){
    visible:actors.map(a=>a.pivot.visible),
    reducedMotion:reduced});
  podiumCards?.update(absoluteSeconds,playing,camera.aspect<.95);
+ handCards?.update(absoluteSeconds,camera);
  summonPresence?.update(absoluteSeconds,camera,{cinematic:playing});
  // Deliberate single slow push-in during actual contact. No shake or
  // random camera jitter. Stays inside the same view and card layout.
@@ -822,7 +825,8 @@ function onMessage(ev){
   const authorized=['player','ai'].includes(msg.side)&&
     card?.kind===msg.kind&&Number.isInteger(msg.serial)&&msg.serial>0;
   if(authorized){
-   hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind};
+   hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind,id:msg.id};
+   handCards?.show(msg.side,msg.id,msg.serial,absoluteSeconds);
    arenaLife.observe('card',{side:msg.side,at:absoluteSeconds,kind:msg.kind});
    livingCast.signal(msg.side,'card',absoluteSeconds);
    stadiumEvidence?.reactAudience?.('card',msg.side,absoluteSeconds);
@@ -902,6 +906,7 @@ function exposeQA(){
   get stadiumAmbience(){return stadiumEvidence?.ambience||null},
   get effects(){return duelEffects?.stats||null},
   get podiumCards(){return podiumCards?.stats||null},
+  get handCards(){return handCards?.stats||null},
   get cameraDistance(){return camera?.position.distanceTo(new THREE.Vector3(0,1.3,0))||null},
   get framing(){return cameraFrameStats()},
   get occlusion(){
@@ -1009,6 +1014,7 @@ try{
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
  makeDuelistHosts();
+ handCards?.attach(duelistHosts);
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
