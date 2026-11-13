@@ -91,8 +91,9 @@ export function createSpectatorChaosFX(THREE,scene,{reducedMotion=false}={}){
    a.light.intensity=(reducedMotion?.7:2.3)*(t<projectileTime?1:burst);
   }
  }
- function dispose(){while(active.length)remove(active.pop());root.removeFromParent();sphere.dispose();spark.dispose()}
- return{play,update,dispose,get stats(){return{
+ function reset(){while(active.length)remove(active.pop())}
+ function dispose(){reset();root.removeFromParent();sphere.dispose();spark.dispose()}
+ return{play,update,reset,dispose,get stats(){return{
   launched,impacts,expired,active:active.length,peak,
   activeScenarios:active.map(x=>x.scenario),ruleMutations:0
  }}};
