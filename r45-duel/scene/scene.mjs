@@ -10,6 +10,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from '../assets/meshopt/meshopt_decoder.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-acting.mjs';
+import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
 import {contactStep} from './foot-contact.mjs';
@@ -35,6 +36,13 @@ import {createLivingCastDirector} from './living-cast-director.mjs';
 import {createArenaLifeWorld} from './arena-life-world.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+const R134_HOST_IDLE_ENABLED=(()=>{
+ const local=PARAMS.get('r134Hosts');
+ if(local==='off'||local==='on')return local==='on';
+ try{return window.parent===window||
+  new URLSearchParams(window.parent.location.search).get('r134Hosts')!=='off';}
+ catch{return true;}
+})();
 const R131_IS_QA=()=>PARAMS.get('qa')==='1'||(()=>{
  try{return window.parent!==window&&new URLSearchParams(window.parent.location.search).get('qa')==='1';}
  catch{return false;}
@@ -600,6 +608,8 @@ function updateDuelistHosts(seconds){
   const doDraw=draw*cardWeight,doDisplay=display*cardWeight,
    doCast=cast*cardWeight,doFollow=follow*cardWeight;
   const actionStrength=Math.max(doDraw,doDisplay,doCast,doFollow,recoil,ceremony);
+  const r134Idle=R134_HOST_IDLE_ENABLED?
+   r134HostIdleBeat(host.id,seconds,{busy:actionStrength,reduced}):null;
   // R120 campus-comedy exaggeration. Irregular unique individual beats,
   // not a passive, genteel shoulder sway while waiting between turns.
   const idleBlend=(1-actionStrength)*strength*(reduced?.45:1.55);
@@ -620,12 +630,12 @@ function updateDuelistHosts(seconds){
     sign*(.13*doCast+.09*doFollow-.25*recoil)+
     sign*.14*victory-sign*.13*defeat+
     .018*glance*(1-actionStrength)+sign*(act.step||0)*idleBlend*
-      (footwork?.stance?.32:1);
+      (footwork?.stance?.32:1)+(r134Idle?.shiftX||0);
   host.pivot.position.y=.48+.012*breath+cardHop+winnerHop+
-    (footwork?0:(act.jump||0)*idleBlend*.6);
+    (footwork?0:(act.jump||0)*idleBlend*.6)+(r134Idle?.liftY||0);
   host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.21*doDisplay+.29*doCast)+
     sign*(act.headYaw||0)*idleBlend*.30+
-    sign*.16*victory-sign*.12*defeat;
+    sign*.16*victory-sign*.12*defeat+(r134Idle?.yaw||0);
   host.pivot.rotation.z=sign*(-.12*doCast+.15*doFollow+.23*recoil-
     .095*victory+.24*defeat)+.011*glance+
     sign*(act.tilt||0)*idleBlend;
@@ -654,29 +664,29 @@ function updateDuelistHosts(seconds){
     lifeMood?.emotion==='elated'?.60:
     lifeMood?.emotion==='playful'?.32:0)});
   setBone(host,'C_Spine',.014*breath-.17*doCast+.24*recoil+
-   .16*victory+.21*defeat+(act.chest||0)*idleBlend*.36,0,
-   sign*(.015*glance-.12*doCast+.18*recoil));
+   .16*victory+.21*defeat+(act.chest||0)*idleBlend*.36+(r134Idle?.spinePitch||0),0,
+   sign*(.015*glance-.12*doCast+.18*recoil)+(r134Idle?.spineRoll||0));
   setBone(host,'C_Chest',.015*breath-.15*doDisplay-.30*doCast+
    .24*recoil-.17*victory+.24*defeat+
-   (act.chest||0)*idleBlend,sign*.09*doDisplay,
-   sign*(-.12*doCast+.16*recoil));
+   (act.chest||0)*idleBlend+(r134Idle?.chestPitch||0),sign*.09*doDisplay,
+   sign*(-.12*doCast+.16*recoil)+(r134Idle?.chestRoll||0));
   // A short speaking nod on the source head bone creates visible
   // participation without rotating a proxy body away from the opponent.
   const syllableNod=speaking?
    Math.sin((seconds-speaking.started)*13.1+(side==='ai'?.7:0))*.032:0;
   setBone(host,'C_Head',-.030*inspectCard-.12*doDisplay-.13*doCast+
    .27*recoil-.13*victory+.28*defeat+(act.headPitch||0)*idleBlend+
-   syllableNod,
-   sign*(.065*glance+.13*doDisplay+(act.headYaw||0)*idleBlend),
-   sign*.02*glance);
+   syllableNod+(r134Idle?.headPitch||0),
+   sign*(.065*glance+.13*doDisplay+(act.headYaw||0)*idleBlend)+(r134Idle?.headYaw||0),
+   sign*.02*glance+(r134Idle?.headRoll||0));
   setBone(host,'L_UpperLeg',.026*glance-.10*doCast+.16*recoil+
-   .20*victory-.27*defeat+(footwork?.swing==='L'?legSwing*2:0),0,0);
+   .20*victory-.27*defeat+(footwork?.swing==='L'?legSwing*2:0)+(r134Idle?.thighL||0),0,0);
   setBone(host,'R_UpperLeg',-.026*glance+.11*doCast-.12*recoil+
-   .18*victory-.27*defeat+(footwork?.swing==='R'?legSwing*2:0),0,0);
+   .18*victory-.27*defeat+(footwork?.swing==='R'?legSwing*2:0)+(r134Idle?.thighR||0),0,0);
   setBone(host,'L_LowerLeg',.02*doCast-.16*defeat+
-   (footwork?.swing==='L'?-legSwing:0),0,0);
+   (footwork?.swing==='L'?-legSwing:0)+(r134Idle?.kneeL||0),0,0);
   setBone(host,'R_LowerLeg',-.02*doCast-.16*defeat+
-   (footwork?.swing==='R'?-legSwing:0),0,0);
+   (footwork?.swing==='R'?-legSwing:0)+(r134Idle?.kneeR||0),0,0);
   // We restore BOTH source arm segments before IK, avoiding accumulating
   // twist from frame to frame or mixing cinematic and game idle rigs.
   for(const name of ['R_UpperArm','R_LowerArm','L_UpperArm','L_LowerArm']){
@@ -689,6 +699,8 @@ function updateDuelistHosts(seconds){
    const idleShift=hand==='R'?.011*breath:-.009*breath;
    targetVector.y+=idleShift;
    if(hand==='R')targetVector.y+=.12*inspectCard;
+   if(r134Idle)targetVector.add(new THREE.Vector3(
+    ...(hand==='R'?r134Idle.handR:r134Idle.handL)));
    const actingHand=act[hand==='R'?'right':'left'];
    if(actingHand)for(let j=0;j<3;j++)targetVector.setComponent(j,
     targetVector.getComponent(j)+actingHand[j]*idleBlend);
@@ -730,6 +742,11 @@ function updateDuelistHosts(seconds){
     recoil:+recoil.toFixed(3),
     speaking:!!speaking,speechSerial:speaking?.serial??null,
     inspected:+inspectCard.toFixed(3),livingBeat:act.type,
+    r134Idle:r134Idle?{story:r134Idle.story,
+     strength:r134Idle.strength,phase:r134Idle.phase,
+     headYaw:+r134Idle.headYaw.toFixed(4),
+     thighL:+r134Idle.thighL.toFixed(4),thighR:+r134Idle.thighR.toFixed(4),
+     inspect:r134Idle.inspect,challenge:r134Idle.challenge}:null,
     footContact:footwork?{stance:footwork.stance,
       lift:+footwork.lift.toFixed(4),stage:act.stage}:null,
     livingStrength:+idleBlend.toFixed(3)};

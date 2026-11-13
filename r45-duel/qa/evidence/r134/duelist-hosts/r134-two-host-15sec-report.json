@@ -1,0 +1,3880 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop enabled genuine two independent VRM source hosts"
+    },
+    {
+      "pass": true,
+      "label": "desktop enabled two real 15 finger grasp rigs remain"
+    },
+    {
+      "pass": true,
+      "label": "desktop enabled E01 both true wrists track source arm pose"
+    },
+    {
+      "pass": true,
+      "label": "desktop E01 15sec all six original-body idle beats driven"
+    },
+    {
+      "pass": true,
+      "label": "desktop E01 multiple distinct attentive/expressive beats"
+    },
+    {
+      "pass": true,
+      "label": "desktop E01 visible source head/leg animation changes over time"
+    },
+    {
+      "pass": true,
+      "label": "desktop enabled G01 both true wrists track source arm pose"
+    },
+    {
+      "pass": true,
+      "label": "desktop G01 15sec all six original-body idle beats driven"
+    },
+    {
+      "pass": true,
+      "label": "desktop G01 multiple distinct attentive/expressive beats"
+    },
+    {
+      "pass": true,
+      "label": "desktop G01 visible source head/leg animation changes over time"
+    },
+    {
+      "pass": true,
+      "label": "desktop genuine independent personality timeline per duelist"
+    },
+    {
+      "pass": true,
+      "label": "desktop enabled has no scene JS errors / missing files"
+    },
+    {
+      "pass": true,
+      "label": "desktop rollback genuine two independent VRM source hosts"
+    },
+    {
+      "pass": true,
+      "label": "desktop rollback two real 15 finger grasp rigs remain"
+    },
+    {
+      "pass": true,
+      "label": "desktop rollback E01 both true wrists track source arm pose"
+    },
+    {
+      "pass": true,
+      "label": "desktop E01 explicit rollback removes host idle layer"
+    },
+    {
+      "pass": true,
+      "label": "desktop rollback G01 both true wrists track source arm pose"
+    },
+    {
+      "pass": true,
+      "label": "desktop G01 explicit rollback removes host idle layer"
+    },
+    {
+      "pass": true,
+      "label": "desktop rollback has no scene JS errors / missing files"
+    },
+    {
+      "pass": true,
+      "label": "portrait enabled genuine two independent VRM source hosts"
+    },
+    {
+      "pass": true,
+      "label": "portrait enabled two real 15 finger grasp rigs remain"
+    },
+    {
+      "pass": true,
+      "label": "portrait enabled E01 both true wrists track source arm pose"
+    },
+    {
+      "pass": true,
+      "label": "portrait E01 15sec all six original-body idle beats driven"
+    },
+    {
+      "pass": true,
+      "label": "portrait E01 multiple distinct attentive/expressive beats"
+    },
+    {
+      "pass": true,
+      "label": "portrait E01 visible source head/leg animation changes over time"
+    },
+    {
+      "pass": true,
+      "label": "portrait enabled G01 both true wrists track source arm pose"
+    },
+    {
+      "pass": true,
+      "label": "portrait G01 15sec all six original-body idle beats driven"
+    },
+    {
+      "pass": true,
+      "label": "portrait G01 multiple distinct attentive/expressive beats"
+    },
+    {
+      "pass": true,
+      "label": "portrait G01 visible source head/leg animation changes over time"
+    },
+    {
+      "pass": true,
+      "label": "portrait genuine independent personality timeline per duelist"
+    },
+    {
+      "pass": true,
+      "label": "portrait enabled has no scene JS errors / missing files"
+    },
+    {
+      "pass": true,
+      "label": "portrait rollback genuine two independent VRM source hosts"
+    },
+    {
+      "pass": true,
+      "label": "portrait rollback two real 15 finger grasp rigs remain"
+    },
+    {
+      "pass": true,
+      "label": "portrait rollback E01 both true wrists track source arm pose"
+    },
+    {
+      "pass": true,
+      "label": "portrait E01 explicit rollback removes host idle layer"
+    },
+    {
+      "pass": true,
+      "label": "portrait rollback G01 both true wrists track source arm pose"
+    },
+    {
+      "pass": true,
+      "label": "portrait G01 explicit rollback removes host idle layer"
+    },
+    {
+      "pass": true,
+      "label": "portrait rollback has no scene JS errors / missing files"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "mode": "enabled",
+      "samples": [
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 0.0242,
+                  "headYaw": 0,
+                  "thighL": 0.0012,
+                  "thighR": -0.0012,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.905,
+                    "spread": 0.227,
+                    "worldHand": [
+                      -5.317,
+                      1.775,
+                      0.628
+                    ],
+                    "wristToShoulder": 0.436
+                  },
+                  "L": {
+                    "drop": -0.96,
+                    "spread": 0.114,
+                    "worldHand": [
+                      -5.417,
+                      1.623,
+                      0.454
+                    ],
+                    "wristToShoulder": 0.53
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.063,
+                    "reach": 0.436,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.317,
+                      1.775,
+                      0.628
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.032,
+                    "reach": 0.53,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.417,
+                      1.623,
+                      0.454
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "check_hand",
+                  "strength": 1,
+                  "phase": 2.3742,
+                  "headYaw": -0.21,
+                  "thighL": 0.0792,
+                  "thighR": -0.0792,
+                  "inspect": 1,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.325,
+                    "spread": 0.926,
+                    "worldHand": [
+                      5.368,
+                      2.267,
+                      0.636
+                    ],
+                    "wristToShoulder": 0.345
+                  },
+                  "L": {
+                    "drop": -0.813,
+                    "spread": 0.115,
+                    "worldHand": [
+                      5.462,
+                      1.678,
+                      0.953
+                    ],
+                    "wristToShoulder": 0.536
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.239,
+                    "reach": 0.345,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.368,
+                      2.267,
+                      0.636
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0147,
+                    "elbowOut": 0.03,
+                    "reach": 0.55,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.462,
+                      1.678,
+                      0.953
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 3.0251,
+                  "headYaw": 0.0608,
+                  "thighL": 0.1009,
+                  "thighR": -0.1009,
+                  "inspect": 0.2433,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.809,
+                    "spread": 0.098,
+                    "worldHand": [
+                      -5.271,
+                      1.82,
+                      0.631
+                    ],
+                    "wristToShoulder": 0.379
+                  },
+                  "L": {
+                    "drop": -0.949,
+                    "spread": 0.06,
+                    "worldHand": [
+                      -5.353,
+                      1.618,
+                      0.439
+                    ],
+                    "wristToShoulder": 0.505
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.027,
+                    "reach": 0.379,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.271,
+                      1.82,
+                      0.631
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.017,
+                    "reach": 0.505,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.353,
+                      1.618,
+                      0.439
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "focus",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "focus",
+                "r134Idle": {
+                  "story": "challenge_opponent",
+                  "strength": 1,
+                  "phase": 5.3751,
+                  "headYaw": 0.2175,
+                  "thighL": 0.059,
+                  "thighR": -0.023,
+                  "inspect": 0,
+                  "challenge": 0.9457
+                },
+                "footContact": null,
+                "livingStrength": 0.467,
+                "arms": {
+                  "R": {
+                    "drop": -0.92,
+                    "spread": 0.225,
+                    "worldHand": [
+                      5.386,
+                      2.019,
+                      0.538
+                    ],
+                    "wristToShoulder": 0.255
+                  },
+                  "L": {
+                    "drop": -0.604,
+                    "spread": 0.037,
+                    "worldHand": [
+                      5.486,
+                      1.782,
+                      0.759
+                    ],
+                    "wristToShoulder": 0.351
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.058,
+                    "reach": 0.255,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.386,
+                      2.019,
+                      0.538
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.01,
+                    "reach": 0.351,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.486,
+                      1.782,
+                      0.759
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "whisper",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "whisper",
+                "r134Idle": {
+                  "story": "challenge_opponent",
+                  "strength": 1,
+                  "phase": 6.0418,
+                  "headYaw": -0.24,
+                  "thighL": 0.0583,
+                  "thighR": -0.0303,
+                  "inspect": 0,
+                  "challenge": 1
+                },
+                "footContact": null,
+                "livingStrength": 0.988,
+                "arms": {
+                  "R": {
+                    "drop": -0.884,
+                    "spread": 0.254,
+                    "worldHand": [
+                      -5.319,
+                      1.862,
+                      0.595
+                    ],
+                    "wristToShoulder": 0.373
+                  },
+                  "L": {
+                    "drop": -0.949,
+                    "spread": 0.244,
+                    "worldHand": [
+                      -5.334,
+                      1.868,
+                      0.642
+                    ],
+                    "wristToShoulder": 0.39
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.071,
+                    "reach": 0.373,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.319,
+                      1.862,
+                      0.595
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.068,
+                    "reach": 0.39,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.334,
+                      1.868,
+                      0.642
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "shrug",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "shrug",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 8.3918,
+                  "headYaw": 0,
+                  "thighL": -0.0603,
+                  "thighR": 0.0603,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": -0.543,
+                    "spread": 0.391,
+                    "worldHand": [
+                      5.336,
+                      2.212,
+                      0.434
+                    ],
+                    "wristToShoulder": 0.211
+                  },
+                  "L": {
+                    "drop": -0.19,
+                    "spread": 0.257,
+                    "worldHand": [
+                      5.446,
+                      1.87,
+                      0.885
+                    ],
+                    "wristToShoulder": 0.285
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.101,
+                    "reach": 0.211,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.336,
+                      2.212,
+                      0.434
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.066,
+                    "reach": 0.285,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.446,
+                      1.87,
+                      0.885
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "nod",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "nod",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 0.4582,
+                  "headYaw": 0,
+                  "thighL": -0.0916,
+                  "thighR": 0.0916,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": -0.937,
+                    "spread": 0.213,
+                    "worldHand": [
+                      -5.385,
+                      1.749,
+                      0.657
+                    ],
+                    "wristToShoulder": 0.431
+                  },
+                  "L": {
+                    "drop": -0.951,
+                    "spread": 0.095,
+                    "worldHand": [
+                      -5.486,
+                      1.622,
+                      0.48
+                    ],
+                    "wristToShoulder": 0.536
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.059,
+                    "reach": 0.431,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.385,
+                      1.749,
+                      0.657
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0024,
+                    "elbowOut": 0.026,
+                    "reach": 0.538,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.486,
+                      1.622,
+                      0.48
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "inspect",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 1.55,
+                "livingBeat": "inspect",
+                "r134Idle": {
+                  "story": "check_hand",
+                  "strength": 1,
+                  "phase": 1.3082,
+                  "headYaw": -0.2082,
+                  "thighL": -0.0727,
+                  "thighR": 0.0727,
+                  "inspect": 0.9915,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": 0.86,
+                    "spread": 0.47,
+                    "worldHand": [
+                      5.284,
+                      2.527,
+                      0.639
+                    ],
+                    "wristToShoulder": 0.468
+                  },
+                  "L": {
+                    "drop": -0.667,
+                    "spread": 0.01,
+                    "worldHand": [
+                      5.375,
+                      1.658,
+                      0.958
+                    ],
+                    "wristToShoulder": 0.478
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.121,
+                    "reach": 0.468,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.284,
+                      2.527,
+                      0.639
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.003,
+                    "reach": 0.478,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.375,
+                      1.658,
+                      0.958
+                    ]
+                  }
+                },
+                "face": "gesture"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 3.4746,
+                  "headYaw": 0,
+                  "thighL": -0.0583,
+                  "thighR": 0.0583,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.906,
+                    "spread": 0.256,
+                    "worldHand": [
+                      -5.35,
+                      1.795,
+                      0.633
+                    ],
+                    "wristToShoulder": 0.424
+                  },
+                  "L": {
+                    "drop": -0.959,
+                    "spread": 0.133,
+                    "worldHand": [
+                      -5.453,
+                      1.636,
+                      0.456
+                    ],
+                    "wristToShoulder": 0.537
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.071,
+                    "reach": 0.424,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.35,
+                      1.795,
+                      0.633
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0122,
+                    "elbowOut": 0.037,
+                    "reach": 0.548,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.453,
+                      1.636,
+                      0.456
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 4.3246,
+                  "headYaw": 0,
+                  "thighL": 0.0004,
+                  "thighR": -0.0004,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.919,
+                    "spread": 0.211,
+                    "worldHand": [
+                      5.394,
+                      2.041,
+                      0.569
+                    ],
+                    "wristToShoulder": 0.24
+                  },
+                  "L": {
+                    "drop": -0.858,
+                    "spread": 0.002,
+                    "worldHand": [
+                      5.504,
+                      1.662,
+                      0.78
+                    ],
+                    "wristToShoulder": 0.474
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.054,
+                    "reach": 0.24,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.394,
+                      2.041,
+                      0.569
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.001,
+                    "reach": 0.474,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.504,
+                      1.662,
+                      0.78
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "challenge_opponent",
+                  "strength": 1,
+                  "phase": 6.4747,
+                  "headYaw": -0.144,
+                  "thighL": 0.0901,
+                  "thighR": -0.0733,
+                  "inspect": 0,
+                  "challenge": 0.6
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.897,
+                    "spread": 0.211,
+                    "worldHand": [
+                      -5.271,
+                      1.756,
+                      0.606
+                    ],
+                    "wristToShoulder": 0.447
+                  },
+                  "L": {
+                    "drop": -0.938,
+                    "spread": 0.139,
+                    "worldHand": [
+                      -5.325,
+                      1.767,
+                      0.553
+                    ],
+                    "wristToShoulder": 0.408
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.059,
+                    "reach": 0.447,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.271,
+                      1.756,
+                      0.606
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.039,
+                    "reach": 0.408,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.325,
+                      1.767,
+                      0.553
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "challenge_opponent",
+                  "strength": 1,
+                  "phase": 7.3247,
+                  "headYaw": 0.2227,
+                  "thighL": 0.1097,
+                  "thighR": -0.0729,
+                  "inspect": 0,
+                  "challenge": 0.9683
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.899,
+                    "spread": 0.365,
+                    "worldHand": [
+                      5.413,
+                      2.052,
+                      0.536
+                    ],
+                    "wristToShoulder": 0.265
+                  },
+                  "L": {
+                    "drop": -0.626,
+                    "spread": 0.009,
+                    "worldHand": [
+                      5.513,
+                      1.788,
+                      0.757
+                    ],
+                    "wristToShoulder": 0.376
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.094,
+                    "reach": 0.265,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.413,
+                      2.052,
+                      0.536
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.002,
+                    "reach": 0.376,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.513,
+                      1.788,
+                      0.757
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        }
+      ]
+    },
+    {
+      "view": "desktop",
+      "mode": "rollback",
+      "samples": [
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.905,
+                    "spread": 0.228,
+                    "worldHand": [
+                      -5.318,
+                      1.773,
+                      0.628
+                    ],
+                    "wristToShoulder": 0.435
+                  },
+                  "L": {
+                    "drop": -0.96,
+                    "spread": 0.115,
+                    "worldHand": [
+                      -5.418,
+                      1.621,
+                      0.454
+                    ],
+                    "wristToShoulder": 0.53
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.063,
+                    "reach": 0.435,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.318,
+                      1.773,
+                      0.628
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.032,
+                    "reach": 0.53,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.418,
+                      1.621,
+                      0.454
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.911,
+                    "spread": 0.262,
+                    "worldHand": [
+                      5.395,
+                      2.064,
+                      0.569
+                    ],
+                    "wristToShoulder": 0.241
+                  },
+                  "L": {
+                    "drop": -0.879,
+                    "spread": 0.018,
+                    "worldHand": [
+                      5.505,
+                      1.662,
+                      0.78
+                    ],
+                    "wristToShoulder": 0.485
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.068,
+                    "reach": 0.241,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.395,
+                      2.064,
+                      0.569
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.005,
+                    "reach": 0.485,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.505,
+                      1.662,
+                      0.78
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.906,
+                    "spread": 0.22,
+                    "worldHand": [
+                      -5.307,
+                      1.762,
+                      0.62
+                    ],
+                    "wristToShoulder": 0.439
+                  },
+                  "L": {
+                    "drop": -0.956,
+                    "spread": 0.101,
+                    "worldHand": [
+                      -5.407,
+                      1.619,
+                      0.446
+                    ],
+                    "wristToShoulder": 0.525
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.061,
+                    "reach": 0.439,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.307,
+                      1.762,
+                      0.62
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.028,
+                    "reach": 0.525,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.407,
+                      1.619,
+                      0.446
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "focus",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "focus",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0.584,
+                "arms": {
+                  "R": {
+                    "drop": -0.925,
+                    "spread": 0.137,
+                    "worldHand": [
+                      5.367,
+                      2.02,
+                      0.547
+                    ],
+                    "wristToShoulder": 0.232
+                  },
+                  "L": {
+                    "drop": -0.829,
+                    "spread": 0.031,
+                    "worldHand": [
+                      5.477,
+                      1.659,
+                      0.764
+                    ],
+                    "wristToShoulder": 0.462
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.035,
+                    "reach": 0.232,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.367,
+                      2.02,
+                      0.547
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.008,
+                    "reach": 0.462,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.477,
+                      1.659,
+                      0.764
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "whisper",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "whisper",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0.987,
+                "arms": {
+                  "R": {
+                    "drop": -0.891,
+                    "spread": 0.247,
+                    "worldHand": [
+                      -5.33,
+                      1.858,
+                      0.61
+                    ],
+                    "wristToShoulder": 0.373
+                  },
+                  "L": {
+                    "drop": -0.967,
+                    "spread": 0.094,
+                    "worldHand": [
+                      -5.438,
+                      1.626,
+                      0.459
+                    ],
+                    "wristToShoulder": 0.536
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.069,
+                    "reach": 0.373,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.33,
+                      1.858,
+                      0.61
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0013,
+                    "elbowOut": 0.026,
+                    "reach": 0.537,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.438,
+                      1.626,
+                      0.459
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "shrug",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "shrug",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": -0.491,
+                    "spread": 0.503,
+                    "worldHand": [
+                      5.366,
+                      2.209,
+                      0.431
+                    ],
+                    "wristToShoulder": 0.216
+                  },
+                  "L": {
+                    "drop": -0.206,
+                    "spread": 0.248,
+                    "worldHand": [
+                      5.476,
+                      1.866,
+                      0.882
+                    ],
+                    "wristToShoulder": 0.307
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.13,
+                    "reach": 0.216,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.366,
+                      2.209,
+                      0.431
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.064,
+                    "reach": 0.307,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.476,
+                      1.866,
+                      0.882
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "nod",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "nod",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": -0.924,
+                    "spread": 0.196,
+                    "worldHand": [
+                      -5.338,
+                      1.749,
+                      0.65
+                    ],
+                    "wristToShoulder": 0.439
+                  },
+                  "L": {
+                    "drop": -0.945,
+                    "spread": 0.077,
+                    "worldHand": [
+                      -5.438,
+                      1.62,
+                      0.474
+                    ],
+                    "wristToShoulder": 0.523
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.055,
+                    "reach": 0.439,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.338,
+                      1.749,
+                      0.65
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.022,
+                    "reach": 0.523,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.438,
+                      1.62,
+                      0.474
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "inspect",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 1.55,
+                "livingBeat": "inspect",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": 0.25,
+                    "spread": 0.85,
+                    "worldHand": [
+                      5.386,
+                      2.329,
+                      0.564
+                    ],
+                    "wristToShoulder": 0.294
+                  },
+                  "L": {
+                    "drop": -0.846,
+                    "spread": 0.03,
+                    "worldHand": [
+                      5.496,
+                      1.659,
+                      0.776
+                    ],
+                    "wristToShoulder": 0.469
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.219,
+                    "reach": 0.294,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.386,
+                      2.329,
+                      0.564
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.008,
+                    "reach": 0.469,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.496,
+                      1.659,
+                      0.776
+                    ]
+                  }
+                },
+                "face": "gesture"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.896,
+                    "spread": 0.244,
+                    "worldHand": [
+                      -5.32,
+                      1.795,
+                      0.629
+                    ],
+                    "wristToShoulder": 0.429
+                  },
+                  "L": {
+                    "drop": -0.967,
+                    "spread": 0.138,
+                    "worldHand": [
+                      -5.421,
+                      1.627,
+                      0.454
+                    ],
+                    "wristToShoulder": 0.536
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.068,
+                    "reach": 0.429,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.32,
+                      1.795,
+                      0.629
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0024,
+                    "elbowOut": 0.038,
+                    "reach": 0.538,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.421,
+                      1.627,
+                      0.454
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.919,
+                    "spread": 0.211,
+                    "worldHand": [
+                      5.394,
+                      2.038,
+                      0.569
+                    ],
+                    "wristToShoulder": 0.24
+                  },
+                  "L": {
+                    "drop": -0.858,
+                    "spread": 0.002,
+                    "worldHand": [
+                      5.504,
+                      1.658,
+                      0.78
+                    ],
+                    "wristToShoulder": 0.474
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.055,
+                    "reach": 0.24,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.394,
+                      2.038,
+                      0.569
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0,
+                    "reach": 0.474,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.504,
+                      1.658,
+                      0.78
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.91,
+                    "spread": 0.213,
+                    "worldHand": [
+                      -5.306,
+                      1.752,
+                      0.62
+                    ],
+                    "wristToShoulder": 0.442
+                  },
+                  "L": {
+                    "drop": -0.95,
+                    "spread": 0.089,
+                    "worldHand": [
+                      -5.406,
+                      1.618,
+                      0.446
+                    ],
+                    "wristToShoulder": 0.52
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.059,
+                    "reach": 0.442,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.306,
+                      1.752,
+                      0.62
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.025,
+                    "reach": 0.52,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.406,
+                      1.618,
+                      0.446
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.917,
+                    "spread": 0.224,
+                    "worldHand": [
+                      5.371,
+                      2.052,
+                      0.547
+                    ],
+                    "wristToShoulder": 0.24
+                  },
+                  "L": {
+                    "drop": -0.86,
+                    "spread": 0.007,
+                    "worldHand": [
+                      5.481,
+                      1.663,
+                      0.764
+                    ],
+                    "wristToShoulder": 0.477
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.058,
+                    "reach": 0.24,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.371,
+                      2.052,
+                      0.547
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.002,
+                    "reach": 0.477,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.481,
+                      1.663,
+                      0.764
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        }
+      ]
+    },
+    {
+      "view": "portrait",
+      "mode": "enabled",
+      "samples": [
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 0.0408,
+                  "headYaw": 0,
+                  "thighL": 0.002,
+                  "thighR": -0.002,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.905,
+                    "spread": 0.228,
+                    "worldHand": [
+                      -5.317,
+                      1.775,
+                      0.628
+                    ],
+                    "wristToShoulder": 0.435
+                  },
+                  "L": {
+                    "drop": -0.96,
+                    "spread": 0.115,
+                    "worldHand": [
+                      -5.417,
+                      1.623,
+                      0.454
+                    ],
+                    "wristToShoulder": 0.53
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.063,
+                    "reach": 0.435,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.317,
+                      1.775,
+                      0.628
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.032,
+                    "reach": 0.53,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.417,
+                      1.623,
+                      0.454
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "check_hand",
+                  "strength": 1,
+                  "phase": 2.3908,
+                  "headYaw": -0.21,
+                  "thighL": 0.0792,
+                  "thighR": -0.0792,
+                  "inspect": 1,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.325,
+                    "spread": 0.926,
+                    "worldHand": [
+                      5.368,
+                      2.267,
+                      0.636
+                    ],
+                    "wristToShoulder": 0.345
+                  },
+                  "L": {
+                    "drop": -0.813,
+                    "spread": 0.115,
+                    "worldHand": [
+                      5.462,
+                      1.678,
+                      0.953
+                    ],
+                    "wristToShoulder": 0.536
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.239,
+                    "reach": 0.345,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.368,
+                      2.267,
+                      0.636
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0147,
+                    "elbowOut": 0.03,
+                    "reach": 0.55,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.462,
+                      1.678,
+                      0.953
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 3.0495,
+                  "headYaw": 0.0498,
+                  "thighL": 0.101,
+                  "thighR": -0.101,
+                  "inspect": 0.1991,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.825,
+                    "spread": 0.116,
+                    "worldHand": [
+                      -5.268,
+                      1.809,
+                      0.628
+                    ],
+                    "wristToShoulder": 0.392
+                  },
+                  "L": {
+                    "drop": -0.949,
+                    "spread": 0.063,
+                    "worldHand": [
+                      -5.354,
+                      1.618,
+                      0.439
+                    ],
+                    "wristToShoulder": 0.505
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.032,
+                    "reach": 0.392,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.268,
+                      1.809,
+                      0.628
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.018,
+                    "reach": 0.505,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.354,
+                      1.618,
+                      0.439
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "focus",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "focus",
+                "r134Idle": {
+                  "story": "challenge_opponent",
+                  "strength": 1,
+                  "phase": 5.3995,
+                  "headYaw": 0.2241,
+                  "thighL": 0.0594,
+                  "thighR": -0.0223,
+                  "inspect": 0,
+                  "challenge": 0.9745
+                },
+                "footContact": null,
+                "livingStrength": 0.584,
+                "arms": {
+                  "R": {
+                    "drop": -0.92,
+                    "spread": 0.222,
+                    "worldHand": [
+                      5.385,
+                      2.02,
+                      0.538
+                    ],
+                    "wristToShoulder": 0.254
+                  },
+                  "L": {
+                    "drop": -0.597,
+                    "spread": 0.039,
+                    "worldHand": [
+                      5.485,
+                      1.785,
+                      0.759
+                    ],
+                    "wristToShoulder": 0.347
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.057,
+                    "reach": 0.254,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.385,
+                      2.02,
+                      0.538
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.01,
+                    "reach": 0.347,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.485,
+                      1.785,
+                      0.759
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "whisper",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "whisper",
+                "r134Idle": {
+                  "story": "challenge_opponent",
+                  "strength": 1,
+                  "phase": 6.0493,
+                  "headYaw": -0.24,
+                  "thighL": 0.058,
+                  "thighR": -0.03,
+                  "inspect": 0,
+                  "challenge": 1
+                },
+                "footContact": null,
+                "livingStrength": 0.988,
+                "arms": {
+                  "R": {
+                    "drop": -0.884,
+                    "spread": 0.254,
+                    "worldHand": [
+                      -5.319,
+                      1.862,
+                      0.595
+                    ],
+                    "wristToShoulder": 0.373
+                  },
+                  "L": {
+                    "drop": -0.949,
+                    "spread": 0.244,
+                    "worldHand": [
+                      -5.334,
+                      1.868,
+                      0.642
+                    ],
+                    "wristToShoulder": 0.39
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.071,
+                    "reach": 0.373,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.319,
+                      1.862,
+                      0.595
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.068,
+                    "reach": 0.39,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.334,
+                      1.868,
+                      0.642
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "shrug",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "shrug",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 8.3993,
+                  "headYaw": 0,
+                  "thighL": -0.0605,
+                  "thighR": 0.0605,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": -0.543,
+                    "spread": 0.391,
+                    "worldHand": [
+                      5.336,
+                      2.212,
+                      0.435
+                    ],
+                    "wristToShoulder": 0.211
+                  },
+                  "L": {
+                    "drop": -0.19,
+                    "spread": 0.257,
+                    "worldHand": [
+                      5.446,
+                      1.87,
+                      0.885
+                    ],
+                    "wristToShoulder": 0.285
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.101,
+                    "reach": 0.211,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.336,
+                      2.212,
+                      0.435
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.066,
+                    "reach": 0.285,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.446,
+                      1.87,
+                      0.885
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "nod",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "nod",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 0.4658,
+                  "headYaw": 0,
+                  "thighL": -0.0918,
+                  "thighR": 0.0918,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": -0.937,
+                    "spread": 0.213,
+                    "worldHand": [
+                      -5.385,
+                      1.749,
+                      0.657
+                    ],
+                    "wristToShoulder": 0.431
+                  },
+                  "L": {
+                    "drop": -0.951,
+                    "spread": 0.095,
+                    "worldHand": [
+                      -5.486,
+                      1.622,
+                      0.48
+                    ],
+                    "wristToShoulder": 0.536
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.059,
+                    "reach": 0.431,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.385,
+                      1.749,
+                      0.657
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0024,
+                    "elbowOut": 0.026,
+                    "reach": 0.538,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.486,
+                      1.622,
+                      0.48
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "inspect",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 1.55,
+                "livingBeat": "inspect",
+                "r134Idle": {
+                  "story": "check_hand",
+                  "strength": 1,
+                  "phase": 1.3158,
+                  "headYaw": -0.2088,
+                  "thighL": -0.0726,
+                  "thighR": 0.0726,
+                  "inspect": 0.9943,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": 0.861,
+                    "spread": 0.469,
+                    "worldHand": [
+                      5.284,
+                      2.528,
+                      0.639
+                    ],
+                    "wristToShoulder": 0.469
+                  },
+                  "L": {
+                    "drop": -0.667,
+                    "spread": 0.01,
+                    "worldHand": [
+                      5.374,
+                      1.658,
+                      0.959
+                    ],
+                    "wristToShoulder": 0.479
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.121,
+                    "reach": 0.469,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.284,
+                      2.528,
+                      0.639
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.002,
+                    "reach": 0.479,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.374,
+                      1.658,
+                      0.959
+                    ]
+                  }
+                },
+                "face": "gesture"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 3.466,
+                  "headYaw": 0,
+                  "thighL": -0.0586,
+                  "thighR": 0.0586,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.906,
+                    "spread": 0.256,
+                    "worldHand": [
+                      -5.35,
+                      1.795,
+                      0.633
+                    ],
+                    "wristToShoulder": 0.424
+                  },
+                  "L": {
+                    "drop": -0.959,
+                    "spread": 0.132,
+                    "worldHand": [
+                      -5.453,
+                      1.636,
+                      0.457
+                    ],
+                    "wristToShoulder": 0.537
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.071,
+                    "reach": 0.424,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.35,
+                      1.795,
+                      0.633
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0123,
+                    "elbowOut": 0.037,
+                    "reach": 0.549,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.453,
+                      1.636,
+                      0.457
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "ready",
+                  "strength": 1,
+                  "phase": 4.316,
+                  "headYaw": 0,
+                  "thighL": 0.0002,
+                  "thighR": -0.0002,
+                  "inspect": 0,
+                  "challenge": 0
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.919,
+                    "spread": 0.211,
+                    "worldHand": [
+                      5.394,
+                      2.041,
+                      0.569
+                    ],
+                    "wristToShoulder": 0.24
+                  },
+                  "L": {
+                    "drop": -0.858,
+                    "spread": 0.002,
+                    "worldHand": [
+                      5.504,
+                      1.662,
+                      0.78
+                    ],
+                    "wristToShoulder": 0.474
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.054,
+                    "reach": 0.24,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.394,
+                      2.041,
+                      0.569
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0,
+                    "reach": 0.474,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.504,
+                      1.662,
+                      0.78
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "challenge_opponent",
+                  "strength": 1,
+                  "phase": 6.4658,
+                  "headYaw": -0.1482,
+                  "thighL": 0.0903,
+                  "thighR": -0.073,
+                  "inspect": 0,
+                  "challenge": 0.6174
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.897,
+                    "spread": 0.211,
+                    "worldHand": [
+                      -5.272,
+                      1.756,
+                      0.606
+                    ],
+                    "wristToShoulder": 0.447
+                  },
+                  "L": {
+                    "drop": -0.939,
+                    "spread": 0.144,
+                    "worldHand": [
+                      -5.324,
+                      1.771,
+                      0.556
+                    ],
+                    "wristToShoulder": 0.406
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.059,
+                    "reach": 0.447,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.272,
+                      1.756,
+                      0.606
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.04,
+                    "reach": 0.406,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.324,
+                      1.771,
+                      0.556
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": {
+                  "story": "challenge_opponent",
+                  "strength": 1,
+                  "phase": 7.3158,
+                  "headYaw": 0.2243,
+                  "thighL": 0.1098,
+                  "thighR": -0.0728,
+                  "inspect": 0,
+                  "challenge": 0.9752
+                },
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.899,
+                    "spread": 0.365,
+                    "worldHand": [
+                      5.413,
+                      2.051,
+                      0.536
+                    ],
+                    "wristToShoulder": 0.265
+                  },
+                  "L": {
+                    "drop": -0.624,
+                    "spread": 0.009,
+                    "worldHand": [
+                      5.513,
+                      1.789,
+                      0.757
+                    ],
+                    "wristToShoulder": 0.375
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.094,
+                    "reach": 0.265,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.413,
+                      2.051,
+                      0.536
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.002,
+                    "reach": 0.375,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.513,
+                      1.789,
+                      0.757
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        }
+      ]
+    },
+    {
+      "view": "portrait",
+      "mode": "rollback",
+      "samples": [
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.905,
+                    "spread": 0.228,
+                    "worldHand": [
+                      -5.318,
+                      1.773,
+                      0.628
+                    ],
+                    "wristToShoulder": 0.435
+                  },
+                  "L": {
+                    "drop": -0.96,
+                    "spread": 0.115,
+                    "worldHand": [
+                      -5.418,
+                      1.621,
+                      0.454
+                    ],
+                    "wristToShoulder": 0.53
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.063,
+                    "reach": 0.435,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.318,
+                      1.773,
+                      0.628
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.032,
+                    "reach": 0.53,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.418,
+                      1.621,
+                      0.454
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.911,
+                    "spread": 0.262,
+                    "worldHand": [
+                      5.395,
+                      2.064,
+                      0.569
+                    ],
+                    "wristToShoulder": 0.241
+                  },
+                  "L": {
+                    "drop": -0.879,
+                    "spread": 0.018,
+                    "worldHand": [
+                      5.505,
+                      1.662,
+                      0.78
+                    ],
+                    "wristToShoulder": 0.485
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.068,
+                    "reach": 0.241,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.395,
+                      2.064,
+                      0.569
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.005,
+                    "reach": 0.485,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.505,
+                      1.662,
+                      0.78
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.906,
+                    "spread": 0.22,
+                    "worldHand": [
+                      -5.307,
+                      1.762,
+                      0.62
+                    ],
+                    "wristToShoulder": 0.439
+                  },
+                  "L": {
+                    "drop": -0.956,
+                    "spread": 0.101,
+                    "worldHand": [
+                      -5.407,
+                      1.619,
+                      0.446
+                    ],
+                    "wristToShoulder": 0.525
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.061,
+                    "reach": 0.439,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.307,
+                      1.762,
+                      0.62
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.028,
+                    "reach": 0.525,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.407,
+                      1.619,
+                      0.446
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "focus",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "focus",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0.465,
+                "arms": {
+                  "R": {
+                    "drop": -0.925,
+                    "spread": 0.142,
+                    "worldHand": [
+                      5.368,
+                      2.02,
+                      0.547
+                    ],
+                    "wristToShoulder": 0.234
+                  },
+                  "L": {
+                    "drop": -0.83,
+                    "spread": 0.028,
+                    "worldHand": [
+                      5.478,
+                      1.659,
+                      0.764
+                    ],
+                    "wristToShoulder": 0.462
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.037,
+                    "reach": 0.234,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.368,
+                      2.02,
+                      0.547
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.007,
+                    "reach": 0.462,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.478,
+                      1.659,
+                      0.764
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "whisper",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "whisper",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 1.071,
+                "arms": {
+                  "R": {
+                    "drop": -0.891,
+                    "spread": 0.249,
+                    "worldHand": [
+                      -5.33,
+                      1.864,
+                      0.608
+                    ],
+                    "wristToShoulder": 0.368
+                  },
+                  "L": {
+                    "drop": -0.968,
+                    "spread": 0.091,
+                    "worldHand": [
+                      -5.438,
+                      1.626,
+                      0.459
+                    ],
+                    "wristToShoulder": 0.536
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.07,
+                    "reach": 0.368,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.33,
+                      1.864,
+                      0.608
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0012,
+                    "elbowOut": 0.025,
+                    "reach": 0.537,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.438,
+                      1.626,
+                      0.459
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "shrug",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "shrug",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": -0.491,
+                    "spread": 0.503,
+                    "worldHand": [
+                      5.366,
+                      2.209,
+                      0.431
+                    ],
+                    "wristToShoulder": 0.216
+                  },
+                  "L": {
+                    "drop": -0.206,
+                    "spread": 0.247,
+                    "worldHand": [
+                      5.476,
+                      1.867,
+                      0.882
+                    ],
+                    "wristToShoulder": 0.307
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.13,
+                    "reach": 0.216,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.366,
+                      2.209,
+                      0.431
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.064,
+                    "reach": 0.307,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.476,
+                      1.867,
+                      0.882
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "nod",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "nod",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": -0.924,
+                    "spread": 0.196,
+                    "worldHand": [
+                      -5.338,
+                      1.749,
+                      0.65
+                    ],
+                    "wristToShoulder": 0.439
+                  },
+                  "L": {
+                    "drop": -0.946,
+                    "spread": 0.078,
+                    "worldHand": [
+                      -5.438,
+                      1.62,
+                      0.474
+                    ],
+                    "wristToShoulder": 0.523
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.055,
+                    "reach": 0.439,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.338,
+                      1.749,
+                      0.65
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.022,
+                    "reach": 0.523,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.438,
+                      1.62,
+                      0.474
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "inspect",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 1.55,
+                "livingBeat": "inspect",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 1.55,
+                "arms": {
+                  "R": {
+                    "drop": 0.249,
+                    "spread": 0.851,
+                    "worldHand": [
+                      5.385,
+                      2.328,
+                      0.564
+                    ],
+                    "wristToShoulder": 0.294
+                  },
+                  "L": {
+                    "drop": -0.846,
+                    "spread": 0.03,
+                    "worldHand": [
+                      5.495,
+                      1.659,
+                      0.776
+                    ],
+                    "wristToShoulder": 0.469
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.219,
+                    "reach": 0.294,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.385,
+                      2.328,
+                      0.564
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.008,
+                    "reach": 0.469,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.495,
+                      1.659,
+                      0.776
+                    ]
+                  }
+                },
+                "face": "gesture"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.896,
+                    "spread": 0.244,
+                    "worldHand": [
+                      -5.32,
+                      1.795,
+                      0.629
+                    ],
+                    "wristToShoulder": 0.429
+                  },
+                  "L": {
+                    "drop": -0.967,
+                    "spread": 0.138,
+                    "worldHand": [
+                      -5.421,
+                      1.627,
+                      0.454
+                    ],
+                    "wristToShoulder": 0.536
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.068,
+                    "reach": 0.429,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.32,
+                      1.795,
+                      0.629
+                    ]
+                  },
+                  "L": {
+                    "error": 0.0024,
+                    "elbowOut": 0.038,
+                    "reach": 0.538,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.421,
+                      1.627,
+                      0.454
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.919,
+                    "spread": 0.211,
+                    "worldHand": [
+                      5.394,
+                      2.038,
+                      0.569
+                    ],
+                    "wristToShoulder": 0.24
+                  },
+                  "L": {
+                    "drop": -0.858,
+                    "spread": 0.002,
+                    "worldHand": [
+                      5.504,
+                      1.659,
+                      0.78
+                    ],
+                    "wristToShoulder": 0.474
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.055,
+                    "reach": 0.24,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.394,
+                      2.038,
+                      0.569
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0,
+                    "reach": 0.474,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.504,
+                      1.659,
+                      0.78
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        },
+        {
+          "hosts": [
+            {
+              "id": "E01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.911,
+                    "spread": 0.213,
+                    "worldHand": [
+                      -5.306,
+                      1.752,
+                      0.62
+                    ],
+                    "wristToShoulder": 0.442
+                  },
+                  "L": {
+                    "drop": -0.95,
+                    "spread": 0.088,
+                    "worldHand": [
+                      -5.406,
+                      1.617,
+                      0.446
+                    ],
+                    "wristToShoulder": 0.52
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.059,
+                    "reach": 0.442,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.306,
+                      1.752,
+                      0.62
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.025,
+                    "reach": 0.52,
+                    "segmentLength": 0.551,
+                    "hand": [
+                      -5.406,
+                      1.617,
+                      0.446
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 124,
+              "bones": 119
+            },
+            {
+              "id": "G01",
+              "posture": {
+                "phase": "idle",
+                "draw": 0,
+                "display": 0,
+                "cast": 0,
+                "follow": 0,
+                "victory": 0,
+                "defeat": 0,
+                "hop": 0,
+                "recoil": 0,
+                "speaking": false,
+                "speechSerial": null,
+                "inspected": 0,
+                "livingBeat": "idle",
+                "r134Idle": null,
+                "footContact": null,
+                "livingStrength": 0,
+                "arms": {
+                  "R": {
+                    "drop": -0.917,
+                    "spread": 0.223,
+                    "worldHand": [
+                      5.371,
+                      2.051,
+                      0.547
+                    ],
+                    "wristToShoulder": 0.24
+                  },
+                  "L": {
+                    "drop": -0.86,
+                    "spread": 0.007,
+                    "worldHand": [
+                      5.481,
+                      1.663,
+                      0.764
+                    ],
+                    "wristToShoulder": 0.477
+                  }
+                },
+                "ik": {
+                  "R": {
+                    "error": 0,
+                    "elbowOut": 0.058,
+                    "reach": 0.24,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.371,
+                      2.051,
+                      0.547
+                    ]
+                  },
+                  "L": {
+                    "error": 0,
+                    "elbowOut": 0.002,
+                    "reach": 0.477,
+                    "segmentLength": 0.55,
+                    "hand": [
+                      5.481,
+                      1.663,
+                      0.764
+                    ]
+                  }
+                },
+                "face": "idle"
+              },
+              "skins": 131,
+              "bones": 91
+            }
+          ],
+          "drawCalls": 732
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
