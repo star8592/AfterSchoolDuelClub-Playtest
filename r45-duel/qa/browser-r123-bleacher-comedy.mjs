@@ -4,6 +4,8 @@ import {resolve} from 'node:path';
 const {chromium}=createRequire(import.meta.url)(
  '/home/master/projects/tidebound-ground-qa-20261109/node_modules/playwright');
 const origin=process.env.ASDC_QA_ORIGIN||'http://127.0.0.1:11173';
+// Preserve exact main-shell identity on localhost AND GitHub Pages repo prefixes.
+const expectedGamePath=new URL(origin.replace(/\/$/,'')+'/r45-duel/').pathname;
 const out=resolve(import.meta.dirname,'evidence/r123');
 mkdirSync(out,{recursive:true});
 const report={passed:false,checks:[],errors:[],performance:[]};
@@ -31,7 +33,7 @@ try{
    narrated:!!document.querySelector('#guided-words'),
    title:document.title,pathname:location.pathname
   }));
-  check(mainShell.guided&&mainShell.narrated&&mainShell.pathname==='/r45-duel/',
+  check(mainShell.guided&&mainShell.narrated&&mainShell.pathname===expectedGamePath,
    name+' verified actual latest main-based game shell rather than a stale port',mainShell);
   const initial=await page.evaluate(()=>{
    const s=document.querySelector('#stadium').contentWindow.__r45SceneQA;
