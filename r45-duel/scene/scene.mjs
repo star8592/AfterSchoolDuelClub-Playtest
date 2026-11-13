@@ -21,6 +21,9 @@ import {createSpellImpact} from './spell-impact.mjs';
 import {createMagicArsenal} from './magic-arsenal.mjs';
 import {describeSpellContact} from './spell-response-contract.mjs';
 import {createSpellContactFX} from './spell-contact-fx.mjs';
+import {chooseCrowdAccident} from './spectator-chaos-contract.mjs';
+import {createSpectatorChaosFX} from './spectator-chaos-fx.mjs';
+import {createBleacherPropComedy,resolveSpectatorProp} from './bleacher-prop-comedy.mjs';
 import {createElementalVfx} from './elemental-vfx.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
@@ -212,12 +215,15 @@ let duelEffects=null;
 let comboDirector=null;
 let comedySpectacle=null;
 let liveScoreboard=null;
-let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null;
+let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null,spectatorChaosFX=null,bleacherProps=null;
 const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
 let actualHostHits=0;
 let r121ContactReceipts=0;
 const pendingSpellContacts=[];
+const pendingCrowdAccidents=[];
+let r122AccidentReceipts=0;
+let crowdCloseup=null,r123ReactionCuts=0,r123ShotWeight=0;
 let podiumCards=null,handCards=null;
 let absoluteSeconds=0;
 let renderFrameTiming=0;
@@ -279,6 +285,8 @@ function makeScene(){
  magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
+ spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
+ bleacherProps=createBleacherPropComedy(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
  handCards=createHandPlayCards(THREE,scene);
   clock=new THREE.Clock();
@@ -771,6 +779,8 @@ function loop(){
  magicArsenal?.update(absoluteSeconds);
  elementalVfx?.update(absoluteSeconds);
  spellContactFX?.update(absoluteSeconds);
+ spectatorChaosFX?.update(absoluteSeconds);
+ bleacherProps?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
  comboDirector?.update(absoluteSeconds,reduced);
  comedySpectacle?.update(absoluteSeconds,reduced);
@@ -822,6 +832,41 @@ function loop(){
    directDamage:d.directDamage,unitDamage:d.unitDamage,
    targetIds:targets.map(t=>t.id),contactCount:targets.length+(d.directDamage>0?1:0)});
  }
+ // R122: accidental bleacher incidents are presentation-only extensions
+ // of canonical SPELL_RESULT events, never ghost attacks or health changes.
+ for(let i=pendingCrowdAccidents.length-1;i>=0;i--){
+  const pending=pendingCrowdAccidents[i],accident=pending.incident;
+  if(!pending.launched){
+   if(absoluteSeconds<pending.launchAt)continue;
+   const anchor=stadiumEvidence?.spectatorAnchor?.(accident.spectatorIndex);
+   if(!anchor){pendingCrowdAccidents.splice(i,1);continue}
+   pending.launched=spectatorChaosFX?.play(accident,anchor,absoluteSeconds)===true;
+   if(!pending.launched){pendingCrowdAccidents.splice(i,1);continue}
+   pending.hitAt=absoluteSeconds+(reduced?.24:.49);
+  }
+  if(absoluteSeconds<pending.hitAt)continue;
+  pendingCrowdAccidents.splice(i,1);
+  const hit=stadiumEvidence?.reactSpectatorAccident?.(accident,absoluteSeconds);
+  if(!hit)continue;
+  // The corresponding real 3D seat accessory already existed before the
+  // accident; it now tumbles, spills/scatters and returns to its owner.
+  const prop=bleacherProps?.play(accident,absoluteSeconds);
+  if(prop&&PARAMS.get('r123Closeup')!=='off'){
+   crowdCloseup={anchor:{...hit},started:absoluteSeconds,scenario:accident.scenario,
+    spectatorIndex:accident.spectatorIndex};
+   r123ReactionCuts++;
+  }
+  r122AccidentReceipts++;
+  reply('ASDC_R122_CROWD_ACCIDENT',{
+   serial:accident.serial,card:accident.card,side:accident.side,
+   scenario:accident.scenario,spectatorIndex:accident.spectatorIndex,
+   spectatorId:hit.spectatorId,element:accident.element,
+   caption:accident.caption,line:accident.line,
+   prop:prop?.kind||null,propLine:resolveSpectatorProp(accident)?.line||null,
+   gameplayHit:false,ruleDamage:0
+  });
+ }
+
  arenaLife.tick(absoluteSeconds,{quiet:playing});
  actors.forEach(a=>reactActor(a,t,absoluteSeconds));
  updateDuelistHosts(absoluteSeconds);
@@ -854,7 +899,29 @@ function loop(){
   height+push*.055,CAMERA_LOOK_AT.z+Math.cos(angle)*distance-Math.sin(angle)*arc);
  choreographyQA.cameraOrbit=Number(arc.toFixed(4));
  choreographyQA.maxOrbit=Math.max(choreographyQA.maxOrbit,Math.abs(arc));
- camera.lookAt(CAMERA_LOOK_AT.x,CAMERA_LOOK_AT.y+push*.07,CAMERA_LOOK_AT.z);
+ // R123: a brief forward-facing reaction shot tells the *visible* joke.
+ // The base frontal two-duelist camera is restored mathematically after
+ // 2.6s; no overhead camera, no second render pass or additional drawcalls.
+ let aimX=CAMERA_LOOK_AT.x,aimY=CAMERA_LOOK_AT.y+push*.07,aimZ=CAMERA_LOOK_AT.z;
+ r123ShotWeight=0;
+ if(crowdCloseup){
+  const elapsed=absoluteSeconds-crowdCloseup.started;
+  if(elapsed>2.75)crowdCloseup=null;
+  else if(elapsed>=0&&!reduced&&Math.abs(orbitYaw)<45){
+   const ease=v=>{const x=clamp(v,0,1);return x*x*(3-2*x)};
+   const weight=.96*ease(elapsed/.34)*(1-ease((elapsed-1.68)/.78));
+   const a=crowdCloseup.anchor;
+   const target=new THREE.Vector3(a.x,a.y+1.31,a.z+.22);
+   const eye=new THREE.Vector3(target.x+(target.x>0?-.32:.32),
+    target.y+(narrow?1.18:.82),target.z+(narrow?5.50:4.28));
+   camera.position.lerp(eye,weight);
+   aimX+=(target.x-aimX)*weight;
+   aimY+=(target.y-aimY)*weight;
+   aimZ+=(target.z-aimZ)*weight;
+   r123ShotWeight=weight;
+  }
+ }
+ camera.lookAt(aimX,aimY,aimZ);
  keepArenaVisible();
  const contact=t>=2.83&&t<3.11||t>=3.88&&t<4.15;
  $('impact').hidden=!playing||!contact;
@@ -1040,6 +1107,14 @@ function onMessage(ev){
   setOrbit(orbitTargetYaw+Number(msg.degrees));return;
  }
  if(msg?.type==='ASDC_R100_COMBO_RESET'){
+  // A fresh lesson reuses the same stadium; clear every in-flight source
+  // serial and accessory animation, otherwise later chapters are silently
+  // ignored (same serial) or inherit a previous audience accident.
+  spellSerials.clear();pendingSpellContacts.length=0;
+  pendingCrowdAccidents.length=0;
+  crowdCloseup=null;r123ShotWeight=0;
+  spectatorChaosFX?.reset();bleacherProps?.reset();
+  stadiumEvidence?.resetAudience?.();
   comboDirector?.reset();
   comedySpectacle?.clear();
   summonPresence?.clearComicCombo();
@@ -1100,6 +1175,16 @@ function onMessage(ev){
    comedySpectacle?.trigger('spell_'+msg.effect,
     msg.side,msg.serial,absoluteSeconds,{reduced});
   if(spellSerials.size>500)spellSerials.clear();
+  const chaosAllowed=PARAMS.get('r122Crowd')!=='off';
+  const accident=chaosAllowed?chooseCrowdAccident(msg,{
+   force:PARAMS.get('qa')==='1'&&PARAMS.get('r122Crowd')==='force'}):null;
+  if(accident){
+   pendingCrowdAccidents.push({incident:accident,
+    // Residual magic leaves AFTER the true contact frame where applicable.
+    launchAt:absoluteSeconds+(accident.scenario==='misfire'?.08:.54),
+    launched:false,hitAt:Infinity});
+   if(pendingCrowdAccidents.length>5)pendingCrowdAccidents.shift();
+  }
   const descriptor=describeSpellContact(msg);
   if(descriptor){
    // The authoritative spell arrives before the post-resolution board sync.
@@ -1187,6 +1272,15 @@ function exposeQA(){
   get magicArsenal(){return magicArsenal?.stats||null},
   get elementalVfx(){return elementalVfx?.stats||null},
   get spellContactFX(){return spellContactFX?.stats||null},
+  get spectatorChaosFX(){return spectatorChaosFX?.stats||null},
+  get bleacherProps(){return bleacherProps?.stats||null},
+  get r123Camera(){return {cuts:r123ReactionCuts,weight:+r123ShotWeight.toFixed(3),
+   spectatorIndex:crowdCloseup?.spectatorIndex??null,
+   frontFacingCloseup:true,extraRenderPasses:0}},
+  get r122AccidentReceipts(){return r122AccidentReceipts},
+  get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
+  get registeredSpellSerials(){return spellSerials.size},
+  get pendingSpellContacts(){return pendingSpellContacts.length},
   get r121ContactReceipts(){return r121ContactReceipts},
   get comboDirector(){return comboDirector?.stats||null},
   get comedySpectacle(){return comedySpectacle?.stats||null},
@@ -1333,6 +1427,7 @@ try{
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
+ bleacherProps?.mount?.([0,1,2,3].map(index=>stadiumEvidence?.spectatorAnchor?.(index)));
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,lifeWorld:arenaLife,
   onCombatImpact:(event)=>{
