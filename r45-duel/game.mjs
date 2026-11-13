@@ -383,6 +383,7 @@ function advanceLesson(){
  sendScene({type:'ASDC_R100_COMBO_RESET'});
  comboAudioReceipts.clear();
  combatAudioReceipts.clear();
+ r121SpokenContacts.clear();r122PlayedCrowdAccidents.clear();
  ++asideSeq;++speechSeq;
  $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  g=createTutorialGame(level+1,seed+level);
