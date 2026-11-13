@@ -116,6 +116,27 @@ const isT02DuoStudy=(()=>{
  catch{return false;}
 })();
 
+// R119: The source-bound skinned models are strictly study-only. Production
+// keeps the R97 author-approved films until each separate actor passes
+// camera, source-credit, foot-plant and bone/vertex verification.
+export const R119_SKIN_STUDY_FILES=Object.freeze({
+ E03:'E03-Ellie-Skinned-R119.glb',
+ E04:'E04-Phil-Skinned-R119.glb',
+ G02:'G02-Snow-Skinned-R119.glb',
+ G03:'G03-Jay-Skinned-R119.glb',
+ G04:'G04-Victoria-Skinned-R119.glb',
+ T03:'T03-Rain-Skinned-R119.glb',
+ T04:'T04-Rex-Skinned-R119.glb'
+});
+const R119_STUDY_IDS=(()=>{
+ let raw=new URLSearchParams(location.search).get('r119Rig')||'';
+ try{if(!raw&&window.parent!==window)
+  raw=new URLSearchParams(window.parent.location.search).get('r119Rig')||'';}catch{}
+ if(raw==='all')raw=Object.keys(R119_SKIN_STUDY_FILES).join(',');
+ const allowed=new Set(Object.keys(R119_SKIN_STUDY_FILES));
+ return new Set(raw.split(',').filter(x=>allowed.has(x)));
+})();
+
 // R86: isolated genuine-skin test. Regular players keep R85 static Jay.
 const isG03R86Study=(()=>{
  if(new URLSearchParams(location.search).get('g03Study')==='rig')return true;
@@ -167,6 +188,7 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   const selectedFile=id==='M02'&&r99ChefOld?'M02-CafeteriaAunt-CartoonR76.glb':
    id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
+   R119_STUDY_IDS.has(id)?R119_SKIN_STUDY_FILES[id]:
    isR93Previous&&Object.hasOwn(R93_PREVIOUS,id)?
    R93_PREVIOUS[id]:
    isR96Previous&&Object.hasOwn(R96_PREVIOUS,id)?
@@ -251,6 +273,95 @@ export function createR86JaySkeletonClips(THREE,instance){
  ];
 }
 
+// R119: real render-bound source meshes; original names are normalized by
+// GLTFLoader. Clip names and physically tracked UUIDs stay on each separate
+// instance, so two identical summon cards never share a skeleton or action.
+export function createR119TrueSkinClips(THREE,instance,id){
+ const norm=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const find=(...names)=>{
+  const normalized=new Set(names.map(norm));let found=null;
+  instance.traverse(o=>{
+   if(!found&&o.isBone&&normalized.has(norm(o.name)))found=o;
+  });return found;
+ };
+ const joints={
+  left:find('DEF-UpperArm1.L','DEF-Shoulder.L'),
+  right:find('DEF-UpperArm1.R','DEF-Shoulder.R'),
+  elbowL:find('DEF-Forearm1.L'),
+  elbowR:find('DEF-Forearm1.R'),
+  head:find('DEF-Head','FK-Head'),
+  neck:find('DEF-Neck','FK-Neck'),
+  chest:find('DEF-Chest','DEF-Spine3','FK-Chest')
+ };
+ if(!joints.left||!joints.right||!joints.head||!joints.chest)return [];
+ const character={
+  E03:{strength:1.15,tempo:1.12},
+  E04:{strength:1.02,tempo:.96},
+  G02:{strength:.76,tempo:.88},
+  G03:{strength:1.07,tempo:1.09},
+  G04:{strength:.82,tempo:.88},
+  T03:{strength:1.04,tempo:1.12},
+  T04:{strength:1.10,tempo:1.03}
+ }[id]||{strength:1,tempo:1};
+ const make=(name,duration,times,movements)=>{
+  const tracks=[];
+  for(const[key,bone]of Object.entries(joints)){
+   if(!bone)continue;
+   const first=bone.quaternion.clone(),axes=movements[key]||[];
+   const values=[];
+   const axis=key==='head'||key==='neck'||key==='chest'?
+    new THREE.Vector3(1,0,0):new THREE.Vector3(0,0,1);
+   for(let i=0;i<times.length;i++){
+    // Source Blender character rigs need a relaxed natural arm rest; source
+    // deform bones otherwise start nearly horizontal (classic zombie bind).
+    // Original R97 authored shoulder down pose uses opposite polarity for
+    // Snow and Rain; apply it on the true skinned deformation channels.
+    const restPolarity=(id==='G02'||id==='T03')?-1:1;
+    const naturalShoulderRest=(key==='left'?1.32:key==='right'?-1.32:0)*restPolarity;
+    const gesture=Math.max(-.55,Math.min(.55,axes[i]||0))*character.strength;
+    const angle=naturalShoulderRest+gesture;
+    const q=first.clone().multiply(new THREE.Quaternion().setFromAxisAngle(axis,angle));
+    values.push(q.x,q.y,q.z,q.w);
+   }
+   tracks.push(new THREE.QuaternionKeyframeTrack(
+    bone.uuid+'.quaternion',times,values));
+  }
+  return new THREE.AnimationClip(name,duration,tracks);
+ };
+ const idleTimes=[0,.6,1.3,2.2,3.0];
+ const pulse=[0,.024,-.012,.035,0],opp=[0,-.024,.012,-.035,0];
+ const wave=[0,.048,-.014,.020,0],slow=[0,.016,-.011,.018,0];
+ const times=[0,.15,.40,.70,1.06],hitTimes=[0,.10,.24,.40,.64];
+ const pattern=(peak)=>[0,peak*.55,peak,peak*.48,0];
+ return [
+  make('R119_Skeletal_Idle',3.0,idleTimes,{
+   left:pulse,right:opp,elbowL:slow,elbowR:slow,
+   head:wave,neck:slow,chest:slow}),
+  make('R119_Skeletal_Attack',1.06,times,{
+   left:pattern(-.14),right:pattern(.38),
+   elbowL:pattern(.07),elbowR:pattern(-.19),
+   head:pattern(-.08),neck:pattern(-.05),chest:pattern(-.10)}),
+  make('R119_Skeletal_Hit',.64,hitTimes,{
+   left:pattern(.21),right:pattern(-.18),
+   elbowL:pattern(-.08),elbowR:pattern(.10),
+   head:pattern(.14),neck:pattern(.07),chest:pattern(.13)}),
+  make('R119_Skeletal_Walk',3.0,idleTimes,{
+   left:wave,right:wave.map(v=>-v),elbowL:slow,elbowR:slow,
+   head:slow,neck:slow,chest:pulse}),
+  make('R119_Skeletal_Challenge',1.06,times,{
+   left:pattern(-.08),right:pattern(.31),
+   elbowL:pattern(.07),elbowR:pattern(-.24),
+   head:pattern(-.06),neck:pattern(-.05),chest:pattern(-.04)}),
+  make('R119_Skeletal_Worry',1.06,times,{
+   left:pattern(.12),right:pattern(-.12),
+   elbowL:pattern(.10),elbowR:pattern(.08),
+   head:pattern(.13),neck:pattern(.04),chest:pattern(.08)}),
+  make('R119_Skeletal_Celebrate',1.06,times,{
+   left:pattern(-.21),right:pattern(.43),
+   elbowL:pattern(.11),elbowR:pattern(-.14),
+   head:pattern(-.09),neck:pattern(-.05),chest:pattern(-.05)})
+ ];
+}
 export function instantiateSummon(THREE,template){
  const instance=cloneSkeleton(template.source);
  instance.traverse(o=>{if(o.isSkinnedMesh)o.frustumCulled=false});
@@ -261,7 +372,13 @@ export function instantiateSummon(THREE,template){
  const root=new THREE.Group();root.add(scaled);
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const r86Clips=template.id==='G03'&&template.selectedFile==='G03-Jay-Skinned-R86.glb'?createR86JaySkeletonClips(THREE,instance):[];
- const availableClips=r86Clips.length?r86Clips:template.clips;
+ const r119Skin=template.selectedFile===R119_SKIN_STUDY_FILES[template.id];
+ const r119Clips=r119Skin?createR119TrueSkinClips(THREE,instance,template.id):[];
+ // If a source-export model is missing one of the actual bound arm bones,
+ // don't silently pretend the artist's character has its desired animation.
+ if(r119Skin&&r119Clips.length!==7)
+  throw Error('R119 real skin has no valid mapped 7 body clips: '+template.id);
+ const availableClips=r119Clips.length?r119Clips:r86Clips.length?r86Clips:template.clips;
  const mixer=availableClips.length?new THREE.AnimationMixer(instance):null;
  // R90: subtle transient whole-instance lean and lift layered over R89 glTF
  // morph clips; reset each frame. This is not live torso, leg, or foot rigging.
@@ -292,11 +409,11 @@ export function instantiateSummon(THREE,template){
  const choose=(kind)=>{
   if(!mixer)return null;
   const clips=availableClips;
-  const preference=kind==='attack'?['R86_Skeletal_Attack','Attack_Dart','Attack_Flip_Menu','Attack','attack','Special','Cheer']:
-   kind==='hit'?['R86_Skeletal_Hit','Hit_Recoil','Hit_Retreat','Hit','hit']:
+  const preference=kind==='attack'?['R119_Skeletal_Attack','R86_Skeletal_Attack','Attack_Dart','Attack_Flip_Menu','Attack','attack','Special','Cheer']:
+   kind==='hit'?['R119_Skeletal_Hit','R86_Skeletal_Hit','Hit_Recoil','Hit_Retreat','Hit','hit']:
    kind==='death'?['Death','dead']:
-   kind==='walk'?['R86_Skeletal_Walk','Bank_Left','Bank_Right','Walk_Small_Steps','Walk','walk','Run']:
-     ['R86_Skeletal_Idle','Idle_Glide','Idle_Menu_Breath','Idle','idle','Stand'];
+   kind==='walk'?['R119_Skeletal_Walk','R86_Skeletal_Walk','Bank_Left','Bank_Right','Walk_Small_Steps','Walk','walk','Run']:
+     ['R119_Skeletal_Idle','R86_Skeletal_Idle','Idle_Glide','Idle_Menu_Breath','Idle','idle','Stand'];
   return preference.map(n=>clips.find(c=>c.name===n)).find(Boolean)||clips[0];
  };
  let current=null;
@@ -335,7 +452,9 @@ export function instantiateSummon(THREE,template){
  // R116: short, true authored kitchen-theatre motions on the REAL
  // right-hand-skinned chef, triggered by personality/match context.
  // No clip is synthesized or borrowed from a different character identity.
- const lifeClips=template.id==='M02'?new Set([
+ const lifeClips=r119Skin?
+  new Set(['R119_Skeletal_Challenge','R119_Skeletal_Worry','R119_Skeletal_Celebrate']):
+  template.id==='M02'?new Set([
   'Angry_Stomp','Big_Wave_Hello','Confused_Scratch','Jazz_Hands',
   'Shrug','Victory_Cheer']):new Set();
  const playLifeClip=(name)=>{
@@ -362,7 +481,7 @@ export function instantiateSummon(THREE,template){
   }
   groundedY=scaled.position.y;
  }
- return {root,mixer,play,update:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length,
+ return {root,mixer,play,update:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length,r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,

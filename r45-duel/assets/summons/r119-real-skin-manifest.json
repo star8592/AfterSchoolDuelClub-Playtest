@@ -1,0 +1,71 @@
+{
+  "revision": "R119",
+  "trialOnly": true,
+  "productionFallback": "R97",
+  "rights": "Blender Studio / Blender Foundation CC BY 4.0",
+  "characters": [
+    {
+      "id": "E03",
+      "sourceCharacter": "Ellie",
+      "file": "E03-Ellie-Skinned-R119.glb",
+      "bytes": 16975744,
+      "sha256": "a95f02362ff897168f16a661c2dcacefc57cb393fd12a86e9b53bb66fefc52d4",
+      "visibleSkinnedMeshes": 28,
+      "sourceJoints": 329
+    },
+    {
+      "id": "E04",
+      "sourceCharacter": "Phil",
+      "file": "E04-Phil-Skinned-R119.glb",
+      "bytes": 2847752,
+      "sha256": "46da13c1f0f1c92217c0154d58da24e7704d4ecd70a81dcf9fd8981db494d68b",
+      "visibleSkinnedMeshes": 13,
+      "sourceJoints": 263
+    },
+    {
+      "id": "G02",
+      "sourceCharacter": "Snow",
+      "file": "G02-Snow-Skinned-R119.glb",
+      "bytes": 11874064,
+      "sha256": "89e297d54e002cbe7dc66afd89713734dfd189f27b6a07ce51b569eb5e5dd5d6",
+      "visibleSkinnedMeshes": 13,
+      "sourceJoints": 293
+    },
+    {
+      "id": "G03",
+      "sourceCharacter": "Jay",
+      "file": "G03-Jay-Skinned-R119.glb",
+      "bytes": 4845880,
+      "sha256": "9cbdac2bc4075e4e54a4ab6b491eeb914b60db39b43676f5d294975ebc9f375a",
+      "visibleSkinnedMeshes": 16,
+      "sourceJoints": 295
+    },
+    {
+      "id": "G04",
+      "sourceCharacter": "Victoria",
+      "file": "G04-Victoria-Skinned-R119.glb",
+      "bytes": 7284616,
+      "sha256": "c0d941dec7cb73e5e76220b13636ea1708c1a7ff0c06a52e309337b1b60a00c6",
+      "visibleSkinnedMeshes": 18,
+      "sourceJoints": 311
+    },
+    {
+      "id": "T03",
+      "sourceCharacter": "Rain",
+      "file": "T03-Rain-Skinned-R119.glb",
+      "bytes": 18570040,
+      "sha256": "445dee7058312ebfbaff1bb83988798124c933f09491ffe32d7faf07522de161",
+      "visibleSkinnedMeshes": 18,
+      "sourceJoints": 392
+    },
+    {
+      "id": "T04",
+      "sourceCharacter": "Rex",
+      "file": "T04-Rex-Skinned-R119.glb",
+      "bytes": 7248368,
+      "sha256": "7edddf5bb7e4cb9a0f03f43a55f1206f6191b91e863bf2c1c47c849cfaf976b6",
+      "visibleSkinnedMeshes": 21,
+      "sourceJoints": 299
+    }
+  ]
+}

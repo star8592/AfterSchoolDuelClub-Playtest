@@ -12,8 +12,8 @@
 const HUMAN_IDS=new Set(['E03','E04','G02','G03','G04','T03','T04']);
 const clamp=(v,a=-1,b=1)=>Math.max(a,Math.min(b,Number(v)||0));
 const R118_NATIVE_ALTERNATES=Object.freeze({
- head:['DEF-Head'],neck:['DEF-Neck'],chest:['DEF-Chest'],
- spine:['DEF-Chest'],left:['DEF-UpperArm1.L','DEF-Shoulder.L'],
+ head:['DEF-Head'],neck:['DEF-Neck'],chest:['DEF-Chest','DEF-Spine3'],
+ spine:['DEF-Spine2','DEF-Chest'],left:['DEF-UpperArm1.L','DEF-Shoulder.L'],
  right:['DEF-UpperArm1.R','DEF-Shoulder.R'],
  leftElbow:['DEF-Forearm1.L'],rightElbow:['DEF-Forearm1.R']
 });
@@ -82,7 +82,7 @@ export function createVisibleLifeActing(THREE,object,id){
   T04:{power:.93,tempo:.86}
  };
  const profile=profiles[id]||{power:1,tempo:1};
- function apply(seconds,life,{reduced=false,busy=false}={}){
+ function apply(seconds,life,{reduced=false,busy=false,mixerDriven=false}={}){
   if(!enabled&&!shapes.length)return false;
   qa.frames++;
   const intensity=life&&!busy&&!reduced?
@@ -126,7 +126,10 @@ export function createVisibleLifeActing(THREE,object,id){
   }
   // For genuinely skinned future exports, safely add SMALL FK changes
   // to actual render-bound joints. Never target unreferenced GLB nodes.
-  for(const entry of bones.values())entry.bone.quaternion.copy(entry.rest);
+  if(!mixerDriven)for(const entry of bones.values())entry.bone.quaternion.copy(entry.rest);
+  // In R119 every live joint is keyed by its original source animation mixer;
+  // do NOT erase that source pose before adding a small personality reaction.
+  // R118 Jay uses its earlier fallback rest reference for non-keyed joints.
   const breathing=(!busy&&!reduced)?Math.sin(seconds*1.29*profile.tempo+id.charCodeAt(1)*.31):0;
   const attentive=life?.attention==='opponent'?.85:
    life?.attention==='cards'?.43:life?.attention==='arena'?.55:.68;
@@ -158,7 +161,7 @@ export function createVisibleLifeActing(THREE,object,id){
    const entry=bones.get(key);if(!entry||written.has(entry.bone))continue;
    written.add(entry.bone);
    const x=clamp(pitch,-.20,.20),y=clamp(yaw,-.16,.16),z=clamp(roll,-.15,.15);
-   entry.bone.quaternion.copy(entry.rest);
+   if(!mixerDriven)entry.bone.quaternion.copy(entry.rest);
    if(Math.abs(x)>1e-6)entry.bone.quaternion.multiply(
     new THREE.Quaternion().setFromAxisAngle(axisX,x));
    if(Math.abs(y)>1e-6)entry.bone.quaternion.multiply(

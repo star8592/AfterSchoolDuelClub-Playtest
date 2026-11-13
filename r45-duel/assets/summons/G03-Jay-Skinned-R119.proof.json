@@ -1,0 +1,28 @@
+{
+  "slug": "jay",
+  "source": "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/jay.blend",
+  "output": "r45-duel/assets/summons/G03-Jay-Skinned-R119.glb",
+  "status": "EXPORTED",
+  "bytes": 4845880,
+  "sha256": "b7c7995df9f3db8d384129a9d3f3920ba0bb02cc2e42aa041eae56222f905bbd",
+  "sourceMeshes": 17,
+  "visibleMeshes": 16,
+  "visibleSkinnedMeshes": 16,
+  "skinWeightBuffers": 16,
+  "rigBones": 1605,
+  "exportedJoints": 295,
+  "missingTargetBones": [],
+  "sourceIKWristPose": {
+    "L": [
+      0.2825460433959961,
+      -0.0014165423344820738,
+      0.6947999596595764
+    ],
+    "R": [
+      -0.2825460433959961,
+      -0.0014165423344820738,
+      0.6947999596595764
+    ]
+  },
+  "disabledGraphModifiers": 45
+}
