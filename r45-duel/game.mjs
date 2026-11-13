@@ -806,8 +806,12 @@ window.addEventListener('message',event=>{
    audio.playCue(ELEMENTS[d.element]?.sound||'hit',d.victim);
    if(d.directDamage>0)
     audio.playCharacter(d.victim==='player'?'HOST_PLAYER':'HOST_AI','hurt');
-   else if(Array.isArray(d.targetIds)&&d.targetIds.length)
-    audio.playCharacter(d.targetIds[0],'hurt');
+   else if(Array.isArray(d.targetIds)&&d.targetIds.length){
+    // A summoned unit may not yet have an authored hurt clip. Use the
+    // actual owner's pre-recorded Qwen voice rather than silent fake VO.
+    if(!audio.playCharacter(d.targetIds[0],'hurt'))
+     audio.playCharacter(d.victim==='player'?'HOST_PLAYER':'HOST_AI','hurt');
+   }
   }
   return;
  }
