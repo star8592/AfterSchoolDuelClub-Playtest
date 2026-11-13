@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "ok": true,
+      "title": "desktop full 46 spells listed"
+    },
+    {
+      "ok": true,
+      "title": "desktop correct first featured spell"
+    },
+    {
+      "ok": true,
+      "title": "desktop K01 selectable"
+    },
+    {
+      "ok": true,
+      "title": "desktop P05 selectable"
+    },
+    {
+      "ok": true,
+      "title": "desktop X08 selectable"
+    },
+    {
+      "ok": true,
+      "title": "desktop T06 selectable"
+    },
+    {
+      "ok": true,
+      "title": "desktop four active bounded and real 32 motifs",
+      "detail": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 5,
+        "expired": 4,
+        "rejected": 0,
+        "active": 1,
+        "activeMotifs": [
+          "lightning"
+        ],
+        "lastBySide": {
+          "player": "T06",
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 18,
+        "totalMeshes": 60,
+        "ruleMutations": 0
+      }
+    },
+    {
+      "ok": true,
+      "title": "desktop magic preview no 3D model downloads"
+    },
+    {
+      "ok": true,
+      "title": "desktop 0 JS/GLSL/network errors",
+      "detail": []
+    },
+    {
+      "ok": true,
+      "title": "phone full 46 spells listed"
+    },
+    {
+      "ok": true,
+      "title": "phone correct first featured spell"
+    },
+    {
+      "ok": true,
+      "title": "phone K01 selectable"
+    },
+    {
+      "ok": true,
+      "title": "phone P05 selectable"
+    },
+    {
+      "ok": true,
+      "title": "phone X08 selectable"
+    },
+    {
+      "ok": true,
+      "title": "phone T06 selectable"
+    },
+    {
+      "ok": true,
+      "title": "phone four active bounded and real 32 motifs",
+      "detail": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 5,
+        "expired": 4,
+        "rejected": 0,
+        "active": 1,
+        "activeMotifs": [
+          "lightning"
+        ],
+        "lastBySide": {
+          "player": "T06",
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 18,
+        "totalMeshes": 60,
+        "ruleMutations": 0
+      }
+    },
+    {
+      "ok": true,
+      "title": "phone magic preview no 3D model downloads"
+    },
+    {
+      "ok": true,
+      "title": "phone 0 JS/GLSL/network errors",
+      "detail": []
+    }
+  ],
+  "errors": []
+}

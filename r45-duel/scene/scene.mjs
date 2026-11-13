@@ -16,6 +16,8 @@ import {createComedySpectacle} from './comedy-spectacle.mjs';
 import {BY_ID} from '../engine.mjs';
 import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
 import {createSpellImpact} from './spell-impact.mjs';
+import {createMagicArsenal} from './magic-arsenal.mjs';
+import {createElementalVfx} from './elemental-vfx.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
@@ -175,7 +177,7 @@ let duelEffects=null;
 let comboDirector=null;
 let comedySpectacle=null;
 let liveScoreboard=null;
-let spellImpact=null;
+let spellImpact=null,magicArsenal=null,elementalVfx=null;
 const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
 let actualHostHits=0;
@@ -233,6 +235,8 @@ function makeScene(){
  });
  liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
  spellImpact=createSpellImpact(THREE,scene);
+ magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
+ elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
   clock=new THREE.Clock();
  onResize();window.addEventListener('resize',onResize);
@@ -626,6 +630,8 @@ function loop(){
  liveScoreboard?.update(performance.now());
  stadiumEvidence?.update?.(absoluteSeconds,{reduced});
  spellImpact?.update(absoluteSeconds);
+ magicArsenal?.update(absoluteSeconds);
+ elementalVfx?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
  comboDirector?.update(absoluteSeconds,reduced);
  comedySpectacle?.update(absoluteSeconds,reduced);
@@ -756,6 +762,7 @@ function onMessage(ev){
   if(!Number.isInteger(msg.serial)||msg.serial<=0||spellSerials.has(msg.serial))return;
   const accepted=spellImpact?.play(msg,absoluteSeconds);
   if(!accepted)return;
+  magicArsenal?.play(msg,absoluteSeconds);
   spellSerials.add(msg.serial);
   if(['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
    comedySpectacle?.trigger('spell_'+msg.effect,
@@ -789,6 +796,8 @@ function onMessage(ev){
    livingCast.signal(msg.side,'card',absoluteSeconds);
    if(card.kind==='unit'){
     summonPresence?.reactToSummon(msg.side,msg.id,msg.serial,absoluteSeconds);
+    // R79 recovered 3D portal effect on existing summoned characters.
+    elementalVfx?.playCard(msg,absoluteSeconds);
     comedySpectacle?.trigger('summon_'+card.style,
       msg.side,msg.serial,absoluteSeconds,{reduced});
    }
@@ -831,7 +840,10 @@ function exposeQA(){
   get combatEvents(){return summonPresence?.sequenceStats()||null},
   get spellReactions(){return summonPresence?.spellReactions||0},
   get scoreboard(){return liveScoreboard?.stats||null},
+  get drawCalls(){return renderer?.info?.render?.calls??null},
   get spellImpact(){return spellImpact?.stats||null},
+  get magicArsenal(){return magicArsenal?.stats||null},
+  get elementalVfx(){return elementalVfx?.stats||null},
   get comboDirector(){return comboDirector?.stats||null},
   get comedySpectacle(){return comedySpectacle?.stats||null},
   get hostHits(){return structuredClone(hostHits)},
