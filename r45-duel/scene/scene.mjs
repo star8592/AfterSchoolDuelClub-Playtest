@@ -219,11 +219,10 @@ let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null,spe
 const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
 let actualHostHits=0;
-let r121ContactReceipts=0;
+let r121ContactReceipts=0,r122AccidentReceipts=0;
+let crowdCloseup=null,r123ReactionCuts=0,r123ShotWeight=0;
 const pendingSpellContacts=[];
 const pendingCrowdAccidents=[];
-let r122AccidentReceipts=0;
-let crowdCloseup=null,r123ReactionCuts=0,r123ShotWeight=0;
 let podiumCards=null,handCards=null;
 let absoluteSeconds=0;
 let renderFrameTiming=0;
@@ -832,8 +831,7 @@ function loop(){
    directDamage:d.directDamage,unitDamage:d.unitDamage,
    targetIds:targets.map(t=>t.id),contactCount:targets.length+(d.directDamage>0?1:0)});
  }
- // R122: accidental bleacher incidents are presentation-only extensions
- // of canonical SPELL_RESULT events, never ghost attacks or health changes.
+ // R125: only a real R81 spell can launch a non-damaging spectator gag.
  for(let i=pendingCrowdAccidents.length-1;i>=0;i--){
   const pending=pendingCrowdAccidents[i],accident=pending.incident;
   if(!pending.launched){
@@ -848,8 +846,6 @@ function loop(){
   pendingCrowdAccidents.splice(i,1);
   const hit=stadiumEvidence?.reactSpectatorAccident?.(accident,absoluteSeconds);
   if(!hit)continue;
-  // The corresponding real 3D seat accessory already existed before the
-  // accident; it now tumbles, spills/scatters and returns to its owner.
   const prop=bleacherProps?.play(accident,absoluteSeconds);
   if(prop&&PARAMS.get('r123Closeup')!=='off'){
    crowdCloseup={anchor:{...hit},started:absoluteSeconds,scenario:accident.scenario,
@@ -866,7 +862,6 @@ function loop(){
    gameplayHit:false,ruleDamage:0
   });
  }
-
  arenaLife.tick(absoluteSeconds,{quiet:playing});
  actors.forEach(a=>reactActor(a,t,absoluteSeconds));
  updateDuelistHosts(absoluteSeconds);
@@ -899,21 +894,31 @@ function loop(){
   height+push*.055,CAMERA_LOOK_AT.z+Math.cos(angle)*distance-Math.sin(angle)*arc);
  choreographyQA.cameraOrbit=Number(arc.toFixed(4));
  choreographyQA.maxOrbit=Math.max(choreographyQA.maxOrbit,Math.abs(arc));
- // R123: a brief forward-facing reaction shot tells the *visible* joke.
- // The base frontal two-duelist camera is restored mathematically after
- // 2.6s; no overhead camera, no second render pass or additional drawcalls.
+ // Original R124 hero framing stays intact outside this brief front-view
+ // audience shot; restore the original camera mathematically every frame.
  let aimX=CAMERA_LOOK_AT.x,aimY=CAMERA_LOOK_AT.y+push*.07,aimZ=CAMERA_LOOK_AT.z;
  r123ShotWeight=0;
  if(crowdCloseup){
   const elapsed=absoluteSeconds-crowdCloseup.started;
-  if(elapsed>2.75)crowdCloseup=null;
+  if(elapsed>4.85)crowdCloseup=null;
   else if(elapsed>=0&&!reduced&&Math.abs(orbitYaw)<45){
-   const ease=v=>{const x=clamp(v,0,1);return x*x*(3-2*x)};
-   const weight=.96*ease(elapsed/.34)*(1-ease((elapsed-1.68)/.78));
-   const a=crowdCloseup.anchor;
-   const target=new THREE.Vector3(a.x,a.y+1.31,a.z+.22);
-   const eye=new THREE.Vector3(target.x+(target.x>0?-.32:.32),
-    target.y+(narrow?1.18:.82),target.z+(narrow?5.50:4.28));
+   const smooth=v=>{const q=clamp(v,0,1);return q*q*(3-2*q)};
+   // Student takes the hit; only afterwards does the *actual mounted*
+   // M01 music teacher become the hero of a short disciplinary cutaway.
+   // The teacher's source GLB and Qwen line must match the same character.
+   const teacher=elapsed>=2.32?stadiumEvidence?.spectatorAnchor?.(7):null;
+   const teacherBeat=!!teacher&&elapsed>=2.32;
+   const weight=teacherBeat?
+    .94*smooth((elapsed-2.32)/.30)*(1-smooth((elapsed-3.87)/.65)):
+    .96*smooth(elapsed/.34)*(1-smooth((elapsed-1.68)/.78));
+   const a=teacherBeat?teacher:crowdCloseup.anchor;
+   const target=new THREE.Vector3(a.x+(teacherBeat?.62:0),
+    a.y+(teacherBeat?.92:1.31),a.z+.22);
+   const eye=teacherBeat?
+    new THREE.Vector3(target.x+1.25,target.y+(narrow?.78:.59),
+     target.z+(narrow?4.70:3.34)):
+    new THREE.Vector3(target.x+(target.x>0?-.32:.32),
+     target.y+(narrow?1.18:.82),target.z+(narrow?5.50:4.28));
    camera.position.lerp(eye,weight);
    aimX+=(target.x-aimX)*weight;
    aimY+=(target.y-aimY)*weight;
@@ -1107,14 +1112,6 @@ function onMessage(ev){
   setOrbit(orbitTargetYaw+Number(msg.degrees));return;
  }
  if(msg?.type==='ASDC_R100_COMBO_RESET'){
-  // A fresh lesson reuses the same stadium; clear every in-flight source
-  // serial and accessory animation, otherwise later chapters are silently
-  // ignored (same serial) or inherit a previous audience accident.
-  spellSerials.clear();pendingSpellContacts.length=0;
-  pendingCrowdAccidents.length=0;
-  crowdCloseup=null;r123ShotWeight=0;
-  spectatorChaosFX?.reset();bleacherProps?.reset();
-  stadiumEvidence?.resetAudience?.();
   comboDirector?.reset();
   comedySpectacle?.clear();
   summonPresence?.clearComicCombo();
@@ -1123,6 +1120,9 @@ function onMessage(ev){
   hostSpeech.player=null;hostSpeech.ai=null;
   spellSerials.clear(); // serials restart at each tutorial stage / deck
   spellContactFX?.reset();
+  pendingCrowdAccidents.length=0;crowdCloseup=null;r123ShotWeight=0;
+  spectatorChaosFX?.reset();bleacherProps?.reset();
+  stadiumEvidence?.resetAudience?.();
   hostHits.player={time:-100,damage:0};
   hostHits.ai={time:-100,damage:0};
   return;
@@ -1171,20 +1171,18 @@ function onMessage(ev){
   if(!accepted)return;
   magicArsenal?.play(msg,absoluteSeconds);
   spellSerials.add(msg.serial);
+  const accident=PARAMS.get('r122Crowd')==='off'?null:
+   chooseCrowdAccident(msg,{force:PARAMS.get('qa')==='1'&&
+    PARAMS.get('r122Crowd')==='force'});
+  if(accident){
+   pendingCrowdAccidents.push({incident:accident,
+    launchAt:absoluteSeconds+.28,launched:false,hitAt:Infinity});
+   if(pendingCrowdAccidents.length>5)pendingCrowdAccidents.shift();
+  }
   if(['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
    comedySpectacle?.trigger('spell_'+msg.effect,
     msg.side,msg.serial,absoluteSeconds,{reduced});
   if(spellSerials.size>500)spellSerials.clear();
-  const chaosAllowed=PARAMS.get('r122Crowd')!=='off';
-  const accident=chaosAllowed?chooseCrowdAccident(msg,{
-   force:PARAMS.get('qa')==='1'&&PARAMS.get('r122Crowd')==='force'}):null;
-  if(accident){
-   pendingCrowdAccidents.push({incident:accident,
-    // Residual magic leaves AFTER the true contact frame where applicable.
-    launchAt:absoluteSeconds+(accident.scenario==='misfire'?.08:.54),
-    launched:false,hitAt:Infinity});
-   if(pendingCrowdAccidents.length>5)pendingCrowdAccidents.shift();
-  }
   const descriptor=describeSpellContact(msg);
   if(descriptor){
    // The authoritative spell arrives before the post-resolution board sync.
@@ -1272,16 +1270,16 @@ function exposeQA(){
   get magicArsenal(){return magicArsenal?.stats||null},
   get elementalVfx(){return elementalVfx?.stats||null},
   get spellContactFX(){return spellContactFX?.stats||null},
+  get r121ContactReceipts(){return r121ContactReceipts},
+  get r122AccidentReceipts(){return r122AccidentReceipts},
+  get registeredSpellSerials(){return spellSerials.size},
+  get pendingSpellContacts(){return pendingSpellContacts.length},
+  get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
   get spectatorChaosFX(){return spectatorChaosFX?.stats||null},
   get bleacherProps(){return bleacherProps?.stats||null},
   get r123Camera(){return {cuts:r123ReactionCuts,weight:+r123ShotWeight.toFixed(3),
    spectatorIndex:crowdCloseup?.spectatorIndex??null,
-   frontFacingCloseup:true,extraRenderPasses:0}},
-  get r122AccidentReceipts(){return r122AccidentReceipts},
-  get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
-  get registeredSpellSerials(){return spellSerials.size},
-  get pendingSpellContacts(){return pendingSpellContacts.length},
-  get r121ContactReceipts(){return r121ContactReceipts},
+   frontFacingCloseup:true,teacherIntervention:!!crowdCloseup&&absoluteSeconds-crowdCloseup.started>=2.32,extraRenderPasses:0}},
   get comboDirector(){return comboDirector?.stats||null},
   get comedySpectacle(){return comedySpectacle?.stats||null},
   get hostHits(){return structuredClone(hostHits)},

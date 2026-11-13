@@ -1,0 +1,27 @@
+{
+  "provider": "Qwen3-TTS",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "version": "R125",
+  "review_status": "pending-human-listening",
+  "actor": "M01",
+  "clips": {
+    "order": {
+      "file": "r125_teacher_order.ogg",
+      "text": "停！停！我说过多少遍了！观众席不是魔法练习场！",
+      "speaker": "serena",
+      "duration_seconds": 7.11,
+      "sha256": "4abd09767ed4bc1e9819c10154ce093fba0de5efa23d8f66777771d65adf3015",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "paper": {
+      "file": "r125_teacher_paper.ogg",
+      "text": "谁把我的五线谱吹成纸飞机了！两位决斗者，先把地扫干净！",
+      "speaker": "serena",
+      "duration_seconds": 4.51,
+      "sha256": "272c692bb739717f96fd5d00a8fee35972aa37b898100e6106fef38d74bd1415",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    }
+  }
+}

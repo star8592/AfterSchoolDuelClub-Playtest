@@ -2,7 +2,7 @@
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 const ease=v=>{const t=clamp(v);return t*t*(3-2*t)};
 export function crowdReactionMotion({type='idle',winner=null,team='player',
- elapsed=0,offset=0,reduced=false,index=0,focusIndex=-1,scenario=null}={}){
+ elapsed=0,offset=0,reduced=false,index=0,focusIndex=-1,scenario=null,role='spectator'}={}){
  const t=Math.max(0,elapsed);
  // R122: individual reactions to a misdirected school magic projectile.
  // Closest spectator ducks or jumps; neighbors shield their heads, far
@@ -10,7 +10,17 @@ export function crowdReactionMotion({type='idle',winner=null,team='player',
  if(type==='accident'){
   // Correct *actual* left/right seat adjacency; the two edge spectators
   // aren't neighbors. Prop accident -> near duck -> next chair -> far gasp.
-  const seatX=[-8,-4.65,4.65,8];
+  if(role==='supervisor'){
+   const delay=.43,phase=Math.max(0,t-delay);
+   const inAction=t>=delay&&t<2.65;
+   const envelope=inAction?ease(phase/.22)*(1-ease((phase-1.50)/.95)):0;
+   const s=(reduced?.23:1)*envelope;
+   return {active:inAction,weight:s,mode:'supervisor_intervene',
+    yaw:-.16*s,tilt:-.25*s,bounce:reduced?0:.085*Math.max(0,Math.sin(phase*6))*s,
+    arms:.91*s,headYaw:-.20*s,headPitch:-.18*s,duck:0,
+    duration:2.65,near:false,neighbor:false,delay,scenario};
+  }
+  const seatX=[-8,-4.65,4.65,8,-6.25,-2.65,2.65,6.25];
   const near=index===focusIndex;
   const next=!near&&Math.abs(seatX[index]-seatX[focusIndex])<3.8;
   const delay=near?0:next?.18:.43+(index%2)*.10;

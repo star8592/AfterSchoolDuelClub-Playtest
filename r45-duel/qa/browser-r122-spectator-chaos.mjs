@@ -34,7 +34,7 @@ try{
   });
   check(await page.evaluate(()=>window.__r45QA.audio.crowdVoiceClipCount)===8,
    name+' eight real recorded Qwen spectator voice clips preloaded',null);
-  check(before.crowd?.loaded===4,name+' 4 actual 3D audience model instances',before.crowd);
+  check(before.crowd?.loaded===8,name+' 8 actual 3D audience model instances (four canonical gag targets)',before.crowd);
   check(before.fx?.launched===0&&before.events===0,name+' no fake accident on opening',before.fx);
   await page.locator('.card[data-card-id="K01"]:not([disabled])').first().click();
   await page.locator('#play').click();

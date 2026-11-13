@@ -52,11 +52,12 @@ function showSpokenLine(entry){
  if(!node||!speaker||!words)return;
  const name=BY_ID[entry.id]?.name||({
   HOST_PLAYER:'我方决斗者',HOST_AI:'对方决斗者',
-  STADIUM_PA:'体育馆广播员'})[entry.id]||
-  (entry.id.startsWith('SPECTATOR_')?'看台同学 '+(Number(entry.id.slice(10))+1):entry.id);
+  STADIUM_PA:'体育馆广播员',
+  SPECTATOR_0:'左后排观众',SPECTATOR_1:'左前排观众',
+  SPECTATOR_2:'右前排观众',SPECTATOR_3:'右后排观众'})[entry.id]||entry.id;
  speaker.textContent=name+' · Qwen3 角色配音';
  words.textContent=entry.text;
- node.dataset.side=entry.id==='STADIUM_PA'?'center':
+ node.dataset.side=entry.id==='STADIUM_PA'||String(entry.id).startsWith('SPECTATOR_')?'center':
   entry.id==='HOST_AI'?'ai':'player';
  node.hidden=false;spokenSubtitleCount++;
  lastQwenSubtitle={...entry,name};
@@ -498,9 +499,7 @@ function advanceLesson(){
  sendScene({type:'ASDC_R100_COMBO_RESET'});
  comboAudioReceipts.clear();
  combatAudioReceipts.clear();
-
  r121SpokenContacts.clear();r122PlayedCrowdAccidents.clear();
-
  ++asideSeq;++speechSeq;
  $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  g=createTutorialGame(level+1,seed+level);
@@ -988,6 +987,14 @@ window.addEventListener('message',event=>{
   const matchGame=g,incidentSerial=d.serial;
   // A dead-simple event-bound postscript: does not run after rematch or
   // victory, and never cuts off the fighter's own recorded voice.
+  // A real M01 music teacher (not a generic PA persona) steps forward
+  // after the first student scream. The speaker line is Qwen-recorded,
+  // and the soundtrack is queued behind the fighter's own speech.
+  setTimeout(()=>{
+   if(g!==matchGame||g.phase==='ended'||!sceneReady||
+    !r122PlayedCrowdAccidents.has(incidentSerial))return;
+   audio.playTeacherOrder(prop.kind==='homework'?'paper':'order');
+  },2450);
   setTimeout(()=>{
    if(g!==matchGame||g.phase==='ended'||!sceneReady||
     !r122PlayedCrowdAccidents.has(incidentSerial))return;
@@ -995,7 +1002,7 @@ window.addEventListener('message',event=>{
     showComedyAside({text:'体育馆广播：'+prop.caption,
      side:'center',speaker:'看台广播 · 文字'});
    }
-  },3500);
+  },7600);
 
   return;
  }
@@ -1128,7 +1135,7 @@ deckSelector.addEventListener('change',()=>{
  $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  selected=null;lastFightSerial=0;
  comboAudioReceipts.clear();combatAudioReceipts.clear();
- r121SpokenContacts.clear();
+ r121SpokenContacts.clear();r122PlayedCrowdAccidents.clear();
  hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
  sendScene({type:'ASDC_R100_COMBO_RESET'});
  const url=new URL(location.href);

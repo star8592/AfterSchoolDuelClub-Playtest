@@ -41,9 +41,9 @@ try{
   check(initial.props?.mounted===4&&
    JSON.stringify(initial.props.types)===JSON.stringify(['popcorn','juice','homework','backpack']),
    name+' four props visible at real seated students before any accident',initial.props);
-  check(initial.crowd.animationMixers===4&&
-   initial.crowd.boneDrivenActors+initial.crowd.authoredPoseFallbackActors===4,
-   name+' real audience GLB skeletal/morph rig truth instead of invented FK joints',initial.crowd);
+  check(initial.crowd.animationMixers===8&&
+   initial.crowd.boneDrivenActors+initial.crowd.authoredPoseFallbackActors===8,
+   name+' eight real GLBs including music teacher, rig truth instead of invented bones',initial.crowd);
   check(initial.props.accidents===0&&initial.props.ruleMutations===0,
    name+' no conjured mishap on opening',initial.props);
   check(initial.audio.propPAVoiceClips===4,name+' four original announcer voices preloaded',initial.audio.propPAVoiceClips);
