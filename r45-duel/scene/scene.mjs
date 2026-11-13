@@ -65,6 +65,20 @@ const speechQA={started:0,stopped:0,ignored:0};
 // original child, with its source facial morphs and wrist-bound painted card.
 // Main wide stadium composition and manual user orbit remain untouched.
 const heroCamera=new THREE.PerspectiveCamera(43,1,.10,90);
+// R124: show only the current podium performer in the cinematic inset.
+// The wide camera stays on layer 0; no low-poly proxy replaces the real VRM.
+// The game embeds scene/ as a same-origin iframe. Read the rollout
+// override from either frame so ?r124Quality=legacy is a real rollback.
+const r124Legacy=PARAMS.get('r124Quality')==='legacy'||(()=>{
+ try{return window.parent!==window&&
+   new URLSearchParams(window.parent.location.search).get('r124Quality')==='legacy'}
+ catch{return false}
+})();
+heroCamera.layers.set(r124Legacy?0:1);
+let heroLayerSide=null,heroInsetDraws=0,shadowPassRequests=0,shadowAccumulator=0;
+const r124Mobile=()=>window.innerWidth<700&&(window.devicePixelRatio||1)>=1.5;
+const r124PixelRatio=()=>Math.min(window.devicePixelRatio||1,
+ r124Legacy?1.5:r124Mobile()?1.2:1.5);
 let heroLens={side:null,phase:'idle',frames:0,visible:false,
   inset:null,faceNdc:null,lastDrawCalls:0};
 let heroResult={winner:null,started:-100};
@@ -232,16 +246,21 @@ function makeScene(){
  renderer=new THREE.WebGLRenderer({canvas:$('battle-canvas'),alpha:false,antialias:true,powerPreference:'high-performance'});
  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
  renderer.toneMappingExposure=1.15;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
- renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
+ // R124: cache the last directional shadow between scheduled updates; the
+ // second camera must NEVER render the whole shadow atlas a second time.
+ renderer.shadowMap.autoUpdate=r124Legacy;renderer.shadowMap.needsUpdate=!r124Legacy;
+ renderer.setPixelRatio(r124PixelRatio());
  camera=new THREE.PerspectiveCamera(36,1,.1,60);
  camera.position.set(0,4.1,9.0);camera.lookAt(CAMERA_LOOK_AT);
- scene.add(new THREE.HemisphereLight('#cddffe','#425769',1.40));
+ const ambient=new THREE.HemisphereLight('#cddffe','#425769',1.40);
+ ambient.layers.enable(1);scene.add(ambient);
  const key=new THREE.DirectionalLight('#ffdfc3',2.70);
- key.position.set(-4,8,5);key.castShadow=true;key.shadow.mapSize.set(2048,2048);
+ key.position.set(-4,8,5);key.castShadow=true;key.layers.enable(1);
+ key.shadow.mapSize.set(!r124Legacy&&r124Mobile()?1024:2048,!r124Legacy&&r124Mobile()?1024:2048);
  key.shadow.camera.left=-7;key.shadow.camera.right=7;key.shadow.camera.top=7;key.shadow.camera.bottom=-7;
  key.shadow.bias=-.00018;scene.add(key);
- const rim=new THREE.DirectionalLight('#a0c9fc',2.25);rim.position.set(5,6,-4);scene.add(rim);
- const fill=new THREE.DirectionalLight('#f7d6b9',.8);fill.position.set(3,3,6);scene.add(fill);
+ const rim=new THREE.DirectionalLight('#a0c9fc',2.25);rim.position.set(5,6,-4);rim.layers.enable(1);scene.add(rim);
+ const fill=new THREE.DirectionalLight('#f7d6b9',.8);fill.position.set(3,3,6);fill.layers.enable(1);scene.add(fill);
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
  stadiumEvidence=createStadium(THREE,scene,{detail:'medium',lifeWorld:arenaLife});
  duelEffects=createDuelEffects(THREE,scene);
@@ -271,6 +290,9 @@ function makeScene(){
 function onResize(){
  if(!renderer)return;
  const w=Math.max(1,window.innerWidth),h=Math.max(1,window.innerHeight);
+ // Retina phones can shade 2.25x more pixels without improving the card
+ // rules. Keep a crisp 1.2x mobile image and the full desktop presentation.
+ if(renderer.getPixelRatio()!==r124PixelRatio())renderer.setPixelRatio(r124PixelRatio());
  renderer.setSize(w,h,false);
  camera.aspect=w/h;
  const narrow=camera.aspect<.85;
@@ -849,6 +871,14 @@ function loop(){
   }
   stageText('idle','双方待命 · 真实三维竞技场');
  }
+ if(!r124Legacy){
+  shadowAccumulator+=delta;
+  const period=playing?1/30:1/20;
+  if(shadowAccumulator>=period){
+   renderer.shadowMap.needsUpdate=true;
+   shadowAccumulator%=period;shadowPassRequests++;
+  }
+ }
  renderer.render(scene,camera);
  // A camera cut never changes geometry orientation, physical animation or
  // the actual player's chosen orbit. Render an inset in the SAME WebGL
@@ -874,6 +904,12 @@ function loop(){
  if(focus&&!reduced&&!legacyCamera){
   const host=duelistHosts.find(x=>x.side===focus.side);
   if(host){
+   if(!r124Legacy&&heroLayerSide!==focus.side){
+    for(const h of duelistHosts)h.pivot.traverse(obj=>{
+     if(h.side===focus.side)obj.layers.enable(1);else obj.layers.disable(1);
+    });
+    heroLayerSide=focus.side;
+   }
    const size=new THREE.Vector2();renderer.getSize(size);
    const width=Math.max(1,Math.floor(size.x*(size.x<680?.40:.265)));
    const height=Math.max(1,Math.floor(size.y*(size.x<680?.262:.34)));
@@ -913,7 +949,8 @@ function loop(){
    renderer.autoClear=false;
    renderer.clear(true,true,true);
    renderer.render(scene,heroCamera);
-   currentDraws+=renderer.info.render.calls;
+   heroInsetDraws=renderer.info.render.calls;
+   currentDraws+=heroInsetDraws;
    renderer.autoClear=true;
    renderer.setScissorTest(false);
    renderer.setViewport(0,0,size.x,size.y);
@@ -1137,6 +1174,11 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
+  get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
+   pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
+   shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,
+   heroInsetDraws,heroLayerSide,heroCameraLayer:heroCamera.layers.mask,
+   totalDrawCalls:drawCount};},
   get spellImpact(){return spellImpact?.stats||null},
   get magicArsenal(){return magicArsenal?.stats||null},
   get elementalVfx(){return elementalVfx?.stats||null},

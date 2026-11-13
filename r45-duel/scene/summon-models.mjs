@@ -167,6 +167,31 @@ export const UNIT_MODEL_SPECS=Object.freeze({
  T03:{file:'T03-Rain-Landing-R97.glb',label:'默契收发员',targetHeight:2.08,maxWidth:3.15,kind:'character'},
  T04:{file:'T04-Rex-Landing-R97.glb',label:'活动室守门人',targetHeight:2.08,maxWidth:3.15,kind:'character'}
 });
+// R124 keeps every original GLB untouched and distributable. The 12 normal
+// startup files have lossless .glb.gz wire copies; experimental fallback
+// models and browsers without native DecompressionStream use .glb directly.
+export const R124_PACKED_DEFAULTS=Object.freeze([
+ 'E02-R60-PhotoPaper-WingFlex-STUDY.glb',
+ 'E03-Ellie-Landing-R97.glb',
+ 'E04-Phil-Landing-R97.glb',
+ 'G02-Snow-Landing-R97.glb',
+ 'G03-Jay-Landing-R97.glb',
+ 'G04-Victoria-Landing-R97.glb',
+ 'M01-MusicTeacher-PolyforkSchoolTeacher.glb',
+ 'M02-CafeteriaAunt-ChefHat-Ladle-R114.glb',
+ 'T01-Owl-Innerscene-R84.glb',
+ 'T02-LivingMenu-R59.glb',
+ 'T03-Rain-Landing-R97.glb',
+ 'T04-Rex-Landing-R97.glb'
+]);
+const R124_PACKED_SET=new Set(R124_PACKED_DEFAULTS);
+function r124PackedDisabled(){
+ let forced=new URLSearchParams(location.search).get('r124Packed')==='off';
+ try{forced ||=window.parent!==window&&
+  new URLSearchParams(window.parent.location.search).get('r124Packed')==='off'}
+ catch{ /* direct file and cross-origin embedding use local policy */ }
+ return forced;
+}
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
 export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,concurrency=4}={}){
  // Bound GLB requests and parser work instead of firing 12 large models at once.
@@ -174,11 +199,48 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
  const limit=Math.max(1,Math.min(12,Math.floor(Number(concurrency))||4));
  let active=0;
  const pending=[];
- async function loadBounded(url){
+ async function loadPacked(url){
+  const packedUrl=url+'.gz';
+  const response=await fetch(packedUrl);
+  if(!response.ok)throw Error('R124 missing verified lossless GLB pack '+packedUrl+' HTTP '+response.status);
+  const reader=response.body?.getReader();
+  if(!reader)throw Error('R124 packed GLB requires a readable stream');
+  const first=await reader.read();
+  if(first.done||!first.value||first.value.byteLength<2)
+   throw Error('R124 missing compressed glTF bytes '+packedUrl);
+  let received=0;
+  const total=Number(response.headers.get('content-length'))||0;
+  const track=chunk=>{
+   received+=chunk.byteLength;
+   // Only actual received bytes appear in the existing verified download UI.
+   onTransfer?.(url,{loaded:received,total:total||received,lengthComputable:total>0});
+  };
+  const body=new ReadableStream({
+   start(controller){track(first.value);controller.enqueue(first.value)},
+   async pull(controller){
+    const part=await reader.read();
+    if(part.done)controller.close();
+    else{track(part.value);controller.enqueue(part.value)}
+   },
+   cancel(reason){return reader.cancel(reason)}
+  });
+  // A CDN could transparently decode gzip using Content-Encoding: gzip.
+  // Inspect the ACTUAL response bytes to prevent accidental double decode.
+  const hasGzipMagic=first.value[0]===0x1f&&first.value[1]===0x8b;
+  const buffer=await new Response(hasGzipMagic?
+   body.pipeThrough(new DecompressionStream('gzip')):body).arrayBuffer();
+  if(new DataView(buffer).getUint32(0,false)!==0x676c5446)
+   throw Error('R124 packed file did not decode to a genuine glTF binary '+packedUrl);
+  return loader.parseAsync(buffer,new URL('.',url).href);
+ }
+ async function loadBounded(url,selectedFile){
   if(active>=limit)await new Promise(resolve=>pending.push(resolve));
   active++;
-  try{return await loader.loadAsync(url,event=>onTransfer?.(url,event));}
-  finally{active--;pending.shift()?.();}
+  try{
+   if(R124_PACKED_SET.has(selectedFile)&&typeof DecompressionStream==='function'&&
+      !r124PackedDisabled())return await loadPacked(url);
+   return await loader.loadAsync(url,event=>onTransfer?.(url,event));
+  }finally{active--;pending.shift()?.();}
  }
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
   const baseSpec=UNIT_MODEL_SPECS[id];
@@ -207,7 +269,7 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
    'E02-R60-PhotoPaper-WingFlex-STUDY.glb':
    id==='G03'&&isG03R86Study?'G03-Jay-Skinned-R86.glb':spec.file;
   const url=new URL('../assets/summons/'+selectedFile,import.meta.url);
-  const gltf=await loadBounded(url.href);
+  const gltf=await loadBounded(url.href,selectedFile);
   const source=gltf.scene;
   source.updateMatrixWorld(true);
   const bounds=new THREE.Box3().setFromObject(source);
