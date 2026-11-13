@@ -99,9 +99,9 @@ function savedVolume(){
 
 export function createDuelAudio({onVoiceLine}={}){
  let requested=savedSoundIntent(),enabled=false,ctx=null,decoded=new Map(),
-  voiceManifest={clips:{}},paManifest={clips:{}},crowdManifest={clips:{}},voiceAudio=null,crowdAudio=null;
+  voiceManifest={clips:{}},paManifest={clips:{}},crowdManifest={clips:{}},propPAManifest={clips:{}},voiceAudio=null,crowdAudio=null;
  let crowdVoicePlays=0,lastCrowdVoice=null;
- let lastPAAt=-Infinity,finaleVoiceGuard=false;
+ let lastPAAt=-Infinity,lastPropPAAt=-Infinity,propPAPlays=0,finaleVoiceGuard=false;
  let assetsLoading=null,assetsReady=false,musicAttemptInFlight=false;
  const pendingCues=[],pendingVoices=[];
 
@@ -177,6 +177,21 @@ export function createDuelAudio({onVoiceLine}={}){
    crowdManifest=json;
   }catch(e){counters.errors++;log('crowd-manifest-error',String(e))}
  }
+ async function loadPropPAManifest(){
+  try{
+   const response=await fetch(base+'crowd/r123-prop-pa-manifest.json',{cache:'no-cache'});
+   if(!response.ok)throw Error('R123 prop PA HTTP '+response.status);
+   const json=await response.json(),clips=json.clips||{};
+   const kinds=['popcorn','juice','homework','backpack'];
+   if(json.provider!=='Qwen3-TTS'||Object.keys(clips).length!==4||
+     kinds.some(k=>{
+       const c=clips[k];return !c?.ready||c.file!=='r123_pa_'+k+'.ogg'||
+       c.speaker!=='ryan'||typeof c.text!=='string'||c.text.length>120||
+       !/^[a-f0-9]{64}$/.test(c.sha256)||!(c.duration_seconds>.6)&&!(c.duration_seconds<14);
+     }))throw Error('Invalid R123 original announcer recordings');
+   propPAManifest=json;
+  }catch(e){counters.errors++;log('prop-pa-manifest-error',String(e))}
+ }
  async function preloadCues(){
   if(!ctx)return;
   await Promise.all(Object.entries(SOUNDS).map(async([key,file])=>{
@@ -217,7 +232,7 @@ export function createDuelAudio({onVoiceLine}={}){
     counters.errors++;log('music-error','file failed');
   });
   // Decode while suspended. First card selection must not wait for network.
-  assetsLoading=Promise.all([loadManifest(),loadPAManifest(),loadCrowdManifest(),preloadCues()]).then(()=>{
+  assetsLoading=Promise.all([loadManifest(),loadPAManifest(),loadCrowdManifest(),loadPropPAManifest(),preloadCues()]).then(()=>{
     assetsReady=true;flushPending();
     log('prepared','sound files ready; playback follows browser policy');
     return true;
@@ -361,7 +376,7 @@ export function createDuelAudio({onVoiceLine}={}){
  function playQueuedVoice(){
   if(!enabled||voiceAudio||voiceQueue.length===0)return;
   const {id,kind,file,variant,text,duration_seconds,source='actor'}=voiceQueue.shift();
-  const a=new Audio(base+(source==='pa'?'pa/':'voices/')+file+'?mix=r113');
+  const a=new Audio(base+(source==='pa'?'pa/':source==='bleacher'?'crowd/':'voices/')+file+'?mix=r123');
   voiceAudio=a;currentVoiceKey=id+':'+kind;
   a.volume=volume.voice;a.preload='auto';
   log('voice-variant',id+':'+kind+'='+variant);
@@ -435,6 +450,21 @@ export function createDuelAudio({onVoiceLine}={}){
   voiceQueue.unshift({id:'STADIUM_PA',kind:key,source:'pa',
    file:meta.file,variant:key,text:meta.text,duration_seconds:meta.duration_seconds});
   playQueuedVoice();
+  return true;
+ }
+ function playPropPA(kind){
+  const meta=propPAManifest.clips?.[kind],now=performance.now();
+  if(!['popcorn','juice','homework','backpack'].includes(kind)||
+   !requested||!enabled||!assetsReady||finaleVoiceGuard||volume.voice===0||
+   !meta?.ready||now-lastPropPAAt<7000||voiceQueue.length>=2)return false;
+  // Unlike a match-winning PA, the comic announcement never interrupts
+  // the duelist's spoken line. It joins the ordinary VO queue.
+  lastPropPAAt=now;
+  voiceQueue.push({id:'STADIUM_PA',kind:'prop_'+kind,source:'bleacher',
+   file:meta.file,variant:kind,text:meta.text,
+   duration_seconds:meta.duration_seconds});
+  if(!voiceAudio)playQueuedVoice();
+  propPAPlays++;
   return true;
  }
  function playCrowdYelp(scenario,index=0,serial=1){
@@ -554,7 +584,7 @@ export function createDuelAudio({onVoiceLine}={}){
  }
  let finaleTimer=null;
  function resetMatch(){
-  finaleVoiceGuard=false;lastPAAt=-Infinity;
+  finaleVoiceGuard=false;lastPAAt=-Infinity;lastPropPAAt=-Infinity;
   if(finaleTimer!==null){clearTimeout(finaleTimer);finaleTimer=null;}
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
   crowdAudio?.pause();crowdAudio=null;
@@ -586,6 +616,8 @@ export function createDuelAudio({onVoiceLine}={}){
   pendingCues:pendingCues.length,pendingVoices:pendingVoices.length,
   musicKind,musicDucked,musicTracks:[...MUSIC_TRACKS],
   paClipCount:Object.keys(paManifest.clips||{}).length,
+  propPAVoiceClips:Object.keys(propPAManifest.clips||{}).length,
+  propPAPlays,
   crowdVoiceClipCount:Object.keys(crowdManifest.clips||{}).length,
   crowdVoicePlays,lastCrowdVoice:lastCrowdVoice?{...lastCrowdVoice}:null,
   finaleVoiceGuard,
@@ -595,5 +627,5 @@ export function createDuelAudio({onVoiceLine}={}){
   voiceQueue:voiceQueue.map(x=>x.id+':'+x.kind),decodedCues:decoded.size,voiceClipCount:Object.keys(voiceManifest.clips||{}).length,
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
  return {prepare,unlock,turnOn,stop,setVolume,playCue,playComicBeat,
-  playCharacter,playPA,playSocialLine,playCrowdYelp,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
+  playCharacter,playPA,playSocialLine,playCrowdYelp,playPropPA,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
 }
