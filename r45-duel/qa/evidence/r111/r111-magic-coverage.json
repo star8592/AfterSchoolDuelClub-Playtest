@@ -1,0 +1,682 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop genuine WebGL2",
+      "detail": {
+        "catalog": 60,
+        "coverage": 46,
+        "motifs": 32,
+        "allAccepted": true,
+        "fake": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "geometryFingerprints": 31,
+        "minNodes": 6,
+        "maxNodes": 25,
+        "inFlight": 4,
+        "peakMeshes": 99,
+        "noDrift": true,
+        "calls": 99,
+        "preview": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 50,
+          "expired": 46,
+          "rejected": 4,
+          "active": 4,
+          "activeMotifs": [
+            "frog",
+            "chalk",
+            "ball",
+            "portal"
+          ],
+          "lastBySide": {
+            "player": "P05",
+            "ai": "X08"
+          },
+          "maxActive": 4,
+          "peakMeshes": 99,
+          "totalMeshes": 587,
+          "ruleMutations": 0
+        },
+        "disposed": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 50,
+          "expired": 50,
+          "rejected": 4,
+          "active": 0,
+          "activeMotifs": [],
+          "lastBySide": {
+            "player": "P05",
+            "ai": "X08"
+          },
+          "maxActive": 4,
+          "peakMeshes": 99,
+          "totalMeshes": 587,
+          "ruleMutations": 0
+        },
+        "r79": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 8,
+          "expired": 1,
+          "active": 7,
+          "activeTypes": [
+            "portal",
+            "aurora",
+            "meteor",
+            "crystal",
+            "glyph",
+            "tidal",
+            "lightning"
+          ],
+          "usesGameRuleMutation": false
+        },
+        "legacyResults": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "isWebGL2": true
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop all 46 existing spell events",
+      "detail": 46
+    },
+    {
+      "pass": true,
+      "label": "desktop 32 campus spell motifs actually built",
+      "detail": 32
+    },
+    {
+      "pass": true,
+      "label": "desktop physically distinct geometry not color swaps",
+      "detail": 31
+    },
+    {
+      "pass": true,
+      "label": "desktop reject invalid effects",
+      "detail": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop cap concurrent GPU draw objects",
+      "detail": {
+        "catalog": 60,
+        "coverage": 46,
+        "motifs": 32,
+        "allAccepted": true,
+        "fake": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "geometryFingerprints": 31,
+        "minNodes": 6,
+        "maxNodes": 25,
+        "inFlight": 4,
+        "peakMeshes": 99,
+        "noDrift": true,
+        "calls": 99,
+        "preview": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 50,
+          "expired": 46,
+          "rejected": 4,
+          "active": 4,
+          "activeMotifs": [
+            "frog",
+            "chalk",
+            "ball",
+            "portal"
+          ],
+          "lastBySide": {
+            "player": "P05",
+            "ai": "X08"
+          },
+          "maxActive": 4,
+          "peakMeshes": 99,
+          "totalMeshes": 587,
+          "ruleMutations": 0
+        },
+        "disposed": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 50,
+          "expired": 50,
+          "rejected": 4,
+          "active": 0,
+          "activeMotifs": [],
+          "lastBySide": {
+            "player": "P05",
+            "ai": "X08"
+          },
+          "maxActive": 4,
+          "peakMeshes": 99,
+          "totalMeshes": 587,
+          "ruleMutations": 0
+        },
+        "r79": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 8,
+          "expired": 1,
+          "active": 7,
+          "activeTypes": [
+            "portal",
+            "aurora",
+            "meteor",
+            "crystal",
+            "glyph",
+            "tidal",
+            "lightning"
+          ],
+          "usesGameRuleMutation": false
+        },
+        "legacyResults": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "isWebGL2": true
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop elapsed-time animations deterministic"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual geometry rendered within bounded draw calls",
+      "detail": 99
+    },
+    {
+      "pass": true,
+      "label": "desktop expired meshes reclaimed and no game state edits"
+    },
+    {
+      "pass": true,
+      "label": "desktop recovered all 8 R79 elemental presets",
+      "detail": {
+        "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+        "played": 8,
+        "expired": 1,
+        "active": 7,
+        "activeTypes": [
+          "portal",
+          "aurora",
+          "meteor",
+          "crystal",
+          "glyph",
+          "tidal",
+          "lightning"
+        ],
+        "usesGameRuleMutation": false
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop visual arsenal does not download 3D character models"
+    },
+    {
+      "pass": true,
+      "label": "desktop no WebGL2 or HTTP errors",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "label": "phone genuine WebGL2",
+      "detail": {
+        "catalog": 60,
+        "coverage": 46,
+        "motifs": 32,
+        "allAccepted": true,
+        "fake": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "geometryFingerprints": 31,
+        "minNodes": 6,
+        "maxNodes": 25,
+        "inFlight": 4,
+        "peakMeshes": 99,
+        "noDrift": true,
+        "calls": 99,
+        "preview": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 50,
+          "expired": 46,
+          "rejected": 4,
+          "active": 4,
+          "activeMotifs": [
+            "frog",
+            "chalk",
+            "ball",
+            "portal"
+          ],
+          "lastBySide": {
+            "player": "P05",
+            "ai": "X08"
+          },
+          "maxActive": 4,
+          "peakMeshes": 99,
+          "totalMeshes": 587,
+          "ruleMutations": 0
+        },
+        "disposed": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 50,
+          "expired": 50,
+          "rejected": 4,
+          "active": 0,
+          "activeMotifs": [],
+          "lastBySide": {
+            "player": "P05",
+            "ai": "X08"
+          },
+          "maxActive": 4,
+          "peakMeshes": 99,
+          "totalMeshes": 587,
+          "ruleMutations": 0
+        },
+        "r79": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 8,
+          "expired": 1,
+          "active": 7,
+          "activeTypes": [
+            "portal",
+            "aurora",
+            "meteor",
+            "crystal",
+            "glyph",
+            "tidal",
+            "lightning"
+          ],
+          "usesGameRuleMutation": false
+        },
+        "legacyResults": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "isWebGL2": true
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone all 46 existing spell events",
+      "detail": 46
+    },
+    {
+      "pass": true,
+      "label": "phone 32 campus spell motifs actually built",
+      "detail": 32
+    },
+    {
+      "pass": true,
+      "label": "phone physically distinct geometry not color swaps",
+      "detail": 31
+    },
+    {
+      "pass": true,
+      "label": "phone reject invalid effects",
+      "detail": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "pass": true,
+      "label": "phone cap concurrent GPU draw objects",
+      "detail": {
+        "catalog": 60,
+        "coverage": 46,
+        "motifs": 32,
+        "allAccepted": true,
+        "fake": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "geometryFingerprints": 31,
+        "minNodes": 6,
+        "maxNodes": 25,
+        "inFlight": 4,
+        "peakMeshes": 99,
+        "noDrift": true,
+        "calls": 99,
+        "preview": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 50,
+          "expired": 46,
+          "rejected": 4,
+          "active": 4,
+          "activeMotifs": [
+            "frog",
+            "chalk",
+            "ball",
+            "portal"
+          ],
+          "lastBySide": {
+            "player": "P05",
+            "ai": "X08"
+          },
+          "maxActive": 4,
+          "peakMeshes": 99,
+          "totalMeshes": 587,
+          "ruleMutations": 0
+        },
+        "disposed": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 50,
+          "expired": 50,
+          "rejected": 4,
+          "active": 0,
+          "activeMotifs": [],
+          "lastBySide": {
+            "player": "P05",
+            "ai": "X08"
+          },
+          "maxActive": 4,
+          "peakMeshes": 99,
+          "totalMeshes": 587,
+          "ruleMutations": 0
+        },
+        "r79": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 8,
+          "expired": 1,
+          "active": 7,
+          "activeTypes": [
+            "portal",
+            "aurora",
+            "meteor",
+            "crystal",
+            "glyph",
+            "tidal",
+            "lightning"
+          ],
+          "usesGameRuleMutation": false
+        },
+        "legacyResults": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "isWebGL2": true
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone elapsed-time animations deterministic"
+    },
+    {
+      "pass": true,
+      "label": "phone actual geometry rendered within bounded draw calls",
+      "detail": 99
+    },
+    {
+      "pass": true,
+      "label": "phone expired meshes reclaimed and no game state edits"
+    },
+    {
+      "pass": true,
+      "label": "phone recovered all 8 R79 elemental presets",
+      "detail": {
+        "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+        "played": 8,
+        "expired": 1,
+        "active": 7,
+        "activeTypes": [
+          "portal",
+          "aurora",
+          "meteor",
+          "crystal",
+          "glyph",
+          "tidal",
+          "lightning"
+        ],
+        "usesGameRuleMutation": false
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone visual arsenal does not download 3D character models"
+    },
+    {
+      "pass": true,
+      "label": "phone no WebGL2 or HTTP errors",
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "catalog": 60,
+      "coverage": 46,
+      "motifs": 32,
+      "allAccepted": true,
+      "fake": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "geometryFingerprints": 31,
+      "minNodes": 6,
+      "maxNodes": 25,
+      "inFlight": 4,
+      "peakMeshes": 99,
+      "noDrift": true,
+      "calls": 99,
+      "preview": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 50,
+        "expired": 46,
+        "rejected": 4,
+        "active": 4,
+        "activeMotifs": [
+          "frog",
+          "chalk",
+          "ball",
+          "portal"
+        ],
+        "lastBySide": {
+          "player": "P05",
+          "ai": "X08"
+        },
+        "maxActive": 4,
+        "peakMeshes": 99,
+        "totalMeshes": 587,
+        "ruleMutations": 0
+      },
+      "disposed": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 50,
+        "expired": 50,
+        "rejected": 4,
+        "active": 0,
+        "activeMotifs": [],
+        "lastBySide": {
+          "player": "P05",
+          "ai": "X08"
+        },
+        "maxActive": 4,
+        "peakMeshes": 99,
+        "totalMeshes": 587,
+        "ruleMutations": 0
+      },
+      "r79": {
+        "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+        "played": 8,
+        "expired": 1,
+        "active": 7,
+        "activeTypes": [
+          "portal",
+          "aurora",
+          "meteor",
+          "crystal",
+          "glyph",
+          "tidal",
+          "lightning"
+        ],
+        "usesGameRuleMutation": false
+      },
+      "legacyResults": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "isWebGL2": true
+    },
+    {
+      "view": "phone",
+      "catalog": 60,
+      "coverage": 46,
+      "motifs": 32,
+      "allAccepted": true,
+      "fake": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "geometryFingerprints": 31,
+      "minNodes": 6,
+      "maxNodes": 25,
+      "inFlight": 4,
+      "peakMeshes": 99,
+      "noDrift": true,
+      "calls": 99,
+      "preview": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 50,
+        "expired": 46,
+        "rejected": 4,
+        "active": 4,
+        "activeMotifs": [
+          "frog",
+          "chalk",
+          "ball",
+          "portal"
+        ],
+        "lastBySide": {
+          "player": "P05",
+          "ai": "X08"
+        },
+        "maxActive": 4,
+        "peakMeshes": 99,
+        "totalMeshes": 587,
+        "ruleMutations": 0
+      },
+      "disposed": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 50,
+        "expired": 50,
+        "rejected": 4,
+        "active": 0,
+        "activeMotifs": [],
+        "lastBySide": {
+          "player": "P05",
+          "ai": "X08"
+        },
+        "maxActive": 4,
+        "peakMeshes": 99,
+        "totalMeshes": 587,
+        "ruleMutations": 0
+      },
+      "r79": {
+        "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+        "played": 8,
+        "expired": 1,
+        "active": 7,
+        "activeTypes": [
+          "portal",
+          "aurora",
+          "meteor",
+          "crystal",
+          "glyph",
+          "tidal",
+          "lightning"
+        ],
+        "usesGameRuleMutation": false
+      },
+      "legacyResults": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "isWebGL2": true
+    }
+  ]
+}

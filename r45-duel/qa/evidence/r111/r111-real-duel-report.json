@@ -1,0 +1,608 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop all 46 spells connected to 32 physical motifs",
+      "evidence": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 0,
+        "expired": 0,
+        "rejected": 0,
+        "active": 0,
+        "activeMotifs": [],
+        "lastBySide": {
+          "player": null,
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 0,
+        "totalMeshes": 0,
+        "ruleMutations": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop no fake initial cast",
+      "evidence": {
+        "hand": [
+          "E01",
+          "E03",
+          "K01",
+          "T01",
+          "E01"
+        ],
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 0,
+          "expired": 0,
+          "rejected": 0,
+          "active": 0,
+          "activeMotifs": [],
+          "lastBySide": {
+            "player": null,
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 0,
+          "totalMeshes": 0,
+          "ruleMutations": 0
+        },
+        "elemental": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 0,
+          "expired": 0,
+          "active": 0,
+          "activeTypes": [],
+          "usesGameRuleMutation": false
+        },
+        "calls": 445
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop authentic K01 drawn",
+      "evidence": [
+        "E01",
+        "E03",
+        "K01",
+        "T01",
+        "E01"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop genuine spell effect dealt exactly one damage",
+      "evidence": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop real scene rendered distinct 3D banana/eggplant motif",
+      "evidence": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "activeMotifs": [
+          "banana"
+        ],
+        "lastBySide": {
+          "player": "K01",
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 14,
+        "totalMeshes": 12,
+        "ruleMutations": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop previous R81 impact remains compatible"
+    },
+    {
+      "pass": true,
+      "label": "desktop 3D magic never changes HP or battle rules and bounded concurrency",
+      "evidence": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "activeMotifs": [
+          "banana"
+        ],
+        "lastBySide": {
+          "player": "K01",
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 14,
+        "totalMeshes": 12,
+        "ruleMutations": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop E01 summon available after switching deck"
+    },
+    {
+      "pass": true,
+      "label": "desktop restored R79 original portal on genuine E01 summon",
+      "evidence": {
+        "elemental": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 1,
+          "expired": 0,
+          "active": 1,
+          "activeTypes": [
+            "portal"
+          ],
+          "usesGameRuleMutation": false
+        },
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 1,
+          "expired": 0,
+          "rejected": 0,
+          "active": 1,
+          "activeMotifs": [
+            "banana"
+          ],
+          "lastBySide": {
+            "player": "K01",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 14,
+          "totalMeshes": 12,
+          "ruleMutations": 0
+        },
+        "board": {
+          "player": [
+            [
+              {
+                "uid": "U2",
+                "id": "E01",
+                "style": "ember",
+                "attack": 1,
+                "hp": 2,
+                "buff": 0,
+                "shield": 0,
+                "summonedAt": 1
+              }
+            ]
+          ],
+          "ai": [
+            []
+          ]
+        },
+        "ready": true,
+        "drawCalls": 629
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop deck switch and portal without re-downloading 16 models",
+      "evidence": [
+        "http://127.0.0.1:11111/r45-duel/assets/model/Shino-original-CC0.vrm",
+        "http://127.0.0.1:11111/r45-duel/assets/model/Fumiriya-original-CC0.vrm",
+        "http://127.0.0.1:11111/r45-duel/assets/model/Host-HairSample_Female-CC0.vrm",
+        "http://127.0.0.1:11111/r45-duel/assets/model/Host-HairSample_Male-CC0.vrm",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/E03-Ellie-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/E04-Phil-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/G02-Snow-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/G03-Jay-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/G04-Victoria-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/M02-CafeteriaAunt-ChefHat-Spatula-R99.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/T01-Owl-Innerscene-R84.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/T02-LivingMenu-R59.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/T03-Rain-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/T04-Rex-Landing-R97.glb"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop portal on unit never forges a spell result"
+    },
+    {
+      "pass": true,
+      "label": "desktop real WebGL effects expire and free meshes",
+      "evidence": {
+        "spells": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 1,
+          "expired": 1,
+          "rejected": 0,
+          "active": 0,
+          "activeMotifs": [],
+          "lastBySide": {
+            "player": "K01",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 14,
+          "totalMeshes": 12,
+          "ruleMutations": 0
+        },
+        "legacy": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 1,
+          "expired": 1,
+          "active": 0,
+          "activeTypes": [],
+          "usesGameRuleMutation": false
+        },
+        "drawCalls": 533
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop no frame draw-call accumulation after effects end",
+      "evidence": 533
+    },
+    {
+      "pass": true,
+      "label": "desktop no browser errors or WebGL compilation issues",
+      "evidence": []
+    },
+    {
+      "pass": true,
+      "label": "phone all 46 spells connected to 32 physical motifs",
+      "evidence": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 0,
+        "expired": 0,
+        "rejected": 0,
+        "active": 0,
+        "activeMotifs": [],
+        "lastBySide": {
+          "player": null,
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 0,
+        "totalMeshes": 0,
+        "ruleMutations": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone no fake initial cast",
+      "evidence": {
+        "hand": [
+          "E01",
+          "E03",
+          "K01",
+          "T01",
+          "E01"
+        ],
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 0,
+          "expired": 0,
+          "rejected": 0,
+          "active": 0,
+          "activeMotifs": [],
+          "lastBySide": {
+            "player": null,
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 0,
+          "totalMeshes": 0,
+          "ruleMutations": 0
+        },
+        "elemental": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 0,
+          "expired": 0,
+          "active": 0,
+          "activeTypes": [],
+          "usesGameRuleMutation": false
+        },
+        "calls": 449
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone authentic K01 drawn",
+      "evidence": [
+        "E01",
+        "E03",
+        "K01",
+        "T01",
+        "E01"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "phone genuine spell effect dealt exactly one damage",
+      "evidence": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone real scene rendered distinct 3D banana/eggplant motif",
+      "evidence": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "activeMotifs": [
+          "banana"
+        ],
+        "lastBySide": {
+          "player": "K01",
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 14,
+        "totalMeshes": 12,
+        "ruleMutations": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone previous R81 impact remains compatible"
+    },
+    {
+      "pass": true,
+      "label": "phone 3D magic never changes HP or battle rules and bounded concurrency",
+      "evidence": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "activeMotifs": [
+          "banana"
+        ],
+        "lastBySide": {
+          "player": "K01",
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 14,
+        "totalMeshes": 12,
+        "ruleMutations": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone E01 summon available after switching deck"
+    },
+    {
+      "pass": true,
+      "label": "phone restored R79 original portal on genuine E01 summon",
+      "evidence": {
+        "elemental": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 1,
+          "expired": 0,
+          "active": 1,
+          "activeTypes": [
+            "portal"
+          ],
+          "usesGameRuleMutation": false
+        },
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 1,
+          "expired": 0,
+          "rejected": 0,
+          "active": 1,
+          "activeMotifs": [
+            "banana"
+          ],
+          "lastBySide": {
+            "player": "K01",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 14,
+          "totalMeshes": 12,
+          "ruleMutations": 0
+        },
+        "board": {
+          "player": [
+            [
+              {
+                "uid": "U2",
+                "id": "E01",
+                "style": "ember",
+                "attack": 1,
+                "hp": 2,
+                "buff": 0,
+                "shield": 0,
+                "summonedAt": 1
+              }
+            ]
+          ],
+          "ai": [
+            []
+          ]
+        },
+        "ready": true,
+        "drawCalls": 633
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone deck switch and portal without re-downloading 16 models",
+      "evidence": [
+        "http://127.0.0.1:11111/r45-duel/assets/model/Shino-original-CC0.vrm",
+        "http://127.0.0.1:11111/r45-duel/assets/model/Fumiriya-original-CC0.vrm",
+        "http://127.0.0.1:11111/r45-duel/assets/model/Host-HairSample_Female-CC0.vrm",
+        "http://127.0.0.1:11111/r45-duel/assets/model/Host-HairSample_Male-CC0.vrm",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/E03-Ellie-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/E04-Phil-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/G02-Snow-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/G03-Jay-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/G04-Victoria-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/M02-CafeteriaAunt-ChefHat-Spatula-R99.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/T01-Owl-Innerscene-R84.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/T02-LivingMenu-R59.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/T03-Rain-Landing-R97.glb",
+        "http://127.0.0.1:11111/r45-duel/assets/summons/T04-Rex-Landing-R97.glb"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "phone portal on unit never forges a spell result"
+    },
+    {
+      "pass": true,
+      "label": "phone real WebGL effects expire and free meshes",
+      "evidence": {
+        "spells": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 1,
+          "expired": 1,
+          "rejected": 0,
+          "active": 0,
+          "activeMotifs": [],
+          "lastBySide": {
+            "player": "K01",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 14,
+          "totalMeshes": 12,
+          "ruleMutations": 0
+        },
+        "legacy": {
+          "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+          "played": 1,
+          "expired": 1,
+          "active": 0,
+          "activeTypes": [],
+          "usesGameRuleMutation": false
+        },
+        "drawCalls": 537
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone no frame draw-call accumulation after effects end",
+      "evidence": 537
+    },
+    {
+      "pass": true,
+      "label": "phone no browser errors or WebGL compilation issues",
+      "evidence": []
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "models": 16,
+      "magic": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "activeMotifs": [
+          "banana"
+        ],
+        "lastBySide": {
+          "player": "K01",
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 14,
+        "totalMeshes": 12,
+        "ruleMutations": 0
+      },
+      "portal": {
+        "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+        "played": 1,
+        "expired": 0,
+        "active": 1,
+        "activeTypes": [
+          "portal"
+        ],
+        "usesGameRuleMutation": false
+      },
+      "drawCallsBaseline": 445,
+      "drawCallsSpell": 500,
+      "drawCallsPortal": 629
+    },
+    {
+      "view": "phone",
+      "models": 16,
+      "magic": {
+        "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+        "playableSpellCoverage": 46,
+        "motifCount": 32,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "activeMotifs": [
+          "banana"
+        ],
+        "lastBySide": {
+          "player": "K01",
+          "ai": null
+        },
+        "maxActive": 4,
+        "peakMeshes": 14,
+        "totalMeshes": 12,
+        "ruleMutations": 0
+      },
+      "portal": {
+        "layer": "R79_ORIGINAL_ELEMENTAL_VFX",
+        "played": 1,
+        "expired": 0,
+        "active": 1,
+        "activeTypes": [
+          "portal"
+        ],
+        "usesGameRuleMutation": false
+      },
+      "drawCallsBaseline": 449,
+      "drawCallsSpell": 504,
+      "drawCallsPortal": 633
+    }
+  ]
+}
