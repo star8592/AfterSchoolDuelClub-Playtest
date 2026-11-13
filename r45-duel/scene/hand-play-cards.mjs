@@ -9,7 +9,17 @@ const sides=['player','ai'];
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 export function createHandPlayCards(THREE,scene){
  const instances=new Map(),cache=new Map();
- const offset=new THREE.Vector3(0,.055,.055),wristPos=new THREE.Vector3();
+ const offset=new THREE.Vector3(0,.070,.067),wristPos=new THREE.Vector3();
+ const fingerDefinitions=Object.freeze({
+  Thumb:[.33,.48,.31],Index:[.33,.68,.47],Middle:[.48,.74,.50],
+  Ring:[.49,.76,.52],Little:[.52,.68,.46]
+ });
+ const fingerAxes={Thumb:'y',Index:'x',Middle:'x',Ring:'x',Little:'x'};
+ const fingerSign={Thumb:-1,Index:1,Middle:1,Ring:1,Little:1};
+ const digitName=['Thumb','Index','Middle','Ring','Little'];
+ const fingerRotation=new THREE.Quaternion(),axis=new THREE.Vector3();
+ const tipWorld=new THREE.Vector3(),tipNeutral=new THREE.Vector3();
+
  const cvsWidth=256,cvsHeight=360;let painted=0,frames=0;
  function compose(id,image){
   const canvas=document.createElement('canvas');canvas.width=cvsWidth;canvas.height=cvsHeight;
@@ -54,22 +64,37 @@ export function createHandPlayCards(THREE,scene){
    if(!wrist?.isBone)throw Error('R117 cannot anchor verified VRM card hand');
    const group=new THREE.Group();
    group.name='R117_LiveCard_Held_By_'+host.side;
-   const backing=new THREE.Mesh(new THREE.BoxGeometry(.405,.565,.014),
+   const backing=new THREE.Mesh(new THREE.BoxGeometry(.34,.478,.012),
     new THREE.MeshStandardMaterial({color:host.side==='player'?'#f4d397':'#9bd5ee',
       metalness:.26,roughness:.43,emissive:host.side==='player'?'#75452b':'#2c5374',emissiveIntensity:.23}));
    group.add(backing);
-   const image=new THREE.Mesh(new THREE.PlaneGeometry(.39,.55),
+   const image=new THREE.Mesh(new THREE.PlaneGeometry(.33,.464),
     new THREE.MeshBasicMaterial({map:compose('back',null),side:THREE.DoubleSide,transparent:false}));
    image.position.z=.011;group.add(image);
+   // R121 uses the ORIGINAL complete five-finger VRM source skeleton.
+   // Every joint belongs to this exact cloned host, not a phantom proxy
+   // hand. Per-joint source rest quaternions are kept for exact restoration.
+   const fingers=[];
+   for(const digit of digitName){
+    for(let segment=1;segment<=3;segment++){
+     const bone=host.pivot.getObjectByName('J_Bip_R_'+digit+segment);
+     if(!bone?.isBone)throw Error('R121 real hand grip missing '+digit+segment+' '+host.side);
+     fingers.push({digit,segment,bone,rest:bone.quaternion.clone()});
+    }
+   }
+   const tip=fingers.find(x=>x.digit==='Index'&&x.segment===3).bone;
    scene.add(group);group.visible=false;
    instances.set(host.side,{host,wrist,group,image,start:-100,id:null,serial:-1,
-    wristGap:0,events:0,painted:false,lastPainted:null});
+    wristGap:0,events:0,painted:false,lastPainted:null,
+    fingers,tip,grip:.0,gripFrames:0,gripMode:'open',maxTipTravel:0,
+    gripEntries:fingers.length,previewTip:null});
   }
  }
  function show(side,id,serial,seconds){
   const state=instances.get(side);if(!state||!BY_ID[id]||!Number.isInteger(serial)||serial<=0||
     !Number.isFinite(seconds)||state.serial===serial)return false;
   state.serial=serial;state.id=id;state.start=seconds;state.events++;state.painted=false;
+  state.maxTipTravel=0;state.previewTip=null;
   const version=serial;
   void artFor(id).then(img=>{
    if(state.serial!==version)return;
@@ -84,7 +109,36 @@ export function createHandPlayCards(THREE,scene){
   for(const state of instances.values()){
    const age=seconds-state.start,visible=age>=0&&age<2.63;
    state.group.visible=visible;
-   if(!visible)continue;
+   if(!visible){
+    if(state.gripMode!=='open'){
+     for(const f of state.fingers)f.bone.quaternion.copy(f.rest);
+     state.grip=0;state.gripMode='open';
+    }
+    continue;
+   }
+   // Fingers close on the real painted card during its reveal; a right
+   // thumb opposes the index and middle fingers. At the instant of release
+   // they OPEN instead of forming a permanent clenched fist.
+   const catchGrip=clamp(age/.17),throwRelease=clamp((age-1.84)/.24);
+   const grip=catchGrip*(1-throwRelease);
+   const poseStrength=state.host.side==='player'?1:.92;
+   state.grip=grip;state.gripMode=grip>.2?(throwRelease>.3?'release':'grasp'):'open';
+   for(const f of state.fingers){
+    const angles=fingerDefinitions[f.digit],amount=
+     angles[f.segment-1]*fingerSign[f.digit]*grip*poseStrength;
+    axis.set(fingerAxes[f.digit]==='x'?1:0,
+     fingerAxes[f.digit]==='y'?1:0,0);
+    fingerRotation.setFromAxisAngle(axis,amount);
+    f.bone.quaternion.copy(f.rest).multiply(fingerRotation);
+   }
+   if(grip>.05){
+    state.tip.updateWorldMatrix(true,false);
+    state.tip.getWorldPosition(tipWorld);
+    if(!state.previewTip)state.previewTip=tipWorld.clone();
+    state.maxTipTravel=Math.max(state.maxTipTravel,
+     tipWorld.distanceTo(state.previewTip));
+    state.gripFrames++;
+   }
    // RIGHT HAND IS PHYSICAL AUTHORITY: sample the post-IK wrist every frame.
    state.wrist.updateWorldMatrix(true,false);
    state.wrist.getWorldPosition(wristPos);
@@ -99,7 +153,7 @@ export function createHandPlayCards(THREE,scene){
    state.group.rotateZ((state.host.side==='player'?-1:1)*
      (.20*(1-arrival)-.25*throwPulse+.045));
    state.group.rotateY((state.host.side==='player'?-1:1)*.20*throwPulse);
-   state.group.scale.setScalar(.84+.17*arrival+.32*rise+.09*throwPulse);
+   state.group.scale.setScalar(.86+.16*arrival+.22*rise+.09*throwPulse);
    state.group.children[0].material.emissiveIntensity=.23+.65*rise+.8*throwPulse;
    state.phase=rise>.55?'high_reveal':throwPulse>.32?'throw':age<.35?'draw':'recover';
    state.group.children[0].material.opacity=arrival*depart;
@@ -114,7 +168,14 @@ export function createHandPlayCards(THREE,scene){
   return {actors:[...instances.values()].map(x=>({side:x.host.side,id:x.id,
    shown:x.events,visible:x.group.visible,wristTracked:!!x.wrist,
    wristGap:+x.wristGap.toFixed(4),phase:x.phase||'idle',
-   size:+x.group.scale.x.toFixed(3),
+   size:+x.group.scale.x.toFixed(3),grip:+x.grip.toFixed(4),
+   gripMode:x.gripMode,gripFrames:x.gripFrames,realFingerBones:x.gripEntries,
+   thumbOpposition:+(fingerDefinitions.Thumb[1]*x.grip).toFixed(4),
+   realBend:+(x.fingers.find(f=>f.digit==='Index'&&f.segment===2)
+     .bone.quaternion.angleTo(x.fingers.find(f=>f.digit==='Index'&&f.segment===2).rest)).toFixed(4),
+   restError:+Math.max(...x.fingers.map(f=>f.bone.quaternion.angleTo(f.rest))).toFixed(4),
+   maxTipTravel:+x.maxTipTravel.toFixed(5),
+   actualFingerJointNames:x.fingers.map(f=>f.bone.name),
    painted:x.painted,lastPainted:x.lastPainted})),
    painted,frames};
  }};
