@@ -865,6 +865,13 @@ function onMessage(ev){
   setOrbit(orbitTargetYaw+Number(msg.degrees));return;
  }
  if(msg?.type==='ASDC_R100_COMBO_RESET'){
+  // A fresh lesson reuses the same stadium; clear every in-flight source
+  // serial and accessory animation, otherwise later chapters are silently
+  // ignored (same serial) or inherit a previous audience accident.
+  spellSerials.clear();pendingSpellContacts.length=0;
+  pendingCrowdAccidents.length=0;
+  spectatorChaosFX?.reset();bleacherProps?.reset();
+  stadiumEvidence?.resetAudience?.();
   comboDirector?.reset();
   comedySpectacle?.clear();
   summonPresence?.clearComicCombo();
