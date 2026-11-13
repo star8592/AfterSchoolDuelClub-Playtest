@@ -1,0 +1,336 @@
+{
+  "slug": "rain",
+  "scene": "Scene",
+  "rig": "RIG-rain",
+  "rigBoneCount": 2166,
+  "rigPoseBoneCount": 2166,
+  "fkBones": [
+    "P-FK-Head",
+    "FK-Head"
+  ],
+  "ikWristControls": [],
+  "armatures": [
+    "RIG-rain"
+  ],
+  "meshes": [
+    {
+      "name": "GEO-rain-body",
+      "verts": 10256,
+      "faces": 10232,
+      "materialCount": 1,
+      "vertexGroups": 106,
+      "weightedVertices": 10256,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "MASK",
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-eye_cornea",
+      "verts": 642,
+      "faces": 672,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 642,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-eye_dots",
+      "verts": 32,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 32,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-eyebrows",
+      "verts": 148,
+      "faces": 130,
+      "materialCount": 1,
+      "vertexGroups": 274,
+      "weightedVertices": 148,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-eyelashes",
+      "verts": 120,
+      "faces": 118,
+      "materialCount": 1,
+      "vertexGroups": 6,
+      "weightedVertices": 120,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-eyes",
+      "verts": 1418,
+      "faces": 1410,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 1418,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-gums_lower",
+      "verts": 1542,
+      "faces": 1440,
+      "materialCount": 2,
+      "vertexGroups": 5,
+      "weightedVertices": 1542,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-gums_upper",
+      "verts": 1542,
+      "faces": 1440,
+      "materialCount": 2,
+      "vertexGroups": 5,
+      "weightedVertices": 1542,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-hair_main",
+      "verts": 2204,
+      "faces": 1965,
+      "materialCount": 1,
+      "vertexGroups": 279,
+      "weightedVertices": 2204,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-hair_ponytail",
+      "verts": 579,
+      "faces": 569,
+      "materialCount": 1,
+      "vertexGroups": 6,
+      "weightedVertices": 579,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-hair_strand",
+      "verts": 400,
+      "faces": 393,
+      "materialCount": 1,
+      "vertexGroups": 3,
+      "weightedVertices": 400,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-hairband",
+      "verts": 480,
+      "faces": 480,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 480,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-head",
+      "verts": 6395,
+      "faces": 6318,
+      "materialCount": 1,
+      "vertexGroups": 279,
+      "weightedVertices": 6395,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-jeans",
+      "verts": 4531,
+      "faces": 4464,
+      "materialCount": 1,
+      "vertexGroups": 46,
+      "weightedVertices": 4531,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "VERTEX_WEIGHT_MIX",
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-scarf",
+      "verts": 1285,
+      "faces": 1217,
+      "materialCount": 1,
+      "vertexGroups": 453,
+      "weightedVertices": 1285,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-shoes",
+      "verts": 6634,
+      "faces": 6254,
+      "materialCount": 4,
+      "vertexGroups": 12,
+      "weightedVertices": 6634,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-tongue",
+      "verts": 275,
+      "faces": 264,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 275,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rain-top",
+      "verts": 1632,
+      "faces": 1556,
+      "materialCount": 1,
+      "vertexGroups": 28,
+      "weightedVertices": 1632,
+      "armatureMods": [
+        "RIG-rain"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SOLIDIFY",
+        "SUBSURF"
+      ]
+    }
+  ],
+  "matchedMeshCount": 18,
+  "totalWeightedVertices": 40115
+}
