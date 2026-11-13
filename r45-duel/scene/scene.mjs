@@ -35,6 +35,10 @@ import {createLivingCastDirector} from './living-cast-director.mjs';
 import {createArenaLifeWorld} from './arena-life-world.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+const R131_IS_QA=()=>PARAMS.get('qa')==='1'||(()=>{
+ try{return window.parent!==window&&new URLSearchParams(window.parent.location.search).get('qa')==='1';}
+ catch{return false;}
+})();
 const MODEL_SPECS=[
  {id:'E01',name:'铃声追不上',source:'Shino-original-CC0.vrm',minBones:140,minSkins:60,color:'#fc9e73'},
  {id:'G01',name:'橡皮筋建筑师',source:'Fumiriya-original-CC0.vrm',minBones:100,minSkins:90,color:'#92b6eb'}
@@ -92,6 +96,9 @@ let currentPayload=null,activePhase='idle',ready=false,hadContact=false;
 let lastSourceIds=[],source3DAssetsVerified=false;
 let horizontalFov=0;
 let orbitYaw=0, orbitTargetYaw=0, orbitZoom=1, orbitBaseDistance=12;
+// R131 source-art review: a separate QA-only 3/4 close camera, never a
+// change to the released duel camera or normal player orbit.
+let r131QaCloseup=null,r131QaAngle=Math.PI*.32;
 const CAMERA_LOOK_AT=new THREE.Vector3(0,.68,-1.65);
 // R104 frontal camera: actors must be legible, not top-down chess pieces.
 // The R49 venue overview (8.35 units high) was an art direction regression.
@@ -928,6 +935,20 @@ function loop(){
   }
  }
  camera.lookAt(aimX,aimY,aimZ);
+ // Review actual source actors large enough to see knees, soles, hands and
+ // clothing deformation. QA-only: no player can accidentally enter this
+ // mode without the explicit ?qa=1 flag.
+ if(R131_IS_QA()&&r131QaCloseup&&summonPresence){
+  const actor=summonPresence.inspect(camera)?.entries?.find(x=>
+   x.id===r131QaCloseup);
+  if(actor){
+   const [x,y,z]=actor.position;
+   const radius=3.45;
+   camera.position.set(x+Math.cos(r131QaAngle)*radius,
+    y+1.46,z+Math.sin(r131QaAngle)*radius);
+   camera.lookAt(x,y+1.01,z);
+  }
+ }
  keepArenaVisible();
  const contact=t>=2.83&&t<3.11||t>=3.88&&t<4.15;
  $('impact').hidden=!playing||!contact;
@@ -1253,6 +1274,21 @@ $('replay').addEventListener('click',()=>{
 });
 function exposeQA(){
  Object.defineProperty(window,'__r45SceneQA',{value:{
+  setStudyCloseup(id){
+   if(!R131_IS_QA())return false;
+   r131QaCloseup=typeof id==='string'&&/^(E03|E04|G02|G03|G04|T03|T04)$/.test(id)?id:null;
+   return true;
+  },
+  studyAction(id,action){
+   if(!R131_IS_QA())return false;
+   if(!/^(idle|attack|hit|walk|celebrate)$/.test(action))return false;
+   return summonPresence?.playSourceStudyAction(id,action)===true;
+  },
+  setStudyViewAngle(degrees){
+   if(!R131_IS_QA()||!Number.isFinite(degrees))return false;
+   r131QaAngle=degrees*Math.PI/180;return true;
+  },
+  get studyCloseup(){return r131QaCloseup},
   get ready(){return ready},
   get shownCards(){return structuredClone(shownCards)},
   get summonPresence(){return summonPresence?.inspect(camera)||null},

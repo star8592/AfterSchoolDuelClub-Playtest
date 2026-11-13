@@ -995,6 +995,19 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     ndcBounds:Object.fromEntries(Object.entries(screenBBox).map(([k,n])=>[k,Number(n.toFixed(3))]))
    };
    metrics.frontDot=Number(faceOpponentDot(THREE,s.object,s.side,s.id).toFixed(4));
+   // QA observation: actual source heel joint positions in the 3D arena.
+   // A moving foot joint alone is not proof that a visible shoe is grounded.
+   if(s.object.userData.r61?.r119Skin){
+    const named={};
+    s.object.traverse(node=>{
+     if(!node.isBone)return;
+     const clean=(node.name||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+     if(clean==='deffootl')named.L=node;
+     if(clean==='deffootr')named.R=node;
+    });
+    metrics.sourceHeelsY=['L','R'].map(side=>named[side]?
+     Number(named[side].getWorldPosition(new THREE.Vector3()).y.toFixed(4)):null);
+   }
    if(s.acting){
     const arms={};
     for(const hand of ['R','L']){
@@ -1045,6 +1058,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     r128FullBody:s.id==='E04'?s.object.userData.r61?.getR128FullBody?.():undefined,
     r129FullBody:['E03','G03','G04','T04'].includes(s.id)?s.object.userData.r61?.getR129FullBody?.():undefined,
     r130FullBody:['G02','T03'].includes(s.id)?s.object.userData.r61?.getR130FullBody?.():undefined,
+    r131Arms:s.object.userData.r61?.getR131Arms?.()||null,
     r90Pose:s.kind==='gltf-instance'?s.object.userData.r61?.getCombatPose?.():undefined,
     r90ClipRate:s.kind==='gltf-instance'?s.object.userData.r61?.getClipRate?.():undefined,
     artApproved:false};
@@ -1090,7 +1104,13 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    pendingArt:0,prototypeArt:list.filter(x=>x.kind==='gltf-instance').length,
    loadedPrototypeIds:[...prototypes.keys()],cardIds:[...UNIT_IDS],entries:list};
  }
- return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,
+ function playSourceStudyAction(id,kind){
+  if(!['idle','attack','hit','walk','celebrate'].includes(kind))return false;
+  const actor=[...entries.values()].find(s=>s.id===id&&s.object.userData.r61?.r119Skin);
+  if(!actor)return false;
+  return actor.object.userData.r61.play(kind)===true;
+ }
+ return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,playSourceStudyAction,
   reactToSpell,spellWorldAnchors,reserveSpellTargets,clearSpellTargets,reactToSummon,reactToCombo,clearComicCombo,
   celebrate,get celebration(){return celebration&&{...celebration,frames:celebrationFrames,actorFrames:celebratingActors}},
   get spellReactions(){return actualSpellReactions},

@@ -1,0 +1,413 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11436",
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop E04 QA-only camera can track actual source actor"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 source idle action controllable"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 real high-poly skin closeup source and true shoe joints"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 genuine original upper arm/forearm/wrist/finger hierarchy and bind-rest preserved"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 attack action"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 true hit action"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 victory action"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 restored to idle"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 source weighted hand and wrist truly move (not unused bones)"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 correct opponent orientation and original idle after all actions"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 no missing source asset or JS exception"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 QA-only camera can track actual source actor"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 source idle action controllable"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 real high-poly skin closeup source and true shoe joints"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 genuine original upper arm/forearm/wrist/finger hierarchy and bind-rest preserved"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 attack action"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 true hit action"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 victory action"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 restored to idle"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 source weighted hand and wrist truly move (not unused bones)"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 correct opponent orientation and original idle after all actions"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 no missing source asset or JS exception"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "width": 1440,
+      "drawCalls": [
+        {
+          "id": "E04",
+          "draw": 426
+        }
+      ]
+    },
+    {
+      "view": "portrait",
+      "width": 430,
+      "drawCalls": [
+        {
+          "id": "E04",
+          "draw": 415
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "actors": [
+    {
+      "view": "desktop",
+      "id": "E04",
+      "idle": {
+        "state": "R119_Skeletal_Idle",
+        "minY": 0.003,
+        "height": 2.085,
+        "heels": [
+          0.1188,
+          0.1184
+        ],
+        "front": 1,
+        "drawCalls": 440
+      },
+      "attackWindup": {
+        "state": "R119_Skeletal_Attack",
+        "minY": -0.009,
+        "height": 2.098,
+        "heels": [
+          0.1234,
+          0.1213
+        ],
+        "front": 1,
+        "drawCalls": 440
+      },
+      "attackPeak": {
+        "state": "R119_Skeletal_Attack",
+        "minY": -0.025,
+        "height": 2.114,
+        "heels": [
+          0.1307,
+          0.1329
+        ],
+        "front": 1,
+        "drawCalls": 426
+      },
+      "hit": {
+        "state": "R119_Skeletal_Hit",
+        "minY": -0.034,
+        "height": 2.11,
+        "heels": [
+          0.1341,
+          0.1081
+        ],
+        "front": 1,
+        "drawCalls": 426
+      },
+      "celebrate": {
+        "state": "R119_Skeletal_Idle",
+        "minY": -0.003,
+        "height": 2.082,
+        "heels": [
+          0.1097,
+          0.1095
+        ],
+        "front": 1,
+        "drawCalls": 426
+      },
+      "restored": {
+        "state": "R119_Skeletal_Idle",
+        "minY": 0.007,
+        "height": 2.083,
+        "heels": [
+          0.12,
+          0.1198
+        ],
+        "front": 1,
+        "drawCalls": 426
+      },
+      "source": "E04",
+      "armData": {
+        "actor": "E04",
+        "source": "actual_original_author_skinned_arm_hierarchy",
+        "flatOriginal": true,
+        "sourceSkinnedMeshes": 23,
+        "sourceArmNodes": 259,
+        "changedParentLinks": 46,
+        "validatedParentLinks": 48,
+        "maxBindRestDrift": 4.484050470211362e-16,
+        "wristBoneNames": [
+          "DEF-WristL",
+          "DEF-WristR"
+        ],
+        "weightedOriginalMesh": "GEO-phil_arms",
+        "weightedOriginalBone": "DEF-Finger_Ring1L",
+        "weightedOriginalVertex": 0,
+        "originalVertexWeight": 0.9989,
+        "frames": 324,
+        "maxSourceWristTravel": 1.0869,
+        "maxWeightedArmVertexTravel": 0.53279
+      },
+      "jointData": {
+        "source": "real_original_skinned_deform_bones",
+        "actor": "E04",
+        "sourceSkinnedMeshes": 23,
+        "sourceBoneCount": 259,
+        "independentLegBones": [
+          "DEF-Thigh1.L",
+          "DEF-Thigh1.R",
+          "DEF-Knee1.L",
+          "DEF-Knee1.R",
+          "DEF-Foot.L",
+          "DEF-Foot.R",
+          "DEF-Toes.L",
+          "DEF-Toes.R"
+        ],
+        "runtimeLegTracks": 8,
+        "weightedSourceLegMesh": "GEO-phil_body",
+        "weightedSourceLegBone": "DEF-Knee1.L",
+        "weightedSourceLegVertex": 444,
+        "weightedSourceLegVertexWeight": 0.4781,
+        "frames": 79,
+        "independentLegFrames": 122,
+        "maxJointAngle": 0.2651,
+        "maxLegVertexTravel": 0.056,
+        "maxFootHeightSpan": 0.02072,
+        "hierarchy": {
+          "sourceHierarchyRepaired": true,
+          "chains": {
+            "L": {
+              "names": [
+                "DEF-Thigh1.L",
+                "DEF-Thigh2.L",
+                "DEF-Knee1.L",
+                "DEF-Knee2.L",
+                "DEF-Foot.L",
+                "DEF-Toes.L"
+              ],
+              "restDrift": 1.1527756336890508e-16
+            },
+            "R": {
+              "names": [
+                "DEF-Thigh1.R",
+                "DEF-Thigh2.R",
+                "DEF-Knee1.R",
+                "DEF-Knee2.R",
+                "DEF-Foot.R",
+                "DEF-Toes.R"
+              ],
+              "restDrift": 2.254873622441467e-16
+            }
+          }
+        }
+      },
+      "maxMinYAcrossStates": 0.007,
+      "minMinYAcrossStates": -0.034
+    },
+    {
+      "view": "portrait",
+      "id": "E04",
+      "idle": {
+        "state": "R119_Skeletal_Idle",
+        "minY": 0.003,
+        "height": 2.085,
+        "heels": [
+          0.119,
+          0.1186
+        ],
+        "front": 1,
+        "drawCalls": 415
+      },
+      "attackWindup": {
+        "state": "R119_Skeletal_Attack",
+        "minY": -0.009,
+        "height": 2.099,
+        "heels": [
+          0.1234,
+          0.1212
+        ],
+        "front": 1,
+        "drawCalls": 415
+      },
+      "attackPeak": {
+        "state": "R119_Skeletal_Attack",
+        "minY": -0.025,
+        "height": 2.114,
+        "heels": [
+          0.132,
+          0.1344
+        ],
+        "front": 1,
+        "drawCalls": 415
+      },
+      "hit": {
+        "state": "R119_Skeletal_Hit",
+        "minY": -0.028,
+        "height": 2.11,
+        "heels": [
+          0.1398,
+          0.1139
+        ],
+        "front": 1,
+        "drawCalls": 404
+      },
+      "celebrate": {
+        "state": "R119_Skeletal_Idle",
+        "minY": -0.009,
+        "height": 2.082,
+        "heels": [
+          0.1045,
+          0.1043
+        ],
+        "front": 1,
+        "drawCalls": 404
+      },
+      "restored": {
+        "state": "R119_Skeletal_Idle",
+        "minY": 0,
+        "height": 2.084,
+        "heels": [
+          0.1149,
+          0.1145
+        ],
+        "front": 1,
+        "drawCalls": 404
+      },
+      "source": "E04",
+      "armData": {
+        "actor": "E04",
+        "source": "actual_original_author_skinned_arm_hierarchy",
+        "flatOriginal": true,
+        "sourceSkinnedMeshes": 23,
+        "sourceArmNodes": 259,
+        "changedParentLinks": 46,
+        "validatedParentLinks": 48,
+        "maxBindRestDrift": 4.484050470211362e-16,
+        "wristBoneNames": [
+          "DEF-WristL",
+          "DEF-WristR"
+        ],
+        "weightedOriginalMesh": "GEO-phil_arms",
+        "weightedOriginalBone": "DEF-Finger_Ring1L",
+        "weightedOriginalVertex": 0,
+        "originalVertexWeight": 0.9989,
+        "frames": 256,
+        "maxSourceWristTravel": 0.23204,
+        "maxWeightedArmVertexTravel": 0.09523
+      },
+      "jointData": {
+        "source": "real_original_skinned_deform_bones",
+        "actor": "E04",
+        "sourceSkinnedMeshes": 23,
+        "sourceBoneCount": 259,
+        "independentLegBones": [
+          "DEF-Thigh1.L",
+          "DEF-Thigh1.R",
+          "DEF-Knee1.L",
+          "DEF-Knee1.R",
+          "DEF-Foot.L",
+          "DEF-Foot.R",
+          "DEF-Toes.L",
+          "DEF-Toes.R"
+        ],
+        "runtimeLegTracks": 8,
+        "weightedSourceLegMesh": "GEO-phil_body",
+        "weightedSourceLegBone": "DEF-Knee1.L",
+        "weightedSourceLegVertex": 444,
+        "weightedSourceLegVertexWeight": 0.4781,
+        "frames": 62,
+        "independentLegFrames": 122,
+        "maxJointAngle": 0.269,
+        "maxLegVertexTravel": 0.05676,
+        "maxFootHeightSpan": 0.02213,
+        "hierarchy": {
+          "sourceHierarchyRepaired": true,
+          "chains": {
+            "L": {
+              "names": [
+                "DEF-Thigh1.L",
+                "DEF-Thigh2.L",
+                "DEF-Knee1.L",
+                "DEF-Knee2.L",
+                "DEF-Foot.L",
+                "DEF-Toes.L"
+              ],
+              "restDrift": 1.1527756336890508e-16
+            },
+            "R": {
+              "names": [
+                "DEF-Thigh1.R",
+                "DEF-Thigh2.R",
+                "DEF-Knee1.R",
+                "DEF-Knee2.R",
+                "DEF-Foot.R",
+                "DEF-Toes.R"
+              ],
+              "restDrift": 2.254873622441467e-16
+            }
+          }
+        }
+      },
+      "maxMinYAcrossStates": 0.003,
+      "minMinYAcrossStates": -0.028
+    }
+  ]
+}
