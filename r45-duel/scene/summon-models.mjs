@@ -449,11 +449,22 @@ export function instantiateSummon(THREE,template){
    new URLSearchParams(window.parent.location.search).get('r128Body')==='on';}
   catch{return false;}
  })();
- const r128Hierarchy=template.id==='E04'&&r119Skin&&r128PilotOn?
-  repairR128PhilSourceHierarchy(THREE,instance):null;
+ const r129PilotOn=(()=>{
+  const local=new URLSearchParams(location.search);
+  if(local.has('r129Body'))return local.get('r129Body')==='on';
+  try{return window.parent!==window&&
+   new URLSearchParams(window.parent.location.search).get('r129Body')==='on';}
+  catch{return false;}
+ })();
+ const r129FlatActors=new Set(['E03','G03','G04','T04']);
+ const sourceBodyPilot=r119Skin&&(
+  (template.id==='E04'&&r128PilotOn)||
+  (r129FlatActors.has(template.id)&&r129PilotOn));
+ const r128Hierarchy=sourceBodyPilot?
+  repairR128PhilSourceHierarchy(THREE,instance,template.id):null;
  const source119Clips=r119Skin?createR119TrueSkinClips(THREE,instance,template.id):[];
- const r128Phil=template.id==='E04'&&r119Skin&&r128PilotOn?
-  createR128PhilSourceFullBody(THREE,instance,source119Clips):null;
+ const r128Phil=sourceBodyPilot?
+  createR128PhilSourceFullBody(THREE,instance,source119Clips,template.id):null;
  const r119Clips=r128Phil?r128Phil.clips:source119Clips;
  const r126Teacher=template.id==='M01'?createR126MusicTeacherClips(THREE,instance):null;
  const r127OwlDisabled=(()=>{
@@ -620,7 +631,10 @@ export function instantiateSummon(THREE,template){
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),
   getR127OwlMotion:()=>r127Owl?.inspect()||null,
-  getR128FullBody:()=>r128Phil?{...r128Phil.inspect(),hierarchy:r128Hierarchy}:null,
+  getR128FullBody:()=>template.id==='E04'&&r128Phil?
+   {...r128Phil.inspect(),hierarchy:r128Hierarchy}:null,
+  getR129FullBody:()=>template.id!=='E04'&&r128Phil?
+   {...r128Phil.inspect(),hierarchy:r128Hierarchy}:null,
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};
