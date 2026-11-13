@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "defaultRelease": "R97",
+  "oneOfficialMain": true,
+  "pilotFlag": "r135Pair=on",
+  "perActorFlags": [
+    "r135Pair=E03",
+    "r135Pair=T04"
+  ],
+  "rollback": "r135Pair=off",
+  "priorJayStage": "r134Jay=on unaffected",
+  "checks": {
+    "pairSources": 53,
+    "flagRollback": 25,
+    "continuousIdle": 16,
+    "actualCardGame": 18
+  },
+  "totalChecks": 112,
+  "originalHighPolySkinActors": {
+    "E03": [
+      {
+        "view": "desktop",
+        "identity": "cheer-leap-whistle",
+        "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb",
+        "actualBoneTracks": 16,
+        "weightedArmVertexTravel": 0.48138,
+        "weightedLegVertexTravel": 0.03001,
+        "maxShoePenetration": 0,
+        "measuredCheerLift": 0.2043,
+        "returns": 4
+      },
+      {
+        "view": "portrait",
+        "identity": "cheer-leap-whistle",
+        "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb",
+        "actualBoneTracks": 16,
+        "weightedArmVertexTravel": 0.4814,
+        "weightedLegVertexTravel": 0.02952,
+        "maxShoePenetration": 0,
+        "measuredCheerLift": 0.205,
+        "returns": 3
+      }
+    ],
+    "T04": [
+      {
+        "view": "desktop",
+        "identity": "heavy-door-block-wall",
+        "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb",
+        "actualBoneTracks": 16,
+        "weightedArmVertexTravel": 0.76254,
+        "weightedLegVertexTravel": 0.01764,
+        "maxShoePenetration": 0,
+        "measuredCheerLift": 0,
+        "returns": 3
+      },
+      {
+        "view": "portrait",
+        "identity": "heavy-door-block-wall",
+        "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb",
+        "actualBoneTracks": 16,
+        "weightedArmVertexTravel": 0.7527,
+        "weightedLegVertexTravel": 0.0177,
+        "maxShoePenetration": 0,
+        "measuredCheerLift": 0,
+        "returns": 3
+      }
+    ]
+  },
+  "unfinished": [
+    "Human director 85/100 art review for both identities",
+    "Real low-end mobile GPU and full multi-round performance",
+    "Further animation polish against M02 benchmark for every role"
+  ],
+  "evidence": [
+    "r135/original-pair/r135-pair-original-source-stage.json",
+    "r135/original-pair/r135-independent-flag-isolation.json",
+    "r135/original-pair/r135-pair-original-idle-15sec.json",
+    "r124-full-chain/r124-full-chain-report.json"
+  ]
+}
