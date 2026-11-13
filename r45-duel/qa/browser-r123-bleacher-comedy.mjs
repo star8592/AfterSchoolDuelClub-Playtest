@@ -34,6 +34,9 @@ try{
   check(initial.props?.mounted===4&&
    JSON.stringify(initial.props.types)===JSON.stringify(['popcorn','juice','homework','backpack']),
    name+' four props visible at real seated students before any accident',initial.props);
+  check(initial.crowd.animationMixers===4&&
+   initial.crowd.boneDrivenActors+initial.crowd.authoredPoseFallbackActors===4,
+   name+' real audience GLB skeletal/morph rig truth instead of invented FK joints',initial.crowd);
   check(initial.props.accidents===0&&initial.props.ruleMutations===0,
    name+' no conjured mishap on opening',initial.props);
   check(initial.audio.propPAVoiceClips===4,name+' four original announcer voices preloaded',initial.audio.propPAVoiceClips);
@@ -59,6 +62,8 @@ try{
    name+' 3D scatter visible while real crowd performs staged reaction',action.props);
   check(action.camera?.cuts===1&&action.camera?.weight>.91&&action.camera?.extraRenderPasses===0,
    name+' cinematic closeup shows real spectator instead of tiny invisible stand, no second pass',action.camera);
+  check(action.crowd.poses.some(p=>p.mode==='accident_target'&&p.weight>.05),
+   name+' observed actual targeted full-body acting rather than static puppet',action.crowd.poses);
   check(action.crowd.active?.type==='accident'&&action.crowd.accidentEvents===1,
    name+' audience reacts in three physically timed seating waves',action.crowd.active);
   await page.screenshot({path:resolve(out,name+'-R123-punchline-props.png')});
