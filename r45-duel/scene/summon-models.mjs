@@ -10,6 +10,7 @@ import {createR127OwlSourceFeathers} from './r127-owl-source-feather-motion.mjs'
 import {createR128PhilSourceFullBody,repairR128PhilSourceHierarchy} from './r128-source-lower-body.mjs';
 import {createR130SpecialFullBody,prepareR130SourceLegs} from './r130-special-source-legs.mjs';
 import {repairR131TrueSourceArms} from './r131-real-source-upper-arms.mjs';
+import {createR134JayClips,createR134JaySequencer} from './r134-jay-source-stage.mjs';
 // R85: improved R60 photo-paper model and five native clips are the default.
 // Exact older R57 remains available with ?e02Study=r57 for immediate rollback.
 const isE02R60Study=(()=>{
@@ -152,6 +153,16 @@ const R132_BAKED_STUDY=(()=>{
  const qa=q.get('qa')==='1'||parent?.get('qa')==='1';
  return qa&&(q.get('r132BakedRest')==='on'||parent?.get('r132BakedRest')==='on');
 })();
+// R134 visible-performance pilot. Explicit source opt-in initially, so the
+// author-approved R97 default and all existing R131-R133 study routes remain
+// unchanged until official wide-camera acceptance has been obtained.
+export const R134_JAY_STAGE=(()=>{
+ const local=new URLSearchParams(location.search);
+ if(local.has('r134Jay'))return local.get('r134Jay')==='on';
+ try{return window.parent!==window&&
+  new URLSearchParams(window.parent.location.search).get('r134Jay')==='on';}
+ catch{return false;}
+})();
 const R119_STUDY_IDS=(()=>{
  let raw=new URLSearchParams(location.search).get('r119Rig')||'';
  try{if(!raw&&window.parent!==window)
@@ -287,6 +298,8 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
      const qa=q.get('qa')==='1'||parent?.get('qa')==='1';
      return qa&&(q.get('r131BakedRest')==='on'||parent?.get('r131BakedRest')==='on');
     })()?'E04-Phil-Skinned-R131-BakedRest-PILOT.glb':R119_SKIN_STUDY_FILES[id]):
+   id==='G03'&&R134_JAY_STAGE?
+    R132_BAKED_SOURCE_FILES.G03:
    isR93Previous&&Object.hasOwn(R93_PREVIOUS,id)?
    R93_PREVIOUS[id]:
    isR96Previous&&Object.hasOwn(R96_PREVIOUS,id)?
@@ -493,6 +506,7 @@ export function instantiateSummon(THREE,template){
   template.selectedFile==='E04-Phil-Skinned-R131-BakedRest-PILOT.glb';
  const r132SourceBaked=Object.hasOwn(R132_BAKED_SOURCE_FILES,template.id)&&
   template.selectedFile===R132_BAKED_SOURCE_FILES[template.id];
+ const r134Jay=template.id==='G03'&&r132SourceBaked&&R134_JAY_STAGE;
  const r119Skin=r131SourceBaked||r132SourceBaked||
   template.selectedFile===R119_SKIN_STUDY_FILES[template.id];
  const r128PilotOn=(()=>{
@@ -512,7 +526,7 @@ export function instantiateSummon(THREE,template){
  const r129FlatActors=new Set(['E03','G03','G04','T04']);
  const sourceBodyPilot=r119Skin&&(
   (template.id==='E04'&&r128PilotOn)||
-  (r129FlatActors.has(template.id)&&r129PilotOn));
+  (r129FlatActors.has(template.id)&&(r129PilotOn||r134Jay)));
  const r130PilotOn=(()=>{
   const local=new URLSearchParams(location.search);
   if(local.has('r130Body'))return local.get('r130Body')==='on';
@@ -532,7 +546,7 @@ export function instantiateSummon(THREE,template){
    new URLSearchParams(window.parent.location.search).get('r131Arms')==='on';}
   catch{return false;}
  })();
- const r131Arms=r119Skin&&r131ArmsOn?
+ const r131Arms=r119Skin&&(r131ArmsOn||r134Jay)?
   repairR131TrueSourceArms(THREE,instance,template.id):null;
  // Diagnostic ONLY: reveal the authentic source skin's unanimated bind
  // pose to distinguish a faulty GLB export from faulty action curves.
@@ -544,9 +558,11 @@ export function instantiateSummon(THREE,template){
   const qa=local.get('qa')==='1'||parent?.get('qa')==='1';
   return qa&&(local.get('r131RawPose')==='on'||parent?.get('r131RawPose')==='on');
  })();
- const source119Clips=r119Skin&&!r131RawPose?
+ const source119Base=r119Skin&&!r131RawPose?
   createR119TrueSkinClips(THREE,instance,template.id,
    {sourceBakedRest:r131SourceBaked||r132SourceBaked}):[];
+ const source119Clips=r134Jay?
+  createR134JayClips(THREE,instance,source119Base):source119Base;
  const r128Phil=sourceBodyPilot?
   createR128PhilSourceFullBody(THREE,instance,source119Clips,template.id):null;
  const r130Special=r130SpecialOn?
@@ -568,6 +584,7 @@ export function instantiateSummon(THREE,template){
  const availableClips=r119Clips.length?r119Clips:r86Clips.length?r86Clips:
   r126Teacher?[...template.clips,...r126Teacher.clips]:template.clips;
  const mixer=availableClips.length?new THREE.AnimationMixer(instance):null;
+ const r134Controller=r134Jay?createR134JaySequencer(THREE,mixer,availableClips,instance):null;
  // R90: subtle transient whole-instance lean and lift layered over R89 glTF
  // morph clips; reset each frame. This is not live torso, leg, or foot rigging.
  let groundedY=0;
@@ -648,6 +665,7 @@ export function instantiateSummon(THREE,template){
  const duo=template.id==='T02' &&
   template.selectedFile==='T02-CanteenAunt-LivingMenu-Duo-STUDY.glb';
  const play=(kind)=>{
+  if(r134Controller)return r134Controller.play(kind);
   if(r127Owl)return r127Owl.play(kind);
   if(r126Teacher)return teacherPlay(kind);
   if(filmStatic){staticState=kind;staticElapsed=0;current='R80_static_'+kind;return true;}
@@ -690,6 +708,8 @@ export function instantiateSummon(THREE,template){
   'Shrug','Victory_Cheer']):new Set();
  const playLifeClip=(name)=>{
   if(!lifeClips.has(name)||!mixer)return 0;
+  if(r134Controller)return r134Controller.playNamed(name)?
+   availableClips.find(c=>c.name===name)?.duration||0:0;
   if(r126Teacher){teacherPlay(name);return availableClips.find(c=>c.name===name)?.duration||0;}
   const clip=availableClips.find(x=>x.name===name);
   if(!clip)return 0;
@@ -714,7 +734,8 @@ export function instantiateSummon(THREE,template){
   groundedY=scaled.position.y;
  }
  return {root,mixer,play,update:r131Arms?(dt=>{
-  mixer.update(dt);r128Phil?.update();r130Special?.update();r131Arms.update();
+  mixer.update(dt);r134Controller?.update(dt);
+  r128Phil?.update();r130Special?.update();r131Arms.update();
  }):r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),
@@ -729,6 +750,8 @@ export function instantiateSummon(THREE,template){
   r131RestReboundMeshes:q131Rebound,
   r131BakedRestOriginalSource:r131SourceBaked,
   r132BakedRestOriginalSource:r132SourceBaked,
+  r134JayRealStage:r134Controller?.inspect()||null,
+  getR134JayStage:()=>r134Controller?.inspect()||null,
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};

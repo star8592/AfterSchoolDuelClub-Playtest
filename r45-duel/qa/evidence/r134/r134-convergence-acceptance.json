@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "releaseDefault": "R97",
+  "actor": "G03",
+  "source": "original Blender Studio weighted high-poly mesh",
+  "rollback": "r134Jay=off",
+  "pilot": "r134Jay=on",
+  "counts": {
+    "r134Pilot": 22,
+    "r134FifteenSeconds": 11,
+    "r134Rollback": 4,
+    "officialFight": 18,
+    "r132Rollback": 4,
+    "r133Rollback": 6,
+    "originalSourceShoes": 178
+  },
+  "checkedTotal": 243,
+  "desktopAndPortraitOriginalJointTracks": 16,
+  "idleSampleSeconds": 15,
+  "uniqueIdleSourcePoseSamples": 6,
+  "knownUnfinished": [
+    "human artistic score >=85 not yet collected",
+    "E01/G01 full-body acting refinement",
+    "six remaining humanoid source-rig production rollouts",
+    "full cast dialogue expression synchronization",
+    "low-end GPU/phone performance validation"
+  ],
+  "proofs": [
+    "r134/r134-jay-acting-pilot.json",
+    "r134/r134-default-vs-pilot-15s.json",
+    "r134/r134-four-flag-rollout.json"
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "R97_default exact actor selection"
+    },
+    {
+      "pass": true,
+      "label": "R97_default actor stays facing enemy for 15 seconds"
+    },
+    {
+      "pass": true,
+      "label": "R97_default original default R97 never silently selects experimental actor"
+    },
+    {
+      "pass": true,
+      "label": "R97_default scene has no runtime or resource errors"
+    },
+    {
+      "pass": true,
+      "label": "R134_pilot exact actor selection"
+    },
+    {
+      "pass": true,
+      "label": "R134_pilot actor stays facing enemy for 15 seconds"
+    },
+    {
+      "pass": true,
+      "label": "R134_pilot real 16+ skeletal source tracks throughout idle"
+    },
+    {
+      "pass": true,
+      "label": "R134_pilot actual shoulders and wrists change through 15s idle"
+    },
+    {
+      "pass": true,
+      "label": "R134_pilot original weighted shoe remains clear of floor"
+    },
+    {
+      "pass": true,
+      "label": "R134_pilot source shoulder correction remains bounded"
+    },
+    {
+      "pass": true,
+      "label": "R134_pilot scene has no runtime or resource errors"
+    }
+  ],
+  "errors": [],
+  "samples": [
+    {
+      "mode": "R97_default",
+      "data": [
+        {
+          "source": "G03-Jay-Landing-R97.glb",
+          "character": null,
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "drawCalls": 809
+        },
+        {
+          "source": "G03-Jay-Landing-R97.glb",
+          "character": null,
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "drawCalls": 787
+        },
+        {
+          "source": "G03-Jay-Landing-R97.glb",
+          "character": null,
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "drawCalls": 787
+        },
+        {
+          "source": "G03-Jay-Landing-R97.glb",
+          "character": null,
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "drawCalls": 787
+        },
+        {
+          "source": "G03-Jay-Landing-R97.glb",
+          "character": null,
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "drawCalls": 787
+        },
+        {
+          "source": "G03-Jay-Landing-R97.glb",
+          "character": null,
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "drawCalls": 787
+        }
+      ],
+      "uniqueSourcePoses": null
+    },
+    {
+      "mode": "R134_pilot",
+      "data": [
+        {
+          "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+          "character": {
+            "enabled": true,
+            "source": "original_render_bound_source_bones",
+            "currentClip": "R119_Skeletal_Idle",
+            "transitions": 0,
+            "autoIdleReturns": 0,
+            "activeSeconds": 0.483,
+            "recent": [
+              "R119_Skeletal_Idle"
+            ],
+            "sourceArmDirections": {
+              "L": {
+                "down": 0.9835,
+                "spread": 0.1811,
+                "elbowToWrist": 0.3837
+              },
+              "R": {
+                "down": 0.9894,
+                "spread": 0.1451,
+                "elbowToWrist": 0.3837
+              }
+            },
+            "postureCorrections": 0,
+            "maxPostureCorrection": 0,
+            "sourceRigTrackCount": 16
+          },
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "ground": 0,
+          "drawCalls": 757
+        },
+        {
+          "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+          "character": {
+            "enabled": true,
+            "source": "original_render_bound_source_bones",
+            "currentClip": "R119_Skeletal_Idle",
+            "transitions": 0,
+            "autoIdleReturns": 0,
+            "activeSeconds": 3.514,
+            "recent": [
+              "R119_Skeletal_Idle"
+            ],
+            "sourceArmDirections": {
+              "L": {
+                "down": 0.9958,
+                "spread": 0.0916,
+                "elbowToWrist": 0.3837
+              },
+              "R": {
+                "down": 0.9953,
+                "spread": 0.0973,
+                "elbowToWrist": 0.3837
+              }
+            },
+            "postureCorrections": 0,
+            "maxPostureCorrection": 0,
+            "sourceRigTrackCount": 16
+          },
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "ground": 0,
+          "drawCalls": 735
+        },
+        {
+          "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+          "character": {
+            "enabled": true,
+            "source": "original_render_bound_source_bones",
+            "currentClip": "R119_Skeletal_Idle",
+            "transitions": 0,
+            "autoIdleReturns": 0,
+            "activeSeconds": 6.542,
+            "recent": [
+              "R119_Skeletal_Idle"
+            ],
+            "sourceArmDirections": {
+              "L": {
+                "down": 0.4685,
+                "spread": 0.8834,
+                "elbowToWrist": 0.3837
+              },
+              "R": {
+                "down": 0.4365,
+                "spread": 0.8997,
+                "elbowToWrist": 0.3837
+              }
+            },
+            "postureCorrections": 0,
+            "maxPostureCorrection": 0,
+            "sourceRigTrackCount": 16
+          },
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "ground": 0,
+          "drawCalls": 735
+        },
+        {
+          "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+          "character": {
+            "enabled": true,
+            "source": "original_render_bound_source_bones",
+            "currentClip": "R119_Skeletal_Idle",
+            "transitions": 0,
+            "autoIdleReturns": 0,
+            "activeSeconds": 9.576,
+            "recent": [
+              "R119_Skeletal_Idle"
+            ],
+            "sourceArmDirections": {
+              "L": {
+                "down": 0.4358,
+                "spread": 0.9,
+                "elbowToWrist": 0.3837
+              },
+              "R": {
+                "down": 0.4311,
+                "spread": 0.9023,
+                "elbowToWrist": 0.3837
+              }
+            },
+            "postureCorrections": 0,
+            "maxPostureCorrection": 0,
+            "sourceRigTrackCount": 16
+          },
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "ground": 0,
+          "drawCalls": 735
+        },
+        {
+          "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+          "character": {
+            "enabled": true,
+            "source": "original_render_bound_source_bones",
+            "currentClip": "R119_Skeletal_Idle",
+            "transitions": 0,
+            "autoIdleReturns": 0,
+            "activeSeconds": 12.613,
+            "recent": [
+              "R119_Skeletal_Idle"
+            ],
+            "sourceArmDirections": {
+              "L": {
+                "down": 0.4228,
+                "spread": 0.9062,
+                "elbowToWrist": 0.3837
+              },
+              "R": {
+                "down": 0.9155,
+                "spread": 0.4023,
+                "elbowToWrist": 0.3837
+              }
+            },
+            "postureCorrections": 84,
+            "maxPostureCorrection": 0.2125,
+            "sourceRigTrackCount": 16
+          },
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "ground": 0,
+          "drawCalls": 735
+        },
+        {
+          "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+          "character": {
+            "enabled": true,
+            "source": "original_render_bound_source_bones",
+            "currentClip": "R119_Skeletal_Idle",
+            "transitions": 0,
+            "autoIdleReturns": 0,
+            "activeSeconds": 15.636,
+            "recent": [
+              "R119_Skeletal_Idle"
+            ],
+            "sourceArmDirections": {
+              "L": {
+                "down": 0.8266,
+                "spread": 0.5629,
+                "elbowToWrist": 0.3837
+              },
+              "R": {
+                "down": 0.3939,
+                "spread": 0.9191,
+                "elbowToWrist": 0.3837
+              }
+            },
+            "postureCorrections": 127,
+            "maxPostureCorrection": 0.2125,
+            "sourceRigTrackCount": 16
+          },
+          "chef": [
+            "Idle"
+          ],
+          "face": 1,
+          "ground": 0,
+          "drawCalls": 735
+        }
+      ],
+      "uniqueSourcePoses": 6
+    }
+  ],
+  "origin": "http://127.0.0.1:11439"
+}
