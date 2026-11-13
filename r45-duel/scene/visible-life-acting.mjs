@@ -11,6 +11,12 @@
  */
 const HUMAN_IDS=new Set(['E03','E04','G02','G03','G04','T03','T04']);
 const clamp=(v,a=-1,b=1)=>Math.max(a,Math.min(b,Number(v)||0));
+const R118_NATIVE_ALTERNATES=Object.freeze({
+ head:['DEF-Head'],neck:['DEF-Neck'],chest:['DEF-Chest'],
+ spine:['DEF-Chest'],left:['DEF-UpperArm1.L','DEF-Shoulder.L'],
+ right:['DEF-UpperArm1.R','DEF-Shoulder.R'],
+ leftElbow:['DEF-Forearm1.L'],rightElbow:['DEF-Forearm1.R']
+});
 const QUAT_FIELDS=Object.freeze([
  ['head','FK-Head'],
  ['neck','FK-Neck'],
@@ -29,9 +35,11 @@ export function createVisibleLifeActing(THREE,object,id){
   if(o.isSkinnedMesh)for(const bone of o.skeleton?.bones||[])skinBones.add(bone);
  });
  if(body)for(const [key,name] of QUAT_FIELDS){
-  const candidates=[];object.traverse(o=>{
-   if(o.name===name)candidates.push(o);
-  });
+  const candidates=[];
+  const choices=[name,...(R118_NATIVE_ALTERNATES[key]||[])];
+  const norm=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const wanted=new Set(choices.map(norm));
+  object.traverse(o=>{if(wanted.has(norm(o.name)))candidates.push(o)});
   const found=candidates.find(o=>skinBones.has(o))||
    candidates.find(o=>o.isBone)||candidates.find(o=>o.isObject3D);
   candidateInfo.push({key,name,found:!!found,
@@ -79,6 +87,10 @@ export function createVisibleLifeActing(THREE,object,id){
   qa.frames++;
   const intensity=life&&!busy&&!reduced?
    Math.max(0,Math.min(1,life.weight||0))*profile.power:0;
+  if(enabled&&busy){
+   // Genuine source-rig combat clips own the bones in this phase.
+   qa.lastIntent=life?.intent||'idle';return true;
+  }
   if(!enabled){
    // Each R97 morph target is a Blender-baked deformation of the REAL
    // source character's joints. The running mixer owns baseline animation.
@@ -141,8 +153,10 @@ export function createVisibleLifeActing(THREE,object,id){
    leftElbow:[emphasis*(fired?.13:focus?.055:.02),0,0],
    rightElbow:[emphasis*(fired?.16:shy?.04:.045),0,0]
   };
+  const written=new Set();
   for(const [key,[pitch,yaw,roll]] of Object.entries(movement)){
-   const entry=bones.get(key);if(!entry)continue;
+   const entry=bones.get(key);if(!entry||written.has(entry.bone))continue;
+   written.add(entry.bone);
    const x=clamp(pitch,-.20,.20),y=clamp(yaw,-.16,.16),z=clamp(roll,-.15,.15);
    entry.bone.quaternion.copy(entry.rest);
    if(Math.abs(x)>1e-6)entry.bone.quaternion.multiply(
