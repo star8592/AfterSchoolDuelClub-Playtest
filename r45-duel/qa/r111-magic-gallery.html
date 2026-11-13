@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hans"><head>
+<meta charset="utf-8"><link rel="icon" href="data:,"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>R111 校园魔法武器库 · 真实 WebGL2 特效样本</title>
+<script type="importmap">{"imports":{"three":"../assets/three/build/three.module.js","three/addons/":"../assets/three/examples/jsm/"}}</script>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,"Noto Sans SC",sans-serif;background:#0e1b2b;color:#ecf0fa}
+header{padding:18px max(16px,5vw);background:#132b41;border-bottom:1px solid #4b687e}
+header h1{margin:0;font-size:clamp(20px,3vw,27px);color:#ffe2a6}
+header p{line-height:1.65;color:#c5d7e6;font-size:13px;margin:8px 0 0}
+main{display:grid;grid-template-columns:minmax(255px,300px) minmax(0,1fr);max-width:1400px;margin:0 auto;gap:14px;padding:16px}
+aside{border:1px solid #416178;border-radius:12px;padding:13px;min-width:0;background:#172c3e}
+aside label{display:block;font-size:13px;color:#b9d7e8;font-weight:700;margin-bottom:8px}
+select{width:100%;padding:10px;font-size:14px;background:#0d2134;color:white;border-radius:8px;border:1px solid #7ea0ae}
+#next{border:none;border-radius:8px;background:#eac27c;color:#152d42;font-size:14px;font-weight:800;padding:12px;margin-top:10px;width:100%;cursor:pointer}
+#title{color:#ffe2ad;font-size:20px;margin:22px 0 8px}
+#description{color:#d3e1ef;font-size:13px;line-height:1.7}
+#stats{color:#a8c1ce;font-size:12px;white-space:pre-wrap;line-height:1.8}
+.stage{position:relative;overflow:hidden;aspect-ratio:16/10;min-height:260px;border-radius:12px;border:1px solid #355970;background:#182638}
+.stage canvas{display:block;width:100%;height:100%}
+.stage .tag{position:absolute;left:15px;top:15px;background:#0c2032dc;padding:7px 10px;border:1px solid #e2bf866d;font-size:12px;border-radius:7px;color:#ffe3b6}
+footer{max-width:1400px;margin:10px auto;padding:18px;color:#96b5c4;font-size:12px;line-height:1.65}
+@media(max-width:760px){main{grid-template-columns:1fr}.stage{min-height:260px}header{padding:14px}aside{order:2}.stage{order:1}}
+</style>
+</head><body>
+<header>
+<h1>R111 · 校园魔法武器库</h1>
+<p>32 种不同造型的三维法术，可逐张预览。这里展示的是纯视觉效果，不会改变卡牌生命、伤害、能量或战斗结果；正式对战由引擎事件驱动。</p>
+</header>
+<main>
+<aside>
+<label for="card">选择魔法事件牌</label>
+<select id="card"></select>
+<button id="next" type="button">施放下一个魔法</button>
+<h2 id="title"></h2><p id="description"></p><p id="stats" role="status"></p>
+</aside>
+<div class="stage">
+<canvas id="fx" aria-label="WebGL2 三维校园魔法演示"></canvas>
+<div class="tag">真实 WebGL2 · 不加载人物模型</div>
+</div>
+</main>
+<footer>本页面仅用于美术和性能比对。创作来源为游戏既有 R79 WebGL2 魔法技术及 GlobalGameFoundry 已审查的开源研究笔记，不包含外部角色、音频或第三方图像。</footer>
+<script type="module">
+import * as THREE from 'three';
+import {CARDS} from '../engine.mjs';
+import {CARD_MAGIC_MOTIFS,createMagicArsenal} from '../scene/magic-arsenal.mjs';
+const spells=CARDS.filter(x=>x.kind==='spell');
+const select=document.querySelector('#card');
+const title=document.querySelector('#title'),description=document.querySelector('#description'),
+ stats=document.querySelector('#stats');
+spells.forEach((c,i)=>{const o=document.createElement('option');o.value=String(i);
+ o.textContent=c.name+' · '+CARD_MAGIC_MOTIFS[c.id];select.append(o)});
+const canvas=document.querySelector('#fx'),stage=canvas.parentElement;
+const renderer=new THREE.WebGLRenderer({canvas,alpha:false,antialias:true,powerPreference:'high-performance'});
+renderer.setPixelRatio(Math.min(1.4,devicePixelRatio||1));
+const scene=new THREE.Scene();scene.background=new THREE.Color('#182638');
+const camera=new THREE.PerspectiveCamera(46,1,.1,55);camera.position.set(0,7.0,11);camera.lookAt(0,1.0,0);
+scene.add(new THREE.HemisphereLight('#ffffff','#344f66',1.7));
+const floor=new THREE.Mesh(new THREE.CylinderGeometry(5.2,5.6,.16,60),
+ new THREE.MeshStandardMaterial({color:'#405663',metalness:.16,roughness:.79}));
+floor.position.y=-.12;scene.add(floor);
+const magic=createMagicArsenal(THREE,scene,{reducedMotion:matchMedia('(prefers-reduced-motion:reduce)').matches});
+const clock=new THREE.Clock();let now=clock.getElapsedTime(),serial=1,activeCard=null;
+function resize(){
+ const r=stage.getBoundingClientRect();const w=Math.max(250,r.width),h=Math.max(260,r.height);
+ renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(stage);resize();
+function cast(){
+ activeCard=spells[Number(select.value)||0];
+ title.textContent=activeCard.name;
+ description.textContent=activeCard.line+'　｜　'+activeCard.rule;
+ magic.update(now+10);
+ magic.play({type:'ASDC_R81_SPELL_RESULT',card:activeCard.id,
+  effect:activeCard.effect,side:'player',serial:serial++,damage:0,directDamage:0},now);
+}
+select.value=String(spells.findIndex(x=>x.id==='K07'));
+select.addEventListener('change',cast);
+document.querySelector('#next').addEventListener('click',()=>{select.selectedIndex=(select.selectedIndex+1)%spells.length;cast()});
+function frame(){
+ now=clock.getElapsedTime();
+ magic.update(now);renderer.render(scene,camera);
+ const v=magic.stats;
+ stats.textContent='视觉主题：'+(activeCard?CARD_MAGIC_MOTIFS[activeCard.id]:'--')+
+  '\n独立视觉主题：'+v.motifCount+'　｜　绘制调用：'+renderer.info.render.calls+
+  '\n当前同时生效：'+v.active+'/'+v.maxActive+'　｜　已释放：'+v.expired;
+ requestAnimationFrame(frame);
+}
+cast();frame();
+window.__r111GalleryQA={get stats(){return magic.stats},castId(id){
+ const idx=spells.findIndex(x=>x.id===id);if(idx<0)return false;
+ select.selectedIndex=idx;cast();return true;
+ }};
+</script>
+</body></html>

@@ -1,5 +1,7 @@
 # 放学后决斗社 — 3D 卡牌对战统一主线
 
+**R111 魔法武器库扩充：** 46张事件牌搭配32种校园魔法造型，恢复R79传送门，含GitHub/X研究和性能实测，见 [R111研究](docs/R111_GAME_MAGIC_ARSENAL_AND_OPEN_SOURCE_RESEARCH.md) 与 [魔法效果预览](r45-duel/qa/r111-magic-gallery.html)。
+
 **R110 真实出牌原画演出：** 旧的3D卡片只显示符号、并拒绝新增事件牌；现以60张实图做左右三维卡板投影与短暂大图入场，参见 [R110实测](docs/R110_ILLUSTRATED_CARD_PLAY_PROJECTION.md)。
 
 **R109 60张独立图画卡面：** 已在首页、手牌、游戏图鉴及高清预览恢复20张历史插画，新增40张逐卡场景画面。完整图片覆盖与商用许可边界见 [R109 美术审核](docs/R109_FULLY_ILLUSTRATED_CARD_FACES.md)。
