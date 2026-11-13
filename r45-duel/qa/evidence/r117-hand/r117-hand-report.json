@@ -1,0 +1,252 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop authentic VRM wrist anchors loaded",
+      "data": {
+        "actors": [
+          {
+            "side": "player",
+            "id": null,
+            "shown": 0,
+            "visible": false,
+            "wristTracked": true,
+            "wristGap": 0,
+            "painted": false,
+            "lastPainted": null
+          },
+          {
+            "side": "ai",
+            "id": null,
+            "shown": 0,
+            "visible": false,
+            "wristTracked": true,
+            "wristGap": 0,
+            "painted": false,
+            "lastPainted": null
+          }
+        ],
+        "painted": 0,
+        "frames": 0
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop genuine illustrated card follows right wrist",
+      "data": {
+        "side": "player",
+        "id": "E03",
+        "shown": 1,
+        "visible": true,
+        "wristTracked": true,
+        "wristGap": 0.0778,
+        "painted": true,
+        "lastPainted": "E03"
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop real R109 E03 painting, not placeholder",
+      "data": {
+        "side": "player",
+        "id": "E03",
+        "shown": 1,
+        "visible": true,
+        "wristTracked": true,
+        "wristGap": 0.0778,
+        "painted": true,
+        "lastPainted": "E03"
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop independent duelists hold their own distinct cards",
+      "data": {
+        "actors": [
+          {
+            "side": "player",
+            "id": "E03",
+            "shown": 1,
+            "visible": true,
+            "wristTracked": true,
+            "wristGap": 0.0778,
+            "painted": true,
+            "lastPainted": "E03"
+          },
+          {
+            "side": "ai",
+            "id": "G03",
+            "shown": 1,
+            "visible": true,
+            "wristTracked": true,
+            "wristGap": 0.0778,
+            "painted": true,
+            "lastPainted": "G03"
+          }
+        ],
+        "painted": 2,
+        "frames": 85
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop release prop after cinematic, no lingering holograms",
+      "data": {
+        "actors": [
+          {
+            "side": "player",
+            "id": "E03",
+            "shown": 1,
+            "visible": false,
+            "wristTracked": true,
+            "wristGap": 0.0778,
+            "painted": true,
+            "lastPainted": "E03"
+          },
+          {
+            "side": "ai",
+            "id": "G03",
+            "shown": 1,
+            "visible": false,
+            "wristTracked": true,
+            "wristGap": 0.0778,
+            "painted": true,
+            "lastPainted": "G03"
+          }
+        ],
+        "painted": 2,
+        "frames": 307
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop no script or missing artwork",
+      "data": []
+    },
+    {
+      "passed": true,
+      "label": "portrait authentic VRM wrist anchors loaded",
+      "data": {
+        "actors": [
+          {
+            "side": "player",
+            "id": null,
+            "shown": 0,
+            "visible": false,
+            "wristTracked": true,
+            "wristGap": 0,
+            "painted": false,
+            "lastPainted": null
+          },
+          {
+            "side": "ai",
+            "id": null,
+            "shown": 0,
+            "visible": false,
+            "wristTracked": true,
+            "wristGap": 0,
+            "painted": false,
+            "lastPainted": null
+          }
+        ],
+        "painted": 0,
+        "frames": 0
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait genuine illustrated card follows right wrist",
+      "data": {
+        "side": "player",
+        "id": "E03",
+        "shown": 1,
+        "visible": true,
+        "wristTracked": true,
+        "wristGap": 0.0778,
+        "painted": true,
+        "lastPainted": "E03"
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait real R109 E03 painting, not placeholder",
+      "data": {
+        "side": "player",
+        "id": "E03",
+        "shown": 1,
+        "visible": true,
+        "wristTracked": true,
+        "wristGap": 0.0778,
+        "painted": true,
+        "lastPainted": "E03"
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait independent duelists hold their own distinct cards",
+      "data": {
+        "actors": [
+          {
+            "side": "player",
+            "id": "E03",
+            "shown": 1,
+            "visible": true,
+            "wristTracked": true,
+            "wristGap": 0.0778,
+            "painted": true,
+            "lastPainted": "E03"
+          },
+          {
+            "side": "ai",
+            "id": "G03",
+            "shown": 1,
+            "visible": true,
+            "wristTracked": true,
+            "wristGap": 0.0778,
+            "painted": true,
+            "lastPainted": "G03"
+          }
+        ],
+        "painted": 2,
+        "frames": 92
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait release prop after cinematic, no lingering holograms",
+      "data": {
+        "actors": [
+          {
+            "side": "player",
+            "id": "E03",
+            "shown": 1,
+            "visible": false,
+            "wristTracked": true,
+            "wristGap": 0.0778,
+            "painted": true,
+            "lastPainted": "E03"
+          },
+          {
+            "side": "ai",
+            "id": "G03",
+            "shown": 1,
+            "visible": false,
+            "wristTracked": true,
+            "wristGap": 0.0778,
+            "painted": true,
+            "lastPainted": "G03"
+          }
+        ],
+        "painted": 2,
+        "frames": 308
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait no script or missing artwork",
+      "data": []
+    }
+  ],
+  "errors": []
+}
