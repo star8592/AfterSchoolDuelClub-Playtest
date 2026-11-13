@@ -818,7 +818,7 @@ function loop(){
    const a=crowdCloseup.anchor;
    const target=new THREE.Vector3(a.x,a.y+1.31,a.z+.22);
    const eye=new THREE.Vector3(target.x+(target.x>0?-.32:.32),
-    target.y+(narrow?1.6:1.20),target.z+(narrow?8.0:6.05));
+    target.y+(narrow?1.18:.82),target.z+(narrow?5.50:4.28));
    camera.position.lerp(eye,weight);
    aimX+=(target.x-aimX)*weight;
    aimY+=(target.y-aimY)*weight;
