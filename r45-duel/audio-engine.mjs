@@ -99,7 +99,8 @@ function savedVolume(){
 
 export function createDuelAudio({onVoiceLine}={}){
  let requested=savedSoundIntent(),enabled=false,ctx=null,decoded=new Map(),
-  voiceManifest={clips:{}},paManifest={clips:{}},voiceAudio=null;
+  voiceManifest={clips:{}},paManifest={clips:{}},crowdManifest={clips:{}},voiceAudio=null,crowdAudio=null;
+ let crowdVoicePlays=0,lastCrowdVoice=null;
  let lastPAAt=-Infinity,finaleVoiceGuard=false;
  let assetsLoading=null,assetsReady=false,musicAttemptInFlight=false;
  const pendingCues=[],pendingVoices=[];
@@ -158,6 +159,24 @@ export function createDuelAudio({onVoiceLine}={}){
    paManifest=json;
   }catch(e){counters.errors++;log('pa-manifest-error',String(e))}
  }
+ async function loadCrowdManifest(){
+  try{
+   const response=await fetch(base+'crowd/crowd-manifest.json',{cache:'no-cache'});
+   if(!response.ok)throw Error('Crowd voice manifest HTTP '+response.status);
+   const json=await response.json(),clips=json.clips||{};
+   const scenarios=['ricochet','overshoot','shockwave','misfire'];
+   if(json.provider!=='Qwen3-TTS'||Object.keys(clips).length!==8||
+      scenarios.some(k=>!['a','b'].every(v=>{
+       const meta=clips[k+'_'+v];
+       return meta&&meta.scenario===k&&meta.ready&&
+        meta.file==='r122_'+k+'_'+v+'.ogg'&&
+        typeof meta.text==='string'&&meta.text.length<=70&&
+        /^[a-f0-9]{64}$/.test(meta.sha256)&&
+        meta.duration_seconds>.3&&meta.duration_seconds<10;
+      })))throw Error('Invalid R122 original Qwen crowd-voice provenance');
+   crowdManifest=json;
+  }catch(e){counters.errors++;log('crowd-manifest-error',String(e))}
+ }
  async function preloadCues(){
   if(!ctx)return;
   await Promise.all(Object.entries(SOUNDS).map(async([key,file])=>{
@@ -198,7 +217,7 @@ export function createDuelAudio({onVoiceLine}={}){
     counters.errors++;log('music-error','file failed');
   });
   // Decode while suspended. First card selection must not wait for network.
-  assetsLoading=Promise.all([loadManifest(),loadPAManifest(),preloadCues()]).then(()=>{
+  assetsLoading=Promise.all([loadManifest(),loadPAManifest(),loadCrowdManifest(),preloadCues()]).then(()=>{
     assetsReady=true;flushPending();
     log('prepared','sound files ready; playback follows browser policy');
     return true;
@@ -245,6 +264,7 @@ export function createDuelAudio({onVoiceLine}={}){
   pendingCues.length=0;pendingVoices.length=0;
   musicAudio?.pause();fadingMusic?.pause();fadingMusic=null;fadeRatio=1;musicTransitionToken++;
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
+  crowdAudio?.pause();crowdAudio=null;
   musicDucked=false;
   void ctx?.suspend().catch(()=>{});
   log('muted','explicit user preference');
@@ -259,6 +279,7 @@ export function createDuelAudio({onVoiceLine}={}){
   volume[channel]=clamp(value);store();
   if(channel==='music')updateMusicVolume();
   if(channel==='voice'&&voiceAudio)voiceAudio.volume=volume.voice;
+  if(channel==='voice'&&crowdAudio)crowdAudio.volume=volume.voice*.76;
   log('volume',channel+':'+volume[channel]);
  }
  function playCue(key,side='center',{rate=1,delay=0,gainScale=1}={}){
@@ -416,6 +437,39 @@ export function createDuelAudio({onVoiceLine}={}){
   playQueuedVoice();
   return true;
  }
+ function playCrowdYelp(scenario,index=0,serial=1){
+  if(!requested||!enabled||!assetsReady||finaleVoiceGuard||volume.voice===0||
+    !['ricochet','overshoot','shockwave','misfire'].includes(scenario)||
+    !Number.isInteger(index)||index<0||index>=4)return false;
+  // Independent original Qwen voice lane. A spectator yelp must not cut off
+  // the combatant's recorded speech or masquerade as spoken audience text.
+  const variant=(serial+index)%2===0?'a':'b';
+  const key=scenario+'_'+variant,meta=crowdManifest.clips?.[key];
+  if(!meta?.ready)return false;
+  if(crowdAudio){crowdAudio.pause();crowdAudio=null}
+  const clip=new Audio(base+'crowd/'+meta.file);
+  crowdAudio=clip;clip.preload='auto';clip.volume=volume.voice*.76;
+  const done=()=>{if(crowdAudio===clip)crowdAudio=null};
+  clip.addEventListener('ended',done,{once:true});
+  clip.addEventListener('error',()=>{counters.errors++;log('crowd-voice-file-error',key);done()},{once:true});
+  try{
+   clip.play().then(()=>{
+    if(crowdAudio!==clip)return;
+    crowdVoicePlays++;
+    lastCrowdVoice={id:'SPECTATOR_'+index,kind:'accident',
+     variant:key,text:meta.text,duration_seconds:meta.duration_seconds};
+    speechHistory.push(lastCrowdVoice);
+    if(speechHistory.length>60)speechHistory.shift();
+    log('crowd-voice',key);
+    if(typeof onVoiceLine==='function')
+     try{onVoiceLine({...lastCrowdVoice})}catch(e){log('crowd-subtitle-error',String(e))}
+   }).catch(e=>{
+    if(crowdAudio!==clip)return;
+    counters.errors++;log('crowd-voice-play-error',String(e));done();
+   });
+  }catch(e){counters.errors++;log('crowd-voice-init-error',String(e));done();return false}
+  return true;
+ }
  function playSocialLine(side,text){
   if(finaleVoiceGuard||!['player','ai'].includes(side)||!requested||!enabled||!assetsReady||
      !text||voiceAudio||voiceQueue.length||volume.voice===0)return false;
@@ -503,6 +557,7 @@ export function createDuelAudio({onVoiceLine}={}){
   finaleVoiceGuard=false;lastPAAt=-Infinity;
   if(finaleTimer!==null){clearTimeout(finaleTimer);finaleTimer=null;}
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
+  crowdAudio?.pause();crowdAudio=null;
   musicDucked=false;updateMusicVolume();
  }
  function gameFinished(winner){
@@ -531,6 +586,8 @@ export function createDuelAudio({onVoiceLine}={}){
   pendingCues:pendingCues.length,pendingVoices:pendingVoices.length,
   musicKind,musicDucked,musicTracks:[...MUSIC_TRACKS],
   paClipCount:Object.keys(paManifest.clips||{}).length,
+  crowdVoiceClipCount:Object.keys(crowdManifest.clips||{}).length,
+  crowdVoicePlays,lastCrowdVoice:lastCrowdVoice?{...lastCrowdVoice}:null,
   finaleVoiceGuard,
   musicHistory:[...musicHistory],voiceVariantHistory:[...voiceVariantHistory],
   lastSpoken:lastSpoken?{...lastSpoken}:null,speechHistory:[...speechHistory],comicBeatHistory:[...comicBeatHistory],
@@ -538,5 +595,5 @@ export function createDuelAudio({onVoiceLine}={}){
   voiceQueue:voiceQueue.map(x=>x.id+':'+x.kind),decodedCues:decoded.size,voiceClipCount:Object.keys(voiceManifest.clips||{}).length,
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
  return {prepare,unlock,turnOn,stop,setVolume,playCue,playComicBeat,
-  playCharacter,playPA,playSocialLine,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
+  playCharacter,playPA,playSocialLine,playCrowdYelp,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
 }
