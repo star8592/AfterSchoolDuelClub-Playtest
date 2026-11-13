@@ -957,7 +957,8 @@ try{
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
  window.__ASDC_LOAD_METRICS.modelReadyMs=Math.round(performance.now()-loadingStartedAt);
- $('load-step').textContent='正在点亮正式比赛场地';
+ const paintStage=$('load-step');
+ if(paintStage)paintStage.textContent='正在点亮正式比赛场地';
  $('load-explain').textContent='所有真实模型已验证，正在渲染首次完整比赛画面…';
  exposeQA();
  const warmupStarted=performance.now();
