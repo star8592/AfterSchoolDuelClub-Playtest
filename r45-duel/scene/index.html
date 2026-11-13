@@ -6,18 +6,65 @@
 <style>
 html,body{width:100%;height:100%;overflow:hidden;margin:0;background:#17283b}
 canvas{display:block;width:100%;height:100%}
-#loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#15253bdc;color:#ffe4b6;font:13px system-ui,sans-serif;text-align:center;padding:12px;z-index:8}
+/* R114: light CSS-only presentation. No extra opening-screen images or fonts. */
+#loading{position:absolute;inset:0;z-index:8;display:flex;align-items:center;justify-content:center;
+ padding:clamp(14px,3vw,36px);overflow:hidden;isolation:isolate;color:#fff1d7;
+ background:radial-gradient(ellipse at 49% 25%,#2d4862 0%,#14283f 43%,#091522 90%);
+ font-family:system-ui,-apple-system,"Noto Sans SC",sans-serif;text-align:center}
+#loading::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.26;
+ background:repeating-linear-gradient(0deg,transparent 0 48px,#83a4bd36 49px 50px),
+ repeating-linear-gradient(90deg,transparent 0 48px,#83a4bd36 49px 50px);
+ transform:perspective(340px) rotateX(34deg) scale(1.8);transform-origin:center 80%}
+#loading::after{content:"";position:absolute;left:50%;top:48%;width:min(88vmin,700px);
+ aspect-ratio:1;border:1px solid #cbb18720;border-radius:50%;transform:translate(-50%,-50%);
+ box-shadow:0 0 0 56px #cbb18708,0 0 0 110px #cbb18706;z-index:-1}
 #loading[hidden]{display:none}
-#loading[data-error="true"]{background:#15253bf0}
-#loading .load-error{max-width:560px;line-height:1.6;overflow-wrap:anywhere}
-#load-progress{width:min(370px,82vw);height:12px;accent-color:#f7c87f}
+#loading[data-error="true"]{background:#101f30}
+.load-shell{width:min(100%,490px);position:relative;display:flex;align-items:center;
+ flex-direction:column;gap:0;padding:clamp(25px,4vw,37px) clamp(21px,4vw,39px);
+ background:linear-gradient(145deg,#18324ce8 0%,#101d2eeb 72%,#0d1b2aeb 100%);
+ border:1px solid #9bc7d050;border-top:2px solid #e9c58d;
+ border-radius:22px;box-shadow:0 26px 72px #0009,inset 0 0 0 1px #ffffff09}
+.load-eyebrow{font:700 10px/1.6 system-ui,sans-serif;letter-spacing:.31em;
+ text-transform:uppercase;color:#b9d6dc}
+.load-emblem{position:relative;width:90px;height:90px;display:grid;place-items:center;
+ margin:18px 0 15px;border-radius:50%;background:radial-gradient(circle,#284560 2%,#182b40 67%);
+ border:1px solid #e4c58b8c;box-shadow:0 0 0 8px #e7c78d10,0 0 26px #ead19c26}
+.load-emblem::before{content:"";position:absolute;inset:-9px;border:2px solid transparent;
+ border-top-color:#f6d799;border-left-color:#e4c58b70;border-radius:50%;animation:arena-orbit 6s linear infinite}
+.load-emblem strong{font:bold 31px/1 Georgia,serif;letter-spacing:-.09em;color:#ffe3ac;
+ text-shadow:0 3px 12px #030d17}
+.load-emblem small{position:absolute;bottom:19px;font:800 7px system-ui,sans-serif;
+ color:#bce8e2;letter-spacing:.3em}
+.load-title{margin:0;font-size:clamp(25px,4.3vw,36px);font-weight:900;
+ letter-spacing:.08em;line-height:1.27;color:#fff2d9;text-shadow:0 4px 15px #0006}
+.load-subtitle{font:700 11px/2 system-ui,sans-serif;color:#e8ca91;letter-spacing:.2em;margin-top:4px}
+.load-rule{height:1px;width:100%;background:linear-gradient(90deg,transparent,#d4b67c70,transparent);margin:20px 0}
+#load-step{font-weight:750;font-size:14px;line-height:1.4;color:#d9f0f2;min-height:20px}
+.load-progress-head{width:100%;display:flex;justify-content:space-between;align-items:baseline;
+ gap:8px;margin:15px 0 9px;color:#b9cad5;font:650 11px system-ui,sans-serif}
+#load-count{font:750 12px system-ui,sans-serif;color:#ffe2a8;font-variant-numeric:tabular-nums}
+#load-progress{width:100%;height:9px;display:block;appearance:none;-webkit-appearance:none;
+ border:0;border-radius:999px;background:#2c4253;overflow:hidden}
+#load-progress::-webkit-progress-bar{background:#2c4253;border-radius:999px}
+#load-progress::-webkit-progress-value{border-radius:999px;background:linear-gradient(90deg,#5bd9cf,#e9c58d);
+ transition:width .24s ease}
+#load-progress::-moz-progress-bar{border-radius:999px;background:linear-gradient(90deg,#5bd9cf,#e9c58d)}
 #load-progress[hidden]{display:none}
-#load-count{font:800 17px system-ui,sans-serif;color:#ffe0a3}
-#load-explain{font:12px system-ui,sans-serif;color:#bad0d8;max-width:min(460px,84vw);line-height:1.7}
-#retry-scene{padding:12px 23px;min-height:48px;min-width:170px;
+#load-explain{font:12px/1.65 system-ui,sans-serif;color:#b4c8d3;margin:14px 0 0;max-width:370px}
+.load-tip{width:100%;margin-top:22px;padding:13px 13px 0;border-top:1px solid #c8d5d21d;
+ color:#d8d3ba;font:11px/1.7 system-ui,sans-serif}
+.load-tip b{color:#f0d392}
+#loading .load-error{width:100%;margin-top:15px;border:1px solid #e3aa8b55;
+ background:#3a293344;padding:12px;border-radius:9px;font:12px/1.6 system-ui,sans-serif;
+ color:#ffddd0;overflow-wrap:anywhere}
+#retry-scene{margin-top:14px;padding:12px 23px;min-height:48px;min-width:170px;
  border:1px solid #ffe6ad;border-radius:10px;background:#f2bf72;color:#15263d;
- font:800 16px system-ui,sans-serif;cursor:pointer;box-shadow:0 6px 20px #0007}
+ font:800 15px system-ui,sans-serif;cursor:pointer;box-shadow:0 6px 20px #0007}
 #retry-scene:hover{filter:brightness(1.10)}#retry-scene:focus-visible{outline:3px solid #fff}
+@keyframes arena-orbit{to{transform:rotate(360deg)}}
+@media(max-width:520px){.load-shell{padding:22px 20px;border-radius:16px}.load-emblem{width:72px;height:72px;margin:11px 0 12px}.load-emblem strong{font-size:27px}.load-emblem small{bottom:12px}.load-rule{margin:15px 0}.load-tip{margin-top:14px}.load-title{font-size:26px}}
+@media(prefers-reduced-motion:reduce){.load-emblem::before{animation:none}#load-progress::-webkit-progress-value{transition:none}}
 
 #info{position:absolute;top:9px;left:10px;z-index:3;padding:5px 10px;border:1px solid #d2b58577;background:#14243bc8;color:#fbe3bb;border-radius:7px;font:11px system-ui,sans-serif}
 #details,#identity,#identity-left,#identity-right,#replay,#evidence{display:none}
@@ -56,11 +103,19 @@ canvas{display:block;width:100%;height:100%}
   <span id="combo-caption" hidden></span>
   <button id="skip-combo" type="button" hidden>跳过演出</button>
 </div>
-<div id="loading" role="status">
-  <strong>正在载入真实三维人物与体育馆</strong>
-  <span id="load-count">已完成 0 / 16 个三维人物资源</span>
+<div id="loading" role="status" aria-label="三维竞技场加载状态">
+ <div class="load-shell">
+  <span class="load-eyebrow">AFTER SCHOOL · DUEL CLUB</span>
+  <div class="load-emblem" aria-hidden="true"><strong>A·D</strong><small>CLUB</small></div>
+  <h1 class="load-title">放学后决斗社</h1>
+  <span class="load-subtitle">校园竞技场 · 开幕准备</span>
+  <div class="load-rule" aria-hidden="true"></div>
+  <strong id="load-step" aria-live="polite">正在迎接决斗者与召唤角色</strong>
+  <div class="load-progress-head"><span>已验证的三维角色资源</span><span id="load-count">0 / 16</span></div>
   <progress id="load-progress" value="0" max="16" aria-label="已验证的三维模型加载进度">0/16</progress>
-  <span id="load-explain">首次需要较大的模型文件；只在实际模型完整加载并验证通过后累计。请使用稳定网络，出牌前会严格检查。</span>
+  <p id="load-explain">正在校验角色模型与动作骨架，完成后自动进入比赛。</p>
+  <div class="load-tip"><b>开场提示</b>　召唤的人物会在下一次轮到你时主动出击。</div>
+ </div>
 </div>
 <script type="module" src="./scene.mjs"></script>
 </body></html>
