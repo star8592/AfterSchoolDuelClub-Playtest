@@ -1,0 +1,32 @@
+{
+  "slug": "ellie",
+  "source": "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/ellie.blend",
+  "output": "r45-duel/assets/summons/E03-Ellie-Skinned-R132-BakedRest-PILOT.glb",
+  "status": "EXPORTED",
+  "posedVerticesSampled": 42721,
+  "r131PoseRestBaked": true,
+  "r132FKShoulderSourceBaked": true,
+  "r132BakedOriginalVertices": 42721,
+  "bytes": 16979452,
+  "sha256": "37cf61cad46a5cf6d683d0e17c7c06898152f4555f0334d025e9e567dbba9ef6",
+  "sourceMeshes": 31,
+  "visibleMeshes": 28,
+  "visibleSkinnedMeshes": 28,
+  "skinWeightBuffers": 28,
+  "rigBones": 1887,
+  "exportedJoints": 329,
+  "missingTargetBones": [],
+  "sourceIKWristPose": {
+    "L": [
+      0.376416951417923,
+      -0.0035441340878605843,
+      0.9183064699172974
+    ],
+    "R": [
+      -0.376416951417923,
+      -0.0035441340878605843,
+      0.9183064699172974
+    ]
+  },
+  "disabledGraphModifiers": 58
+}

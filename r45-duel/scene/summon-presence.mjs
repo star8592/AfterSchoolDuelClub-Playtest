@@ -1104,13 +1104,33 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    pendingArt:0,prototypeArt:list.filter(x=>x.kind==='gltf-instance').length,
    loadedPrototypeIds:[...prototypes.keys()],cardIds:[...UNIT_IDS],entries:list};
  }
+ // R132 explicit-only mesh grounding probe. Distinguish a boot clipping
+ // the court from a hat/cape/clothing bounding box, without editing physics.
+ function inspectLowestSourceMeshes(id){
+  const actor=[...entries.values()].find(s=>s.id===id&&s.kind==='gltf-instance');
+  if(!actor)return [];
+  actor.object.updateMatrixWorld(true);
+  const lowest=[];
+  actor.object.traverse(o=>{
+   if(!o.visible||!o.isSkinnedMesh||!o.geometry?.attributes.position)return;
+   o.computeBoundingBox();
+   if(!o.boundingBox||o.boundingBox.isEmpty())return;
+   const bb=o.boundingBox.clone().applyMatrix4(o.matrixWorld);
+   if(!Number.isFinite(bb.min.y))return;
+   lowest.push({mesh:o.name,minimum:+bb.min.y.toFixed(5),
+    maximum:+bb.max.y.toFixed(5),size:+(bb.max.y-bb.min.y).toFixed(5)});
+  });
+  lowest.sort((a,b)=>a.minimum-b.minimum);
+  return lowest.slice(0,10);
+ }
  function playSourceStudyAction(id,kind){
   if(!['idle','attack','hit','walk','celebrate'].includes(kind))return false;
   const actor=[...entries.values()].find(s=>s.id===id&&s.object.userData.r61?.r119Skin);
   if(!actor)return false;
   return actor.object.userData.r61.play(kind)===true;
  }
- return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,playSourceStudyAction,
+ return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,
+  playSourceStudyAction,inspectLowestSourceMeshes,
   reactToSpell,spellWorldAnchors,reserveSpellTargets,clearSpellTargets,reactToSummon,reactToCombo,clearComicCombo,
   celebrate,get celebration(){return celebration&&{...celebration,frames:celebrationFrames,actorFrames:celebratingActors}},
   get spellReactions(){return actualSpellReactions},

@@ -1,0 +1,225 @@
+{
+  "passed": true,
+  "results": {
+    "E03": {
+      "actor": "Ellie",
+      "originalSha256": "a95f02362ff897168f16a661c2dcacefc57cb393fd12a86e9b53bb66fefc52d4",
+      "bakedSha256": "37cf61cad46a5cf6d683d0e17c7c06898152f4555f0334d025e9e567dbba9ef6",
+      "beforeBytes": 16975744,
+      "bakedBytes": 16979452,
+      "originalMeshes": 28,
+      "bakedMeshes": 28,
+      "allOriginalVertexCountsPreserved": true,
+      "sourceSkinnedMeshes": 28,
+      "sourceJoints": 329,
+      "topPoseChanges": [
+        {
+          "mesh": "geo-ellie_body",
+          "beforeX": 1.00223,
+          "bakedX": 0.48221,
+          "r97X": 0.27992,
+          "originalVertices": 2501,
+          "sourceWeighted": true,
+          "xChange": -0.52002
+        },
+        {
+          "mesh": "geo-ellie_jacket",
+          "beforeX": 0.41633,
+          "bakedX": 0.46752,
+          "r97X": 0.2351,
+          "originalVertices": 6740,
+          "sourceWeighted": true,
+          "xChange": 0.05119
+        }
+      ],
+      "bakedPose": true,
+      "compressedProof": null,
+      "oldSourceWeightMeshes": 28
+    },
+    "G02": {
+      "actor": "Snow",
+      "originalSha256": "89e297d54e002cbe7dc66afd89713734dfd189f27b6a07ce51b569eb5e5dd5d6",
+      "bakedSha256": "2a846ae175b1c03e36e5481934989678d43114cdf790df39574b26bab887c439",
+      "beforeBytes": 11874064,
+      "bakedBytes": 11809228,
+      "originalMeshes": 13,
+      "bakedMeshes": 13,
+      "allOriginalVertexCountsPreserved": true,
+      "sourceSkinnedMeshes": 13,
+      "sourceJoints": 293,
+      "topPoseChanges": [
+        {
+          "mesh": "geo-snow-body",
+          "beforeX": 1.7874,
+          "bakedX": 0.54852,
+          "r97X": 0.54852,
+          "originalVertices": 6675,
+          "sourceWeighted": true,
+          "xChange": -1.23888
+        },
+        {
+          "mesh": "geo-snow-shirt",
+          "beforeX": 0.61388,
+          "bakedX": 0.54194,
+          "r97X": 0.54194,
+          "originalVertices": 1999,
+          "sourceWeighted": true,
+          "xChange": -0.07194
+        }
+      ],
+      "bakedPose": true,
+      "compressedProof": {
+        "originalBytes": 92288188,
+        "webBytes": 11809228,
+        "unchangedNonimageBuffers": 815,
+        "sha256": "2a846ae175b1c03e36e5481934989678d43114cdf790df39574b26bab887c439"
+      },
+      "oldSourceWeightMeshes": 13
+    },
+    "G03": {
+      "actor": "Jay",
+      "originalSha256": "9cbdac2bc4075e4e54a4ab6b491eeb914b60db39b43676f5d294975ebc9f375a",
+      "bakedSha256": "2c9e7f6bd53cb026bd1e44deb1c6ff5d1c38dde1dd7f8fecb88dceaf61f1d498",
+      "beforeBytes": 4845880,
+      "bakedBytes": 4844504,
+      "originalMeshes": 16,
+      "bakedMeshes": 16,
+      "allOriginalVertexCountsPreserved": true,
+      "sourceSkinnedMeshes": 16,
+      "sourceJoints": 295,
+      "topPoseChanges": [
+        {
+          "mesh": "geo-jay_body",
+          "beforeX": 0.91223,
+          "bakedX": 0.21919,
+          "r97X": 0.21919,
+          "originalVertices": 2262,
+          "sourceWeighted": true,
+          "xChange": -0.69304
+        },
+        {
+          "mesh": "geo-jay_jacket",
+          "beforeX": 0.58752,
+          "bakedX": 0.44976,
+          "r97X": 0.2062,
+          "originalVertices": 7296,
+          "sourceWeighted": true,
+          "xChange": -0.13776
+        }
+      ],
+      "bakedPose": true,
+      "compressedProof": null,
+      "oldSourceWeightMeshes": 16
+    },
+    "G04": {
+      "actor": "Victoria",
+      "originalSha256": "c0d941dec7cb73e5e76220b13636ea1708c1a7ff0c06a52e309337b1b60a00c6",
+      "bakedSha256": "5fb77d05e548477c4a201774bf61fa3927f4993e334a423a8027fb895a09a000",
+      "beforeBytes": 7284616,
+      "bakedBytes": 7286436,
+      "originalMeshes": 18,
+      "bakedMeshes": 18,
+      "allOriginalVertexCountsPreserved": true,
+      "sourceSkinnedMeshes": 18,
+      "sourceJoints": 311,
+      "topPoseChanges": [
+        {
+          "mesh": "geo-victoria_body_upper",
+          "beforeX": 1.19103,
+          "bakedX": 0.54957,
+          "r97X": 0.39717,
+          "originalVertices": 6492,
+          "sourceWeighted": true,
+          "xChange": -0.64146
+        },
+        {
+          "mesh": "geo-victoria_bracelets",
+          "beforeX": 0.85595,
+          "bakedX": 0.51938,
+          "r97X": 0.38337,
+          "originalVertices": 12288,
+          "sourceWeighted": true,
+          "xChange": -0.33657
+        }
+      ],
+      "bakedPose": true,
+      "compressedProof": null,
+      "oldSourceWeightMeshes": 18
+    },
+    "T03": {
+      "actor": "Rain",
+      "originalSha256": "445dee7058312ebfbaff1bb83988798124c933f09491ffe32d7faf07522de161",
+      "bakedSha256": "4f868e73ce9b37df8705dbf2a2fc40af6f8b7634d4ec2a227646a8e4458ea3c5",
+      "beforeBytes": 18570040,
+      "bakedBytes": 18554464,
+      "originalMeshes": 18,
+      "bakedMeshes": 18,
+      "allOriginalVertexCountsPreserved": true,
+      "sourceSkinnedMeshes": 18,
+      "sourceJoints": 392,
+      "topPoseChanges": [
+        {
+          "mesh": "geo-rain-body",
+          "beforeX": 1.39655,
+          "bakedX": 0.35268,
+          "r97X": 0.35268,
+          "originalVertices": 11391,
+          "sourceWeighted": true,
+          "xChange": -1.04387
+        }
+      ],
+      "bakedPose": true,
+      "compressedProof": {
+        "originalBytes": 70329612,
+        "webBytes": 18554464,
+        "unchangedNonimageBuffers": 858,
+        "sha256": "4f868e73ce9b37df8705dbf2a2fc40af6f8b7634d4ec2a227646a8e4458ea3c5"
+      },
+      "oldSourceWeightMeshes": 18
+    },
+    "T04": {
+      "actor": "Rex",
+      "originalSha256": "7edddf5bb7e4cb9a0f03f43a55f1206f6191b91e863bf2c1c47c849cfaf976b6",
+      "bakedSha256": "fabe89345185d8b07c21cee058ee4f0488b164b342525a295084809f4c045179",
+      "beforeBytes": 7248368,
+      "bakedBytes": 7248864,
+      "originalMeshes": 21,
+      "bakedMeshes": 21,
+      "allOriginalVertexCountsPreserved": true,
+      "sourceSkinnedMeshes": 21,
+      "sourceJoints": 299,
+      "topPoseChanges": [
+        {
+          "mesh": "geo-rex_body",
+          "beforeX": 1.84313,
+          "bakedX": 0.74376,
+          "r97X": 0.99858,
+          "originalVertices": 2603,
+          "sourceWeighted": true,
+          "xChange": -1.09937
+        },
+        {
+          "mesh": "geo-rex_rolex_watch",
+          "beforeX": 0.08614,
+          "bakedX": 0.12639,
+          "r97X": 0.16176,
+          "originalVertices": 6393,
+          "sourceWeighted": true,
+          "xChange": 0.04025
+        },
+        {
+          "mesh": "geo-rex_sweater_vest",
+          "beforeX": 0.49994,
+          "bakedX": 0.53281,
+          "r97X": 0.52738,
+          "originalVertices": 2359,
+          "sourceWeighted": true,
+          "xChange": 0.03287
+        }
+      ],
+      "bakedPose": true,
+      "compressedProof": null,
+      "oldSourceWeightMeshes": 21
+    }
+  }
+}

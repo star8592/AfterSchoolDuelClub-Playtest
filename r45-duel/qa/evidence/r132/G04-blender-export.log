@@ -1,0 +1,68 @@
+00:00.227  blend            | Read blend: "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/victoria.blend"
+BlenderMCP addon registered
+INFO Draco is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_meshopt_bridge.so
+02:02:15 | INFO: Starting glTF 2.0 export
+02:02:15 | INFO: Extracting primitive: Data_GEO-victoria_belt_blue
+02:02:15 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:15 | INFO: Primitives created: 2
+02:02:15 | INFO: Extracting primitive: Data_GEO-victoria_belt_main
+02:02:25 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:25 | INFO: Primitives created: 1
+02:02:25 | INFO: Extracting primitive: Data_GEO-victoria_belt_main_buckle
+02:02:25 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:25 | INFO: Primitives created: 1
+02:02:25 | INFO: Extracting primitive: Data_GEO-victoria_belt_white
+02:02:25 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:25 | INFO: Primitives created: 2
+02:02:25 | INFO: Extracting primitive: Data_GEO-victoria_body_legs
+02:02:25 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:25 | INFO: Primitives created: 1
+02:02:25 | INFO: Extracting primitive: Data_GEO-victoria_body_upper
+02:02:25 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:25 | INFO: Primitives created: 5
+02:02:25 | WARNING: There are more than 4 joint vertex influences.The 4 with highest weight will be used (and normalized).
+02:02:25 | INFO: Extracting primitive: Data_GEO-victoria_boots
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 2
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_bracelets
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 1
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_dress
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 1
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_earrings
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 2
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_eye.L
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 2
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_eye.R
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 2
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_eyebrows
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 1
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_eyedot.L
+02:02:26 | INFO: Primitives created: 1
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_eyedot.R
+02:02:26 | INFO: Primitives created: 1
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_eyelashes
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 1
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_necklaces
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 2
+02:02:26 | INFO: Extracting primitive: Data_GEO-victoria_tongue
+02:02:26 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:02:26 | INFO: Primitives created: 1
+02:02:26 | INFO: Finished glTF 2.0 export in 10.986735105514526 s
+
+R119_REAL_SKIN_EXPORT {"slug": "victoria", "source": "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/victoria.blend", "output": "r45-duel/assets/summons/G04-Victoria-Skinned-R132-BakedRest-PILOT.glb", "status": "EXPORTED", "posedVerticesSampled": 24421, "r131PoseRestBaked": true, "r132FKShoulderSourceBaked": true, "r132BakedOriginalVertices": 24421, "bytes": 7286436, "sha256": "5fb77d05e548477c4a201774bf61fa3927f4993e334a423a8027fb895a09a000", "sourceMeshes": 18, "visibleMeshes": 18, "visibleSkinnedMeshes": 18, "skinWeightBuffers": 18, "rigBones": 1618, "exportedJoints": 311, "missingTargetBones": [], "sourceIKWristPose": {"L": [0.46190088987350464, -0.002083148807287216, 1.0204871892929077], "R": [-0.46190088987350464, -0.002083148807287216, 1.0204871892929077]}, "disabledGraphModifiers": 33}
+BlenderMCP addon unregistered
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+scripts disabled for "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/victoria.blend", skipping 'cloudrig.py'
+scripts disabled for "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/victoria.blend", skipping 'rigged_particle_hair.py'
+scripts disabled for "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/victoria.blend", skipping 'victoria_rename_curves.py'
+
+Blender quit

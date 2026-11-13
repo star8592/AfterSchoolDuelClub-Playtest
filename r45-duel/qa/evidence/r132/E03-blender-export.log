@@ -1,0 +1,109 @@
+00:00.224  blend            | Read blend: "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/ellie.blend"
+00:00.735  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth", Bind vertex count mismatch: 4385 to 5186
+00:00.735  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth A Lot", Bind vertex count mismatch: 4385 to 5186
+00:00.821  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth", Bind vertex count mismatch: 4385 to 5186
+00:00.821  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth A Lot", Bind vertex count mismatch: 4385 to 5186
+00:00.833  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth", Bind vertex count mismatch: 4385 to 5186
+00:00.833  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth A Lot", Bind vertex count mismatch: 4385 to 5186
+00:01.112  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth", Bind vertex count mismatch: 4385 to 5186
+00:01.112  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth A Lot", Bind vertex count mismatch: 4385 to 5186
+00:01.168  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth", Bind vertex count mismatch: 4385 to 5186
+00:01.168  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth A Lot", Bind vertex count mismatch: 4385 to 5186
+BlenderMCP addon registered
+INFO Draco is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_meshopt_bridge.so
+02:04:32 | INFO: Starting glTF 2.0 export
+02:04:33 | INFO: Extracting primitive: Data_GEO-ellie_body
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | WARNING: There are more than 4 joint vertex influences.The 4 with highest weight will be used (and normalized).
+02:04:33 | INFO: Extracting primitive: Data_GEO-ellie_boots
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 9
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_earrings
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 2
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_eye.L
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 2
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_eye.R
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 2
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_eye_highlights
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_eyebrows
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_eyelashes
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_fannypack_buckle_ext
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_fannypack_buckle_int
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_fannypack_main
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 3
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_fannypack_strap
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_fannypack_strap_slide
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_fannypack_zipper_pull
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_fannypack_zipper_stop
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_handkerchief
+02:04:34 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:34 | INFO: Primitives created: 1
+02:04:34 | INFO: Extracting primitive: Data_GEO-ellie_head
+02:04:35 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:35 | INFO: Primitives created: 4
+00:03.666  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth", Bind vertex count mismatch: 4385 to 5186
+00:03.666  object.modifier  | WARNING Object: "GEO-ellie_jacket", Modifier: "CorrectiveSmooth A Lot", Bind vertex count mismatch: 4385 to 5186
+02:04:35 | INFO: Extracting primitive: Data_GEO-ellie_jacket
+02:04:35 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:35 | INFO: Primitives created: 2
+02:04:35 | INFO: Extracting primitive: Data_GEO-ellie_jacket_buttons
+02:04:35 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:35 | INFO: Primitives created: 1
+02:04:35 | INFO: Extracting primitive: Data_GEO-ellie_jacket_pin_1
+02:04:35 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:35 | INFO: Primitives created: 2
+02:04:35 | INFO: Extracting primitive: Data_GEO-ellie_jacket_pin_2
+02:04:36 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:36 | INFO: Primitives created: 2
+02:04:36 | INFO: Extracting primitive: Data_GEO-ellie_jacket_pin_3
+02:04:36 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:36 | INFO: Primitives created: 2
+02:04:36 | INFO: Extracting primitive: Data_GEO-ellie_jacket_pin_4
+02:04:36 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:36 | INFO: Primitives created: 2
+02:04:36 | INFO: Extracting primitive: Data_GEO-ellie_jacket_pin_5
+02:04:36 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:36 | INFO: Primitives created: 2
+02:04:36 | INFO: Extracting primitive: Data_GEO-ellie_scrunchy
+02:04:36 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:36 | INFO: Primitives created: 1
+02:04:36 | INFO: Extracting primitive: Data_GEO-ellie_tongue
+02:04:36 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:36 | INFO: Primitives created: 1
+02:04:36 | INFO: Extracting primitive: Data_GEO-ellie_trousers
+02:04:36 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:36 | INFO: Primitives created: 1
+02:04:36 | INFO: Extracting primitive: Data_GEO-ellie_watch
+02:04:36 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:37 | INFO: Primitives created: 6
+02:04:37 | INFO: Finished glTF 2.0 export in 4.137733221054077 s
+
+R119_REAL_SKIN_EXPORT {"slug": "ellie", "source": "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/ellie.blend", "output": "r45-duel/assets/summons/E03-Ellie-Skinned-R132-BakedRest-PILOT.glb", "status": "EXPORTED", "posedVerticesSampled": 42721, "r131PoseRestBaked": true, "r132FKShoulderSourceBaked": true, "r132BakedOriginalVertices": 42721, "bytes": 16979452, "sha256": "37cf61cad46a5cf6d683d0e17c7c06898152f4555f0334d025e9e567dbba9ef6", "sourceMeshes": 31, "visibleMeshes": 28, "visibleSkinnedMeshes": 28, "skinWeightBuffers": 28, "rigBones": 1887, "exportedJoints": 329, "missingTargetBones": [], "sourceIKWristPose": {"L": [0.376416951417923, -0.0035441340878605843, 0.9183064699172974], "R": [-0.376416951417923, -0.0035441340878605843, 0.9183064699172974]}, "disabledGraphModifiers": 58}
+BlenderMCP addon unregistered
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+scripts disabled for "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/ellie.blend", skipping 'cloudrig.py'
+scripts disabled for "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/ellie.blend", skipping 'rigged_particle_hair.py'
+
+Blender quit

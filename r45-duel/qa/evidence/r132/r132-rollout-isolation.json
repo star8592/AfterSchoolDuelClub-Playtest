@@ -1,0 +1,163 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "label": "default-official-R97",
+      "pass": true,
+      "sixModels": [
+        {
+          "id": "E03",
+          "file": "E03-Ellie-Landing-R97.glb",
+          "baseline": "E03-Ellie-Landing-R97.glb"
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-Landing-R97.glb",
+          "baseline": "G02-Snow-Landing-R97.glb"
+        },
+        {
+          "id": "G03",
+          "file": "G03-Jay-Landing-R97.glb",
+          "baseline": "G03-Jay-Landing-R97.glb"
+        },
+        {
+          "id": "G04",
+          "file": "G04-Victoria-Landing-R97.glb",
+          "baseline": "G04-Victoria-Landing-R97.glb"
+        },
+        {
+          "id": "T03",
+          "file": "T03-Rain-Landing-R97.glb",
+          "baseline": "T03-Rain-Landing-R97.glb"
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-Landing-R97.glb",
+          "baseline": "T04-Rex-Landing-R97.glb"
+        }
+      ],
+      "loadValidated": true,
+      "errors": 0,
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    {
+      "label": "spoof-flag-without-qa",
+      "pass": true,
+      "sixModels": [
+        {
+          "id": "E03",
+          "file": "E03-Ellie-Landing-R97.glb",
+          "baseline": "E03-Ellie-Landing-R97.glb"
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-Landing-R97.glb",
+          "baseline": "G02-Snow-Landing-R97.glb"
+        },
+        {
+          "id": "G03",
+          "file": "G03-Jay-Landing-R97.glb",
+          "baseline": "G03-Jay-Landing-R97.glb"
+        },
+        {
+          "id": "G04",
+          "file": "G04-Victoria-Landing-R97.glb",
+          "baseline": "G04-Victoria-Landing-R97.glb"
+        },
+        {
+          "id": "T03",
+          "file": "T03-Rain-Landing-R97.glb",
+          "baseline": "T03-Rain-Landing-R97.glb"
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-Landing-R97.glb",
+          "baseline": "T04-Rex-Landing-R97.glb"
+        }
+      ],
+      "loadValidated": true,
+      "errors": 0,
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    {
+      "label": "source-study-without-qa",
+      "pass": true,
+      "sixModels": [
+        {
+          "id": "E03",
+          "file": "E03-Ellie-Skinned-R119.glb",
+          "baseline": "E03-Ellie-Landing-R97.glb"
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-Skinned-R119.glb",
+          "baseline": "G02-Snow-Landing-R97.glb"
+        },
+        {
+          "id": "G03",
+          "file": "G03-Jay-Skinned-R119.glb",
+          "baseline": "G03-Jay-Landing-R97.glb"
+        },
+        {
+          "id": "G04",
+          "file": "G04-Victoria-Skinned-R119.glb",
+          "baseline": "G04-Victoria-Landing-R97.glb"
+        },
+        {
+          "id": "T03",
+          "file": "T03-Rain-Skinned-R119.glb",
+          "baseline": "T03-Rain-Landing-R97.glb"
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-Skinned-R119.glb",
+          "baseline": "T04-Rex-Landing-R97.glb"
+        }
+      ],
+      "loadValidated": true,
+      "errors": 0,
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    },
+    {
+      "label": "source-study-explicit-qa",
+      "pass": true,
+      "sixModels": [
+        {
+          "id": "E03",
+          "file": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb",
+          "baseline": "E03-Ellie-Landing-R97.glb"
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-Skinned-R132-BakedRest-PILOT.glb",
+          "baseline": "G02-Snow-Landing-R97.glb"
+        },
+        {
+          "id": "G03",
+          "file": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+          "baseline": "G03-Jay-Landing-R97.glb"
+        },
+        {
+          "id": "G04",
+          "file": "G04-Victoria-Skinned-R132-BakedRest-PILOT.glb",
+          "baseline": "G04-Victoria-Landing-R97.glb"
+        },
+        {
+          "id": "T03",
+          "file": "T03-Rain-Skinned-R132-BakedRest-PILOT.glb",
+          "baseline": "T03-Rain-Landing-R97.glb"
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb",
+          "baseline": "T04-Rex-Landing-R97.glb"
+        }
+      ],
+      "loadValidated": true,
+      "errors": 0,
+      "renderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)"
+    }
+  ],
+  "errors": [],
+  "origin": "http://127.0.0.1:11437"
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "T03",
+    "source": "/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend",
+    "status": "FAILED",
+    "seconds": 8.7,
+    "returncode": -11,
+    "bytes": 70329612,
+    "proof": {
+      "status": "EXPORTED",
+      "sha256": "44cb428c2f9567b06715a1ffff30827fc80e3d5bf32e92ec5ad6f690ac908edd",
+      "r132FKShoulderSourceBaked": true,
+      "visibleSkinnedMeshes": 18,
+      "exportedJoints": 392,
+      "posedVerticesSampled": 40115
+    },
+    "error": "2f9567b06715a1ffff30827fc80e3d5bf32e92ec5ad6f690ac908edd\", \"sourceMeshes\": 18, \"visibleMeshes\": 18, \"visibleSkinnedMeshes\": 18, \"skinWeightBuffers\": 18, \"rigBones\": 2166, \"exportedJoints\": 392, \"missingTargetBones\": [\"DEF-Chest\", \"DEF-Shoulder.L\", \"DEF-Shoulder.R\"], \"sourceIKWristPose\": {}, \"disabledGraphModifiers\": 22}\nBlenderMCP addon unregistered\nBlender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)\nscripts disabled for \"/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend\", skipping 'cloudrig.py'\nscripts disabled for \"/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend\", skipping 'rain_shading.py'\nWriting: /mnt/data/cache/blender-headless/tmp/blender.crash.txt\n"
+  }
+]

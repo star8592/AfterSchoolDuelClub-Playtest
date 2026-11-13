@@ -1,0 +1,32 @@
+{
+  "slug": "jay",
+  "source": "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/jay.blend",
+  "output": "r45-duel/assets/summons/G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+  "status": "EXPORTED",
+  "posedVerticesSampled": 29059,
+  "r131PoseRestBaked": true,
+  "r132FKShoulderSourceBaked": true,
+  "r132BakedOriginalVertices": 29059,
+  "bytes": 4844504,
+  "sha256": "2c9e7f6bd53cb026bd1e44deb1c6ff5d1c38dde1dd7f8fecb88dceaf61f1d498",
+  "sourceMeshes": 17,
+  "visibleMeshes": 16,
+  "visibleSkinnedMeshes": 16,
+  "skinWeightBuffers": 16,
+  "rigBones": 1605,
+  "exportedJoints": 295,
+  "missingTargetBones": [],
+  "sourceIKWristPose": {
+    "L": [
+      0.2825460433959961,
+      -0.0014165423344820738,
+      0.6947999596595764
+    ],
+    "R": [
+      -0.2825460433959961,
+      -0.0014165423344820738,
+      0.6947999596595764
+    ]
+  },
+  "disabledGraphModifiers": 45
+}

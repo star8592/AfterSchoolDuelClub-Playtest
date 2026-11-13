@@ -134,6 +134,24 @@ export const R119_SKIN_STUDY_FILES=Object.freeze({
  T03:'T03-Rain-Skinned-R119.glb',
  T04:'T04-Rex-Skinned-R119.glb'
 });
+// R132: per-source Blender Pose-as-Rest-baked original CC-BY GLBs.
+ // G02 and T03 are texture-compacted after Blender; original mesh/joint
+ // binary buffers remain verified. This is research-only until art approval.
+export const R132_BAKED_SOURCE_FILES=Object.freeze({
+ E03:'E03-Ellie-Skinned-R132-BakedRest-PILOT.glb',
+ G02:'G02-Snow-Skinned-R132-BakedRest-PILOT.glb',
+ G03:'G03-Jay-Skinned-R132-BakedRest-PILOT.glb',
+ G04:'G04-Victoria-Skinned-R132-BakedRest-PILOT.glb',
+ T03:'T03-Rain-Skinned-R132-BakedRest-PILOT.glb',
+ T04:'T04-Rex-Skinned-R132-BakedRest-PILOT.glb'
+});
+const R132_BAKED_STUDY=(()=>{
+ const q=new URLSearchParams(location.search);
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+ const qa=q.get('qa')==='1'||parent?.get('qa')==='1';
+ return qa&&(q.get('r132BakedRest')==='on'||parent?.get('r132BakedRest')==='on');
+})();
 const R119_STUDY_IDS=(()=>{
  let raw=new URLSearchParams(location.search).get('r119Rig')||'';
  try{if(!raw&&window.parent!==window)
@@ -260,6 +278,8 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
    id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
    R119_STUDY_IDS.has(id)?(
+    R132_BAKED_STUDY&&Object.hasOwn(R132_BAKED_SOURCE_FILES,id)?
+     R132_BAKED_SOURCE_FILES[id]:
     id==='E04'&&(()=>{
      const q=new URLSearchParams(location.search);
      const parent=(()=>{try{return window.parent!==window?
@@ -471,7 +491,9 @@ export function instantiateSummon(THREE,template){
  const r86Clips=template.id==='G03'&&template.selectedFile==='G03-Jay-Skinned-R86.glb'?createR86JaySkeletonClips(THREE,instance):[];
  const r131SourceBaked=template.id==='E04'&&
   template.selectedFile==='E04-Phil-Skinned-R131-BakedRest-PILOT.glb';
- const r119Skin=r131SourceBaked||
+ const r132SourceBaked=Object.hasOwn(R132_BAKED_SOURCE_FILES,template.id)&&
+  template.selectedFile===R132_BAKED_SOURCE_FILES[template.id];
+ const r119Skin=r131SourceBaked||r132SourceBaked||
   template.selectedFile===R119_SKIN_STUDY_FILES[template.id];
  const r128PilotOn=(()=>{
   const local=new URLSearchParams(location.search);
@@ -524,7 +546,7 @@ export function instantiateSummon(THREE,template){
  })();
  const source119Clips=r119Skin&&!r131RawPose?
   createR119TrueSkinClips(THREE,instance,template.id,
-   {sourceBakedRest:r131SourceBaked}):[];
+   {sourceBakedRest:r131SourceBaked||r132SourceBaked}):[];
  const r128Phil=sourceBodyPilot?
   createR128PhilSourceFullBody(THREE,instance,source119Clips,template.id):null;
  const r130Special=r130SpecialOn?
@@ -706,6 +728,7 @@ export function instantiateSummon(THREE,template){
   getR131Arms:()=>r131Arms?.inspect()||null,
   r131RestReboundMeshes:q131Rebound,
   r131BakedRestOriginalSource:r131SourceBaked,
+  r132BakedRestOriginalSource:r132SourceBaked,
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};

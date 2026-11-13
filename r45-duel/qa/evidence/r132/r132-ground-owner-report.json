@@ -1,0 +1,522 @@
+{
+  "passed": true,
+  "actors": [
+    {
+      "id": "G03",
+      "phase": "idle",
+      "lowest": [
+        {
+          "mesh": "Data_GEO-jay_shoes_base_2",
+          "minimum": 0.00063,
+          "maximum": 0.01608,
+          "size": 0.01545
+        },
+        {
+          "mesh": "Data_GEO-jay_shoes_base_1",
+          "minimum": 0.00094,
+          "maximum": 0.06437,
+          "size": 0.06343
+        },
+        {
+          "mesh": "Data_GEO-jay_shoes_base",
+          "minimum": 0.05085,
+          "maximum": 0.29677,
+          "size": 0.24592
+        },
+        {
+          "mesh": "GEO-jay_body",
+          "minimum": 0.14103,
+          "maximum": 0.80238,
+          "size": 0.66135
+        },
+        {
+          "mesh": "Data_GEO-jay_pants",
+          "minimum": 0.3757,
+          "maximum": 0.80891,
+          "size": 0.43321
+        },
+        {
+          "mesh": "Data_GEO-jay_pants_1",
+          "minimum": 0.39214,
+          "maximum": 0.81051,
+          "size": 0.41837
+        }
+      ],
+      "minY": 0.001
+    },
+    {
+      "id": "G03",
+      "phase": "attack",
+      "lowest": [
+        {
+          "mesh": "Data_GEO-jay_shoes_base_2",
+          "minimum": -0.02924,
+          "maximum": 0.04508,
+          "size": 0.07431
+        },
+        {
+          "mesh": "Data_GEO-jay_shoes_base_1",
+          "minimum": -0.02801,
+          "maximum": 0.09442,
+          "size": 0.12243
+        },
+        {
+          "mesh": "Data_GEO-jay_shoes_base",
+          "minimum": 0.02059,
+          "maximum": 0.30025,
+          "size": 0.27966
+        },
+        {
+          "mesh": "GEO-jay_body",
+          "minimum": 0.13766,
+          "maximum": 0.89383,
+          "size": 0.75616
+        },
+        {
+          "mesh": "Data_GEO-jay_pants",
+          "minimum": 0.37818,
+          "maximum": 0.81139,
+          "size": 0.43321
+        },
+        {
+          "mesh": "Data_GEO-jay_pants_1",
+          "minimum": 0.39461,
+          "maximum": 0.81298,
+          "size": 0.41837
+        }
+      ],
+      "minY": -0.029
+    },
+    {
+      "id": "G03",
+      "phase": "hit",
+      "lowest": [
+        {
+          "mesh": "Data_GEO-jay_shoes_base_1",
+          "minimum": -0.04698,
+          "maximum": 0.16361,
+          "size": 0.2106
+        },
+        {
+          "mesh": "Data_GEO-jay_shoes_base_2",
+          "minimum": -0.04698,
+          "maximum": 0.11662,
+          "size": 0.1636
+        },
+        {
+          "mesh": "Data_GEO-jay_shoes_base",
+          "minimum": 0.00096,
+          "maximum": 0.33371,
+          "size": 0.33275
+        },
+        {
+          "mesh": "GEO-jay_body",
+          "minimum": 0.14503,
+          "maximum": 0.77384,
+          "size": 0.62882
+        },
+        {
+          "mesh": "Data_GEO-jay_pants",
+          "minimum": 0.37871,
+          "maximum": 0.81192,
+          "size": 0.43321
+        },
+        {
+          "mesh": "Data_GEO-jay_pants_1",
+          "minimum": 0.39514,
+          "maximum": 0.81351,
+          "size": 0.41837
+        }
+      ],
+      "minY": -0.047
+    },
+    {
+      "id": "T04",
+      "phase": "idle",
+      "lowest": [
+        {
+          "mesh": "Data_GEO-rex_shoes_1",
+          "minimum": 0.00191,
+          "maximum": 0.06083,
+          "size": 0.05892
+        },
+        {
+          "mesh": "Data_GEO-rex_shoes_2",
+          "minimum": 0.00204,
+          "maximum": 0.01376,
+          "size": 0.01172
+        },
+        {
+          "mesh": "Data_GEO-rex_shoes",
+          "minimum": 0.04627,
+          "maximum": 0.21772,
+          "size": 0.17145
+        },
+        {
+          "mesh": "GEO-rex_shoes_laces",
+          "minimum": 0.07784,
+          "maximum": 0.18534,
+          "size": 0.1075
+        },
+        {
+          "mesh": "GEO-rex_shoes_tab",
+          "minimum": 0.11193,
+          "maximum": 0.16769,
+          "size": 0.05576
+        },
+        {
+          "mesh": "GEO-rex_socks",
+          "minimum": 0.13449,
+          "maximum": 0.36245,
+          "size": 0.22796
+        }
+      ],
+      "minY": 0.002
+    },
+    {
+      "id": "T04",
+      "phase": "attack",
+      "lowest": [
+        {
+          "mesh": "Data_GEO-rex_shoes_1",
+          "minimum": -0.03141,
+          "maximum": 0.08639,
+          "size": 0.1178
+        },
+        {
+          "mesh": "Data_GEO-rex_shoes_2",
+          "minimum": -0.03053,
+          "maximum": 0.04004,
+          "size": 0.07057
+        },
+        {
+          "mesh": "Data_GEO-rex_shoes",
+          "minimum": 0.01244,
+          "maximum": 0.22515,
+          "size": 0.21271
+        },
+        {
+          "mesh": "GEO-rex_shoes_laces",
+          "minimum": 0.05621,
+          "maximum": 0.19422,
+          "size": 0.13801
+        },
+        {
+          "mesh": "GEO-rex_shoes_tab",
+          "minimum": 0.09087,
+          "maximum": 0.1785,
+          "size": 0.08764
+        },
+        {
+          "mesh": "GEO-rex_socks",
+          "minimum": 0.12536,
+          "maximum": 0.36907,
+          "size": 0.2437
+        }
+      ],
+      "minY": -0.031
+    },
+    {
+      "id": "T04",
+      "phase": "hit",
+      "lowest": [
+        {
+          "mesh": "Data_GEO-rex_shoes_1",
+          "minimum": -0.00992,
+          "maximum": 0.20183,
+          "size": 0.21175
+        },
+        {
+          "mesh": "Data_GEO-rex_shoes_2",
+          "minimum": -0.00709,
+          "maximum": 0.15337,
+          "size": 0.16046
+        },
+        {
+          "mesh": "Data_GEO-rex_shoes",
+          "minimum": 0.03149,
+          "maximum": 0.3313,
+          "size": 0.2998
+        },
+        {
+          "mesh": "GEO-rex_shoes_laces",
+          "minimum": 0.08909,
+          "maximum": 0.22606,
+          "size": 0.13698
+        },
+        {
+          "mesh": "GEO-rex_shoes_tab",
+          "minimum": 0.12283,
+          "maximum": 0.19156,
+          "size": 0.06873
+        },
+        {
+          "mesh": "GEO-rex_socks",
+          "minimum": 0.12885,
+          "maximum": 0.44923,
+          "size": 0.32038
+        }
+      ],
+      "minY": -0.01
+    },
+    {
+      "id": "E03",
+      "phase": "idle",
+      "lowest": [
+        {
+          "mesh": "Data_GEO-ellie_boots_5",
+          "minimum": -0.00901,
+          "maximum": 0.03766,
+          "size": 0.04667
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_6",
+          "minimum": -0.00901,
+          "maximum": 0.01767,
+          "size": 0.02668
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_7",
+          "minimum": 0.02839,
+          "maximum": 0.05135,
+          "size": 0.02296
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots",
+          "minimum": 0.03064,
+          "maximum": 0.37036,
+          "size": 0.33971
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_8",
+          "minimum": 0.04577,
+          "maximum": 0.37036,
+          "size": 0.32459
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_2",
+          "minimum": 0.13371,
+          "maximum": 0.35395,
+          "size": 0.22023
+        }
+      ],
+      "minY": -0.009
+    },
+    {
+      "id": "E03",
+      "phase": "attack",
+      "lowest": [
+        {
+          "mesh": "Data_GEO-ellie_boots_5",
+          "minimum": -0.03259,
+          "maximum": 0.06701,
+          "size": 0.0996
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_6",
+          "minimum": -0.03259,
+          "maximum": 0.0333,
+          "size": 0.06589
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_7",
+          "minimum": 0.00459,
+          "maximum": 0.07925,
+          "size": 0.07467
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots",
+          "minimum": 0.0093,
+          "maximum": 0.37754,
+          "size": 0.36824
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_8",
+          "minimum": 0.05,
+          "maximum": 0.37754,
+          "size": 0.32754
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_2",
+          "minimum": 0.13094,
+          "maximum": 0.3603,
+          "size": 0.22936
+        }
+      ],
+      "minY": -0.033
+    },
+    {
+      "id": "E03",
+      "phase": "hit",
+      "lowest": [
+        {
+          "mesh": "Data_GEO-ellie_boots_5",
+          "minimum": -0.00484,
+          "maximum": 0.19493,
+          "size": 0.19977
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_6",
+          "minimum": -0.00484,
+          "maximum": 0.16238,
+          "size": 0.16722
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_7",
+          "minimum": 0.03251,
+          "maximum": 0.20375,
+          "size": 0.17124
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots",
+          "minimum": 0.03542,
+          "maximum": 0.46396,
+          "size": 0.42854
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_8",
+          "minimum": 0.04688,
+          "maximum": 0.46106,
+          "size": 0.41418
+        },
+        {
+          "mesh": "Data_GEO-ellie_boots_2",
+          "minimum": 0.14021,
+          "maximum": 0.39986,
+          "size": 0.25965
+        }
+      ],
+      "minY": -0.005
+    },
+    {
+      "id": "T03",
+      "phase": "idle",
+      "lowest": [
+        {
+          "mesh": "GEO-rain-shoes_1",
+          "minimum": -0.00448,
+          "maximum": 0.12442,
+          "size": 0.1289
+        },
+        {
+          "mesh": "GEO-rain-body_1",
+          "minimum": 0.00129,
+          "maximum": 1.64602,
+          "size": 1.64473
+        },
+        {
+          "mesh": "GEO-rain-shoes_3",
+          "minimum": 0.05366,
+          "maximum": 0.09853,
+          "size": 0.04487
+        },
+        {
+          "mesh": "GEO-rain-shoes_4",
+          "minimum": 0.05956,
+          "maximum": 0.09451,
+          "size": 0.03495
+        },
+        {
+          "mesh": "GEO-rain-shoes_2",
+          "minimum": 0.06175,
+          "maximum": 0.08609,
+          "size": 0.02434
+        },
+        {
+          "mesh": "GEO-rain-jeans",
+          "minimum": 0.14972,
+          "maximum": 1.19535,
+          "size": 1.04564
+        }
+      ],
+      "minY": -0.004
+    },
+    {
+      "id": "T03",
+      "phase": "attack",
+      "lowest": [
+        {
+          "mesh": "GEO-rain-shoes_1",
+          "minimum": -0.00149,
+          "maximum": 0.13298,
+          "size": 0.13446
+        },
+        {
+          "mesh": "GEO-rain-body_1",
+          "minimum": 0.0063,
+          "maximum": 1.64512,
+          "size": 1.63882
+        },
+        {
+          "mesh": "GEO-rain-shoes_3",
+          "minimum": 0.05855,
+          "maximum": 0.10677,
+          "size": 0.04823
+        },
+        {
+          "mesh": "GEO-rain-shoes_4",
+          "minimum": 0.06707,
+          "maximum": 0.10476,
+          "size": 0.03768
+        },
+        {
+          "mesh": "GEO-rain-shoes_2",
+          "minimum": 0.06921,
+          "maximum": 0.09559,
+          "size": 0.02638
+        },
+        {
+          "mesh": "GEO-rain-jeans",
+          "minimum": 0.15533,
+          "maximum": 1.19945,
+          "size": 1.04412
+        }
+      ],
+      "minY": -0.001
+    },
+    {
+      "id": "T03",
+      "phase": "hit",
+      "lowest": [
+        {
+          "mesh": "GEO-rain-shoes_1",
+          "minimum": -0.016,
+          "maximum": 0.15829,
+          "size": 0.17429
+        },
+        {
+          "mesh": "GEO-rain-body_1",
+          "minimum": -0.00637,
+          "maximum": 1.64633,
+          "size": 1.65271
+        },
+        {
+          "mesh": "GEO-rain-shoes_3",
+          "minimum": 0.06549,
+          "maximum": 0.1322,
+          "size": 0.06672
+        },
+        {
+          "mesh": "GEO-rain-shoes_4",
+          "minimum": 0.06549,
+          "maximum": 0.12935,
+          "size": 0.06386
+        },
+        {
+          "mesh": "GEO-rain-shoes_2",
+          "minimum": 0.06769,
+          "maximum": 0.12054,
+          "size": 0.05285
+        },
+        {
+          "mesh": "GEO-rain-jeans",
+          "minimum": 0.16926,
+          "maximum": 1.2039,
+          "size": 1.03465
+        }
+      ],
+      "minY": -0.016
+    }
+  ],
+  "errors": []
+}

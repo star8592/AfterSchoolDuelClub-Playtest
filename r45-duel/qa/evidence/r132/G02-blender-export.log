@@ -1,0 +1,50 @@
+00:00.224  blend            | Read blend: "/home/master/.cache/asdc-r119-ccby-rigs/snow/snow_v4.2.blend"
+00:00.499  object.modifier  | WARNING Object: "GEO-snow-shoes_bottom", Modifier: "SurfaceDeform", Vertices changed from 1048 to 524
+00:00.557  object.modifier  | WARNING Object: "GEO-snow-shoes_bottom", Modifier: "SurfaceDeform", Vertices changed from 1048 to 524
+00:00.564  object.modifier  | WARNING Object: "GEO-snow-shoes_bottom", Modifier: "SurfaceDeform", Vertices changed from 1048 to 524
+BlenderMCP addon registered
+INFO Draco is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_meshopt_bridge.so
+02:04:33 | INFO: Starting glTF 2.0 export
+02:04:33 | INFO: Extracting primitive: GEO-snow-body
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Splitting UDIM tiles into different primitives/materials
+02:04:35 | INFO: Primitives created: 3
+02:04:35 | WARNING: There are more than 4 joint vertex influences.The 4 with highest weight will be used (and normalized).
+02:04:35 | INFO: Extracting primitive: GEO-snow-eye_dots
+02:04:35 | INFO: Primitives created: 1
+02:04:35 | INFO: Extracting primitive: GEO-snow-eyebrows
+02:04:35 | INFO: Primitives created: 1
+02:04:35 | INFO: Extracting primitive: GEO-snow-eyes
+02:04:35 | INFO: Primitives created: 1
+02:04:35 | INFO: Extracting primitive: GEO-snow-hair_base
+02:04:35 | INFO: Primitives created: 1
+02:04:35 | INFO: Extracting primitive: GEO-snow-head
+02:04:35 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:35 | INFO: Splitting UDIM tiles into different primitives/materials
+02:04:36 | INFO: Splitting UDIM tiles into different primitives/materials
+02:04:36 | INFO: Splitting UDIM tiles into different primitives/materials
+02:04:37 | INFO: Splitting UDIM tiles into different primitives/materials
+02:04:38 | INFO: Primitives created: 2
+02:04:38 | INFO: Extracting primitive: GEO-snow-pants
+02:04:39 | INFO: Primitives created: 1
+02:04:39 | INFO: Extracting primitive: GEO-snow-shirt
+02:04:40 | INFO: Primitives created: 1
+02:04:40 | INFO: Extracting primitive: GEO-snow-shoes_base
+02:04:40 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+02:04:40 | INFO: Primitives created: 1
+02:04:40 | INFO: Extracting primitive: GEO-snow-shoes_bottom
+02:04:40 | INFO: Primitives created: 1
+02:04:40 | INFO: Extracting primitive: GEO-snow-shoes_parts
+02:04:40 | INFO: Primitives created: 1
+02:04:40 | INFO: Extracting primitive: GEO-snow-tongue
+02:04:40 | INFO: Primitives created: 1
+02:04:40 | INFO: Extracting primitive: GEO-snow_eye_corneas
+02:04:40 | INFO: Primitives created: 1
+02:04:40 | INFO: Finished glTF 2.0 export in 7.018573045730591 s
+
+R119_REAL_SKIN_EXPORT {"slug": "snow", "source": "/home/master/.cache/asdc-r119-ccby-rigs/snow/snow_v4.2.blend", "output": "r45-duel/assets/summons/G02-Snow-Skinned-R132-BakedRest-PILOT.glb", "status": "EXPORTED", "posedVerticesSampled": 23163, "r131PoseRestBaked": true, "r132FKShoulderSourceBaked": true, "r132BakedOriginalVertices": 23163, "bytes": 92288188, "sha256": "d5900e9e13201e7e78337ded5c060e51164a1b39cb16a2979d10dbf40c5f3905", "sourceMeshes": 13, "visibleMeshes": 13, "visibleSkinnedMeshes": 13, "skinWeightBuffers": 13, "rigBones": 1494, "exportedJoints": 293, "missingTargetBones": [], "sourceIKWristPose": {}, "disabledGraphModifiers": 28}
+BlenderMCP addon unregistered
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+scripts disabled for "/home/master/.cache/asdc-r119-ccby-rigs/snow/snow_v4.2.blend", skipping 'cloudrig.py'
+Writing: /mnt/data/cache/blender-headless/tmp/blender.crash.txt

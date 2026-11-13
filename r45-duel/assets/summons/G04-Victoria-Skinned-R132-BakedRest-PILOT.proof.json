@@ -1,0 +1,32 @@
+{
+  "slug": "victoria",
+  "source": "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/victoria.blend",
+  "output": "r45-duel/assets/summons/G04-Victoria-Skinned-R132-BakedRest-PILOT.glb",
+  "status": "EXPORTED",
+  "posedVerticesSampled": 24421,
+  "r131PoseRestBaked": true,
+  "r132FKShoulderSourceBaked": true,
+  "r132BakedOriginalVertices": 24421,
+  "bytes": 7286436,
+  "sha256": "5fb77d05e548477c4a201774bf61fa3927f4993e334a423a8027fb895a09a000",
+  "sourceMeshes": 18,
+  "visibleMeshes": 18,
+  "visibleSkinnedMeshes": 18,
+  "skinWeightBuffers": 18,
+  "rigBones": 1618,
+  "exportedJoints": 311,
+  "missingTargetBones": [],
+  "sourceIKWristPose": {
+    "L": [
+      0.46190088987350464,
+      -0.002083148807287216,
+      1.0204871892929077
+    ],
+    "R": [
+      -0.46190088987350464,
+      -0.002083148807287216,
+      1.0204871892929077
+    ]
+  },
+  "disabledGraphModifiers": 33
+}

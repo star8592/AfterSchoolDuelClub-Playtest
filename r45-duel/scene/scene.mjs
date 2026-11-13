@@ -1279,6 +1279,10 @@ function exposeQA(){
    r131QaCloseup=typeof id==='string'&&/^(E03|E04|G02|G03|G04|T03|T04)$/.test(id)?id:null;
    return true;
   },
+  studyLowestSourceMeshes(id){
+   if(!R131_IS_QA()||!(/^(E03|E04|G02|G03|G04|T03|T04)$/.test(id)))return [];
+   return summonPresence?.inspectLowestSourceMeshes(id)||[];
+  },
   studyAction(id,action){
    if(!R131_IS_QA())return false;
    if(!/^(idle|attack|hit|walk|celebrate)$/.test(action))return false;

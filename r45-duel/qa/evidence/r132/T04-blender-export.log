@@ -1,0 +1,80 @@
+00:00.224  blend            | Read blend: "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/rex.blend"
+00:00.344  reports          | WARNING Material rex.hair_mesh could not be converted because of non-trivial alpha blending (need manual adjustment)
+                            |
+Blender 5.2.3 LTS (hash e13b728c6880 built 2026-10-22 01:35:05)
+00:00.472  anim.driver      | WARNING Invalid driver on Material 'rex.sweater_vest_collar' - cycles.displacement_method[0]
+00:00.536  object.modifier  | WARNING Object: "GEO-rex_eyebrows", Modifier: "CorrectiveSmooth", Bind vertex count mismatch: 308 to 154
+00:00.599  object.modifier  | WARNING Object: "GEO-rex_eyebrows", Modifier: "CorrectiveSmooth", Bind vertex count mismatch: 308 to 154
+00:00.607  object.modifier  | WARNING Object: "GEO-rex_eyebrows", Modifier: "CorrectiveSmooth", Bind vertex count mismatch: 308 to 154
+BlenderMCP addon registered
+INFO Draco is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /mnt/data/toolchains/blender-5.2.3-linux-x64/lib/libbf_intern_meshopt_bridge.so
+02:04:32 | INFO: Starting glTF 2.0 export
+02:04:32 | INFO: Extracting primitive: Data_GEO-rex_belt
+02:04:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:32 | INFO: Primitives created: 1
+02:04:32 | INFO: Extracting primitive: Data_GEO-rex_belt_buckle
+02:04:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:32 | INFO: Primitives created: 1
+02:04:32 | INFO: Extracting primitive: Data_GEO-rex_body
+02:04:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:32 | INFO: Primitives created: 1
+02:04:32 | WARNING: There are more than 4 joint vertex influences.The 4 with highest weight will be used (and normalized).
+02:04:32 | INFO: Extracting primitive: Data_GEO-rex_eye.L
+02:04:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:32 | INFO: Primitives created: 2
+02:04:32 | INFO: Extracting primitive: Data_GEO-rex_eye.R
+02:04:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:32 | INFO: Primitives created: 2
+02:04:32 | INFO: Extracting primitive: Data_GEO-rex_eyebrows
+02:04:32 | INFO: Primitives created: 1
+02:04:32 | INFO: Extracting primitive: Data_GEO-rex_eyedot.L
+02:04:32 | INFO: Primitives created: 1
+02:04:32 | INFO: Extracting primitive: Data_GEO-rex_eyedot.R
+02:04:32 | INFO: Primitives created: 1
+02:04:32 | INFO: Extracting primitive: Data_GEO-rex_head
+02:04:32 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 3
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_polo_shirt
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_polo_shirt_buttons
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_polo_shirt_collar
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_rolex_watch
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 5
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_rolex_watch_glass
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_shoes
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 3
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_shoes_laces
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_shoes_tab
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_shorts
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_socks
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_sweater_vest
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 2
+02:04:33 | INFO: Extracting primitive: Data_GEO-rex_tongue
+02:04:33 | WARNING: The active Vertex Color will not be exported, as it is not used in the node tree of the material
+02:04:33 | INFO: Primitives created: 1
+02:04:33 | INFO: Finished glTF 2.0 export in 0.9253997802734375 s
+
+R119_REAL_SKIN_EXPORT {"slug": "rex", "source": "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/rex.blend", "output": "r45-duel/assets/summons/T04-Rex-Skinned-R132-BakedRest-PILOT.glb", "status": "EXPORTED", "posedVerticesSampled": 35461, "r131PoseRestBaked": true, "r132FKShoulderSourceBaked": true, "r132BakedOriginalVertices": 35461, "bytes": 7248864, "sha256": "fabe89345185d8b07c21cee058ee4f0488b164b342525a295084809f4c045179", "sourceMeshes": 22, "visibleMeshes": 21, "visibleSkinnedMeshes": 21, "skinWeightBuffers": 21, "rigBones": 1556, "exportedJoints": 299, "missingTargetBones": [], "sourceIKWristPose": {"L": [0.7065179347991943, -0.0009067932842299342, 1.1775456666946411], "R": [-0.7065179944038391, -0.0009067956125363708, 1.1775456666946411]}, "disabledGraphModifiers": 65}
+BlenderMCP addon unregistered
+scripts disabled for "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/rex.blend", skipping 'cloudrig.py'
+scripts disabled for "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/rex.blend", skipping 'rex_rename_curves.py'
+scripts disabled for "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/rex.blend", skipping 'rigged_particle_hair.py'
+
+Blender quit
