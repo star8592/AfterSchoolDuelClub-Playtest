@@ -128,7 +128,10 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     rearBox([19,.45,.12],[0,y-.3,z+.43],dark,'Reverse_Grandstand_Riser_'+row);
   }
   function seatBank(back=false){
-    const destination=back?reverse:group,side=back?-1:1,tiers=6,cols=33;
+    // The primary (front camera) seating bank belongs on the far -Z tier,
+    // which is permanently visible in front view. The +Z return seating
+    // belongs to the 180-degree reverse group, not vice versa.
+    const destination=back?reverse:group,side=back?1:-1,tiers=6,cols=33;
     const buckets=[[],[],[]];
     for(let row=0;row<tiers;row++)for(let col=0;col<cols;col++){
       // Cohesive color blocks, no random confetti checkerboard.
@@ -154,12 +157,12 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     for(let j=0;j<3;j++){
       const seats=buckets[j];if(!seats.length)continue;
       batch(tag+'_Cushion_Color_'+j,seatGeo,seatColors[j],seats,p=>{
-        tr.position.set(p.x,p.y+.205,p.z+p.side*.14);
+        tr.position.set(p.x,p.y+.205,p.z-p.side*.14);
         tr.rotation.set(-Math.PI/2,p.side<0?Math.PI:0,0);
       });
       batch(tag+'_Backrest_Color_'+j,backGeo,seatColors[j],seats,p=>{
-        tr.position.set(p.x,p.y+.44,p.z-p.side*.19);
-        tr.rotation.set(p.side>0?.09:-.09,p.side<0?Math.PI:0,0);
+        tr.position.set(p.x,p.y+.44,p.z+p.side*.19);
+        tr.rotation.set(p.side>0?.09:-.09,p.side>0?Math.PI:0,0);
       });
     }
     const all=buckets.flat();
@@ -168,15 +171,15 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
     for(const p of all)for(const xsign of [-1,1])
       twin.push({...p,xOffset:xsign*.205});
     batch(tag+'_Steel_Pedestals',pedestalGeo,steel,twin,p=>{
-      tr.position.set(p.x+p.xOffset,p.y+.168,p.z-p.side*.17);
+      tr.position.set(p.x+p.xOffset,p.y+.168,p.z+p.side*.17);
     });
     batch(tag+'_Armrests',armGeo,padding,twin,p=>{
-      tr.position.set(p.x+p.xOffset,p.y+.33,p.z+p.side*.045);
+      tr.position.set(p.x+p.xOffset,p.y+.33,p.z-p.side*.045);
     });
     // Small visible supporting chassis below the cushion makes these
     // individual mounted folding seats, not two floating rounded slabs.
     batch(tag+'_Cushion_Underframes',seatUnderframeGeo,chairFrameMaterial,all,p=>{
-      tr.position.set(p.x,p.y+.145,p.z+p.side*.115);
+      tr.position.set(p.x,p.y+.145,p.z-p.side*.115);
     });
     // All stair profiles use 8 instanced draws for the ENTIRE stadium;
     // never allocate 96 separate meshes that slow down low-end phones.
@@ -196,18 +199,34 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
       });
     batch(tag+'_Aisle_Tread_Edges',
       new THREE.BoxGeometry(.56,.025,.075),stairEdge,steps,p=>{
-       tr.position.set(p.x,p.y+.153,p.z+p.side*.32);
+       tr.position.set(p.x,p.y+.153,p.z-p.side*.32);
       });
     batch(tag+'_Aisle_Anti_Slip',
       new THREE.BoxGeometry(.34,.008,.05),stairGuide,steps,p=>{
-       tr.position.set(p.x,p.y+.165,p.z+p.side*.24);
+       tr.position.set(p.x,p.y+.165,p.z-p.side*.24);
       });
     batch(tag+'_Aisle_Handrail_Posts',
       new THREE.CylinderGeometry(.023,.028,.68,10),steel,posts,p=>{
-       tr.position.set(p.x,p.y+.53,p.z-p.side*.27);
+       tr.position.set(p.x,p.y+.53,p.z+p.side*.27);
       });
   }
   seatBank(false);seatBank(true);
+  function seatingEvidence(){
+   const get=(parent,stem)=>{
+    const cushion=parent.getObjectByName(stem+'_Cushion_Color_0');
+    const backrest=parent.getObjectByName(stem+'_Backrest_Color_0');
+    if(!cushion||!backrest)return null;
+    const matA=new THREE.Matrix4(),matB=new THREE.Matrix4();
+    cushion.getMatrixAt(0,matA);backrest.getMatrixAt(0,matB);
+    return {cushionZ:+matA.elements[14].toFixed(3),
+     backrestZ:+matB.elements[14].toFixed(3),
+     seatCount:[0,1,2].reduce((total,i)=>total+
+      (parent.getObjectByName(stem+'_Cushion_Color_'+i)?.count||0),0),
+     visible:parent===group?cushion.visible:parent.visible&&cushion.visible};
+   };
+   return {front:get(group,'Stadium_Seats_Instanced'),
+    reverse:get(reverse,'Reverse_Stadium_Seats_Instanced')};
+  }
   rearBox([24,10,.46],[0,4.7,11.85],navy,'Reverse_Gym_Wall');
   rearBox([5.2,1.45,.22],[0,6.04,11.34],dark,'Reverse_Scoreboard_Body');
   rearBox([4.7,1.05,.08],[0,6.04,11.16],teal,'Reverse_Scoreboard_Display');
@@ -305,6 +324,7 @@ export function createStadium(THREE, scene, {detail='medium'}={}) {
    }
   }
   return {group,polish,beginFinale,update,
+   get seatBanks(){return seatingEvidence()},
    mountAudience:prototypes=>audience.mount(prototypes),
    reactAudience:(type,side,seconds)=>audience.react(type,side,seconds),
    get ambience(){return {finale,finaleFrames,audience:audience.stats,
