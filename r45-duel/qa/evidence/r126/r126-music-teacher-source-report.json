@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11429",
+  "checks": [
+    {
+      "pass": true,
+      "name": "desktop M01 is original visible source skin, not whole-body proxy"
+    },
+    {
+      "pass": true,
+      "name": "desktop M01 actual SOURCE Idle + additive conducting clip running"
+    },
+    {
+      "pass": true,
+      "name": "desktop shoulder elbow torso neck physically articulated"
+    },
+    {
+      "pass": true,
+      "name": "desktop original M01 source bones animate real speech-order staging"
+    },
+    {
+      "pass": true,
+      "name": "desktop source skeletal upgrade cannot modify authentic spell rule"
+    },
+    {
+      "pass": true,
+      "name": "desktop no runtime or HTTP errors"
+    },
+    {
+      "pass": true,
+      "name": "portrait M01 is original visible source skin, not whole-body proxy"
+    },
+    {
+      "pass": true,
+      "name": "portrait M01 actual SOURCE Idle + additive conducting clip running"
+    },
+    {
+      "pass": true,
+      "name": "portrait shoulder elbow torso neck physically articulated"
+    },
+    {
+      "pass": true,
+      "name": "portrait original M01 source bones animate real speech-order staging"
+    },
+    {
+      "pass": true,
+      "name": "portrait source skeletal upgrade cannot modify authentic spell rule"
+    },
+    {
+      "pass": true,
+      "name": "portrait no runtime or HTTP errors"
+    }
+  ],
+  "errors": [],
+  "samples": [
+    {
+      "view": "desktop",
+      "idle": {
+        "sourceSkinnedMeshes": 10,
+        "sourceBones": 31,
+        "trackedJoints": 19,
+        "boneFrames": 46,
+        "maxRealJointAngle": 0.794437983408871,
+        "current": "idle"
+      },
+      "order": {
+        "sourceSkinnedMeshes": 10,
+        "sourceBones": 31,
+        "trackedJoints": 19,
+        "boneFrames": 108,
+        "maxRealJointAngle": 0.7944294394553969,
+        "current": "attack"
+      }
+    },
+    {
+      "view": "portrait",
+      "idle": {
+        "sourceSkinnedMeshes": 10,
+        "sourceBones": 31,
+        "trackedJoints": 19,
+        "boneFrames": 65,
+        "maxRealJointAngle": 0.794494943867577,
+        "current": "idle"
+      },
+      "order": {
+        "sourceSkinnedMeshes": 10,
+        "sourceBones": 31,
+        "trackedJoints": 19,
+        "boneFrames": 135,
+        "maxRealJointAngle": 0.7945734035736435,
+        "current": "attack"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1988 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop exactly eight existing high-detail 3D actor source rigs and original M01 teacher",
+      "value": {
+        "loaded": 8,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "supervisorLoaded": true,
+        "supervisorActs": false,
+        "disciplineSignVisible": false,
+        "disciplineSignFrames": 0,
+        "castSourceIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "animationMixers": 8,
+        "skinnedRealActors": 1,
+        "boneDrivenActors": 1,
+        "authoredPoseFallbackActors": 7,
+        "frames": 1,
+        "movementFrames": 0,
+        "events": 0,
+        "accidentEvents": 0,
+        "active": null,
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G02",
+            "team": "player",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "T03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "T04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "M01",
+            "team": "ai",
+            "role": "supervisor",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": true,
+            "armRigs": 0,
+            "bones": 31,
+            "skinnedMeshes": 10,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop unique 8 real GLB sources, not repeated low-poly impostors",
+      "value": [
+        "E04",
+        "E03",
+        "G03",
+        "G04",
+        "G02",
+        "T03",
+        "T04",
+        "M01"
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop four persistent objects plus two authentic teacher and four PA voice files",
+      "value": {
+        "provider": "Qwen3-TTS",
+        "enabled": true,
+        "requested": true,
+        "activationPending": false,
+        "assetsReady": true,
+        "audioContextState": "running",
+        "pendingCues": 0,
+        "pendingVoices": 0,
+        "musicKind": "campus_parade",
+        "musicDucked": false,
+        "musicTracks": [
+          "school_duel_theme",
+          "campus_parade",
+          "mischief_shuffle",
+          "tactical_pulse",
+          "heroic_comeback",
+          "duel_tension",
+          "final_overtime"
+        ],
+        "paClipCount": 9,
+        "tutorialClipCount": 14,
+        "propPAVoiceClips": 4,
+        "propPAPlays": 0,
+        "teacherClipCount": 2,
+        "teacherVoiceQueued": 0,
+        "crowdVoiceClipCount": 8,
+        "crowdVoicePlays": 0,
+        "lastCrowdVoice": null,
+        "finaleVoiceGuard": false,
+        "musicHistory": [],
+        "voiceVariantHistory": [],
+        "lastSpoken": null,
+        "speechHistory": [],
+        "comicBeatHistory": [],
+        "voicePlaying": false,
+        "currentVoiceKey": null,
+        "voiceQueue": [],
+        "decodedCues": 52,
+        "voiceClipCount": 16,
+        "volume": {
+          "music": 0.32,
+          "sfx": 0.75,
+          "voice": 1
+        },
+        "counters": {
+          "cue": 0,
+          "voice": 0,
+          "voiceMissing": 0,
+          "voiceDropped": 0,
+          "voiceInterrupted": 0,
+          "unlock": 1,
+          "musicStart": 1,
+          "errors": 0
+        },
+        "events": [
+          {
+            "type": "unlocked",
+            "detail": "auto on load / first game action",
+            "at": 84
+          },
+          {
+            "type": "prepared",
+            "detail": "sound files ready; playback follows browser policy",
+            "at": 568
+          },
+          {
+            "type": "music",
+            "detail": "campus_parade",
+            "at": 694
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop real 3D music teacher actually steps forward in staged accident",
+      "value": {
+        "loaded": 8,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "supervisorLoaded": true,
+        "supervisorActs": true,
+        "disciplineSignVisible": true,
+        "disciplineSignFrames": 2,
+        "castSourceIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "animationMixers": 8,
+        "skinnedRealActors": 1,
+        "boneDrivenActors": 1,
+        "authoredPoseFallbackActors": 7,
+        "frames": 51,
+        "movementFrames": 265,
+        "events": 3,
+        "accidentEvents": 1,
+        "active": {
+          "type": "accident",
+          "winner": "player",
+          "started": 1.025699999988079,
+          "duration": 2.65,
+          "focusIndex": 0,
+          "scenario": "ricochet",
+          "element": "absurd"
+        },
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_target",
+            "weight": 0.237,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "satisfied",
+            "attention": "opponent",
+            "personalIntent": "smirk"
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_neighbor",
+            "weight": 0,
+            "chainDelay": 0.18,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "concerned",
+            "attention": "opponent",
+            "personalIntent": "peek"
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "flinch"
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.53,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "headshake"
+          },
+          {
+            "id": "G02",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_neighbor",
+            "weight": 0,
+            "chainDelay": 0.18,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "satisfied",
+            "attention": "opponent",
+            "personalIntent": "smirk"
+          },
+          {
+            "id": "T03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.53,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "concerned",
+            "attention": "opponent",
+            "personalIntent": "peek"
+          },
+          {
+            "id": "T04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "headshake"
+          },
+          {
+            "id": "M01",
+            "team": "ai",
+            "role": "supervisor",
+            "mode": "supervisor_intervene",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": true,
+            "armRigs": 0,
+            "bones": 31,
+            "skinnedMeshes": 10,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "flinch"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop real 3D safety sign appears beside teacher only on actual accident",
+      "value": {
+        "loaded": 8,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "supervisorLoaded": true,
+        "supervisorActs": true,
+        "disciplineSignVisible": true,
+        "disciplineSignFrames": 2,
+        "castSourceIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "animationMixers": 8,
+        "skinnedRealActors": 1,
+        "boneDrivenActors": 1,
+        "authoredPoseFallbackActors": 7,
+        "frames": 51,
+        "movementFrames": 265,
+        "events": 3,
+        "accidentEvents": 1,
+        "active": {
+          "type": "accident",
+          "winner": "player",
+          "started": 1.025699999988079,
+          "duration": 2.65,
+          "focusIndex": 0,
+          "scenario": "ricochet",
+          "element": "absurd"
+        },
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_target",
+            "weight": 0.237,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "satisfied",
+            "attention": "opponent",
+            "personalIntent": "smirk"
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_neighbor",
+            "weight": 0,
+            "chainDelay": 0.18,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "concerned",
+            "attention": "opponent",
+            "personalIntent": "peek"
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "flinch"
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.53,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "headshake"
+          },
+          {
+            "id": "G02",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_neighbor",
+            "weight": 0,
+            "chainDelay": 0.18,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "satisfied",
+            "attention": "opponent",
+            "personalIntent": "smirk"
+          },
+          {
+            "id": "T03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.53,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "concerned",
+            "attention": "opponent",
+            "personalIntent": "peek"
+          },
+          {
+            "id": "T04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "headshake"
+          },
+          {
+            "id": "M01",
+            "team": "ai",
+            "role": "supervisor",
+            "mode": "supervisor_intervene",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": true,
+            "armRigs": 0,
+            "bones": 31,
+            "skinnedMeshes": 10,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "flinch"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop one authentic game spell hit is distinct from nondamaging teacher and audience",
+      "value": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop 8 cast renderer stays below fixed drawcall warning threshold",
+      "value": {
+        "profile": "balanced-desktop",
+        "pixelRatio": 1,
+        "shadowAutoUpdate": false,
+        "shadowPassRequests": 20,
+        "shadowSize": 2048,
+        "heroInsetDraws": 128,
+        "heroLayerSide": "player",
+        "heroCameraLayer": 2,
+        "totalDrawCalls": 988
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop second actual 3D cutaway frames music teacher without new render pass",
+      "value": {
+        "cuts": 1,
+        "weight": 0.894,
+        "spectatorIndex": 0,
+        "frontFacingCloseup": true,
+        "teacherIntervention": true,
+        "extraRenderPasses": 0
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop actual teacher Qwen voice played, with real utterance provenance",
+      "value": [
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v2",
+          "text": "这张牌，就交给你啦！",
+          "duration_seconds": 1.61,
+          "serial": 2
+        },
+        {
+          "id": "HOST_AI",
+          "kind": "hurt",
+          "variant": "hurt",
+          "text": "糟糕！这次大意了！",
+          "duration_seconds": 1.85,
+          "serial": 3
+        },
+        {
+          "id": "SPECTATOR_0",
+          "kind": "accident",
+          "variant": "ricochet_a",
+          "text": "啊！我的爆米花！",
+          "duration_seconds": 3.21
+        },
+        {
+          "id": "M01",
+          "kind": "teacher_order",
+          "variant": "order",
+          "text": "停！停！我说过多少遍了！观众席不是魔法练习场！",
+          "duration_seconds": 7.11,
+          "serial": 4
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop no permanent prop scatter, camera and teacher recovery complete",
+      "value": {
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": true,
+          "requested": true,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "running",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "campus_parade",
+          "musicDucked": true,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "tutorialClipCount": 14,
+          "propPAVoiceClips": 4,
+          "propPAPlays": 1,
+          "teacherClipCount": 2,
+          "teacherVoiceQueued": 1,
+          "crowdVoiceClipCount": 8,
+          "crowdVoicePlays": 1,
+          "lastCrowdVoice": {
+            "id": "SPECTATOR_0",
+            "kind": "accident",
+            "variant": "ricochet_a",
+            "text": "啊！我的爆米花！",
+            "duration_seconds": 3.21
+          },
+          "finaleVoiceGuard": false,
+          "musicHistory": [],
+          "voiceVariantHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast_v2"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "hurt",
+              "variant": "hurt"
+            }
+          ],
+          "lastSpoken": {
+            "id": "STADIUM_PA",
+            "kind": "prop_popcorn",
+            "variant": "popcorn",
+            "text": "体育馆广播通知！刚才的爆米花已经提前退场，请同学们停止空中接玉米！",
+            "duration_seconds": 8.81,
+            "serial": 5
+          },
+          "speechHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast_v2",
+              "text": "这张牌，就交给你啦！",
+              "duration_seconds": 1.61,
+              "serial": 2
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "hurt",
+              "variant": "hurt",
+              "text": "糟糕！这次大意了！",
+              "duration_seconds": 1.85,
+              "serial": 3
+            },
+            {
+              "id": "SPECTATOR_0",
+              "kind": "accident",
+              "variant": "ricochet_a",
+              "text": "啊！我的爆米花！",
+              "duration_seconds": 3.21
+            },
+            {
+              "id": "M01",
+              "kind": "teacher_order",
+              "variant": "order",
+              "text": "停！停！我说过多少遍了！观众席不是魔法练习场！",
+              "duration_seconds": 7.11,
+              "serial": 4
+            },
+            {
+              "id": "STADIUM_PA",
+              "kind": "prop_popcorn",
+              "variant": "popcorn",
+              "text": "体育馆广播通知！刚才的爆米花已经提前退场，请同学们停止空中接玉米！",
+              "duration_seconds": 8.81,
+              "serial": 5
+            }
+          ],
+          "comicBeatHistory": [
+            {
+              "type": "spell_stew",
+              "side": "player",
+              "serial": 2,
+              "layers": 2
+            }
+          ],
+          "voicePlaying": true,
+          "currentVoiceKey": "STADIUM_PA:prop_popcorn",
+          "voiceQueue": [],
+          "decodedCues": 52,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 9,
+            "voice": 4,
+            "voiceMissing": 0,
+            "voiceDropped": 0,
+            "voiceInterrupted": 2,
+            "unlock": 1,
+            "musicStart": 1,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 84
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 568
+            },
+            {
+              "type": "music",
+              "detail": "campus_parade",
+              "at": 694
+            },
+            {
+              "type": "cue",
+              "detail": "select:center",
+              "at": 3010
+            },
+            {
+              "type": "cue",
+              "detail": "heal:player",
+              "at": 3074
+            },
+            {
+              "type": "cue",
+              "detail": "r102_music_gliss:player",
+              "at": 3077
+            },
+            {
+              "type": "cue",
+              "detail": "r102_hearts_pulse:player",
+              "at": 3077
+            },
+            {
+              "type": "cue",
+              "detail": "card_flip:player",
+              "at": 3077
+            },
+            {
+              "type": "cue",
+              "detail": "heal:player",
+              "at": 3077
+            },
+            {
+              "type": "voice-variant",
+              "detail": "STADIUM_PA:start=start",
+              "at": 3850
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_PLAYER:cast=cast_v2",
+              "at": 3850
+            },
+            {
+              "type": "voice",
+              "detail": "HOST_PLAYER:cast",
+              "at": 3895
+            },
+            {
+              "type": "cue",
+              "detail": "r121_absurd:ai",
+              "at": 4120
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_AI:hurt=hurt",
+              "at": 4120
+            },
+            {
+              "type": "voice",
+              "detail": "HOST_AI:hurt",
+              "at": 4219
+            },
+            {
+              "type": "cue",
+              "detail": "r102_crowd_gasp:player",
+              "at": 4402
+            },
+            {
+              "type": "cue",
+              "detail": "r102_rubber_squeak:player",
+              "at": 4402
+            },
+            {
+              "type": "crowd-voice",
+              "detail": "ricochet_a",
+              "at": 4438
+            },
+            {
+              "type": "voice-variant",
+              "detail": "M01:teacher_order=order",
+              "at": 6856
+            },
+            {
+              "type": "voice",
+              "detail": "M01:teacher_order",
+              "at": 6860
+            },
+            {
+              "type": "voice-variant",
+              "detail": "STADIUM_PA:prop_popcorn=popcorn",
+              "at": 14006
+            },
+            {
+              "type": "voice",
+              "detail": "STADIUM_PA:prop_popcorn",
+              "at": 14010
+            }
+          ]
+        },
+        "hp": {
+          "player": 20,
+          "ai": 19
+        },
+        "props": {
+          "mounted": 4,
+          "types": [
+            "popcorn",
+            "juice",
+            "homework",
+            "backpack"
+          ],
+          "propNames": [
+            "R123_popcorn_Persistent_Carried_Prop",
+            "R123_juice_Persistent_Carried_Prop",
+            "R123_homework_Persistent_Carried_Prop",
+            "R123_backpack_Persistent_Carried_Prop"
+          ],
+          "active": 0,
+          "activeTypes": [],
+          "accidents": 1,
+          "scatterFrames": 139,
+          "returns": 1,
+          "peak": 1,
+          "ruleMutations": 0,
+          "scatterInstances": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "camera": {
+          "cuts": 1,
+          "weight": 0,
+          "spectatorIndex": null,
+          "frontFacingCloseup": true,
+          "teacherIntervention": false,
+          "extraRenderPasses": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop PA punchline follows teacher instead of cutting off character speech",
+      "value": [
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v2",
+          "text": "这张牌，就交给你啦！",
+          "duration_seconds": 1.61,
+          "serial": 2
+        },
+        {
+          "id": "HOST_AI",
+          "kind": "hurt",
+          "variant": "hurt",
+          "text": "糟糕！这次大意了！",
+          "duration_seconds": 1.85,
+          "serial": 3
+        },
+        {
+          "id": "SPECTATOR_0",
+          "kind": "accident",
+          "variant": "ricochet_a",
+          "text": "啊！我的爆米花！",
+          "duration_seconds": 3.21
+        },
+        {
+          "id": "M01",
+          "kind": "teacher_order",
+          "variant": "order",
+          "text": "停！停！我说过多少遍了！观众席不是魔法练习场！",
+          "duration_seconds": 7.11,
+          "serial": 4
+        },
+        {
+          "id": "STADIUM_PA",
+          "kind": "prop_popcorn",
+          "variant": "popcorn",
+          "text": "体育馆广播通知！刚才的爆米花已经提前退场，请同学们停止空中接玉米！",
+          "duration_seconds": 8.81,
+          "serial": 5
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop legitimate K01 HP remains exactly 19",
+      "value": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop zero JS exceptions and missing HTTP assets",
+      "value": []
+    },
+    {
+      "passed": true,
+      "label": "portrait exactly eight existing high-detail 3D actor source rigs and original M01 teacher",
+      "value": {
+        "loaded": 8,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "supervisorLoaded": true,
+        "supervisorActs": false,
+        "disciplineSignVisible": false,
+        "disciplineSignFrames": 0,
+        "castSourceIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "animationMixers": 8,
+        "skinnedRealActors": 1,
+        "boneDrivenActors": 1,
+        "authoredPoseFallbackActors": 7,
+        "frames": 1,
+        "movementFrames": 0,
+        "events": 0,
+        "accidentEvents": 0,
+        "active": null,
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "G02",
+            "team": "player",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "T03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "T04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          },
+          {
+            "id": "M01",
+            "team": "ai",
+            "role": "supervisor",
+            "mode": "idle",
+            "weight": 0,
+            "chainDelay": 0,
+            "headRig": true,
+            "armRigs": 0,
+            "bones": 31,
+            "skinnedMeshes": 10,
+            "emotion": "focused",
+            "attention": "opponent",
+            "personalIntent": "idle"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait unique 8 real GLB sources, not repeated low-poly impostors",
+      "value": [
+        "E04",
+        "E03",
+        "G03",
+        "G04",
+        "G02",
+        "T03",
+        "T04",
+        "M01"
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait four persistent objects plus two authentic teacher and four PA voice files",
+      "value": {
+        "provider": "Qwen3-TTS",
+        "enabled": true,
+        "requested": true,
+        "activationPending": false,
+        "assetsReady": true,
+        "audioContextState": "running",
+        "pendingCues": 0,
+        "pendingVoices": 0,
+        "musicKind": "mischief_shuffle",
+        "musicDucked": false,
+        "musicTracks": [
+          "school_duel_theme",
+          "campus_parade",
+          "mischief_shuffle",
+          "tactical_pulse",
+          "heroic_comeback",
+          "duel_tension",
+          "final_overtime"
+        ],
+        "paClipCount": 9,
+        "tutorialClipCount": 14,
+        "propPAVoiceClips": 4,
+        "propPAPlays": 0,
+        "teacherClipCount": 2,
+        "teacherVoiceQueued": 0,
+        "crowdVoiceClipCount": 8,
+        "crowdVoicePlays": 0,
+        "lastCrowdVoice": null,
+        "finaleVoiceGuard": false,
+        "musicHistory": [],
+        "voiceVariantHistory": [],
+        "lastSpoken": null,
+        "speechHistory": [],
+        "comicBeatHistory": [],
+        "voicePlaying": false,
+        "currentVoiceKey": null,
+        "voiceQueue": [],
+        "decodedCues": 52,
+        "voiceClipCount": 16,
+        "volume": {
+          "music": 0.32,
+          "sfx": 0.75,
+          "voice": 1
+        },
+        "counters": {
+          "cue": 0,
+          "voice": 0,
+          "voiceMissing": 0,
+          "voiceDropped": 0,
+          "voiceInterrupted": 0,
+          "unlock": 1,
+          "musicStart": 1,
+          "errors": 0
+        },
+        "events": [
+          {
+            "type": "unlocked",
+            "detail": "auto on load / first game action",
+            "at": 78
+          },
+          {
+            "type": "prepared",
+            "detail": "sound files ready; playback follows browser policy",
+            "at": 117
+          },
+          {
+            "type": "music",
+            "detail": "mischief_shuffle",
+            "at": 188
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait real 3D music teacher actually steps forward in staged accident",
+      "value": {
+        "loaded": 8,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "supervisorLoaded": true,
+        "supervisorActs": true,
+        "disciplineSignVisible": true,
+        "disciplineSignFrames": 2,
+        "castSourceIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "animationMixers": 8,
+        "skinnedRealActors": 1,
+        "boneDrivenActors": 1,
+        "authoredPoseFallbackActors": 7,
+        "frames": 47,
+        "movementFrames": 273,
+        "events": 3,
+        "accidentEvents": 1,
+        "active": {
+          "type": "accident",
+          "winner": "player",
+          "started": 0.9504000000059605,
+          "duration": 2.65,
+          "focusIndex": 0,
+          "scenario": "ricochet",
+          "element": "absurd"
+        },
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_target",
+            "weight": 0.246,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "satisfied",
+            "attention": "opponent",
+            "personalIntent": "smirk"
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_neighbor",
+            "weight": 0,
+            "chainDelay": 0.18,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "concerned",
+            "attention": "opponent",
+            "personalIntent": "peek"
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "flinch"
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.53,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "headshake"
+          },
+          {
+            "id": "G02",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_neighbor",
+            "weight": 0,
+            "chainDelay": 0.18,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "satisfied",
+            "attention": "opponent",
+            "personalIntent": "smirk"
+          },
+          {
+            "id": "T03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.53,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "concerned",
+            "attention": "opponent",
+            "personalIntent": "peek"
+          },
+          {
+            "id": "T04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "headshake"
+          },
+          {
+            "id": "M01",
+            "team": "ai",
+            "role": "supervisor",
+            "mode": "supervisor_intervene",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": true,
+            "armRigs": 0,
+            "bones": 31,
+            "skinnedMeshes": 10,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "flinch"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait real 3D safety sign appears beside teacher only on actual accident",
+      "value": {
+        "loaded": 8,
+        "realModelIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "supervisorLoaded": true,
+        "supervisorActs": true,
+        "disciplineSignVisible": true,
+        "disciplineSignFrames": 2,
+        "castSourceIds": [
+          "E04",
+          "E03",
+          "G03",
+          "G04",
+          "G02",
+          "T03",
+          "T04",
+          "M01"
+        ],
+        "animationMixers": 8,
+        "skinnedRealActors": 1,
+        "boneDrivenActors": 1,
+        "authoredPoseFallbackActors": 7,
+        "frames": 47,
+        "movementFrames": 273,
+        "events": 3,
+        "accidentEvents": 1,
+        "active": {
+          "type": "accident",
+          "winner": "player",
+          "started": 0.9504000000059605,
+          "duration": 2.65,
+          "focusIndex": 0,
+          "scenario": "ricochet",
+          "element": "absurd"
+        },
+        "poses": [
+          {
+            "id": "E04",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_target",
+            "weight": 0.246,
+            "chainDelay": 0,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "satisfied",
+            "attention": "opponent",
+            "personalIntent": "smirk"
+          },
+          {
+            "id": "E03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_neighbor",
+            "weight": 0,
+            "chainDelay": 0.18,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "concerned",
+            "attention": "opponent",
+            "personalIntent": "peek"
+          },
+          {
+            "id": "G03",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "flinch"
+          },
+          {
+            "id": "G04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.53,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "headshake"
+          },
+          {
+            "id": "G02",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_neighbor",
+            "weight": 0,
+            "chainDelay": 0.18,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "satisfied",
+            "attention": "opponent",
+            "personalIntent": "smirk"
+          },
+          {
+            "id": "T03",
+            "team": "player",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.53,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "concerned",
+            "attention": "opponent",
+            "personalIntent": "peek"
+          },
+          {
+            "id": "T04",
+            "team": "ai",
+            "role": "spectator",
+            "mode": "accident_gasp",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": false,
+            "armRigs": 0,
+            "bones": 0,
+            "skinnedMeshes": 0,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "headshake"
+          },
+          {
+            "id": "M01",
+            "team": "ai",
+            "role": "supervisor",
+            "mode": "supervisor_intervene",
+            "weight": 0,
+            "chainDelay": 0.43,
+            "headRig": true,
+            "armRigs": 0,
+            "bones": 31,
+            "skinnedMeshes": 10,
+            "emotion": "hurt",
+            "attention": "self",
+            "personalIntent": "flinch"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait one authentic game spell hit is distinct from nondamaging teacher and audience",
+      "value": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait 8 cast renderer stays below fixed drawcall warning threshold",
+      "value": {
+        "profile": "balanced-desktop",
+        "pixelRatio": 1,
+        "shadowAutoUpdate": false,
+        "shadowPassRequests": 18,
+        "shadowSize": 2048,
+        "heroInsetDraws": 128,
+        "heroLayerSide": "player",
+        "heroCameraLayer": 2,
+        "totalDrawCalls": 970
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait second actual 3D cutaway frames music teacher without new render pass",
+      "value": {
+        "cuts": 1,
+        "weight": 0.922,
+        "spectatorIndex": 0,
+        "frontFacingCloseup": true,
+        "teacherIntervention": true,
+        "extraRenderPasses": 0
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait actual teacher Qwen voice played, with real utterance provenance",
+      "value": [
+        {
+          "id": "HOST_AI",
+          "kind": "hurt",
+          "variant": "hurt_v2",
+          "text": "等等，这招比想象中厉害！",
+          "duration_seconds": 2.25,
+          "serial": 2
+        },
+        {
+          "id": "SPECTATOR_0",
+          "kind": "accident",
+          "variant": "ricochet_a",
+          "text": "啊！我的爆米花！",
+          "duration_seconds": 3.21
+        },
+        {
+          "id": "M01",
+          "kind": "teacher_order",
+          "variant": "order",
+          "text": "停！停！我说过多少遍了！观众席不是魔法练习场！",
+          "duration_seconds": 7.11,
+          "serial": 3
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait no permanent prop scatter, camera and teacher recovery complete",
+      "value": {
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": true,
+          "requested": true,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "running",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "mischief_shuffle",
+          "musicDucked": true,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "tutorialClipCount": 14,
+          "propPAVoiceClips": 4,
+          "propPAPlays": 1,
+          "teacherClipCount": 2,
+          "teacherVoiceQueued": 1,
+          "crowdVoiceClipCount": 8,
+          "crowdVoicePlays": 1,
+          "lastCrowdVoice": {
+            "id": "SPECTATOR_0",
+            "kind": "accident",
+            "variant": "ricochet_a",
+            "text": "啊！我的爆米花！",
+            "duration_seconds": 3.21
+          },
+          "finaleVoiceGuard": false,
+          "musicHistory": [],
+          "voiceVariantHistory": [
+            {
+              "id": "HOST_PLAYER",
+              "kind": "cast",
+              "variant": "cast_v2"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "hurt",
+              "variant": "hurt_v2"
+            }
+          ],
+          "lastSpoken": {
+            "id": "STADIUM_PA",
+            "kind": "prop_popcorn",
+            "variant": "popcorn",
+            "text": "体育馆广播通知！刚才的爆米花已经提前退场，请同学们停止空中接玉米！",
+            "duration_seconds": 8.81,
+            "serial": 4
+          },
+          "speechHistory": [
+            {
+              "id": "HOST_AI",
+              "kind": "hurt",
+              "variant": "hurt_v2",
+              "text": "等等，这招比想象中厉害！",
+              "duration_seconds": 2.25,
+              "serial": 2
+            },
+            {
+              "id": "SPECTATOR_0",
+              "kind": "accident",
+              "variant": "ricochet_a",
+              "text": "啊！我的爆米花！",
+              "duration_seconds": 3.21
+            },
+            {
+              "id": "M01",
+              "kind": "teacher_order",
+              "variant": "order",
+              "text": "停！停！我说过多少遍了！观众席不是魔法练习场！",
+              "duration_seconds": 7.11,
+              "serial": 3
+            },
+            {
+              "id": "STADIUM_PA",
+              "kind": "prop_popcorn",
+              "variant": "popcorn",
+              "text": "体育馆广播通知！刚才的爆米花已经提前退场，请同学们停止空中接玉米！",
+              "duration_seconds": 8.81,
+              "serial": 4
+            }
+          ],
+          "comicBeatHistory": [
+            {
+              "type": "spell_stew",
+              "side": "player",
+              "serial": 2,
+              "layers": 2
+            }
+          ],
+          "voicePlaying": true,
+          "currentVoiceKey": "STADIUM_PA:prop_popcorn",
+          "voiceQueue": [],
+          "decodedCues": 52,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 9,
+            "voice": 3,
+            "voiceMissing": 0,
+            "voiceDropped": 0,
+            "voiceInterrupted": 1,
+            "unlock": 1,
+            "musicStart": 1,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 78
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 117
+            },
+            {
+              "type": "music",
+              "detail": "mischief_shuffle",
+              "at": 188
+            },
+            {
+              "type": "cue",
+              "detail": "select:center",
+              "at": 2551
+            },
+            {
+              "type": "cue",
+              "detail": "heal:player",
+              "at": 2601
+            },
+            {
+              "type": "cue",
+              "detail": "r102_music_gliss:player",
+              "at": 2605
+            },
+            {
+              "type": "cue",
+              "detail": "r102_hearts_pulse:player",
+              "at": 2605
+            },
+            {
+              "type": "cue",
+              "detail": "card_flip:player",
+              "at": 2605
+            },
+            {
+              "type": "cue",
+              "detail": "heal:player",
+              "at": 2606
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_PLAYER:cast=cast_v2",
+              "at": 3301
+            },
+            {
+              "type": "cue",
+              "detail": "r121_absurd:ai",
+              "at": 3302
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_AI:hurt=hurt_v2",
+              "at": 3302
+            },
+            {
+              "type": "voice",
+              "detail": "HOST_AI:hurt",
+              "at": 3415
+            },
+            {
+              "type": "cue",
+              "detail": "r102_crowd_gasp:player",
+              "at": 3564
+            },
+            {
+              "type": "cue",
+              "detail": "r102_rubber_squeak:player",
+              "at": 3564
+            },
+            {
+              "type": "crowd-voice",
+              "detail": "ricochet_a",
+              "at": 3639
+            },
+            {
+              "type": "voice-variant",
+              "detail": "M01:teacher_order=order",
+              "at": 6014
+            },
+            {
+              "type": "voice",
+              "detail": "M01:teacher_order",
+              "at": 6018
+            },
+            {
+              "type": "voice-variant",
+              "detail": "STADIUM_PA:prop_popcorn=popcorn",
+              "at": 13163
+            },
+            {
+              "type": "voice",
+              "detail": "STADIUM_PA:prop_popcorn",
+              "at": 13167
+            }
+          ]
+        },
+        "hp": {
+          "player": 20,
+          "ai": 19
+        },
+        "props": {
+          "mounted": 4,
+          "types": [
+            "popcorn",
+            "juice",
+            "homework",
+            "backpack"
+          ],
+          "propNames": [
+            "R123_popcorn_Persistent_Carried_Prop",
+            "R123_juice_Persistent_Carried_Prop",
+            "R123_homework_Persistent_Carried_Prop",
+            "R123_backpack_Persistent_Carried_Prop"
+          ],
+          "active": 0,
+          "activeTypes": [],
+          "accidents": 1,
+          "scatterFrames": 137,
+          "returns": 1,
+          "peak": 1,
+          "ruleMutations": 0,
+          "scatterInstances": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "camera": {
+          "cuts": 1,
+          "weight": 0,
+          "spectatorIndex": null,
+          "frontFacingCloseup": true,
+          "teacherIntervention": false,
+          "extraRenderPasses": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait PA punchline follows teacher instead of cutting off character speech",
+      "value": [
+        {
+          "id": "HOST_AI",
+          "kind": "hurt",
+          "variant": "hurt_v2",
+          "text": "等等，这招比想象中厉害！",
+          "duration_seconds": 2.25,
+          "serial": 2
+        },
+        {
+          "id": "SPECTATOR_0",
+          "kind": "accident",
+          "variant": "ricochet_a",
+          "text": "啊！我的爆米花！",
+          "duration_seconds": 3.21
+        },
+        {
+          "id": "M01",
+          "kind": "teacher_order",
+          "variant": "order",
+          "text": "停！停！我说过多少遍了！观众席不是魔法练习场！",
+          "duration_seconds": 7.11,
+          "serial": 3
+        },
+        {
+          "id": "STADIUM_PA",
+          "kind": "prop_popcorn",
+          "variant": "popcorn",
+          "text": "体育馆广播通知！刚才的爆米花已经提前退场，请同学们停止空中接玉米！",
+          "duration_seconds": 8.81,
+          "serial": 4
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait legitimate K01 HP remains exactly 19",
+      "value": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait zero JS exceptions and missing HTTP assets",
+      "value": []
+    }
+  ],
+  "errors": []
+}

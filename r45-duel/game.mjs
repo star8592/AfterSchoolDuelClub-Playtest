@@ -52,11 +52,12 @@ function showSpokenLine(entry){
  if(!node||!speaker||!words)return;
  const name=BY_ID[entry.id]?.name||({
   HOST_PLAYER:'我方决斗者',HOST_AI:'对方决斗者',
-  STADIUM_PA:'体育馆广播员'})[entry.id]||
-  (entry.id.startsWith('SPECTATOR_')?'看台同学 '+(Number(entry.id.slice(10))+1):entry.id);
+  STADIUM_PA:'体育馆广播员',
+  SPECTATOR_0:'左后排观众',SPECTATOR_1:'左前排观众',
+  SPECTATOR_2:'右前排观众',SPECTATOR_3:'右后排观众'})[entry.id]||entry.id;
  speaker.textContent=name+' · Qwen3 角色配音';
  words.textContent=entry.text;
- node.dataset.side=entry.id==='STADIUM_PA'?'center':
+ node.dataset.side=entry.id==='STADIUM_PA'||String(entry.id).startsWith('SPECTATOR_')?'center':
   entry.id==='HOST_AI'?'ai':'player';
  node.hidden=false;spokenSubtitleCount++;
  lastQwenSubtitle={...entry,name};
@@ -498,9 +499,7 @@ function advanceLesson(){
  sendScene({type:'ASDC_R100_COMBO_RESET'});
  comboAudioReceipts.clear();
  combatAudioReceipts.clear();
-
  r121SpokenContacts.clear();r122PlayedCrowdAccidents.clear();
-
  ++asideSeq;++speechSeq;
  $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  g=createTutorialGame(level+1,seed+level);
@@ -985,9 +984,10 @@ window.addEventListener('message',event=>{
    d.spectatorIndex<2?'player':'ai',{rate:1.02,gainScale:.6,delay:.12});
   showComedyAside({text:'看台意外！'+prop.caption+'。'+prop.line,
    side:'center',speaker:'看台现场 · 搞笑吐槽字幕'});
-  // Enqueue against this *actual engine event* rather than a fixed 3.5s
-  // timer. The audio engine waits for the duelist and spectator to finish
-  // speaking; it also survives a late first-load voice manifest.
+  // Both lines derive from this validated incident. Student scream has
+  // its own audio lane; queued teacher M01 speaks before the stadium PA.
+  // Both survive slow manifest loading but are cleared on mute/rematch.
+  audio.playTeacherOrder(prop.kind==='homework'?'paper':'order');
   audio.playPropPA(prop.kind);
 
   return;
@@ -1121,7 +1121,7 @@ deckSelector.addEventListener('change',()=>{
  $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  selected=null;lastFightSerial=0;
  comboAudioReceipts.clear();combatAudioReceipts.clear();
- r121SpokenContacts.clear();
+ r121SpokenContacts.clear();r122PlayedCrowdAccidents.clear();
  hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
  sendScene({type:'ASDC_R100_COMBO_RESET'});
  const url=new URL(location.href);
