@@ -939,8 +939,12 @@ function loop(){
      sourceFace.y+.22,sourceFace.z+.52);
     eye=sourceFace.clone().add(new THREE.Vector3(0,-.10,0));
    }else{
-    heroCamera.position.set(cx+sign*2.63,cy+2.36,host.pivot.position.z+.68);
-    eye=new THREE.Vector3(cx+sign*.42,cy+1.72,host.pivot.position.z+.04);
+    // R124 native face readability: the original distance framed almost the
+    // whole body and concealed the original VRM Joy/Sorrow behind hair.
+    // Keep the real face in the close-up; artwork remains visible in the main
+    // arena. A stronger side view made the physical card obscure the eyes.
+    heroCamera.position.set(cx+sign*1.75,cy+1.84,host.pivot.position.z+.48);
+    eye=new THREE.Vector3(cx+sign*.30,cy+1.74,host.pivot.position.z+.04);
    }
    heroCamera.lookAt(eye);
    renderer.setScissorTest(true);
