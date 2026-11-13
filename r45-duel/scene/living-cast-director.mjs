@@ -2,6 +2,7 @@
  * R112 Living cast. All activity is cosmetic, deterministic for a given seed,
  * and interruptible by real card/hit events. Animation never changes game data.
  */
+import {choreographVictory} from './victory-choreography.mjs';
 const smooth=x=>{const t=Math.min(1,Math.max(0,x));return t*t*(3-2*t)};
 const hash=(seed,str)=>{let h=(seed>>>0)||2166136261;for(const c of str)h=Math.imul(h^c.charCodeAt(0),16777619)>>>0;return h||1};
 const rng=seed=>()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296};
@@ -105,20 +106,14 @@ export function createLivingCastDirector(seed=2026){
    if(celebration){
     const elapsed=seconds-celebration.started;
     if(elapsed<celebration.duration){
-     if(celebration.winner===side){
-      const weight=reduced?0:smooth(elapsed/.55)*(1-smooth((elapsed-5.7)/.7));
-      const beat=elapsed*2*Math.PI*1.65+(side==='player'?0:.6);
-      out[side]={type:'dance',weight,
-       step:.105*Math.sin(beat),tilt:.09*Math.sin(beat),
-       headYaw:.10*Math.sin(beat*.5),chest:.055*Math.sin(beat),
-       right:[.12+.13*Math.sin(beat),.31+.11*Math.sin(beat),-.035],
-       left:[-.12-.12*Math.sin(beat),.31-.11*Math.sin(beat),-.025],
-       jump:.022*(1+Math.sin(beat*2))};
-     }else{
-      const v=BEATS.defeat;
-      const w=reduced?0:smooth(elapsed/.7)*(1-smooth((elapsed-5.5)/.7));
-      out[side]={...v,type:'defeat',weight:w};
-     }
+     const move=choreographVictory({elapsed,winner:celebration.winner,
+      side,id:side==='player'?'E01':'G01',reduced});
+     out[side]={type:move.winner?'dance':'defeat',stage:move.stage,
+      weight:move.weight,step:move.x,tilt:move.lean,headYaw:move.yaw,
+      headPitch:move.head,chest:move.lean*.45,
+      right:[move.right*.30,move.right*.61,-.03],
+      left:[-move.left*.30,move.left*.61,-.03],
+      jump:move.bob};
      continue;
     }
     celebration=null;actor.next=seconds+1.8+actor.random()*3;

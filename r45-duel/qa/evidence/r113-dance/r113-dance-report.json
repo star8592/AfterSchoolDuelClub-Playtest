@@ -1,0 +1,1282 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop five real participants at frame 0",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "surprise"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "surprise"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "surprise"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "surprise"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "surprise"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.081,
+            "reach": 0.358,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.283,
+              1.894,
+              0.672
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.025,
+            "reach": 0.472,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.383,
+              1.698,
+              0.412
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.065,
+            "reach": 0.276,
+            "segmentLength": 0.55,
+            "hand": [
+              5.359,
+              2.024,
+              0.658
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.021,
+            "reach": 0.511,
+            "segmentLength": 0.55,
+            "hand": [
+              5.469,
+              1.623,
+              0.823
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop five real participants at frame 1",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "stomp"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "stomp"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "stomp"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "stomp"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "stomp"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.082,
+            "reach": 0.283,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.239,
+              2.042,
+              0.649
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.025,
+            "reach": 0.46,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.339,
+              1.717,
+              0.338
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.055,
+            "reach": 0.276,
+            "segmentLength": 0.55,
+            "hand": [
+              5.35,
+              2.002,
+              0.645
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.016,
+            "reach": 0.5,
+            "segmentLength": 0.55,
+            "hand": [
+              5.46,
+              1.622,
+              0.814
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop five real participants at frame 2",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "side_step"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "side_step"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "side_step"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "side_step"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "side_step"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.06,
+            "reach": 0.285,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.337,
+              1.973,
+              0.777
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.065,
+            "reach": 0.297,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.431,
+              1.923,
+              0.358
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.053,
+            "reach": 0.279,
+            "segmentLength": 0.55,
+            "hand": [
+              5.337,
+              1.994,
+              0.583
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.016,
+            "reach": 0.496,
+            "segmentLength": 0.55,
+            "hand": [
+              5.447,
+              1.629,
+              0.768
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop five real participants at frame 3",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "crowd_clap"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "crowd_clap"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "crowd_clap"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "crowd_clap"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "crowd_clap"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.046,
+            "reach": 0.24,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.288,
+              2.097,
+              0.825
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.089,
+            "reach": 0.282,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.388,
+              1.945,
+              0.324
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.065,
+            "reach": 0.276,
+            "segmentLength": 0.55,
+            "hand": [
+              5.331,
+              2.031,
+              0.626
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.022,
+            "reach": 0.51,
+            "segmentLength": 0.55,
+            "hand": [
+              5.441,
+              1.629,
+              0.799
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop five real participants at frame 4",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "final_pose"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "final_pose"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "final_pose"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "final_pose"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "final_pose"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.073,
+            "reach": 0.352,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.322,
+              1.893,
+              0.685
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.012,
+            "reach": 0.457,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.422,
+              1.723,
+              0.419
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.062,
+            "reach": 0.252,
+            "segmentLength": 0.55,
+            "hand": [
+              5.352,
+              2.045,
+              0.557
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.008,
+            "reach": 0.483,
+            "segmentLength": 0.55,
+            "hand": [
+              5.462,
+              1.657,
+              0.767
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop differentiated 4 observed dance stages",
+      "detail": [
+        "surprise",
+        "stomp",
+        "side_step",
+        "crowd_clap",
+        "final_pose"
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop even the dance keeps facing opponent",
+      "detail": [
+        {
+          "id": "M02",
+          "dot": 1
+        },
+        {
+          "id": "E03",
+          "dot": 1
+        },
+        {
+          "id": "T03",
+          "dot": 1
+        },
+        {
+          "id": "G02",
+          "dot": 1
+        },
+        {
+          "id": "G04",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop zero JS/HTTP errors",
+      "detail": []
+    },
+    {
+      "passed": true,
+      "label": "portrait five real participants at frame 0",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "surprise"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "surprise"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "surprise"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "surprise"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "surprise"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.081,
+            "reach": 0.356,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.283,
+              1.896,
+              0.673
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.025,
+            "reach": 0.471,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.383,
+              1.7,
+              0.411
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.065,
+            "reach": 0.276,
+            "segmentLength": 0.55,
+            "hand": [
+              5.359,
+              2.024,
+              0.658
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.021,
+            "reach": 0.511,
+            "segmentLength": 0.55,
+            "hand": [
+              5.469,
+              1.623,
+              0.823
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait five real participants at frame 1",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "stomp"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "stomp"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "stomp"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "stomp"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "stomp"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.082,
+            "reach": 0.286,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.244,
+              2.034,
+              0.654
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.022,
+            "reach": 0.454,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.344,
+              1.725,
+              0.342
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.055,
+            "reach": 0.276,
+            "segmentLength": 0.55,
+            "hand": [
+              5.35,
+              2.002,
+              0.645
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.016,
+            "reach": 0.5,
+            "segmentLength": 0.55,
+            "hand": [
+              5.46,
+              1.622,
+              0.814
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait five real participants at frame 2",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "side_step"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "side_step"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "side_step"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "side_step"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "side_step"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.061,
+            "reach": 0.281,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.323,
+              1.979,
+              0.768
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.061,
+            "reach": 0.301,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.419,
+              1.911,
+              0.349
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.053,
+            "reach": 0.279,
+            "segmentLength": 0.55,
+            "hand": [
+              5.337,
+              1.994,
+              0.583
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.016,
+            "reach": 0.496,
+            "segmentLength": 0.55,
+            "hand": [
+              5.447,
+              1.629,
+              0.768
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait five real participants at frame 3",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "crowd_clap"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "crowd_clap"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "crowd_clap"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "crowd_clap"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "crowd_clap"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.059,
+            "reach": 0.264,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.287,
+              2.008,
+              0.808
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.145,
+            "reach": 0.259,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.387,
+              2.067,
+              0.31
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.064,
+            "reach": 0.276,
+            "segmentLength": 0.55,
+            "hand": [
+              5.331,
+              2.03,
+              0.622
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.022,
+            "reach": 0.509,
+            "segmentLength": 0.55,
+            "hand": [
+              5.441,
+              1.629,
+              0.796
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait five real participants at frame 4",
+      "detail": [
+        {
+          "id": "M02",
+          "side": "player",
+          "stage": "final_pose"
+        },
+        {
+          "id": "E03",
+          "side": "player",
+          "stage": "final_pose"
+        },
+        {
+          "id": "T03",
+          "side": "player",
+          "stage": "final_pose"
+        },
+        {
+          "id": "G02",
+          "side": "ai",
+          "stage": "final_pose"
+        },
+        {
+          "id": "G04",
+          "side": "ai",
+          "stage": "final_pose"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait hands remain IK-controlled",
+      "detail": [
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.073,
+            "reach": 0.256,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.313,
+              2.07,
+              0.751
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.043,
+            "reach": 0.332,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.413,
+              1.892,
+              0.326
+            ]
+          }
+        },
+        {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.064,
+            "reach": 0.264,
+            "segmentLength": 0.55,
+            "hand": [
+              5.342,
+              2.038,
+              0.585
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.015,
+            "reach": 0.494,
+            "segmentLength": 0.55,
+            "hand": [
+              5.452,
+              1.645,
+              0.78
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait differentiated 4 observed dance stages",
+      "detail": [
+        "surprise",
+        "stomp",
+        "side_step",
+        "crowd_clap",
+        "final_pose"
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait even the dance keeps facing opponent",
+      "detail": [
+        {
+          "id": "M02",
+          "dot": 1
+        },
+        {
+          "id": "E03",
+          "dot": 1
+        },
+        {
+          "id": "T03",
+          "dot": 1
+        },
+        {
+          "id": "G02",
+          "dot": 1
+        },
+        {
+          "id": "G04",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "portrait zero JS/HTTP errors",
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "timeline": [
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "surprise"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "surprise"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "surprise"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "surprise"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "surprise"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        },
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "stomp"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "stomp"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "stomp"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "stomp"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "stomp"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        },
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "side_step"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "side_step"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "side_step"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "side_step"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "side_step"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        },
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "crowd_clap"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "crowd_clap"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "crowd_clap"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "crowd_clap"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "crowd_clap"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        },
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "final_pose"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "final_pose"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "final_pose"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "final_pose"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "final_pose"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        }
+      ]
+    },
+    {
+      "view": "portrait",
+      "timeline": [
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "surprise"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "surprise"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "surprise"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "surprise"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "surprise"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        },
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "stomp"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "stomp"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "stomp"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "stomp"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "stomp"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        },
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "side_step"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "side_step"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "side_step"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "side_step"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "side_step"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        },
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "crowd_clap"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "crowd_clap"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "crowd_clap"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "crowd_clap"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "crowd_clap"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        },
+        {
+          "stages": [
+            {
+              "id": "M02",
+              "side": "player",
+              "stage": "final_pose"
+            },
+            {
+              "id": "E03",
+              "side": "player",
+              "stage": "final_pose"
+            },
+            {
+              "id": "T03",
+              "side": "player",
+              "stage": "final_pose"
+            },
+            {
+              "id": "G02",
+              "side": "ai",
+              "stage": "final_pose"
+            },
+            {
+              "id": "G04",
+              "side": "ai",
+              "stage": "final_pose"
+            }
+          ],
+          "hosts": [
+            "dance",
+            "defeat"
+          ]
+        }
+      ]
+    }
+  ]
+}

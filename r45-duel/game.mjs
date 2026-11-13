@@ -493,7 +493,7 @@ function scheduleResult(){
  const words=STADIUM_ANNOUNCER[g.winner]||STADIUM_ANNOUNCER.draw;
  const line=words[Math.abs(seed+g.serial)%words.length];
  showComedyAside({text:line,side:'center',speaker:'体育馆广播 · 赛后文字播报'});
- window.setTimeout(showResult,4900);
+ window.setTimeout(showResult,6800);
 }
 function startRematch(){
  if(g.phase!=='ended')return;
