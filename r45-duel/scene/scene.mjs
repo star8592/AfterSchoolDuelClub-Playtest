@@ -1046,6 +1046,8 @@ try{
  } while((performance.now()-warmupStarted<(PARAMS.has('qa')||navigator.webdriver?850:320)||warmupFrames<7)&&warmupFrames<95);
  window.__ASDC_LOAD_METRICS.firstFrameReadyMs=Math.round(performance.now()-loadingStartedAt);
  clearTimeout(slowLoadTimer);
+ const slowHintOnReady=$('load-slow');
+ if(slowHintOnReady)slowHintOnReady.hidden=true;
  $('loading').hidden=true;
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,independentHostVRMRigs:hostSourceActors.length,
