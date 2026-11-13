@@ -37,9 +37,12 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
    }).filter(Boolean);
    const head=object.getObjectByName('FK-Head')||object.getObjectByName('Head')||null;
    const headRest=head?.quaternion?.clone()||null;
+   let actualBones=0,skinnedMeshes=0;
+   object.traverse(o=>{if(o.isBone)actualBones++;if(o.isSkinnedMesh)skinnedMeshes++});
    lifeWorld?.register('spectator:'+spec.id,
     {id:spec.id,side:spec.team,role:'spectator'});
-   actors.push({spec,instance,object,pose,arms,head,headRest,last:null});
+   actors.push({spec,instance,object,pose,arms,head,headRest,
+    actualBones,skinnedMeshes,last:null});
   }
   return actors.length;
  }
@@ -104,6 +107,14 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
     if(p.headYaw||p.headPitch)actor.head.quaternion.multiply(
      new THREE.Quaternion().setFromEuler(new THREE.Euler(p.headPitch||0,p.headYaw||0,0)));
    }
+   // Some production Studio GLBs have animated morph clips but *no*
+   // exposed FK arm/head bones. Use the existing true GLB instance's
+   // authored whole-body acting channel instead of pretending the limbs
+   // are skeletal or resetting the model to a mannequin pose.
+   actor.instance.setCombatPose?.(active?.type==='accident'&&p.weight>.001?{
+    lean:-(p.duck||0)*.90+(p.near?-.10:0)*p.weight,
+    upperTwist:p.yaw*.85,sideLean:p.tilt*.68,lift:0
+   }:null);
    actor.last=p;
    if(p.weight>.1)movementFrames++;
   }
@@ -112,11 +123,15 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
  }
  return {mount,react,reactAccident,spectatorAnchor,update,get stats(){return{
   loaded:actors.length,realModelIds:actors.map(a=>a.spec.id),
-  skinnedRealActors:actors.filter(a=>a.instance.mixer).length,
+  animationMixers:actors.filter(a=>a.instance.mixer).length,
+  skinnedRealActors:actors.filter(a=>a.skinnedMeshes>0).length,
+  boneDrivenActors:actors.filter(a=>a.actualBones>0).length,
+  authoredPoseFallbackActors:actors.filter(a=>a.actualBones===0).length,
   frames,movementFrames,events,accidentEvents,active:active?{...active}:null,
   poses:actors.map(a=>({id:a.spec.id,team:a.spec.team,
    mode:a.last?.mode||'idle',weight:+(a.last?.weight||0).toFixed(3),
    chainDelay:a.last?.delay??0,headRig:!!a.head,
+   armRigs:a.arms.length,bones:a.actualBones,skinnedMeshes:a.skinnedMeshes,
    emotion:a.lastLife?.emotion||'focused',
    attention:a.lastLife?.attention||'arena',
    personalIntent:a.lastLife?.intent||'idle'}))
