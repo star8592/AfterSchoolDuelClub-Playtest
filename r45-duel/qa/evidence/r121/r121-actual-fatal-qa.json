@@ -1,0 +1,308 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "msg": "desktop seed-15 true enemy at two HP",
+      "data": {
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "ai": [
+          {
+            "uid": "U3",
+            "id": "E02",
+            "style": "ember",
+            "attack": 2,
+            "hp": 2,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 1
+          }
+        ],
+        "energy": 3,
+        "hand": [
+          "E01",
+          "G01",
+          "T06",
+          "G01",
+          "T02",
+          "E03"
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "msg": "desktop real engine removed source E02 and dealt exactly 2 unit damage",
+      "data": {
+        "rule": {
+          "serial": 5,
+          "type": "card_play",
+          "side": "player",
+          "card": "T06",
+          "lane": 0,
+          "spellOutcome": {
+            "effect": "confuse",
+            "directDamage": 0,
+            "unitDamage": 2,
+            "targetUids": [
+              "U3"
+            ],
+            "healed": 0,
+            "allyHeal": 0,
+            "cardDraw": 0
+          }
+        },
+        "board": [],
+        "hp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "passed": true,
+      "msg": "desktop actual defeated GLB retained, flinched and emitted FX",
+      "data": {
+        "ret": {
+          "reservedSpellTargets": 1,
+          "expiredSpellTargets": 0,
+          "active": [
+            "ai:U3"
+          ]
+        },
+        "fx": {
+          "elements": 15,
+          "spawned": 1,
+          "expired": 0,
+          "rejected": 0,
+          "active": 1,
+          "peak": 1,
+          "activeElements": [
+            "electric"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 1,
+        "voices": [
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast_v2"
+          },
+          {
+            "id": "HOST_PLAYER",
+            "kind": "cast",
+            "variant": "cast_v3"
+          },
+          {
+            "id": "E02",
+            "kind": "hurt",
+            "variant": "hurt_v2"
+          },
+          {
+            "id": "E02",
+            "kind": "enter",
+            "variant": "enter_v3"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "msg": "desktop character-specific Qwen voice triggered by actual contact",
+      "data": [
+        {
+          "id": "HOST_AI",
+          "kind": "cast",
+          "variant": "cast_v2"
+        },
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v3"
+        },
+        {
+          "id": "E02",
+          "kind": "hurt",
+          "variant": "hurt_v2"
+        },
+        {
+          "id": "E02",
+          "kind": "enter",
+          "variant": "enter_v3"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "msg": "desktop no JS/asset HTTP error",
+      "data": []
+    },
+    {
+      "passed": true,
+      "msg": "portrait seed-15 true enemy at two HP",
+      "data": {
+        "hp": {
+          "player": 20,
+          "ai": 20
+        },
+        "ai": [
+          {
+            "uid": "U3",
+            "id": "E02",
+            "style": "ember",
+            "attack": 2,
+            "hp": 2,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 1
+          }
+        ],
+        "energy": 3,
+        "hand": [
+          "E01",
+          "G01",
+          "T06",
+          "G01",
+          "T02",
+          "E03"
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "msg": "portrait real engine removed source E02 and dealt exactly 2 unit damage",
+      "data": {
+        "rule": {
+          "serial": 5,
+          "type": "card_play",
+          "side": "player",
+          "card": "T06",
+          "lane": 0,
+          "spellOutcome": {
+            "effect": "confuse",
+            "directDamage": 0,
+            "unitDamage": 2,
+            "targetUids": [
+              "U3"
+            ],
+            "healed": 0,
+            "allyHeal": 0,
+            "cardDraw": 0
+          }
+        },
+        "board": [],
+        "hp": {
+          "player": 20,
+          "ai": 20
+        }
+      }
+    },
+    {
+      "passed": true,
+      "msg": "portrait actual defeated GLB retained, flinched and emitted FX",
+      "data": {
+        "ret": {
+          "reservedSpellTargets": 1,
+          "expiredSpellTargets": 0,
+          "active": [
+            "ai:U3"
+          ]
+        },
+        "fx": {
+          "elements": 15,
+          "spawned": 1,
+          "expired": 0,
+          "rejected": 0,
+          "active": 1,
+          "peak": 1,
+          "activeElements": [
+            "electric"
+          ],
+          "ruleMutations": 0
+        },
+        "reactions": 1,
+        "voices": [
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast_v3"
+          },
+          {
+            "id": "E02",
+            "kind": "hurt",
+            "variant": "hurt"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "msg": "portrait character-specific Qwen voice triggered by actual contact",
+      "data": [
+        {
+          "id": "HOST_AI",
+          "kind": "cast",
+          "variant": "cast_v3"
+        },
+        {
+          "id": "E02",
+          "kind": "hurt",
+          "variant": "hurt"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "msg": "portrait no JS/asset HTTP error",
+      "data": []
+    }
+  ],
+  "errors": [],
+  "events": [
+    {
+      "view": "desktop",
+      "rule": {
+        "serial": 5,
+        "type": "card_play",
+        "side": "player",
+        "card": "T06",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "confuse",
+          "directDamage": 0,
+          "unitDamage": 2,
+          "targetUids": [
+            "U3"
+          ],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    },
+    {
+      "view": "portrait",
+      "rule": {
+        "serial": 5,
+        "type": "card_play",
+        "side": "player",
+        "card": "T06",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "confuse",
+          "directDamage": 0,
+          "unitDamage": 2,
+          "targetUids": [
+            "U3"
+          ],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    }
+  ]
+}

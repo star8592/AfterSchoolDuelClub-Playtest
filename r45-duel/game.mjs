@@ -6,6 +6,7 @@
 import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
+import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
@@ -476,6 +477,7 @@ function advanceLesson(){
  sendScene({type:'ASDC_R100_COMBO_RESET'});
  comboAudioReceipts.clear();
  combatAudioReceipts.clear();
+ r121SpokenContacts.clear();
  ++asideSeq;++speechSeq;
  $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  g=createTutorialGame(level+1,seed+level);
@@ -773,11 +775,14 @@ $('play').addEventListener('click',()=>{
  if(!result.ok){
   announce('出牌失败：'+result.reason,'warning');render();return;
  }
- selected=null;
- render();syncScene();
  const played=g.events.findLast(e=>e.type==='card_play'&&
   e.side==='player'&&e.card===id&&e.serial>previousSerial);
  if(!played)throw Error('Successful play must produce canonical card_play');
+ // R121 spells must reach the 3D scene BEFORE removing defeated models
+ // from the board; keep the true source rig for its final hit reaction.
+ if(c.kind==='spell')sendSpellImpact(played);
+ selected=null;
+ render();syncScene();
  showComedyAside(c.kind==='unit'?
   comedyScript.forCard(id,played.serial,'player'):
   comedyScript.forSpell(id,played.serial,'player'));
@@ -792,7 +797,6 @@ $('play').addEventListener('click',()=>{
  sayHostOnce('player');
  if(c.kind==='unit')summonSpeaksAfterGesture(id,played.serial);
  if(c.kind==='spell'){
-  sendSpellImpact(g.events.findLast(e=>e.type==='card_play'&&e.side==='player'&&e.card===id));
   const sound={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
     repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
     stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
@@ -803,7 +807,7 @@ $('play').addEventListener('click',()=>{
      setTimeout(()=>audio.playCue(sound,'player'),460);
    else audio.playCue(sound,'player');
   }
-  if(g.hp.ai<preHp.ai)setTimeout(()=>audio.playCharacter('HOST_AI','hurt'),460);
+  // Host hurt VO is driven by the verified R121 contact receipt.
  }
  const suffix=c.kind==='unit'?'已进入中央竞技场。本回合待命，下次轮到你才会攻击。':
   '已立即结算事件效果。';
@@ -832,6 +836,10 @@ $('end').addEventListener('click',()=>{
  if(guidedMode)guidedEndTurn(g);
  else{endTurn(g);if(g.phase==='playing'&&g.active==='ai')aiTurn(g);}
  const fresh=g.events.filter(e=>e.serial>serial);
+ for(const event of fresh){
+  if(event.type==='card_play'&&BY_ID[event.card]?.kind==='spell')
+   sendSpellImpact(event);
+ }
  selected=null;
  render();syncScene();
  presentRealCombos(serial);
@@ -865,7 +873,6 @@ $('end').addEventListener('click',()=>{
    if(enemyCard?.kind==='unit')summonSpeaksAfterGesture(event.card,event.serial);
   }
   if(enemyCard?.kind==='spell') {
-   sendSpellImpact(event);
    const fx={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
      repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
      stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
@@ -876,9 +883,7 @@ $('end').addEventListener('click',()=>{
       setTimeout(()=>audio.playCue(fx,'ai'),460);
     else audio.playCue(fx,'ai');
    }
-   if(event.spellOutcome?.directDamage>0){
-    if(!guidedMode)setTimeout(()=>audio.playCharacter('HOST_PLAYER','hurt'),460);
-   }
+   // Verified contact from the scene owns hurt dialogue, not this timeout.
   }
  }
  const fight=findRealExchange(fresh);
@@ -924,8 +929,36 @@ $('end').addEventListener('click',()=>{
   void guidedSequence(sequence);
  }
 });
+const r121SpokenContacts=new Set();
 window.addEventListener('message',event=>{
  if(event.origin!==location.origin||event.source!==scene.contentWindow)return;
+ if(event.data?.type==='ASDC_R121_SPELL_CONTACT'){
+  const d=event.data;
+  const match=g.events.find(e=>e.type==='card_play'&&e.serial===d.serial&&
+   e.card===d.card&&e.side===d.caster);
+  const outcome=match?.spellOutcome;
+  if(!outcome||CARD_ELEMENTS[d.card]!==d.element||
+    d.victim!==(d.caster==='player'?'ai':'player')||
+    d.directDamage!==outcome.directDamage||d.unitDamage!==outcome.unitDamage||
+    r121SpokenContacts.has(d.serial))return;
+  r121SpokenContacts.add(d.serial);
+  if(r121SpokenContacts.size>500)r121SpokenContacts.clear();
+  const hasHit=d.directDamage>0||d.unitDamage>0;
+  if(hasHit){
+   audio.playCue(ELEMENTS[d.element]?.sound||'hit',d.victim,{gainScale:.80});
+   if(!guidedMode){
+    if(d.directDamage>0){
+     audio.playCharacter(d.victim==='player'?'HOST_PLAYER':'HOST_AI','hurt');
+    }else if(Array.isArray(d.targetIds)&&d.targetIds.length){
+     // A summoned source GLB is not a human voice; use its authored
+     // Qwen file when present, otherwise the actual side's host line.
+     if(!audio.playCharacter(d.targetIds[0],'hurt'))
+      audio.playCharacter(d.victim==='player'?'HOST_PLAYER':'HOST_AI','hurt');
+    }
+   }
+  }
+  return;
+ }
  if(event.data?.type==='ASDC_R45_SCENE_READY'){
   sceneReady=true;sceneError=false;
   syncScene();
@@ -1028,6 +1061,7 @@ deckSelector.addEventListener('change',()=>{
  $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  selected=null;lastFightSerial=0;
  comboAudioReceipts.clear();combatAudioReceipts.clear();
+ r121SpokenContacts.clear();
  hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
  sendScene({type:'ASDC_R100_COMBO_RESET'});
  const url=new URL(location.href);

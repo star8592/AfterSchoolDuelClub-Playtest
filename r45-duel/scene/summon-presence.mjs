@@ -290,7 +290,15 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     state.object.visible=true;
    });
   }
-  for(const key of [...entries.keys()])if(!keep.has(key))removeEntry(key);
+  for(const key of [...entries.keys()])if(!keep.has(key)){
+   const state=entries.get(key);
+   if(state?.r121RetainUntil>lastUpdateSeconds){
+    state.r121SpellGhost=true;
+    if(state.status?.label)state.status.label.visible=false;
+    continue;
+   }
+   removeEntry(key);
+  }
   // Only currently summoned first-team rigs may stay visible between fights.
   // The cinematic path is allowed to stage both only during its own 6.45s.
   for(const actor of mainActorSet){
@@ -432,7 +440,39 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   }
  }
  let actualSpellReactions=0;
- function reactToSpell(side,uids,now){
+ // Reserve only real, already-on-board models for a fatal spell's hit frame.
+ // The rule engine removed them already, but the 3D source gets to recoil.
+ let reservedSpellTargets=0,expiredSpellTargets=0;
+ function reserveSpellTargets(side,uids,until){
+  if(!['player','ai'].includes(side)||!Array.isArray(uids)||
+     uids.length>5||!Number.isFinite(until))return 0;
+  let n=0;
+  for(const uid of uids){
+   if(typeof uid!=='string'||!/^U\d+$/.test(uid))continue;
+   const entry=entries.get(side+':'+uid);
+   if(!entry)continue;
+   entry.r121RetainUntil=until;
+   n++;
+  }
+  reservedSpellTargets+=n;
+  return n;
+ }
+ function clearSpellTargets(){
+  for(const [key,state] of entries){
+   if(state.r121SpellGhost)removeEntry(key);
+   else state.r121RetainUntil=null;
+  }
+ }
+ function spellWorldAnchors(side,uids){
+  if(!['player','ai'].includes(side)||!Array.isArray(uids))return [];
+  return uids.slice(0,5).flatMap(uid=>{
+   const state=entries.get(side+':'+uid);
+   if(!state)return [];
+   const p=state.object.getWorldPosition(new THREE.Vector3());
+   return [{uid,id:state.id,x:p.x,y:p.y,z:p.z}];
+  });
+ }
+ function reactToSpell(side,uids,now,element='earth'){
   if(!['player','ai'].includes(side)||!Array.isArray(uids)||uids.length>5)return 0;
   let affected=0;
   for(const uid of uids){
@@ -440,6 +480,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    const state=entries.get(side+':'+uid);
    if(!state)continue; // Rule engine may already have removed defeated unit.
    state.r95SpellHit=now;
+   state.r121SpellElement=element;
    state.object.userData.r61?.play?.('hit');
    affected++;
   }
@@ -453,6 +494,13 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   return true;
  }
  function update(seconds,camera,{cinematic=false}={}){
+  // Release defeated actors after the FINAL physical recoil frame, rather
+  // than letting a rule-engine board sync teleport their GLB away mid-hit.
+  for(const [key,state] of entries){
+   if(state.r121SpellGhost&&seconds>=state.r121RetainUntil){
+    removeEntry(key);expiredSpellTargets++;
+   }
+  }
   // The real attack sequence must finish BEFORE a victory dance starts.
   if(celebration&&!sequence&&celebration.started===null)
    celebration.started=seconds;
@@ -685,10 +733,19 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    // already active. Keep torso rotation below 0.32rad and recover to the
    // original floor, lane, and opponent-facing pose every frame.
    const personality=R120_ENTRANCE_STYLE[state.id];
-   state.object.rotation.z+=(state.side==='player'?-1:1)*
-    Math.min(.33,.24*(personality?.lean||1))*envelope;
-   state.object.position.x+=(state.side==='player'?-1:1)*
-    Math.min(.42,.29*(personality?.lean||1))*envelope;
+   const element=state.r121SpellElement||'earth';
+   const movement=({wind:1.50,fire:1.05,electric:1.24,
+     ice:.25,time:.10,water:1.10,shadow:.88,
+     metal:.85,wood:.55,absurd:1.38,space:1.22})[element]??1;
+   const sign=state.side==='player'?-1:1;
+   state.object.rotation.z+=sign*
+    Math.min(.34,.24*(personality?.lean||1)*movement)*envelope;
+   state.object.position.x+=sign*
+    Math.min(.43,.29*(personality?.lean||1)*movement)*envelope;
+   if(element==='electric')state.object.rotation.y+=.11*Math.sin(age*49)*envelope;
+   if(element==='ice')state.object.rotation.x+=.032*Math.sin(age*26)*envelope;
+   if(element==='wind')state.object.rotation.x+=.12*envelope;
+   if(element==='absurd')state.object.position.y+=.13*envelope;
    state.r120HitStrength=+envelope.toFixed(3);
   }
   hitRing.visible=ribbon.visible=hitLabel.visible=false;
@@ -1023,7 +1080,9 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    loadedPrototypeIds:[...prototypes.keys()],cardIds:[...UNIT_IDS],entries:list};
  }
  return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,
-  reactToSpell,reactToSummon,reactToCombo,clearComicCombo,
+  reactToSpell,spellWorldAnchors,reserveSpellTargets,clearSpellTargets,reactToSummon,reactToCombo,clearComicCombo,
   celebrate,get celebration(){return celebration&&{...celebration,frames:celebrationFrames,actorFrames:celebratingActors}},
-  get spellReactions(){return actualSpellReactions}};
+  get spellReactions(){return actualSpellReactions},
+  get r121Retentions(){return {reservedSpellTargets,expiredSpellTargets,
+   active:[...entries.values()].filter(e=>e.r121SpellGhost).map(e=>e.key)}}};
 }
