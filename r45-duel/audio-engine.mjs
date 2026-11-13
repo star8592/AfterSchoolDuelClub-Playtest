@@ -187,7 +187,7 @@ export function createDuelAudio({onVoiceLine}={}){
      kinds.some(k=>{
        const c=clips[k];return !c?.ready||c.file!=='r123_pa_'+k+'.ogg'||
        c.speaker!=='ryan'||typeof c.text!=='string'||c.text.length>120||
-       !/^[a-f0-9]{64}$/.test(c.sha256)||!(c.duration_seconds>.6)&&!(c.duration_seconds<14);
+       !/^[a-f0-9]{64}$/.test(c.sha256)||!(c.duration_seconds>.6&&c.duration_seconds<14);
      }))throw Error('Invalid R123 original announcer recordings');
    propPAManifest=json;
   }catch(e){counters.errors++;log('prop-pa-manifest-error',String(e))}
