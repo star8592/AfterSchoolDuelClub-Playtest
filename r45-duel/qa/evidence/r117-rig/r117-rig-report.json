@@ -1,0 +1,5846 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop seven genuine visible R97 shapes are controlled (not phantom skeletons)",
+      "detail": [
+        {
+          "id": "E03",
+          "uid": "U100",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 264,
+          "maxMorphDelta": 0.011327466578067324,
+          "maxAngle": 0,
+          "lastIntent": "challenge",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U101",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 34,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 440,
+          "maxMorphDelta": 0.355215,
+          "maxAngle": 0,
+          "lastIntent": "challenge",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.3552,
+            "morphRecoil": 0.0326
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U102",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 31,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 176,
+          "maxMorphDelta": 0.09850499999999998,
+          "maxAngle": 0,
+          "lastIntent": "focus",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.0985,
+            "morphRecoil": 0.0235
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U103",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 6,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 32,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 528,
+          "maxMorphDelta": 0.11032559999999997,
+          "maxAngle": 0,
+          "lastIntent": "focus",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1103,
+            "morphRecoil": 0.0254
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U200",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 32,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 440,
+          "maxMorphDelta": 0.11557919999999999,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1156,
+            "morphRecoil": 0.0262
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U201",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 33,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 264,
+          "maxMorphDelta": 0.13133999999999998,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1313,
+            "morphRecoil": 0.0287
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U202",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 4,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 33,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 352,
+          "maxMorphDelta": 0.12214619999999998,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1221,
+            "morphRecoil": 0.0272
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop actual baked arm/body vertex morph channels change for every student",
+      "detail": [
+        {
+          "id": "E03",
+          "uid": "U100",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 264,
+          "maxMorphDelta": 0.011327466578067324,
+          "maxAngle": 0,
+          "lastIntent": "challenge",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U101",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 34,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 440,
+          "maxMorphDelta": 0.355215,
+          "maxAngle": 0,
+          "lastIntent": "challenge",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.3552,
+            "morphRecoil": 0.0326
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U102",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 31,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 176,
+          "maxMorphDelta": 0.09850499999999998,
+          "maxAngle": 0,
+          "lastIntent": "focus",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.0985,
+            "morphRecoil": 0.0235
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U103",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 6,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 32,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 528,
+          "maxMorphDelta": 0.11032559999999997,
+          "maxAngle": 0,
+          "lastIntent": "focus",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1103,
+            "morphRecoil": 0.0254
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U200",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 32,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 440,
+          "maxMorphDelta": 0.11557919999999999,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1156,
+            "morphRecoil": 0.0262
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U201",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 33,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 264,
+          "maxMorphDelta": 0.13133999999999998,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1313,
+            "morphRecoil": 0.0287
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U202",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 4,
+          "riggedJoints": [],
+          "frames": 44,
+          "expressiveFrames": 33,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 352,
+          "maxMorphDelta": 0.12214619999999998,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1221,
+            "morphRecoil": 0.0272
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop no exaggerated T pose or twisted skeleton",
+      "detail": [
+        {
+          "id": "E03",
+          "angle": 0
+        },
+        {
+          "id": "E04",
+          "angle": 0
+        },
+        {
+          "id": "G02",
+          "angle": 0
+        },
+        {
+          "id": "G03",
+          "angle": 0
+        },
+        {
+          "id": "G04",
+          "angle": 0
+        },
+        {
+          "id": "T03",
+          "angle": 0
+        },
+        {
+          "id": "T04",
+          "angle": 0
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop all seven actors keep facing opponent",
+      "detail": [
+        {
+          "id": "E03",
+          "frontDot": 0.9981
+        },
+        {
+          "id": "E04",
+          "frontDot": 0.9998
+        },
+        {
+          "id": "G02",
+          "frontDot": 1
+        },
+        {
+          "id": "G03",
+          "frontDot": 1
+        },
+        {
+          "id": "G04",
+          "frontDot": 1
+        },
+        {
+          "id": "T03",
+          "frontDot": 1
+        },
+        {
+          "id": "T04",
+          "frontDot": 1
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop continuous changes, not a static initial pose",
+      "detail": [
+        {
+          "id": "E03",
+          "uid": "U100",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 13,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 780,
+          "maxMorphDelta": 0.16995000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U101",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 70,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1300,
+          "maxMorphDelta": 0.357,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.0006,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U102",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 65,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 520,
+          "maxMorphDelta": 0.099,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U103",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 6,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 66,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1560,
+          "maxMorphDelta": 0.11088000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U200",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 67,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1300,
+          "maxMorphDelta": 0.11616000000000001,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U201",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 68,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 780,
+          "maxMorphDelta": 0.132,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U202",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 4,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 68,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1040,
+          "maxMorphDelta": 0.12276000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop at least one physical upper-body acting response",
+      "detail": [
+        {
+          "id": "E03",
+          "uid": "U100",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 13,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 780,
+          "maxMorphDelta": 0.16995000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U101",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 70,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1300,
+          "maxMorphDelta": 0.357,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.0006,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U102",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 65,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 520,
+          "maxMorphDelta": 0.099,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U103",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 6,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 66,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1560,
+          "maxMorphDelta": 0.11088000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U200",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 67,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1300,
+          "maxMorphDelta": 0.11616000000000001,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U201",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 68,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 780,
+          "maxMorphDelta": 0.132,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U202",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 4,
+          "riggedJoints": [],
+          "frames": 130,
+          "expressiveFrames": 68,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1040,
+          "maxMorphDelta": 0.12276000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop personality identity in real scene",
+      "detail": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.654,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.602,
+          "attention": "opponent",
+          "intent": "eye_roll",
+          "lastAction": {
+            "intent": "eye_roll",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.683,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.642,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.542,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.588,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "unit:player:U100",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.642,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "unit:player:U101",
+          "id": "E04",
+          "side": "player",
+          "role": "summon",
+          "personality": "运动员式冲动",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.683,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "unit:player:U102",
+          "id": "G02",
+          "side": "player",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.568,
+          "attention": "opponent",
+          "intent": "focus",
+          "lastAction": {
+            "intent": "focus",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "unit:player:U103",
+          "id": "G03",
+          "side": "player",
+          "role": "summon",
+          "personality": "实验狂人",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.611,
+          "attention": "opponent",
+          "intent": "focus",
+          "lastAction": {
+            "intent": "focus",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "unit:ai:U200",
+          "id": "G04",
+          "side": "ai",
+          "role": "summon",
+          "personality": "沉稳骄傲",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.588,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "unit:ai:U201",
+          "id": "T03",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真热心的信使",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.566,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        },
+        {
+          "key": "unit:ai:U202",
+          "id": "T04",
+          "side": "ai",
+          "role": "summon",
+          "personality": "守护同伴的门卫",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.602,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.12
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.11880000001192094
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop no JS or resource failures",
+      "detail": []
+    },
+    {
+      "passed": true,
+      "label": "phone seven genuine visible R97 shapes are controlled (not phantom skeletons)",
+      "detail": [
+        {
+          "id": "E03",
+          "uid": "U100",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 288,
+          "maxMorphDelta": 0.009234020672459507,
+          "maxAngle": 0,
+          "lastIntent": "challenge",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U101",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 38,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 480,
+          "maxMorphDelta": 0.357,
+          "maxAngle": 0,
+          "lastIntent": "challenge",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.3549,
+            "morphRecoil": 0.0326
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U102",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 35,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 192,
+          "maxMorphDelta": 0.09899999999999999,
+          "maxAngle": 0,
+          "lastIntent": "focus",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.0984,
+            "morphRecoil": 0.0235
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U103",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 6,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 36,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 576,
+          "maxMorphDelta": 0.11088000000000002,
+          "maxAngle": 0,
+          "lastIntent": "focus",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1102,
+            "morphRecoil": 0.0254
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U200",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 36,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 480,
+          "maxMorphDelta": 0.11616,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1155,
+            "morphRecoil": 0.0262
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U201",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 37,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 288,
+          "maxMorphDelta": 0.132,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1312,
+            "morphRecoil": 0.0287
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U202",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 4,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 36,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 384,
+          "maxMorphDelta": 0.12276000000000002,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.122,
+            "morphRecoil": 0.0272
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone actual baked arm/body vertex morph channels change for every student",
+      "detail": [
+        {
+          "id": "E03",
+          "uid": "U100",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 288,
+          "maxMorphDelta": 0.009234020672459507,
+          "maxAngle": 0,
+          "lastIntent": "challenge",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U101",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 38,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 480,
+          "maxMorphDelta": 0.357,
+          "maxAngle": 0,
+          "lastIntent": "challenge",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.3549,
+            "morphRecoil": 0.0326
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U102",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 35,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 192,
+          "maxMorphDelta": 0.09899999999999999,
+          "maxAngle": 0,
+          "lastIntent": "focus",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.0984,
+            "morphRecoil": 0.0235
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U103",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 6,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 36,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 576,
+          "maxMorphDelta": 0.11088000000000002,
+          "maxAngle": 0,
+          "lastIntent": "focus",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1102,
+            "morphRecoil": 0.0254
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U200",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 36,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 480,
+          "maxMorphDelta": 0.11616,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1155,
+            "morphRecoil": 0.0262
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U201",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 37,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 288,
+          "maxMorphDelta": 0.132,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.1312,
+            "morphRecoil": 0.0287
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U202",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 4,
+          "riggedJoints": [],
+          "frames": 48,
+          "expressiveFrames": 36,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 384,
+          "maxMorphDelta": 0.12276000000000002,
+          "maxAngle": 0,
+          "lastIntent": "inspect",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.122,
+            "morphRecoil": 0.0272
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone no exaggerated T pose or twisted skeleton",
+      "detail": [
+        {
+          "id": "E03",
+          "angle": 0
+        },
+        {
+          "id": "E04",
+          "angle": 0
+        },
+        {
+          "id": "G02",
+          "angle": 0
+        },
+        {
+          "id": "G03",
+          "angle": 0
+        },
+        {
+          "id": "G04",
+          "angle": 0
+        },
+        {
+          "id": "T03",
+          "angle": 0
+        },
+        {
+          "id": "T04",
+          "angle": 0
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone all seven actors keep facing opponent",
+      "detail": [
+        {
+          "id": "E03",
+          "frontDot": 0.997
+        },
+        {
+          "id": "E04",
+          "frontDot": 0.9998
+        },
+        {
+          "id": "G02",
+          "frontDot": 1
+        },
+        {
+          "id": "G03",
+          "frontDot": 1
+        },
+        {
+          "id": "G04",
+          "frontDot": 1
+        },
+        {
+          "id": "T03",
+          "frontDot": 1
+        },
+        {
+          "id": "T04",
+          "frontDot": 1
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone continuous changes, not a static initial pose",
+      "detail": [
+        {
+          "id": "E03",
+          "uid": "U100",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 13,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 804,
+          "maxMorphDelta": 0.16764,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U101",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 70,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1340,
+          "maxMorphDelta": 0.357,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.0076,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U102",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 64,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 536,
+          "maxMorphDelta": 0.09899999999999999,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U103",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 6,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 66,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1608,
+          "maxMorphDelta": 0.11088000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U200",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 66,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1340,
+          "maxMorphDelta": 0.11616,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U201",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 68,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 804,
+          "maxMorphDelta": 0.132,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U202",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 4,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 67,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1072,
+          "maxMorphDelta": 0.12276000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone at least one physical upper-body acting response",
+      "detail": [
+        {
+          "id": "E03",
+          "uid": "U100",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 13,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 804,
+          "maxMorphDelta": 0.16764,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U101",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 70,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1340,
+          "maxMorphDelta": 0.357,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0.0076,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U102",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 64,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 536,
+          "maxMorphDelta": 0.09899999999999999,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U103",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 6,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 66,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1608,
+          "maxMorphDelta": 0.11088000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "expectant",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U200",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 5,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 66,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1340,
+          "maxMorphDelta": 0.11616,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U201",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 3,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 68,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 804,
+          "maxMorphDelta": 0.132,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U202",
+          "side": "ai",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 4,
+          "riggedJoints": [],
+          "frames": 134,
+          "expressiveFrames": 67,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 1072,
+          "maxMorphDelta": 0.12276000000000002,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "curious",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {
+            "morphStrike": 0,
+            "morphRecoil": 0.008
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone personality identity in real scene",
+      "detail": [
+        {
+          "key": "host:player",
+          "id": "E01",
+          "side": "player",
+          "role": "duelist",
+          "personality": "好胜但善于观察",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.654,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "host:ai",
+          "id": "G01",
+          "side": "ai",
+          "role": "duelist",
+          "personality": "嘴硬、擅长反击",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.602,
+          "attention": "opponent",
+          "intent": "eye_roll",
+          "lastAction": {
+            "intent": "eye_roll",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "spectator:E04",
+          "id": "E04",
+          "side": "player",
+          "role": "spectator",
+          "personality": "运动员式冲动",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.683,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "spectator:E03",
+          "id": "E03",
+          "side": "player",
+          "role": "spectator",
+          "personality": "热情鼓励队友",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.642,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "spectator:G03",
+          "id": "G03",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "实验狂人",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.542,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "spectator:G04",
+          "id": "G04",
+          "side": "ai",
+          "role": "spectator",
+          "personality": "沉稳骄傲",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.588,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "unit:player:U100",
+          "id": "E03",
+          "side": "player",
+          "role": "summon",
+          "personality": "热情鼓励队友",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.642,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "unit:player:U101",
+          "id": "E04",
+          "side": "player",
+          "role": "summon",
+          "personality": "运动员式冲动",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.683,
+          "attention": "opponent",
+          "intent": "challenge",
+          "lastAction": {
+            "intent": "challenge",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "unit:player:U102",
+          "id": "G02",
+          "side": "player",
+          "role": "summon",
+          "personality": "认真谨慎",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.568,
+          "attention": "opponent",
+          "intent": "focus",
+          "lastAction": {
+            "intent": "focus",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "unit:player:U103",
+          "id": "G03",
+          "side": "player",
+          "role": "summon",
+          "personality": "实验狂人",
+          "emotion": "expectant",
+          "situation": "tied",
+          "tension": 0.124,
+          "confidence": 0.611,
+          "attention": "opponent",
+          "intent": "focus",
+          "lastAction": {
+            "intent": "focus",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "unit:ai:U200",
+          "id": "G04",
+          "side": "ai",
+          "role": "summon",
+          "personality": "沉稳骄傲",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.588,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "unit:ai:U201",
+          "id": "T03",
+          "side": "ai",
+          "role": "summon",
+          "personality": "认真热心的信使",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.566,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        },
+        {
+          "key": "unit:ai:U202",
+          "id": "T04",
+          "side": "ai",
+          "role": "summon",
+          "personality": "守护同伴的门卫",
+          "emotion": "curious",
+          "situation": "tied",
+          "tension": 0.181,
+          "confidence": 0.602,
+          "attention": "opponent",
+          "intent": "inspect",
+          "lastAction": {
+            "intent": "inspect",
+            "reason": "observed_card",
+            "at": 0.15
+          },
+          "eventCount": 1,
+          "latestEvent": {
+            "type": "card",
+            "side": "player",
+            "kind": "unit",
+            "at": 0.15409999999403956
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone no JS or resource failures",
+      "detail": []
+    }
+  ],
+  "errors": []
+}
