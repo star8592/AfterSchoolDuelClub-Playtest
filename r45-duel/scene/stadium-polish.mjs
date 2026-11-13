@@ -97,14 +97,18 @@ export function addStadiumPolish(THREE, scene, root, stats){
       [x,1.10,1.58],teamMat);
     lit.rotation.x=-.16;
   }
-  // Painted steel grandstand rails: architectural geometry, not flat image.
+  // R113: the original 19-meter rails obscured nearly EVERY chair back
+  // from the frontal camera, turning the entire stand into dark stripes.
+  // Keep proper safety railing on the extreme outside edges only; the new
+  // aisle handrails and open access stair flights serve the rest of the bank.
   for(const y of [1.04,2.03,3.10]){
     const z=-6.6-(y-.4)/.48*.79;
-    bx('Stadium_Bleacher_Safety_Rail_'+Math.round(y*10),
-      [19,.066,.07],[0,y+.28,z+.52],bronze);
-    for(const x of [-9,-4.5,0,4.5,9])
+    for(const x of [-9,9]){
+      bx('Stadium_Bleacher_Safety_Rail_'+Math.round(y*10)+'_'+x,
+        [1.15,.066,.07],[x,y+.28,z+.52],bronze);
       bx('Stadium_Bleacher_Rail_Post_'+Math.round(y*10)+'_'+x,
         [.07,.68,.07],[x,y-.03,z+.52],bronze);
+    }
   }
   // Production spotlights: lamp body, real spot illumination and very
   // low-opacity light shafts. Not a fake textured backdrop.
