@@ -79,7 +79,7 @@
         },
         "celebration": {
           "winner": "player",
-          "started": 1.3059999999999996,
+          "started": 1.31140000000596,
           "duration": 6.4
         },
         "events": [
@@ -87,7 +87,7 @@
             "side": "player",
             "type": "sleeve",
             "reason": "ambient",
-            "at": 1.22
+            "at": 1.25
           },
           {
             "side": "player",
@@ -104,12 +104,12 @@
       "value": {
         "finale": {
           "winner": "player",
-          "start": 1.3059999999999996,
+          "start": 1.31140000000596,
           "duration": 7.2
         },
         "finaleFrames": 108,
         "reactiveSpotlights": 2,
-        "displayEmissiveIntensity": 0.26842656319124036
+        "displayEmissiveIntensity": 0.2786537761580194
       }
     },
     {
@@ -117,8 +117,8 @@
       "label": "desktop on-court group win dance measured",
       "value": {
         "winner": "player",
-        "requested": 1.3059999999999996,
-        "started": 1.3219999999999996,
+        "requested": 1.31140000000596,
+        "started": 1.33090000000596,
         "duration": 6.4,
         "reduced": false,
         "frames": 540,
@@ -139,15 +139,15 @@
       "value": [
         {
           "id": "M02",
-          "dot": 0.9994
+          "dot": 0.9997
         },
         {
           "id": "E03",
-          "dot": 0.9999
+          "dot": 1
         },
         {
           "id": "T03",
-          "dot": 1
+          "dot": 0.9999
         },
         {
           "id": "G02",
@@ -240,7 +240,7 @@
         },
         "celebration": {
           "winner": "player",
-          "started": 1.1944000000059602,
+          "started": 1.1884999999701973,
           "duration": 6.4
         },
         "events": [
@@ -259,12 +259,12 @@
       "value": {
         "finale": {
           "winner": "player",
-          "start": 1.1944000000059602,
+          "start": 1.1884999999701973,
           "duration": 7.2
         },
         "finaleFrames": 108,
         "reactiveSpotlights": 2,
-        "displayEmissiveIntensity": 0.2721933600092923
+        "displayEmissiveIntensity": 0.2740254976955707
       }
     },
     {
@@ -272,8 +272,8 @@
       "label": "portrait on-court group win dance measured",
       "value": {
         "winner": "player",
-        "requested": 1.1944000000059602,
-        "started": 1.2075000000298022,
+        "requested": 1.1884999999701973,
+        "started": 1.2040999999940392,
         "duration": 6.4,
         "reduced": false,
         "frames": 540,
