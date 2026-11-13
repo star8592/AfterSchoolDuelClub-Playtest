@@ -54,6 +54,13 @@ let duelistHosts=[],hostSourceActors=[];
 const arenaLife=createArenaLifeWorld(Number(PARAMS.get('seed'))||20261113);
 const livingCast=createLivingCastDirector(Number(PARAMS.get('seed'))||20261113,arenaLife);
 const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
+// R121 secondary physical camera: an actual 3D cinematic inset of the
+// original child, with its source facial morphs and wrist-bound painted card.
+// Main wide stadium composition and manual user orbit remain untouched.
+const heroCamera=new THREE.PerspectiveCamera(43,1,.10,90);
+let heroLens={side:null,phase:'idle',frames:0,visible:false,
+  inset:null,faceNdc:null,lastDrawCalls:0};
+let heroResult={winner:null,started:-100};
 
 let lastTime=0,frames=0,actionFrames=0,impactFrames=0,drawCount=0,renderInfo=null;
 let currentPayload=null,activePhase='idle',ready=false,hadContact=false;
@@ -502,14 +509,14 @@ const DUELIST_POSE_SPEC=Object.freeze({
  // snap it forward, then recoil. No proxy limbs / no detached card hologram.
  E01:{hold:{R:[.035,-.12,-.16],L:[-.14,-.27,-.06]},
   draw:{R:[.075,-.26,-.01],L:[-.12,-.08,-.11]},
-  show:{R:[.20,.56,-.24],L:[-.15,.12,-.20]},
+  show:{R:[.55,.43,-.45],L:[-.15,.12,-.20]},
   cast:{R:[.50,.31,-.39],L:[-.10,.30,-.22]},
   guard:{R:[.11,.32,-.16],L:[-.16,.23,-.23]},
   victory:{R:[.13,.64,-.15],L:[-.23,.52,-.16]},
   defeat:{R:[.08,.36,-.07],L:[-.11,.35,-.07]}},
  G01:{hold:{R:[.045,.12,-.18],L:[-.17,-.26,-.07]},
   draw:{R:[.06,-.26,-.01],L:[-.16,-.13,-.09]},
-  show:{R:[.17,.61,-.19],L:[-.25,.28,-.16]},
+  show:{R:[.52,.48,-.43],L:[-.25,.28,-.16]},
   cast:{R:[.54,.36,-.37],L:[-.04,.18,-.19]},
   guard:{R:[.12,.35,-.15],L:[-.20,.25,-.18]},
   victory:{R:[.25,.70,-.10],L:[-.20,.43,-.12]},
@@ -578,8 +585,17 @@ function updateDuelistHosts(seconds){
     sign*(act.tilt||0)*idleBlend;
   // Facial blink and the source VRM blendshapes remain animated independently.
   const lifeMood=arenaLife.read('host:'+side,seconds);
+  // Winner/loser and attack states deform the actual original face mesh.
+  const faceMood=recoil>.13?'surprised':defeat>.10?'sorrow':
+   victory>.10?'joy':doCast>.18?(side==='player'?'joy':'angry'):
+   doDisplay>.16?'surprised':null;
+  const faceMoodAmount=faceMood==='sorrow'?.98*defeat:
+   faceMood==='joy'?.92*Math.max(victory,doCast):
+   faceMood==='angry'?.79*doCast:
+   faceMood==='surprised'?Math.max(.85*recoil,.68*doDisplay):0;
   host.face.update(seconds,{seed:side==='player'?.35:2.7,
    suppressEntrance:true,suppressGesture:true,
+   emotion:faceMood,emotionAmount:faceMoodAmount,
    // Trigger authentic VRM joy/fun morphs for card reveal/cast; during hits
    // return the face to neutral instead of smiling through damage.
    previewAmount:recoil>.14||defeat>.18?0:Math.max(doDisplay*.92,
@@ -765,7 +781,89 @@ function loop(){
   }
   stageText('idle','双方待命 · 真实三维竞技场');
  }
- renderer.render(scene,camera);frames++;drawCount=renderer.info.render.calls;
+ renderer.render(scene,camera);
+ // A camera cut never changes geometry orientation, physical animation or
+ // the actual player's chosen orbit. Render an inset in the SAME WebGL
+ // context for a maximum ~2 seconds, no second canvas, no fake 2D portrait.
+ let currentDraws=renderer.info.render.calls;
+ const focusCandidates=['player','ai'].map(side=>({
+  side,started:hostAction[side].started,
+  age:absoluteSeconds-hostAction[side].started
+ })).filter(x=>x.age>.28&&x.age<2.19).sort((a,b)=>b.started-a.started);
+ const ending=absoluteSeconds-heroResult.started;
+ const focus=focusCandidates[0]||
+  (['player','ai'].includes(heroResult.winner)&&ending>=.38&&ending<2.25?
+   {side:heroResult.winner,age:ending,result:true}:null);
+ heroLens.visible=false;
+ if(focus&&!reduced&&!legacyCamera){
+  const host=duelistHosts.find(x=>x.side===focus.side);
+  if(host){
+   const size=new THREE.Vector2();renderer.getSize(size);
+   const width=Math.max(1,Math.floor(size.x*(size.x<680?.40:.265)));
+   const height=Math.max(1,Math.floor(size.y*(size.x<680?.262:.34)));
+   const x=focus.side==='player'?Math.floor(size.x-width-18):18;
+   // Stay below the 3D scene top controls and scoreboard; the original
+   // R121 first shot occupied this HUD row and hid the child's face.
+   const y=Math.floor(size.y*(size.x<680?.40:.42));
+   const sign=focus.side==='player'?1:-1;
+   const cx=host.pivot.position.x,cy=host.pivot.position.y;
+   heroCamera.aspect=width/height;
+   heroCamera.fov=size.x<680?46:41;
+   heroCamera.updateProjectionMatrix();
+   // Camera approaches from spectator side and slightly towards opponent,
+   // so the actual card and each child's eyes remain simultaneously visible.
+   // Actual chest-up shot: original VRM face + the raised card, not a
+   // redundant long-shot with an oversized card eclipsing the eyes.
+   // Film the eyes from the direction the child is facing (opponent side),
+   // rather than filming the BACK of the raised card from the grandstand.
+   heroCamera.position.set(cx+sign*2.63,cy+2.36,host.pivot.position.z+.68);
+   const eye=new THREE.Vector3(cx+sign*.42,cy+1.72,host.pivot.position.z+.04);
+   heroCamera.lookAt(eye);
+   renderer.setScissorTest(true);
+   renderer.setViewport(x,y,width,height);
+   renderer.setScissor(x,y,width,height);
+   renderer.autoClear=false;
+   renderer.clear(true,true,true);
+   renderer.render(scene,heroCamera);
+   currentDraws+=renderer.info.render.calls;
+   renderer.autoClear=true;
+   renderer.setScissorTest(false);
+   renderer.setViewport(0,0,size.x,size.y);
+   renderer.setScissor(0,0,size.x,size.y);
+   host.pivot.updateWorldMatrix(true,true);
+   const head=host.pivot.getObjectByName('J_Bip_C_Head');
+   const face=head?.getWorldPosition(new THREE.Vector3()).project(heroCamera);
+   const wrist=host.pivot.getObjectByName('J_Bip_R_Hand');
+   const card=wrist?.getWorldPosition(new THREE.Vector3())
+    .add(new THREE.Vector3(0,.070,.067)).project(heroCamera);
+   const separation=face&&card?Math.hypot(face.x-card.x,face.y-card.y):0;
+   heroLens={side:focus.side,phase:focus.result?'victory_closeup':
+    focus.age<1.25?'card_reveal_closeup':'card_cast_closeup',
+    frames:heroLens.frames+1,visible:true,
+    inset:{x,y,width,height,
+     topMarginPx:size.y-(y+height),bottomMarginPx:y},faceNdc:face?
+     [face.x,face.y,face.z].map(v=>+v.toFixed(3)):null,
+    cardNdc:card?[card.x,card.y,card.z].map(v=>+v.toFixed(3)):null,
+    faceCardSeparation:+separation.toFixed(4),
+    lastDrawCalls:currentDraws};
+  }
+ }
+ if(!heroLens.visible){heroLens.side=null;heroLens.phase='idle'}
+ const portrait=$('hero-portrait-frame');
+ if(portrait){
+  portrait.hidden=!heroLens.visible;
+  if(heroLens.visible){
+   const{inset,side,phase}=heroLens;
+   portrait.style.left=inset.x+'px';
+   portrait.style.top=inset.topMarginPx+'px';
+   portrait.style.width=inset.width+'px';
+   portrait.style.height=inset.height+'px';
+   portrait.dataset.side=side;
+   $('hero-portrait-caption').textContent=phase==='victory_closeup'?
+    '决斗者 · 胜利特写':side==='player'?'我方 · 举牌特写':'对手 · 举牌特写';
+  }
+ }
+ frames++;drawCount=currentDraws;
 }
 function reply(type,other={}){
  if(window.parent!==window)window.parent.postMessage({
@@ -805,6 +903,7 @@ function onMessage(ev){
   if(!['player','ai','draw'].includes(msg.winner))return;
   arenaLife.observe('result',{side:msg.winner,winner:msg.winner,at:absoluteSeconds});
   livingCast.celebrate(msg.winner,absoluteSeconds);
+  heroResult={winner:msg.winner,started:absoluteSeconds};
   summonPresence?.celebrate?.(msg.winner,absoluteSeconds,{reduced});
   stadiumEvidence?.beginFinale?.(msg.winner,absoluteSeconds);
   stageText('settled',msg.winner==='draw'?'本场平局 · 体育馆欢呼':
@@ -933,6 +1032,7 @@ function exposeQA(){
     independentFromSummons:!actors.some(unit=>unit.source===a.sourceRig),
     posture:inspectDuelistPosture(a),expression:a.face.inspect()}))},
   get duelistAction(){return structuredClone(hostAction)},
+  get heroLens(){return structuredClone(heroLens)},
   get livingCast(){return livingCast.inspect()},
   get arenaLife(){return arenaLife.inspect()},
 

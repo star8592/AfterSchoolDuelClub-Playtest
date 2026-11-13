@@ -72,6 +72,22 @@ canvas{display:block;width:100%;height:100%}
 
 #info{position:absolute;top:9px;left:10px;z-index:3;padding:5px 10px;border:1px solid #d2b58577;background:#14243bc8;color:#fbe3bb;border-radius:7px;font:11px system-ui,sans-serif}
 #details,#identity,#identity-left,#identity-right,#replay,#evidence{display:none}
+/* R121: refined physical-camera inset frame. A single scene + one GPU
+   canvas, not a fake 2D portrait. Never takes pointer or keyboard focus. */
+#hero-portrait-frame{position:fixed;z-index:4;pointer-events:none;box-sizing:border-box;
+ border:2px solid #efd59f;border-radius:9px;overflow:hidden;
+ box-shadow:0 9px 28px #061521c7,0 0 0 3px #14283ecb,inset 0 0 18px #fae0b322;
+ transition:opacity .13s linear}
+#hero-portrait-frame[hidden]{display:none}
+#hero-portrait-frame[data-side=ai]{border-color:#96d5eb;box-shadow:
+ 0 9px 28px #061521c7,0 0 0 3px #14283ecb,inset 0 0 18px #93d5e222}
+#hero-portrait-caption{position:absolute;top:5px;left:6px;
+ display:block;max-width:calc(100% - 12px);padding:3px 7px;
+ background:#0c233ad9;color:#ffebc0;border:1px solid #d4b67c88;
+ font:800 clamp(9px,.95vw,11px)/1.35 system-ui,"Noto Sans SC",sans-serif;
+ letter-spacing:.06em;border-radius:5px;white-space:nowrap;
+ text-shadow:0 1px 4px #020812}
+#hero-portrait-frame[data-side=ai] #hero-portrait-caption{color:#cef4ff;border-color:#9bd8e888}
 #impact{position:absolute;top:22%;left:50%;transform:translateX(-50%);font-weight:900;font:900 clamp(16px,3vw,34px) system-ui,sans-serif;color:#fff0d4;text-shadow:0 4px 14px #000,0 0 20px #fd875f;z-index:4}
 #impact[hidden]{display:none}
 /* R100: scene-native, transient three-phase combo label and skip control.
@@ -100,6 +116,7 @@ canvas{display:block;width:100%;height:100%}
 
 </style></head><body>
 <canvas id="battle-canvas" aria-label="真正的三维体育馆：双方决斗者站台与中央召唤竞技场"></canvas>
+<div id="hero-portrait-frame" aria-hidden="true" hidden><span id="hero-portrait-caption"></span></div>
 <div id="info"><strong id="phase">准备竞技场</strong><span id="details"></span></div>
 <span id="identity"></span><span id="identity-left"></span><span id="identity-right"></span><span id="evidence"></span>
 <div id="impact" hidden>命中</div><button id="replay" hidden></button>

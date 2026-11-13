@@ -1,0 +1,1676 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop both premium source VRMs have native sorrow & anger morphs",
+      "d": [
+        {
+          "role": "铃声追不上",
+          "beat": "发现要迟到，慌忙挥手",
+          "mode": "idle",
+          "amount": 0,
+          "blink": 0,
+          "expression": "joy",
+          "faceAmount": 0,
+          "emotion": "idle",
+          "emotionAmount": 0,
+          "actualMood": 0,
+          "emotionBindings": {
+            "joy": 10,
+            "fun": 10,
+            "angry": 10,
+            "sorrow": 10,
+            "surprised": 10
+          },
+          "actualBlink": 0,
+          "actualExpression": 0,
+          "heroPose": {
+            "name": "护住邮差包·俏皮挥手",
+            "arms": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.132,
+                "reach": 0.533,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.243,
+                  1.742,
+                  0.52
+                ]
+              },
+              "L": {
+                "error": 0.0022,
+                "elbowOut": 0.039,
+                "reach": 0.538,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.408,
+                  1.618,
+                  0.425
+                ]
+              }
+            }
+          },
+          "entranceAmount": 0,
+          "faceMeshes": 10,
+          "blinkBindings": 10,
+          "expressionBindings": 10,
+          "frames": 1
+        },
+        {
+          "role": "橡皮筋建筑师",
+          "beat": "认真扶眼镜，突然灵机一动",
+          "mode": "idle",
+          "amount": 0,
+          "blink": 0.338,
+          "expression": "fun",
+          "faceAmount": 0,
+          "emotion": "idle",
+          "emotionAmount": 0,
+          "actualMood": 0,
+          "emotionBindings": {
+            "joy": 10,
+            "fun": 10,
+            "angry": 10,
+            "sorrow": 10,
+            "surprised": 10
+          },
+          "actualBlink": 0.338,
+          "actualExpression": 0,
+          "heroPose": {
+            "name": "托腮思考·一手叉腰",
+            "arms": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.171,
+                "reach": 0.257,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.369,
+                  2.173,
+                  0.591
+                ]
+              },
+              "L": {
+                "error": 0.0242,
+                "elbowOut": 0.018,
+                "reach": 0.56,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.504,
+                  1.609,
+                  0.833
+                ]
+              }
+            }
+          },
+          "entranceAmount": 0,
+          "faceMeshes": 10,
+          "blinkBindings": 10,
+          "expressionBindings": 10,
+          "frames": 1
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop no persistent picture-in-picture when idle",
+      "d": {
+        "side": null,
+        "phase": "idle",
+        "frames": 0,
+        "visible": false,
+        "inset": null,
+        "faceNdc": null,
+        "lastDrawCalls": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop player true secondary 3D face/card camera focuses current cast",
+      "d": {
+        "side": "player",
+        "phase": "card_reveal_closeup",
+        "frames": 31,
+        "visible": true,
+        "inset": {
+          "x": 1041,
+          "y": 378,
+          "width": 381,
+          "height": 306,
+          "topMarginPx": 216,
+          "bottomMarginPx": 378
+        },
+        "faceNdc": [
+          -0.026,
+          0.182,
+          0.928
+        ],
+        "cardNdc": [
+          -0.366,
+          0.125,
+          0.908
+        ],
+        "faceCardSeparation": 0.3448,
+        "lastDrawCalls": 1164
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop player real VRM face actually inside cinematic frame",
+      "d": {
+        "side": "player",
+        "phase": "card_reveal_closeup",
+        "frames": 31,
+        "visible": true,
+        "inset": {
+          "x": 1041,
+          "y": 378,
+          "width": 381,
+          "height": 306,
+          "topMarginPx": 216,
+          "bottomMarginPx": 378
+        },
+        "faceNdc": [
+          -0.026,
+          0.182,
+          0.928
+        ],
+        "cardNdc": [
+          -0.366,
+          0.125,
+          0.908
+        ],
+        "faceCardSeparation": 0.3448,
+        "lastDrawCalls": 1164
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop player shot does not hide score and hand/card controls",
+      "d": {
+        "x": 1041,
+        "y": 378,
+        "width": 381,
+        "height": 306,
+        "topMarginPx": 216,
+        "bottomMarginPx": 378
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop player premium color-coded lens frame rendered in real scene",
+      "d": {
+        "visible": true,
+        "side": "player",
+        "caption": "我方 · 举牌特写"
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop player authentic facial SURPRISE deforms original mesh",
+      "d": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "gesture",
+        "amount": 0.92,
+        "blink": 0,
+        "expression": "joy",
+        "faceAmount": 0,
+        "emotion": "surprised",
+        "emotionAmount": 0.68,
+        "actualMood": 0.68,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "heroPose": {
+          "name": "护住邮差包·俏皮挥手",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.056,
+              "reach": 0.249,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.267,
+                2.076,
+                0.782
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.05,
+              "reach": 0.479,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.338,
+                1.732,
+                0.468
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 46
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop player raised source wrist remains animated in cinematic cut",
+      "d": {
+        "phase": "raise_card",
+        "draw": 0.042,
+        "display": 1,
+        "cast": 0,
+        "follow": 0,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": 0.202,
+            "spread": 0.717,
+            "worldHand": [
+              -5.023,
+              2.304,
+              0.983
+            ],
+            "wristToShoulder": 0.54
+          },
+          "L": {
+            "drop": -0.523,
+            "spread": 0.043,
+            "worldHand": [
+              -5.326,
+              2.021,
+              0.385
+            ],
+            "wristToShoulder": 0.263
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0.0974,
+            "elbowOut": 0.2,
+            "reach": 0.635,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.023,
+              2.304,
+              0.983
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.012,
+            "reach": 0.263,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.326,
+              2.021,
+              0.385
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop player PIP drawcalls fit original GPU guard",
+      "d": 1164
+    },
+    {
+      "pass": true,
+      "label": "desktop ai true secondary 3D face/card camera focuses current cast",
+      "d": {
+        "side": "ai",
+        "phase": "card_reveal_closeup",
+        "frames": 148,
+        "visible": true,
+        "inset": {
+          "x": 18,
+          "y": 378,
+          "width": 381,
+          "height": 306,
+          "topMarginPx": 216,
+          "bottomMarginPx": 378
+        },
+        "faceNdc": [
+          0.036,
+          0.183,
+          0.929
+        ],
+        "cardNdc": [
+          -0.391,
+          0.307,
+          0.926
+        ],
+        "faceCardSeparation": 0.4452,
+        "lastDrawCalls": 1164
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop ai real VRM face actually inside cinematic frame",
+      "d": {
+        "side": "ai",
+        "phase": "card_reveal_closeup",
+        "frames": 148,
+        "visible": true,
+        "inset": {
+          "x": 18,
+          "y": 378,
+          "width": 381,
+          "height": 306,
+          "topMarginPx": 216,
+          "bottomMarginPx": 378
+        },
+        "faceNdc": [
+          0.036,
+          0.183,
+          0.929
+        ],
+        "cardNdc": [
+          -0.391,
+          0.307,
+          0.926
+        ],
+        "faceCardSeparation": 0.4452,
+        "lastDrawCalls": 1164
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop ai shot does not hide score and hand/card controls",
+      "d": {
+        "x": 18,
+        "y": 378,
+        "width": 381,
+        "height": 306,
+        "topMarginPx": 216,
+        "bottomMarginPx": 378
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop ai premium color-coded lens frame rendered in real scene",
+      "d": {
+        "visible": true,
+        "side": "ai",
+        "caption": "对手 · 举牌特写"
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop ai authentic facial SURPRISE deforms original mesh",
+      "d": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "gesture",
+        "amount": 0.92,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0,
+        "emotion": "surprised",
+        "emotionAmount": 0.68,
+        "actualMood": 0.68,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "heroPose": {
+          "name": "托腮思考·一手叉腰",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0,
+              "reach": 0.193,
+              "segmentLength": 0.55,
+              "hand": [
+                5.422,
+                2.156,
+                0.369
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.081,
+              "reach": 0.467,
+              "segmentLength": 0.55,
+              "hand": [
+                5.343,
+                1.698,
+                0.677
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 220
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop ai raised source wrist remains animated in cinematic cut",
+      "d": {
+        "phase": "raise_card",
+        "draw": 0,
+        "display": 1,
+        "cast": 0,
+        "follow": 0,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": 0.269,
+            "spread": 0.442,
+            "worldHand": [
+              5.292,
+              2.355,
+              0.029
+            ],
+            "wristToShoulder": 0.538
+          },
+          "L": {
+            "drop": -0.352,
+            "spread": 0.041,
+            "worldHand": [
+              5.352,
+              2.199,
+              0.799
+            ],
+            "wristToShoulder": 0.158
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0.0701,
+            "elbowOut": 0.114,
+            "reach": 0.607,
+            "segmentLength": 0.55,
+            "hand": [
+              5.292,
+              2.355,
+              0.029
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.011,
+            "reach": 0.158,
+            "segmentLength": 0.55,
+            "hand": [
+              5.352,
+              2.199,
+              0.799
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop ai PIP drawcalls fit original GPU guard",
+      "d": 1164
+    },
+    {
+      "pass": true,
+      "label": "desktop real female avatar smiles on win",
+      "d": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "gesture",
+        "amount": 0.96,
+        "blink": 0,
+        "expression": "joy",
+        "faceAmount": 0,
+        "emotion": "joy",
+        "emotionAmount": 0.92,
+        "actualMood": 0.92,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0.92,
+        "heroPose": {
+          "name": "护住邮差包·俏皮挥手",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.073,
+              "reach": 0.277,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.131,
+                2.24,
+                0.993
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.079,
+              "reach": 0.491,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.187,
+                1.926,
+                0.627
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 413
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop real male avatar dejected on loss",
+      "d": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "idle",
+        "amount": 0,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0,
+        "emotion": "sorrow",
+        "emotionAmount": 0.98,
+        "actualMood": 0.98,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "heroPose": {
+          "name": "托腮思考·一手叉腰",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.186,
+              "reach": 0.292,
+              "segmentLength": 0.55,
+              "hand": [
+                5.452,
+                2.095,
+                0.193
+              ]
+            },
+            "L": {
+              "error": 0.0254,
+              "elbowOut": 0.019,
+              "reach": 0.561,
+              "segmentLength": 0.55,
+              "hand": [
+                5.633,
+                1.612,
+                0.551
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 413
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop victory reaction gets its own physically rendered closeup",
+      "d": {
+        "side": "player",
+        "phase": "victory_closeup",
+        "frames": 270,
+        "visible": true,
+        "inset": {
+          "x": 1041,
+          "y": 378,
+          "width": 381,
+          "height": 306,
+          "topMarginPx": 216,
+          "bottomMarginPx": 378
+        },
+        "faceNdc": [
+          -0.207,
+          0.165,
+          0.928
+        ],
+        "cardNdc": [
+          -0.339,
+          0.436,
+          0.917
+        ],
+        "faceCardSeparation": 0.3019,
+        "lastDrawCalls": 1116
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop cinematics never change actual battle rules",
+      "d": null
+    },
+    {
+      "pass": true,
+      "label": "desktop no shader errors, HTTP404 or game errors",
+      "d": []
+    },
+    {
+      "pass": true,
+      "label": "phone both premium source VRMs have native sorrow & anger morphs",
+      "d": [
+        {
+          "role": "铃声追不上",
+          "beat": "发现要迟到，慌忙挥手",
+          "mode": "idle",
+          "amount": 0,
+          "blink": 0,
+          "expression": "joy",
+          "faceAmount": 0,
+          "emotion": "idle",
+          "emotionAmount": 0,
+          "actualMood": 0,
+          "emotionBindings": {
+            "joy": 10,
+            "fun": 10,
+            "angry": 10,
+            "sorrow": 10,
+            "surprised": 10
+          },
+          "actualBlink": 0,
+          "actualExpression": 0,
+          "heroPose": {
+            "name": "护住邮差包·俏皮挥手",
+            "arms": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.132,
+                "reach": 0.533,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.243,
+                  1.742,
+                  0.52
+                ]
+              },
+              "L": {
+                "error": 0.0022,
+                "elbowOut": 0.039,
+                "reach": 0.538,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.408,
+                  1.618,
+                  0.425
+                ]
+              }
+            }
+          },
+          "entranceAmount": 0,
+          "faceMeshes": 10,
+          "blinkBindings": 10,
+          "expressionBindings": 10,
+          "frames": 1
+        },
+        {
+          "role": "橡皮筋建筑师",
+          "beat": "认真扶眼镜，突然灵机一动",
+          "mode": "idle",
+          "amount": 0,
+          "blink": 0.338,
+          "expression": "fun",
+          "faceAmount": 0,
+          "emotion": "idle",
+          "emotionAmount": 0,
+          "actualMood": 0,
+          "emotionBindings": {
+            "joy": 10,
+            "fun": 10,
+            "angry": 10,
+            "sorrow": 10,
+            "surprised": 10
+          },
+          "actualBlink": 0.338,
+          "actualExpression": 0,
+          "heroPose": {
+            "name": "托腮思考·一手叉腰",
+            "arms": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.171,
+                "reach": 0.257,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.369,
+                  2.173,
+                  0.591
+                ]
+              },
+              "L": {
+                "error": 0.0242,
+                "elbowOut": 0.018,
+                "reach": 0.56,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.504,
+                  1.609,
+                  0.833
+                ]
+              }
+            }
+          },
+          "entranceAmount": 0,
+          "faceMeshes": 10,
+          "blinkBindings": 10,
+          "expressionBindings": 10,
+          "frames": 1
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "phone no persistent picture-in-picture when idle",
+      "d": {
+        "side": null,
+        "phase": "idle",
+        "frames": 0,
+        "visible": false,
+        "inset": null,
+        "faceNdc": null,
+        "lastDrawCalls": 0
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone player true secondary 3D face/card camera focuses current cast",
+      "d": {
+        "side": "player",
+        "phase": "card_reveal_closeup",
+        "frames": 34,
+        "visible": true,
+        "inset": {
+          "x": 240,
+          "y": 360,
+          "width": 172,
+          "height": 235,
+          "topMarginPx": 305,
+          "bottomMarginPx": 360
+        },
+        "faceNdc": [
+          -0.039,
+          0.16,
+          0.929
+        ],
+        "cardNdc": [
+          -0.548,
+          0.11,
+          0.908
+        ],
+        "faceCardSeparation": 0.5115,
+        "lastDrawCalls": 1162
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone player real VRM face actually inside cinematic frame",
+      "d": {
+        "side": "player",
+        "phase": "card_reveal_closeup",
+        "frames": 34,
+        "visible": true,
+        "inset": {
+          "x": 240,
+          "y": 360,
+          "width": 172,
+          "height": 235,
+          "topMarginPx": 305,
+          "bottomMarginPx": 360
+        },
+        "faceNdc": [
+          -0.039,
+          0.16,
+          0.929
+        ],
+        "cardNdc": [
+          -0.548,
+          0.11,
+          0.908
+        ],
+        "faceCardSeparation": 0.5115,
+        "lastDrawCalls": 1162
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone player shot does not hide score and hand/card controls",
+      "d": {
+        "x": 240,
+        "y": 360,
+        "width": 172,
+        "height": 235,
+        "topMarginPx": 305,
+        "bottomMarginPx": 360
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone player premium color-coded lens frame rendered in real scene",
+      "d": {
+        "visible": true,
+        "side": "player",
+        "caption": "我方 · 举牌特写"
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone player authentic facial SURPRISE deforms original mesh",
+      "d": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "gesture",
+        "amount": 0.92,
+        "blink": 0,
+        "expression": "joy",
+        "faceAmount": 0,
+        "emotion": "surprised",
+        "emotionAmount": 0.68,
+        "actualMood": 0.68,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "heroPose": {
+          "name": "护住邮差包·俏皮挥手",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.056,
+              "reach": 0.249,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.267,
+                2.077,
+                0.782
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.051,
+              "reach": 0.479,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.338,
+                1.733,
+                0.468
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 51
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone player raised source wrist remains animated in cinematic cut",
+      "d": {
+        "phase": "raise_card",
+        "draw": 0,
+        "display": 1,
+        "cast": 0,
+        "follow": 0,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": 0.202,
+            "spread": 0.717,
+            "worldHand": [
+              -5.023,
+              2.304,
+              0.982
+            ],
+            "wristToShoulder": 0.54
+          },
+          "L": {
+            "drop": -0.524,
+            "spread": 0.045,
+            "worldHand": [
+              -5.327,
+              2.021,
+              0.384
+            ],
+            "wristToShoulder": 0.263
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0.0978,
+            "elbowOut": 0.2,
+            "reach": 0.636,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.023,
+              2.304,
+              0.982
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.013,
+            "reach": 0.263,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.327,
+              2.021,
+              0.384
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone player PIP drawcalls fit original GPU guard",
+      "d": 1162
+    },
+    {
+      "pass": true,
+      "label": "phone ai true secondary 3D face/card camera focuses current cast",
+      "d": {
+        "side": "ai",
+        "phase": "card_reveal_closeup",
+        "frames": 147,
+        "visible": true,
+        "inset": {
+          "x": 18,
+          "y": 360,
+          "width": 172,
+          "height": 235,
+          "topMarginPx": 305,
+          "bottomMarginPx": 360
+        },
+        "faceNdc": [
+          0.054,
+          0.161,
+          0.929
+        ],
+        "cardNdc": [
+          -0.586,
+          0.271,
+          0.926
+        ],
+        "faceCardSeparation": 0.6497,
+        "lastDrawCalls": 1162
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone ai real VRM face actually inside cinematic frame",
+      "d": {
+        "side": "ai",
+        "phase": "card_reveal_closeup",
+        "frames": 147,
+        "visible": true,
+        "inset": {
+          "x": 18,
+          "y": 360,
+          "width": 172,
+          "height": 235,
+          "topMarginPx": 305,
+          "bottomMarginPx": 360
+        },
+        "faceNdc": [
+          0.054,
+          0.161,
+          0.929
+        ],
+        "cardNdc": [
+          -0.586,
+          0.271,
+          0.926
+        ],
+        "faceCardSeparation": 0.6497,
+        "lastDrawCalls": 1162
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone ai shot does not hide score and hand/card controls",
+      "d": {
+        "x": 18,
+        "y": 360,
+        "width": 172,
+        "height": 235,
+        "topMarginPx": 305,
+        "bottomMarginPx": 360
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone ai premium color-coded lens frame rendered in real scene",
+      "d": {
+        "visible": true,
+        "side": "ai",
+        "caption": "对手 · 举牌特写"
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone ai authentic facial SURPRISE deforms original mesh",
+      "d": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "gesture",
+        "amount": 0.92,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0,
+        "emotion": "surprised",
+        "emotionAmount": 0.68,
+        "actualMood": 0.68,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "heroPose": {
+          "name": "托腮思考·一手叉腰",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0,
+              "reach": 0.193,
+              "segmentLength": 0.55,
+              "hand": [
+                5.422,
+                2.156,
+                0.368
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.081,
+              "reach": 0.467,
+              "segmentLength": 0.55,
+              "hand": [
+                5.343,
+                1.698,
+                0.677
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 223
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone ai raised source wrist remains animated in cinematic cut",
+      "d": {
+        "phase": "raise_card",
+        "draw": 0,
+        "display": 1,
+        "cast": 0,
+        "follow": 0,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": 0.268,
+            "spread": 0.443,
+            "worldHand": [
+              5.292,
+              2.355,
+              0.029
+            ],
+            "wristToShoulder": 0.538
+          },
+          "L": {
+            "drop": -0.351,
+            "spread": 0.04,
+            "worldHand": [
+              5.353,
+              2.2,
+              0.799
+            ],
+            "wristToShoulder": 0.158
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0.0704,
+            "elbowOut": 0.114,
+            "reach": 0.607,
+            "segmentLength": 0.55,
+            "hand": [
+              5.292,
+              2.355,
+              0.029
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.01,
+            "reach": 0.158,
+            "segmentLength": 0.55,
+            "hand": [
+              5.353,
+              2.2,
+              0.799
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone ai PIP drawcalls fit original GPU guard",
+      "d": 1162
+    },
+    {
+      "pass": true,
+      "label": "phone real female avatar smiles on win",
+      "d": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "gesture",
+        "amount": 0.96,
+        "blink": 0,
+        "expression": "joy",
+        "faceAmount": 0,
+        "emotion": "joy",
+        "emotionAmount": 0.92,
+        "actualMood": 0.92,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0.92,
+        "heroPose": {
+          "name": "护住邮差包·俏皮挥手",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.073,
+              "reach": 0.277,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.131,
+                2.093,
+                0.992
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.08,
+              "reach": 0.491,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.187,
+                1.779,
+                0.627
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 411
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone real male avatar dejected on loss",
+      "d": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "idle",
+        "amount": 0,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0,
+        "emotion": "sorrow",
+        "emotionAmount": 0.98,
+        "actualMood": 0.98,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "heroPose": {
+          "name": "托腮思考·一手叉腰",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.186,
+              "reach": 0.292,
+              "segmentLength": 0.55,
+              "hand": [
+                5.452,
+                2.096,
+                0.193
+              ]
+            },
+            "L": {
+              "error": 0.0253,
+              "elbowOut": 0.019,
+              "reach": 0.561,
+              "segmentLength": 0.55,
+              "hand": [
+                5.633,
+                1.613,
+                0.55
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 411
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone victory reaction gets its own physically rendered closeup",
+      "d": {
+        "side": "player",
+        "phase": "victory_closeup",
+        "frames": 274,
+        "visible": true,
+        "inset": {
+          "x": 240,
+          "y": 360,
+          "width": 172,
+          "height": 235,
+          "topMarginPx": 305,
+          "bottomMarginPx": 360
+        },
+        "faceNdc": [
+          -0.309,
+          0.145,
+          0.928
+        ],
+        "cardNdc": [
+          -0.507,
+          0.384,
+          0.917
+        ],
+        "faceCardSeparation": 0.3102,
+        "lastDrawCalls": 1115
+      }
+    },
+    {
+      "pass": true,
+      "label": "phone cinematics never change actual battle rules",
+      "d": null
+    },
+    {
+      "pass": true,
+      "label": "phone no shader errors, HTTP404 or game errors",
+      "d": []
+    }
+  ],
+  "errors": [],
+  "snapshots": [
+    {
+      "view": "desktop",
+      "closeup": {
+        "side": "player",
+        "phase": "victory_closeup",
+        "frames": 270,
+        "visible": true,
+        "inset": {
+          "x": 1041,
+          "y": 378,
+          "width": 381,
+          "height": 306,
+          "topMarginPx": 216,
+          "bottomMarginPx": 378
+        },
+        "faceNdc": [
+          -0.207,
+          0.165,
+          0.928
+        ],
+        "cardNdc": [
+          -0.339,
+          0.436,
+          0.917
+        ],
+        "faceCardSeparation": 0.3019,
+        "lastDrawCalls": 1116
+      },
+      "winner": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "gesture",
+        "amount": 0.96,
+        "blink": 0,
+        "expression": "joy",
+        "faceAmount": 0,
+        "emotion": "joy",
+        "emotionAmount": 0.92,
+        "actualMood": 0.92,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0.92,
+        "heroPose": {
+          "name": "护住邮差包·俏皮挥手",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.073,
+              "reach": 0.277,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.131,
+                2.24,
+                0.993
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.079,
+              "reach": 0.491,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.187,
+                1.926,
+                0.627
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 413
+      },
+      "loser": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "idle",
+        "amount": 0,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0,
+        "emotion": "sorrow",
+        "emotionAmount": 0.98,
+        "actualMood": 0.98,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "heroPose": {
+          "name": "托腮思考·一手叉腰",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.186,
+              "reach": 0.292,
+              "segmentLength": 0.55,
+              "hand": [
+                5.452,
+                2.095,
+                0.193
+              ]
+            },
+            "L": {
+              "error": 0.0254,
+              "elbowOut": 0.019,
+              "reach": 0.561,
+              "segmentLength": 0.55,
+              "hand": [
+                5.633,
+                1.612,
+                0.551
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 413
+      },
+      "drawCalls": 1116,
+      "errors": []
+    },
+    {
+      "view": "phone",
+      "closeup": {
+        "side": "player",
+        "phase": "victory_closeup",
+        "frames": 274,
+        "visible": true,
+        "inset": {
+          "x": 240,
+          "y": 360,
+          "width": 172,
+          "height": 235,
+          "topMarginPx": 305,
+          "bottomMarginPx": 360
+        },
+        "faceNdc": [
+          -0.309,
+          0.145,
+          0.928
+        ],
+        "cardNdc": [
+          -0.507,
+          0.384,
+          0.917
+        ],
+        "faceCardSeparation": 0.3102,
+        "lastDrawCalls": 1115
+      },
+      "winner": {
+        "role": "铃声追不上",
+        "beat": "发现要迟到，慌忙挥手",
+        "mode": "gesture",
+        "amount": 0.96,
+        "blink": 0,
+        "expression": "joy",
+        "faceAmount": 0,
+        "emotion": "joy",
+        "emotionAmount": 0.92,
+        "actualMood": 0.92,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0.92,
+        "heroPose": {
+          "name": "护住邮差包·俏皮挥手",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.073,
+              "reach": 0.277,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.131,
+                2.093,
+                0.992
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.08,
+              "reach": 0.491,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.187,
+                1.779,
+                0.627
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 411
+      },
+      "loser": {
+        "role": "橡皮筋建筑师",
+        "beat": "认真扶眼镜，突然灵机一动",
+        "mode": "idle",
+        "amount": 0,
+        "blink": 0,
+        "expression": "fun",
+        "faceAmount": 0,
+        "emotion": "sorrow",
+        "emotionAmount": 0.98,
+        "actualMood": 0.98,
+        "emotionBindings": {
+          "joy": 10,
+          "fun": 10,
+          "angry": 10,
+          "sorrow": 10,
+          "surprised": 10
+        },
+        "actualBlink": 0,
+        "actualExpression": 0,
+        "heroPose": {
+          "name": "托腮思考·一手叉腰",
+          "arms": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.186,
+              "reach": 0.292,
+              "segmentLength": 0.55,
+              "hand": [
+                5.452,
+                2.096,
+                0.193
+              ]
+            },
+            "L": {
+              "error": 0.0253,
+              "elbowOut": 0.019,
+              "reach": 0.561,
+              "segmentLength": 0.55,
+              "hand": [
+                5.633,
+                1.613,
+                0.55
+              ]
+            }
+          }
+        },
+        "entranceAmount": 0,
+        "faceMeshes": 10,
+        "blinkBindings": 10,
+        "expressionBindings": 10,
+        "frames": 411
+      },
+      "drawCalls": 1115,
+      "errors": []
+    }
+  ]
+}
