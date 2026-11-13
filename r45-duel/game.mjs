@@ -8,6 +8,7 @@ import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
 import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
 import {chooseCrowdAccident} from './scene/spectator-chaos-contract.mjs';
+import {resolveSpectatorProp} from './scene/bleacher-prop-comedy.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
@@ -808,6 +809,8 @@ window.addEventListener('message',event=>{
   if(!canonical||canonical.scenario!==d.scenario||canonical.line!==d.line||
    canonical.spectatorIndex!==d.spectatorIndex||
    d.gameplayHit!==false||d.ruleDamage!==0)return;
+  const prop=resolveSpectatorProp(canonical);
+  if(!prop||d.prop!==prop.kind||d.propLine!==prop.line)return;
   r122PlayedCrowdAccidents.add(d.serial);
   if(r122PlayedCrowdAccidents.size>400)r122PlayedCrowdAccidents.clear();
   const pitch=.86+(canonical.spectatorIndex%4)*.13;
@@ -818,8 +821,20 @@ window.addEventListener('message',event=>{
    d.scenario==='ricochet'?'r102_rubber_squeak':
    d.scenario==='overshoot'?'r102_spring_boing':'r102_chalk_snap',
    d.spectatorIndex<2?'player':'ai',{rate:1.02,gainScale:.6,delay:.12});
-  showComedyAside({text:'看台意外！'+d.caption+'。'+d.line,
+  showComedyAside({text:'看台意外！'+prop.caption+'。'+prop.line,
    side:'center',speaker:'看台现场 · 搞笑吐槽字幕'});
+  const matchGame=g,incidentSerial=d.serial;
+  // A dead-simple event-bound postscript: does not run after rematch or
+  // victory, and never cuts off the fighter's own recorded voice.
+  setTimeout(()=>{
+   if(g!==matchGame||g.phase==='ended'||!sceneReady||
+    !r122PlayedCrowdAccidents.has(incidentSerial))return;
+   if(!audio.playPropPA(prop.kind)){
+    showComedyAside({text:'体育馆广播：'+prop.caption,
+     side:'center',speaker:'看台广播 · 文字'});
+   }
+  },3500);
+
   return;
  }
  if(event.data?.type==='ASDC_R121_SPELL_CONTACT'){
