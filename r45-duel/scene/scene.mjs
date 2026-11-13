@@ -880,8 +880,11 @@ function loop(){
    // redundant long-shot with an oversized card eclipsing the eyes.
    // Film the eyes from the direction the child is facing (opponent side),
    // rather than filming the BACK of the raised card from the grandstand.
-   heroCamera.position.set(cx+sign*2.63,cy+2.36,host.pivot.position.z+.68);
-   const eye=new THREE.Vector3(cx+sign*.42,cy+1.72,host.pivot.position.z+.04);
+   // Eye-height, chest-up framing: the former high/full-body angle hid
+   // the actual Joy/Angry/Sorrow morphs behind hair in both source VRMs.
+   // Approach on the opponent-facing side, keeping the real raised card in shot.
+   heroCamera.position.set(cx+sign*1.75,cy+1.84,host.pivot.position.z+.48);
+   const eye=new THREE.Vector3(cx+sign*.30,cy+1.74,host.pivot.position.z+.04);
    heroCamera.lookAt(eye);
    renderer.setScissorTest(true);
    renderer.setViewport(x,y,width,height);
