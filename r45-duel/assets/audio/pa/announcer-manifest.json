@@ -1,0 +1,99 @@
+{
+  "provider": "Qwen3-TTS",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "version": "R113",
+  "provenance": "Offline Z890 model inference; audition pending",
+  "review_status": "pending-human-listening",
+  "clips": {
+    "start": {
+      "file": "r113_start.ogg",
+      "text": "同学们注意！放学后决斗社，现在开战！",
+      "speaker": "ryan",
+      "kind": "stadium",
+      "duration_seconds": 3.81,
+      "ready": true,
+      "sha256": "18e0517779977decd240898b117062b6a49bd4f752ffe1b407316082a8f24dc3",
+      "review_status": "pending-human-listening"
+    },
+    "pressure": {
+      "file": "r113_pressure.ogg",
+      "text": "注意注意！比赛进入白热化阶段！双方同学请稳住！",
+      "speaker": "ryan",
+      "kind": "stadium",
+      "duration_seconds": 4.41,
+      "ready": true,
+      "sha256": "b76105ecea069a44d54095dbc9b3c6eb002dd363dabe96e7ced28de4d3367e3b",
+      "review_status": "pending-human-listening"
+    },
+    "win_player": {
+      "file": "r113_win_player.ogg",
+      "text": "恭喜我方队伍获胜！掌声响起来！全队开始胜利舞蹈！",
+      "speaker": "ryan",
+      "kind": "stadium",
+      "duration_seconds": 4.41,
+      "ready": true,
+      "sha256": "2a511ae5ba1eea900b650133a530291f9772a540b2c496aab452804cba71a60c",
+      "review_status": "pending-human-listening"
+    },
+    "win_ai": {
+      "file": "r113_win_ai.ogg",
+      "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+      "speaker": "ryan",
+      "kind": "stadium",
+      "duration_seconds": 4.21,
+      "ready": true,
+      "sha256": "af137d5d120af54080caeccac4b29fb0356c57fe4dddaad5976e84f99a07ac62",
+      "review_status": "pending-human-listening"
+    },
+    "draw": {
+      "file": "r113_draw.ogg",
+      "text": "双方打成平手！没关系，下课铃还没响，再战一局！",
+      "speaker": "ryan",
+      "kind": "stadium",
+      "duration_seconds": 4.81,
+      "ready": true,
+      "sha256": "caacfcba714c001f2441ee230184da6005bbf108d88a1e21850e32acf553184e",
+      "review_status": "pending-human-listening"
+    },
+    "whisper_player": {
+      "file": "r113_whisper_player.ogg",
+      "text": "嘘……听说食堂今天又做茄子炒香蕉。",
+      "speaker": "vivian",
+      "kind": "social",
+      "duration_seconds": 4.01,
+      "ready": true,
+      "sha256": "486d29dc8b37279c404ccdc3ff7a3cc26d17af3e3014a2326f4c6797cb8d9d48",
+      "review_status": "pending-human-listening"
+    },
+    "whisper_ai": {
+      "file": "r113_whisper_ai.ogg",
+      "text": "别说了，阿姨就在旁边！",
+      "speaker": "dylan",
+      "kind": "social",
+      "duration_seconds": 1.93,
+      "ready": true,
+      "sha256": "8a81c8daef07f46731821d312edee198fc766707e2d65db24e9341227fb93cf9",
+      "review_status": "pending-human-listening"
+    },
+    "challenge_player": {
+      "file": "r113_challenge_player.ogg",
+      "text": "这手牌要是输了，我就把课桌吃了！",
+      "speaker": "vivian",
+      "kind": "social",
+      "duration_seconds": 3.91,
+      "ready": true,
+      "sha256": "6f6ddd7b7d6afe9f6a408030c279c29dbdebeccf3b8bc6f4880cd8a36db0d88e",
+      "review_status": "pending-human-listening"
+    },
+    "challenge_ai": {
+      "file": "r113_challenge_ai.ogg",
+      "text": "那你先准备好筷子。",
+      "speaker": "dylan",
+      "kind": "social",
+      "duration_seconds": 1.45,
+      "ready": true,
+      "sha256": "652a98bd5f99bd7288b02cb0149d5a4764bd86bfe02ca73a7f13cf3edea2d61a",
+      "review_status": "pending-human-listening"
+    }
+  }
+}

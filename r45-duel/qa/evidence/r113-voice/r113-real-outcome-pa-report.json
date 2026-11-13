@@ -1,0 +1,2227 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "name": "desktop actual engine result, never fake victory",
+      "detail": {
+        "clicks": 5,
+        "phase": "ended",
+        "winner": "ai"
+      }
+    },
+    {
+      "passed": true,
+      "name": "desktop official Qwen PA for actual result",
+      "detail": {
+        "id": "STADIUM_PA",
+        "kind": "win_ai",
+        "variant": "win_ai",
+        "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+        "duration_seconds": 4.21
+      }
+    },
+    {
+      "passed": true,
+      "name": "desktop result panel preserves rematch",
+      "detail": null
+    },
+    {
+      "passed": true,
+      "name": "desktop no errors",
+      "detail": []
+    },
+    {
+      "passed": true,
+      "name": "desktop new deck resets finale microphone and results panel",
+      "detail": {
+        "phase": "playing",
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": true,
+          "requested": true,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "running",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "campus_parade",
+          "musicDucked": false,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "finaleVoiceGuard": false,
+          "musicHistory": [
+            "school_duel_theme",
+            "mischief_shuffle",
+            "heroic_comeback",
+            "final_overtime",
+            "campus_parade"
+          ],
+          "voiceVariantHistory": [
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast"
+            },
+            {
+              "id": "G02",
+              "kind": "enter",
+              "variant": "enter_v2"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast_v3"
+            },
+            {
+              "id": "M02",
+              "kind": "enter",
+              "variant": "enter_v2"
+            },
+            {
+              "id": "G02",
+              "kind": "attack",
+              "variant": "attack_v3"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast_v4"
+            },
+            {
+              "id": "M02",
+              "kind": "enter",
+              "variant": "enter"
+            },
+            {
+              "id": "E01",
+              "kind": "enter",
+              "variant": "enter"
+            },
+            {
+              "id": "G02",
+              "kind": "attack",
+              "variant": "attack_v2"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast_v2"
+            },
+            {
+              "id": "T04",
+              "kind": "enter",
+              "variant": "enter"
+            },
+            {
+              "id": "G02",
+              "kind": "attack",
+              "variant": "attack"
+            },
+            {
+              "id": "G02",
+              "kind": "attack",
+              "variant": "attack_v3"
+            }
+          ],
+          "lastSpoken": {
+            "id": "STADIUM_PA",
+            "kind": "win_ai",
+            "variant": "win_ai",
+            "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+            "duration_seconds": 4.21
+          },
+          "speechHistory": [
+            {
+              "id": "STADIUM_PA",
+              "kind": "win_ai",
+              "variant": "win_ai",
+              "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+              "duration_seconds": 4.21
+            }
+          ],
+          "comicBeatHistory": [
+            {
+              "type": "summon_grove",
+              "side": "ai",
+              "serial": 3,
+              "layers": 2
+            },
+            {
+              "type": "summon_tide",
+              "side": "ai",
+              "serial": 6,
+              "layers": 2
+            },
+            {
+              "type": "summon_tide",
+              "side": "ai",
+              "serial": 10,
+              "layers": 2
+            },
+            {
+              "type": "summon_ember",
+              "side": "ai",
+              "serial": 11,
+              "layers": 2
+            },
+            {
+              "type": "spell_heal",
+              "side": "ai",
+              "serial": 14,
+              "layers": 2
+            },
+            {
+              "type": "summon_tide",
+              "side": "ai",
+              "serial": 19,
+              "layers": 2
+            },
+            {
+              "type": "game_finish",
+              "side": "ai",
+              "serial": 28,
+              "layers": 2
+            },
+            {
+              "type": "direct_hit",
+              "side": "ai",
+              "serial": 26,
+              "layers": 2
+            },
+            {
+              "type": "combo_broadcast_draw",
+              "side": "ai",
+              "serial": 13,
+              "layers": 3
+            },
+            {
+              "type": "direct_hit",
+              "side": "ai",
+              "serial": 27,
+              "layers": 2
+            }
+          ],
+          "voicePlaying": false,
+          "currentVoiceKey": null,
+          "voiceQueue": [],
+          "decodedCues": 37,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 49,
+            "voice": 1,
+            "voiceMissing": 0,
+            "voiceDropped": 2,
+            "voiceInterrupted": 1,
+            "unlock": 1,
+            "musicStart": 2,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 60
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 472
+            },
+            {
+              "type": "music",
+              "detail": "campus_parade",
+              "at": 608
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 2985
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 2987
+            },
+            {
+              "type": "cue",
+              "detail": "r102_erase_scribble:ai",
+              "at": 2992
+            },
+            {
+              "type": "cue",
+              "detail": "r102_magic_tingle:ai",
+              "at": 2992
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_AI:cast=cast",
+              "at": 2992
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 2993
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 2994
+            },
+            {
+              "type": "cue",
+              "detail": "r102_paper_flap:ai",
+              "at": 2995
+            },
+            {
+              "type": "cue",
+              "detail": "r102_music_gliss:ai",
+              "at": 2995
+            },
+            {
+              "type": "cue",
+              "detail": "attack:ai",
+              "at": 2996
+            },
+            {
+              "type": "cue",
+              "detail": "hit:player",
+              "at": 2996
+            },
+            {
+              "type": "voice-variant",
+              "detail": "G02:attack=attack_v3",
+              "at": 2996
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 2996
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 2997
+            },
+            {
+              "type": "cue",
+              "detail": "r102_paper_flap:ai",
+              "at": 2998
+            },
+            {
+              "type": "cue",
+              "detail": "r102_music_gliss:ai",
+              "at": 2998
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 2998
+            },
+            {
+              "type": "cue",
+              "detail": "r102_school_steps:ai",
+              "at": 2999
+            },
+            {
+              "type": "cue",
+              "detail": "r102_spring_boing:ai",
+              "at": 2999
+            },
+            {
+              "type": "voice-dropped",
+              "detail": "E01:enter",
+              "at": 2999
+            },
+            {
+              "type": "cue",
+              "detail": "heal:ai",
+              "at": 2999
+            },
+            {
+              "type": "cue",
+              "detail": "r102_hearts_pulse:ai",
+              "at": 2999
+            },
+            {
+              "type": "cue",
+              "detail": "r102_shield_chime:ai",
+              "at": 2999
+            },
+            {
+              "type": "cue",
+              "detail": "shield_block:ai",
+              "at": 2999
+            },
+            {
+              "type": "cue",
+              "detail": "attack:ai",
+              "at": 2999
+            },
+            {
+              "type": "cue",
+              "detail": "hit:player",
+              "at": 2999
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 2999
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 3000
+            },
+            {
+              "type": "cue",
+              "detail": "r102_paper_flap:ai",
+              "at": 3001
+            },
+            {
+              "type": "cue",
+              "detail": "r102_music_gliss:ai",
+              "at": 3001
+            },
+            {
+              "type": "voice-dropped",
+              "detail": "T04:enter",
+              "at": 3001
+            },
+            {
+              "type": "cue",
+              "detail": "attack:ai",
+              "at": 3001
+            },
+            {
+              "type": "cue",
+              "detail": "hit:player",
+              "at": 3001
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 3001
+            },
+            {
+              "type": "cue",
+              "detail": "attack:ai",
+              "at": 3002
+            },
+            {
+              "type": "cue",
+              "detail": "hit:player",
+              "at": 3002
+            },
+            {
+              "type": "cue",
+              "detail": "lose:center",
+              "at": 3002
+            },
+            {
+              "type": "cue",
+              "detail": "stadium_cheer:center",
+              "at": 3002
+            },
+            {
+              "type": "cue",
+              "detail": "r102_score_trumpet:center",
+              "at": 3002
+            },
+            {
+              "type": "finished",
+              "detail": "ai",
+              "at": 3002
+            },
+            {
+              "type": "cue",
+              "detail": "r102_score_trumpet:ai",
+              "at": 3002
+            },
+            {
+              "type": "cue",
+              "detail": "r102_confetti_pop:ai",
+              "at": 3002
+            },
+            {
+              "type": "voice-variant",
+              "detail": "STADIUM_PA:win_ai=win_ai",
+              "at": 3686
+            },
+            {
+              "type": "cue",
+              "detail": "score_chime:player",
+              "at": 3686
+            },
+            {
+              "type": "cue",
+              "detail": "score_chime:player",
+              "at": 3686
+            },
+            {
+              "type": "cue",
+              "detail": "score_chime:player",
+              "at": 3686
+            },
+            {
+              "type": "cue",
+              "detail": "score_chime:player",
+              "at": 3686
+            },
+            {
+              "type": "music-transition",
+              "detail": "campus_parade",
+              "at": 3732
+            },
+            {
+              "type": "voice",
+              "detail": "STADIUM_PA:win_ai",
+              "at": 3760
+            },
+            {
+              "type": "cue",
+              "detail": "r102_score_trumpet:ai",
+              "at": 3930
+            },
+            {
+              "type": "cue",
+              "detail": "r102_crowd_gasp:ai",
+              "at": 3930
+            },
+            {
+              "type": "cue",
+              "detail": "sonic_wave:ai",
+              "at": 4479
+            },
+            {
+              "type": "cue",
+              "detail": "r102_radio_tune:ai",
+              "at": 4479
+            },
+            {
+              "type": "cue",
+              "detail": "r102_radio_glitch:ai",
+              "at": 4479
+            },
+            {
+              "type": "cue",
+              "detail": "r102_school_bell:ai",
+              "at": 4479
+            },
+            {
+              "type": "cue",
+              "detail": "r102_score_trumpet:ai",
+              "at": 4831
+            },
+            {
+              "type": "cue",
+              "detail": "r102_crowd_gasp:ai",
+              "at": 4831
+            },
+            {
+              "type": "finale-music-finished",
+              "detail": "campus_parade",
+              "at": 10203
+            }
+          ]
+        },
+        "overlayHidden": true
+      }
+    },
+    {
+      "passed": true,
+      "name": "phone actual engine result, never fake victory",
+      "detail": {
+        "clicks": 5,
+        "phase": "ended",
+        "winner": "ai"
+      }
+    },
+    {
+      "passed": true,
+      "name": "phone official Qwen PA for actual result",
+      "detail": {
+        "id": "STADIUM_PA",
+        "kind": "win_ai",
+        "variant": "win_ai",
+        "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+        "duration_seconds": 4.21
+      }
+    },
+    {
+      "passed": true,
+      "name": "phone result panel preserves rematch",
+      "detail": null
+    },
+    {
+      "passed": true,
+      "name": "phone no errors",
+      "detail": []
+    },
+    {
+      "passed": true,
+      "name": "phone new deck resets finale microphone and results panel",
+      "detail": {
+        "phase": "playing",
+        "audio": {
+          "provider": "Qwen3-TTS",
+          "enabled": true,
+          "requested": true,
+          "activationPending": false,
+          "assetsReady": true,
+          "audioContextState": "running",
+          "pendingCues": 0,
+          "pendingVoices": 0,
+          "musicKind": "campus_parade",
+          "musicDucked": false,
+          "musicTracks": [
+            "school_duel_theme",
+            "campus_parade",
+            "mischief_shuffle",
+            "tactical_pulse",
+            "heroic_comeback",
+            "duel_tension",
+            "final_overtime"
+          ],
+          "paClipCount": 9,
+          "finaleVoiceGuard": false,
+          "musicHistory": [
+            "mischief_shuffle",
+            "campus_parade",
+            "final_overtime",
+            "heroic_comeback",
+            "campus_parade"
+          ],
+          "voiceVariantHistory": [
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast_v4"
+            },
+            {
+              "id": "G02",
+              "kind": "enter",
+              "variant": "enter_v2"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast_v3"
+            },
+            {
+              "id": "M02",
+              "kind": "enter",
+              "variant": "enter_v3"
+            },
+            {
+              "id": "G02",
+              "kind": "attack",
+              "variant": "attack_v3"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast_v2"
+            },
+            {
+              "id": "M02",
+              "kind": "enter",
+              "variant": "enter"
+            },
+            {
+              "id": "E01",
+              "kind": "enter",
+              "variant": "enter_v2"
+            },
+            {
+              "id": "G02",
+              "kind": "attack",
+              "variant": "attack"
+            },
+            {
+              "id": "HOST_AI",
+              "kind": "cast",
+              "variant": "cast"
+            },
+            {
+              "id": "T04",
+              "kind": "enter",
+              "variant": "enter"
+            },
+            {
+              "id": "G02",
+              "kind": "attack",
+              "variant": "attack_v2"
+            },
+            {
+              "id": "G02",
+              "kind": "attack",
+              "variant": "attack_v3"
+            }
+          ],
+          "lastSpoken": {
+            "id": "STADIUM_PA",
+            "kind": "win_ai",
+            "variant": "win_ai",
+            "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+            "duration_seconds": 4.21
+          },
+          "speechHistory": [
+            {
+              "id": "STADIUM_PA",
+              "kind": "win_ai",
+              "variant": "win_ai",
+              "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+              "duration_seconds": 4.21
+            }
+          ],
+          "comicBeatHistory": [
+            {
+              "type": "summon_grove",
+              "side": "ai",
+              "serial": 3,
+              "layers": 2
+            },
+            {
+              "type": "summon_tide",
+              "side": "ai",
+              "serial": 6,
+              "layers": 2
+            },
+            {
+              "type": "summon_tide",
+              "side": "ai",
+              "serial": 10,
+              "layers": 2
+            },
+            {
+              "type": "summon_ember",
+              "side": "ai",
+              "serial": 11,
+              "layers": 2
+            },
+            {
+              "type": "spell_heal",
+              "side": "ai",
+              "serial": 14,
+              "layers": 2
+            },
+            {
+              "type": "summon_tide",
+              "side": "ai",
+              "serial": 19,
+              "layers": 2
+            },
+            {
+              "type": "game_finish",
+              "side": "ai",
+              "serial": 28,
+              "layers": 2
+            },
+            {
+              "type": "direct_hit",
+              "side": "ai",
+              "serial": 26,
+              "layers": 2
+            },
+            {
+              "type": "combo_broadcast_draw",
+              "side": "ai",
+              "serial": 13,
+              "layers": 3
+            },
+            {
+              "type": "direct_hit",
+              "side": "ai",
+              "serial": 27,
+              "layers": 2
+            }
+          ],
+          "voicePlaying": false,
+          "currentVoiceKey": null,
+          "voiceQueue": [],
+          "decodedCues": 37,
+          "voiceClipCount": 16,
+          "volume": {
+            "music": 0.32,
+            "sfx": 0.75,
+            "voice": 1
+          },
+          "counters": {
+            "cue": 49,
+            "voice": 1,
+            "voiceMissing": 0,
+            "voiceDropped": 2,
+            "voiceInterrupted": 1,
+            "unlock": 1,
+            "musicStart": 2,
+            "errors": 0
+          },
+          "events": [
+            {
+              "type": "unlocked",
+              "detail": "auto on load / first game action",
+              "at": 49
+            },
+            {
+              "type": "prepared",
+              "detail": "sound files ready; playback follows browser policy",
+              "at": 126
+            },
+            {
+              "type": "music",
+              "detail": "school_duel_theme",
+              "at": 127
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 2699
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 2700
+            },
+            {
+              "type": "cue",
+              "detail": "r102_erase_scribble:ai",
+              "at": 2704
+            },
+            {
+              "type": "cue",
+              "detail": "r102_magic_tingle:ai",
+              "at": 2704
+            },
+            {
+              "type": "voice-variant",
+              "detail": "HOST_AI:cast=cast_v4",
+              "at": 2704
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 2705
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 2707
+            },
+            {
+              "type": "cue",
+              "detail": "r102_paper_flap:ai",
+              "at": 2708
+            },
+            {
+              "type": "cue",
+              "detail": "r102_music_gliss:ai",
+              "at": 2708
+            },
+            {
+              "type": "cue",
+              "detail": "attack:ai",
+              "at": 2708
+            },
+            {
+              "type": "cue",
+              "detail": "hit:player",
+              "at": 2708
+            },
+            {
+              "type": "voice-variant",
+              "detail": "G02:attack=attack_v3",
+              "at": 2708
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 2708
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 2709
+            },
+            {
+              "type": "cue",
+              "detail": "r102_paper_flap:ai",
+              "at": 2710
+            },
+            {
+              "type": "cue",
+              "detail": "r102_music_gliss:ai",
+              "at": 2710
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 2710
+            },
+            {
+              "type": "cue",
+              "detail": "r102_school_steps:ai",
+              "at": 2711
+            },
+            {
+              "type": "cue",
+              "detail": "r102_spring_boing:ai",
+              "at": 2711
+            },
+            {
+              "type": "voice-dropped",
+              "detail": "E01:enter",
+              "at": 2711
+            },
+            {
+              "type": "cue",
+              "detail": "heal:ai",
+              "at": 2711
+            },
+            {
+              "type": "cue",
+              "detail": "r102_hearts_pulse:ai",
+              "at": 2711
+            },
+            {
+              "type": "cue",
+              "detail": "r102_shield_chime:ai",
+              "at": 2711
+            },
+            {
+              "type": "cue",
+              "detail": "shield_block:ai",
+              "at": 2711
+            },
+            {
+              "type": "cue",
+              "detail": "attack:ai",
+              "at": 2711
+            },
+            {
+              "type": "cue",
+              "detail": "hit:player",
+              "at": 2711
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 2711
+            },
+            {
+              "type": "cue",
+              "detail": "enemy_cast:ai",
+              "at": 2712
+            },
+            {
+              "type": "cue",
+              "detail": "r102_paper_flap:ai",
+              "at": 2713
+            },
+            {
+              "type": "cue",
+              "detail": "r102_music_gliss:ai",
+              "at": 2713
+            },
+            {
+              "type": "voice-dropped",
+              "detail": "T04:enter",
+              "at": 2713
+            },
+            {
+              "type": "cue",
+              "detail": "attack:ai",
+              "at": 2713
+            },
+            {
+              "type": "cue",
+              "detail": "hit:player",
+              "at": 2713
+            },
+            {
+              "type": "cue",
+              "detail": "turn:center",
+              "at": 2713
+            },
+            {
+              "type": "cue",
+              "detail": "attack:ai",
+              "at": 2714
+            },
+            {
+              "type": "cue",
+              "detail": "hit:player",
+              "at": 2714
+            },
+            {
+              "type": "cue",
+              "detail": "lose:center",
+              "at": 2714
+            },
+            {
+              "type": "cue",
+              "detail": "stadium_cheer:center",
+              "at": 2714
+            },
+            {
+              "type": "cue",
+              "detail": "r102_score_trumpet:center",
+              "at": 2714
+            },
+            {
+              "type": "finished",
+              "detail": "ai",
+              "at": 2714
+            },
+            {
+              "type": "cue",
+              "detail": "r102_score_trumpet:ai",
+              "at": 2714
+            },
+            {
+              "type": "cue",
+              "detail": "r102_confetti_pop:ai",
+              "at": 2714
+            },
+            {
+              "type": "voice-variant",
+              "detail": "STADIUM_PA:win_ai=win_ai",
+              "at": 3220
+            },
+            {
+              "type": "cue",
+              "detail": "score_chime:player",
+              "at": 3245
+            },
+            {
+              "type": "cue",
+              "detail": "score_chime:player",
+              "at": 3245
+            },
+            {
+              "type": "cue",
+              "detail": "score_chime:player",
+              "at": 3246
+            },
+            {
+              "type": "cue",
+              "detail": "score_chime:player",
+              "at": 3246
+            },
+            {
+              "type": "music-transition",
+              "detail": "campus_parade",
+              "at": 3295
+            },
+            {
+              "type": "voice",
+              "detail": "STADIUM_PA:win_ai",
+              "at": 3328
+            },
+            {
+              "type": "cue",
+              "detail": "r102_score_trumpet:ai",
+              "at": 3484
+            },
+            {
+              "type": "cue",
+              "detail": "r102_crowd_gasp:ai",
+              "at": 3484
+            },
+            {
+              "type": "cue",
+              "detail": "sonic_wave:ai",
+              "at": 4035
+            },
+            {
+              "type": "cue",
+              "detail": "r102_radio_tune:ai",
+              "at": 4035
+            },
+            {
+              "type": "cue",
+              "detail": "r102_radio_glitch:ai",
+              "at": 4035
+            },
+            {
+              "type": "cue",
+              "detail": "r102_school_bell:ai",
+              "at": 4035
+            },
+            {
+              "type": "cue",
+              "detail": "r102_score_trumpet:ai",
+              "at": 4387
+            },
+            {
+              "type": "cue",
+              "detail": "r102_crowd_gasp:ai",
+              "at": 4387
+            }
+          ]
+        },
+        "overlayHidden": true
+      }
+    }
+  ],
+  "errors": [],
+  "diagnostics": [
+    {
+      "audio": {
+        "provider": "Qwen3-TTS",
+        "enabled": true,
+        "requested": true,
+        "activationPending": false,
+        "assetsReady": true,
+        "audioContextState": "running",
+        "pendingCues": 0,
+        "pendingVoices": 0,
+        "musicKind": "campus_parade",
+        "musicDucked": true,
+        "musicTracks": [
+          "school_duel_theme",
+          "campus_parade",
+          "mischief_shuffle",
+          "tactical_pulse",
+          "heroic_comeback",
+          "duel_tension",
+          "final_overtime"
+        ],
+        "paClipCount": 9,
+        "finaleVoiceGuard": true,
+        "musicHistory": [
+          "school_duel_theme",
+          "mischief_shuffle",
+          "heroic_comeback",
+          "final_overtime",
+          "campus_parade"
+        ],
+        "voiceVariantHistory": [
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast"
+          },
+          {
+            "id": "G02",
+            "kind": "enter",
+            "variant": "enter_v2"
+          },
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast_v3"
+          },
+          {
+            "id": "M02",
+            "kind": "enter",
+            "variant": "enter_v2"
+          },
+          {
+            "id": "G02",
+            "kind": "attack",
+            "variant": "attack_v3"
+          },
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast_v4"
+          },
+          {
+            "id": "M02",
+            "kind": "enter",
+            "variant": "enter"
+          },
+          {
+            "id": "E01",
+            "kind": "enter",
+            "variant": "enter"
+          },
+          {
+            "id": "G02",
+            "kind": "attack",
+            "variant": "attack_v2"
+          },
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast_v2"
+          },
+          {
+            "id": "T04",
+            "kind": "enter",
+            "variant": "enter"
+          },
+          {
+            "id": "G02",
+            "kind": "attack",
+            "variant": "attack"
+          },
+          {
+            "id": "G02",
+            "kind": "attack",
+            "variant": "attack_v3"
+          }
+        ],
+        "lastSpoken": {
+          "id": "STADIUM_PA",
+          "kind": "win_ai",
+          "variant": "win_ai",
+          "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+          "duration_seconds": 4.21
+        },
+        "speechHistory": [
+          {
+            "id": "STADIUM_PA",
+            "kind": "win_ai",
+            "variant": "win_ai",
+            "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+            "duration_seconds": 4.21
+          }
+        ],
+        "comicBeatHistory": [
+          {
+            "type": "summon_grove",
+            "side": "ai",
+            "serial": 3,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "ai",
+            "serial": 6,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "ai",
+            "serial": 10,
+            "layers": 2
+          },
+          {
+            "type": "summon_ember",
+            "side": "ai",
+            "serial": 11,
+            "layers": 2
+          },
+          {
+            "type": "spell_heal",
+            "side": "ai",
+            "serial": 14,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "ai",
+            "serial": 19,
+            "layers": 2
+          },
+          {
+            "type": "game_finish",
+            "side": "ai",
+            "serial": 28,
+            "layers": 2
+          },
+          {
+            "type": "direct_hit",
+            "side": "ai",
+            "serial": 26,
+            "layers": 2
+          }
+        ],
+        "voicePlaying": true,
+        "currentVoiceKey": "STADIUM_PA:win_ai",
+        "voiceQueue": [],
+        "decodedCues": 37,
+        "voiceClipCount": 16,
+        "volume": {
+          "music": 0.32,
+          "sfx": 0.75,
+          "voice": 1
+        },
+        "counters": {
+          "cue": 43,
+          "voice": 1,
+          "voiceMissing": 0,
+          "voiceDropped": 2,
+          "voiceInterrupted": 1,
+          "unlock": 1,
+          "musicStart": 2,
+          "errors": 0
+        },
+        "events": [
+          {
+            "type": "unlocked",
+            "detail": "auto on load / first game action",
+            "at": 60
+          },
+          {
+            "type": "prepared",
+            "detail": "sound files ready; playback follows browser policy",
+            "at": 472
+          },
+          {
+            "type": "music",
+            "detail": "campus_parade",
+            "at": 608
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 2985
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 2987
+          },
+          {
+            "type": "cue",
+            "detail": "r102_erase_scribble:ai",
+            "at": 2992
+          },
+          {
+            "type": "cue",
+            "detail": "r102_magic_tingle:ai",
+            "at": 2992
+          },
+          {
+            "type": "voice-variant",
+            "detail": "HOST_AI:cast=cast",
+            "at": 2992
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 2993
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 2994
+          },
+          {
+            "type": "cue",
+            "detail": "r102_paper_flap:ai",
+            "at": 2995
+          },
+          {
+            "type": "cue",
+            "detail": "r102_music_gliss:ai",
+            "at": 2995
+          },
+          {
+            "type": "cue",
+            "detail": "attack:ai",
+            "at": 2996
+          },
+          {
+            "type": "cue",
+            "detail": "hit:player",
+            "at": 2996
+          },
+          {
+            "type": "voice-variant",
+            "detail": "G02:attack=attack_v3",
+            "at": 2996
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 2996
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 2997
+          },
+          {
+            "type": "cue",
+            "detail": "r102_paper_flap:ai",
+            "at": 2998
+          },
+          {
+            "type": "cue",
+            "detail": "r102_music_gliss:ai",
+            "at": 2998
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 2998
+          },
+          {
+            "type": "cue",
+            "detail": "r102_school_steps:ai",
+            "at": 2999
+          },
+          {
+            "type": "cue",
+            "detail": "r102_spring_boing:ai",
+            "at": 2999
+          },
+          {
+            "type": "voice-dropped",
+            "detail": "E01:enter",
+            "at": 2999
+          },
+          {
+            "type": "cue",
+            "detail": "heal:ai",
+            "at": 2999
+          },
+          {
+            "type": "cue",
+            "detail": "r102_hearts_pulse:ai",
+            "at": 2999
+          },
+          {
+            "type": "cue",
+            "detail": "r102_shield_chime:ai",
+            "at": 2999
+          },
+          {
+            "type": "cue",
+            "detail": "shield_block:ai",
+            "at": 2999
+          },
+          {
+            "type": "cue",
+            "detail": "attack:ai",
+            "at": 2999
+          },
+          {
+            "type": "cue",
+            "detail": "hit:player",
+            "at": 2999
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 2999
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 3000
+          },
+          {
+            "type": "cue",
+            "detail": "r102_paper_flap:ai",
+            "at": 3001
+          },
+          {
+            "type": "cue",
+            "detail": "r102_music_gliss:ai",
+            "at": 3001
+          },
+          {
+            "type": "voice-dropped",
+            "detail": "T04:enter",
+            "at": 3001
+          },
+          {
+            "type": "cue",
+            "detail": "attack:ai",
+            "at": 3001
+          },
+          {
+            "type": "cue",
+            "detail": "hit:player",
+            "at": 3001
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 3001
+          },
+          {
+            "type": "cue",
+            "detail": "attack:ai",
+            "at": 3002
+          },
+          {
+            "type": "cue",
+            "detail": "hit:player",
+            "at": 3002
+          },
+          {
+            "type": "cue",
+            "detail": "lose:center",
+            "at": 3002
+          },
+          {
+            "type": "cue",
+            "detail": "stadium_cheer:center",
+            "at": 3002
+          },
+          {
+            "type": "cue",
+            "detail": "r102_score_trumpet:center",
+            "at": 3002
+          },
+          {
+            "type": "finished",
+            "detail": "ai",
+            "at": 3002
+          },
+          {
+            "type": "cue",
+            "detail": "r102_score_trumpet:ai",
+            "at": 3002
+          },
+          {
+            "type": "cue",
+            "detail": "r102_confetti_pop:ai",
+            "at": 3002
+          },
+          {
+            "type": "voice-variant",
+            "detail": "STADIUM_PA:win_ai=win_ai",
+            "at": 3686
+          },
+          {
+            "type": "cue",
+            "detail": "score_chime:player",
+            "at": 3686
+          },
+          {
+            "type": "cue",
+            "detail": "score_chime:player",
+            "at": 3686
+          },
+          {
+            "type": "cue",
+            "detail": "score_chime:player",
+            "at": 3686
+          },
+          {
+            "type": "cue",
+            "detail": "score_chime:player",
+            "at": 3686
+          },
+          {
+            "type": "music-transition",
+            "detail": "campus_parade",
+            "at": 3732
+          },
+          {
+            "type": "voice",
+            "detail": "STADIUM_PA:win_ai",
+            "at": 3760
+          },
+          {
+            "type": "cue",
+            "detail": "r102_score_trumpet:ai",
+            "at": 3930
+          },
+          {
+            "type": "cue",
+            "detail": "r102_crowd_gasp:ai",
+            "at": 3930
+          }
+        ]
+      },
+      "comedy": {
+        "lastQwenSubtitle": {
+          "id": "STADIUM_PA",
+          "kind": "win_ai",
+          "variant": "win_ai",
+          "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+          "duration_seconds": 4.21,
+          "name": "体育馆广播员"
+        },
+        "spokenSubtitleCount": 1,
+        "asideHistory": [
+          {
+            "key": "G02",
+            "serial": 3,
+            "side": "ai",
+            "text": "只要写成公式，迟到也像学术研究。",
+            "index": 2,
+            "spoken": false
+          },
+          {
+            "key": "M02",
+            "serial": 6,
+            "side": "ai",
+            "text": "阿姨说要公平：两边都不许插队。",
+            "index": 3,
+            "spoken": false
+          },
+          {
+            "key": "ai",
+            "serial": 7,
+            "side": "ai",
+            "text": "你这招，我要记进社团档案。",
+            "index": 1,
+            "spoken": false
+          },
+          {
+            "key": "broadcast_draw",
+            "serial": 13,
+            "side": "ai",
+            "text": "本台消息：意外多一张牌，主持人也没料到。",
+            "index": 0,
+            "spoken": false
+          },
+          {
+            "key": "M02",
+            "serial": 10,
+            "side": "ai",
+            "text": "这一勺饭加上去，所有人都有力气。",
+            "index": 2,
+            "spoken": false
+          },
+          {
+            "key": "E01",
+            "serial": 11,
+            "side": "ai",
+            "text": "铃声：我只是响一下，你别跑啊！",
+            "index": 0,
+            "spoken": false
+          },
+          {
+            "key": "heal",
+            "serial": 14,
+            "side": "ai",
+            "text": "食堂最厉害的不是锅铲，是热乎饭。",
+            "index": 3,
+            "spoken": false
+          },
+          {
+            "key": "ai",
+            "serial": 15,
+            "side": "ai",
+            "text": "我已经把下个回合写进计划。",
+            "index": 2,
+            "spoken": false
+          },
+          {
+            "key": "T04",
+            "serial": 19,
+            "side": "ai",
+            "text": "活动室门禁升级：连钥匙也要排队。",
+            "index": 0,
+            "spoken": false
+          },
+          {
+            "key": "ai",
+            "serial": 20,
+            "side": "ai",
+            "text": "你确定体育馆允许这么玩吗？",
+            "index": 3,
+            "spoken": false
+          },
+          {
+            "key": "ai",
+            "serial": 26,
+            "side": "ai",
+            "text": "先别庆祝，轮到我了。",
+            "index": 4,
+            "spoken": false
+          }
+        ],
+        "allTextLines": 286
+      }
+    },
+    {
+      "audio": {
+        "provider": "Qwen3-TTS",
+        "enabled": true,
+        "requested": true,
+        "activationPending": false,
+        "assetsReady": true,
+        "audioContextState": "running",
+        "pendingCues": 0,
+        "pendingVoices": 0,
+        "musicKind": "campus_parade",
+        "musicDucked": true,
+        "musicTracks": [
+          "school_duel_theme",
+          "campus_parade",
+          "mischief_shuffle",
+          "tactical_pulse",
+          "heroic_comeback",
+          "duel_tension",
+          "final_overtime"
+        ],
+        "paClipCount": 9,
+        "finaleVoiceGuard": true,
+        "musicHistory": [
+          "mischief_shuffle",
+          "campus_parade",
+          "final_overtime",
+          "heroic_comeback",
+          "campus_parade"
+        ],
+        "voiceVariantHistory": [
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast_v4"
+          },
+          {
+            "id": "G02",
+            "kind": "enter",
+            "variant": "enter_v2"
+          },
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast_v3"
+          },
+          {
+            "id": "M02",
+            "kind": "enter",
+            "variant": "enter_v3"
+          },
+          {
+            "id": "G02",
+            "kind": "attack",
+            "variant": "attack_v3"
+          },
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast_v2"
+          },
+          {
+            "id": "M02",
+            "kind": "enter",
+            "variant": "enter"
+          },
+          {
+            "id": "E01",
+            "kind": "enter",
+            "variant": "enter_v2"
+          },
+          {
+            "id": "G02",
+            "kind": "attack",
+            "variant": "attack"
+          },
+          {
+            "id": "HOST_AI",
+            "kind": "cast",
+            "variant": "cast"
+          },
+          {
+            "id": "T04",
+            "kind": "enter",
+            "variant": "enter"
+          },
+          {
+            "id": "G02",
+            "kind": "attack",
+            "variant": "attack_v2"
+          },
+          {
+            "id": "G02",
+            "kind": "attack",
+            "variant": "attack_v3"
+          }
+        ],
+        "lastSpoken": {
+          "id": "STADIUM_PA",
+          "kind": "win_ai",
+          "variant": "win_ai",
+          "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+          "duration_seconds": 4.21
+        },
+        "speechHistory": [
+          {
+            "id": "STADIUM_PA",
+            "kind": "win_ai",
+            "variant": "win_ai",
+            "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+            "duration_seconds": 4.21
+          }
+        ],
+        "comicBeatHistory": [
+          {
+            "type": "summon_grove",
+            "side": "ai",
+            "serial": 3,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "ai",
+            "serial": 6,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "ai",
+            "serial": 10,
+            "layers": 2
+          },
+          {
+            "type": "summon_ember",
+            "side": "ai",
+            "serial": 11,
+            "layers": 2
+          },
+          {
+            "type": "spell_heal",
+            "side": "ai",
+            "serial": 14,
+            "layers": 2
+          },
+          {
+            "type": "summon_tide",
+            "side": "ai",
+            "serial": 19,
+            "layers": 2
+          },
+          {
+            "type": "game_finish",
+            "side": "ai",
+            "serial": 28,
+            "layers": 2
+          },
+          {
+            "type": "direct_hit",
+            "side": "ai",
+            "serial": 26,
+            "layers": 2
+          },
+          {
+            "type": "combo_broadcast_draw",
+            "side": "ai",
+            "serial": 13,
+            "layers": 3
+          }
+        ],
+        "voicePlaying": true,
+        "currentVoiceKey": "STADIUM_PA:win_ai",
+        "voiceQueue": [],
+        "decodedCues": 37,
+        "voiceClipCount": 16,
+        "volume": {
+          "music": 0.32,
+          "sfx": 0.75,
+          "voice": 1
+        },
+        "counters": {
+          "cue": 47,
+          "voice": 1,
+          "voiceMissing": 0,
+          "voiceDropped": 2,
+          "voiceInterrupted": 1,
+          "unlock": 1,
+          "musicStart": 2,
+          "errors": 0
+        },
+        "events": [
+          {
+            "type": "unlocked",
+            "detail": "auto on load / first game action",
+            "at": 49
+          },
+          {
+            "type": "prepared",
+            "detail": "sound files ready; playback follows browser policy",
+            "at": 126
+          },
+          {
+            "type": "music",
+            "detail": "school_duel_theme",
+            "at": 127
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 2699
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 2700
+          },
+          {
+            "type": "cue",
+            "detail": "r102_erase_scribble:ai",
+            "at": 2704
+          },
+          {
+            "type": "cue",
+            "detail": "r102_magic_tingle:ai",
+            "at": 2704
+          },
+          {
+            "type": "voice-variant",
+            "detail": "HOST_AI:cast=cast_v4",
+            "at": 2704
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 2705
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 2707
+          },
+          {
+            "type": "cue",
+            "detail": "r102_paper_flap:ai",
+            "at": 2708
+          },
+          {
+            "type": "cue",
+            "detail": "r102_music_gliss:ai",
+            "at": 2708
+          },
+          {
+            "type": "cue",
+            "detail": "attack:ai",
+            "at": 2708
+          },
+          {
+            "type": "cue",
+            "detail": "hit:player",
+            "at": 2708
+          },
+          {
+            "type": "voice-variant",
+            "detail": "G02:attack=attack_v3",
+            "at": 2708
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 2708
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 2709
+          },
+          {
+            "type": "cue",
+            "detail": "r102_paper_flap:ai",
+            "at": 2710
+          },
+          {
+            "type": "cue",
+            "detail": "r102_music_gliss:ai",
+            "at": 2710
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 2710
+          },
+          {
+            "type": "cue",
+            "detail": "r102_school_steps:ai",
+            "at": 2711
+          },
+          {
+            "type": "cue",
+            "detail": "r102_spring_boing:ai",
+            "at": 2711
+          },
+          {
+            "type": "voice-dropped",
+            "detail": "E01:enter",
+            "at": 2711
+          },
+          {
+            "type": "cue",
+            "detail": "heal:ai",
+            "at": 2711
+          },
+          {
+            "type": "cue",
+            "detail": "r102_hearts_pulse:ai",
+            "at": 2711
+          },
+          {
+            "type": "cue",
+            "detail": "r102_shield_chime:ai",
+            "at": 2711
+          },
+          {
+            "type": "cue",
+            "detail": "shield_block:ai",
+            "at": 2711
+          },
+          {
+            "type": "cue",
+            "detail": "attack:ai",
+            "at": 2711
+          },
+          {
+            "type": "cue",
+            "detail": "hit:player",
+            "at": 2711
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 2711
+          },
+          {
+            "type": "cue",
+            "detail": "enemy_cast:ai",
+            "at": 2712
+          },
+          {
+            "type": "cue",
+            "detail": "r102_paper_flap:ai",
+            "at": 2713
+          },
+          {
+            "type": "cue",
+            "detail": "r102_music_gliss:ai",
+            "at": 2713
+          },
+          {
+            "type": "voice-dropped",
+            "detail": "T04:enter",
+            "at": 2713
+          },
+          {
+            "type": "cue",
+            "detail": "attack:ai",
+            "at": 2713
+          },
+          {
+            "type": "cue",
+            "detail": "hit:player",
+            "at": 2713
+          },
+          {
+            "type": "cue",
+            "detail": "turn:center",
+            "at": 2713
+          },
+          {
+            "type": "cue",
+            "detail": "attack:ai",
+            "at": 2714
+          },
+          {
+            "type": "cue",
+            "detail": "hit:player",
+            "at": 2714
+          },
+          {
+            "type": "cue",
+            "detail": "lose:center",
+            "at": 2714
+          },
+          {
+            "type": "cue",
+            "detail": "stadium_cheer:center",
+            "at": 2714
+          },
+          {
+            "type": "cue",
+            "detail": "r102_score_trumpet:center",
+            "at": 2714
+          },
+          {
+            "type": "finished",
+            "detail": "ai",
+            "at": 2714
+          },
+          {
+            "type": "cue",
+            "detail": "r102_score_trumpet:ai",
+            "at": 2714
+          },
+          {
+            "type": "cue",
+            "detail": "r102_confetti_pop:ai",
+            "at": 2714
+          },
+          {
+            "type": "voice-variant",
+            "detail": "STADIUM_PA:win_ai=win_ai",
+            "at": 3220
+          },
+          {
+            "type": "cue",
+            "detail": "score_chime:player",
+            "at": 3245
+          },
+          {
+            "type": "cue",
+            "detail": "score_chime:player",
+            "at": 3245
+          },
+          {
+            "type": "cue",
+            "detail": "score_chime:player",
+            "at": 3246
+          },
+          {
+            "type": "cue",
+            "detail": "score_chime:player",
+            "at": 3246
+          },
+          {
+            "type": "music-transition",
+            "detail": "campus_parade",
+            "at": 3295
+          },
+          {
+            "type": "voice",
+            "detail": "STADIUM_PA:win_ai",
+            "at": 3328
+          },
+          {
+            "type": "cue",
+            "detail": "r102_score_trumpet:ai",
+            "at": 3484
+          },
+          {
+            "type": "cue",
+            "detail": "r102_crowd_gasp:ai",
+            "at": 3484
+          },
+          {
+            "type": "cue",
+            "detail": "sonic_wave:ai",
+            "at": 4035
+          },
+          {
+            "type": "cue",
+            "detail": "r102_radio_tune:ai",
+            "at": 4035
+          },
+          {
+            "type": "cue",
+            "detail": "r102_radio_glitch:ai",
+            "at": 4035
+          },
+          {
+            "type": "cue",
+            "detail": "r102_school_bell:ai",
+            "at": 4035
+          }
+        ]
+      },
+      "comedy": {
+        "lastQwenSubtitle": {
+          "id": "STADIUM_PA",
+          "kind": "win_ai",
+          "variant": "win_ai",
+          "text": "恭喜对方队伍获胜！掌声送给他们！开始胜利舞蹈！",
+          "duration_seconds": 4.21,
+          "name": "体育馆广播员"
+        },
+        "spokenSubtitleCount": 1,
+        "asideHistory": [
+          {
+            "key": "G02",
+            "serial": 3,
+            "side": "ai",
+            "text": "只要写成公式，迟到也像学术研究。",
+            "index": 2,
+            "spoken": false
+          },
+          {
+            "key": "M02",
+            "serial": 6,
+            "side": "ai",
+            "text": "阿姨说要公平：两边都不许插队。",
+            "index": 3,
+            "spoken": false
+          },
+          {
+            "key": "ai",
+            "serial": 7,
+            "side": "ai",
+            "text": "你这招，我要记进社团档案。",
+            "index": 1,
+            "spoken": false
+          },
+          {
+            "key": "broadcast_draw",
+            "serial": 13,
+            "side": "ai",
+            "text": "本台消息：意外多一张牌，主持人也没料到。",
+            "index": 0,
+            "spoken": false
+          },
+          {
+            "key": "M02",
+            "serial": 10,
+            "side": "ai",
+            "text": "这一勺饭加上去，所有人都有力气。",
+            "index": 2,
+            "spoken": false
+          },
+          {
+            "key": "E01",
+            "serial": 11,
+            "side": "ai",
+            "text": "铃声：我只是响一下，你别跑啊！",
+            "index": 0,
+            "spoken": false
+          },
+          {
+            "key": "heal",
+            "serial": 14,
+            "side": "ai",
+            "text": "食堂最厉害的不是锅铲，是热乎饭。",
+            "index": 3,
+            "spoken": false
+          },
+          {
+            "key": "ai",
+            "serial": 15,
+            "side": "ai",
+            "text": "我已经把下个回合写进计划。",
+            "index": 2,
+            "spoken": false
+          },
+          {
+            "key": "T04",
+            "serial": 19,
+            "side": "ai",
+            "text": "活动室门禁升级：连钥匙也要排队。",
+            "index": 0,
+            "spoken": false
+          },
+          {
+            "key": "ai",
+            "serial": 20,
+            "side": "ai",
+            "text": "你确定体育馆允许这么玩吗？",
+            "index": 3,
+            "spoken": false
+          },
+          {
+            "key": "ai",
+            "serial": 26,
+            "side": "ai",
+            "text": "先别庆祝，轮到我了。",
+            "index": 4,
+            "spoken": false
+          }
+        ],
+        "allTextLines": 286
+      }
+    }
+  ]
+}

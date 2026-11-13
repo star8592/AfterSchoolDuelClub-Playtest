@@ -45,10 +45,12 @@ function showSpokenLine(entry){
  const node=$('spoken-dialogue'),speaker=$('spoken-speaker'),words=$('spoken-words');
  if(!node||!speaker||!words)return;
  const name=BY_ID[entry.id]?.name||({
-  HOST_PLAYER:'我方决斗者',HOST_AI:'对方决斗者'})[entry.id]||entry.id;
+  HOST_PLAYER:'我方决斗者',HOST_AI:'对方决斗者',
+  STADIUM_PA:'体育馆广播员'})[entry.id]||entry.id;
  speaker.textContent=name+' · Qwen3 角色配音';
  words.textContent=entry.text;
- node.dataset.side=entry.id==='HOST_AI'?'ai':'player';
+ node.dataset.side=entry.id==='STADIUM_PA'?'center':
+  entry.id==='HOST_AI'?'ai':'player';
  node.hidden=false;spokenSubtitleCount++;
  lastQwenSubtitle={...entry,name};
  const serial=++speechSeq;
@@ -365,6 +367,7 @@ function advanceLesson(){
  ++asideSeq;++speechSeq;
  $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  g=createTutorialGame(level+1,seed+level);
+ audio.resetMatch();
  selected=null;lastFightSerial=0;
  hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
  render();syncScene();
@@ -456,6 +459,7 @@ function syncScene(){
 // Every terminal engine path (HP depletion or turn limit, on either side)
 // must lead to a visible result and a one-click fresh match. Re-navigation
 // recreates BOTH the rule engine and 3D iframe, preventing stale summoned units.
+let pressurePASpoken=false,openingPASpoken=false;
 let resultScheduled=false;
 const STADIUM_ANNOUNCER=Object.freeze({
  player:['体育馆广播：本局冠军诞生！获胜方全体注意，立刻跳一段！',
@@ -490,9 +494,16 @@ function scheduleResult(){
  resultScheduled=true;
  // The audience sees an authentic court-wide victory performance first.
  sendScene({type:'ASDC_R112_VICTORY',winner:g.winner||'draw'});
- const words=STADIUM_ANNOUNCER[g.winner]||STADIUM_ANNOUNCER.draw;
- const line=words[Math.abs(seed+g.serial)%words.length];
- showComedyAside({text:line,side:'center',speaker:'体育馆广播 · 赛后文字播报'});
+ // Once the old character VO finishes, give the real Qwen gym announcer
+ // the microphone. Fallback uses explicitly labeled TEXT, never a fake voice.
+ setTimeout(()=>{
+  const key=g.winner==='draw'?'draw':'win_'+g.winner;
+  if(audio.playPA(key))return;
+  const words=STADIUM_ANNOUNCER[g.winner]||STADIUM_ANNOUNCER.draw;
+  const line=words[Math.abs(seed+g.serial)%words.length];
+  showComedyAside({text:line,side:'center',
+   speaker:'体育馆广播 · 赛后文字播报'});
+ },320);
  window.setTimeout(showResult,6800);
 }
 function startRematch(){
@@ -756,6 +767,8 @@ $('end').addEventListener('click',()=>{
  }else{
   audio.musicForBattle({round:g.round,playerHp:g.hp.player,aiHp:g.hp.ai,
     comboPlayer:g.comboCounts.player,comboAi:g.comboCounts.ai});
+  if(!pressurePASpoken&&g.round>=4)
+   pressurePASpoken=audio.playPA('pressure');
   announce(summary+'。现在轮到你了。','ai');
  }
 });
@@ -766,6 +779,11 @@ window.addEventListener('message',event=>{
   syncScene();
   sendScene({type:'ASDC_R53_HP_MODE',mode:hpViewModes[hpViewIndex]});
   render(); // enable legal cards only after authentic GLB/VRM readiness
+  // One locally recorded PA opening if the browser permitted auto-audio.
+  // If restricted, no browser TTS substitute or extra setup prompt.
+  setTimeout(()=>{
+   if(!openingPASpoken)openingPASpoken=audio.playPA('start');
+  },750);
   return;
  }
  if(event.data?.type==='ASDC_R45_SCENE_FAILED'){
@@ -795,8 +813,11 @@ window.addEventListener('message',event=>{
   const line=event.data;
   if(['player','ai'].includes(line.side)&&
     typeof line.text==='string'&&line.text.length<=120)
-   showComedyAside({text:line.text,side:line.side,
-    speaker:(line.side==='player'?'我方':'对方')+'决斗者 · 场边小声对话'});
+  {
+   if(!audio.playSocialLine(line.side,line.text))
+    showComedyAside({text:line.text,side:line.side,
+     speaker:(line.side==='player'?'我方':'对方')+'决斗者 · 场边小声对话'});
+  }
   return;
  }
  if(event.data?.type==='ASDC_R102_COMBAT_IMPACT'){
@@ -839,6 +860,11 @@ deckSelector.addEventListener('change',()=>{
  const next=deckSelector.value;
  if(!Object.hasOwn(DECK_PRESETS,next))return;
  g=createGame(seed,next);
+ audio.resetMatch();
+ resultScheduled=false;
+ $('result-overlay').hidden=true;
+ ++asideSeq;++speechSeq;
+ $('comedy-aside').hidden=true;$('spoken-dialogue').hidden=true;
  selected=null;lastFightSerial=0;
  comboAudioReceipts.clear();combatAudioReceipts.clear();
  hostSpeechTurn.player=-1;hostSpeechTurn.ai=-1;
@@ -978,6 +1004,8 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
     asideHistory:[...asideHistory],allTextLines:
       Object.values(COMIC_ASIDE_LINES).reduce((n,lines)=>n+lines.length,0)}},
 
-  audioVoiceSample(id,kind='enter'){return audio.playCharacter(id,kind)}
+  audioVoiceSample(id,kind='enter'){return audio.playCharacter(id,kind)},
+  audioPASample(key){return audio.playPA(key)},
+  audioSocialSample(side,text){return audio.playSocialLine(side,text)}
  }});
 }
