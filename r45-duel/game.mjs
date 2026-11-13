@@ -74,8 +74,23 @@ audio.setOpeningMusic(seed);
 const hostSpeechTurn={player:-1,ai:-1};
 function sayHostOnce(side){
  if(!['player','ai'].includes(side)||hostSpeechTurn[side]===g.round)return false;
- hostSpeechTurn[side]=g.round;
- return audio.playCharacter(side==='player'?'HOST_PLAYER':'HOST_AI','cast');
+ const round=g.round,battle=g;
+ hostSpeechTurn[side]=round;
+ // R117: sync the actual recorded Qwen host-cast VO with the R85 wrist
+ // draw/show timeline, rather than speaking while the hands are still idle.
+ setTimeout(()=>{
+  if(g!==battle||g.round!==round||g.phase==='ended'||!sceneReady)return;
+  audio.playCharacter(side==='player'?'HOST_PLAYER':'HOST_AI','cast');
+ },570);
+ return true;
+}
+function summonSpeaksAfterGesture(id,serial){
+ const battle=g;
+ setTimeout(()=>{
+  if(g!==battle||g.phase==='ended'||!g.events.some(e=>
+    e.type==='card_play'&&e.card===id&&e.serial===serial))return;
+  audio.playCharacter(id,'enter');
+ },1120);
 }
 
 let selected=null,sceneReady=false,sceneError=false,lastToast='',lastFightSerial=0;
@@ -649,7 +664,7 @@ $('play').addEventListener('click',()=>{
  // The host announces once per turn, then the freshly summoned unit gets a
  // distinct entrance sentence. Previously host cast cut off every unit voice.
  sayHostOnce('player');
- if(c.kind==='unit')audio.playCharacter(id,'enter');
+ if(c.kind==='unit')summonSpeaksAfterGesture(id,played.serial);
  if(c.kind==='spell'){
   sendSpellImpact(g.events.findLast(e=>e.type==='card_play'&&e.side==='player'&&e.card===id));
   const sound={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
@@ -717,7 +732,7 @@ $('end').addEventListener('click',()=>{
     comedyScript.forCard(event.card,event.serial,'ai'):
     comedyScript.forSpell(event.card,event.serial,'ai'));
   sayHostOnce('ai');
-  if(enemyCard?.kind==='unit')audio.playCharacter(event.card,'enter');
+  if(enemyCard?.kind==='unit')summonSpeaksAfterGesture(event.card,event.serial);
   if(enemyCard?.kind==='spell') {
    sendSpellImpact(event);
    const fx={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
@@ -749,7 +764,8 @@ $('end').addEventListener('click',()=>{
   // The turn can contain many simultaneous exchanges. One intelligible
   // characteristic battle shout is better than three voices interrupting.
   const lead=clashes.find(e=>e.from&&BY_ID[e.from]?.kind==='unit');
-  if(lead)audio.playCharacter(lead.from,'attack');
+  // Character speech now starts at the verified physical impact callback;
+  // do not play it prematurely while the 3D body is still preparing to strike.
  }
  if(generic.length)sendScene({type:'ASDC_R51_COMBAT_EVENTS',
   pre,post:boardSnapshot().units,events:generic.map(e=>({
@@ -828,6 +844,12 @@ window.addEventListener('message',event=>{
    !combatAudioReceipts.has(serial)){
    combatAudioReceipts.add(serial);
    audio.playComicBeat(effect,side,serial);
+   // R117: the on-stage kinetic event, not the turn button, starts
+   // the character's ACTUAL recorded attack line. One line per real hit;
+   // the two 3D participants remain the authoritative visible actors.
+   if(typeof real.from==='string'&&BY_ID[real.from]?.kind==='unit')
+    audio.playCharacter(real.from,'attack');
+   audio.playCue(effect==='direct_hit'?'hit':'attack',side);
   }
   return;
  }

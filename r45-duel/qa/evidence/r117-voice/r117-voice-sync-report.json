@@ -1,0 +1,272 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "name": "desktop original true 98 character voices + 9 PA recordings intact",
+      "data": {
+        "provider": "Qwen3-TTS",
+        "enabled": true,
+        "requested": true,
+        "activationPending": false,
+        "assetsReady": true,
+        "audioContextState": "running",
+        "pendingCues": 0,
+        "pendingVoices": 0,
+        "musicKind": "mischief_shuffle",
+        "musicDucked": false,
+        "musicTracks": [
+          "school_duel_theme",
+          "campus_parade",
+          "mischief_shuffle",
+          "tactical_pulse",
+          "heroic_comeback",
+          "duel_tension",
+          "final_overtime"
+        ],
+        "paClipCount": 9,
+        "finaleVoiceGuard": false,
+        "musicHistory": [],
+        "voiceVariantHistory": [],
+        "lastSpoken": null,
+        "speechHistory": [],
+        "comicBeatHistory": [],
+        "voicePlaying": false,
+        "currentVoiceKey": null,
+        "voiceQueue": [],
+        "decodedCues": 37,
+        "voiceClipCount": 16,
+        "volume": {
+          "music": 0.32,
+          "sfx": 0.75,
+          "voice": 1
+        },
+        "counters": {
+          "cue": 0,
+          "voice": 0,
+          "voiceMissing": 0,
+          "voiceDropped": 0,
+          "voiceInterrupted": 0,
+          "unlock": 1,
+          "musicStart": 1,
+          "errors": 0
+        },
+        "events": [
+          {
+            "type": "unlocked",
+            "detail": "auto on load / first game action",
+            "at": 51
+          },
+          {
+            "type": "prepared",
+            "detail": "sound files ready; playback follows browser policy",
+            "at": 305
+          },
+          {
+            "type": "music",
+            "detail": "mischief_shuffle",
+            "at": 305
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "name": "desktop host does not speak prematurely before draw/show animation",
+      "data": []
+    },
+    {
+      "passed": true,
+      "name": "desktop genuine legal card play drives timed Qwen cast",
+      "data": {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "K01",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "stew",
+          "directDamage": 1,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "name": "desktop actual host recorded Qwen voice triggered in motion window",
+      "data": [
+        {
+          "id": "HOST_AI",
+          "kind": "hurt",
+          "variant": "hurt_v3"
+        },
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "name": "desktop a voice playback receipt, not fake text",
+      "data": [
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast",
+          "text": "看好了！这张牌，轮到我出手！",
+          "duration_seconds": 2.89
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "name": "desktop player mute respected after card action",
+      "data": null
+    },
+    {
+      "passed": true,
+      "name": "desktop no media decoder or HTTP errors",
+      "data": []
+    },
+    {
+      "passed": true,
+      "name": "portrait original true 98 character voices + 9 PA recordings intact",
+      "data": {
+        "provider": "Qwen3-TTS",
+        "enabled": true,
+        "requested": true,
+        "activationPending": false,
+        "assetsReady": true,
+        "audioContextState": "running",
+        "pendingCues": 0,
+        "pendingVoices": 0,
+        "musicKind": "mischief_shuffle",
+        "musicDucked": false,
+        "musicTracks": [
+          "school_duel_theme",
+          "campus_parade",
+          "mischief_shuffle",
+          "tactical_pulse",
+          "heroic_comeback",
+          "duel_tension",
+          "final_overtime"
+        ],
+        "paClipCount": 9,
+        "finaleVoiceGuard": false,
+        "musicHistory": [],
+        "voiceVariantHistory": [],
+        "lastSpoken": null,
+        "speechHistory": [],
+        "comicBeatHistory": [],
+        "voicePlaying": false,
+        "currentVoiceKey": null,
+        "voiceQueue": [],
+        "decodedCues": 37,
+        "voiceClipCount": 16,
+        "volume": {
+          "music": 0.32,
+          "sfx": 0.75,
+          "voice": 1
+        },
+        "counters": {
+          "cue": 0,
+          "voice": 0,
+          "voiceMissing": 0,
+          "voiceDropped": 0,
+          "voiceInterrupted": 0,
+          "unlock": 1,
+          "musicStart": 1,
+          "errors": 0
+        },
+        "events": [
+          {
+            "type": "unlocked",
+            "detail": "auto on load / first game action",
+            "at": 55
+          },
+          {
+            "type": "music",
+            "detail": "mischief_shuffle",
+            "at": 89
+          },
+          {
+            "type": "prepared",
+            "detail": "sound files ready; playback follows browser policy",
+            "at": 91
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "name": "portrait host does not speak prematurely before draw/show animation",
+      "data": []
+    },
+    {
+      "passed": true,
+      "name": "portrait genuine legal card play drives timed Qwen cast",
+      "data": {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "K01",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "stew",
+          "directDamage": 1,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "name": "portrait actual host recorded Qwen voice triggered in motion window",
+      "data": [
+        {
+          "id": "HOST_AI",
+          "kind": "hurt",
+          "variant": "hurt_v3"
+        },
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v2"
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "name": "portrait a voice playback receipt, not fake text",
+      "data": [
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v2",
+          "text": "这张牌，就交给你啦！",
+          "duration_seconds": 1.61
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "name": "portrait player mute respected after card action",
+      "data": null
+    },
+    {
+      "passed": true,
+      "name": "portrait no media decoder or HTTP errors",
+      "data": []
+    }
+  ],
+  "errors": []
+}
