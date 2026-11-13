@@ -9,6 +9,7 @@ import {createDuelAudio} from './audio-engine.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
+import {GUIDED_LINES,createGuidedGame,guidedStatus,guidedCanPlay,guidedPlayCard,guidedEndTurn} from './guided-tutorial.mjs';
 
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
@@ -31,16 +32,18 @@ if(!params.has('seed')||seed!==suppliedSeed){
  history.replaceState(null,'',fixed.href);
 }
 const tutorialMode=params.get('mode')==='tutorial';
+const guidedMode=params.get('mode')==='guided';
 const requestedLevel=Number(params.get('level')??'1');
 const initialLevel=tutorialMode&&Number.isInteger(requestedLevel)&&requestedLevel>=1&&requestedLevel<=LESSONS.length?requestedLevel:1;
 const requestedDeck=params.get('deck');
 const activeDeck=(!tutorialMode&&Object.hasOwn(DECK_PRESETS,requestedDeck))?requestedDeck:'classic';
-let g=tutorialMode?createTutorialGame(initialLevel,seed):createGame(seed,activeDeck);
+let g=guidedMode?createGuidedGame(seed):tutorialMode?createTutorialGame(initialLevel,seed):createGame(seed,activeDeck);
 const scene=$('stadium');
 const comedyScript=makeComedyScript(seed);
 let lastQwenSubtitle=null,spokenSubtitleCount=0,asideSeq=0,speechSeq=0;
 const asideHistory=[];
 function showSpokenLine(entry){
+ if(guidedMode&&GUIDED_LINES[entry?.kind])return; // R120 uses the persistent duel commentator bubble.
  if(!entry||typeof entry.text!=='string'||!entry.text.trim())return;
  const node=$('spoken-dialogue'),speaker=$('spoken-speaker'),words=$('spoken-words');
  if(!node||!speaker||!words)return;
@@ -94,6 +97,7 @@ function summonSpeaksAfterGesture(id,serial){
 }
 
 let selected=null,sceneReady=false,sceneError=false,lastToast='',lastFightSerial=0;
+let guidedStarted=false,guidedBusy=false,guidedVoiceKey=null,guidedSpeechSerial=0;
 const comboAudioReceipts=new Set();
 const combatAudioReceipts=new Set();
 const styleName={ember:'活力',grove:'创意',tide:'默契'};
@@ -177,9 +181,10 @@ function cardSound(c){
   insight:'select',updraft:'spell_charge',reroute:'card_flip',boomerang:'spell_charge',
   eclipse:'sonic_wave',trick:'spell_charge'})[c.effect]||'turn';
 }
-function gameReady(){return sceneReady&&!sceneError&&g.phase==='playing'&&g.active==='player';}
+function gameReady(){return sceneReady&&!sceneError&&g.phase==='playing'&&g.active==='player'&&
+  (!guidedMode||(guidedStarted&&!guidedBusy));}
 function cardCanPlay(index){
- return gameReady()&&tutorialCanPlay(g,index)&&
+ return gameReady()&&tutorialCanPlay(g,index)&&(!guidedMode||guidedCanPlay(g,index))&&
   legalMoves(g).some(m=>m.index===index&&m.lane===0);
 }
 function describeCard(c){
@@ -214,7 +219,7 @@ function renderBoard(){
 function renderHand(){
  const fragment=document.createDocumentFragment();
  g.hand.player.forEach((id,index)=>{
-  if(tutorialMode&&!tutorialCanPlay(g,index))return;
+  if((tutorialMode&&!tutorialCanPlay(g,index))||(guidedMode&&!guidedCanPlay(g,index)))return;
   const c=BY_ID[id],available=cardCanPlay(index);
   const card=$make('button','card '+c.style+(selected===index?' selected':''));
   card.type='button';
@@ -263,6 +268,18 @@ function renderHand(){
   fragment.append(card);
  });
  $('hand').replaceChildren(fragment);
+ if(guidedMode){
+  const step=guidedStatus(g);
+  $('hand-count').textContent=step.completed?'0':'1';
+  if(step.completed){
+   const finish=$make('div','lesson-finished-hand');
+   finish.append($make('strong',null,'✓ 恭喜！你亲手赢得了第一场练习赛'),
+    $make('span',null,'对手人气从 6 变成 0。正式比赛双方从 20 点开始。'),
+    $make('span','lesson-finished-hint','点击下方金色「进入自由对战」，开始真正的决斗。'));
+   $('hand').append(finish);
+  }
+  return;
+ }
  const lesson=tutorialMode?tutorialStatus(g):null;
  $('hand-count').textContent=String(lesson?(lesson.completed?0:1):g.hand.player.length);
  if(lesson?.completed){
@@ -311,6 +328,24 @@ function renderActions(){
  const card=selected===null?null:BY_ID[g.hand.player[selected]];
  const canPlay=selected!==null&&cardCanPlay(selected);
  const btn=$('play'),endBtn=$('end');
+ if(guidedMode){
+  const state=guidedStatus(g);
+  const completed=!!state?.completed;
+  const canSummon=!!state?.target&&selected!==null&&cardCanPlay(selected);
+  const canFinish=guidedStarted&&!guidedBusy&&sceneReady&&!sceneError;
+  btn.disabled=!canFinish||(!completed&&!canSummon);
+  btn.textContent=completed?'✓ 进入自由对战':canSummon?'出牌 · '+BY_ID[g.hand.player[selected]]?.name:
+   state?.target?'选择高亮的牌':'这回合请按「结束回合」';
+  $('selected-title').textContent=completed?'✓ 真实获胜！':
+   !guidedStarted?'先点击「开始声画教学」':
+   guidedBusy?'两位玩家正在讲解…':
+   state?.target?'第 '+state.round+' 回合 · 请选牌':'第 '+state.round+' 回合 · 等对方回应';
+  $('selected-info').textContent=state.hint;
+  endBtn.hidden=!!state.target||completed||!guidedStarted;
+  endBtn.disabled=!canFinish||state.target!==null||completed;
+  endBtn.textContent='结束回合 → 看对手回应';
+  return;
+ }
  if(lesson){
   btn.disabled=!sceneReady||sceneError||(!completed&&!canPlay);
   btn.textContent=completed?
@@ -337,8 +372,27 @@ function renderActions(){
 }
 function renderLesson(){
  const launch=$('tutorial-start'),panel=$('lesson-panel');
- launch.hidden=tutorialMode;
+ launch.hidden=tutorialMode||guidedMode;
+ $('guided-launch').hidden=guidedMode||tutorialMode;
+ $('guided-panel').hidden=!guidedMode;
+ $('guided-narration').hidden=!guidedMode;
  panel.hidden=!tutorialMode;
+ if(guidedMode){
+  const state=guidedStatus(g);
+  $('guided-round').textContent='入门实战 · 第 '+Math.min(3,state.round)+'/3 回合 · '+
+   (state.completed?'练习胜利！':'对手练习人气 6/20');
+  $('guided-instruction').textContent=state.hint;
+  $('guided-step-label').textContent=state.completed?'获胜！':'第 '+state.round+'/3 回合';
+  $('guided-begin').disabled=!sceneReady||sceneError||guidedStarted;
+  $('guided-begin').hidden=guidedStarted;
+  $('guided-repeat').hidden=!guidedStarted;
+  $('guided-repeat').disabled=guidedBusy;
+  if(!guidedStarted){
+   $('guided-words').textContent='男女决斗者会边出牌、边回应、边讲解。跟着高亮手牌打三回合，最后由你亲手赢得练习赛。';
+   $('guided-voice-status').textContent=sceneReady?'点「开始声画教学」，播放双人原声。':'三维竞技场准备中…';
+  }
+  return;
+ }
  if(!tutorialMode)return;
  const status=tutorialStatus(g);
  $('lesson-progress').textContent='剧情教学 '+status.level+' / '+LESSONS.length;
@@ -363,6 +417,49 @@ function freeDuelUrl(){
  u.searchParams.delete('mode');u.searchParams.delete('level');
  return u;
 }
+$('guided-launch').addEventListener('click',()=>{
+ const u=new URL(location.href);
+ u.searchParams.set('mode','guided');u.searchParams.delete('level');
+ location.assign(u.href);
+});
+$('guided-exit').addEventListener('click',()=>location.assign(freeDuelUrl().href));
+// R120: one speaker at a time; subtitles persist even when the player mutes.
+// The real Qwen recording is only claimed when an actual file begins to play.
+async function guidedSay(key){
+ const line=GUIDED_LINES[key];
+ if(!line)return;
+ guidedVoiceKey=key;
+ const panel=$('guided-narration');
+ panel.dataset.side=line.side;
+ $('guided-speaker').textContent=line.side==='player'?'女决斗者 · 我方出牌讲解':'男决斗者 · 对手回应讲解';
+ $('guided-words').textContent=line.text;
+ const seconds=audio.playTutorialLine(key);
+ $('guided-voice-status').textContent=seconds>0?'原创 Qwen3 人物原声 · 文字同步讲解':
+  audio.status().requested?'语音暂不可用 · 请阅读同步文字':'已静音 · 同步文字继续教学';
+ // Time the scripted duel by each real recording, not arbitrary card timers.
+ const duration=params.get('qa')==='1'&&params.get('guidedQuick')==='1'?180:
+  seconds>0?Math.round(seconds*1000)+190:
+  Math.max(1300,Math.min(3400,line.text.length*62));
+ await new Promise(resolve=>setTimeout(resolve,duration));
+}
+async function guidedSequence(keys){
+ if(!guidedMode)return;
+ guidedBusy=true;render();
+ try{for(const key of keys)await guidedSay(key);}
+ finally{guidedBusy=false;render();}
+}
+$('guided-begin').addEventListener('click',()=>{
+ if(!guidedMode||guidedStarted||!sceneReady||sceneError)return;
+ guidedStarted=true;guidedBusy=true;render();
+ void (async()=>{
+  try{await audio.unlock()}catch(e){console.warn('Tutorial audio will use text-only:',String(e))}
+  await guidedSequence(['intro_f','intro_m','prompt_one']);
+ })();
+});
+$('guided-repeat').addEventListener('click',()=>{
+ if(!guidedMode||!guidedStarted||guidedBusy||!guidedVoiceKey)return;
+ void guidedSequence([guidedVoiceKey]);
+});
 $('tutorial-start').addEventListener('click',()=>{
  const u=new URL(location.href);
  u.searchParams.set('mode','tutorial');u.searchParams.set('level','1');
@@ -391,6 +488,12 @@ function advanceLesson(){
 $('lesson-next').addEventListener('click',advanceLesson);
 
 function renderGuide(){
+ if(guidedMode){
+  const state=guidedStatus(g);
+  $('guide-step').textContent=state.completed?'恭喜获胜！点击「进入自由对战」继续':
+   !guidedStarted?'先点击「开始声画教学」听女玩家和男玩家说明':state.hint;
+  return;
+ }
  if(tutorialMode){
   const t=tutorialStatus(g);
   $('guide-step').textContent=t.completed?'本关连携已经真实触发，点击「下一关」继续':t.steps[t.step];
@@ -402,7 +505,7 @@ function renderGuide(){
   'AI 正在出牌 · 请看中央竞技场与对局提示';
 }
 function render(){
- if(g.phase==='ended')scheduleResult();
+ if(g.phase==='ended'&&!guidedMode)scheduleResult();
  renderHUD();
  renderBoard();
  renderHand();
@@ -638,6 +741,29 @@ function playFight(e){
  // Actual damage was already resolved by the engine; scene animation is visual.
 }
 $('play').addEventListener('click',()=>{
+ if(guidedMode){
+  if(g.guided.completed){if(!guidedBusy)location.assign(freeDuelUrl().href);return;}
+  if(selected===null||!cardCanPlay(selected))return;
+  const id=g.hand.player[selected],c=BY_ID[id],before=g.serial;
+  const result=guidedPlayCard(g,selected,0);
+  if(!result.ok){announce('请按教学提示出牌：'+result.reason,'warning');return;}
+  selected=null;render();syncScene();
+  const played=g.events.findLast(e=>e.type==='card_play'&&e.side==='player'&&e.serial>before);
+  audio.playCue(cardSound(c),'player');
+  if(played){projectPlayedCard(id,'player',played.serial);
+   audio.playComicBeat(c.kind==='unit'?'summon_'+c.style:'spell_'+c.effect,'player',played.serial);
+   if(c.kind==='spell')sendSpellImpact(played);
+  }
+  const step=guidedStatus(g).key;
+  const lines=step==='end1'?['played_one','prompt_end_one']:
+   step==='end2'?['played_two','prompt_end_two']:
+   step==='won'?['victory_f','victory_m']:[];
+  if(step==='won'){audio.playCue('win','player');audio.playComicBeat('game_finish','player',g.serial);}
+  announce(step==='won'?'恭喜！对手人气归零，真实规则判定你获胜。':
+   '已按真实规则打出「'+c.name+'」，听完双方讲解后继续。','played');
+  void guidedSequence(lines);
+  return;
+ }
  if(tutorialMode&&tutorialStatus(g).completed){advanceLesson();return;}
  if(g.phase==='ended'){showResult();return;}
  if(selected===null||!cardCanPlay(selected))return;
@@ -696,12 +822,15 @@ $('play').addEventListener('click',()=>{
 $('end').addEventListener('click',()=>{
  if(g.phase==='ended'){startRematch();return;}
  if(tutorialMode||!gameReady())return;
+ if(guidedMode&&guidedStatus(g).target!==null)return;
+ const guidedRound=guidedMode?guidedStatus(g).round:null;
+ if(guidedMode)guidedBusy=true;
  audio.playCue('turn');
  const pre=boardSnapshot().units;
  const preHp={...g.hp};
  const serial=g.serial;
- endTurn(g);
- if(g.phase==='playing'&&g.active==='ai')aiTurn(g);
+ if(guidedMode)guidedEndTurn(g);
+ else{endTurn(g);if(g.phase==='playing'&&g.active==='ai')aiTurn(g);}
  const fresh=g.events.filter(e=>e.serial>serial);
  selected=null;
  render();syncScene();
@@ -716,7 +845,7 @@ $('end').addEventListener('click',()=>{
   if(otherDamage>0){
    setTimeout(()=>{
     sendScene({type:'ASDC_R81_HIT_HOST',side,damage:otherDamage});
-    audio.playCharacter(side==='player'?'HOST_PLAYER':'HOST_AI','hurt');
+    if(!guidedMode)audio.playCharacter(side==='player'?'HOST_PLAYER':'HOST_AI','hurt');
     audio.playCue('score_chime',side);
    },430);
   }
@@ -731,8 +860,10 @@ $('end').addEventListener('click',()=>{
   showComedyAside(enemyCard?.kind==='unit'?
     comedyScript.forCard(event.card,event.serial,'ai'):
     comedyScript.forSpell(event.card,event.serial,'ai'));
-  sayHostOnce('ai');
-  if(enemyCard?.kind==='unit')summonSpeaksAfterGesture(event.card,event.serial);
+  if(!guidedMode){
+   sayHostOnce('ai');
+   if(enemyCard?.kind==='unit')summonSpeaksAfterGesture(event.card,event.serial);
+  }
   if(enemyCard?.kind==='spell') {
    sendSpellImpact(event);
    const fx={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
@@ -746,7 +877,7 @@ $('end').addEventListener('click',()=>{
     else audio.playCue(fx,'ai');
    }
    if(event.spellOutcome?.directDamage>0){
-    setTimeout(()=>audio.playCharacter('HOST_PLAYER','hurt'),460);
+    if(!guidedMode)setTimeout(()=>audio.playCharacter('HOST_PLAYER','hurt'),460);
    }
   }
  }
@@ -787,6 +918,11 @@ $('end').addEventListener('click',()=>{
    pressurePASpoken=audio.playPA('pressure');
   announce(summary+'。现在轮到你了。','ai');
  }
+ if(guidedMode){
+  const sequence=guidedRound===1?['ai_one','round_two']:
+   ['exchange_m','ai_two','round_three'];
+  void guidedSequence(sequence);
+ }
 });
 window.addEventListener('message',event=>{
  if(event.origin!==location.origin||event.source!==scene.contentWindow)return;
@@ -797,7 +933,7 @@ window.addEventListener('message',event=>{
   render(); // enable legal cards only after authentic GLB/VRM readiness
   // One locally recorded PA opening if the browser permitted auto-audio.
   // If restricted, no browser TTS substitute or extra setup prompt.
-  setTimeout(()=>{
+  if(!guidedMode)setTimeout(()=>{
    if(!openingPASpoken)openingPASpoken=audio.playPA('start');
   },750);
   return;
@@ -826,6 +962,8 @@ window.addEventListener('message',event=>{
   return;
  }
  if(event.data?.type==='ASDC_R112_DIALOGUE'){
+  // Ignore the ordinary ambient 3D social barks during the voiced tutorial.
+  if(guidedMode)return;
   const line=event.data;
   if(['player','ai'].includes(line.side)&&
     typeof line.text==='string'&&line.text.length<=120)
@@ -847,7 +985,7 @@ window.addEventListener('message',event=>{
    // R117: the on-stage kinetic event, not the turn button, starts
    // the character's ACTUAL recorded attack line. One line per real hit;
    // the two 3D participants remain the authoritative visible actors.
-   if(typeof real.from==='string'&&BY_ID[real.from]?.kind==='unit')
+   if(!guidedMode&&typeof real.from==='string'&&BY_ID[real.from]?.kind==='unit')
     audio.playCharacter(real.from,'attack');
    audio.playCue(effect==='direct_hit'?'hit':'attack',side);
   }
@@ -875,10 +1013,11 @@ window.addEventListener('keydown',event=>{
 // deck. This resets the actual deterministic engine and clears stale effects.
 const deckSelector=$('deck-select');
 deckSelector.value=activeDeck;
-deckSelector.disabled=tutorialMode;
-deckSelector.title=tutorialMode?'剧情教学使用基础卡组':'切换会重新开局，三维模型无需再次下载';
+deckSelector.disabled=tutorialMode||guidedMode;
+deckSelector.title=guidedMode?'先完成三回合入门实战，再选择自由对战卡组':
+ tutorialMode?'连携试炼使用基础卡组':'切换会重新开局，三维模型无需再次下载';
 deckSelector.addEventListener('change',()=>{
- if(tutorialMode)return;
+ if(tutorialMode||guidedMode)return;
  const next=deckSelector.value;
  if(!Object.hasOwn(DECK_PRESETS,next))return;
  g=createGame(seed,next);
@@ -1003,10 +1142,12 @@ window.addEventListener('keydown',e=>{
  if(e.key==='Escape'&&!library.hidden){library.hidden=true;e.preventDefault();}
 });
 render();
-announce('开始决斗：你在左，对手在右；选牌并按「出牌」，召唤物会进入同一个三维体育馆。');
+announce(guidedMode?'三回合真实练习赛：点击上方「开始声画教学」，女玩家教你出牌，男玩家演示回应。':
+ '开始决斗：你在左，对手在右；选牌并按「出牌」，召唤物会进入同一个三维体育馆。');
 if(new URLSearchParams(location.search).get('qa')==='1'){
  Object.defineProperty(window,'__r45QA',{value:{
   get tutorial(){return tutorialStatus(g)},
+  get guided(){return guidedMode?{...guidedStatus(g),started:guidedStarted,busy:guidedBusy,voiceKey:guidedVoiceKey}:null},
   get board(){return structuredClone(g.board)},
   get round(){return g.round},
   get hp(){return {...g.hp}},

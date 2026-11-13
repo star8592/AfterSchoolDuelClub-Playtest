@@ -798,3 +798,78 @@ html,body{width:100%;height:100%;overflow:hidden}
 @media(prefers-reduced-motion:reduce){
  .played-card-reveal.played-card-enter{animation:none}
 }
+
+/* R120: narrated real three-round battle. Keep stage/score, not a modal video. */
+.guided-launch{background:linear-gradient(115deg,#ffe1a5,#e6ab55);border:1px solid #ffe8c0;color:#172738;box-shadow:0 0 0 1px #a97b37a1}
+.lesson-advanced{background:#18354b;color:#bcd8e7;border-color:#607e94}
+.guided-panel{display:flex;align-items:center;gap:8px;border-left:3px solid #edc58d;padding-left:10px}
+.guided-panel[hidden],.guided-narration[hidden]{display:none!important}
+.guided-panel strong{font-size:12px;color:#ffe1af;white-space:nowrap}
+.guided-panel span{font-size:11px;color:#e2edf4;max-width:45ch;line-height:1.3}
+.credits-help .credits-content{max-height:min(70vh,530px);overflow:auto}
+.onboard:has(.guided-panel:not([hidden])) .onboard-primary{display:none}
+.guided-narration{
+ position:absolute;z-index:7;top:clamp(150px,20dvh,240px);
+ left:50%;transform:translateX(-50%);width:min(635px,86vw);
+ border:1px solid #ebc98fa8;border-radius:15px;
+ background:linear-gradient(120deg,#091a2bea,#19364add);box-shadow:0 12px 28px #03101b9e;
+ padding:12px 17px;display:grid;gap:8px;text-align:left;
+ backdrop-filter:blur(8px);pointer-events:auto;
+}
+.guided-narration[data-side="ai"]{border-color:#94d5f5a8;background:linear-gradient(120deg,#0a1b2ee9,#143d58e9)}
+.guided-narration-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.guided-narration-top span:first-child{font-weight:800;font-size:12px;color:#f9d59e}
+.guided-narration[data-side="ai"] .guided-narration-top span:first-child{color:#a8e2ff}
+.guided-narration-top span:last-child{font-size:11px;color:#c3d1dc;font-variant-numeric:tabular-nums}
+.guided-narration strong{display:block;font-weight:700;line-height:1.5;font-size:clamp(13px,1.3vw,17px);color:#fff0d9}
+.guided-narration-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.guided-narration-actions button{font-size:12px;font-weight:800;border:1px solid #ffd795;border-radius:8px;
+ padding:6px 11px;background:#f2c987;color:#172e3e}
+.guided-narration-actions button#guided-repeat{background:#294e65;border-color:#80bacd;color:#e1f5ff}
+.guided-narration-actions span{font-size:10px;color:#c6d9e2}
+.guided-narration-actions button[hidden]{display:none}
+@media(max-width:780px){
+ .onboard{max-width:96vw;gap:5px}
+ .guided-panel span{display:none}.guided-panel strong{font-size:10px}
+ .guided-launch,.lesson-advanced{font-size:10px;padding:5px 7px}
+ .guided-narration{top:clamp(117px,18dvh,192px);width:94vw;padding:9px 11px;gap:5px}
+ .guided-narration strong{font-size:12px;line-height:1.4}
+ .guided-narration-top span:first-child{font-size:11px}
+ .guided-narration-actions button{font-size:11px;padding:4px 8px}
+ .guided-narration-actions span{font-size:9px}
+}
+@media(max-height:600px){
+ .guided-narration{top:clamp(82px,17dvh,112px);max-width:470px}
+ .guided-narration strong{font-size:11px}
+}
+
+/* R120 mobile: old single-row flex pushes rule/credits buttons offscreen.
+   Explicit wrap keeps EVERY guide/control keyboard- and touch-accessible. */
+@media(max-width:650px){
+ .onboard{width:calc(100vw - 12px)!important;max-width:calc(100vw - 12px)!important;
+  display:flex;flex-wrap:wrap;justify-content:flex-start;align-content:start;align-items:center;
+  gap:5px 9px;padding:7px 9px;height:auto}
+ .onboard .lesson-launch{flex:0 1 auto;max-width:100%;font-size:10px;padding:5px 8px}
+ .onboard .help{flex:0 0 auto;min-width:0;max-width:calc(100vw - 30px)}
+ .onboard .help summary{font-size:11px;text-align:left;padding:2px 4px;white-space:nowrap}
+ .onboard .guided-panel{min-width:0;flex:1 1 160px;max-width:100%;flex-wrap:wrap;gap:6px}
+ .onboard .guided-panel strong{max-width:100%;white-space:normal}
+ .onboard .guided-panel .lesson-exit{flex:0 0 auto}
+ .onboard .help-content{max-width:calc(100vw - 24px);width:min(350px,calc(100vw - 24px))}
+ .guided-narration{top:clamp(230px,30dvh,285px);width:calc(100vw - 20px)}
+}
+@media(max-height:640px) and (max-width:650px){
+ .guided-narration{top:215px}
+}
+
+/* Keep the narrated lesson toolbar short; the full step text is in the
+   persistent on-stage subtitle and selected-card guidance. */
+.guided-panel #guided-instruction{display:none!important}
+.onboard:has(.guided-panel:not([hidden])){max-width:min(55vw,720px)}
+@media(max-width:650px){
+ .onboard:has(.guided-panel:not([hidden])){max-width:calc(100vw - 12px)!important}
+ .guided-narration{top:max(275px,33dvh)}
+}
+@media(max-height:640px) and (max-width:650px){
+ .guided-narration{top:270px}
+}
