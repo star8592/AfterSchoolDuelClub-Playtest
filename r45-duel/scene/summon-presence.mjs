@@ -13,6 +13,7 @@ import {instantiateSummon,UNIT_MODEL_IDS} from './summon-models.mjs';
 import {faceOpponentYaw,faceOpponentDot} from './summon-orientation.mjs';
 import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mjs';
 import {ACTOR_COMEDY_SIGNATURES} from './actor-comedy-signatures.mjs';
+import {choreographVictory} from './victory-choreography.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
@@ -493,34 +494,32 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    // rivals perform a restrained dejected pose. Real shoulder rigs are
    // animated when available, never replaced by proxy meshes.
    if(dancing&&state.kind!=='art-pending'){
-    const winner=celebration.winner,win=winner===state.side;
-    const initial=Math.min(1,Math.max(0,danceTime/.5));
-    const ending=Math.min(1,Math.max(0,(celebration.duration-danceTime)/.7));
-    const strength=celebration.reduced?0:initial*ending;
-    const phase=danceTime*2*Math.PI*1.65+state.index*.27;
+    const move=choreographVictory({elapsed:danceTime,
+     winner:celebration.winner,side:state.side,id:state.id,
+     index:state.index,reduced:celebration.reduced});
     const idling=state.kind==='gltf-instance'||state.kind==='vrm-instance';
     if(idling){
-     const baseY=place(state.side,state.index).y+
-       (state.kind==='gltf-instance'?(prototypes.get(state.id)?.spec.hover||0):0);
-     object.position.y=baseY+(win?.048*(1+Math.sin(phase*2)):.002)*strength;
+     const at=place(state.side,state.index);
+     const hover=state.kind==='gltf-instance'?(prototypes.get(state.id)?.spec.hover||0):0;
+     object.position.y=at.y+hover+move.bob;
     }
     if(state.kind!=='original-vrm'){
-     object.rotation.z=(win?.11*Math.sin(phase):-.04)*strength;
-     object.rotation.y=faceOpponentYaw(state.id,state.side)+
-      (win?.15*Math.sin(phase*.5):-.08)*strength;
+     object.rotation.z=move.lean;
+     object.rotation.y=faceOpponentYaw(state.id,state.side)+move.yaw;
     }
-    if(win){
-     object.position.x+=(state.side==='player'?1:-1)*.105*Math.sin(phase)*strength;
-    }
-    // Do not fight existing glTF clips: layer modest angular changes only.
+    object.position.x+=move.x*(state.side==='player'?1:-1);
+    // Never accumulate rotation into the bind pose. Existing glTF clips
+    // update the bones earlier in this frame; static models start from rest.
     const arms=realComicBones(state);
     for(const arm of arms){
      if(state.comic)continue;
-     const angle=win?(.37+.35*Math.sin(phase+arm.side*Math.PI)):-.08;
+     if(!r61?.mixer)arm.bone.quaternion.copy(arm.rest);
+     const angle=arm.side<0?-move.left:move.right;
      arm.bone.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
-      new THREE.Vector3(0,0,1),angle*strength*arm.side));
+      new THREE.Vector3(0,0,1),angle*arm.side));
     }
-    celebrationFrames++;if(strength>.15)celebratingActors++;
+    state.r113DanceStage=move.stage;
+    celebrationFrames++;if(move.weight>.15)celebratingActors++;
    }else if(!state.comic&&!sequence&&!cinematic&&!celebration){
     // Irregular, identity-offset ambient weight shift for every on-court unit.
     // Never turn around or override the spine/arms of a playing clip.
@@ -773,6 +772,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      id:x.id,uid:x.uid,type:x.comic.type,serial:x.comic.serial,
      shoulderBoneCount:x.comicBones?.length||0})),
     lastComic},
+   r113DanceStages:[...entries.values()].map(x=>({id:x.id,side:x.side,
+    stage:x.r113DanceStage||null})),
    r112Victory:celebration&&{...celebration,frames:celebrationFrames,
     actorFrames:celebratingActors},
    hpDisplayMode,activeHpStyle:activeHpStyle(camera),
