@@ -1,0 +1,429 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11431",
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop off authentic original source Phil skinned model"
+    },
+    {
+      "pass": true,
+      "label": "desktop off source rig faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop off source native seven motion clips still operate"
+    },
+    {
+      "pass": true,
+      "label": "desktop old R119 exact original animation available via one toggle"
+    },
+    {
+      "pass": true,
+      "label": "desktop off legitimate standing source remains in arena"
+    },
+    {
+      "pass": true,
+      "label": "desktop off source idle regained and facing never reversed"
+    },
+    {
+      "pass": true,
+      "label": "desktop off both shoes settle back at stage floor (no lingering hover)"
+    },
+    {
+      "pass": true,
+      "label": "desktop off no JS, 404 or 500"
+    },
+    {
+      "pass": true,
+      "label": "desktop on authentic original source Phil skinned model"
+    },
+    {
+      "pass": true,
+      "label": "desktop on source rig faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop on source native seven motion clips still operate"
+    },
+    {
+      "pass": true,
+      "label": "desktop weighted original leg vertex and eight source thigh/knee/ankle/toe channels"
+    },
+    {
+      "pass": true,
+      "label": "desktop on legitimate standing source remains in arena"
+    },
+    {
+      "pass": true,
+      "label": "desktop real source knee/thigh/ankle changed continuously"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual weighted visible leg vertex changed, not unused skeleton"
+    },
+    {
+      "pass": true,
+      "label": "desktop opposite shoe positions change relative to root"
+    },
+    {
+      "pass": true,
+      "label": "desktop on source idle regained and facing never reversed"
+    },
+    {
+      "pass": true,
+      "label": "desktop on both shoes settle back at stage floor (no lingering hover)"
+    },
+    {
+      "pass": true,
+      "label": "desktop on no JS, 404 or 500"
+    },
+    {
+      "pass": true,
+      "label": "portrait off authentic original source Phil skinned model"
+    },
+    {
+      "pass": true,
+      "label": "portrait off source rig faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait off source native seven motion clips still operate"
+    },
+    {
+      "pass": true,
+      "label": "portrait old R119 exact original animation available via one toggle"
+    },
+    {
+      "pass": true,
+      "label": "portrait off legitimate standing source remains in arena"
+    },
+    {
+      "pass": true,
+      "label": "portrait off source idle regained and facing never reversed"
+    },
+    {
+      "pass": true,
+      "label": "portrait off both shoes settle back at stage floor (no lingering hover)"
+    },
+    {
+      "pass": true,
+      "label": "portrait off no JS, 404 or 500"
+    },
+    {
+      "pass": true,
+      "label": "portrait on authentic original source Phil skinned model"
+    },
+    {
+      "pass": true,
+      "label": "portrait on source rig faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait on source native seven motion clips still operate"
+    },
+    {
+      "pass": true,
+      "label": "portrait weighted original leg vertex and eight source thigh/knee/ankle/toe channels"
+    },
+    {
+      "pass": true,
+      "label": "portrait on legitimate standing source remains in arena"
+    },
+    {
+      "pass": true,
+      "label": "portrait real source knee/thigh/ankle changed continuously"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual weighted visible leg vertex changed, not unused skeleton"
+    },
+    {
+      "pass": true,
+      "label": "portrait opposite shoe positions change relative to root"
+    },
+    {
+      "pass": true,
+      "label": "portrait on source idle regained and facing never reversed"
+    },
+    {
+      "pass": true,
+      "label": "portrait on both shoes settle back at stage floor (no lingering hover)"
+    },
+    {
+      "pass": true,
+      "label": "portrait on no JS, 404 or 500"
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "mode": "off",
+      "idle": null,
+      "action": null,
+      "footprint": {
+        "minY": -0.037,
+        "maxY": 2.042,
+        "width": 0.817,
+        "height": 2.079
+      },
+      "originalSource": "E04-Phil-Skinned-R119.glb",
+      "drawCalls": 912,
+      "errors": []
+    },
+    {
+      "view": "desktop",
+      "mode": "on",
+      "idle": {
+        "source": "real_original_skinned_deform_bones",
+        "actor": "E04",
+        "sourceSkinnedMeshes": 23,
+        "sourceBoneCount": 259,
+        "independentLegBones": [
+          "DEF-Thigh1.L",
+          "DEF-Thigh1.R",
+          "DEF-Knee1.L",
+          "DEF-Knee1.R",
+          "DEF-Foot.L",
+          "DEF-Foot.R",
+          "DEF-Toes.L",
+          "DEF-Toes.R"
+        ],
+        "runtimeLegTracks": 8,
+        "weightedSourceLegMesh": "GEO-phil_body",
+        "weightedSourceLegBone": "DEF-Knee1.L",
+        "weightedSourceLegVertex": 444,
+        "weightedSourceLegVertexWeight": 0.4781,
+        "frames": 32,
+        "independentLegFrames": 0,
+        "maxJointAngle": 0.0151,
+        "maxLegVertexTravel": 0.00223,
+        "maxFootHeightSpan": 0.00654,
+        "hierarchy": {
+          "sourceHierarchyRepaired": true,
+          "chains": {
+            "L": {
+              "names": [
+                "DEF-Thigh1.L",
+                "DEF-Thigh2.L",
+                "DEF-Knee1.L",
+                "DEF-Knee2.L",
+                "DEF-Foot.L",
+                "DEF-Toes.L"
+              ],
+              "restDrift": 2.242025235105681e-16
+            },
+            "R": {
+              "names": [
+                "DEF-Thigh1.R",
+                "DEF-Thigh2.R",
+                "DEF-Knee1.R",
+                "DEF-Knee2.R",
+                "DEF-Foot.R",
+                "DEF-Toes.R"
+              ],
+              "restDrift": 1.1188630228279524e-16
+            }
+          }
+        }
+      },
+      "action": {
+        "source": "real_original_skinned_deform_bones",
+        "actor": "E04",
+        "sourceSkinnedMeshes": 23,
+        "sourceBoneCount": 259,
+        "independentLegBones": [
+          "DEF-Thigh1.L",
+          "DEF-Thigh1.R",
+          "DEF-Knee1.L",
+          "DEF-Knee1.R",
+          "DEF-Foot.L",
+          "DEF-Foot.R",
+          "DEF-Toes.L",
+          "DEF-Toes.R"
+        ],
+        "runtimeLegTracks": 8,
+        "weightedSourceLegMesh": "GEO-phil_body",
+        "weightedSourceLegBone": "DEF-Knee1.L",
+        "weightedSourceLegVertex": 444,
+        "weightedSourceLegVertexWeight": 0.4781,
+        "frames": 93,
+        "independentLegFrames": 246,
+        "maxJointAngle": 0.278,
+        "maxLegVertexTravel": 0.04592,
+        "maxFootHeightSpan": 0.04221,
+        "hierarchy": {
+          "sourceHierarchyRepaired": true,
+          "chains": {
+            "L": {
+              "names": [
+                "DEF-Thigh1.L",
+                "DEF-Thigh2.L",
+                "DEF-Knee1.L",
+                "DEF-Knee2.L",
+                "DEF-Foot.L",
+                "DEF-Toes.L"
+              ],
+              "restDrift": 2.242025235105681e-16
+            },
+            "R": {
+              "names": [
+                "DEF-Thigh1.R",
+                "DEF-Thigh2.R",
+                "DEF-Knee1.R",
+                "DEF-Knee2.R",
+                "DEF-Foot.R",
+                "DEF-Toes.R"
+              ],
+              "restDrift": 1.1188630228279524e-16
+            }
+          }
+        }
+      },
+      "footprint": {
+        "minY": 0.245,
+        "maxY": 2.343,
+        "width": 0.954,
+        "height": 2.098
+      },
+      "originalSource": "E04-Phil-Skinned-R119.glb",
+      "drawCalls": 912,
+      "errors": []
+    },
+    {
+      "view": "portrait",
+      "mode": "off",
+      "idle": null,
+      "action": null,
+      "footprint": {
+        "minY": 0.267,
+        "maxY": 2.349,
+        "width": 0.81,
+        "height": 2.082
+      },
+      "originalSource": "E04-Phil-Skinned-R119.glb",
+      "drawCalls": 912,
+      "errors": []
+    },
+    {
+      "view": "portrait",
+      "mode": "on",
+      "idle": {
+        "source": "real_original_skinned_deform_bones",
+        "actor": "E04",
+        "sourceSkinnedMeshes": 23,
+        "sourceBoneCount": 259,
+        "independentLegBones": [
+          "DEF-Thigh1.L",
+          "DEF-Thigh1.R",
+          "DEF-Knee1.L",
+          "DEF-Knee1.R",
+          "DEF-Foot.L",
+          "DEF-Foot.R",
+          "DEF-Toes.L",
+          "DEF-Toes.R"
+        ],
+        "runtimeLegTracks": 8,
+        "weightedSourceLegMesh": "GEO-phil_body",
+        "weightedSourceLegBone": "DEF-Knee1.L",
+        "weightedSourceLegVertex": 444,
+        "weightedSourceLegVertexWeight": 0.4781,
+        "frames": 32,
+        "independentLegFrames": 0,
+        "maxJointAngle": 0.0152,
+        "maxLegVertexTravel": 0.00223,
+        "maxFootHeightSpan": 0.00674,
+        "hierarchy": {
+          "sourceHierarchyRepaired": true,
+          "chains": {
+            "L": {
+              "names": [
+                "DEF-Thigh1.L",
+                "DEF-Thigh2.L",
+                "DEF-Knee1.L",
+                "DEF-Knee2.L",
+                "DEF-Foot.L",
+                "DEF-Toes.L"
+              ],
+              "restDrift": 2.242025235105681e-16
+            },
+            "R": {
+              "names": [
+                "DEF-Thigh1.R",
+                "DEF-Thigh2.R",
+                "DEF-Knee1.R",
+                "DEF-Knee2.R",
+                "DEF-Foot.R",
+                "DEF-Toes.R"
+              ],
+              "restDrift": 1.1188630228279524e-16
+            }
+          }
+        }
+      },
+      "action": {
+        "source": "real_original_skinned_deform_bones",
+        "actor": "E04",
+        "sourceSkinnedMeshes": 23,
+        "sourceBoneCount": 259,
+        "independentLegBones": [
+          "DEF-Thigh1.L",
+          "DEF-Thigh1.R",
+          "DEF-Knee1.L",
+          "DEF-Knee1.R",
+          "DEF-Foot.L",
+          "DEF-Foot.R",
+          "DEF-Toes.L",
+          "DEF-Toes.R"
+        ],
+        "runtimeLegTracks": 8,
+        "weightedSourceLegMesh": "GEO-phil_body",
+        "weightedSourceLegBone": "DEF-Knee1.L",
+        "weightedSourceLegVertex": 444,
+        "weightedSourceLegVertexWeight": 0.4781,
+        "frames": 85,
+        "independentLegFrames": 210,
+        "maxJointAngle": 0.2796,
+        "maxLegVertexTravel": 0.04642,
+        "maxFootHeightSpan": 0.0427,
+        "hierarchy": {
+          "sourceHierarchyRepaired": true,
+          "chains": {
+            "L": {
+              "names": [
+                "DEF-Thigh1.L",
+                "DEF-Thigh2.L",
+                "DEF-Knee1.L",
+                "DEF-Knee2.L",
+                "DEF-Foot.L",
+                "DEF-Toes.L"
+              ],
+              "restDrift": 2.242025235105681e-16
+            },
+            "R": {
+              "names": [
+                "DEF-Thigh1.R",
+                "DEF-Thigh2.R",
+                "DEF-Knee1.R",
+                "DEF-Knee2.R",
+                "DEF-Foot.R",
+                "DEF-Toes.R"
+              ],
+              "restDrift": 1.1188630228279524e-16
+            }
+          }
+        }
+      },
+      "footprint": {
+        "minY": 0.061,
+        "maxY": 2.153,
+        "width": 0.985,
+        "height": 2.092
+      },
+      "originalSource": "E04-Phil-Skinned-R119.glb",
+      "drawCalls": 912,
+      "errors": []
+    }
+  ]
+}

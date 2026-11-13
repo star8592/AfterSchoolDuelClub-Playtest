@@ -7,6 +7,7 @@ import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {r125VersionedAssetURL} from '../r125-asset-urls.mjs';
 import {createR126MusicTeacherClips,R126_TEACHER_ACTION_NAMES} from './r126-music-teacher-native-acting.mjs';
 import {createR127OwlSourceFeathers} from './r127-owl-source-feather-motion.mjs';
+import {createR128PhilSourceFullBody,repairR128PhilSourceHierarchy} from './r128-source-lower-body.mjs';
 // R85: improved R60 photo-paper model and five native clips are the default.
 // Exact older R57 remains available with ?e02Study=r57 for immediate rollback.
 const isE02R60Study=(()=>{
@@ -441,7 +442,19 @@ export function instantiateSummon(THREE,template){
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const r86Clips=template.id==='G03'&&template.selectedFile==='G03-Jay-Skinned-R86.glb'?createR86JaySkeletonClips(THREE,instance):[];
  const r119Skin=template.selectedFile===R119_SKIN_STUDY_FILES[template.id];
- const r119Clips=r119Skin?createR119TrueSkinClips(THREE,instance,template.id):[];
+ const r128PilotOn=(()=>{
+  const local=new URLSearchParams(location.search);
+  if(local.has('r128Body'))return local.get('r128Body')==='on';
+  try{return window.parent!==window&&
+   new URLSearchParams(window.parent.location.search).get('r128Body')==='on';}
+  catch{return false;}
+ })();
+ const r128Hierarchy=template.id==='E04'&&r119Skin&&r128PilotOn?
+  repairR128PhilSourceHierarchy(THREE,instance):null;
+ const source119Clips=r119Skin?createR119TrueSkinClips(THREE,instance,template.id):[];
+ const r128Phil=template.id==='E04'&&r119Skin&&r128PilotOn?
+  createR128PhilSourceFullBody(THREE,instance,source119Clips):null;
+ const r119Clips=r128Phil?r128Phil.clips:source119Clips;
  const r126Teacher=template.id==='M01'?createR126MusicTeacherClips(THREE,instance):null;
  const r127OwlDisabled=(()=>{
   const q=new URLSearchParams(location.search);
@@ -603,10 +616,11 @@ export function instantiateSummon(THREE,template){
   }
   groundedY=scaled.position.y;
  }
- return {root,mixer,play,update:r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
+ return {root,mixer,play,update:r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),
   getR127OwlMotion:()=>r127Owl?.inspect()||null,
+  getR128FullBody:()=>r128Phil?{...r128Phil.inspect(),hierarchy:r128Hierarchy}:null,
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};

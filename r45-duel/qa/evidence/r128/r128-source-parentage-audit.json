@@ -1,0 +1,138 @@
+{
+  "passed": true,
+  "source": "R119 real glTF scene bones, source-file structural facts only",
+  "chefParentage": {
+    "LeftUpLeg": "Hips",
+    "LeftLeg": "LeftUpLeg",
+    "LeftFoot": "LeftLeg"
+  },
+  "researchActors": [
+    {
+      "actor": "E03",
+      "bones": {
+        "thigh": {
+          "name": "DEF-Thigh1.L",
+          "parent": "RIG-Ellie"
+        },
+        "knee": {
+          "name": "DEF-Knee1.L",
+          "parent": "RIG-Ellie"
+        },
+        "foot": {
+          "name": "DEF-Foot.L",
+          "parent": "RIG-Ellie"
+        }
+      },
+      "flatExport": true
+    },
+    {
+      "actor": "E04",
+      "bones": {
+        "thigh": {
+          "name": "DEF-Thigh1.L",
+          "parent": "RIG-Phil"
+        },
+        "knee": {
+          "name": "DEF-Knee1.L",
+          "parent": "RIG-Phil"
+        },
+        "foot": {
+          "name": "DEF-Foot.L",
+          "parent": "RIG-Phil"
+        }
+      },
+      "flatExport": true
+    },
+    {
+      "actor": "G02",
+      "bones": {
+        "thigh": {
+          "name": "DEF-Thigh_1.L",
+          "parent": "RIG-Snow"
+        },
+        "knee": {
+          "name": "DEF-Knee_1.L",
+          "parent": "DEF-Thigh_2.L"
+        },
+        "foot": {
+          "name": "DEF-Foot.L",
+          "parent": "DEF-Knee_2.L"
+        }
+      },
+      "flatExport": false
+    },
+    {
+      "actor": "G03",
+      "bones": {
+        "thigh": {
+          "name": "DEF-Thigh1.L",
+          "parent": "RIG-jay"
+        },
+        "knee": {
+          "name": "DEF-Knee1.L",
+          "parent": "RIG-jay"
+        },
+        "foot": {
+          "name": "DEF-Foot.L",
+          "parent": "RIG-jay"
+        }
+      },
+      "flatExport": true
+    },
+    {
+      "actor": "G04",
+      "bones": {
+        "thigh": {
+          "name": "DEF-Thigh1.L",
+          "parent": "RIG-Victoria"
+        },
+        "knee": {
+          "name": "DEF-Knee1.L",
+          "parent": "RIG-Victoria"
+        },
+        "foot": {
+          "name": "DEF-Foot.L",
+          "parent": "RIG-Victoria"
+        }
+      },
+      "flatExport": true
+    },
+    {
+      "actor": "T03",
+      "bones": {
+        "thigh": {
+          "name": "DEF-Thigh1.L",
+          "parent": "RIG-rain"
+        },
+        "knee": {
+          "name": null,
+          "parent": null
+        },
+        "foot": {
+          "name": "DEF-Foot.L",
+          "parent": "RIG-rain"
+        }
+      },
+      "flatExport": false
+    },
+    {
+      "actor": "T04",
+      "bones": {
+        "thigh": {
+          "name": "DEF-Thigh1.L",
+          "parent": "RIG-rex"
+        },
+        "knee": {
+          "name": "DEF-Knee1.L",
+          "parent": "RIG-rex"
+        },
+        "foot": {
+          "name": "DEF-Foot.L",
+          "parent": "RIG-rex"
+        }
+      },
+      "flatExport": true
+    }
+  ],
+  "important": "Flat E04 bone topology found; R128 must restore hierarchy without bind-pose drift"
+}
