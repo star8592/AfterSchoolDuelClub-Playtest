@@ -15,6 +15,8 @@ import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mj
 import {ACTOR_COMEDY_SIGNATURES} from './actor-comedy-signatures.mjs';
 import {choreographVictory} from './victory-choreography.mjs';
 import {createFootContact} from './foot-contact.mjs';
+import {createVisibleLifeActing} from './visible-life-acting.mjs';
+import {createPropLifeActing} from './prop-life-acting.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
@@ -269,6 +271,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
       }else object.userData.r105Acting.revive();
      }
      state={key,id,uid,side,index,kind,object,created:performance.now(),
+      r117Rig:kind==='gltf-instance'?createVisibleLifeActing(THREE,object,id):null,
+      r117Props:kind==='gltf-instance'?createPropLifeActing(THREE,object,id):null,
       acting:object.userData.r105Acting||null,
       comic:null,comicBones:null,status:makeStatusTag(side,id)};
      entries.set(key,state);
@@ -440,6 +444,12 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     r61?.setClipRate?.(1);
    }
    if(r61?.update)r61.update(dt);else r61?.mixer?.update(dt);
+   const realLife=lifeWorld?.read('unit:'+state.key,seconds);
+   const lifeBusy=!!sequence||!!state.comic||!!celebration||cinematic;
+   state.r117Rig?.apply(seconds,realLife,{reduced:!!celebration?.reduced,
+     busy:lifeBusy});
+   state.r117Props?.update(seconds,realLife,{reduced:!!celebration?.reduced,
+     busy:lifeBusy});
    // Board VRMs must not be left in their bind T/A pose. During the
    // independent R45 fight sequence the original actor is driven by its
    // cinematic controller, so never double-write that same skeleton.
@@ -815,6 +825,11 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      id:x.id,uid:x.uid,type:x.comic.type,serial:x.comic.serial,
      shoulderBoneCount:x.comicBones?.length||0})),
     lastComic},
+   r117PropLife:[...entries.values()].map(x=>({
+    id:x.id,uid:x.uid,side:x.side,...(x.r117Props?.inspect()||{enabled:false,frames:0})})),
+   r117CharacterMotion:[...entries.values()].map(x=>({
+    id:x.id,uid:x.uid,side:x.side,
+    ...(x.r117Rig?.inspect()||{enabled:false,frames:0})})),
    r116LifeStates:[...entries.values()].map(x=>({
     uid:x.uid,id:x.id,side:x.side,
     life:lifeWorld?.read('unit:'+x.key,lastUpdateSeconds||0)||null,
