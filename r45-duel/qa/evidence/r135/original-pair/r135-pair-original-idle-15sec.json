@@ -1,0 +1,3649 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop both source actors continuously animate, facing enemy for 15s"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 original high-poly and outsole remain supported"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 15s real original wrist/arm changing pose"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 render-bound source mixer not frozen"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 original high-poly and outsole remain supported"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 15s real original wrist/arm changing pose"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 render-bound source mixer not frozen"
+    },
+    {
+      "pass": true,
+      "label": "desktop 15 second idle no asset or code exceptions"
+    },
+    {
+      "pass": true,
+      "label": "portrait both source actors continuously animate, facing enemy for 15s"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 original high-poly and outsole remain supported"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 15s real original wrist/arm changing pose"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 render-bound source mixer not frozen"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 original high-poly and outsole remain supported"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 15s real original wrist/arm changing pose"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 render-bound source mixer not frozen"
+    },
+    {
+      "pass": true,
+      "label": "portrait 15 second idle no asset or code exceptions"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "width": 1440,
+      "samples": [
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 26,
+                "correctedFrames": 0,
+                "correctionCount": 0,
+                "lift": 0,
+                "maxCorrection": 0,
+                "arms": {
+                  "L": {
+                    "down": 0.9828,
+                    "spread": 0.1845,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.9812,
+                    "spread": 0.1928,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 26,
+                "corrections": 0,
+                "maxPenetrationBefore": 0,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0,
+                "maxFootSeparation": 0,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    0.00197,
+                    0.00197
+                  ],
+                  "after": [
+                    0.00197,
+                    0.00197
+                  ],
+                  "appliedLift": 0,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": true,
+                  "corrected": false,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 26,
+                "maxSourceWristTravel": 0.02172,
+                "maxWeightedArmVertexTravel": 0.00699
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 26,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0209,
+                "maxLegVertexTravel": 0.00074,
+                "maxFootHeightSpan": 0.00632,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 26,
+                "correctedFrames": 0,
+                "correctionCount": 0,
+                "lift": 0,
+                "maxCorrection": 0,
+                "arms": {
+                  "L": {
+                    "down": 0.999,
+                    "spread": 0.0454,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.9988,
+                    "spread": 0.0485,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 26,
+                "corrections": 0,
+                "maxPenetrationBefore": 0,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0,
+                "maxFootSeparation": 0.00007,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    0.00352,
+                    0.0036
+                  ],
+                  "after": [
+                    0.00352,
+                    0.0036
+                  ],
+                  "appliedLift": 0,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": true,
+                  "corrected": false,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 26,
+                "maxSourceWristTravel": 0.0072,
+                "maxWeightedArmVertexTravel": 0.00378
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 26,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0088,
+                "maxLegVertexTravel": 0.00023,
+                "maxFootHeightSpan": 0.00589,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 741
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 207,
+                "correctedFrames": 0,
+                "correctionCount": 0,
+                "lift": 0,
+                "maxCorrection": 0,
+                "arms": {
+                  "L": {
+                    "down": 0.992,
+                    "spread": 0.1264,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.994,
+                    "spread": 0.1096,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 207,
+                "corrections": 129,
+                "maxPenetrationBefore": 0.00851,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.00901,
+                "maxFootSeparation": 0,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    -0.00848,
+                    -0.00848
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0005
+                  ],
+                  "appliedLift": 0.00898,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 207,
+                "maxSourceWristTravel": 0.0587,
+                "maxWeightedArmVertexTravel": 0.02596
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 207,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.03,
+                "maxLegVertexTravel": 0.00134,
+                "maxFootHeightSpan": 0.00898,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 207,
+                "correctedFrames": 0,
+                "correctionCount": 0,
+                "lift": 0,
+                "maxCorrection": 0,
+                "arms": {
+                  "L": {
+                    "down": 0.6629,
+                    "spread": 0.7487,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.5983,
+                    "spread": 0.8013,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 207,
+                "corrections": 130,
+                "maxPenetrationBefore": 0.01615,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01665,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    -0.0146,
+                    -0.0144
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0007
+                  ],
+                  "appliedLift": 0.0151,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 207,
+                "maxSourceWristTravel": 0.75879,
+                "maxWeightedArmVertexTravel": 0.60241
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 207,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0243,
+                "maxLegVertexTravel": 0.00084,
+                "maxFootHeightSpan": 0.00941,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 387,
+                "correctedFrames": 100,
+                "correctionCount": 100,
+                "lift": 0,
+                "maxCorrection": 0.3114,
+                "arms": {
+                  "L": {
+                    "down": 0.48,
+                    "spread": 0.8773,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.5285,
+                    "spread": 0.8489,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 387,
+                "corrections": 279,
+                "maxPenetrationBefore": 0.00851,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.00901,
+                "maxFootSeparation": 0.00002,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    -0.00667,
+                    -0.00667
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0005
+                  ],
+                  "appliedLift": 0.00717,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 387,
+                "maxSourceWristTravel": 0.62279,
+                "maxWeightedArmVertexTravel": 0.4571
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 387,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.03,
+                "maxLegVertexTravel": 0.00192,
+                "maxFootHeightSpan": 0.00969,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 387,
+                "correctedFrames": 169,
+                "correctionCount": 169,
+                "lift": 0,
+                "maxCorrection": 0.0132,
+                "arms": {
+                  "L": {
+                    "down": 0.5996,
+                    "spread": 0.8003,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.53,
+                    "spread": 0.848,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 387,
+                "corrections": 216,
+                "maxPenetrationBefore": 0.01615,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01665,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    -0.00494,
+                    -0.00489
+                  ],
+                  "after": [
+                    0.0005,
+                    0.00055
+                  ],
+                  "appliedLift": 0.00544,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 387,
+                "maxSourceWristTravel": 0.83659,
+                "maxWeightedArmVertexTravel": 0.68202
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 387,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0245,
+                "maxLegVertexTravel": 0.00084,
+                "maxFootHeightSpan": 0.00948,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 567,
+                "correctedFrames": 280,
+                "correctionCount": 280,
+                "lift": 0,
+                "maxCorrection": 0.3119,
+                "arms": {
+                  "L": {
+                    "down": 0.48,
+                    "spread": 0.8773,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.5036,
+                    "spread": 0.8639,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 567,
+                "corrections": 379,
+                "maxPenetrationBefore": 0.00851,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.00901,
+                "maxFootSeparation": 0.00002,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    0.00173,
+                    0.00173
+                  ],
+                  "after": [
+                    0.00173,
+                    0.00173
+                  ],
+                  "appliedLift": 0,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": true,
+                  "corrected": false,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 567,
+                "maxSourceWristTravel": 0.62279,
+                "maxWeightedArmVertexTravel": 0.4571
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 567,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.03,
+                "maxLegVertexTravel": 0.00193,
+                "maxFootHeightSpan": 0.00969,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 567,
+                "correctedFrames": 349,
+                "correctionCount": 377,
+                "lift": 0,
+                "maxCorrection": 0.3012,
+                "arms": {
+                  "L": {
+                    "down": 0.5448,
+                    "spread": 0.8385,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.5184,
+                    "spread": 0.8551,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 567,
+                "corrections": 328,
+                "maxPenetrationBefore": 0.01615,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01665,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    0.00188,
+                    0.00202
+                  ],
+                  "after": [
+                    0.00188,
+                    0.00202
+                  ],
+                  "appliedLift": 0,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": true,
+                  "corrected": false,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 567,
+                "maxSourceWristTravel": 0.87617,
+                "maxWeightedArmVertexTravel": 0.72343
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 567,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0245,
+                "maxLegVertexTravel": 0.00101,
+                "maxFootHeightSpan": 0.00948,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 2,
+                "returns": 1,
+                "updateFrames": 747,
+                "correctedFrames": 441,
+                "correctionCount": 441,
+                "lift": 0,
+                "maxCorrection": 0.3531,
+                "arms": {
+                  "L": {
+                    "down": 0.48,
+                    "spread": 0.8773,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.9885,
+                    "spread": 0.1515,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle",
+                  "R119_Skeletal_Challenge",
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 747,
+                "corrections": 515,
+                "maxPenetrationBefore": 0.02091,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.02141,
+                "maxFootSeparation": 0.00002,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    -0.005,
+                    -0.005
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0005
+                  ],
+                  "appliedLift": 0.0055,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 747,
+                "maxSourceWristTravel": 0.62279,
+                "maxWeightedArmVertexTravel": 0.4571
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 747,
+                "independentLegFrames": 222,
+                "maxJointAngle": 0.2223,
+                "maxLegVertexTravel": 0.01344,
+                "maxFootHeightSpan": 0.05592,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 747,
+                "correctedFrames": 385,
+                "correctionCount": 427,
+                "lift": 0,
+                "maxCorrection": 0.3827,
+                "arms": {
+                  "L": {
+                    "down": 0.8937,
+                    "spread": 0.4486,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.8997,
+                    "spread": 0.4366,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 747,
+                "corrections": 499,
+                "maxPenetrationBefore": 0.01618,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01668,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    -0.00548,
+                    -0.00532
+                  ],
+                  "after": [
+                    0.0005,
+                    0.00065
+                  ],
+                  "appliedLift": 0.00598,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 747,
+                "maxSourceWristTravel": 0.87617,
+                "maxWeightedArmVertexTravel": 0.73699
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 747,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0245,
+                "maxLegVertexTravel": 0.00101,
+                "maxFootHeightSpan": 0.00948,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 2,
+                "returns": 1,
+                "updateFrames": 927,
+                "correctedFrames": 545,
+                "correctionCount": 545,
+                "lift": 0,
+                "maxCorrection": 0.3531,
+                "arms": {
+                  "L": {
+                    "down": 0.9997,
+                    "spread": 0.0243,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.4359,
+                    "spread": 0.9,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle",
+                  "R119_Skeletal_Challenge",
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 927,
+                "corrections": 603,
+                "maxPenetrationBefore": 0.02091,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.02141,
+                "maxFootSeparation": 0.00002,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    -0.01202,
+                    -0.01202
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0005
+                  ],
+                  "appliedLift": 0.01252,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 927,
+                "maxSourceWristTravel": 0.62279,
+                "maxWeightedArmVertexTravel": 0.4571
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 927,
+                "independentLegFrames": 222,
+                "maxJointAngle": 0.2223,
+                "maxLegVertexTravel": 0.01344,
+                "maxFootHeightSpan": 0.05592,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 927,
+                "correctedFrames": 385,
+                "correctionCount": 427,
+                "lift": 0,
+                "maxCorrection": 0.3827,
+                "arms": {
+                  "L": {
+                    "down": 0.9966,
+                    "spread": 0.0824,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.5513,
+                    "spread": 0.8343,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 927,
+                "corrections": 586,
+                "maxPenetrationBefore": 0.01618,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01668,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    -0.01223,
+                    -0.01212
+                  ],
+                  "after": [
+                    0.0005,
+                    0.00061
+                  ],
+                  "appliedLift": 0.01273,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 927,
+                "maxSourceWristTravel": 0.87617,
+                "maxWeightedArmVertexTravel": 0.73699
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 927,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0245,
+                "maxLegVertexTravel": 0.00101,
+                "maxFootHeightSpan": 0.00948,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        }
+      ],
+      "drawCalls": [
+        741,
+        719,
+        719,
+        719,
+        719,
+        719
+      ]
+    },
+    {
+      "view": "portrait",
+      "width": 430,
+      "samples": [
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 27,
+                "correctedFrames": 0,
+                "correctionCount": 0,
+                "lift": 0,
+                "maxCorrection": 0,
+                "arms": {
+                  "L": {
+                    "down": 0.9829,
+                    "spread": 0.1844,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.9813,
+                    "spread": 0.1927,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 27,
+                "corrections": 0,
+                "maxPenetrationBefore": 0,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0,
+                "maxFootSeparation": 0,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    0.00204,
+                    0.00204
+                  ],
+                  "after": [
+                    0.00204,
+                    0.00204
+                  ],
+                  "appliedLift": 0,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": true,
+                  "corrected": false,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 27,
+                "maxSourceWristTravel": 0.0218,
+                "maxWeightedArmVertexTravel": 0.00719
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 27,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0205,
+                "maxLegVertexTravel": 0.00074,
+                "maxFootHeightSpan": 0.00627,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 27,
+                "correctedFrames": 0,
+                "correctionCount": 0,
+                "lift": 0,
+                "maxCorrection": 0,
+                "arms": {
+                  "L": {
+                    "down": 0.999,
+                    "spread": 0.0456,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.9988,
+                    "spread": 0.0485,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 27,
+                "corrections": 0,
+                "maxPenetrationBefore": 0,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0,
+                "maxFootSeparation": 0.00007,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    0.00355,
+                    0.00363
+                  ],
+                  "after": [
+                    0.00355,
+                    0.00363
+                  ],
+                  "appliedLift": 0,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": true,
+                  "corrected": false,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 27,
+                "maxSourceWristTravel": 0.00716,
+                "maxWeightedArmVertexTravel": 0.00376
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 27,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0086,
+                "maxLegVertexTravel": 0.00023,
+                "maxFootHeightSpan": 0.00586,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 741
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 208,
+                "correctedFrames": 0,
+                "correctionCount": 0,
+                "lift": 0,
+                "maxCorrection": 0,
+                "arms": {
+                  "L": {
+                    "down": 0.9921,
+                    "spread": 0.1251,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.9942,
+                    "spread": 0.1075,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 208,
+                "corrections": 128,
+                "maxPenetrationBefore": 0.00844,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.00894,
+                "maxFootSeparation": 0,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    -0.00842,
+                    -0.00842
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0005
+                  ],
+                  "appliedLift": 0.00892,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 208,
+                "maxSourceWristTravel": 0.05781,
+                "maxWeightedArmVertexTravel": 0.02554
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 208,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.03,
+                "maxLegVertexTravel": 0.00128,
+                "maxFootHeightSpan": 0.00899,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 208,
+                "correctedFrames": 0,
+                "correctionCount": 0,
+                "lift": 0,
+                "maxCorrection": 0,
+                "arms": {
+                  "L": {
+                    "down": 0.6889,
+                    "spread": 0.7248,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.6244,
+                    "spread": 0.7811,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 208,
+                "corrections": 128,
+                "maxPenetrationBefore": 0.01615,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01665,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    -0.0147,
+                    -0.0145
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0007
+                  ],
+                  "appliedLift": 0.0152,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 208,
+                "maxSourceWristTravel": 0.73229,
+                "maxWeightedArmVertexTravel": 0.57842
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 208,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0243,
+                "maxLegVertexTravel": 0.00085,
+                "maxFootHeightSpan": 0.00941,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 389,
+                "correctedFrames": 100,
+                "correctionCount": 100,
+                "lift": 0,
+                "maxCorrection": 0.3114,
+                "arms": {
+                  "L": {
+                    "down": 0.48,
+                    "spread": 0.8773,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.5268,
+                    "spread": 0.85,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 389,
+                "corrections": 280,
+                "maxPenetrationBefore": 0.00844,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.00894,
+                "maxFootSeparation": 0.00002,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    -0.0067,
+                    -0.0067
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0005
+                  ],
+                  "appliedLift": 0.0072,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 389,
+                "maxSourceWristTravel": 0.62253,
+                "maxWeightedArmVertexTravel": 0.4571
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 389,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.03,
+                "maxLegVertexTravel": 0.00191,
+                "maxFootHeightSpan": 0.00975,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 389,
+                "correctedFrames": 169,
+                "correctionCount": 169,
+                "lift": 0,
+                "maxCorrection": 0.0158,
+                "arms": {
+                  "L": {
+                    "down": 0.5968,
+                    "spread": 0.8024,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.53,
+                    "spread": 0.848,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 389,
+                "corrections": 215,
+                "maxPenetrationBefore": 0.01615,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01665,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    -0.00465,
+                    -0.00461
+                  ],
+                  "after": [
+                    0.0005,
+                    0.00055
+                  ],
+                  "appliedLift": 0.00515,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 389,
+                "maxSourceWristTravel": 0.83711,
+                "maxWeightedArmVertexTravel": 0.68378
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 389,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0245,
+                "maxLegVertexTravel": 0.00085,
+                "maxFootHeightSpan": 0.00948,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 570,
+                "correctedFrames": 281,
+                "correctionCount": 281,
+                "lift": 0,
+                "maxCorrection": 0.3119,
+                "arms": {
+                  "L": {
+                    "down": 0.48,
+                    "spread": 0.8773,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.5038,
+                    "spread": 0.8638,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 570,
+                "corrections": 382,
+                "maxPenetrationBefore": 0.00844,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.00894,
+                "maxFootSeparation": 0.00002,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    0.00181,
+                    0.00181
+                  ],
+                  "after": [
+                    0.00181,
+                    0.00181
+                  ],
+                  "appliedLift": 0,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": true,
+                  "corrected": false,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 570,
+                "maxSourceWristTravel": 0.62253,
+                "maxWeightedArmVertexTravel": 0.4571
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 570,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.03,
+                "maxLegVertexTravel": 0.00191,
+                "maxFootHeightSpan": 0.00975,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 570,
+                "correctedFrames": 350,
+                "correctionCount": 377,
+                "lift": 0,
+                "maxCorrection": 0.2804,
+                "arms": {
+                  "L": {
+                    "down": 0.5438,
+                    "spread": 0.8392,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.5173,
+                    "spread": 0.8558,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 570,
+                "corrections": 329,
+                "maxPenetrationBefore": 0.01615,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01665,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    0.00206,
+                    0.0022
+                  ],
+                  "after": [
+                    0.00206,
+                    0.0022
+                  ],
+                  "appliedLift": 0,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": true,
+                  "corrected": false,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 570,
+                "maxSourceWristTravel": 0.87617,
+                "maxWeightedArmVertexTravel": 0.72114
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 570,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0245,
+                "maxLegVertexTravel": 0.001,
+                "maxFootHeightSpan": 0.00948,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 2,
+                "returns": 1,
+                "updateFrames": 751,
+                "correctedFrames": 443,
+                "correctionCount": 443,
+                "lift": 0,
+                "maxCorrection": 0.3525,
+                "arms": {
+                  "L": {
+                    "down": 0.48,
+                    "spread": 0.8773,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.9967,
+                    "spread": 0.081,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle",
+                  "R119_Skeletal_Challenge",
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 751,
+                "corrections": 516,
+                "maxPenetrationBefore": 0.02095,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.02145,
+                "maxFootSeparation": 0.00002,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    -0.00521,
+                    -0.00521
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0005
+                  ],
+                  "appliedLift": 0.00571,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 751,
+                "maxSourceWristTravel": 0.62253,
+                "maxWeightedArmVertexTravel": 0.4571
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 751,
+                "independentLegFrames": 223,
+                "maxJointAngle": 0.2245,
+                "maxLegVertexTravel": 0.01357,
+                "maxFootHeightSpan": 0.05579,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 751,
+                "correctedFrames": 387,
+                "correctionCount": 429,
+                "lift": 0,
+                "maxCorrection": 0.3827,
+                "arms": {
+                  "L": {
+                    "down": 0.9048,
+                    "spread": 0.4259,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.8872,
+                    "spread": 0.4615,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 751,
+                "corrections": 500,
+                "maxPenetrationBefore": 0.01618,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01668,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    -0.00584,
+                    -0.00568
+                  ],
+                  "after": [
+                    0.0005,
+                    0.00066
+                  ],
+                  "appliedLift": 0.00634,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 751,
+                "maxSourceWristTravel": 0.87617,
+                "maxWeightedArmVertexTravel": 0.73691
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 751,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0245,
+                "maxLegVertexTravel": 0.001,
+                "maxFootHeightSpan": 0.00949,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        },
+        {
+          "actors": [
+            {
+              "id": "E03",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "cheer-leap-whistle",
+                "actor": "E03",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 2,
+                "returns": 1,
+                "updateFrames": 932,
+                "correctedFrames": 549,
+                "correctionCount": 549,
+                "lift": 0,
+                "maxCorrection": 0.3525,
+                "arms": {
+                  "L": {
+                    "down": 0.9978,
+                    "spread": 0.0666,
+                    "elbowToWrist": 0.2912
+                  },
+                  "R": {
+                    "down": 0.453,
+                    "spread": 0.8915,
+                    "elbowToWrist": 0.2912
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle",
+                  "R119_Skeletal_Challenge",
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "E03",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-ellie_boots_5",
+                  "Data_GEO-ellie_boots_6"
+                ],
+                "frames": 932,
+                "corrections": 604,
+                "maxPenetrationBefore": 0.02095,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.02145,
+                "maxFootSeparation": 0.00002,
+                "last": {
+                  "actor": "E03",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-ellie_boots_5",
+                    "Data_GEO-ellie_boots_6"
+                  ],
+                  "before": [
+                    -0.0118,
+                    -0.0118
+                  ],
+                  "after": [
+                    0.0005,
+                    0.0005
+                  ],
+                  "appliedLift": 0.0123,
+                  "selectedSupport": "Data_GEO-ellie_boots_5",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "E03",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 55,
+                "sourceArmNodes": 315,
+                "changedParentLinks": 46,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 6.661699538672011e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-ellie_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 130,
+                "originalVertexWeight": 1,
+                "frames": 932,
+                "maxSourceWristTravel": 0.62253,
+                "maxWeightedArmVertexTravel": 0.4571
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "E03",
+                "sourceSkinnedMeshes": 55,
+                "sourceBoneCount": 315,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-ellie_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 0,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 932,
+                "independentLegFrames": 223,
+                "maxJointAngle": 0.2245,
+                "maxLegVertexTravel": 0.01357,
+                "maxFootHeightSpan": 0.05579,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 4.441197019893352e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 1.1188630228279524e-16
+                    }
+                  }
+                }
+              },
+              "source": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb"
+            },
+            {
+              "id": "T04",
+              "face": 1,
+              "stage": {
+                "enabled": true,
+                "identity": "heavy-door-block-wall",
+                "actor": "T04",
+                "source": "original_author_weighted_source_bones",
+                "currentClip": "R119_Skeletal_Idle",
+                "sourceTracks": 16,
+                "transitions": 0,
+                "returns": 0,
+                "updateFrames": 932,
+                "correctedFrames": 387,
+                "correctionCount": 429,
+                "lift": 0,
+                "maxCorrection": 0.3827,
+                "arms": {
+                  "L": {
+                    "down": 0.9993,
+                    "spread": 0.0379,
+                    "elbowToWrist": 0.2689
+                  },
+                  "R": {
+                    "down": 0.5806,
+                    "spread": 0.8142,
+                    "elbowToWrist": 0.2689
+                  }
+                },
+                "history": [
+                  "R119_Skeletal_Idle"
+                ]
+              },
+              "contact": {
+                "enabled": true,
+                "actor": "T04",
+                "source": "two_original_weighted_skinned_outsoles",
+                "shoes": [
+                  "Data_GEO-rex_shoes_1",
+                  "Data_GEO-rex_shoes_2"
+                ],
+                "frames": 932,
+                "corrections": 586,
+                "maxPenetrationBefore": 0.01618,
+                "maxAfterPenetration": 0,
+                "maxAppliedLift": 0.01668,
+                "maxFootSeparation": 0.0002,
+                "last": {
+                  "actor": "T04",
+                  "source": "two_original_weighted_skinned_outsoles",
+                  "shoes": [
+                    "Data_GEO-rex_shoes_1",
+                    "Data_GEO-rex_shoes_2"
+                  ],
+                  "before": [
+                    -0.0121,
+                    -0.012
+                  ],
+                  "after": [
+                    0.0005,
+                    0.00061
+                  ],
+                  "appliedLift": 0.0126,
+                  "selectedSupport": "Data_GEO-rex_shoes_1",
+                  "intentionalAirborne": false,
+                  "corrected": true,
+                  "clamped": false
+                }
+              },
+              "arms": {
+                "actor": "T04",
+                "source": "actual_original_author_skinned_arm_hierarchy",
+                "flatOriginal": true,
+                "sourceSkinnedMeshes": 32,
+                "sourceArmNodes": 288,
+                "changedParentLinks": 48,
+                "validatedParentLinks": 48,
+                "maxBindRestDrift": 3.5135752366389115e-16,
+                "wristBoneNames": [
+                  "DEF-WristL",
+                  "DEF-WristR"
+                ],
+                "weightedOriginalMesh": "GEO-rex_body",
+                "weightedOriginalBone": "DEF-Finger_Ring1L",
+                "weightedOriginalVertex": 0,
+                "originalVertexWeight": 0.8043,
+                "frames": 932,
+                "maxSourceWristTravel": 0.87617,
+                "maxWeightedArmVertexTravel": 0.73691
+              },
+              "legs": {
+                "source": "real_original_skinned_deform_bones",
+                "actor": "T04",
+                "sourceSkinnedMeshes": 32,
+                "sourceBoneCount": 288,
+                "independentLegBones": [
+                  "DEF-Thigh1.L",
+                  "DEF-Thigh1.R",
+                  "DEF-Knee1.L",
+                  "DEF-Knee1.R",
+                  "DEF-Foot.L",
+                  "DEF-Foot.R",
+                  "DEF-Toes.L",
+                  "DEF-Toes.R"
+                ],
+                "runtimeLegTracks": 8,
+                "weightedSourceLegMesh": "GEO-rex_body",
+                "weightedSourceLegBone": "DEF-Thigh1.L",
+                "weightedSourceLegVertex": 928,
+                "weightedSourceLegVertexWeight": 1,
+                "frames": 932,
+                "independentLegFrames": 0,
+                "maxJointAngle": 0.0245,
+                "maxLegVertexTravel": 0.001,
+                "maxFootHeightSpan": 0.00949,
+                "hierarchy": {
+                  "sourceHierarchyRepaired": true,
+                  "chains": {
+                    "L": {
+                      "names": [
+                        "DEF-Thigh1.L",
+                        "DEF-Thigh2.L",
+                        "DEF-Knee1.L",
+                        "DEF-Knee2.L",
+                        "DEF-Foot.L",
+                        "DEF-Toes.L"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    },
+                    "R": {
+                      "names": [
+                        "DEF-Thigh1.R",
+                        "DEF-Thigh2.R",
+                        "DEF-Knee1.R",
+                        "DEF-Knee2.R",
+                        "DEF-Foot.R",
+                        "DEF-Toes.R"
+                      ],
+                      "restDrift": 2.2591401799415137e-16
+                    }
+                  }
+                }
+              },
+              "source": "T04-Rex-Skinned-R132-BakedRest-PILOT.glb"
+            }
+          ],
+          "drawCalls": 719
+        }
+      ],
+      "drawCalls": [
+        741,
+        719,
+        719,
+        719,
+        719,
+        719
+      ]
+    }
+  ],
+  "errors": [],
+  "origin": "http://127.0.0.1:11441"
+}

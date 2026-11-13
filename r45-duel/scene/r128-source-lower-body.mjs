@@ -36,7 +36,7 @@ export function repairR128PhilSourceHierarchy(THREE,instance,id='E04'){
  }
  return{sourceHierarchyRepaired:true,chains:legs};
 }
-export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E04'){
+export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E04',{directorAmplify=1}={}){
  const canonical=v=>String(v||'').toLowerCase().replace(/[^a-z0-9]/g,'');
  // Source animation profiles are per-character, not clones of a single child.
  // Controlled upper-body R119 motions already contain distinct personalities.
@@ -44,7 +44,11 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E0
   E04:1.00, E03:1.25, G03:1.09, G04:.74, T04:1.18
  });
  if(!Object.hasOwn(strengths,id))throw Error('R129 unsupported flat original source rig '+id);
- const lowerBodyStrength=strengths[id];
+ // Exact original source leg deformation; boost ONLY explicit R135 actor pilots.
+ // Default stays bit-for-bit compatible with R128-R134 study behavior.
+ if(!Number.isFinite(directorAmplify)||directorAmplify<1||directorAmplify>1.65)
+  throw Error('R135 invalid source leg director amplification');
+ const lowerBodyStrength=strengths[id]*directorAmplify;
  const skinned=[];const boneSet=new Set();
  instance.traverse(mesh=>{
   if(!mesh.isSkinnedMesh)return;
