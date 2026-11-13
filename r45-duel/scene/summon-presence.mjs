@@ -356,24 +356,48 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   state.comicBones=bones.slice(0,4);
   return state.comicBones;
  }
+ // R120: campus-comedy stage language. These drive the EXISTING original
+ // GLB morphs and actual rig joints, never replace a high-detail character.
+ // A cheer captain is a jumping firecracker; the dean does a rigid,
+ // over-important announcement; the chef salutes with the actual ladle.
  const COMIC_MOTIONS=Object.freeze({
-  salute:{duration:1.10,lift:.11,lean:.09,arm:.20,taps:1},
-  chalk_hit:{duration:2.25,lift:.15,lean:.17,arm:.43,taps:1},
-  chalk_direct:{duration:2.1,lift:.12,lean:.17,arm:.38,taps:1},
-  broadcast_draw:{duration:2.0,lift:.12,lean:.09,arm:.37,taps:3},
-  poster_shield:{duration:2.1,lift:.17,lean:-.12,arm:.46,taps:2},
-  poster_draw:{duration:1.9,lift:.12,lean:-.07,arm:.28,taps:2}
+  salute:{duration:1.42,lift:.21,lean:.19,arm:.58,taps:3},
+  chalk_hit:{duration:2.25,lift:.17,lean:.25,arm:.66,taps:2},
+  chalk_direct:{duration:2.1,lift:.16,lean:.25,arm:.58,taps:2},
+  broadcast_draw:{duration:2.0,lift:.18,lean:.14,arm:.58,taps:4},
+  poster_shield:{duration:2.1,lift:.18,lean:-.24,arm:.66,taps:2},
+  poster_draw:{duration:1.9,lift:.16,lean:-.13,arm:.51,taps:3}
+ });
+ const R120_ENTRANCE_STYLE=Object.freeze({
+  E01:{mode:'bell_sprint',clip:'walk',lean:1.14,lift:1.20,wave:.90},
+  E02:{mode:'paper_plane_spin',clip:'walk',lean:1.06,lift:1.08,wave:.30},
+  E03:{mode:'cheerleader_super_jump',clip:'attack',lean:.95,lift:1.35,wave:1.32},
+  E04:{mode:'cafeteria_relay_dash',clip:'walk',lean:1.34,lift:1.20,wave:.91},
+  G01:{mode:'elastic_countershot',clip:'attack',lean:1.14,lift:1.0,wave:1.23},
+  G02:{mode:'chalkboard_spell',clip:'attack',lean:.86,lift:.84,wave:1.2},
+  G03:{mode:'explosive_chemistry',clip:'attack',lean:1.30,lift:1.22,wave:1.24},
+  G04:{mode:'school_president_decree',clip:'attack',lean:.76,lift:.87,wave:1.03},
+  M01:{mode:'conductor_orchestra',clip:'attack',lean:1.08,lift:.90,wave:1.2},
+  M02:{mode:'chef_wields_ladle',clip:'attack',lean:1.17,lift:1.08,wave:1.25},
+  T01:{mode:'owl_urgent_news',clip:'walk',lean:1.12,lift:1.25,wave:1.21},
+  T02:{mode:'menu_page_flip',clip:'attack',lean:.94,lift:1.01,wave:.62},
+  T03:{mode:'runner_handoff',clip:'walk',lean:1.18,lift:1.23,wave:1.05},
+  T04:{mode:'gate_guard_stop',clip:'attack',lean:1.14,lift:.92,wave:1.27}
  });
  function setComicGesture(state,type,now,serial){
   const motion=COMIC_MOTIONS[type];
   if(!state||!motion||!Number.isFinite(now)||!Number.isInteger(serial)||serial<=0)return false;
   // React with its existing native morph/rig animation FIRST.
   // True shoulder bones (when present) are layered in the update function.
-  state.object.userData.r61?.play?.(type.startsWith('chalk')?'attack':
-   type==='poster_shield'?'hit':'idle');
+  const stage=R120_ENTRANCE_STYLE[state.id]||{mode:'individual',clip:'attack',lean:1,lift:1,wave:1};
+  const requestedClip=type==='salute'?stage.clip:
+   type.startsWith('chalk')?'attack':type==='poster_shield'?'hit':'attack';
+  state.object.userData.r61?.play?.(requestedClip);
   const signature=ACTOR_COMEDY_SIGNATURES[state.id];
-  state.comic={type,started:now,serial,motion,signature,
+  state.comic={type,started:now,serial,motion,signature,style:stage,
    baseYaw:state.object.rotation.y};
+  state.r120Reaction={mode:stage.mode,phase:'windup',at:now,
+   clip:requestedClip,actualSourceModel:true};
   realComicBones(state);
   comicGestures++;
   lastComic={type,id:state.id,side:state.side,serial,
@@ -464,18 +488,28 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      state.object.rotation.y=c.baseYaw;
      state.comic=null;
      state.object.userData.r61?.setCombatPose?.(null);
+     state.object.userData.r61?.play?.('idle');
+     if(state.r120Reaction)state.r120Reaction.phase='settled';
      for(const b of state.comicBones||[])b.bone.quaternion.copy(b.rest);
     }else{
      const envelope=Math.sin(Math.PI*p);
      const sig=c.signature||{name:'default',turn:0,arm:1,taps:1,lift:1};
+     const style=c.style||{mode:'individual',lean:1,lift:1,wave:1};
+     const dramatic=Math.sin(Math.PI*p);
      const bounce=Math.sin(p*Math.PI*2*(m.taps+Math.max(0,sig.taps-2)*.36));
-     state.object.rotation.y=c.baseYaw+sig.turn*envelope*bounce;
+     // Readable 3-act campus stage performance: preparatory windup,
+     // oversized signature reveal, then physically settle to source idle.
+     if(state.r120Reaction)state.r120Reaction.phase=
+      p<.22?'windup':p<.76?'spotlight':'recover';
+     state.object.rotation.y=c.baseYaw+
+      Math.max(-.33,Math.min(.33,sig.turn*1.36*envelope*bounce));
      const asym=state.side==='player'?1:-1;
      // Pose the genuine loaded GLB skeleton through its real shoulder bones.
      // Use a fixed rest reference so there is NEVER cumulative T-/A-pose
      // distortion after the short gesture ends.
      for(const entry of state.comicBones||[]){
-      const turn=m.arm*sig.arm*envelope*(.63+.37*bounce)*entry.side*asym;
+      const turn=m.arm*sig.arm*style.wave*envelope*
+       (.65+.35*bounce)*entry.side*asym;
       entry.bone.quaternion.copy(entry.rest);
       entry.bone.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
        new THREE.Vector3(0,0,1),turn));
@@ -484,9 +518,9 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      // This is an additional small whole-character performance layer,
      // NOT a synthetic replacement mesh or a fake skeleton.
      state.object.userData.r61?.setCombatPose?.({
-      lean:asym*m.lean*envelope,
-      upperTwist:asym*(m.arm*.19)*bounce*envelope,
-      lift:m.lift*sig.lift*Math.abs(bounce)*envelope});
+      lean:asym*m.lean*style.lean*envelope,
+      upperTwist:asym*(m.arm*.25)*style.wave*bounce*envelope,
+      lift:m.lift*sig.lift*style.lift*Math.max(0,bounce)*dramatic});
     }
    }
    if(state.status&&labelStyle!=='hidden')drawStatusTag(state,labelStyle);
@@ -507,6 +541,23 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    // rivals perform a restrained dejected pose. Real shoulder rigs are
    // animated when available, never replaced by proxy meshes.
    if(dancing&&state.kind!=='art-pending'){
+    // One genuinely deformed source reaction per result: winner throws a
+    // triumphant signature pose, loser recoils before visibly sinking.
+    // Keeps original R97 mesh morphs and R119 source skeleton; no proxies.
+    if(!state.r120VictoryClip){
+     const victorious=celebration.winner===state.side;
+     const actual=state.object.userData.r61;
+     if(state.id==='M02'){
+      // The chef's beautiful authored full-body Attack clip repositions
+      // the ankles by 30cm; during the group dance her original foot-contact
+      // solver MUST own planted shoes. Shoulder-driven ladle parade stays.
+      actual?.play?.('idle');
+     }else if(actual?.r119Skin&&victorious)
+      actual.playLifeClip?.('R119_Skeletal_Celebrate');
+     else actual?.play?.(victorious?'attack':'hit');
+     state.r120VictoryClip=state.id==='M02'?'chef_planted_ladle_parade':
+      victorious?'winner_big_reaction':'loser_shock';
+    }
     const move=choreographVictory({elapsed:danceTime,
      winner:celebration.winner,side:state.side,id:state.id,
      index:state.index,reduced:celebration.reduced});
@@ -538,7 +589,12 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     if(!state.r114FootContact.enabled&&grounded&&state.kind!=='original-vrm'){
      // Some Blender Studio GLBs expose only baked pose channels to the
      // runtime scene graph; do not invent leg bones or lift their shoes.
-     object.position.y=at.y;
+     // A grounded character can still do a small, intentional *jump* on a
+     // victory beat. Shoes return to the exact arena floor in the same
+     // authored animation instead of permanently hovering at rest.
+     const hops=move.winner&&['stomp','final_pose'].includes(move.stage)?
+      Math.max(0,move.bob)*1.8:0;
+     object.position.y=at.y+hops;
      object.position.x=at.x+move.x*.32*(state.side==='player'?1:-1);
     }
     state.r114FootContact.apply(danceTime,move.stage,state.index,
@@ -613,15 +669,27 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      e.object.rotation.y=faceOpponentYaw(e.id,e.side);
     }
    }
-   for(const e of entries.values())e.r114FootContact?.reset();
+   for(const e of entries.values()){
+    e.r114FootContact?.reset();
+    e.object.userData.r61?.play?.('idle');
+    e.r120VictoryClip=null;
+   }
    celebration=null;
   }
   for(const state of entries.values()){
    const age=seconds-(state.r95SpellHit??-100);
    if(age<0||age>.73)continue;
    const envelope=Math.sin(Math.PI*age/.73);
-   state.object.rotation.z+=(state.side==='player'?-1:1)*.11*envelope;
-   state.object.position.x+=(state.side==='player'?-1:1)*.14*envelope;
+   // Real spell hits knock the target backward, not just flash over it.
+   // Character-specific personality and the source Hit_Recoil morph are
+   // already active. Keep torso rotation below 0.32rad and recover to the
+   // original floor, lane, and opponent-facing pose every frame.
+   const personality=R120_ENTRANCE_STYLE[state.id];
+   state.object.rotation.z+=(state.side==='player'?-1:1)*
+    Math.min(.33,.24*(personality?.lean||1))*envelope;
+   state.object.position.x+=(state.side==='player'?-1:1)*
+    Math.min(.42,.29*(personality?.lean||1))*envelope;
+   state.r120HitStrength=+envelope.toFixed(3);
   }
   hitRing.visible=ribbon.visible=hitLabel.visible=false;
   sparkBurst.visible=false;
@@ -936,6 +1004,14 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     id:x.id,uid:x.uid,side:x.side,
     ...(x.r114FootContact?.inspect()||{enabled:false,frames:0})
    })),
+   r120CharacterTheatre:[...entries.values()].map(x=>({
+    id:x.id,uid:x.uid,side:x.side,
+    identity:R120_ENTRANCE_STYLE[x.id]?.mode||'individual',
+    performance:x.r120Reaction||null,
+    spellHitStrength:x.r120HitStrength||0,
+    victoryClip:x.r120VictoryClip||null,
+    realRig:x.object.userData.r61?.r119Skin||false,
+    playingClips:x.object.userData.r61?.getPlayingClips?.()||[]})),
    r113DanceStages:[...entries.values()].map(x=>({id:x.id,side:x.side,
     stage:x.r113DanceStage||null})),
    r112Victory:celebration&&{...celebration,frames:celebrationFrames,

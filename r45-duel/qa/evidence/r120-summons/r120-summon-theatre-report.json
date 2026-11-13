@@ -1,0 +1,1477 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11132",
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop all genuine avatars face opponents without reversing",
+      "data": [
+        {
+          "id": "E02",
+          "dot": 1
+        },
+        {
+          "id": "E03",
+          "dot": 1
+        },
+        {
+          "id": "E04",
+          "dot": 1
+        },
+        {
+          "id": "G02",
+          "dot": 1
+        },
+        {
+          "id": "G03",
+          "dot": 1
+        },
+        {
+          "id": "G04",
+          "dot": 1
+        },
+        {
+          "id": "M01",
+          "dot": 1
+        },
+        {
+          "id": "M02",
+          "dot": 1
+        },
+        {
+          "id": "T01",
+          "dot": 1
+        },
+        {
+          "id": "T02",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop E02 actual source mesh performs grand entrance",
+      "data": {
+        "id": "E02",
+        "uid": "U110",
+        "side": "player",
+        "identity": "paper_plane_spin",
+        "performance": {
+          "mode": "paper_plane_spin",
+          "phase": "windup",
+          "at": 0.19779999998211864,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Bank_Left"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop E02 three-stage gesture with independent personality",
+      "data": {
+        "id": "E02",
+        "uid": "U110",
+        "side": "player",
+        "identity": "paper_plane_spin",
+        "performance": {
+          "mode": "paper_plane_spin",
+          "phase": "windup",
+          "at": 0.19779999998211864,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Bank_Left"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 actual source mesh performs grand entrance",
+      "data": {
+        "id": "E03",
+        "uid": "U111",
+        "side": "player",
+        "identity": "cheerleader_super_jump",
+        "performance": {
+          "mode": "cheerleader_super_jump",
+          "phase": "windup",
+          "at": 0.4502999999821188,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 three-stage gesture with independent personality",
+      "data": {
+        "id": "E03",
+        "uid": "U111",
+        "side": "player",
+        "identity": "cheerleader_super_jump",
+        "performance": {
+          "mode": "cheerleader_super_jump",
+          "phase": "windup",
+          "at": 0.4502999999821188,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 actual source mesh performs grand entrance",
+      "data": {
+        "id": "E04",
+        "uid": "U112",
+        "side": "player",
+        "identity": "cafeteria_relay_dash",
+        "performance": {
+          "mode": "cafeteria_relay_dash",
+          "phase": "windup",
+          "at": 0.6930999999642371,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 three-stage gesture with independent personality",
+      "data": {
+        "id": "E04",
+        "uid": "U112",
+        "side": "player",
+        "identity": "cafeteria_relay_dash",
+        "performance": {
+          "mode": "cafeteria_relay_dash",
+          "phase": "windup",
+          "at": 0.6930999999642371,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 actual source mesh performs grand entrance",
+      "data": {
+        "id": "G02",
+        "uid": "U113",
+        "side": "player",
+        "identity": "chalkboard_spell",
+        "performance": {
+          "mode": "chalkboard_spell",
+          "phase": "windup",
+          "at": 0.8925999999642369,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 three-stage gesture with independent personality",
+      "data": {
+        "id": "G02",
+        "uid": "U113",
+        "side": "player",
+        "identity": "chalkboard_spell",
+        "performance": {
+          "mode": "chalkboard_spell",
+          "phase": "windup",
+          "at": 0.8925999999642369,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 actual source mesh performs grand entrance",
+      "data": {
+        "id": "G03",
+        "uid": "U114",
+        "side": "player",
+        "identity": "explosive_chemistry",
+        "performance": {
+          "mode": "explosive_chemistry",
+          "phase": "windup",
+          "at": 1.1869999999701972,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 three-stage gesture with independent personality",
+      "data": {
+        "id": "G03",
+        "uid": "U114",
+        "side": "player",
+        "identity": "explosive_chemistry",
+        "performance": {
+          "mode": "explosive_chemistry",
+          "phase": "windup",
+          "at": 1.1869999999701972,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 actual source mesh performs grand entrance",
+      "data": {
+        "id": "G04",
+        "uid": "U210",
+        "side": "ai",
+        "identity": "school_president_decree",
+        "performance": {
+          "mode": "school_president_decree",
+          "phase": "windup",
+          "at": 1.4850999999642371,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 three-stage gesture with independent personality",
+      "data": {
+        "id": "G04",
+        "uid": "U210",
+        "side": "ai",
+        "identity": "school_president_decree",
+        "performance": {
+          "mode": "school_president_decree",
+          "phase": "windup",
+          "at": 1.4850999999642371,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop M01 actual source mesh performs grand entrance",
+      "data": {
+        "id": "M01",
+        "uid": "U211",
+        "side": "ai",
+        "identity": "conductor_orchestra",
+        "performance": {
+          "mode": "conductor_orchestra",
+          "phase": "windup",
+          "at": 1.8256999999582761,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop M01 three-stage gesture with independent personality",
+      "data": {
+        "id": "M01",
+        "uid": "U211",
+        "side": "ai",
+        "identity": "conductor_orchestra",
+        "performance": {
+          "mode": "conductor_orchestra",
+          "phase": "windup",
+          "at": 1.8256999999582761,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop M02 actual source mesh performs grand entrance",
+      "data": {
+        "id": "M02",
+        "uid": "U212",
+        "side": "ai",
+        "identity": "chef_wields_ladle",
+        "performance": {
+          "mode": "chef_wields_ladle",
+          "phase": "spotlight",
+          "at": 2.1725999999642363,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Angry_Stomp"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop M02 three-stage gesture with independent personality",
+      "data": {
+        "id": "M02",
+        "uid": "U212",
+        "side": "ai",
+        "identity": "chef_wields_ladle",
+        "performance": {
+          "mode": "chef_wields_ladle",
+          "phase": "spotlight",
+          "at": 2.1725999999642363,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Angry_Stomp"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop T01 actual source mesh performs grand entrance",
+      "data": {
+        "id": "T01",
+        "uid": "U213",
+        "side": "ai",
+        "identity": "owl_urgent_news",
+        "performance": {
+          "mode": "owl_urgent_news",
+          "phase": "spotlight",
+          "at": 2.6497999999821173,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": []
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop T01 three-stage gesture with independent personality",
+      "data": {
+        "id": "T01",
+        "uid": "U213",
+        "side": "ai",
+        "identity": "owl_urgent_news",
+        "performance": {
+          "mode": "owl_urgent_news",
+          "phase": "spotlight",
+          "at": 2.6497999999821173,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": []
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop T02 actual source mesh performs grand entrance",
+      "data": {
+        "id": "T02",
+        "uid": "U214",
+        "side": "ai",
+        "identity": "menu_page_flip",
+        "performance": {
+          "mode": "menu_page_flip",
+          "phase": "spotlight",
+          "at": 3.1331999999880775,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack_Flip_Menu"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop T02 three-stage gesture with independent personality",
+      "data": {
+        "id": "T02",
+        "uid": "U214",
+        "side": "ai",
+        "identity": "menu_page_flip",
+        "performance": {
+          "mode": "menu_page_flip",
+          "phase": "spotlight",
+          "at": 3.1331999999880775,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack_Flip_Menu"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop all genuine avatars face opponents without reversing",
+      "data": [
+        {
+          "id": "T03",
+          "dot": 1
+        },
+        {
+          "id": "T04",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 actual source mesh performs grand entrance",
+      "data": {
+        "id": "T03",
+        "uid": "U110",
+        "side": "player",
+        "identity": "runner_handoff",
+        "performance": {
+          "mode": "runner_handoff",
+          "phase": "spotlight",
+          "at": 3.9811999999880756,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 three-stage gesture with independent personality",
+      "data": {
+        "id": "T03",
+        "uid": "U110",
+        "side": "player",
+        "identity": "runner_handoff",
+        "performance": {
+          "mode": "runner_handoff",
+          "phase": "spotlight",
+          "at": 3.9811999999880756,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 actual source mesh performs grand entrance",
+      "data": {
+        "id": "T04",
+        "uid": "U111",
+        "side": "player",
+        "identity": "gate_guard_stop",
+        "performance": {
+          "mode": "gate_guard_stop",
+          "phase": "spotlight",
+          "at": 4.386399999976154,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 three-stage gesture with independent personality",
+      "data": {
+        "id": "T04",
+        "uid": "U111",
+        "side": "player",
+        "identity": "gate_guard_stop",
+        "performance": {
+          "mode": "gate_guard_stop",
+          "phase": "spotlight",
+          "at": 4.386399999976154,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "desktop 12 DISTINCT character theatrical identities",
+      "data": [
+        "paper_plane_spin",
+        "cheerleader_super_jump",
+        "cafeteria_relay_dash",
+        "chalkboard_spell",
+        "explosive_chemistry",
+        "school_president_decree",
+        "conductor_orchestra",
+        "chef_wields_ladle",
+        "owl_urgent_news",
+        "menu_page_flip",
+        "runner_handoff",
+        "gate_guard_stop"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop comedic motions never change game rules, costs, or HP"
+    },
+    {
+      "pass": true,
+      "label": "desktop GPU drawcall limit / no 404 or JS",
+      "data": {
+        "draw": 773,
+        "errors": []
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait all genuine avatars face opponents without reversing",
+      "data": [
+        {
+          "id": "E02",
+          "dot": 1
+        },
+        {
+          "id": "E03",
+          "dot": 1
+        },
+        {
+          "id": "E04",
+          "dot": 1
+        },
+        {
+          "id": "G02",
+          "dot": 1
+        },
+        {
+          "id": "G03",
+          "dot": 1
+        },
+        {
+          "id": "G04",
+          "dot": 1
+        },
+        {
+          "id": "M01",
+          "dot": 1
+        },
+        {
+          "id": "M02",
+          "dot": 1
+        },
+        {
+          "id": "T01",
+          "dot": 1
+        },
+        {
+          "id": "T02",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait E02 actual source mesh performs grand entrance",
+      "data": {
+        "id": "E02",
+        "uid": "U110",
+        "side": "player",
+        "identity": "paper_plane_spin",
+        "performance": {
+          "mode": "paper_plane_spin",
+          "phase": "spotlight",
+          "at": 0.2191000000238419,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Bank_Left"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait E02 three-stage gesture with independent personality",
+      "data": {
+        "id": "E02",
+        "uid": "U110",
+        "side": "player",
+        "identity": "paper_plane_spin",
+        "performance": {
+          "mode": "paper_plane_spin",
+          "phase": "spotlight",
+          "at": 0.2191000000238419,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Bank_Left"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 actual source mesh performs grand entrance",
+      "data": {
+        "id": "E03",
+        "uid": "U111",
+        "side": "player",
+        "identity": "cheerleader_super_jump",
+        "performance": {
+          "mode": "cheerleader_super_jump",
+          "phase": "spotlight",
+          "at": 0.6852000000178814,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 three-stage gesture with independent personality",
+      "data": {
+        "id": "E03",
+        "uid": "U111",
+        "side": "player",
+        "identity": "cheerleader_super_jump",
+        "performance": {
+          "mode": "cheerleader_super_jump",
+          "phase": "spotlight",
+          "at": 0.6852000000178814,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 actual source mesh performs grand entrance",
+      "data": {
+        "id": "E04",
+        "uid": "U112",
+        "side": "player",
+        "identity": "cafeteria_relay_dash",
+        "performance": {
+          "mode": "cafeteria_relay_dash",
+          "phase": "spotlight",
+          "at": 1.1624000000059602,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 three-stage gesture with independent personality",
+      "data": {
+        "id": "E04",
+        "uid": "U112",
+        "side": "player",
+        "identity": "cafeteria_relay_dash",
+        "performance": {
+          "mode": "cafeteria_relay_dash",
+          "phase": "spotlight",
+          "at": 1.1624000000059602,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 actual source mesh performs grand entrance",
+      "data": {
+        "id": "G02",
+        "uid": "U113",
+        "side": "player",
+        "identity": "chalkboard_spell",
+        "performance": {
+          "mode": "chalkboard_spell",
+          "phase": "spotlight",
+          "at": 1.6322000000178811,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 three-stage gesture with independent personality",
+      "data": {
+        "id": "G02",
+        "uid": "U113",
+        "side": "player",
+        "identity": "chalkboard_spell",
+        "performance": {
+          "mode": "chalkboard_spell",
+          "phase": "spotlight",
+          "at": 1.6322000000178811,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 actual source mesh performs grand entrance",
+      "data": {
+        "id": "G03",
+        "uid": "U114",
+        "side": "player",
+        "identity": "explosive_chemistry",
+        "performance": {
+          "mode": "explosive_chemistry",
+          "phase": "spotlight",
+          "at": 2.0882000000178813,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 three-stage gesture with independent personality",
+      "data": {
+        "id": "G03",
+        "uid": "U114",
+        "side": "player",
+        "identity": "explosive_chemistry",
+        "performance": {
+          "mode": "explosive_chemistry",
+          "phase": "spotlight",
+          "at": 2.0882000000178813,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 actual source mesh performs grand entrance",
+      "data": {
+        "id": "G04",
+        "uid": "U210",
+        "side": "ai",
+        "identity": "school_president_decree",
+        "performance": {
+          "mode": "school_president_decree",
+          "phase": "spotlight",
+          "at": 2.547999999999999,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 three-stage gesture with independent personality",
+      "data": {
+        "id": "G04",
+        "uid": "U210",
+        "side": "ai",
+        "identity": "school_president_decree",
+        "performance": {
+          "mode": "school_president_decree",
+          "phase": "spotlight",
+          "at": 2.547999999999999,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait M01 actual source mesh performs grand entrance",
+      "data": {
+        "id": "M01",
+        "uid": "U211",
+        "side": "ai",
+        "identity": "conductor_orchestra",
+        "performance": {
+          "mode": "conductor_orchestra",
+          "phase": "spotlight",
+          "at": 3.040999999999999,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait M01 three-stage gesture with independent personality",
+      "data": {
+        "id": "M01",
+        "uid": "U211",
+        "side": "ai",
+        "identity": "conductor_orchestra",
+        "performance": {
+          "mode": "conductor_orchestra",
+          "phase": "spotlight",
+          "at": 3.040999999999999,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait M02 actual source mesh performs grand entrance",
+      "data": {
+        "id": "M02",
+        "uid": "U212",
+        "side": "ai",
+        "identity": "chef_wields_ladle",
+        "performance": {
+          "mode": "chef_wields_ladle",
+          "phase": "spotlight",
+          "at": 3.5229000000059596,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Angry_Stomp"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait M02 three-stage gesture with independent personality",
+      "data": {
+        "id": "M02",
+        "uid": "U212",
+        "side": "ai",
+        "identity": "chef_wields_ladle",
+        "performance": {
+          "mode": "chef_wields_ladle",
+          "phase": "spotlight",
+          "at": 3.5229000000059596,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Angry_Stomp"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait T01 actual source mesh performs grand entrance",
+      "data": {
+        "id": "T01",
+        "uid": "U213",
+        "side": "ai",
+        "identity": "owl_urgent_news",
+        "performance": {
+          "mode": "owl_urgent_news",
+          "phase": "spotlight",
+          "at": 3.995499999999999,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": []
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait T01 three-stage gesture with independent personality",
+      "data": {
+        "id": "T01",
+        "uid": "U213",
+        "side": "ai",
+        "identity": "owl_urgent_news",
+        "performance": {
+          "mode": "owl_urgent_news",
+          "phase": "spotlight",
+          "at": 3.995499999999999,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": []
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait T02 actual source mesh performs grand entrance",
+      "data": {
+        "id": "T02",
+        "uid": "U214",
+        "side": "ai",
+        "identity": "menu_page_flip",
+        "performance": {
+          "mode": "menu_page_flip",
+          "phase": "spotlight",
+          "at": 4.465800000011919,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack_Flip_Menu"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait T02 three-stage gesture with independent personality",
+      "data": {
+        "id": "T02",
+        "uid": "U214",
+        "side": "ai",
+        "identity": "menu_page_flip",
+        "performance": {
+          "mode": "menu_page_flip",
+          "phase": "spotlight",
+          "at": 4.465800000011919,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack_Flip_Menu"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait all genuine avatars face opponents without reversing",
+      "data": [
+        {
+          "id": "T03",
+          "dot": 1
+        },
+        {
+          "id": "T04",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 actual source mesh performs grand entrance",
+      "data": {
+        "id": "T03",
+        "uid": "U110",
+        "side": "player",
+        "identity": "runner_handoff",
+        "performance": {
+          "mode": "runner_handoff",
+          "phase": "spotlight",
+          "at": 5.21190000000596,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 three-stage gesture with independent personality",
+      "data": {
+        "id": "T03",
+        "uid": "U110",
+        "side": "player",
+        "identity": "runner_handoff",
+        "performance": {
+          "mode": "runner_handoff",
+          "phase": "spotlight",
+          "at": 5.21190000000596,
+          "clip": "walk",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Idle"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 actual source mesh performs grand entrance",
+      "data": {
+        "id": "T04",
+        "uid": "U111",
+        "side": "player",
+        "identity": "gate_guard_stop",
+        "performance": {
+          "mode": "gate_guard_stop",
+          "phase": "spotlight",
+          "at": 5.658100000023841,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 three-stage gesture with independent personality",
+      "data": {
+        "id": "T04",
+        "uid": "U111",
+        "side": "player",
+        "identity": "gate_guard_stop",
+        "performance": {
+          "mode": "gate_guard_stop",
+          "phase": "spotlight",
+          "at": 5.658100000023841,
+          "clip": "attack",
+          "actualSourceModel": true
+        },
+        "spellHitStrength": 0,
+        "victoryClip": null,
+        "realRig": false,
+        "playingClips": [
+          "Attack"
+        ]
+      }
+    },
+    {
+      "pass": true,
+      "label": "portrait 12 DISTINCT character theatrical identities",
+      "data": [
+        "paper_plane_spin",
+        "cheerleader_super_jump",
+        "cafeteria_relay_dash",
+        "chalkboard_spell",
+        "explosive_chemistry",
+        "school_president_decree",
+        "conductor_orchestra",
+        "chef_wields_ladle",
+        "owl_urgent_news",
+        "menu_page_flip",
+        "runner_handoff",
+        "gate_guard_stop"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait comedic motions never change game rules, costs, or HP"
+    },
+    {
+      "pass": true,
+      "label": "portrait GPU drawcall limit / no 404 or JS",
+      "data": {
+        "draw": 810,
+        "errors": []
+      }
+    }
+  ],
+  "errors": [],
+  "samples": [
+    {
+      "view": "desktop",
+      "id": "E02",
+      "style": "paper_plane_spin",
+      "phase": "windup",
+      "clip": "walk",
+      "drawCalls": 1092
+    },
+    {
+      "view": "desktop",
+      "id": "E03",
+      "style": "cheerleader_super_jump",
+      "phase": "windup",
+      "clip": "attack",
+      "drawCalls": 1132
+    },
+    {
+      "view": "desktop",
+      "id": "E04",
+      "style": "cafeteria_relay_dash",
+      "phase": "windup",
+      "clip": "walk",
+      "drawCalls": 1172
+    },
+    {
+      "view": "desktop",
+      "id": "G02",
+      "style": "chalkboard_spell",
+      "phase": "windup",
+      "clip": "attack",
+      "drawCalls": 1212
+    },
+    {
+      "view": "desktop",
+      "id": "G03",
+      "style": "explosive_chemistry",
+      "phase": "windup",
+      "clip": "attack",
+      "drawCalls": 1224
+    },
+    {
+      "view": "desktop",
+      "id": "G04",
+      "style": "school_president_decree",
+      "phase": "windup",
+      "clip": "attack",
+      "drawCalls": 1261
+    },
+    {
+      "view": "desktop",
+      "id": "M01",
+      "style": "conductor_orchestra",
+      "phase": "windup",
+      "clip": "attack",
+      "drawCalls": 1255
+    },
+    {
+      "view": "desktop",
+      "id": "M02",
+      "style": "chef_wields_ladle",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 1221
+    },
+    {
+      "view": "desktop",
+      "id": "T01",
+      "style": "owl_urgent_news",
+      "phase": "spotlight",
+      "clip": "walk",
+      "drawCalls": 1215
+    },
+    {
+      "view": "desktop",
+      "id": "T02",
+      "style": "menu_page_flip",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 1181
+    },
+    {
+      "view": "desktop",
+      "id": "T03",
+      "style": "runner_handoff",
+      "phase": "spotlight",
+      "clip": "walk",
+      "drawCalls": 810
+    },
+    {
+      "view": "desktop",
+      "id": "T04",
+      "style": "gate_guard_stop",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 810
+    },
+    {
+      "view": "portrait",
+      "id": "E02",
+      "style": "paper_plane_spin",
+      "phase": "spotlight",
+      "clip": "walk",
+      "drawCalls": 1092
+    },
+    {
+      "view": "portrait",
+      "id": "E03",
+      "style": "cheerleader_super_jump",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 1132
+    },
+    {
+      "view": "portrait",
+      "id": "E04",
+      "style": "cafeteria_relay_dash",
+      "phase": "spotlight",
+      "clip": "walk",
+      "drawCalls": 1144
+    },
+    {
+      "view": "portrait",
+      "id": "G02",
+      "style": "chalkboard_spell",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 1178
+    },
+    {
+      "view": "portrait",
+      "id": "G03",
+      "style": "explosive_chemistry",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 1178
+    },
+    {
+      "view": "portrait",
+      "id": "G04",
+      "style": "school_president_decree",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 1181
+    },
+    {
+      "view": "portrait",
+      "id": "M01",
+      "style": "conductor_orchestra",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 1181
+    },
+    {
+      "view": "portrait",
+      "id": "M02",
+      "style": "chef_wields_ladle",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 1181
+    },
+    {
+      "view": "portrait",
+      "id": "T01",
+      "style": "owl_urgent_news",
+      "phase": "spotlight",
+      "clip": "walk",
+      "drawCalls": 1181
+    },
+    {
+      "view": "portrait",
+      "id": "T02",
+      "style": "menu_page_flip",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 1178
+    },
+    {
+      "view": "portrait",
+      "id": "T03",
+      "style": "runner_handoff",
+      "phase": "spotlight",
+      "clip": "walk",
+      "drawCalls": 810
+    },
+    {
+      "view": "portrait",
+      "id": "T04",
+      "style": "gate_guard_stop",
+      "phase": "spotlight",
+      "clip": "attack",
+      "drawCalls": 810
+    }
+  ]
+}
