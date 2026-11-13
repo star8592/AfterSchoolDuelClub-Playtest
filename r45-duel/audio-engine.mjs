@@ -115,7 +115,7 @@ function savedVolume(){
  }catch{return {...defaults}}
 }
 
-export function createDuelAudio({onVoiceLine}={}){
+export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
  let requested=savedSoundIntent(),enabled=false,ctx=null,decoded=new Map(),
   voiceManifest={clips:{}},paManifest={clips:{}},tutorialManifest={clips:{}},voiceAudio=null;
  let lastPAAt=-Infinity,finaleVoiceGuard=false;
@@ -129,7 +129,7 @@ export function createDuelAudio({onVoiceLine}={}){
  const speechHistory=[],comicBeatHistory=[];
  let lastSpoken=null;
 
- let activeSfx=0,voiceQueue=[],currentVoiceKey=null;
+ let activeSfx=0,voiceQueue=[],currentVoiceKey=null,voiceSerial=0;
  const recentVoiceKeys=new Map();
  const volume=savedVolume();
  const counters={cue:0,voice:0,voiceMissing:0,voiceDropped:0,voiceInterrupted:0,unlock:0,musicStart:0,errors:0};
@@ -376,10 +376,23 @@ export function createDuelAudio({onVoiceLine}={}){
   const {id,kind,file,variant,text,duration_seconds,source='actor'}=voiceQueue.shift();
   const a=new Audio(base+(source==='pa'?'pa/':source==='tutorial'?'tutorial/':'voices/')+file+'?mix=r113');
   voiceAudio=a;currentVoiceKey=id+':'+kind;
+  const serial=++voiceSerial;
+  let speechActuallyStarted=false,speechStopNotified=false;
+  const signalStop=reason=>{
+   if(!speechActuallyStarted||speechStopNotified)return;
+   speechStopNotified=true;
+   if(typeof onVoiceStop==='function')try{
+    onVoiceStop({id,kind,serial,reason});
+   }catch(e){log('voice-stop-callback-error',String(e))}
+  };
   a.volume=volume.voice;a.preload='auto';
   log('voice-variant',id+':'+kind+'='+variant);
+  a.addEventListener('pause',()=>signalStop('pause'));
+  a.addEventListener('ended',()=>signalStop('ended'));
+  a.addEventListener('error',()=>signalStop('error'));
   musicDucked=true;updateMusicVolume();
   const done=()=>{
+   signalStop('finished');
    if(voiceAudio!==a)return;
    voiceAudio=null;currentVoiceKey=null;
    if(enabled&&voiceQueue.length)playQueuedVoice();
@@ -390,8 +403,9 @@ export function createDuelAudio({onVoiceLine}={}){
   try{
    a.play().then(()=>{
     if(voiceAudio===a){
+     speechActuallyStarted=true;
      counters.voice++;log('voice',id+':'+kind);
-     lastSpoken={id,kind,variant,text,duration_seconds};
+     lastSpoken={id,kind,variant,text,duration_seconds,serial};
      speechHistory.push(lastSpoken);
      if(speechHistory.length>60)speechHistory.shift();
      if(typeof onVoiceLine==='function'&&typeof text==='string')
