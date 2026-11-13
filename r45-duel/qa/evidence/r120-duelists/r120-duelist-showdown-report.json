@@ -1,0 +1,2913 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11131",
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop original visible VRM duelists ready",
+      "data": [
+        {
+          "id": "E01",
+          "side": "player",
+          "visible": true,
+          "x": -5.543,
+          "y": 0.48,
+          "z": 0.6,
+          "bones": 119,
+          "skins": 124,
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "hostAvatar": "HOST_FEMALE",
+          "trueWorldYaw": -1.570796,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "idle",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 0,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "idle",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.906,
+                "spread": 0.227,
+                "worldHand": [
+                  -5.318,
+                  1.772,
+                  0.629
+                ],
+                "wristToShoulder": 0.436
+              },
+              "L": {
+                "drop": -0.959,
+                "spread": 0.114,
+                "worldHand": [
+                  -5.418,
+                  1.621,
+                  0.454
+                ],
+                "wristToShoulder": 0.529
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.063,
+                "reach": 0.436,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.318,
+                  1.772,
+                  0.629
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.032,
+                "reach": 0.529,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.418,
+                  1.621,
+                  0.454
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "铃声追不上",
+            "beat": "发现要迟到，慌忙挥手",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0,
+            "expression": "joy",
+            "faceAmount": 0,
+            "actualBlink": 0,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.132,
+                  "reach": 0.533,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.243,
+                    1.742,
+                    0.52
+                  ]
+                },
+                "L": {
+                  "error": 0.0022,
+                  "elbowOut": 0.039,
+                  "reach": 0.538,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.408,
+                    1.618,
+                    0.425
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 1
+          }
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "visible": true,
+          "x": 5.566,
+          "y": 0.492,
+          "z": 0.6,
+          "bones": 91,
+          "skins": 131,
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "hostAvatar": "HOST_MALE",
+          "trueWorldYaw": -4.712389,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "idle",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 0,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "idle",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.911,
+                "spread": 0.262,
+                "worldHand": [
+                  5.396,
+                  2.064,
+                  0.569
+                ],
+                "wristToShoulder": 0.241
+              },
+              "L": {
+                "drop": -0.879,
+                "spread": 0.018,
+                "worldHand": [
+                  5.506,
+                  1.662,
+                  0.78
+                ],
+                "wristToShoulder": 0.485
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.068,
+                "reach": 0.241,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.396,
+                  2.064,
+                  0.569
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.005,
+                "reach": 0.485,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.506,
+                  1.662,
+                  0.78
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "橡皮筋建筑师",
+            "beat": "认真扶眼镜，突然灵机一动",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0.338,
+            "expression": "fun",
+            "faceAmount": 0,
+            "actualBlink": 0.338,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.171,
+                  "reach": 0.257,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.369,
+                    2.173,
+                    0.591
+                  ]
+                },
+                "L": {
+                  "error": 0.0242,
+                  "elbowOut": 0.018,
+                  "reach": 0.56,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.504,
+                    1.609,
+                    0.833
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 1
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop player explicitly raises a physical card",
+      "data": {
+        "phase": "raise_card",
+        "draw": 0.082,
+        "display": 1,
+        "cast": 0,
+        "follow": 0,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": 0.534,
+            "spread": 0.471,
+            "worldHand": [
+              -5.215,
+              2.463,
+              0.715
+            ],
+            "wristToShoulder": 0.395
+          },
+          "L": {
+            "drop": -0.523,
+            "spread": 0.043,
+            "worldHand": [
+              -5.326,
+              2.02,
+              0.385
+            ],
+            "wristToShoulder": 0.262
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.131,
+            "reach": 0.395,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.215,
+              2.463,
+              0.715
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.012,
+            "reach": 0.262,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.326,
+              2.02,
+              0.385
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop player actual VRM RIGHT HAND visibly above rest",
+      "data": {
+        "idleY": 1.772,
+        "raisedY": 2.463
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop player real painted card follows actual raised wrist",
+      "data": {
+        "side": "player",
+        "id": "E03",
+        "shown": 1,
+        "visible": true,
+        "wristTracked": true,
+        "wristGap": 0.0778,
+        "phase": "high_reveal",
+        "size": 1.33,
+        "painted": true,
+        "lastPainted": "E03"
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop player dramatic throwing follow-through",
+      "data": {
+        "phase": "follow_through",
+        "draw": 0,
+        "display": 0,
+        "cast": 0.8,
+        "follow": 1,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0.065,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": -0.229,
+            "spread": 0.352,
+            "worldHand": [
+              -4.855,
+              2.095,
+              0.866
+            ],
+            "wristToShoulder": 0.432
+          },
+          "L": {
+            "drop": -0.494,
+            "spread": 0.183,
+            "worldHand": [
+              -5.138,
+              2.137,
+              0.344
+            ],
+            "wristToShoulder": 0.164
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.098,
+            "reach": 0.432,
+            "segmentLength": 0.551,
+            "hand": [
+              -4.855,
+              2.095,
+              0.866
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.051,
+            "reach": 0.164,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.138,
+              2.137,
+              0.344
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop ai explicitly raises a physical card",
+      "data": {
+        "phase": "raise_card",
+        "draw": 0,
+        "display": 1,
+        "cast": 0,
+        "follow": 0,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": 0.699,
+            "spread": 0.161,
+            "worldHand": [
+              5.409,
+              2.518,
+              0.387
+            ],
+            "wristToShoulder": 0.436
+          },
+          "L": {
+            "drop": -0.369,
+            "spread": 0.059,
+            "worldHand": [
+              5.35,
+              2.19,
+              0.806
+            ],
+            "wristToShoulder": 0.156
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.042,
+            "reach": 0.436,
+            "segmentLength": 0.55,
+            "hand": [
+              5.409,
+              2.518,
+              0.387
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.015,
+            "reach": 0.156,
+            "segmentLength": 0.55,
+            "hand": [
+              5.35,
+              2.19,
+              0.806
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop ai actual VRM RIGHT HAND visibly above rest",
+      "data": {
+        "idleY": 2.064,
+        "raisedY": 2.518
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop ai real painted card follows actual raised wrist",
+      "data": {
+        "side": "ai",
+        "id": "G03",
+        "shown": 1,
+        "visible": true,
+        "wristTracked": true,
+        "wristGap": 0.0778,
+        "phase": "high_reveal",
+        "size": 1.33,
+        "painted": true,
+        "lastPainted": "G03"
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop ai dramatic throwing follow-through",
+      "data": {
+        "phase": "follow_through",
+        "draw": 0,
+        "display": 0,
+        "cast": 0.567,
+        "follow": 0.992,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0.037,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": -0.748,
+            "spread": 0.263,
+            "worldHand": [
+              5.169,
+              2.065,
+              0.154
+            ],
+            "wristToShoulder": 0.28
+          },
+          "L": {
+            "drop": -0.675,
+            "spread": 0.144,
+            "worldHand": [
+              5.255,
+              1.951,
+              0.552
+            ],
+            "wristToShoulder": 0.231
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.068,
+            "reach": 0.28,
+            "segmentLength": 0.55,
+            "hand": [
+              5.169,
+              2.065,
+              0.154
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.037,
+            "reach": 0.231,
+            "segmentLength": 0.55,
+            "hand": [
+              5.255,
+              1.951,
+              0.552
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop AI reacts to actual hit with body recoil",
+      "data": [
+        {
+          "id": "E01",
+          "side": "player",
+          "visible": true,
+          "x": -5.549,
+          "y": 0.477,
+          "z": 0.6,
+          "bones": 119,
+          "skins": 124,
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "hostAvatar": "HOST_FEMALE",
+          "trueWorldYaw": -1.570796,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "idle",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 0,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "idle",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.91,
+                "spread": 0.224,
+                "worldHand": [
+                  -5.323,
+                  1.766,
+                  0.634
+                ],
+                "wristToShoulder": 0.437
+              },
+              "L": {
+                "drop": -0.956,
+                "spread": 0.108,
+                "worldHand": [
+                  -5.423,
+                  1.621,
+                  0.459
+                ],
+                "wristToShoulder": 0.528
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.062,
+                "reach": 0.437,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.323,
+                  1.766,
+                  0.634
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.03,
+                "reach": 0.528,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.423,
+                  1.621,
+                  0.459
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "铃声追不上",
+            "beat": "发现要迟到，慌忙挥手",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0,
+            "expression": "joy",
+            "faceAmount": 0,
+            "actualBlink": 0,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.131,
+                  "reach": 0.532,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.248,
+                    1.739,
+                    0.524
+                  ]
+                },
+                "L": {
+                  "error": 0.0019,
+                  "elbowOut": 0.038,
+                  "reach": 0.538,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.413,
+                    1.616,
+                    0.428
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 305
+          }
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "visible": true,
+          "x": 5.798,
+          "y": 0.492,
+          "z": 0.6,
+          "bones": 91,
+          "skins": 131,
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "hostAvatar": "HOST_MALE",
+          "trueWorldYaw": -4.712389,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "hit",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 0,
+            "hop": 0,
+            "recoil": 0.994,
+            "inspected": 0,
+            "livingBeat": "idle",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": 0.088,
+                "spread": 0.853,
+                "worldHand": [
+                  5.68,
+                  2.193,
+                  0.046
+                ],
+                "wristToShoulder": 0.342
+              },
+              "L": {
+                "drop": -0.018,
+                "spread": 0.234,
+                "worldHand": [
+                  5.65,
+                  2.169,
+                  0.38
+                ],
+                "wristToShoulder": 0.316
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.22,
+                "reach": 0.342,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.68,
+                  2.193,
+                  0.046
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.06,
+                "reach": 0.316,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.65,
+                  2.169,
+                  0.38
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "橡皮筋建筑师",
+            "beat": "认真扶眼镜，突然灵机一动",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0.153,
+            "expression": "fun",
+            "faceAmount": 0,
+            "actualBlink": 0.153,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.212,
+                  "reach": 0.317,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.625,
+                    2.109,
+                    0.163
+                  ]
+                },
+                "L": {
+                  "error": 0.0556,
+                  "elbowOut": 0.038,
+                  "reach": 0.592,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.771,
+                    1.651,
+                    0.53
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 305
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop female winner actually celebrates",
+      "data": [
+        {
+          "id": "E01",
+          "side": "player",
+          "visible": true,
+          "x": -5.41,
+          "y": 0.682,
+          "z": 0.6,
+          "bones": 119,
+          "skins": 124,
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "hostAvatar": "HOST_FEMALE",
+          "trueWorldYaw": -1.410796,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "victory_jump",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 1,
+            "defeat": 0,
+            "hop": 0.19,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "dance",
+            "footContact": {
+              "stance": "L",
+              "lift": 0.0418,
+              "stage": "stomp"
+            },
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": 0.721,
+                "spread": 0.366,
+                "worldHand": [
+                  -5.169,
+                  2.711,
+                  0.905
+                ],
+                "wristToShoulder": 0.441
+              },
+              "L": {
+                "drop": 0.421,
+                "spread": 0.134,
+                "worldHand": [
+                  -5.218,
+                  2.628,
+                  0.538
+                ],
+                "wristToShoulder": 0.355
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.102,
+                "reach": 0.441,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.169,
+                  2.711,
+                  0.905
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.037,
+                "reach": 0.355,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.218,
+                  2.628,
+                  0.538
+                ]
+              }
+            },
+            "face": "gesture"
+          },
+          "expression": {
+            "role": "铃声追不上",
+            "beat": "发现要迟到，慌忙挥手",
+            "mode": "gesture",
+            "amount": 0.96,
+            "blink": 0,
+            "expression": "joy",
+            "faceAmount": 0.403,
+            "actualBlink": 0,
+            "actualExpression": 0.403,
+            "heroPose": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.073,
+                  "reach": 0.278,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.132,
+                    2.245,
+                    0.989
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.08,
+                  "reach": 0.491,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.188,
+                    1.93,
+                    0.624
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 392
+          }
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "visible": true,
+          "x": 5.68,
+          "y": 0.481,
+          "z": 0.6,
+          "bones": 91,
+          "skins": 131,
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "hostAvatar": "HOST_MALE",
+          "trueWorldYaw": -4.592389,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "loss_despair",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 1,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "defeat",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.065,
+                "spread": 0.802,
+                "worldHand": [
+                  5.564,
+                  2.209,
+                  0.071
+                ],
+                "wristToShoulder": 0.262
+              },
+              "L": {
+                "drop": 0.512,
+                "spread": 0.439,
+                "worldHand": [
+                  5.588,
+                  2.239,
+                  0.268
+                ],
+                "wristToShoulder": 0.251
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.207,
+                "reach": 0.262,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.564,
+                  2.209,
+                  0.071
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.113,
+                "reach": 0.251,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.588,
+                  2.239,
+                  0.268
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "橡皮筋建筑师",
+            "beat": "认真扶眼镜，突然灵机一动",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0,
+            "expression": "fun",
+            "faceAmount": 0,
+            "actualBlink": 0,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.186,
+                  "reach": 0.293,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.452,
+                    2.101,
+                    0.19
+                  ]
+                },
+                "L": {
+                  "error": 0.0248,
+                  "elbowOut": 0.019,
+                  "reach": 0.561,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.633,
+                    1.618,
+                    0.549
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 392
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop male loser actually despairs",
+      "data": [
+        {
+          "id": "E01",
+          "side": "player",
+          "visible": true,
+          "x": -5.41,
+          "y": 0.682,
+          "z": 0.6,
+          "bones": 119,
+          "skins": 124,
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "hostAvatar": "HOST_FEMALE",
+          "trueWorldYaw": -1.410796,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "victory_jump",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 1,
+            "defeat": 0,
+            "hop": 0.19,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "dance",
+            "footContact": {
+              "stance": "L",
+              "lift": 0.0418,
+              "stage": "stomp"
+            },
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": 0.721,
+                "spread": 0.366,
+                "worldHand": [
+                  -5.169,
+                  2.711,
+                  0.905
+                ],
+                "wristToShoulder": 0.441
+              },
+              "L": {
+                "drop": 0.421,
+                "spread": 0.134,
+                "worldHand": [
+                  -5.218,
+                  2.628,
+                  0.538
+                ],
+                "wristToShoulder": 0.355
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.102,
+                "reach": 0.441,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.169,
+                  2.711,
+                  0.905
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.037,
+                "reach": 0.355,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.218,
+                  2.628,
+                  0.538
+                ]
+              }
+            },
+            "face": "gesture"
+          },
+          "expression": {
+            "role": "铃声追不上",
+            "beat": "发现要迟到，慌忙挥手",
+            "mode": "gesture",
+            "amount": 0.96,
+            "blink": 0,
+            "expression": "joy",
+            "faceAmount": 0.403,
+            "actualBlink": 0,
+            "actualExpression": 0.403,
+            "heroPose": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.073,
+                  "reach": 0.278,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.132,
+                    2.245,
+                    0.989
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.08,
+                  "reach": 0.491,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.188,
+                    1.93,
+                    0.624
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 392
+          }
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "visible": true,
+          "x": 5.68,
+          "y": 0.481,
+          "z": 0.6,
+          "bones": 91,
+          "skins": 131,
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "hostAvatar": "HOST_MALE",
+          "trueWorldYaw": -4.592389,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "loss_despair",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 1,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "defeat",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.065,
+                "spread": 0.802,
+                "worldHand": [
+                  5.564,
+                  2.209,
+                  0.071
+                ],
+                "wristToShoulder": 0.262
+              },
+              "L": {
+                "drop": 0.512,
+                "spread": 0.439,
+                "worldHand": [
+                  5.588,
+                  2.239,
+                  0.268
+                ],
+                "wristToShoulder": 0.251
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.207,
+                "reach": 0.262,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.564,
+                  2.209,
+                  0.071
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.113,
+                "reach": 0.251,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.588,
+                  2.239,
+                  0.268
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "橡皮筋建筑师",
+            "beat": "认真扶眼镜，突然灵机一动",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0,
+            "expression": "fun",
+            "faceAmount": 0,
+            "actualBlink": 0,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.186,
+                  "reach": 0.293,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.452,
+                    2.101,
+                    0.19
+                  ]
+                },
+                "L": {
+                  "error": 0.0248,
+                  "elbowOut": 0.019,
+                  "reach": 0.561,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.633,
+                    1.618,
+                    0.549
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 392
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "desktop stage motion never changes cards/hp/rules"
+    },
+    {
+      "passed": true,
+      "label": "desktop no runtime/network error and GPU within budget",
+      "data": {
+        "errors": [],
+        "draw": 616
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone original visible VRM duelists ready",
+      "data": [
+        {
+          "id": "E01",
+          "side": "player",
+          "visible": true,
+          "x": -5.543,
+          "y": 0.48,
+          "z": 0.6,
+          "bones": 119,
+          "skins": 124,
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "hostAvatar": "HOST_FEMALE",
+          "trueWorldYaw": -1.570796,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "idle",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 0,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "idle",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.906,
+                "spread": 0.227,
+                "worldHand": [
+                  -5.318,
+                  1.772,
+                  0.629
+                ],
+                "wristToShoulder": 0.436
+              },
+              "L": {
+                "drop": -0.959,
+                "spread": 0.114,
+                "worldHand": [
+                  -5.418,
+                  1.621,
+                  0.454
+                ],
+                "wristToShoulder": 0.529
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.063,
+                "reach": 0.436,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.318,
+                  1.772,
+                  0.629
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.032,
+                "reach": 0.529,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.418,
+                  1.621,
+                  0.454
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "铃声追不上",
+            "beat": "发现要迟到，慌忙挥手",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0,
+            "expression": "joy",
+            "faceAmount": 0,
+            "actualBlink": 0,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.132,
+                  "reach": 0.533,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.243,
+                    1.742,
+                    0.52
+                  ]
+                },
+                "L": {
+                  "error": 0.0022,
+                  "elbowOut": 0.039,
+                  "reach": 0.538,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.408,
+                    1.618,
+                    0.425
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 1
+          }
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "visible": true,
+          "x": 5.566,
+          "y": 0.492,
+          "z": 0.6,
+          "bones": 91,
+          "skins": 131,
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "hostAvatar": "HOST_MALE",
+          "trueWorldYaw": -4.712389,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "idle",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 0,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "idle",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.911,
+                "spread": 0.262,
+                "worldHand": [
+                  5.396,
+                  2.064,
+                  0.569
+                ],
+                "wristToShoulder": 0.241
+              },
+              "L": {
+                "drop": -0.879,
+                "spread": 0.018,
+                "worldHand": [
+                  5.506,
+                  1.662,
+                  0.78
+                ],
+                "wristToShoulder": 0.485
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.068,
+                "reach": 0.241,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.396,
+                  2.064,
+                  0.569
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.005,
+                "reach": 0.485,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.506,
+                  1.662,
+                  0.78
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "橡皮筋建筑师",
+            "beat": "认真扶眼镜，突然灵机一动",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0.338,
+            "expression": "fun",
+            "faceAmount": 0,
+            "actualBlink": 0.338,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.171,
+                  "reach": 0.257,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.369,
+                    2.173,
+                    0.591
+                  ]
+                },
+                "L": {
+                  "error": 0.0242,
+                  "elbowOut": 0.018,
+                  "reach": 0.56,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.504,
+                    1.609,
+                    0.833
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 1
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone player explicitly raises a physical card",
+      "data": {
+        "phase": "raise_card",
+        "draw": 0,
+        "display": 1,
+        "cast": 0,
+        "follow": 0,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": 0.534,
+            "spread": 0.472,
+            "worldHand": [
+              -5.215,
+              2.464,
+              0.715
+            ],
+            "wristToShoulder": 0.395
+          },
+          "L": {
+            "drop": -0.524,
+            "spread": 0.045,
+            "worldHand": [
+              -5.327,
+              2.021,
+              0.384
+            ],
+            "wristToShoulder": 0.263
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.132,
+            "reach": 0.395,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.215,
+              2.464,
+              0.715
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.012,
+            "reach": 0.263,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.327,
+              2.021,
+              0.384
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone player actual VRM RIGHT HAND visibly above rest",
+      "data": {
+        "idleY": 1.772,
+        "raisedY": 2.464
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone player real painted card follows actual raised wrist",
+      "data": {
+        "side": "player",
+        "id": "E03",
+        "shown": 1,
+        "visible": true,
+        "wristTracked": true,
+        "wristGap": 0.0778,
+        "phase": "high_reveal",
+        "size": 1.33,
+        "painted": true,
+        "lastPainted": "E03"
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone player dramatic throwing follow-through",
+      "data": {
+        "phase": "follow_through",
+        "draw": 0,
+        "display": 0,
+        "cast": 0.876,
+        "follow": 1,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0.075,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": -0.187,
+            "spread": 0.413,
+            "worldHand": [
+              -4.807,
+              2.135,
+              0.898
+            ],
+            "wristToShoulder": 0.453
+          },
+          "L": {
+            "drop": -0.436,
+            "spread": 0.135,
+            "worldHand": [
+              -5.116,
+              2.193,
+              0.351
+            ],
+            "wristToShoulder": 0.148
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.115,
+            "reach": 0.453,
+            "segmentLength": 0.551,
+            "hand": [
+              -4.807,
+              2.135,
+              0.898
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.038,
+            "reach": 0.148,
+            "segmentLength": 0.551,
+            "hand": [
+              -5.116,
+              2.193,
+              0.351
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone ai explicitly raises a physical card",
+      "data": {
+        "phase": "raise_card",
+        "draw": 0,
+        "display": 1,
+        "cast": 0,
+        "follow": 0,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": 0.699,
+            "spread": 0.161,
+            "worldHand": [
+              5.409,
+              2.518,
+              0.387
+            ],
+            "wristToShoulder": 0.436
+          },
+          "L": {
+            "drop": -0.37,
+            "spread": 0.059,
+            "worldHand": [
+              5.35,
+              2.19,
+              0.806
+            ],
+            "wristToShoulder": 0.156
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.042,
+            "reach": 0.436,
+            "segmentLength": 0.55,
+            "hand": [
+              5.409,
+              2.518,
+              0.387
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.015,
+            "reach": 0.156,
+            "segmentLength": 0.55,
+            "hand": [
+              5.35,
+              2.19,
+              0.806
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone ai actual VRM RIGHT HAND visibly above rest",
+      "data": {
+        "idleY": 2.064,
+        "raisedY": 2.518
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone ai real painted card follows actual raised wrist",
+      "data": {
+        "side": "ai",
+        "id": "G03",
+        "shown": 1,
+        "visible": true,
+        "wristTracked": true,
+        "wristGap": 0.0778,
+        "phase": "high_reveal",
+        "size": 1.33,
+        "painted": true,
+        "lastPainted": "G03"
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone ai dramatic throwing follow-through",
+      "data": {
+        "phase": "follow_through",
+        "draw": 0,
+        "display": 0,
+        "cast": 0.829,
+        "follow": 1,
+        "victory": 0,
+        "defeat": 0,
+        "hop": 0.069,
+        "recoil": 0,
+        "inspected": 0,
+        "livingBeat": "idle",
+        "footContact": null,
+        "livingStrength": 0,
+        "arms": {
+          "R": {
+            "drop": -0.634,
+            "spread": 0.196,
+            "worldHand": [
+              5.136,
+              2.16,
+              0.046
+            ],
+            "wristToShoulder": 0.373
+          },
+          "L": {
+            "drop": -0.806,
+            "spread": 0.52,
+            "worldHand": [
+              5.188,
+              2.093,
+              0.54
+            ],
+            "wristToShoulder": 0.188
+          }
+        },
+        "ik": {
+          "R": {
+            "error": 0,
+            "elbowOut": 0.05,
+            "reach": 0.373,
+            "segmentLength": 0.55,
+            "hand": [
+              5.136,
+              2.16,
+              0.046
+            ]
+          },
+          "L": {
+            "error": 0,
+            "elbowOut": 0.134,
+            "reach": 0.188,
+            "segmentLength": 0.55,
+            "hand": [
+              5.188,
+              2.093,
+              0.54
+            ]
+          }
+        },
+        "face": "gesture"
+      }
+    },
+    {
+      "passed": true,
+      "label": "phone AI reacts to actual hit with body recoil",
+      "data": [
+        {
+          "id": "E01",
+          "side": "player",
+          "visible": true,
+          "x": -5.547,
+          "y": 0.475,
+          "z": 0.6,
+          "bones": 119,
+          "skins": 124,
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "hostAvatar": "HOST_FEMALE",
+          "trueWorldYaw": -1.570796,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "idle",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 0,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "idle",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.911,
+                "spread": 0.222,
+                "worldHand": [
+                  -5.322,
+                  1.763,
+                  0.633
+                ],
+                "wristToShoulder": 0.438
+              },
+              "L": {
+                "drop": -0.955,
+                "spread": 0.104,
+                "worldHand": [
+                  -5.422,
+                  1.62,
+                  0.458
+                ],
+                "wristToShoulder": 0.527
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.062,
+                "reach": 0.438,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.322,
+                  1.763,
+                  0.633
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.029,
+                "reach": 0.527,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.422,
+                  1.62,
+                  0.458
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "铃声追不上",
+            "beat": "发现要迟到，慌忙挥手",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0,
+            "expression": "joy",
+            "faceAmount": 0,
+            "actualBlink": 0,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.131,
+                  "reach": 0.532,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.246,
+                    1.737,
+                    0.523
+                  ]
+                },
+                "L": {
+                  "error": 0.0018,
+                  "elbowOut": 0.038,
+                  "reach": 0.538,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.412,
+                    1.614,
+                    0.428
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 297
+          }
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "visible": true,
+          "x": 5.798,
+          "y": 0.491,
+          "z": 0.6,
+          "bones": 91,
+          "skins": 131,
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "hostAvatar": "HOST_MALE",
+          "trueWorldYaw": -4.712389,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "hit",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 0,
+            "hop": 0,
+            "recoil": 0.994,
+            "inspected": 0,
+            "livingBeat": "idle",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": 0.088,
+                "spread": 0.853,
+                "worldHand": [
+                  5.68,
+                  2.192,
+                  0.046
+                ],
+                "wristToShoulder": 0.342
+              },
+              "L": {
+                "drop": -0.018,
+                "spread": 0.233,
+                "worldHand": [
+                  5.65,
+                  2.169,
+                  0.38
+                ],
+                "wristToShoulder": 0.316
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.22,
+                "reach": 0.342,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.68,
+                  2.192,
+                  0.046
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.06,
+                "reach": 0.316,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.65,
+                  2.169,
+                  0.38
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "橡皮筋建筑师",
+            "beat": "认真扶眼镜，突然灵机一动",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 1,
+            "expression": "fun",
+            "faceAmount": 0,
+            "actualBlink": 1,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.212,
+                  "reach": 0.317,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.625,
+                    2.109,
+                    0.163
+                  ]
+                },
+                "L": {
+                  "error": 0.0556,
+                  "elbowOut": 0.038,
+                  "reach": 0.592,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.77,
+                    1.651,
+                    0.53
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 297
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone female winner actually celebrates",
+      "data": [
+        {
+          "id": "E01",
+          "side": "player",
+          "visible": true,
+          "x": -5.41,
+          "y": 0.569,
+          "z": 0.6,
+          "bones": 119,
+          "skins": 124,
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "hostAvatar": "HOST_FEMALE",
+          "trueWorldYaw": -1.410796,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "victory_jump",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 1,
+            "defeat": 0,
+            "hop": 0.077,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "dance",
+            "footContact": {
+              "stance": "L",
+              "lift": 0.0101,
+              "stage": "stomp"
+            },
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": 0.721,
+                "spread": 0.366,
+                "worldHand": [
+                  -5.169,
+                  2.598,
+                  0.904
+                ],
+                "wristToShoulder": 0.44
+              },
+              "L": {
+                "drop": 0.421,
+                "spread": 0.134,
+                "worldHand": [
+                  -5.218,
+                  2.515,
+                  0.537
+                ],
+                "wristToShoulder": 0.355
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.102,
+                "reach": 0.44,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.169,
+                  2.598,
+                  0.904
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.037,
+                "reach": 0.355,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.218,
+                  2.515,
+                  0.537
+                ]
+              }
+            },
+            "face": "gesture"
+          },
+          "expression": {
+            "role": "铃声追不上",
+            "beat": "发现要迟到，慌忙挥手",
+            "mode": "gesture",
+            "amount": 0.96,
+            "blink": 0,
+            "expression": "joy",
+            "faceAmount": 0.403,
+            "actualBlink": 0,
+            "actualExpression": 0.403,
+            "heroPose": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.073,
+                  "reach": 0.278,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.132,
+                    2.132,
+                    0.988
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.08,
+                  "reach": 0.491,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.188,
+                    1.817,
+                    0.624
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 385
+          }
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "visible": true,
+          "x": 5.68,
+          "y": 0.482,
+          "z": 0.6,
+          "bones": 91,
+          "skins": 131,
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "hostAvatar": "HOST_MALE",
+          "trueWorldYaw": -4.592389,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "loss_despair",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 1,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "defeat",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.066,
+                "spread": 0.803,
+                "worldHand": [
+                  5.564,
+                  2.21,
+                  0.07
+                ],
+                "wristToShoulder": 0.262
+              },
+              "L": {
+                "drop": 0.513,
+                "spread": 0.44,
+                "worldHand": [
+                  5.588,
+                  2.24,
+                  0.268
+                ],
+                "wristToShoulder": 0.252
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.207,
+                "reach": 0.262,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.564,
+                  2.21,
+                  0.07
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.113,
+                "reach": 0.252,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.588,
+                  2.24,
+                  0.268
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "橡皮筋建筑师",
+            "beat": "认真扶眼镜，突然灵机一动",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0,
+            "expression": "fun",
+            "faceAmount": 0,
+            "actualBlink": 0,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.186,
+                  "reach": 0.293,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.452,
+                    2.102,
+                    0.189
+                  ]
+                },
+                "L": {
+                  "error": 0.0247,
+                  "elbowOut": 0.02,
+                  "reach": 0.56,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.633,
+                    1.619,
+                    0.548
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 385
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone male loser actually despairs",
+      "data": [
+        {
+          "id": "E01",
+          "side": "player",
+          "visible": true,
+          "x": -5.41,
+          "y": 0.569,
+          "z": 0.6,
+          "bones": 119,
+          "skins": 124,
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "hostAvatar": "HOST_FEMALE",
+          "trueWorldYaw": -1.410796,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "victory_jump",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 1,
+            "defeat": 0,
+            "hop": 0.077,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "dance",
+            "footContact": {
+              "stance": "L",
+              "lift": 0.0101,
+              "stage": "stomp"
+            },
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": 0.721,
+                "spread": 0.366,
+                "worldHand": [
+                  -5.169,
+                  2.598,
+                  0.904
+                ],
+                "wristToShoulder": 0.44
+              },
+              "L": {
+                "drop": 0.421,
+                "spread": 0.134,
+                "worldHand": [
+                  -5.218,
+                  2.515,
+                  0.537
+                ],
+                "wristToShoulder": 0.355
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.102,
+                "reach": 0.44,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.169,
+                  2.598,
+                  0.904
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.037,
+                "reach": 0.355,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.218,
+                  2.515,
+                  0.537
+                ]
+              }
+            },
+            "face": "gesture"
+          },
+          "expression": {
+            "role": "铃声追不上",
+            "beat": "发现要迟到，慌忙挥手",
+            "mode": "gesture",
+            "amount": 0.96,
+            "blink": 0,
+            "expression": "joy",
+            "faceAmount": 0.403,
+            "actualBlink": 0,
+            "actualExpression": 0.403,
+            "heroPose": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.073,
+                  "reach": 0.278,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.132,
+                    2.132,
+                    0.988
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.08,
+                  "reach": 0.491,
+                  "segmentLength": 0.551,
+                  "hand": [
+                    -5.188,
+                    1.817,
+                    0.624
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 385
+          }
+        },
+        {
+          "id": "G01",
+          "side": "ai",
+          "visible": true,
+          "x": 5.68,
+          "y": 0.482,
+          "z": 0.6,
+          "bones": 91,
+          "skins": 131,
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "hostAvatar": "HOST_MALE",
+          "trueWorldYaw": -4.592389,
+          "independentFromSummons": true,
+          "posture": {
+            "phase": "loss_despair",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 1,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "defeat",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.066,
+                "spread": 0.803,
+                "worldHand": [
+                  5.564,
+                  2.21,
+                  0.07
+                ],
+                "wristToShoulder": 0.262
+              },
+              "L": {
+                "drop": 0.513,
+                "spread": 0.44,
+                "worldHand": [
+                  5.588,
+                  2.24,
+                  0.268
+                ],
+                "wristToShoulder": 0.252
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.207,
+                "reach": 0.262,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.564,
+                  2.21,
+                  0.07
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.113,
+                "reach": 0.252,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.588,
+                  2.24,
+                  0.268
+                ]
+              }
+            },
+            "face": "idle"
+          },
+          "expression": {
+            "role": "橡皮筋建筑师",
+            "beat": "认真扶眼镜，突然灵机一动",
+            "mode": "idle",
+            "amount": 0,
+            "blink": 0,
+            "expression": "fun",
+            "faceAmount": 0,
+            "actualBlink": 0,
+            "actualExpression": 0,
+            "heroPose": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.186,
+                  "reach": 0.293,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.452,
+                    2.102,
+                    0.189
+                  ]
+                },
+                "L": {
+                  "error": 0.0247,
+                  "elbowOut": 0.02,
+                  "reach": 0.56,
+                  "segmentLength": 0.55,
+                  "hand": [
+                    5.633,
+                    1.619,
+                    0.548
+                  ]
+                }
+              }
+            },
+            "entranceAmount": 0,
+            "faceMeshes": 10,
+            "blinkBindings": 10,
+            "expressionBindings": 10,
+            "frames": 385
+          }
+        }
+      ]
+    },
+    {
+      "passed": true,
+      "label": "phone stage motion never changes cards/hp/rules"
+    },
+    {
+      "passed": true,
+      "label": "phone no runtime/network error and GPU within budget",
+      "data": {
+        "errors": [],
+        "draw": 616
+      }
+    }
+  ],
+  "errors": [],
+  "states": [
+    {
+      "view": "desktop",
+      "baseline": {
+        "player": 1.772,
+        "ai": 2.064
+      },
+      "winner": [
+        {
+          "side": "player",
+          "posture": {
+            "phase": "victory_jump",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 1,
+            "defeat": 0,
+            "hop": 0.19,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "dance",
+            "footContact": {
+              "stance": "L",
+              "lift": 0.0418,
+              "stage": "stomp"
+            },
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": 0.721,
+                "spread": 0.366,
+                "worldHand": [
+                  -5.169,
+                  2.711,
+                  0.905
+                ],
+                "wristToShoulder": 0.441
+              },
+              "L": {
+                "drop": 0.421,
+                "spread": 0.134,
+                "worldHand": [
+                  -5.218,
+                  2.628,
+                  0.538
+                ],
+                "wristToShoulder": 0.355
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.102,
+                "reach": 0.441,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.169,
+                  2.711,
+                  0.905
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.037,
+                "reach": 0.355,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.218,
+                  2.628,
+                  0.538
+                ]
+              }
+            },
+            "face": "gesture"
+          }
+        },
+        {
+          "side": "ai",
+          "posture": {
+            "phase": "loss_despair",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 1,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "defeat",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.065,
+                "spread": 0.802,
+                "worldHand": [
+                  5.564,
+                  2.209,
+                  0.071
+                ],
+                "wristToShoulder": 0.262
+              },
+              "L": {
+                "drop": 0.512,
+                "spread": 0.439,
+                "worldHand": [
+                  5.588,
+                  2.239,
+                  0.268
+                ],
+                "wristToShoulder": 0.251
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.207,
+                "reach": 0.262,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.564,
+                  2.209,
+                  0.071
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.113,
+                "reach": 0.251,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.588,
+                  2.239,
+                  0.268
+                ]
+              }
+            },
+            "face": "idle"
+          }
+        }
+      ],
+      "draw": 616
+    },
+    {
+      "view": "phone",
+      "baseline": {
+        "player": 1.772,
+        "ai": 2.064
+      },
+      "winner": [
+        {
+          "side": "player",
+          "posture": {
+            "phase": "victory_jump",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 1,
+            "defeat": 0,
+            "hop": 0.077,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "dance",
+            "footContact": {
+              "stance": "L",
+              "lift": 0.0101,
+              "stage": "stomp"
+            },
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": 0.721,
+                "spread": 0.366,
+                "worldHand": [
+                  -5.169,
+                  2.598,
+                  0.904
+                ],
+                "wristToShoulder": 0.44
+              },
+              "L": {
+                "drop": 0.421,
+                "spread": 0.134,
+                "worldHand": [
+                  -5.218,
+                  2.515,
+                  0.537
+                ],
+                "wristToShoulder": 0.355
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.102,
+                "reach": 0.44,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.169,
+                  2.598,
+                  0.904
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.037,
+                "reach": 0.355,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.218,
+                  2.515,
+                  0.537
+                ]
+              }
+            },
+            "face": "gesture"
+          }
+        },
+        {
+          "side": "ai",
+          "posture": {
+            "phase": "loss_despair",
+            "draw": 0,
+            "display": 0,
+            "cast": 0,
+            "follow": 0,
+            "victory": 0,
+            "defeat": 1,
+            "hop": 0,
+            "recoil": 0,
+            "inspected": 0,
+            "livingBeat": "defeat",
+            "footContact": null,
+            "livingStrength": 0,
+            "arms": {
+              "R": {
+                "drop": -0.066,
+                "spread": 0.803,
+                "worldHand": [
+                  5.564,
+                  2.21,
+                  0.07
+                ],
+                "wristToShoulder": 0.262
+              },
+              "L": {
+                "drop": 0.513,
+                "spread": 0.44,
+                "worldHand": [
+                  5.588,
+                  2.24,
+                  0.268
+                ],
+                "wristToShoulder": 0.252
+              }
+            },
+            "ik": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.207,
+                "reach": 0.262,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.564,
+                  2.21,
+                  0.07
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.113,
+                "reach": 0.252,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.588,
+                  2.24,
+                  0.268
+                ]
+              }
+            },
+            "face": "idle"
+          }
+        }
+      ],
+      "draw": 616
+    }
+  ]
+}

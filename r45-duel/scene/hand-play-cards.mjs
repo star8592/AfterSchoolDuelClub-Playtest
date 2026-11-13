@@ -88,11 +88,20 @@ export function createHandPlayCards(THREE,scene){
    // RIGHT HAND IS PHYSICAL AUTHORITY: sample the post-IK wrist every frame.
    state.wrist.updateWorldMatrix(true,false);
    state.wrist.getWorldPosition(wristPos);
+   // R120: read as a physical, illustrated card: snap up, proudly reveal
+   // the artwork to the opponent and the viewer, then whip the *wrist-bound*
+   // card into the arena. The hand never lets go early or creates a clone.
+   const rise=clamp((age-.22)/.35)*(1-clamp((age-1.35)/.35));
+   const throwPulse=clamp((age-1.28)/.18)*(1-clamp((age-1.9)/.24));
    const arrival=clamp(age/.18),depart=1-clamp((age-2.24)/.36);
    state.group.position.copy(wristPos).add(offset);
    state.group.quaternion.copy(camera.quaternion);
-   state.group.rotateZ((state.host.side==='player'?-1:1)*(.12*(1-arrival)+.05));
-   state.group.scale.setScalar(.83+.17*arrival);
+   state.group.rotateZ((state.host.side==='player'?-1:1)*
+     (.20*(1-arrival)-.25*throwPulse+.045));
+   state.group.rotateY((state.host.side==='player'?-1:1)*.20*throwPulse);
+   state.group.scale.setScalar(.84+.17*arrival+.32*rise+.09*throwPulse);
+   state.group.children[0].material.emissiveIntensity=.23+.65*rise+.8*throwPulse;
+   state.phase=rise>.55?'high_reveal':throwPulse>.32?'throw':age<.35?'draw':'recover';
    state.group.children[0].material.opacity=arrival*depart;
    state.group.children[0].material.transparent=true;
    state.image.material.opacity=arrival*depart;
@@ -104,7 +113,9 @@ export function createHandPlayCards(THREE,scene){
  return {attach,show,update,get stats(){
   return {actors:[...instances.values()].map(x=>({side:x.host.side,id:x.id,
    shown:x.events,visible:x.group.visible,wristTracked:!!x.wrist,
-   wristGap:+x.wristGap.toFixed(4),painted:x.painted,lastPainted:x.lastPainted})),
+   wristGap:+x.wristGap.toFixed(4),phase:x.phase||'idle',
+   size:+x.group.scale.x.toFixed(3),
+   painted:x.painted,lastPainted:x.lastPainted})),
    painted,frames};
  }};
 }
