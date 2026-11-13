@@ -35,9 +35,11 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
     const bone=object.getObjectByName('FK-UpperArm.'+side);
     return bone?{side,bone,rest:bone.quaternion.clone()}:null;
    }).filter(Boolean);
+   const head=object.getObjectByName('FK-Head')||object.getObjectByName('Head')||null;
+   const headRest=head?.quaternion?.clone()||null;
    lifeWorld?.register('spectator:'+spec.id,
     {id:spec.id,side:spec.team,role:'spectator'});
-   actors.push({spec,instance,object,pose,arms,last:null});
+   actors.push({spec,instance,object,pose,arms,head,headRest,last:null});
   }
   return actors.length;
  }
@@ -65,7 +67,7 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
   // Anchor is taken from the REAL mounted high-detail GLB spectator,
   // not a fabricated stand-in or a hardcoded camera pixel.
   const p=focused.object.getWorldPosition(new THREE.Vector3());
-  active={type:'accident',winner:incident.side,started:seconds,duration:2.2,
+  active={type:'accident',winner:incident.side,started:seconds,duration:2.65,
    focusIndex:incident.spectatorIndex,scenario:incident.scenario,
    element:incident.element};
   events++;accidentEvents++;
@@ -83,17 +85,24 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
     focusIndex:active?.focusIndex??-1,scenario:active?.scenario??null});
    const mind=lifeWorld?.read('spectator:'+actor.spec.id,seconds);
    const living=(!active&&mind&&!reduced)?mind:null;
-   actor.object.position.set(actor.pose.x,actor.pose.y+p.bounce,actor.pose.z);
+   actor.object.position.set(actor.pose.x,actor.pose.y+p.bounce-(p.duck||0),actor.pose.z);
    actor.object.rotation.set(0,p.yaw+(living?.yaw||0)*.8,
     p.tilt+(living?.tilt||0)*.7);
    actor.lastLife=mind;
    for(const {side,bone,rest} of actor.arms){
     // Source clips are real skeletal animations. Apply small authored
     // spectator reaction as a non-accumulating override on FK controls.
-    bone.quaternion.copy(rest);
+    // Keep the frame's genuine source skeletal clip pose. Copying the
+    // mount-time T pose every frame makes characters stand like mannequins.
+    if(!actor.instance.mixer)bone.quaternion.copy(rest);
     if(p.arms>.001)bone.quaternion.multiply(
      new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),
       (side==='L'?-1:1)*p.arms));
+   }
+   if(actor.head?.quaternion){
+    if(!actor.instance.mixer&&actor.headRest)actor.head.quaternion.copy(actor.headRest);
+    if(p.headYaw||p.headPitch)actor.head.quaternion.multiply(
+     new THREE.Quaternion().setFromEuler(new THREE.Euler(p.headPitch||0,p.headYaw||0,0)));
    }
    actor.last=p;
    if(p.weight>.1)movementFrames++;
@@ -107,6 +116,7 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
   frames,movementFrames,events,accidentEvents,active:active?{...active}:null,
   poses:actors.map(a=>({id:a.spec.id,team:a.spec.team,
    mode:a.last?.mode||'idle',weight:+(a.last?.weight||0).toFixed(3),
+   chainDelay:a.last?.delay??0,headRig:!!a.head,
    emotion:a.lastLife?.emotion||'focused',
    attention:a.lastLife?.attention||'arena',
    personalIntent:a.lastLife?.intent||'idle'}))
