@@ -68,7 +68,9 @@ export function createLivingCastDirector(seed=2026,lifeWorld=null){
   actor.active={type,started:seconds,duration:cfg.duration,reason};
   actor.latest=type;actor.history.push(type);
   if(actor.history.length>8)actor.history.shift();
-  actor.next=seconds+cfg.duration+2.9+actor.random()*4.2;
+  // Each duel operator stays playful between actual card actions: average
+  // 2 seconds to next individual beat, not 7-second mannequin silence.
+  actor.next=seconds+cfg.duration+1.0+actor.random()*2.2;
   record(side,type,seconds,reason);
   if(reason==='ambient'&&(type==='challenge'||type==='whisper')){
    const options=exchanges[type],pair=options[Math.floor(actor.random()*options.length)];

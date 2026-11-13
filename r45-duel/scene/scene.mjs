@@ -497,16 +497,23 @@ function makeDuelistHosts(){
 // We solve BOTH real shoulder-elbow-wrist chains every frame, including when
 // no cards are played; old R74 only rolled shoulders, leaving open A/T arms.
 const DUELIST_POSE_SPEC=Object.freeze({
+ // Expressive children: source VRM IK wrist positions relative to the
+ // actual chest. Raise the illustrated card above shoulder/head height,
+ // snap it forward, then recoil. No proxy limbs / no detached card hologram.
  E01:{hold:{R:[.035,-.12,-.16],L:[-.14,-.27,-.06]},
-  draw:{R:[.06,-.23,-.04],L:[-.11,-.16,-.12]},
-  show:{R:[.13,.16,-.26],L:[-.17,-.12,-.17]},
-  cast:{R:[.27,.13,-.31],L:[-.13,-.11,-.20]},
-  guard:{R:[.07,.14,-.19],L:[-.14,.10,-.21]}},
+  draw:{R:[.075,-.26,-.01],L:[-.12,-.08,-.11]},
+  show:{R:[.20,.56,-.24],L:[-.15,.12,-.20]},
+  cast:{R:[.50,.31,-.39],L:[-.10,.30,-.22]},
+  guard:{R:[.11,.32,-.16],L:[-.16,.23,-.23]},
+  victory:{R:[.13,.64,-.15],L:[-.23,.52,-.16]},
+  defeat:{R:[.08,.36,-.07],L:[-.11,.35,-.07]}},
  G01:{hold:{R:[.045,.12,-.18],L:[-.17,-.26,-.07]},
-  draw:{R:[.05,-.23,-.05],L:[-.15,-.13,-.11]},
-  show:{R:[.15,.19,-.25],L:[-.15,-.11,-.19]},
-  cast:{R:[.30,.13,-.27],L:[-.12,-.10,-.22]},
-  guard:{R:[.10,.17,-.17],L:[-.16,.12,-.19]}}
+  draw:{R:[.06,-.26,-.01],L:[-.16,-.13,-.09]},
+  show:{R:[.17,.61,-.19],L:[-.25,.28,-.16]},
+  cast:{R:[.54,.36,-.37],L:[-.04,.18,-.19]},
+  guard:{R:[.12,.35,-.15],L:[-.20,.25,-.18]},
+  victory:{R:[.25,.70,-.10],L:[-.20,.43,-.12]},
+  defeat:{R:[.10,.37,-.08],L:[-.10,.35,-.08]}}
 });
 function updateDuelistHosts(seconds){
  const ageOf=side=>seconds-hostAction[side].started;
@@ -524,14 +531,25 @@ function updateDuelistHosts(seconds){
   const breath=Math.sin(seconds*1.18+(side==='player'?0:1.6));
   const glance=Math.sin(seconds*.52+(side==='player'?.4:2.1));
   const sign=side==='player'?1:-1;
-  const draw=smoothPulse(age,.025,.21,.38,.74);
-  const display=smoothPulse(age,.22,.51,1.15,1.60);
-  const cast=smoothPulse(age,1.23,1.49,2.02,2.43);
-  const recoil=smoothPulse(hitAge,.015,.12,.24,.74);
-  // Irregular social beats and causal answer gestures replace the fixed 9.7s loop.
+  // R120 full readable card choreography, using the original VRM elbow IK.
+  // Each card has a low draw, an ABOVE-SHOULDER proud reveal, a full arm
+  // forward snap and a bodily aftershock. All phrases are interruptible.
+  const draw=smoothPulse(age,.015,.18,.45,.83);
+  const display=smoothPulse(age,.29,.68,1.20,1.56);
+  const cast=smoothPulse(age,1.19,1.39,1.78,2.30);
+  const follow=smoothPulse(age,1.57,1.71,1.99,2.49);
+  const recoil=smoothPulse(hitAge,.015,.09,.29,.88);
   const act=ambientActs[side],strength=act.weight||0;
-  const actionStrength=Math.max(draw,display,cast,recoil);
-  const idleBlend=(1-actionStrength)*strength;
+  const victory=act.type==='dance'?Math.max(0,strength):0;
+  const defeat=act.type==='defeat'?Math.max(0,strength):0;
+  const ceremony=Math.max(victory,defeat);
+  const cardWeight=ceremony>.005?0:1;
+  const doDraw=draw*cardWeight,doDisplay=display*cardWeight,
+   doCast=cast*cardWeight,doFollow=follow*cardWeight;
+  const actionStrength=Math.max(doDraw,doDisplay,doCast,doFollow,recoil,ceremony);
+  // R120 campus-comedy exaggeration. Irregular unique individual beats,
+  // not a passive, genteel shoulder sway while waiting between turns.
+  const idleBlend=(1-actionStrength)*strength*(reduced?.45:1.55);
   const inspectCard=(act.type==='inspect'?idleBlend:0);
   // The podium actors share the same stance schedule as the 3D summoned
   // units. Their standing foot remains on the plinth instead of bobbing
@@ -539,13 +557,24 @@ function updateDuelistHosts(seconds){
   const footwork=act.type==='dance'?
    contactStep(seconds,act.stage,side==='player'?0:1,reduced):null;
   const legSwing=footwork?.lift||0;
-  host.pivot.position.x=host.baseX+sign*.08*cast-sign*.13*recoil+
+  // Small physical hops are timed to the exact card release or victory,
+  // never random full-body idle bobbing. The opponent has a different
+  // tempo and larger right arm follow-through, not cloned mirror motion.
+  const intensity=reduced?.28:1;
+  const cardHop=doCast*Math.abs(Math.sin(Math.PI*Math.max(0,Math.min(1,(age-1.2)/1.08))))*.095*intensity;
+  const winnerHop=victory*.19*Math.max(0,Math.sin(seconds*11.7+(side==='player'?.2:1.1)))*intensity;
+  host.pivot.position.x=host.baseX+
+    sign*(.13*doCast+.09*doFollow-.25*recoil)+
+    sign*.14*victory-sign*.13*defeat+
     .018*glance*(1-actionStrength)+sign*(act.step||0)*idleBlend*
-      (footwork?.stance? .32:1);
-  host.pivot.position.y=.48+.012*breath+(footwork?0:(act.jump||0)*idleBlend);
-  host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.11*display+.16*cast)+
-    sign*(act.headYaw||0)*idleBlend*.30;
-  host.pivot.rotation.z=-sign*.045*cast+sign*.115*recoil+.011*glance+
+      (footwork?.stance?.32:1);
+  host.pivot.position.y=.48+.012*breath+cardHop+winnerHop+
+    (footwork?0:(act.jump||0)*idleBlend*.6);
+  host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.21*doDisplay+.29*doCast)+
+    sign*(act.headYaw||0)*idleBlend*.30+
+    sign*.16*victory-sign*.12*defeat;
+  host.pivot.rotation.z=sign*(-.12*doCast+.15*doFollow+.23*recoil-
+    .095*victory+.24*defeat)+.011*glance+
     sign*(act.tilt||0)*idleBlend;
   // Facial blink and the source VRM blendshapes remain animated independently.
   const lifeMood=arenaLife.read('host:'+side,seconds);
@@ -553,27 +582,29 @@ function updateDuelistHosts(seconds){
    suppressEntrance:true,suppressGesture:true,
    // Trigger authentic VRM joy/fun morphs for card reveal/cast; during hits
    // return the face to neutral instead of smiling through damage.
-   previewAmount:recoil>.12?0:Math.max(display*.46,cast*.68,
-    inspectCard*.20,(act.type==='laugh'||act.type==='smirk'||act.type==='dance'?
-      idleBlend*.44:0),
-    lifeMood?.emotion==='elated'?.34:
-    lifeMood?.emotion==='playful'?.18:0)});
-  setBone(host,'C_Spine',.014*breath-.07*cast+.09*recoil+
-   (act.chest||0)*idleBlend*.3,0,
-   sign*(.015*glance-.055*cast+.12*recoil));
-  setBone(host,'C_Chest',.015*breath-.11*display-.17*cast+.16*recoil+
-   (act.chest||0)*idleBlend,sign*.055*display,sign*(-.065*cast+.10*recoil));
-  setBone(host,'C_Head',-.030*inspectCard-.055*display-.10*cast+.125*recoil+
-   (act.headPitch||0)*idleBlend,
-   sign*(.065*glance+.075*display+(act.headYaw||0)*idleBlend),
+   previewAmount:recoil>.14||defeat>.18?0:Math.max(doDisplay*.92,
+    doCast*1.0,doFollow*.80,victory*.96,
+    inspectCard*.29,(act.type==='laugh'||act.type==='smirk'?idleBlend*.68:0),
+    lifeMood?.emotion==='elated'?.60:
+    lifeMood?.emotion==='playful'?.32:0)});
+  setBone(host,'C_Spine',.014*breath-.17*doCast+.24*recoil+
+   .16*victory+.21*defeat+(act.chest||0)*idleBlend*.36,0,
+   sign*(.015*glance-.12*doCast+.18*recoil));
+  setBone(host,'C_Chest',.015*breath-.15*doDisplay-.30*doCast+
+   .24*recoil-.17*victory+.24*defeat+
+   (act.chest||0)*idleBlend,sign*.09*doDisplay,
+   sign*(-.12*doCast+.16*recoil));
+  setBone(host,'C_Head',-.030*inspectCard-.12*doDisplay-.13*doCast+
+   .27*recoil-.13*victory+.28*defeat+(act.headPitch||0)*idleBlend,
+   sign*(.065*glance+.13*doDisplay+(act.headYaw||0)*idleBlend),
    sign*.02*glance);
-  setBone(host,'L_UpperLeg',.026*glance-.046*cast+.05*recoil+
-   (footwork?.swing==='L'?legSwing*2:0),0,0);
-  setBone(host,'R_UpperLeg',-.026*glance+.046*cast-.05*recoil+
-   (footwork?.swing==='R'?legSwing*2:0),0,0);
-  setBone(host,'L_LowerLeg',.014*cast+
+  setBone(host,'L_UpperLeg',.026*glance-.10*doCast+.16*recoil+
+   .20*victory-.27*defeat+(footwork?.swing==='L'?legSwing*2:0),0,0);
+  setBone(host,'R_UpperLeg',-.026*glance+.11*doCast-.12*recoil+
+   .18*victory-.27*defeat+(footwork?.swing==='R'?legSwing*2:0),0,0);
+  setBone(host,'L_LowerLeg',.02*doCast-.16*defeat+
    (footwork?.swing==='L'?-legSwing:0),0,0);
-  setBone(host,'R_LowerLeg',-.012*cast+
+  setBone(host,'R_LowerLeg',-.02*doCast-.16*defeat+
    (footwork?.swing==='R'?-legSwing:0),0,0);
   // We restore BOTH source arm segments before IK, avoiding accumulating
   // twist from frame to frame or mixing cinematic and game idle rigs.
@@ -586,21 +617,30 @@ function updateDuelistHosts(seconds){
    targetVector.set(...specs.hold[hand]);
    const idleShift=hand==='R'?.011*breath:-.009*breath;
    targetVector.y+=idleShift;
-   if(hand==='R')targetVector.y+=.08*inspectCard;
+   if(hand==='R')targetVector.y+=.12*inspectCard;
    const actingHand=act[hand==='R'?'right':'left'];
    if(actingHand)for(let j=0;j<3;j++)targetVector.setComponent(j,
     targetVector.getComponent(j)+actingHand[j]*idleBlend);
-   for(const [phase,amount] of [[specs.draw,draw],[specs.show,display],
-      [specs.cast,cast],[specs.guard,recoil]]){
+   for(const [phase,amount] of [[specs.draw,doDraw],
+      [specs.show,doDisplay],[specs.cast,doCast],
+      [specs.guard,recoil],[specs.victory,victory],[specs.defeat,defeat]]){
     targetVector.lerp(new THREE.Vector3(...phase[hand]),Math.min(1,amount));
+   }
+   if(hand==='R'&&doFollow>.01){
+    targetVector.x+=sign*.055*doFollow;
+    targetVector.y-=.12*doFollow;
    }
    targetOut[hand]=targetVector.toArray();
   }
   host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
-  host.choreography={phase:recoil>.1?'hit':cast>.1?'cast':
-    display>.1?'show':draw>.1?'draw':idleBlend>.08?act.type:'idle',
-    draw:+draw.toFixed(3),display:+display.toFixed(3),
-    cast:+cast.toFixed(3),recoil:+recoil.toFixed(3),
+  host.choreography={phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
+    recoil>.1?'hit':doFollow>.22?'follow_through':doCast>.1?'cast':
+    doDisplay>.1?'raise_card':doDraw>.1?'draw':idleBlend>.08?act.type:'idle',
+    draw:+doDraw.toFixed(3),display:+doDisplay.toFixed(3),
+    cast:+doCast.toFixed(3),follow:+doFollow.toFixed(3),
+    victory:+victory.toFixed(3),defeat:+defeat.toFixed(3),
+    hop:+(cardHop+winnerHop).toFixed(3),
+    recoil:+recoil.toFixed(3),
     inspected:+inspectCard.toFixed(3),livingBeat:act.type,
     footContact:footwork?{stance:footwork.stance,
       lift:+footwork.lift.toFixed(4),stage:act.stage}:null,
