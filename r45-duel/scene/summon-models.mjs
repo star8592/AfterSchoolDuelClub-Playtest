@@ -9,6 +9,7 @@ import {createR126MusicTeacherClips,R126_TEACHER_ACTION_NAMES} from './r126-musi
 import {createR127OwlSourceFeathers} from './r127-owl-source-feather-motion.mjs';
 import {createR128PhilSourceFullBody,repairR128PhilSourceHierarchy} from './r128-source-lower-body.mjs';
 import {createR130SpecialFullBody,prepareR130SourceLegs} from './r130-special-source-legs.mjs';
+import {repairR131TrueSourceArms} from './r131-real-source-upper-arms.mjs';
 // R85: improved R60 photo-paper model and five native clips are the default.
 // Exact older R57 remains available with ?e02Study=r57 for immediate rollback.
 const isE02R60Study=(()=>{
@@ -258,7 +259,14 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   const selectedFile=id==='M02'&&r99ChefOld?'M02-CafeteriaAunt-CartoonR76.glb':
    id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
-   R119_STUDY_IDS.has(id)?R119_SKIN_STUDY_FILES[id]:
+   R119_STUDY_IDS.has(id)?(
+    id==='E04'&&(()=>{
+     const q=new URLSearchParams(location.search);
+     const parent=(()=>{try{return window.parent!==window?
+      new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+     const qa=q.get('qa')==='1'||parent?.get('qa')==='1';
+     return qa&&(q.get('r131BakedRest')==='on'||parent?.get('r131BakedRest')==='on');
+    })()?'E04-Phil-Skinned-R131-BakedRest-PILOT.glb':R119_SKIN_STUDY_FILES[id]):
    isR93Previous&&Object.hasOwn(R93_PREVIOUS,id)?
    R93_PREVIOUS[id]:
    isR96Previous&&Object.hasOwn(R96_PREVIOUS,id)?
@@ -346,7 +354,7 @@ export function createR86JaySkeletonClips(THREE,instance){
 // R119: real render-bound source meshes; original names are normalized by
 // GLTFLoader. Clip names and physically tracked UUIDs stay on each separate
 // instance, so two identical summon cards never share a skeleton or action.
-export function createR119TrueSkinClips(THREE,instance,id){
+export function createR119TrueSkinClips(THREE,instance,id,{sourceBakedRest=false}={}){
  const norm=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const find=(...names)=>{
   const normalized=new Set(names.map(norm));let found=null;
@@ -387,7 +395,7 @@ export function createR119TrueSkinClips(THREE,instance,id){
     // Original R97 authored shoulder down pose uses opposite polarity for
     // Snow and Rain; apply it on the true skinned deformation channels.
     const restPolarity=(id==='G02'||id==='T03')?-1:1;
-    const naturalShoulderRest=(key==='left'?1.32:key==='right'?-1.32:0)*restPolarity;
+    const naturalShoulderRest=sourceBakedRest?0:(key==='left'?1.32:key==='right'?-1.32:0)*restPolarity;
     const gesture=Math.max(-.55,Math.min(.55,axes[i]||0))*character.strength;
     const angle=naturalShoulderRest+gesture;
     const q=first.clone().multiply(new THREE.Quaternion().setFromAxisAngle(axis,angle));
@@ -435,6 +443,25 @@ export function createR119TrueSkinClips(THREE,instance,id){
 export function instantiateSummon(THREE,template){
  const instance=cloneSkeleton(template.source);
  instance.traverse(o=>{if(o.isSkinnedMesh)o.frustumCulled=false});
+ // R131 source rest-pose probe: some Blender 5 exports include valid
+ // weighted geometry but incorrect bone inverse matrices. Only a QA URL
+ // may recompute inverses from the exact original unanimated source pose.
+ // Never alter the released source or production default without proof.
+ const q131=new URLSearchParams(location.search);
+ const q131Parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+ const q131Qa=q131.get('qa')==='1'||q131Parent?.get('qa')==='1';
+ const q131Rebind=q131Qa&&(q131.get('r131RestRebind')==='on'||
+  q131Parent?.get('r131RestRebind')==='on');
+ let q131Rebound=0;
+ if(q131Rebind&&template.selectedFile===R119_SKIN_STUDY_FILES[template.id]){
+  instance.updateMatrixWorld(true);
+  instance.traverse(mesh=>{
+   if(!mesh.isSkinnedMesh)return;
+   mesh.skeleton.calculateInverses();
+   q131Rebound++;
+  });
+ }
  // Center and seat source mesh at arena floor, while keeping source skeleton
  // transform and animation binding intact under the original model root.
  instance.position.set(-template.center.x,-template.center.y,-template.center.z);
@@ -442,7 +469,10 @@ export function instantiateSummon(THREE,template){
  const root=new THREE.Group();root.add(scaled);
  root.name='R61_ACTUAL_GLTF_SUMMON_'+template.id;
  const r86Clips=template.id==='G03'&&template.selectedFile==='G03-Jay-Skinned-R86.glb'?createR86JaySkeletonClips(THREE,instance):[];
- const r119Skin=template.selectedFile===R119_SKIN_STUDY_FILES[template.id];
+ const r131SourceBaked=template.id==='E04'&&
+  template.selectedFile==='E04-Phil-Skinned-R131-BakedRest-PILOT.glb';
+ const r119Skin=r131SourceBaked||
+  template.selectedFile===R119_SKIN_STUDY_FILES[template.id];
  const r128PilotOn=(()=>{
   const local=new URLSearchParams(location.search);
   if(local.has('r128Body'))return local.get('r128Body')==='on';
@@ -473,7 +503,28 @@ export function instantiateSummon(THREE,template){
   repairR128PhilSourceHierarchy(THREE,instance,template.id):null;
  const r130Hierarchy=r130SpecialOn?
   prepareR130SourceLegs(THREE,instance,template.id):null;
- const source119Clips=r119Skin?createR119TrueSkinClips(THREE,instance,template.id):[];
+ const r131ArmsOn=(()=>{
+  const local=new URLSearchParams(location.search);
+  if(local.has('r131Arms'))return local.get('r131Arms')==='on';
+  try{return window.parent!==window&&
+   new URLSearchParams(window.parent.location.search).get('r131Arms')==='on';}
+  catch{return false;}
+ })();
+ const r131Arms=r119Skin&&r131ArmsOn?
+  repairR131TrueSourceArms(THREE,instance,template.id):null;
+ // Diagnostic ONLY: reveal the authentic source skin's unanimated bind
+ // pose to distinguish a faulty GLB export from faulty action curves.
+ // Disabled in all normal gameplay; not a public rollout option.
+ const r131RawPose=(()=>{
+  const local=new URLSearchParams(location.search);
+  const parent=(()=>{try{return window.parent!==window?
+   new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+  const qa=local.get('qa')==='1'||parent?.get('qa')==='1';
+  return qa&&(local.get('r131RawPose')==='on'||parent?.get('r131RawPose')==='on');
+ })();
+ const source119Clips=r119Skin&&!r131RawPose?
+  createR119TrueSkinClips(THREE,instance,template.id,
+   {sourceBakedRest:r131SourceBaked}):[];
  const r128Phil=sourceBodyPilot?
   createR128PhilSourceFullBody(THREE,instance,source119Clips,template.id):null;
  const r130Special=r130SpecialOn?
@@ -490,7 +541,7 @@ export function instantiateSummon(THREE,template){
   createR127OwlSourceFeathers(THREE,instance,{reduced:matchMedia('(prefers-reduced-motion: reduce)').matches}):null;
  // If a source-export model is missing one of the actual bound arm bones,
  // don't silently pretend the artist's character has its desired animation.
- if(r119Skin&&r119Clips.length!==7)
+ if(r119Skin&&!r131RawPose&&r119Clips.length!==7)
   throw Error('R119 real skin has no valid mapped 7 body clips: '+template.id);
  const availableClips=r119Clips.length?r119Clips:r86Clips.length?r86Clips:
   r126Teacher?[...template.clips,...r126Teacher.clips]:template.clips;
@@ -640,7 +691,9 @@ export function instantiateSummon(THREE,template){
   }
   groundedY=scaled.position.y;
  }
- return {root,mixer,play,update:r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
+ return {root,mixer,play,update:r131Arms?(dt=>{
+  mixer.update(dt);r128Phil?.update();r130Special?.update();r131Arms.update();
+ }):r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),
   getR127OwlMotion:()=>r127Owl?.inspect()||null,
@@ -650,6 +703,9 @@ export function instantiateSummon(THREE,template){
    {...r128Phil.inspect(),hierarchy:r128Hierarchy}:null,
   getR130FullBody:()=>r130Special?
    {...r130Special.inspect(),hierarchyProof:r130Hierarchy}:null,
+  getR131Arms:()=>r131Arms?.inspect()||null,
+  r131RestReboundMeshes:q131Rebound,
+  r131BakedRestOriginalSource:r131SourceBaked,
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};

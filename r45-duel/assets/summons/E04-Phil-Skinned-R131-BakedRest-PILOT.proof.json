@@ -1,0 +1,32 @@
+{
+  "slug": "phil",
+  "source": "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/phil.blend",
+  "output": "r45-duel/assets/summons/E04-Phil-Skinned-R131-BakedRest-PILOT.glb",
+  "status": "EXPORTED",
+  "posedVerticesSampled": 17931,
+  "r131PoseRestBaked": true,
+  "bytes": 2847784,
+  "sha256": "aad92d0a447b99f89e2bb29bbf7d099c8e7a7df8aa9c2a4051ffe55e88bd0460",
+  "sourceMeshes": 14,
+  "visibleMeshes": 13,
+  "visibleSkinnedMeshes": 13,
+  "skinWeightBuffers": 13,
+  "rigBones": 1383,
+  "exportedJoints": 263,
+  "missingTargetBones": [
+    "DEF-Neck"
+  ],
+  "sourceIKWristPose": {
+    "L": [
+      0.6953389048576355,
+      0.03325749561190605,
+      1.0170176029205322
+    ],
+    "R": [
+      -0.6953389048576355,
+      0.03325749561190605,
+      1.0170176029205322
+    ]
+  },
+  "disabledGraphModifiers": 26
+}
