@@ -25,6 +25,7 @@ GitHub Pages 当前实际 VRM 和 .glb.gz 资源 HTTP 响应 `Cache-Control: max
 |---|---|
 | 文件 SHA-256 审计 | 16/16：4 VRM + 12 .glb.gz、75,569,762 B |
 | R125 双独立 Chrome 配置双端缓存 | 10/10 PASS |
+| R125 真实 Chrome 进程关闭并重启同一磁盘配置 | 3/3 PASS，重启后仍 16/16 SW 缓存命中 |
 | 桌面重新进入 CacheStorage 命中 | 16/16；SW hits=16、failures=0 |
 | 430px 竖屏重新进入 CacheStorage 命中 | 16/16；SW hits=16、failures=0 |
 | 关闭 Service Worker | 完整加载 16/16，0 JS 错误 |
