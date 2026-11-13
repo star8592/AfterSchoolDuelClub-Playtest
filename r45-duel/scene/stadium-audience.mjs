@@ -77,6 +77,7 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
   return {spectatorId:focused.spec.id,index:incident.spectatorIndex,
    x:p.x,y:p.y,z:p.z,side:focused.spec.team};
  }
+ function reset(){active=null}
  function update(seconds,{reduced=false,dt=.016}={}){
   const elapsed=active?seconds-active.started:0;
   for(const [index,actor] of actors.entries()){
@@ -121,7 +122,7 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
   frames++;
   if(active&&elapsed>active.duration)active=null;
  }
- return {mount,react,reactAccident,spectatorAnchor,update,get stats(){return{
+ return {mount,react,reactAccident,spectatorAnchor,reset,update,get stats(){return{
   loaded:actors.length,realModelIds:actors.map(a=>a.spec.id),
   animationMixers:actors.filter(a=>a.instance.mixer).length,
   skinnedRealActors:actors.filter(a=>a.skinnedMeshes>0).length,
