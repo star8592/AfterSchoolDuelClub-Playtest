@@ -10,7 +10,7 @@
  * each bone at its source world bind pose while restoring parent chains.
  * Weighted meshes and inverse bind matrices remain untouched.
  */
-export function repairR128PhilSourceHierarchy(THREE,instance){
+export function repairR128PhilSourceHierarchy(THREE,instance,id='E04'){
  const norm=name=>String(name||'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const all=new Map();
  instance.traverse(node=>{if(node.isBone)all.set(norm(node.name),node)});
@@ -36,8 +36,15 @@ export function repairR128PhilSourceHierarchy(THREE,instance){
  }
  return{sourceHierarchyRepaired:true,chains:legs};
 }
-export function createR128PhilSourceFullBody(THREE,instance,originalClips){
+export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E04'){
  const canonical=v=>String(v||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ // Source animation profiles are per-character, not clones of a single child.
+ // Controlled upper-body R119 motions already contain distinct personalities.
+ const strengths=Object.freeze({
+  E04:1.00, E03:1.25, G03:1.09, G04:.74, T04:1.18
+ });
+ if(!Object.hasOwn(strengths,id))throw Error('R129 unsupported flat original source rig '+id);
+ const lowerBodyStrength=strengths[id];
  const skinned=[];const boneSet=new Set();
  instance.traverse(mesh=>{
   if(!mesh.isSkinnedMesh)return;
@@ -111,7 +118,7 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips){
    const sourceQ=original.get(name),arr=[];
    for(const a of angles){
     const q=sourceQ.clone().multiply(
-     new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1,0,0),a));
+     new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1,0,0),a*lowerBodyStrength));
     arr.push(q.x,q.y,q.z,q.w);
    }
    return new THREE.QuaternionKeyframeTrack(bone.uuid+'.quaternion',times,arr);
@@ -165,7 +172,7 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips){
   maxFootHeightSpan=Math.max(maxFootHeightSpan,span);
  };
  return{clips,update,inspect:()=>({
-  source:'real_original_skinned_deform_bones',actor:'E04',
+  source:'real_original_skinned_deform_bones',actor:id,
   sourceSkinnedMeshes:skinned.length,sourceBoneCount:boneSet.size,
   independentLegBones:bones.map(([name])=>name),runtimeLegTracks:8,
   weightedSourceLegMesh:sample.mesh.name,weightedSourceLegBone:sample.bone,
