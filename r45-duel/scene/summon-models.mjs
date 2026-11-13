@@ -4,6 +4,7 @@
  * E01/G01 remain the existing unique source VRM rigs.
  */
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
+import {r125VersionedAssetURL} from '../r125-asset-urls.mjs';
 // R85: improved R60 photo-paper model and five native clips are the default.
 // Exact older R57 remains available with ?e02Study=r57 for immediate rollback.
 const isE02R60Study=(()=>{
@@ -200,7 +201,10 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
  let active=0;
  const pending=[];
  async function loadPacked(url){
-  const packedUrl=url+'.gz';
+  // Put .gz before the version query, never after ?v=<digest>.
+  const candidate=new URL(url);
+  candidate.pathname += '.gz';
+  const packedUrl=r125VersionedAssetURL(candidate).href;
   const response=await fetch(packedUrl);
   if(!response.ok)throw Error('R124 missing verified lossless GLB pack '+packedUrl+' HTTP '+response.status);
   const reader=response.body?.getReader();
