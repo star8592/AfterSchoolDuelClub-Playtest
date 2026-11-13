@@ -329,6 +329,7 @@ export function createStadium(THREE, scene, {detail='medium',lifeWorld=null}={})
    reactAudience:(type,side,seconds)=>audience.react(type,side,seconds),
    spectatorAnchor:index=>audience.spectatorAnchor(index),
    reactSpectatorAccident:(incident,seconds)=>audience.reactAccident(incident,seconds),
+   resetAudience:()=>audience.reset(),
    get ambience(){return {finale,finaleFrames,audience:audience.stats,
     reactiveSpotlights:keys.length,
     displayEmissiveIntensity:scoreDisplay?.material?.emissiveIntensity||0}},
