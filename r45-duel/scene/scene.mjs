@@ -870,6 +870,7 @@ function onMessage(ev){
   // ignored (same serial) or inherit a previous audience accident.
   spellSerials.clear();pendingSpellContacts.length=0;
   pendingCrowdAccidents.length=0;
+  crowdCloseup=null;r123ShotWeight=0;
   spectatorChaosFX?.reset();bleacherProps?.reset();
   stadiumEvidence?.resetAudience?.();
   comboDirector?.reset();
@@ -1017,6 +1018,8 @@ function exposeQA(){
    frontFacingCloseup:true,extraRenderPasses:0}},
   get r122AccidentReceipts(){return r122AccidentReceipts},
   get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
+  get registeredSpellSerials(){return spellSerials.size},
+  get pendingSpellContacts(){return pendingSpellContacts.length},
   get r121ContactReceipts(){return r121ContactReceipts},
   get comboDirector(){return comboDirector?.stats||null},
   get comedySpectacle(){return comedySpectacle?.stats||null},
