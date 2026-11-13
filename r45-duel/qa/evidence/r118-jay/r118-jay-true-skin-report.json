@@ -1,0 +1,1794 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop selected expected physical G03 source R118-true-skin",
+      "data": "G03-Jay-Skinned-R86.glb"
+    },
+    {
+      "passed": true,
+      "label": "desktop REAL Jay armature actually connected to visible mesh",
+      "data": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": true,
+        "mode": "skinned-joints",
+        "morphMeshes": 0,
+        "riggedJoints": [
+          "head",
+          "neck",
+          "chest",
+          "spine",
+          "left",
+          "right",
+          "leftElbow",
+          "rightElbow"
+        ],
+        "frames": 123,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 861,
+        "morphFrameWrites": 0,
+        "maxMorphDelta": 0,
+        "maxAngle": 0.02499906970142157,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          }
+        ],
+        "skinBones": 286,
+        "currentAngles": {
+          "head": [
+            0,
+            0,
+            0
+          ],
+          "neck": [
+            0,
+            0,
+            0
+          ],
+          "chest": [
+            -0.02,
+            0,
+            -0.005
+          ],
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "leftElbow": [
+            0,
+            0,
+            0
+          ],
+          "rightElbow": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop actual joint quaternion animation changes",
+      "data": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": true,
+        "mode": "skinned-joints",
+        "morphMeshes": 0,
+        "riggedJoints": [
+          "head",
+          "neck",
+          "chest",
+          "spine",
+          "left",
+          "right",
+          "leftElbow",
+          "rightElbow"
+        ],
+        "frames": 123,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 861,
+        "morphFrameWrites": 0,
+        "maxMorphDelta": 0,
+        "maxAngle": 0.02499906970142157,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          }
+        ],
+        "skinBones": 286,
+        "currentAngles": {
+          "head": [
+            0,
+            0,
+            0
+          ],
+          "neck": [
+            0,
+            0,
+            0
+          ],
+          "chest": [
+            -0.02,
+            0,
+            -0.005
+          ],
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "leftElbow": [
+            0,
+            0,
+            0
+          ],
+          "rightElbow": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop authentic live-skin idle clip playing",
+      "data": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.605,
+          "height": 2.08,
+          "depth": 0.972,
+          "minY": 0,
+          "maxY": 2.08,
+          "coverageWidth": 0.051,
+          "coverageHeight": 0.227,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.272,
+            "right": -0.171,
+            "top": 0.204,
+            "bottom": -0.25
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 36,
+        "clips": 0,
+        "playingClips": [
+          "R86_Skeletal_Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop facing actual opponent without reverse",
+      "data": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.605,
+          "height": 2.08,
+          "depth": 0.972,
+          "minY": 0,
+          "maxY": 2.08,
+          "coverageWidth": 0.051,
+          "coverageHeight": 0.227,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.272,
+            "right": -0.171,
+            "top": 0.204,
+            "bottom": -0.25
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 36,
+        "clips": 0,
+        "playingClips": [
+          "R86_Skeletal_Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop GPU performance and no 404 errors",
+      "data": []
+    },
+    {
+      "passed": true,
+      "label": "desktop selected expected physical G03 source R97-production",
+      "data": "G03-Jay-Landing-R97.glb"
+    },
+    {
+      "passed": true,
+      "label": "desktop rollback production film actor honest morph mode",
+      "data": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": false,
+        "mode": "authored-morph-deformation",
+        "morphMeshes": 6,
+        "riggedJoints": [],
+        "frames": 124,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 0,
+        "morphFrameWrites": 1488,
+        "maxMorphDelta": 0.01114005830883575,
+        "maxAngle": 0,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          }
+        ],
+        "skinBones": 0,
+        "currentAngles": {
+          "morphStrike": 0,
+          "morphRecoil": 0.008
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop facing actual opponent without reverse",
+      "data": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.464,
+          "height": 1.594,
+          "depth": 0.465,
+          "minY": 0,
+          "maxY": 1.594,
+          "coverageWidth": 0.036,
+          "coverageHeight": 0.165,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.261,
+            "right": -0.188,
+            "top": 0.099,
+            "bottom": -0.231
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 27,
+        "meshes": 40,
+        "clips": 3,
+        "playingClips": [
+          "Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop GPU performance and no 404 errors",
+      "data": []
+    },
+    {
+      "passed": true,
+      "label": "portrait selected expected physical G03 source R118-true-skin",
+      "data": "G03-Jay-Skinned-R86.glb"
+    },
+    {
+      "passed": true,
+      "label": "portrait REAL Jay armature actually connected to visible mesh",
+      "data": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": true,
+        "mode": "skinned-joints",
+        "morphMeshes": 0,
+        "riggedJoints": [
+          "head",
+          "neck",
+          "chest",
+          "spine",
+          "left",
+          "right",
+          "leftElbow",
+          "rightElbow"
+        ],
+        "frames": 124,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 868,
+        "morphFrameWrites": 0,
+        "maxMorphDelta": 0,
+        "maxAngle": 0.024999791176532032,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          }
+        ],
+        "skinBones": 286,
+        "currentAngles": {
+          "head": [
+            0,
+            0,
+            0
+          ],
+          "neck": [
+            0,
+            0,
+            0
+          ],
+          "chest": [
+            -0.0195,
+            0,
+            -0.0049
+          ],
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "leftElbow": [
+            0,
+            0,
+            0
+          ],
+          "rightElbow": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait actual joint quaternion animation changes",
+      "data": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": true,
+        "mode": "skinned-joints",
+        "morphMeshes": 0,
+        "riggedJoints": [
+          "head",
+          "neck",
+          "chest",
+          "spine",
+          "left",
+          "right",
+          "leftElbow",
+          "rightElbow"
+        ],
+        "frames": 124,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 868,
+        "morphFrameWrites": 0,
+        "maxMorphDelta": 0,
+        "maxAngle": 0.024999791176532032,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          }
+        ],
+        "skinBones": 286,
+        "currentAngles": {
+          "head": [
+            0,
+            0,
+            0
+          ],
+          "neck": [
+            0,
+            0,
+            0
+          ],
+          "chest": [
+            -0.0195,
+            0,
+            -0.0049
+          ],
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "leftElbow": [
+            0,
+            0,
+            0
+          ],
+          "rightElbow": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait authentic live-skin idle clip playing",
+      "data": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.605,
+          "height": 2.08,
+          "depth": 0.972,
+          "minY": 0,
+          "maxY": 2.08,
+          "coverageWidth": 0.053,
+          "coverageHeight": 0.083,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.325,
+            "right": -0.218,
+            "top": 0.078,
+            "bottom": -0.088
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.27,
+          -0.01
+        ],
+        "skins": 1,
+        "meshes": 36,
+        "clips": 0,
+        "playingClips": [
+          "R86_Skeletal_Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait facing actual opponent without reverse",
+      "data": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.605,
+          "height": 2.08,
+          "depth": 0.972,
+          "minY": 0,
+          "maxY": 2.08,
+          "coverageWidth": 0.053,
+          "coverageHeight": 0.083,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.325,
+            "right": -0.218,
+            "top": 0.078,
+            "bottom": -0.088
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.27,
+          -0.01
+        ],
+        "skins": 1,
+        "meshes": 36,
+        "clips": 0,
+        "playingClips": [
+          "R86_Skeletal_Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait GPU performance and no 404 errors",
+      "data": []
+    },
+    {
+      "passed": true,
+      "label": "portrait selected expected physical G03 source R97-production",
+      "data": "G03-Jay-Landing-R97.glb"
+    },
+    {
+      "passed": true,
+      "label": "portrait rollback production film actor honest morph mode",
+      "data": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": false,
+        "mode": "authored-morph-deformation",
+        "morphMeshes": 6,
+        "riggedJoints": [],
+        "frames": 123,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 0,
+        "morphFrameWrites": 1476,
+        "maxMorphDelta": 0.009274155310930884,
+        "maxAngle": 0,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          }
+        ],
+        "skinBones": 0,
+        "currentAngles": {
+          "morphStrike": 0,
+          "morphRecoil": 0.008
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait facing actual opponent without reverse",
+      "data": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.464,
+          "height": 1.594,
+          "depth": 0.465,
+          "minY": 0,
+          "maxY": 1.594,
+          "coverageWidth": 0.04,
+          "coverageHeight": 0.061,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.317,
+            "right": -0.237,
+            "top": 0.039,
+            "bottom": -0.083
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.27,
+          -0.01
+        ],
+        "skins": 27,
+        "meshes": 40,
+        "clips": 3,
+        "playingClips": [
+          "Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait GPU performance and no 404 errors",
+      "data": []
+    }
+  ],
+  "errors": [],
+  "states": [
+    {
+      "view": "desktop",
+      "variant": "R118-true-skin",
+      "model": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.605,
+          "height": 2.08,
+          "depth": 0.972,
+          "minY": 0,
+          "maxY": 2.08,
+          "coverageWidth": 0.051,
+          "coverageHeight": 0.227,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.272,
+            "right": -0.171,
+            "top": 0.204,
+            "bottom": -0.25
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 36,
+        "clips": 0,
+        "playingClips": [
+          "R86_Skeletal_Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "motion": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": true,
+        "mode": "skinned-joints",
+        "morphMeshes": 0,
+        "riggedJoints": [
+          "head",
+          "neck",
+          "chest",
+          "spine",
+          "left",
+          "right",
+          "leftElbow",
+          "rightElbow"
+        ],
+        "frames": 123,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 861,
+        "morphFrameWrites": 0,
+        "maxMorphDelta": 0,
+        "maxAngle": 0.02499906970142157,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          }
+        ],
+        "skinBones": 286,
+        "currentAngles": {
+          "head": [
+            0,
+            0,
+            0
+          ],
+          "neck": [
+            0,
+            0,
+            0
+          ],
+          "chest": [
+            -0.02,
+            0,
+            -0.005
+          ],
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "leftElbow": [
+            0,
+            0,
+            0
+          ],
+          "rightElbow": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "view": "desktop",
+      "variant": "R97-production",
+      "model": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.464,
+          "height": 1.594,
+          "depth": 0.465,
+          "minY": 0,
+          "maxY": 1.594,
+          "coverageWidth": 0.036,
+          "coverageHeight": 0.165,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.261,
+            "right": -0.188,
+            "top": 0.099,
+            "bottom": -0.231
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 27,
+        "meshes": 40,
+        "clips": 3,
+        "playingClips": [
+          "Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "motion": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": false,
+        "mode": "authored-morph-deformation",
+        "morphMeshes": 6,
+        "riggedJoints": [],
+        "frames": 124,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 0,
+        "morphFrameWrites": 1488,
+        "maxMorphDelta": 0.01114005830883575,
+        "maxAngle": 0,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          }
+        ],
+        "skinBones": 0,
+        "currentAngles": {
+          "morphStrike": 0,
+          "morphRecoil": 0.008
+        }
+      }
+    },
+    {
+      "view": "portrait",
+      "variant": "R118-true-skin",
+      "model": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.605,
+          "height": 2.08,
+          "depth": 0.972,
+          "minY": 0,
+          "maxY": 2.08,
+          "coverageWidth": 0.053,
+          "coverageHeight": 0.083,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.325,
+            "right": -0.218,
+            "top": 0.078,
+            "bottom": -0.088
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.27,
+          -0.01
+        ],
+        "skins": 1,
+        "meshes": 36,
+        "clips": 0,
+        "playingClips": [
+          "R86_Skeletal_Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "motion": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": true,
+        "mode": "skinned-joints",
+        "morphMeshes": 0,
+        "riggedJoints": [
+          "head",
+          "neck",
+          "chest",
+          "spine",
+          "left",
+          "right",
+          "leftElbow",
+          "rightElbow"
+        ],
+        "frames": 124,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 868,
+        "morphFrameWrites": 0,
+        "maxMorphDelta": 0,
+        "maxAngle": 0.024999791176532032,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 2
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": true,
+            "isBone": true,
+            "inSkeleton": true,
+            "copies": 1
+          }
+        ],
+        "skinBones": 286,
+        "currentAngles": {
+          "head": [
+            0,
+            0,
+            0
+          ],
+          "neck": [
+            0,
+            0,
+            0
+          ],
+          "chest": [
+            -0.0195,
+            0,
+            -0.0049
+          ],
+          "left": [
+            0,
+            0,
+            0
+          ],
+          "right": [
+            0,
+            0,
+            0
+          ],
+          "leftElbow": [
+            0,
+            0,
+            0
+          ],
+          "rightElbow": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "view": "portrait",
+      "variant": "R97-production",
+      "model": {
+        "side": "player",
+        "uid": "U118",
+        "id": "G03",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.464,
+          "height": 1.594,
+          "depth": 0.465,
+          "minY": 0,
+          "maxY": 1.594,
+          "coverageWidth": 0.04,
+          "coverageHeight": 0.061,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.317,
+            "right": -0.237,
+            "top": 0.039,
+            "bottom": -0.083
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 6,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.27,
+          -0.01
+        ],
+        "skins": 27,
+        "meshes": 40,
+        "clips": 3,
+        "playingClips": [
+          "Idle"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "motion": {
+        "id": "G03",
+        "uid": "U118",
+        "side": "player",
+        "enabled": false,
+        "mode": "authored-morph-deformation",
+        "morphMeshes": 6,
+        "riggedJoints": [],
+        "frames": 123,
+        "expressiveFrames": 0,
+        "boneFrameWrites": 0,
+        "morphFrameWrites": 1476,
+        "maxMorphDelta": 0.009274155310930884,
+        "maxAngle": 0,
+        "lastIntent": "idle",
+        "lastEmotion": "focused",
+        "lastAttention": "opponent",
+        "candidateInfo": [
+          {
+            "key": "head",
+            "name": "FK-Head",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "neck",
+            "name": "FK-Neck",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "chest",
+            "name": "FK-Chest",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "spine",
+            "name": "FK-Spine",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "left",
+            "name": "FK-UpperArm.L",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "right",
+            "name": "FK-UpperArm.R",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "leftElbow",
+            "name": "FK-Forearm.L",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          },
+          {
+            "key": "rightElbow",
+            "name": "FK-Forearm.R",
+            "found": false,
+            "isBone": false,
+            "inSkeleton": false,
+            "copies": 0
+          }
+        ],
+        "skinBones": 0,
+        "currentAngles": {
+          "morphStrike": 0,
+          "morphRecoil": 0.008
+        }
+      }
+    }
+  ]
+}

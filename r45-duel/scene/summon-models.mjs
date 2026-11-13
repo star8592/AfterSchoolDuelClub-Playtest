@@ -213,8 +213,17 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
 // The source GLB has 295 real joints and 0 embedded clips. All actions below
 // bind to shoulder bones and deform existing skinned vertices (not mesh sway).
 export function createR86JaySkeletonClips(THREE,instance){
- const left=instance.getObjectByName('DEF-ShoulderL');
- const right=instance.getObjectByName('DEF-ShoulderR');
+ // GLTFLoader normalizes '.', '-', and spaces in original Blender node
+ // names. Match the exact logical Blender bone, never a stale hard-coded
+ // name that silently disables real shoulder animation.
+ const norm=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const find=name=>{
+  let matched=null;instance.traverse(o=>{
+   if(!matched&&o.isBone&&norm(o.name)===norm(name))matched=o;
+  });return matched;
+ };
+ const left=find('DEF-Shoulder.L');
+ const right=find('DEF-Shoulder.R');
  if(!left?.isBone||!right?.isBone)return [];
  // A narrow decorative jacket strip has incomplete skin weights after GLB export.
  // Hide only that detached trim, never hide the body, hands or sleeve geometry.
@@ -228,7 +237,7 @@ export function createR86JaySkeletonClips(THREE,instance){
     const q=base.clone().multiply(new THREE.Quaternion().setFromAxisAngle(z,angle));
     values.push(q.x,q.y,q.z,q.w);
    }
-   return new THREE.QuaternionKeyframeTrack(`${bone.name}.quaternion`,times,values);
+   return new THREE.QuaternionKeyframeTrack(`${bone.uuid}.quaternion`,times,values);
   };
   return new THREE.AnimationClip(name,times.at(-1),[
    track(left,initialL,L),track(right,initialR,R)
