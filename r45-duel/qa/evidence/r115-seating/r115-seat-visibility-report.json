@@ -1,0 +1,386 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "label": "desktop 198 distinct upholstered seats per bank",
+      "data": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop front/reverse banks are in correct actual stadium hemispheres",
+      "data": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop both seat backs face the arena rather than the wall",
+      "data": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop actual seats VISIBLE in normal audience camera",
+      "data": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": true
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": false
+          }
+        },
+        "occlusion": {
+          "championshipVisible": true,
+          "reverseVisible": false
+        },
+        "yaw": 0,
+        "draws": 616,
+        "seats": 396
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop back camera displays only reverse seats",
+      "data": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": false
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": true
+          }
+        },
+        "occlusion": {
+          "championshipVisible": false,
+          "reverseVisible": true
+        },
+        "yaw": 173.36,
+        "draws": 583,
+        "seats": 396
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop bank fix does not add meshes or break GPU budget",
+      "data": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": false
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": true
+          }
+        },
+        "occlusion": {
+          "championshipVisible": false,
+          "reverseVisible": true
+        },
+        "yaw": 173.36,
+        "draws": 583,
+        "seats": 396
+      }
+    },
+    {
+      "passed": true,
+      "label": "desktop JS/assets clean",
+      "data": []
+    },
+    {
+      "passed": true,
+      "label": "portrait 198 distinct upholstered seats per bank",
+      "data": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait front/reverse banks are in correct actual stadium hemispheres",
+      "data": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait both seat backs face the arena rather than the wall",
+      "data": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait actual seats VISIBLE in normal audience camera",
+      "data": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": true
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": false
+          }
+        },
+        "occlusion": {
+          "championshipVisible": true,
+          "reverseVisible": false
+        },
+        "yaw": 0,
+        "draws": 616,
+        "seats": 396
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait back camera displays only reverse seats",
+      "data": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": false
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": true
+          }
+        },
+        "occlusion": {
+          "championshipVisible": false,
+          "reverseVisible": true
+        },
+        "yaw": 172.98,
+        "draws": 605,
+        "seats": 396
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait bank fix does not add meshes or break GPU budget",
+      "data": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": false
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": true
+          }
+        },
+        "occlusion": {
+          "championshipVisible": false,
+          "reverseVisible": true
+        },
+        "yaw": 172.98,
+        "draws": 605,
+        "seats": 396
+      }
+    },
+    {
+      "passed": true,
+      "label": "portrait JS/assets clean",
+      "data": []
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "front": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": true
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": false
+          }
+        },
+        "occlusion": {
+          "championshipVisible": true,
+          "reverseVisible": false
+        },
+        "yaw": 0,
+        "draws": 616,
+        "seats": 396
+      },
+      "reverse": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": false
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": true
+          }
+        },
+        "occlusion": {
+          "championshipVisible": false,
+          "reverseVisible": true
+        },
+        "yaw": 173.36,
+        "draws": 583,
+        "seats": 396
+      }
+    },
+    {
+      "view": "portrait",
+      "front": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": true
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": false
+          }
+        },
+        "occlusion": {
+          "championshipVisible": true,
+          "reverseVisible": false
+        },
+        "yaw": 0,
+        "draws": 616,
+        "seats": 396
+      },
+      "reverse": {
+        "banks": {
+          "front": {
+            "cushionZ": -6.36,
+            "backrestZ": -6.69,
+            "seatCount": 198,
+            "visible": false
+          },
+          "reverse": {
+            "cushionZ": 6.36,
+            "backrestZ": 6.69,
+            "seatCount": 198,
+            "visible": true
+          }
+        },
+        "occlusion": {
+          "championshipVisible": false,
+          "reverseVisible": true
+        },
+        "yaw": 172.98,
+        "draws": 605,
+        "seats": 396
+      }
+    }
+  ]
+}

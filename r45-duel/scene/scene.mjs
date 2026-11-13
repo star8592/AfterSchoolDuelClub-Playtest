@@ -896,6 +896,7 @@ function exposeQA(){
   get sourceMatchesR22(){return source3DAssetsVerified},
   get renderer(){return renderInfo},
   get stadium(){return stadiumEvidence?.stats||null},
+  get stadiumSeatBanks(){return stadiumEvidence?.seatBanks||null},
   get stadiumAmbience(){return stadiumEvidence?.ambience||null},
   get effects(){return duelEffects?.stats||null},
   get podiumCards(){return podiumCards?.stats||null},
