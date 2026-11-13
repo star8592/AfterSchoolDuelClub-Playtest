@@ -1,0 +1,490 @@
+{
+  "slug": "rex",
+  "scene": "Scene",
+  "rig": "RIG-rex",
+  "rigBoneCount": 1556,
+  "rigPoseBoneCount": 1556,
+  "fkBones": [
+    "FK-UpperArm.L",
+    "FK-UpperArm.R",
+    "FK-Head_LOC",
+    "FK-Head",
+    "FK-Head_Top"
+  ],
+  "ikWristControls": [
+    "P-IK-MSTR-Wrist.L",
+    "IK-MSTR-Wrist.L",
+    "P-IK-MSTR-Wrist.R",
+    "IK-MSTR-Wrist.R"
+  ],
+  "armatures": [
+    "META-rex",
+    "RIG-rex"
+  ],
+  "meshes": [
+    {
+      "name": "GEO-rex_belt",
+      "verts": 800,
+      "faces": 800,
+      "materialCount": 1,
+      "vertexGroups": 3,
+      "weightedVertices": 800,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_belt_buckle",
+      "verts": 910,
+      "faces": 908,
+      "materialCount": 1,
+      "vertexGroups": 3,
+      "weightedVertices": 910,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_body",
+      "verts": 2270,
+      "faces": 2216,
+      "materialCount": 1,
+      "vertexGroups": 77,
+      "weightedVertices": 2270,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "CORRECTIVE_SMOOTH",
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_eye.L",
+      "verts": 642,
+      "faces": 672,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 642,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT"
+      ]
+    },
+    {
+      "name": "GEO-rex_eye.R",
+      "verts": 642,
+      "faces": 672,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 642,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT"
+      ]
+    },
+    {
+      "name": "GEO-rex_eyebrows",
+      "verts": 154,
+      "faces": 152,
+      "materialCount": 1,
+      "vertexGroups": 10,
+      "weightedVertices": 154,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_eyedot.L",
+      "verts": 32,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 32,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-rex_eyedot.R",
+      "verts": 32,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 32,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-rex_hair.groom_base",
+      "verts": 4010,
+      "faces": 3883,
+      "materialCount": 1,
+      "vertexGroups": 16,
+      "weightedVertices": 4010,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF",
+        "NODES"
+      ]
+    },
+    {
+      "name": "GEO-rex_hair.scalp",
+      "verts": 3932,
+      "faces": 3890,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 323,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_head",
+      "verts": 3932,
+      "faces": 3890,
+      "materialCount": 3,
+      "vertexGroups": 153,
+      "weightedVertices": 3932,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SHRINKWRAP",
+        "CORRECTIVE_SMOOTH",
+        "VERTEX_WEIGHT_MIX",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "DATA_TRANSFER",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_polo_shirt",
+      "verts": 1785,
+      "faces": 1680,
+      "materialCount": 1,
+      "vertexGroups": 10,
+      "weightedVertices": 1785,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_polo_shirt_buttons",
+      "verts": 364,
+      "faces": 384,
+      "materialCount": 1,
+      "vertexGroups": 5,
+      "weightedVertices": 364,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_polo_shirt_collar",
+      "verts": 940,
+      "faces": 938,
+      "materialCount": 1,
+      "vertexGroups": 19,
+      "weightedVertices": 940,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_rolex_watch",
+      "verts": 3375,
+      "faces": 3278,
+      "materialCount": 5,
+      "vertexGroups": 2,
+      "weightedVertices": 3375,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_rolex_watch_glass",
+      "verts": 101,
+      "faces": 100,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 101,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_shoes",
+      "verts": 7020,
+      "faces": 6996,
+      "materialCount": 3,
+      "vertexGroups": 9,
+      "weightedVertices": 7020,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_shoes_laces",
+      "verts": 1932,
+      "faces": 1904,
+      "materialCount": 1,
+      "vertexGroups": 7,
+      "weightedVertices": 1932,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_shoes_tab",
+      "verts": 200,
+      "faces": 196,
+      "materialCount": 1,
+      "vertexGroups": 9,
+      "weightedVertices": 200,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_shorts",
+      "verts": 3694,
+      "faces": 3646,
+      "materialCount": 1,
+      "vertexGroups": 5,
+      "weightedVertices": 3694,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_socks",
+      "verts": 608,
+      "faces": 576,
+      "materialCount": 1,
+      "vertexGroups": 7,
+      "weightedVertices": 608,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_sweater_vest",
+      "verts": 1849,
+      "faces": 1780,
+      "materialCount": 2,
+      "vertexGroups": 9,
+      "weightedVertices": 1849,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_teeth_btm",
+      "verts": 633,
+      "faces": 560,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_teeth_top",
+      "verts": 633,
+      "faces": 560,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-rex_tongue",
+      "verts": 169,
+      "faces": 161,
+      "materialCount": 1,
+      "vertexGroups": 5,
+      "weightedVertices": 169,
+      "armatureMods": [
+        "RIG-rex"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    }
+  ],
+  "matchedMeshCount": 22,
+  "totalWeightedVertices": 35784
+}

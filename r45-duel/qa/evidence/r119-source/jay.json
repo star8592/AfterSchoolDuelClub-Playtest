@@ -1,0 +1,412 @@
+{
+  "slug": "jay",
+  "scene": "Scene",
+  "rig": "RIG-jay",
+  "rigBoneCount": 1605,
+  "rigPoseBoneCount": 1605,
+  "fkBones": [
+    "FK-Head",
+    "FK-Head_Top",
+    "FK-UpperArm.L",
+    "FK-UpperArm.R"
+  ],
+  "ikWristControls": [
+    "P-IK-MSTR-Wrist.L",
+    "IK-MSTR-Wrist.L",
+    "P-IK-MSTR-Wrist.R",
+    "IK-MSTR-Wrist.R"
+  ],
+  "armatures": [
+    "META-jay",
+    "RIG-jay"
+  ],
+  "meshes": [
+    {
+      "name": "GEO-jay_body",
+      "verts": 1950,
+      "faces": 1912,
+      "materialCount": 1,
+      "vertexGroups": 51,
+      "weightedVertices": 1950,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SHRINKWRAP",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_chain",
+      "verts": 3072,
+      "faces": 3072,
+      "materialCount": 1,
+      "vertexGroups": 7,
+      "weightedVertices": 3072,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_eye.L",
+      "verts": 610,
+      "faces": 640,
+      "materialCount": 2,
+      "vertexGroups": 2,
+      "weightedVertices": 610,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT"
+      ]
+    },
+    {
+      "name": "GEO-jay_eye.R",
+      "verts": 610,
+      "faces": 640,
+      "materialCount": 2,
+      "vertexGroups": 2,
+      "weightedVertices": 610,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT"
+      ]
+    },
+    {
+      "name": "GEO-jay_eyebrows",
+      "verts": 308,
+      "faces": 304,
+      "materialCount": 1,
+      "vertexGroups": 10,
+      "weightedVertices": 308,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_eyedot.L",
+      "verts": 16,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 16,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-jay_eyedot.R",
+      "verts": 16,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 16,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-jay_hair.groom_base",
+      "verts": 3695,
+      "faces": 3601,
+      "materialCount": 1,
+      "vertexGroups": 8,
+      "weightedVertices": 3695,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SHRINKWRAP",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_hair.scalp",
+      "verts": 1748,
+      "faces": 1720,
+      "materialCount": 1,
+      "vertexGroups": 135,
+      "weightedVertices": 1748,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM"
+      ]
+    },
+    {
+      "name": "GEO-jay_hat",
+      "verts": 674,
+      "faces": 672,
+      "materialCount": 1,
+      "vertexGroups": 7,
+      "weightedVertices": 674,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF",
+        "NODES"
+      ]
+    },
+    {
+      "name": "GEO-jay_head",
+      "verts": 1748,
+      "faces": 1720,
+      "materialCount": 2,
+      "vertexGroups": 143,
+      "weightedVertices": 1748,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SHRINKWRAP",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-jay_jacket",
+      "verts": 6252,
+      "faces": 5994,
+      "materialCount": 5,
+      "vertexGroups": 26,
+      "weightedVertices": 6252,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_jacket_zipper_pull_neck",
+      "verts": 460,
+      "faces": 444,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 460,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_jacket_zipper_pull_pockets",
+      "verts": 920,
+      "faces": 888,
+      "materialCount": 1,
+      "vertexGroups": 4,
+      "weightedVertices": 920,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_pants",
+      "verts": 2633,
+      "faces": 2580,
+      "materialCount": 2,
+      "vertexGroups": 15,
+      "weightedVertices": 2633,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_pants_weight_helper",
+      "verts": 443,
+      "faces": 410,
+      "materialCount": 2,
+      "vertexGroups": 15,
+      "weightedVertices": 443,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "GEO-jay_shades",
+      "verts": 1894,
+      "faces": 1832,
+      "materialCount": 3,
+      "vertexGroups": 3,
+      "weightedVertices": 1894,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_shoes_base",
+      "verts": 4032,
+      "faces": 3996,
+      "materialCount": 5,
+      "vertexGroups": 6,
+      "weightedVertices": 4032,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_shoes_extra",
+      "verts": 4708,
+      "faces": 4408,
+      "materialCount": 4,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_teeth_btm",
+      "verts": 461,
+      "faces": 404,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_teeth_top",
+      "verts": 461,
+      "faces": 404,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-jay_tongue",
+      "verts": 169,
+      "faces": 161,
+      "materialCount": 1,
+      "vertexGroups": 5,
+      "weightedVertices": 169,
+      "armatureMods": [
+        "RIG-jay"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    }
+  ],
+  "matchedMeshCount": 18,
+  "totalWeightedVertices": 31250
+}

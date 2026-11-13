@@ -1,0 +1,354 @@
+{
+  "slug": "snow",
+  "scene": "Scene",
+  "rig": "RIG-Snow",
+  "rigBoneCount": 1494,
+  "rigPoseBoneCount": 1494,
+  "fkBones": [
+    "FK-Head",
+    "FK-UpperArm.L",
+    "FK-UpperArm.R"
+  ],
+  "ikWristControls": [],
+  "armatures": [
+    "META-Snow",
+    "RIG-Snow"
+  ],
+  "meshes": [
+    {
+      "name": "GEO-snow-body",
+      "verts": 5828,
+      "faces": 5771,
+      "materialCount": 1,
+      "vertexGroups": 138,
+      "weightedVertices": 5828,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "MASK",
+        "MASK",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-eye_dots",
+      "verts": 32,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 32,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-snow-eyebrows",
+      "verts": 216,
+      "faces": 188,
+      "materialCount": 1,
+      "vertexGroups": 17,
+      "weightedVertices": 216,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-eyes",
+      "verts": 1418,
+      "faces": 1410,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 1418,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-snow-gums_lower",
+      "verts": 927,
+      "faces": 864,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 927,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-gums_upper",
+      "verts": 927,
+      "faces": 864,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 927,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-hair_base",
+      "verts": 3418,
+      "faces": 3180,
+      "materialCount": 1,
+      "vertexGroups": 3,
+      "weightedVertices": 3418,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-head",
+      "verts": 3719,
+      "faces": 3633,
+      "materialCount": 4,
+      "vertexGroups": 272,
+      "weightedVertices": 3719,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-pants",
+      "verts": 2631,
+      "faces": 2589,
+      "materialCount": 1,
+      "vertexGroups": 26,
+      "weightedVertices": 2631,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "MASK",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-shirt",
+      "verts": 1839,
+      "faces": 1783,
+      "materialCount": 1,
+      "vertexGroups": 23,
+      "weightedVertices": 1839,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "MASK",
+        "MASK",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-shoes_base",
+      "verts": 1143,
+      "faces": 1130,
+      "materialCount": 1,
+      "vertexGroups": 13,
+      "weightedVertices": 1143,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "MASK",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-shoes_bottom",
+      "verts": 524,
+      "faces": 511,
+      "materialCount": 1,
+      "vertexGroups": 7,
+      "weightedVertices": 524,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "SURFACE_DEFORM",
+        "MASK",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-shoes_parts",
+      "verts": 1478,
+      "faces": 1348,
+      "materialCount": 1,
+      "vertexGroups": 7,
+      "weightedVertices": 1478,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "MASK",
+        "MASK",
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-teeth_lower",
+      "verts": 2141,
+      "faces": 2016,
+      "materialCount": 1,
+      "vertexGroups": 3,
+      "weightedVertices": 2141,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-teeth_upper",
+      "verts": 2142,
+      "faces": 2016,
+      "materialCount": 1,
+      "vertexGroups": 3,
+      "weightedVertices": 2142,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow-tongue",
+      "verts": 275,
+      "faces": 264,
+      "materialCount": 1,
+      "vertexGroups": 10,
+      "weightedVertices": 275,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow_eye_corneas",
+      "verts": 642,
+      "faces": 672,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 642,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-snow_head_helper",
+      "verts": 2137,
+      "faces": 2117,
+      "materialCount": 0,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "CORRECTIVE_SMOOTH",
+        "DISPLACE"
+      ]
+    },
+    {
+      "name": "GEO-snow_shoes_base_deformer",
+      "verts": 1143,
+      "faces": 1130,
+      "materialCount": 0,
+      "vertexGroups": 7,
+      "weightedVertices": 1143,
+      "armatureMods": [
+        "RIG-Snow"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH"
+      ]
+    }
+  ],
+  "matchedMeshCount": 15,
+  "totalWeightedVertices": 30443
+}

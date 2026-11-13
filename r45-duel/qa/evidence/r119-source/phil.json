@@ -1,0 +1,320 @@
+{
+  "slug": "phil",
+  "scene": "Scene",
+  "rig": "RIG-Phil",
+  "rigBoneCount": 1383,
+  "rigPoseBoneCount": 1383,
+  "fkBones": [
+    "FK-UpperArm.L",
+    "FK-UpperArm.R",
+    "FK-Head",
+    "FK-Head_Top"
+  ],
+  "ikWristControls": [
+    "P-IK-MSTR-Wrist.L",
+    "IK-MSTR-Wrist.L",
+    "P-IK-MSTR-Wrist.R",
+    "IK-MSTR-Wrist.R"
+  ],
+  "armatures": [
+    "META-Phil",
+    "RIG-Phil"
+  ],
+  "meshes": [
+    {
+      "name": "GEO-phil_arms",
+      "verts": 1934,
+      "faces": 1912,
+      "materialCount": 1,
+      "vertexGroups": 82,
+      "weightedVertices": 1934,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-phil_body",
+      "verts": 1826,
+      "faces": 1764,
+      "materialCount": 1,
+      "vertexGroups": 69,
+      "weightedVertices": 1826,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-phil_eye.L",
+      "verts": 674,
+      "faces": 704,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 674,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-phil_eye.R",
+      "verts": 674,
+      "faces": 704,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 674,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-phil_eyebrows",
+      "verts": 288,
+      "faces": 284,
+      "materialCount": 1,
+      "vertexGroups": 10,
+      "weightedVertices": 288,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-phil_eyedot.L",
+      "verts": 32,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 32,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-phil_eyedot.R",
+      "verts": 32,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 32,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-phil_flippers",
+      "verts": 2508,
+      "faces": 2408,
+      "materialCount": 8,
+      "vertexGroups": 6,
+      "weightedVertices": 2508,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-phil_hair.groom_base",
+      "verts": 5396,
+      "faces": 5356,
+      "materialCount": 1,
+      "vertexGroups": 85,
+      "weightedVertices": 5396,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-phil_hair.scalp",
+      "verts": 1746,
+      "faces": 1714,
+      "materialCount": 1,
+      "vertexGroups": 152,
+      "weightedVertices": 1746,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "MASK"
+      ]
+    },
+    {
+      "name": "GEO-phil_head",
+      "verts": 1746,
+      "faces": 1714,
+      "materialCount": 2,
+      "vertexGroups": 151,
+      "weightedVertices": 1746,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SHRINKWRAP",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "DATA_TRANSFER"
+      ]
+    },
+    {
+      "name": "GEO-phil_pants",
+      "verts": 1386,
+      "faces": 1294,
+      "materialCount": 1,
+      "vertexGroups": 11,
+      "weightedVertices": 1386,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-phil_shirt",
+      "verts": 1098,
+      "faces": 1052,
+      "materialCount": 1,
+      "vertexGroups": 83,
+      "weightedVertices": 1098,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-phil_shorts_fray",
+      "verts": 168,
+      "faces": 126,
+      "materialCount": 1,
+      "vertexGroups": 10,
+      "weightedVertices": 168,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "NODES",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-phil_teeth_btm",
+      "verts": 603,
+      "faces": 528,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-phil_teeth_top",
+      "verts": 619,
+      "faces": 544,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-phil_tongue",
+      "verts": 169,
+      "faces": 161,
+      "materialCount": 1,
+      "vertexGroups": 5,
+      "weightedVertices": 169,
+      "armatureMods": [
+        "RIG-Phil"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    }
+  ],
+  "matchedMeshCount": 14,
+  "totalWeightedVertices": 19677
+}

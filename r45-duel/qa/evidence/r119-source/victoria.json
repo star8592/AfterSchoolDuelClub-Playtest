@@ -1,0 +1,394 @@
+{
+  "slug": "victoria",
+  "scene": "Scene",
+  "rig": "RIG-Victoria",
+  "rigBoneCount": 1618,
+  "rigPoseBoneCount": 1618,
+  "fkBones": [
+    "FK-UpperArm.L",
+    "FK-UpperArm.R",
+    "FK-Head",
+    "FK-Head_Top"
+  ],
+  "ikWristControls": [
+    "P-IK-MSTR-Wrist.L",
+    "IK-MSTR-Wrist.L",
+    "P-IK-MSTR-Wrist.R",
+    "IK-MSTR-Wrist.R"
+  ],
+  "armatures": [
+    "META-Victoria",
+    "RIG-Victoria"
+  ],
+  "meshes": [
+    {
+      "name": "GEO-victoria_belt_blue",
+      "verts": 766,
+      "faces": 762,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 766,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_belt_main",
+      "verts": 1016,
+      "faces": 978,
+      "materialCount": 1,
+      "vertexGroups": 11,
+      "weightedVertices": 1016,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_belt_main_buckle",
+      "verts": 281,
+      "faces": 279,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 281,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF",
+        "NODES"
+      ]
+    },
+    {
+      "name": "GEO-victoria_belt_white",
+      "verts": 2470,
+      "faces": 2218,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 2470,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_body_legs",
+      "verts": 864,
+      "faces": 832,
+      "materialCount": 1,
+      "vertexGroups": 11,
+      "weightedVertices": 864,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SHRINKWRAP",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_body_upper",
+      "verts": 4947,
+      "faces": 4918,
+      "materialCount": 5,
+      "vertexGroups": 181,
+      "weightedVertices": 4947,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SHRINKWRAP",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_boots",
+      "verts": 2228,
+      "faces": 2226,
+      "materialCount": 2,
+      "vertexGroups": 6,
+      "weightedVertices": 2228,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_bracelets",
+      "verts": 3072,
+      "faces": 3072,
+      "materialCount": 1,
+      "vertexGroups": 6,
+      "weightedVertices": 3072,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_dress",
+      "verts": 1764,
+      "faces": 1718,
+      "materialCount": 1,
+      "vertexGroups": 15,
+      "weightedVertices": 1764,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_earrings",
+      "verts": 416,
+      "faces": 408,
+      "materialCount": 2,
+      "vertexGroups": 2,
+      "weightedVertices": 416,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_eye.L",
+      "verts": 610,
+      "faces": 640,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 610,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT"
+      ]
+    },
+    {
+      "name": "GEO-victoria_eye.R",
+      "verts": 610,
+      "faces": 640,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 610,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT"
+      ]
+    },
+    {
+      "name": "GEO-victoria_eyebrows",
+      "verts": 356,
+      "faces": 352,
+      "materialCount": 1,
+      "vertexGroups": 10,
+      "weightedVertices": 356,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_eyedot.L",
+      "verts": 32,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 32,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-victoria_eyedot.R",
+      "verts": 32,
+      "faces": 1,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 32,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-victoria_eyelashes",
+      "verts": 252,
+      "faces": 240,
+      "materialCount": 1,
+      "vertexGroups": 10,
+      "weightedVertices": 252,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_hair.scalp",
+      "verts": 4947,
+      "faces": 4918,
+      "materialCount": 3,
+      "vertexGroups": 1,
+      "weightedVertices": 397,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "MASK"
+      ]
+    },
+    {
+      "name": "GEO-victoria_necklaces",
+      "verts": 4536,
+      "faces": 4320,
+      "materialCount": 2,
+      "vertexGroups": 15,
+      "weightedVertices": 4536,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_teeth_btm",
+      "verts": 691,
+      "faces": 620,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_teeth_top",
+      "verts": 735,
+      "faces": 660,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-victoria_tongue",
+      "verts": 169,
+      "faces": 161,
+      "materialCount": 1,
+      "vertexGroups": 5,
+      "weightedVertices": 169,
+      "armatureMods": [
+        "RIG-Victoria"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    }
+  ],
+  "matchedMeshCount": 18,
+  "totalWeightedVertices": 24818
+}

@@ -1,0 +1,644 @@
+{
+  "slug": "ellie",
+  "scene": "Scene",
+  "rig": "RIG-Ellie",
+  "rigBoneCount": 1887,
+  "rigPoseBoneCount": 1887,
+  "fkBones": [
+    "FK-UpperArm.L",
+    "FK-UpperArm.R",
+    "FK-Head",
+    "FK-Head_Top"
+  ],
+  "ikWristControls": [
+    "P-IK-MSTR-Wrist.L",
+    "IK-MSTR-Wrist.L",
+    "P-IK-MSTR-Wrist.R",
+    "IK-MSTR-Wrist.R"
+  ],
+  "armatures": [
+    "META-ellie",
+    "RIG-Ellie"
+  ],
+  "meshes": [
+    {
+      "name": "GEO-ellie_body",
+      "verts": 2110,
+      "faces": 2072,
+      "materialCount": 1,
+      "vertexGroups": 66,
+      "weightedVertices": 2110,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "MASK",
+        "MASK",
+        "MASK",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_boots",
+      "verts": 9244,
+      "faces": 8574,
+      "materialCount": 9,
+      "vertexGroups": 12,
+      "weightedVertices": 9244,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "MASK",
+        "MASK",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_earrings",
+      "verts": 372,
+      "faces": 372,
+      "materialCount": 2,
+      "vertexGroups": 2,
+      "weightedVertices": 372,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MIRROR",
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_eye.L",
+      "verts": 610,
+      "faces": 640,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 610,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT"
+      ]
+    },
+    {
+      "name": "GEO-ellie_eye.R",
+      "verts": 610,
+      "faces": 640,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 610,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF",
+        "NORMAL_EDIT"
+      ]
+    },
+    {
+      "name": "GEO-ellie_eye_highlights",
+      "verts": 64,
+      "faces": 2,
+      "materialCount": 1,
+      "vertexGroups": 2,
+      "weightedVertices": 64,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-ellie_eyebrows",
+      "verts": 212,
+      "faces": 208,
+      "materialCount": 1,
+      "vertexGroups": 10,
+      "weightedVertices": 212,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-ellie_eyelashes",
+      "verts": 72,
+      "faces": 70,
+      "materialCount": 1,
+      "vertexGroups": 27,
+      "weightedVertices": 72,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MASK",
+        "MIRROR",
+        "ARMATURE",
+        "SHRINKWRAP",
+        "SHRINKWRAP",
+        "SOLIDIFY",
+        "SUBSURF",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-ellie_fannypack_buckle_ext",
+      "verts": 616,
+      "faces": 620,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 616,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_fannypack_buckle_int",
+      "verts": 746,
+      "faces": 744,
+      "materialCount": 1,
+      "vertexGroups": 3,
+      "weightedVertices": 746,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_fannypack_main",
+      "verts": 800,
+      "faces": 796,
+      "materialCount": 3,
+      "vertexGroups": 14,
+      "weightedVertices": 800,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "VERTEX_WEIGHT_MIX",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_fannypack_strap",
+      "verts": 740,
+      "faces": 736,
+      "materialCount": 1,
+      "vertexGroups": 9,
+      "weightedVertices": 740,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MASK",
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_fannypack_strap_slide",
+      "verts": 160,
+      "faces": 160,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 160,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_fannypack_zipper_pull",
+      "verts": 376,
+      "faces": 364,
+      "materialCount": 1,
+      "vertexGroups": 3,
+      "weightedVertices": 376,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_fannypack_zipper_stop",
+      "verts": 110,
+      "faces": 108,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 110,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_fannypack_zippers",
+      "verts": 2500,
+      "faces": 2400,
+      "materialCount": 1,
+      "vertexGroups": 14,
+      "weightedVertices": 2500,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SURFACE_DEFORM",
+        "SURFACE_DEFORM",
+        "VERTEX_WEIGHT_MIX",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_hair.groom_base",
+      "verts": 4719,
+      "faces": 4397,
+      "materialCount": 1,
+      "vertexGroups": 14,
+      "weightedVertices": 4719,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_hair.scalp",
+      "verts": 1659,
+      "faces": 1636,
+      "materialCount": 1,
+      "vertexGroups": 130,
+      "weightedVertices": 1659,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "PARTICLE_SYSTEM",
+        "MASK"
+      ]
+    },
+    {
+      "name": "GEO-ellie_hair_cut.scalp-front",
+      "verts": 830,
+      "faces": 384,
+      "materialCount": 0,
+      "vertexGroups": 13,
+      "weightedVertices": 830,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "GEO-ellie_hair_cut.scalp-loose",
+      "verts": 1990,
+      "faces": 936,
+      "materialCount": 0,
+      "vertexGroups": 12,
+      "weightedVertices": 1990,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE"
+      ]
+    },
+    {
+      "name": "GEO-ellie_handkerchief",
+      "verts": 1758,
+      "faces": 1716,
+      "materialCount": 1,
+      "vertexGroups": 30,
+      "weightedVertices": 1758,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "LATTICE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_head",
+      "verts": 1659,
+      "faces": 1636,
+      "materialCount": 4,
+      "vertexGroups": 133,
+      "weightedVertices": 1659,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "VERTEX_WEIGHT_MIX",
+        "LATTICE",
+        "MASK",
+        "SUBSURF",
+        "SHRINKWRAP",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE",
+        "LATTICE"
+      ]
+    },
+    {
+      "name": "GEO-ellie_jacket",
+      "verts": 5186,
+      "faces": 5030,
+      "materialCount": 2,
+      "vertexGroups": 26,
+      "weightedVertices": 5186,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MASK",
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "CORRECTIVE_SMOOTH",
+        "LATTICE",
+        "LATTICE",
+        "MASK",
+        "MASK",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_jacket_buttons",
+      "verts": 1590,
+      "faces": 1632,
+      "materialCount": 1,
+      "vertexGroups": 3,
+      "weightedVertices": 1590,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_jacket_pin_1",
+      "verts": 546,
+      "faces": 576,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 546,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_jacket_pin_2",
+      "verts": 546,
+      "faces": 576,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 546,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_jacket_pin_3",
+      "verts": 546,
+      "faces": 576,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 546,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_jacket_pin_4",
+      "verts": 546,
+      "faces": 576,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 546,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_jacket_pin_5",
+      "verts": 546,
+      "faces": 576,
+      "materialCount": 2,
+      "vertexGroups": 1,
+      "weightedVertices": 546,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_scrunchy",
+      "verts": 895,
+      "faces": 895,
+      "materialCount": 1,
+      "vertexGroups": 1,
+      "weightedVertices": 895,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_teeth_btm",
+      "verts": 678,
+      "faces": 612,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_teeth_top",
+      "verts": 678,
+      "faces": 612,
+      "materialCount": 2,
+      "vertexGroups": 0,
+      "weightedVertices": 0,
+      "armatureMods": [],
+      "rigMatched": false,
+      "modifiers": [
+        "SURFACE_DEFORM",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_tongue",
+      "verts": 169,
+      "faces": 161,
+      "materialCount": 1,
+      "vertexGroups": 7,
+      "weightedVertices": 169,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "MASK",
+        "ARMATURE",
+        "SHRINKWRAP",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_trousers",
+      "verts": 2369,
+      "faces": 2332,
+      "materialCount": 1,
+      "vertexGroups": 9,
+      "weightedVertices": 2369,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "VERTEX_WEIGHT_MIX",
+        "VERTEX_WEIGHT_MIX",
+        "ARMATURE",
+        "CORRECTIVE_SMOOTH",
+        "SUBSURF"
+      ]
+    },
+    {
+      "name": "GEO-ellie_watch",
+      "verts": 1984,
+      "faces": 1946,
+      "materialCount": 6,
+      "vertexGroups": 1,
+      "weightedVertices": 1984,
+      "armatureMods": [
+        "RIG-Ellie"
+      ],
+      "rigMatched": true,
+      "modifiers": [
+        "ARMATURE",
+        "SUBSURF"
+      ]
+    }
+  ],
+  "matchedMeshCount": 31,
+  "totalWeightedVertices": 46880
+}
