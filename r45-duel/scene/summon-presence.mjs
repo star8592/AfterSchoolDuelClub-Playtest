@@ -1044,6 +1044,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     r127OwlMotion:s.id==='T01'?s.object.userData.r61?.getR127OwlMotion?.():undefined,
     r128FullBody:s.id==='E04'?s.object.userData.r61?.getR128FullBody?.():undefined,
     r129FullBody:['E03','G03','G04','T04'].includes(s.id)?s.object.userData.r61?.getR129FullBody?.():undefined,
+    r130FullBody:['G02','T03'].includes(s.id)?s.object.userData.r61?.getR130FullBody?.():undefined,
     r90Pose:s.kind==='gltf-instance'?s.object.userData.r61?.getCombatPose?.():undefined,
     r90ClipRate:s.kind==='gltf-instance'?s.object.userData.r61?.getClipRate?.():undefined,
     artApproved:false};
