@@ -1,0 +1,28 @@
+{
+  "slug": "ellie",
+  "source": "/home/master/projects/after-school-duel-r84-music-dialogue-art-20261112/r45-duel/art-lab/r84-film-recast/source/ellie.blend",
+  "output": "r45-duel/assets/summons/E03-Ellie-Skinned-R119.glb",
+  "status": "EXPORTED",
+  "bytes": 16975744,
+  "sha256": "a95f02362ff897168f16a661c2dcacefc57cb393fd12a86e9b53bb66fefc52d4",
+  "sourceMeshes": 31,
+  "visibleMeshes": 28,
+  "visibleSkinnedMeshes": 28,
+  "skinWeightBuffers": 28,
+  "rigBones": 1887,
+  "exportedJoints": 329,
+  "missingTargetBones": [],
+  "sourceIKWristPose": {
+    "L": [
+      0.376416951417923,
+      -0.0035441340878605843,
+      0.9183064699172974
+    ],
+    "R": [
+      -0.376416951417923,
+      -0.0035441340878605843,
+      0.9183064699172974
+    ]
+  },
+  "disabledGraphModifiers": 58
+}

@@ -1,0 +1,4406 @@
+{
+  "passed": true,
+  "requested": [
+    "E03",
+    "E04",
+    "G02",
+    "G03",
+    "G04",
+    "T03",
+    "T04"
+  ],
+  "origin": "http://127.0.0.1:11125",
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop actual original source skin selected E03",
+      "details": "E03-Ellie-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual original source skin selected E04",
+      "details": "E04-Phil-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual original source skin selected G02",
+      "details": "G02-Snow-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual original source skin selected G03",
+      "details": "G03-Jay-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual original source skin selected G04",
+      "details": "G04-Victoria-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual original source skin selected T03",
+      "details": "T03-Rain-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual original source skin selected T04",
+      "details": "T04-Rex-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "desktop every live character is truly bound with an active source skin",
+      "details": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 33,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 231,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.01640563593872536,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 316,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              -0.0023,
+              0,
+              -0.0006
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 33,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 198,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.016098345400945593,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": true,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 260,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              -0.0056,
+              0,
+              -0.0014
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 33,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 231,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.016708633504141347,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 292,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              0.001,
+              0,
+              0.0002
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 33,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 231,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.016242276799900195,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 286,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              -0.0041,
+              0,
+              -0.001
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 33,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 231,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.016628258410210827,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 297,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              0.0001,
+              0,
+              0
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 33,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 264,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.016364910161637707,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 392,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              -0.0028,
+              0,
+              -0.0007
+            ],
+            "spine": [
+              -0.0011,
+              0,
+              0
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 33,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 231,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.016768710863243892,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 289,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              0.0017,
+              0,
+              0.0004
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop actual original weighted source vertices belong to visible meshes",
+      "details": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 55,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9627,
+              "span": 0.2706
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9627,
+              "span": 0.2706
+            }
+          },
+          "meshName": "Data_GEO-ellie_jacket",
+          "instanceMeshUUID": "243e9c33-360a-4df2-aa63-35c9c194433d",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "341ea2cd-935a-4eaf-bfe9-f40cec2bf503",
+          "skinVertex": 2,
+          "skinWeight": 0.9863,
+          "sample": [
+            -0.0506,
+            0.886,
+            0.0147
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00018,
+          "maxFrameDelta": 0.00018
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 23,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9629,
+              "span": 0.2698
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9629,
+              "span": 0.2698
+            }
+          },
+          "meshName": "GEO-phil_shirt",
+          "instanceMeshUUID": "089f30bc-122c-4b6a-bc30-cf401f6103c1",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "362a6293-2bc1-4c2f-b20d-b1bff443aff9",
+          "skinVertex": 1499,
+          "skinWeight": 0.7395,
+          "sample": [
+            -0.1112,
+            0.9776,
+            0.1805
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00052,
+          "maxFrameDelta": 0.00052
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 16,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9829,
+              "span": 0.1839
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9829,
+              "span": 0.1839
+            }
+          },
+          "meshName": "GEO-snow-body_2",
+          "instanceMeshUUID": "e9c5f385-ba7a-452a-94c1-53b14e600c6e",
+          "weightedBone": "DEF-UpperArm_1R",
+          "weightedBoneUUID": "bf483d54-1c75-4ec0-a337-928b6c50cb34",
+          "skinVertex": 1611,
+          "skinWeight": 1,
+          "sample": [
+            -0.2412,
+            1.2574,
+            -0.0513
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00029,
+          "maxFrameDelta": 0.00029
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 28,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9598,
+              "span": 0.2806
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9598,
+              "span": 0.2806
+            }
+          },
+          "meshName": "Data_GEO-jay_jacket",
+          "instanceMeshUUID": "fa021e77-2174-429c-9098-c5a255ba891a",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "291f9960-423f-41c5-bf0e-384cf95c7f6c",
+          "skinVertex": 2464,
+          "skinWeight": 0.8309,
+          "sample": [
+            -0.0401,
+            0.6685,
+            0.0032
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00015,
+          "maxFrameDelta": 0.00015
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 29,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            }
+          },
+          "meshName": "Data_GEO-victoria_body_upper",
+          "instanceMeshUUID": "15c829e0-dc7f-4f8a-b293-dab46719bc38",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "25d43367-24d4-4c20-b2fa-c6e5c62aca66",
+          "skinVertex": 4731,
+          "skinWeight": 0.8261,
+          "sample": [
+            -0.0482,
+            0.959,
+            0.0527
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00013,
+          "maxFrameDelta": 0.00013
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 24,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            }
+          },
+          "meshName": "GEO-rain-body_1",
+          "instanceMeshUUID": "43da78fb-23dc-49c8-8ddc-f3efe257a1f3",
+          "weightedBone": "DEF-Forearm1R",
+          "weightedBoneUUID": "97d1eeb6-0b34-47f6-bcf1-1c5cac37056f",
+          "skinVertex": 3904,
+          "skinWeight": 1,
+          "sample": [
+            -0.3548,
+            1.2036,
+            -0.0074
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00015,
+          "maxFrameDelta": 0.00015
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 32,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            }
+          },
+          "meshName": "GEO-rex_polo_shirt",
+          "instanceMeshUUID": "44137000-bb0c-4ff4-8d77-535184bd8bba",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "10dabeef-0ac3-4f10-867a-d93506b48ebb",
+          "skinVertex": 1292,
+          "skinWeight": 0.9596,
+          "sample": [
+            0.0017,
+            0.9653,
+            0.0886
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00077,
+          "maxFrameDelta": 0.00077
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop every character continues to face the correct opponent",
+      "details": [
+        {
+          "id": "E03",
+          "dot": 1
+        },
+        {
+          "id": "E04",
+          "dot": 1
+        },
+        {
+          "id": "G02",
+          "dot": 1
+        },
+        {
+          "id": "G03",
+          "dot": 1
+        },
+        {
+          "id": "G04",
+          "dot": 1
+        },
+        {
+          "id": "T03",
+          "dot": 1
+        },
+        {
+          "id": "T04",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop all actual source-joint idle clips playing",
+      "details": [
+        {
+          "id": "E03",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "E04",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "G02",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "G03",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "G04",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "T03",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "T04",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop real bones keep moving throughout the match",
+      "details": [
+        {
+          "id": "E03",
+          "frames": 100,
+          "bones": 700,
+          "maxAngle": 0.024999273071322284
+        },
+        {
+          "id": "E04",
+          "frames": 100,
+          "bones": 600,
+          "maxAngle": 0.02499975364086748
+        },
+        {
+          "id": "G02",
+          "frames": 100,
+          "bones": 700,
+          "maxAngle": 0.02392102481710022
+        },
+        {
+          "id": "G03",
+          "frames": 100,
+          "bones": 700,
+          "maxAngle": 0.024999230945778956
+        },
+        {
+          "id": "G04",
+          "frames": 100,
+          "bones": 700,
+          "maxAngle": 0.02450012684089112
+        },
+        {
+          "id": "T03",
+          "frames": 100,
+          "bones": 800,
+          "maxAngle": 0.02499940427091542
+        },
+        {
+          "id": "T04",
+          "frames": 100,
+          "bones": 700,
+          "maxAngle": 0.023346089799399092
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop actual skinned vertex deformation continuously sampled",
+      "details": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 55,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9684,
+              "span": 0.2495
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9685,
+              "span": 0.2492
+            }
+          },
+          "meshName": "Data_GEO-ellie_jacket",
+          "instanceMeshUUID": "243e9c33-360a-4df2-aa63-35c9c194433d",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "341ea2cd-935a-4eaf-bfe9-f40cec2bf503",
+          "skinVertex": 2,
+          "skinWeight": 0.9863,
+          "sample": [
+            -0.0499,
+            0.8851,
+            0.0148
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00097,
+          "maxFrameDelta": 0.00114
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 23,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9677,
+              "span": 0.2522
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9677,
+              "span": 0.2522
+            }
+          },
+          "meshName": "GEO-phil_shirt",
+          "instanceMeshUUID": "089f30bc-122c-4b6a-bc30-cf401f6103c1",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "362a6293-2bc1-4c2f-b20d-b1bff443aff9",
+          "skinVertex": 1499,
+          "skinWeight": 0.7395,
+          "sample": [
+            -0.1102,
+            0.9778,
+            0.1806
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00117,
+          "maxFrameDelta": 0.00105
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 16,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9798,
+              "span": 0.1998
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9798,
+              "span": 0.1998
+            }
+          },
+          "meshName": "GEO-snow-body_2",
+          "instanceMeshUUID": "e9c5f385-ba7a-452a-94c1-53b14e600c6e",
+          "weightedBone": "DEF-UpperArm_1R",
+          "weightedBoneUUID": "bf483d54-1c75-4ec0-a337-928b6c50cb34",
+          "skinVertex": 1611,
+          "skinWeight": 1,
+          "sample": [
+            -0.2429,
+            1.2583,
+            -0.0514
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00162,
+          "maxFrameDelta": 0.00191
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 28,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9649,
+              "span": 0.2625
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9651,
+              "span": 0.262
+            }
+          },
+          "meshName": "Data_GEO-jay_jacket",
+          "instanceMeshUUID": "fa021e77-2174-429c-9098-c5a255ba891a",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "291f9960-423f-41c5-bf0e-384cf95c7f6c",
+          "skinVertex": 2464,
+          "skinWeight": 0.8309,
+          "sample": [
+            -0.0395,
+            0.6677,
+            0.0032
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00084,
+          "maxFrameDelta": 0.00099
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 29,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            }
+          },
+          "meshName": "Data_GEO-victoria_body_upper",
+          "instanceMeshUUID": "15c829e0-dc7f-4f8a-b293-dab46719bc38",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "25d43367-24d4-4c20-b2fa-c6e5c62aca66",
+          "skinVertex": 4731,
+          "skinWeight": 0.8261,
+          "sample": [
+            -0.0474,
+            0.9589,
+            0.0527
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00069,
+          "maxFrameDelta": 0.00081
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 24,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            }
+          },
+          "meshName": "GEO-rain-body_1",
+          "instanceMeshUUID": "43da78fb-23dc-49c8-8ddc-f3efe257a1f3",
+          "weightedBone": "DEF-Forearm1R",
+          "weightedBoneUUID": "97d1eeb6-0b34-47f6-bcf1-1c5cac37056f",
+          "skinVertex": 3904,
+          "skinWeight": 1,
+          "sample": [
+            -0.3547,
+            1.2035,
+            -0.0069
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00029,
+          "maxFrameDelta": 0.00044
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 32,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            }
+          },
+          "meshName": "GEO-rex_polo_shirt",
+          "instanceMeshUUID": "44137000-bb0c-4ff4-8d77-535184bd8bba",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "10dabeef-0ac3-4f10-867a-d93506b48ebb",
+          "skinVertex": 1292,
+          "skinWeight": 0.9596,
+          "sample": [
+            0.0067,
+            0.9658,
+            0.0888
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00426,
+          "maxFrameDelta": 0.00503
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop no source actor is only moving phantom unused bones",
+      "details": [
+        {
+          "id": "E03",
+          "travel": 0.00097,
+          "frameDelta": 0.00114
+        },
+        {
+          "id": "E04",
+          "travel": 0.00117,
+          "frameDelta": 0.00105
+        },
+        {
+          "id": "G02",
+          "travel": 0.00162,
+          "frameDelta": 0.00191
+        },
+        {
+          "id": "G03",
+          "travel": 0.00084,
+          "frameDelta": 0.00099
+        },
+        {
+          "id": "G04",
+          "travel": 0.00069,
+          "frameDelta": 0.00081
+        },
+        {
+          "id": "T03",
+          "travel": 0.00029,
+          "frameDelta": 0.00044
+        },
+        {
+          "id": "T04",
+          "travel": 0.00426,
+          "frameDelta": 0.00503
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop independent actor instances each have their own bones",
+      "details": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 55,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9684,
+              "span": 0.2495
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9685,
+              "span": 0.2492
+            }
+          },
+          "meshName": "Data_GEO-ellie_jacket",
+          "instanceMeshUUID": "243e9c33-360a-4df2-aa63-35c9c194433d",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "341ea2cd-935a-4eaf-bfe9-f40cec2bf503",
+          "skinVertex": 2,
+          "skinWeight": 0.9863,
+          "sample": [
+            -0.0499,
+            0.8851,
+            0.0148
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00097,
+          "maxFrameDelta": 0.00114
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 23,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9677,
+              "span": 0.2522
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9677,
+              "span": 0.2522
+            }
+          },
+          "meshName": "GEO-phil_shirt",
+          "instanceMeshUUID": "089f30bc-122c-4b6a-bc30-cf401f6103c1",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "362a6293-2bc1-4c2f-b20d-b1bff443aff9",
+          "skinVertex": 1499,
+          "skinWeight": 0.7395,
+          "sample": [
+            -0.1102,
+            0.9778,
+            0.1806
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00117,
+          "maxFrameDelta": 0.00105
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 16,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9798,
+              "span": 0.1998
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9798,
+              "span": 0.1998
+            }
+          },
+          "meshName": "GEO-snow-body_2",
+          "instanceMeshUUID": "e9c5f385-ba7a-452a-94c1-53b14e600c6e",
+          "weightedBone": "DEF-UpperArm_1R",
+          "weightedBoneUUID": "bf483d54-1c75-4ec0-a337-928b6c50cb34",
+          "skinVertex": 1611,
+          "skinWeight": 1,
+          "sample": [
+            -0.2429,
+            1.2583,
+            -0.0514
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00162,
+          "maxFrameDelta": 0.00191
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 28,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9649,
+              "span": 0.2625
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9651,
+              "span": 0.262
+            }
+          },
+          "meshName": "Data_GEO-jay_jacket",
+          "instanceMeshUUID": "fa021e77-2174-429c-9098-c5a255ba891a",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "291f9960-423f-41c5-bf0e-384cf95c7f6c",
+          "skinVertex": 2464,
+          "skinWeight": 0.8309,
+          "sample": [
+            -0.0395,
+            0.6677,
+            0.0032
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00084,
+          "maxFrameDelta": 0.00099
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 29,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            }
+          },
+          "meshName": "Data_GEO-victoria_body_upper",
+          "instanceMeshUUID": "15c829e0-dc7f-4f8a-b293-dab46719bc38",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "25d43367-24d4-4c20-b2fa-c6e5c62aca66",
+          "skinVertex": 4731,
+          "skinWeight": 0.8261,
+          "sample": [
+            -0.0474,
+            0.9589,
+            0.0527
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00069,
+          "maxFrameDelta": 0.00081
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 24,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            }
+          },
+          "meshName": "GEO-rain-body_1",
+          "instanceMeshUUID": "43da78fb-23dc-49c8-8ddc-f3efe257a1f3",
+          "weightedBone": "DEF-Forearm1R",
+          "weightedBoneUUID": "97d1eeb6-0b34-47f6-bcf1-1c5cac37056f",
+          "skinVertex": 3904,
+          "skinWeight": 1,
+          "sample": [
+            -0.3547,
+            1.2035,
+            -0.0069
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00029,
+          "maxFrameDelta": 0.00044
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 32,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            }
+          },
+          "meshName": "GEO-rex_polo_shirt",
+          "instanceMeshUUID": "44137000-bb0c-4ff4-8d77-535184bd8bba",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "10dabeef-0ac3-4f10-867a-d93506b48ebb",
+          "skinVertex": 1292,
+          "skinWeight": 0.9596,
+          "sample": [
+            0.0067,
+            0.9658,
+            0.0888
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00426,
+          "maxFrameDelta": 0.00503
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop no GPU drawcall explosion",
+      "details": 663
+    },
+    {
+      "pass": true,
+      "label": "desktop real card play reaches each unique actor life",
+      "details": [
+        {
+          "number": 1,
+          "type": "card",
+          "side": "player",
+          "at": 2.14
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "desktop no JavaScript or missing art assets",
+      "details": []
+    },
+    {
+      "pass": true,
+      "label": "portrait actual original source skin selected E03",
+      "details": "E03-Ellie-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual original source skin selected E04",
+      "details": "E04-Phil-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual original source skin selected G02",
+      "details": "G02-Snow-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual original source skin selected G03",
+      "details": "G03-Jay-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual original source skin selected G04",
+      "details": "G04-Victoria-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual original source skin selected T03",
+      "details": "T03-Rain-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual original source skin selected T04",
+      "details": "T04-Rex-Skinned-R119.glb"
+    },
+    {
+      "pass": true,
+      "label": "portrait every live character is truly bound with an active source skin",
+      "details": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 35,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 245,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.015986645667477765,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 316,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              -0.0031,
+              0,
+              -0.0008
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 35,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 210,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.01561175964601088,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": true,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 260,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              -0.0065,
+              0,
+              -0.0016
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 35,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 245,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.016355546115871786,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 292,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              0.0003,
+              0,
+              0.0001
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 35,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 245,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.015787442451316174,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 286,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              -0.0049,
+              0,
+              -0.0012
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 35,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 245,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.016257765762546755,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 297,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              -0.0006,
+              0,
+              -0.0001
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 35,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 280,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.015937003656636802,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 392,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              -0.0035,
+              0,
+              -0.0009
+            ],
+            "spine": [
+              -0.0014,
+              0,
+              0
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "enabled": true,
+          "mode": "skinned-joints",
+          "morphMeshes": 0,
+          "riggedJoints": [
+            "head",
+            "neck",
+            "chest",
+            "spine",
+            "left",
+            "right",
+            "leftElbow",
+            "rightElbow"
+          ],
+          "frames": 35,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 245,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0.016428595742165753,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 2
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": true,
+              "isBone": true,
+              "inSkeleton": true,
+              "copies": 1
+            }
+          ],
+          "skinBones": 289,
+          "currentAngles": {
+            "head": [
+              0,
+              0,
+              0
+            ],
+            "neck": [
+              0,
+              0,
+              0
+            ],
+            "chest": [
+              0.001,
+              0,
+              0.0003
+            ],
+            "left": [
+              0,
+              0,
+              0
+            ],
+            "right": [
+              0,
+              0,
+              0
+            ],
+            "leftElbow": [
+              0,
+              0,
+              0
+            ],
+            "rightElbow": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait actual original weighted source vertices belong to visible meshes",
+      "details": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 55,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9626,
+              "span": 0.271
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9626,
+              "span": 0.271
+            }
+          },
+          "meshName": "Data_GEO-ellie_jacket",
+          "instanceMeshUUID": "273f2dd0-426b-4239-aaf2-7ee5853c174f",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "258f70c7-cfef-4b55-965b-cbe4c8059bf7",
+          "skinVertex": 2,
+          "skinWeight": 0.9863,
+          "sample": [
+            -0.0506,
+            0.886,
+            0.0147
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00019,
+          "maxFrameDelta": 0.00019
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 23,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9628,
+              "span": 0.2701
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9628,
+              "span": 0.2701
+            }
+          },
+          "meshName": "GEO-phil_shirt",
+          "instanceMeshUUID": "6bcaee0e-ee02-4320-b172-6e1d317477d4",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "02d547fd-89f5-46ed-85e0-1872d7ee243f",
+          "skinVertex": 1499,
+          "skinWeight": 0.7395,
+          "sample": [
+            -0.1112,
+            0.9776,
+            0.1805
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00059,
+          "maxFrameDelta": 0.00059
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 16,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.983,
+              "span": 0.1836
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.983,
+              "span": 0.1836
+            }
+          },
+          "meshName": "GEO-snow-body_2",
+          "instanceMeshUUID": "117a6dae-8ec0-4152-837b-66ab0febde8b",
+          "weightedBone": "DEF-UpperArm_1R",
+          "weightedBoneUUID": "9c9e323d-db6c-4887-a3a5-de9a11da9861",
+          "skinVertex": 1611,
+          "skinWeight": 1,
+          "sample": [
+            -0.2412,
+            1.2574,
+            -0.0513
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00032,
+          "maxFrameDelta": 0.00032
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 28,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9598,
+              "span": 0.2809
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9598,
+              "span": 0.2809
+            }
+          },
+          "meshName": "Data_GEO-jay_jacket",
+          "instanceMeshUUID": "ad1ad80f-40dc-45e9-8363-c6707f662169",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "1ab09c92-cf55-40e9-b241-7b444736ef03",
+          "skinVertex": 2464,
+          "skinWeight": 0.8309,
+          "sample": [
+            -0.0401,
+            0.6685,
+            0.0031
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00016,
+          "maxFrameDelta": 0.00016
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 29,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            }
+          },
+          "meshName": "Data_GEO-victoria_body_upper",
+          "instanceMeshUUID": "f4d38219-344d-4799-9b96-6b7a0e96403b",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "6f984b8e-bd2d-4428-91d8-76d48ba9968c",
+          "skinVertex": 4731,
+          "skinWeight": 0.8261,
+          "sample": [
+            -0.0482,
+            0.959,
+            0.0527
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00014,
+          "maxFrameDelta": 0.00014
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 24,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            }
+          },
+          "meshName": "GEO-rain-body_1",
+          "instanceMeshUUID": "14e723cb-3838-49db-8120-1b96a1f9569d",
+          "weightedBone": "DEF-Forearm1R",
+          "weightedBoneUUID": "94742c32-ac7a-426e-a05b-58921e89a7ea",
+          "skinVertex": 3904,
+          "skinWeight": 1,
+          "sample": [
+            -0.3548,
+            1.2036,
+            -0.0074
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00016,
+          "maxFrameDelta": 0.00016
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 32,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            }
+          },
+          "meshName": "GEO-rex_polo_shirt",
+          "instanceMeshUUID": "1dc2391f-68e8-49d0-afde-23837fcea17d",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "fd839f6a-1291-4e52-929c-01e757d0e52a",
+          "skinVertex": 1292,
+          "skinWeight": 0.9596,
+          "sample": [
+            0.0016,
+            0.9653,
+            0.0886
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00085,
+          "maxFrameDelta": 0.00085
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait every character continues to face the correct opponent",
+      "details": [
+        {
+          "id": "E03",
+          "dot": 1
+        },
+        {
+          "id": "E04",
+          "dot": 1
+        },
+        {
+          "id": "G02",
+          "dot": 1
+        },
+        {
+          "id": "G03",
+          "dot": 1
+        },
+        {
+          "id": "G04",
+          "dot": 1
+        },
+        {
+          "id": "T03",
+          "dot": 1
+        },
+        {
+          "id": "T04",
+          "dot": 1
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait all actual source-joint idle clips playing",
+      "details": [
+        {
+          "id": "E03",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "E04",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "G02",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "G03",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "G04",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "T03",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        },
+        {
+          "id": "T04",
+          "clips": [
+            "R119_Skeletal_Idle"
+          ]
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait real bones keep moving throughout the match",
+      "details": [
+        {
+          "id": "E03",
+          "frames": 103,
+          "bones": 721,
+          "maxAngle": 0.024999520653227428
+        },
+        {
+          "id": "E04",
+          "frames": 103,
+          "bones": 618,
+          "maxAngle": 0.024999696847809477
+        },
+        {
+          "id": "G02",
+          "frames": 103,
+          "bones": 721,
+          "maxAngle": 0.024134711410497944
+        },
+        {
+          "id": "G03",
+          "frames": 103,
+          "bones": 721,
+          "maxAngle": 0.02499998448769799
+        },
+        {
+          "id": "G04",
+          "frames": 103,
+          "bones": 721,
+          "maxAngle": 0.024648374024686177
+        },
+        {
+          "id": "T03",
+          "frames": 103,
+          "bones": 824,
+          "maxAngle": 0.024999355471169774
+        },
+        {
+          "id": "T04",
+          "frames": 103,
+          "bones": 721,
+          "maxAngle": 0.02360342522042813
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait actual skinned vertex deformation continuously sampled",
+      "details": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 55,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9685,
+              "span": 0.2489
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9687,
+              "span": 0.2482
+            }
+          },
+          "meshName": "Data_GEO-ellie_jacket",
+          "instanceMeshUUID": "273f2dd0-426b-4239-aaf2-7ee5853c174f",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "258f70c7-cfef-4b55-965b-cbe4c8059bf7",
+          "skinVertex": 2,
+          "skinWeight": 0.9863,
+          "sample": [
+            -0.0498,
+            0.8851,
+            0.0148
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00101,
+          "maxFrameDelta": 0.00121
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 23,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9678,
+              "span": 0.2517
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9678,
+              "span": 0.2517
+            }
+          },
+          "meshName": "GEO-phil_shirt",
+          "instanceMeshUUID": "6bcaee0e-ee02-4320-b172-6e1d317477d4",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "02d547fd-89f5-46ed-85e0-1872d7ee243f",
+          "skinVertex": 1499,
+          "skinWeight": 0.7395,
+          "sample": [
+            -0.1101,
+            0.9778,
+            0.1806
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00116,
+          "maxFrameDelta": 0.00107
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 16,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9798,
+              "span": 0.2002
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9798,
+              "span": 0.2002
+            }
+          },
+          "meshName": "GEO-snow-body_2",
+          "instanceMeshUUID": "117a6dae-8ec0-4152-837b-66ab0febde8b",
+          "weightedBone": "DEF-UpperArm_1R",
+          "weightedBoneUUID": "9c9e323d-db6c-4887-a3a5-de9a11da9861",
+          "skinVertex": 1611,
+          "skinWeight": 1,
+          "sample": [
+            -0.2429,
+            1.2584,
+            -0.0514
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00167,
+          "maxFrameDelta": 0.00199
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 28,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9651,
+              "span": 0.262
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9652,
+              "span": 0.2615
+            }
+          },
+          "meshName": "Data_GEO-jay_jacket",
+          "instanceMeshUUID": "ad1ad80f-40dc-45e9-8363-c6707f662169",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "1ab09c92-cf55-40e9-b241-7b444736ef03",
+          "skinVertex": 2464,
+          "skinWeight": 0.8309,
+          "sample": [
+            -0.0395,
+            0.6677,
+            0.0033
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00086,
+          "maxFrameDelta": 0.00103
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 29,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            }
+          },
+          "meshName": "Data_GEO-victoria_body_upper",
+          "instanceMeshUUID": "f4d38219-344d-4799-9b96-6b7a0e96403b",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "6f984b8e-bd2d-4428-91d8-76d48ba9968c",
+          "skinVertex": 4731,
+          "skinWeight": 0.8261,
+          "sample": [
+            -0.0474,
+            0.9589,
+            0.0527
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00071,
+          "maxFrameDelta": 0.00085
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 24,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            }
+          },
+          "meshName": "GEO-rain-body_1",
+          "instanceMeshUUID": "14e723cb-3838-49db-8120-1b96a1f9569d",
+          "weightedBone": "DEF-Forearm1R",
+          "weightedBoneUUID": "94742c32-ac7a-426e-a05b-58921e89a7ea",
+          "skinVertex": 3904,
+          "skinWeight": 1,
+          "sample": [
+            -0.3547,
+            1.2035,
+            -0.0069
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.0003,
+          "maxFrameDelta": 0.00046
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 32,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            }
+          },
+          "meshName": "GEO-rex_polo_shirt",
+          "instanceMeshUUID": "1dc2391f-68e8-49d0-afde-23837fcea17d",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "fd839f6a-1291-4e52-929c-01e757d0e52a",
+          "skinVertex": 1292,
+          "skinWeight": 0.9596,
+          "sample": [
+            0.0069,
+            0.9658,
+            0.0888
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00439,
+          "maxFrameDelta": 0.00525
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait no source actor is only moving phantom unused bones",
+      "details": [
+        {
+          "id": "E03",
+          "travel": 0.00101,
+          "frameDelta": 0.00121
+        },
+        {
+          "id": "E04",
+          "travel": 0.00116,
+          "frameDelta": 0.00107
+        },
+        {
+          "id": "G02",
+          "travel": 0.00167,
+          "frameDelta": 0.00199
+        },
+        {
+          "id": "G03",
+          "travel": 0.00086,
+          "frameDelta": 0.00103
+        },
+        {
+          "id": "G04",
+          "travel": 0.00071,
+          "frameDelta": 0.00085
+        },
+        {
+          "id": "T03",
+          "travel": 0.0003,
+          "frameDelta": 0.00046
+        },
+        {
+          "id": "T04",
+          "travel": 0.00439,
+          "frameDelta": 0.00525
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait independent actor instances each have their own bones",
+      "details": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 55,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9685,
+              "span": 0.2489
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9687,
+              "span": 0.2482
+            }
+          },
+          "meshName": "Data_GEO-ellie_jacket",
+          "instanceMeshUUID": "273f2dd0-426b-4239-aaf2-7ee5853c174f",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "258f70c7-cfef-4b55-965b-cbe4c8059bf7",
+          "skinVertex": 2,
+          "skinWeight": 0.9863,
+          "sample": [
+            -0.0498,
+            0.8851,
+            0.0148
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00101,
+          "maxFrameDelta": 0.00121
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 23,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9678,
+              "span": 0.2517
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9678,
+              "span": 0.2517
+            }
+          },
+          "meshName": "GEO-phil_shirt",
+          "instanceMeshUUID": "6bcaee0e-ee02-4320-b172-6e1d317477d4",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "02d547fd-89f5-46ed-85e0-1872d7ee243f",
+          "skinVertex": 1499,
+          "skinWeight": 0.7395,
+          "sample": [
+            -0.1101,
+            0.9778,
+            0.1806
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00116,
+          "maxFrameDelta": 0.00107
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 16,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9798,
+              "span": 0.2002
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9798,
+              "span": 0.2002
+            }
+          },
+          "meshName": "GEO-snow-body_2",
+          "instanceMeshUUID": "117a6dae-8ec0-4152-837b-66ab0febde8b",
+          "weightedBone": "DEF-UpperArm_1R",
+          "weightedBoneUUID": "9c9e323d-db6c-4887-a3a5-de9a11da9861",
+          "skinVertex": 1611,
+          "skinWeight": 1,
+          "sample": [
+            -0.2429,
+            1.2584,
+            -0.0514
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00167,
+          "maxFrameDelta": 0.00199
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 28,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9651,
+              "span": 0.262
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9652,
+              "span": 0.2615
+            }
+          },
+          "meshName": "Data_GEO-jay_jacket",
+          "instanceMeshUUID": "ad1ad80f-40dc-45e9-8363-c6707f662169",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "1ab09c92-cf55-40e9-b241-7b444736ef03",
+          "skinVertex": 2464,
+          "skinWeight": 0.8309,
+          "sample": [
+            -0.0395,
+            0.6677,
+            0.0033
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00086,
+          "maxFrameDelta": 0.00103
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 29,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            }
+          },
+          "meshName": "Data_GEO-victoria_body_upper",
+          "instanceMeshUUID": "f4d38219-344d-4799-9b96-6b7a0e96403b",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "6f984b8e-bd2d-4428-91d8-76d48ba9968c",
+          "skinVertex": 4731,
+          "skinWeight": 0.8261,
+          "sample": [
+            -0.0474,
+            0.9589,
+            0.0527
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00071,
+          "maxFrameDelta": 0.00085
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 24,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            }
+          },
+          "meshName": "GEO-rain-body_1",
+          "instanceMeshUUID": "14e723cb-3838-49db-8120-1b96a1f9569d",
+          "weightedBone": "DEF-Forearm1R",
+          "weightedBoneUUID": "94742c32-ac7a-426e-a05b-58921e89a7ea",
+          "skinVertex": 3904,
+          "skinWeight": 1,
+          "sample": [
+            -0.3547,
+            1.2035,
+            -0.0069
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.0003,
+          "maxFrameDelta": 0.00046
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 32,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            }
+          },
+          "meshName": "GEO-rex_polo_shirt",
+          "instanceMeshUUID": "1dc2391f-68e8-49d0-afde-23837fcea17d",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "fd839f6a-1291-4e52-929c-01e757d0e52a",
+          "skinVertex": 1292,
+          "skinWeight": 0.9596,
+          "sample": [
+            0.0069,
+            0.9658,
+            0.0888
+          ],
+          "sampledFrames": 3,
+          "maxTravel": 0.00439,
+          "maxFrameDelta": 0.00525
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait no GPU drawcall explosion",
+      "details": 663
+    },
+    {
+      "pass": true,
+      "label": "portrait real card play reaches each unique actor life",
+      "details": [
+        {
+          "number": 1,
+          "type": "card",
+          "side": "player",
+          "at": 2.08
+        }
+      ]
+    },
+    {
+      "pass": true,
+      "label": "portrait no JavaScript or missing art assets",
+      "details": []
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "moved": [
+        {
+          "id": "E03",
+          "travel": 0.00097,
+          "frameDelta": 0.00114
+        },
+        {
+          "id": "E04",
+          "travel": 0.00117,
+          "frameDelta": 0.00105
+        },
+        {
+          "id": "G02",
+          "travel": 0.00162,
+          "frameDelta": 0.00191
+        },
+        {
+          "id": "G03",
+          "travel": 0.00084,
+          "frameDelta": 0.00099
+        },
+        {
+          "id": "G04",
+          "travel": 0.00069,
+          "frameDelta": 0.00081
+        },
+        {
+          "id": "T03",
+          "travel": 0.00029,
+          "frameDelta": 0.00044
+        },
+        {
+          "id": "T04",
+          "travel": 0.00426,
+          "frameDelta": 0.00503
+        }
+      ],
+      "modelBytes": [
+        {
+          "id": "E03",
+          "file": "E03-Ellie-Skinned-R119.glb"
+        },
+        {
+          "id": "E04",
+          "file": "E04-Phil-Skinned-R119.glb"
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-Skinned-R119.glb"
+        },
+        {
+          "id": "G03",
+          "file": "G03-Jay-Skinned-R119.glb"
+        },
+        {
+          "id": "G04",
+          "file": "G04-Victoria-Skinned-R119.glb"
+        },
+        {
+          "id": "T03",
+          "file": "T03-Rain-Skinned-R119.glb"
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-Skinned-R119.glb"
+        }
+      ],
+      "drawCalls": 663,
+      "realBodies": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 55,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9627,
+              "span": 0.2706
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9627,
+              "span": 0.2706
+            }
+          },
+          "meshName": "Data_GEO-ellie_jacket",
+          "instanceMeshUUID": "243e9c33-360a-4df2-aa63-35c9c194433d",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "341ea2cd-935a-4eaf-bfe9-f40cec2bf503",
+          "skinVertex": 2,
+          "skinWeight": 0.9863,
+          "sample": [
+            -0.0506,
+            0.886,
+            0.0147
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00018,
+          "maxFrameDelta": 0.00018
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 23,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9629,
+              "span": 0.2698
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9629,
+              "span": 0.2698
+            }
+          },
+          "meshName": "GEO-phil_shirt",
+          "instanceMeshUUID": "089f30bc-122c-4b6a-bc30-cf401f6103c1",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "362a6293-2bc1-4c2f-b20d-b1bff443aff9",
+          "skinVertex": 1499,
+          "skinWeight": 0.7395,
+          "sample": [
+            -0.1112,
+            0.9776,
+            0.1805
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00052,
+          "maxFrameDelta": 0.00052
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 16,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9829,
+              "span": 0.1839
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9829,
+              "span": 0.1839
+            }
+          },
+          "meshName": "GEO-snow-body_2",
+          "instanceMeshUUID": "e9c5f385-ba7a-452a-94c1-53b14e600c6e",
+          "weightedBone": "DEF-UpperArm_1R",
+          "weightedBoneUUID": "bf483d54-1c75-4ec0-a337-928b6c50cb34",
+          "skinVertex": 1611,
+          "skinWeight": 1,
+          "sample": [
+            -0.2412,
+            1.2574,
+            -0.0513
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00029,
+          "maxFrameDelta": 0.00029
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 28,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9598,
+              "span": 0.2806
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9598,
+              "span": 0.2806
+            }
+          },
+          "meshName": "Data_GEO-jay_jacket",
+          "instanceMeshUUID": "fa021e77-2174-429c-9098-c5a255ba891a",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "291f9960-423f-41c5-bf0e-384cf95c7f6c",
+          "skinVertex": 2464,
+          "skinWeight": 0.8309,
+          "sample": [
+            -0.0401,
+            0.6685,
+            0.0032
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00015,
+          "maxFrameDelta": 0.00015
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 29,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            }
+          },
+          "meshName": "Data_GEO-victoria_body_upper",
+          "instanceMeshUUID": "15c829e0-dc7f-4f8a-b293-dab46719bc38",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "25d43367-24d4-4c20-b2fa-c6e5c62aca66",
+          "skinVertex": 4731,
+          "skinWeight": 0.8261,
+          "sample": [
+            -0.0482,
+            0.959,
+            0.0527
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00013,
+          "maxFrameDelta": 0.00013
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 24,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            }
+          },
+          "meshName": "GEO-rain-body_1",
+          "instanceMeshUUID": "43da78fb-23dc-49c8-8ddc-f3efe257a1f3",
+          "weightedBone": "DEF-Forearm1R",
+          "weightedBoneUUID": "97d1eeb6-0b34-47f6-bcf1-1c5cac37056f",
+          "skinVertex": 3904,
+          "skinWeight": 1,
+          "sample": [
+            -0.3548,
+            1.2036,
+            -0.0074
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00015,
+          "maxFrameDelta": 0.00015
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 32,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            }
+          },
+          "meshName": "GEO-rex_polo_shirt",
+          "instanceMeshUUID": "44137000-bb0c-4ff4-8d77-535184bd8bba",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "10dabeef-0ac3-4f10-867a-d93506b48ebb",
+          "skinVertex": 1292,
+          "skinWeight": 0.9596,
+          "sample": [
+            0.0017,
+            0.9653,
+            0.0886
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00077,
+          "maxFrameDelta": 0.00077
+        }
+      ],
+      "err": []
+    },
+    {
+      "view": "portrait",
+      "moved": [
+        {
+          "id": "E03",
+          "travel": 0.00101,
+          "frameDelta": 0.00121
+        },
+        {
+          "id": "E04",
+          "travel": 0.00116,
+          "frameDelta": 0.00107
+        },
+        {
+          "id": "G02",
+          "travel": 0.00167,
+          "frameDelta": 0.00199
+        },
+        {
+          "id": "G03",
+          "travel": 0.00086,
+          "frameDelta": 0.00103
+        },
+        {
+          "id": "G04",
+          "travel": 0.00071,
+          "frameDelta": 0.00085
+        },
+        {
+          "id": "T03",
+          "travel": 0.0003,
+          "frameDelta": 0.00046
+        },
+        {
+          "id": "T04",
+          "travel": 0.00439,
+          "frameDelta": 0.00525
+        }
+      ],
+      "modelBytes": [
+        {
+          "id": "E03",
+          "file": "E03-Ellie-Skinned-R119.glb"
+        },
+        {
+          "id": "E04",
+          "file": "E04-Phil-Skinned-R119.glb"
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-Skinned-R119.glb"
+        },
+        {
+          "id": "G03",
+          "file": "G03-Jay-Skinned-R119.glb"
+        },
+        {
+          "id": "G04",
+          "file": "G04-Victoria-Skinned-R119.glb"
+        },
+        {
+          "id": "T03",
+          "file": "T03-Rain-Skinned-R119.glb"
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-Skinned-R119.glb"
+        }
+      ],
+      "drawCalls": 663,
+      "realBodies": [
+        {
+          "id": "E03",
+          "uid": "U11910",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 55,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9626,
+              "span": 0.271
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9626,
+              "span": 0.271
+            }
+          },
+          "meshName": "Data_GEO-ellie_jacket",
+          "instanceMeshUUID": "273f2dd0-426b-4239-aaf2-7ee5853c174f",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "258f70c7-cfef-4b55-965b-cbe4c8059bf7",
+          "skinVertex": 2,
+          "skinWeight": 0.9863,
+          "sample": [
+            -0.0506,
+            0.886,
+            0.0147
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00019,
+          "maxFrameDelta": 0.00019
+        },
+        {
+          "id": "E04",
+          "uid": "U11911",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 23,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9628,
+              "span": 0.2701
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9628,
+              "span": 0.2701
+            }
+          },
+          "meshName": "GEO-phil_shirt",
+          "instanceMeshUUID": "6bcaee0e-ee02-4320-b172-6e1d317477d4",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "02d547fd-89f5-46ed-85e0-1872d7ee243f",
+          "skinVertex": 1499,
+          "skinWeight": 0.7395,
+          "sample": [
+            -0.1112,
+            0.9776,
+            0.1805
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00059,
+          "maxFrameDelta": 0.00059
+        },
+        {
+          "id": "G02",
+          "uid": "U11912",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 16,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.983,
+              "span": 0.1836
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.983,
+              "span": 0.1836
+            }
+          },
+          "meshName": "GEO-snow-body_2",
+          "instanceMeshUUID": "117a6dae-8ec0-4152-837b-66ab0febde8b",
+          "weightedBone": "DEF-UpperArm_1R",
+          "weightedBoneUUID": "9c9e323d-db6c-4887-a3a5-de9a11da9861",
+          "skinVertex": 1611,
+          "skinWeight": 1,
+          "sample": [
+            -0.2412,
+            1.2574,
+            -0.0513
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00032,
+          "maxFrameDelta": 0.00032
+        },
+        {
+          "id": "G03",
+          "uid": "U11913",
+          "side": "player",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 28,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.9598,
+              "span": 0.2809
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.9598,
+              "span": 0.2809
+            }
+          },
+          "meshName": "Data_GEO-jay_jacket",
+          "instanceMeshUUID": "ad1ad80f-40dc-45e9-8363-c6707f662169",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "1ab09c92-cf55-40e9-b241-7b444736ef03",
+          "skinVertex": 2464,
+          "skinWeight": 0.8309,
+          "sample": [
+            -0.0401,
+            0.6685,
+            0.0031
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00016,
+          "maxFrameDelta": 0.00016
+        },
+        {
+          "id": "G04",
+          "uid": "U11920",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 29,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": -0.0363,
+              "span": 0.9993
+            }
+          },
+          "meshName": "Data_GEO-victoria_body_upper",
+          "instanceMeshUUID": "f4d38219-344d-4799-9b96-6b7a0e96403b",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "6f984b8e-bd2d-4428-91d8-76d48ba9968c",
+          "skinVertex": 4731,
+          "skinWeight": 0.8261,
+          "sample": [
+            -0.0482,
+            0.959,
+            0.0527
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00014,
+          "maxFrameDelta": 0.00014
+        },
+        {
+          "id": "T03",
+          "uid": "U11921",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 24,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0493,
+              "span": 0.9988
+            }
+          },
+          "meshName": "GEO-rain-body_1",
+          "instanceMeshUUID": "14e723cb-3838-49db-8120-1b96a1f9569d",
+          "weightedBone": "DEF-Forearm1R",
+          "weightedBoneUUID": "94742c32-ac7a-426e-a05b-58921e89a7ea",
+          "skinVertex": 3904,
+          "skinWeight": 1,
+          "sample": [
+            -0.3548,
+            1.2036,
+            -0.0074
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00016,
+          "maxFrameDelta": 0.00016
+        },
+        {
+          "id": "T04",
+          "uid": "U11922",
+          "side": "ai",
+          "valid": true,
+          "source": "actual_skinned_vertex",
+          "skinnedMeshes": 32,
+          "armPosture": {
+            "L": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            },
+            "R": {
+              "valid": true,
+              "verticalDrop": 0.0113,
+              "span": 0.9999
+            }
+          },
+          "meshName": "GEO-rex_polo_shirt",
+          "instanceMeshUUID": "1dc2391f-68e8-49d0-afde-23837fcea17d",
+          "weightedBone": "DEF-ShoulderR",
+          "weightedBoneUUID": "fd839f6a-1291-4e52-929c-01e757d0e52a",
+          "skinVertex": 1292,
+          "skinWeight": 0.9596,
+          "sample": [
+            0.0016,
+            0.9653,
+            0.0886
+          ],
+          "sampledFrames": 2,
+          "maxTravel": 0.00085,
+          "maxFrameDelta": 0.00085
+        }
+      ],
+      "err": []
+    }
+  ]
+}

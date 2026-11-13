@@ -447,7 +447,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    const realLife=lifeWorld?.read('unit:'+state.key,seconds);
    const lifeBusy=!!sequence||!!state.comic||!!celebration||cinematic;
    state.r117Rig?.apply(seconds,realLife,{reduced:!!celebration?.reduced,
-     busy:lifeBusy});
+     busy:lifeBusy,mixerDriven:!!r61?.r119Skin});
    state.r117Props?.update(seconds,realLife,{reduced:!!celebration?.reduced,
      busy:lifeBusy});
    // Board VRMs must not be left in their bind T/A pose. During the
@@ -555,10 +555,21 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     const life=lifeWorld?.read('unit:'+state.key,seconds);
     state.lifePose=life||null;
     if(state.kind!=='original-vrm'&&life){
-     if(state.id==='M02'&&life.intent!=='idle'&&
+     if((state.id==='M02'||r61?.r119Skin)&&life.intent!=='idle'&&
        life.lastAction&&state.r116LastLifeAt!==life.lastAction.at&&
        life.weight>.32&&!state.r116LifeClip){
-      const clipByIntent={challenge:'Angry_Stomp',hands_hips:'Shrug',
+      // Characters have different physical ways of interpreting one event.
+      // The five live-skin trial actors use their own bound source joints;
+      // M02 retains its ten real authored source animations and hand-held prop.
+      const clipByIntent=r61?.r119Skin?{
+       challenge:'R119_Skeletal_Challenge',hands_hips:'R119_Skeletal_Challenge',
+       half_wave:'R119_Skeletal_Challenge',tiny_clap:'R119_Skeletal_Celebrate',
+       cheer:'R119_Skeletal_Celebrate',smirk:'R119_Skeletal_Challenge',
+       flinch:'R119_Skeletal_Worry',peek:'R119_Skeletal_Worry',
+       scratch:'R119_Skeletal_Worry',headshake:'R119_Skeletal_Worry',
+       fidget:'R119_Skeletal_Worry',defeat:'R119_Skeletal_Worry'
+      }:{
+       challenge:'Angry_Stomp',hands_hips:'Shrug',
        peek:'Confused_Scratch',scratch:'Confused_Scratch',
        half_wave:'Big_Wave_Hello',tiny_clap:'Jazz_Hands',
        cheer:'Victory_Cheer',headshake:'Confused_Scratch'};
@@ -740,6 +751,90 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    }
   }
  }
+ // R119 evidence: a rendered vertex really follows its weighted arm bone.
+ // This path runs ONLY when the QA scene inspector is requested, never as a
+ // 60-fps per-vertex deformation poller or a synthetic animation substitute.
+ function inspectRealSkinnedVertices(state){
+  const r=state.object.userData.r61;
+  if(!r?.r119Skin)return null;
+  const meshes=[];
+  r.instance.traverse(o=>{
+   if(o.isSkinnedMesh&&o.geometry?.attributes?.skinIndex&&
+      o.geometry?.attributes?.skinWeight&&o.geometry?.attributes?.position)
+    meshes.push(o);
+  });
+  const norm=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const upperNames=new Set([
+   'DEF-UpperArm1.R','DEF-Shoulder.R','DEF-Forearm1.R','DEF-Upperarm.R'
+  ].map(norm));
+  meshes.sort((x,y)=>
+   Number(/body|arms|upper|shirt|jacket|sleeve/i.test(y.name))-
+   Number(/body|arms|upper|shirt|jacket|sleeve/i.test(x.name)));
+  let chosen=null;
+  for(const mesh of meshes){
+   const joints=mesh.skeleton.bones;
+   const jointIndex=joints.findIndex(b=>b&&upperNames.has(norm(b.name)));
+   if(jointIndex<0)continue;
+   const ix=mesh.geometry.attributes.skinIndex,
+     wt=mesh.geometry.attributes.skinWeight;
+   const position=mesh.geometry.attributes.position;
+   let sample=-1,sampleWeight=0;
+   for(let v=0;v<position.count;v++){
+    for(let k=0;k<4;k++){
+     const boneIndex=ix.getComponent(v,k),weight=wt.getComponent(v,k);
+     if(boneIndex===jointIndex&&weight>.28){
+      if(weight>sampleWeight){sample=v;sampleWeight=weight;}
+     }
+    }
+    if(sampleWeight>.92)break;
+   }
+   if(sample>=0){chosen={mesh,jointIndex,sample,sampleWeight};break;}
+  }
+  if(!chosen)return {valid:false,skinnedMeshes:meshes.length,reason:'no_arm_weighted_vertex'};
+  const {mesh,jointIndex,sample,sampleWeight}=chosen;
+  mesh.updateWorldMatrix(true,false);
+  const pos=new THREE.Vector3().fromBufferAttribute(
+    mesh.geometry.attributes.position,sample);
+  if(typeof mesh.applyBoneTransform!=='function')
+   return {valid:false,skinnedMeshes:meshes.length,reason:'no_cpu_skin_transform'};
+  mesh.applyBoneTransform(sample,pos);
+  const last=state.r119MeshProbe;
+  if(!last||last.sample!==sample||last.mesh!==mesh.uuid)
+   state.r119MeshProbe={mesh:mesh.uuid,sample,first:pos.clone(),
+     previous:pos.clone(),maxTravel:0,maxFrameDelta:0,sampledFrames:1};
+  else{
+   last.maxTravel=Math.max(last.maxTravel,pos.distanceTo(last.first));
+   last.maxFrameDelta=Math.max(last.maxFrameDelta,pos.distanceTo(last.previous));
+   last.previous.copy(pos);last.sampledFrames++;
+  }
+  const history=state.r119MeshProbe;
+  const normBone=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const boneList=mesh.skeleton.bones.filter(Boolean);
+  const findBone=(names)=>boneList.find(x=>names.some(n=>normBone(x.name)===normBone(n)));
+  const armPosture={};
+  for(const side of ['L','R']){
+   const upper=findBone(['DEF-UpperArm1.'+side,'DEF-Upperarm1.'+side,'DEF-UpperArm_1.'+side]);
+   const elbow=findBone(['DEF-Forearm1.'+side,'DEF-Forearm_1.'+side]);
+   if(!upper||!elbow){armPosture[side]={valid:false};continue}
+   upper.updateWorldMatrix(true,false);elbow.updateWorldMatrix(true,false);
+   const a=upper.getWorldPosition(new THREE.Vector3());
+   const b=elbow.getWorldPosition(new THREE.Vector3());
+   const len=a.distanceTo(b);
+   armPosture[side]=len>.001?{valid:true,
+    verticalDrop:+((a.y-b.y)/len).toFixed(4),
+    span:+(Math.hypot(a.x-b.x,a.z-b.z)/len).toFixed(4)}:{valid:false};
+  }
+  return{valid:true,source:'actual_skinned_vertex',skinnedMeshes:meshes.length,
+   armPosture,
+   meshName:mesh.name,instanceMeshUUID:mesh.uuid,
+   weightedBone:mesh.skeleton.bones[jointIndex].name,
+   weightedBoneUUID:mesh.skeleton.bones[jointIndex].uuid,
+   skinVertex:sample,skinWeight:+sampleWeight.toFixed(4),
+   sample:[+pos.x.toFixed(4),+pos.y.toFixed(4),+pos.z.toFixed(4)],
+   sampledFrames:history.sampledFrames,
+   maxTravel:+history.maxTravel.toFixed(5),
+   maxFrameDelta:+history.maxFrameDelta.toFixed(5)};
+ }
  function inspect(camera){
   const list=[...entries.values()].map(s=>{
    const v=s.object.getWorldPosition(new THREE.Vector3());
@@ -827,6 +922,9 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     lastComic},
    r117PropLife:[...entries.values()].map(x=>({
     id:x.id,uid:x.uid,side:x.side,...(x.r117Props?.inspect()||{enabled:false,frames:0})})),
+   r119TrueSkinVertices:[...entries.values()].map(x=>({
+    id:x.id,uid:x.uid,side:x.side,
+    ...(inspectRealSkinnedVertices(x)||{valid:false,reason:'not_r119_study'})})),
    r117CharacterMotion:[...entries.values()].map(x=>({
     id:x.id,uid:x.uid,side:x.side,
     ...(x.r117Rig?.inspect()||{enabled:false,frames:0})})),

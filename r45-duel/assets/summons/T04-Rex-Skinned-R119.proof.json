@@ -1,0 +1,28 @@
+{
+  "slug": "rex",
+  "source": "/home/master/projects/after-school-duel-r85-character-action-20261112/r45-duel/art-lab/r85-native-rig-sources/rex.blend",
+  "output": "r45-duel/assets/summons/T04-Rex-Skinned-R119.glb",
+  "status": "EXPORTED",
+  "bytes": 7248368,
+  "sha256": "7edddf5bb7e4cb9a0f03f43a55f1206f6191b91e863bf2c1c47c849cfaf976b6",
+  "sourceMeshes": 22,
+  "visibleMeshes": 21,
+  "visibleSkinnedMeshes": 21,
+  "skinWeightBuffers": 21,
+  "rigBones": 1556,
+  "exportedJoints": 299,
+  "missingTargetBones": [],
+  "sourceIKWristPose": {
+    "L": [
+      0.7065179347991943,
+      -0.0009067932842299342,
+      1.1775456666946411
+    ],
+    "R": [
+      -0.7065179944038391,
+      -0.0009067956125363708,
+      1.1775456666946411
+    ]
+  },
+  "disabledGraphModifiers": 65
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "rain",
+  "source": "/home/master/.cache/asdc-r119-ccby-rigs/rain/rain_v3.2.blend",
+  "output": "r45-duel/assets/summons/T03-Rain-Skinned-R119.glb",
+  "status": "EXPORTED",
+  "bytes": 70345192,
+  "sha256": "b612d3d8a12b14696df953aa43736ec601f403d37914c7bb75ac9cf1ceb411ed",
+  "sourceMeshes": 18,
+  "visibleMeshes": 18,
+  "visibleSkinnedMeshes": 18,
+  "skinWeightBuffers": 18,
+  "rigBones": 2166,
+  "exportedJoints": 392,
+  "missingTargetBones": [
+    "DEF-Shoulder.L",
+    "DEF-Shoulder.R",
+    "DEF-Chest"
+  ],
+  "sourceIKWristPose": {},
+  "disabledGraphModifiers": 22
+}
