@@ -84,8 +84,11 @@ try{
    view+' 3D actor closeup + actual painted card + source finger grasp',state.probe);
   check(state.voices.some(x=>x.id==='HOST_AI'&&x.kind==='hurt'),
    view+' actor hurt voice triggered by rules',state.voices);
-  check(state.probe.maxDraw<1300&&errors.length===0,
-   view+' GPU drawcalls under budget and no JS/HTTP errors',{draw:state.probe.maxDraw,errors});
+  // R124 must stay below the previous entire-stadium inset peak (~1211).
+  // Frame-time P95 is observed rather than hard-gated (CI GPUs vary).
+  check(state.probe.maxDraw<1050&&errors.length===0,
+   view+' host-only 3D inset avoids duplicate stadium rendering, no JS/HTTP errors',
+   {draw:state.probe.maxDraw,errors});
   const perf={readyMs,load:state.load,
    idle:{frames:state.probe.idle.length,p50Ms:pctl(state.probe.idle,.5),
     p95Ms:pctl(state.probe.idle,.95),over33ms:state.probe.idle.filter(x=>x>33.3).length},
