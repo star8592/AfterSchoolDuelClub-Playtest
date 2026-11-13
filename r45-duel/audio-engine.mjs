@@ -120,6 +120,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
 
   voiceManifest={clips:{}},paManifest={clips:{}},tutorialManifest={clips:{}},crowdManifest={clips:{}},propPAManifest={clips:{}},voiceAudio=null,crowdAudio=null;
  let crowdVoicePlays=0,lastCrowdVoice=null;
+ let pendingBleacherPA=null,pendingCrowdYelp=null,bleacherEpoch=0;
  let lastPAAt=-Infinity,lastPropPAAt=-Infinity,propPAPlays=0,finaleVoiceGuard=false;
 
  let assetsLoading=null,assetsReady=false,musicAttemptInFlight=false;
@@ -288,6 +289,16 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
     for(const item of pendingVoices.splice(0,3))
       playCharacter(item.id,item.kind);
   }
+  // First player interaction can precede downloaded Qwen manifests on public
+  // GitHub Pages. Deliver the incident only if the SAME match is still live.
+  if(assetsReady){
+   const yell=pendingCrowdYelp;pendingCrowdYelp=null;
+   if(yell?.epoch===bleacherEpoch&&performance.now()-yell.at<9000)
+    playCrowdYelp(yell.scenario,yell.index,yell.serial);
+   const pa=pendingBleacherPA;pendingBleacherPA=null;
+   if(pa?.epoch===bleacherEpoch&&performance.now()-pa.at<16000)
+    playPropPA(pa.kind);
+  }
  }
  // Called optimistically on page entry, then immediately on the first real
  // card/keyboard/tap gesture if the browser disallowed autoplay.
@@ -314,6 +325,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   return true;
  }
  function stop(){
+  pendingBleacherPA=null;pendingCrowdYelp=null;bleacherEpoch++;
   requested=false;
   try{localStorage.setItem(SOUND_INTENT_KEY,'off')}catch{}
   enabled=false;
@@ -416,6 +428,9 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
  }
  function playQueuedVoice(){
   if(!enabled||voiceAudio||voiceQueue.length===0)return;
+  // No auditorium PA over a real student's scream. Voice playback resumes
+  // from the actual crowd audio 'ended' event, not a fragile timer.
+  if(voiceQueue[0]?.source==='bleacher'&&crowdAudio&&!crowdAudio.ended)return;
   const {id,kind,file,variant,text,duration_seconds,source='actor'}=voiceQueue.shift();
 
   const a=new Audio(base+(source==='pa'?'pa/':source==='tutorial'?'tutorial/':source==='bleacher'?'crowd/':'voices/')+file+'?mix=r124');
@@ -510,10 +525,16 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   return true;
  }
  function playPropPA(kind){
-  const meta=propPAManifest.clips?.[kind],now=performance.now();
+  const now=performance.now();
   if(!['popcorn','juice','homework','backpack'].includes(kind)||
-   !requested||!enabled||!assetsReady||finaleVoiceGuard||volume.voice===0||
-   !meta?.ready||now-lastPropPAAt<7000||voiceQueue.length>=2)return false;
+   !requested||finaleVoiceGuard||volume.voice===0)return false;
+  if(!enabled||!assetsReady){
+   pendingBleacherPA={kind,at:now,epoch:bleacherEpoch};
+   void prepare().catch(e=>log('prop-pa-prepare-error',String(e)));
+   return true;
+  }
+  const meta=propPAManifest.clips?.[kind];
+  if(!meta?.ready||now-lastPropPAAt<7000||voiceQueue.length>=3)return false;
   // Unlike a match-winning PA, the comic announcement never interrupts
   // the duelist's spoken line. It joins the ordinary VO queue.
   lastPropPAAt=now;
@@ -525,9 +546,14 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   return true;
  }
  function playCrowdYelp(scenario,index=0,serial=1){
-  if(!requested||!enabled||!assetsReady||finaleVoiceGuard||volume.voice===0||
+  if(!requested||finaleVoiceGuard||volume.voice===0||
     !['ricochet','overshoot','shockwave','misfire'].includes(scenario)||
     !Number.isInteger(index)||index<0||index>=4)return false;
+  if(!enabled||!assetsReady){
+   pendingCrowdYelp={scenario,index,serial,at:performance.now(),epoch:bleacherEpoch};
+   void prepare().catch(e=>log('crowd-prepare-error',String(e)));
+   return true;
+  }
   // Independent original Qwen voice lane. A spectator yelp must not cut off
   // the combatant's recorded speech or masquerade as spoken audience text.
   const variant=(serial+index)%2===0?'a':'b';
@@ -536,7 +562,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   if(crowdAudio){crowdAudio.pause();crowdAudio=null}
   const clip=new Audio(base+'crowd/'+meta.file);
   crowdAudio=clip;clip.preload='auto';clip.volume=volume.voice*.76;
-  const done=()=>{if(crowdAudio===clip)crowdAudio=null};
+  const done=()=>{if(crowdAudio===clip){crowdAudio=null;playQueuedVoice()}};
   clip.addEventListener('ended',done,{once:true});
   clip.addEventListener('error',()=>{counters.errors++;log('crowd-voice-file-error',key);done()},{once:true});
   try{
@@ -657,6 +683,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
  }
  let finaleTimer=null;
  function resetMatch(){
+  pendingBleacherPA=null;pendingCrowdYelp=null;bleacherEpoch++;
   finaleVoiceGuard=false;lastPAAt=-Infinity;lastPropPAAt=-Infinity;
   if(finaleTimer!==null){clearTimeout(finaleTimer);finaleTimer=null;}
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
@@ -664,6 +691,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   musicDucked=false;updateMusicVolume();
  }
  function gameFinished(winner){
+  pendingBleacherPA=null;pendingCrowdYelp=null;bleacherEpoch++;
   finaleVoiceGuard=true;
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
   musicDucked=false;
@@ -693,7 +721,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   tutorialClipCount:Object.keys(tutorialManifest.clips||{}).length,
 
   propPAVoiceClips:Object.keys(propPAManifest.clips||{}).length,
-  propPAPlays,
+  propPAPlays,bleacherDeferred:!!pendingBleacherPA||!!pendingCrowdYelp,
   crowdVoiceClipCount:Object.keys(crowdManifest.clips||{}).length,
   crowdVoicePlays,lastCrowdVoice:lastCrowdVoice?{...lastCrowdVoice}:null,
 
