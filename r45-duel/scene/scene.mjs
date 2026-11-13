@@ -883,10 +883,11 @@ function loop(){
    // Eye-height, chest-up framing: the former high/full-body angle hid
    // the actual Joy/Angry/Sorrow morphs behind hair in both source VRMs.
    // Approach on the opponent-facing side, keeping the real raised card in shot.
-   // Three-quarter view balances original face visibility with the artwork:
-   // an exact opponent-side shot sees only the edge of the wrist-bound card.
-   heroCamera.position.set(cx+sign*1.46,cy+1.86,host.pivot.position.z+1.12);
-   const eye=new THREE.Vector3(cx+sign*.27,cy+1.74,host.pivot.position.z+.04);
+   // Prioritize readable *original faces* over a second oversized card:
+   // three-quarter card-facing shots occluded the child's eyes. The genuine
+   // illustrated card remains visible in the uninterrupted main arena view.
+   heroCamera.position.set(cx+sign*1.75,cy+1.84,host.pivot.position.z+.48);
+   const eye=new THREE.Vector3(cx+sign*.30,cy+1.74,host.pivot.position.z+.04);
    heroCamera.lookAt(eye);
    renderer.setScissorTest(true);
    renderer.setViewport(x,y,width,height);
