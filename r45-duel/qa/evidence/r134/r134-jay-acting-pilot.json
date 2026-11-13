@@ -1,0 +1,957 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11439",
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop real original weighted/source character shown in duel"
+    },
+    {
+      "pass": true,
+      "label": "desktop true full-body+contact source character rather than static puppet"
+    },
+    {
+      "pass": true,
+      "label": "desktop source actor stays live while idle"
+    },
+    {
+      "pass": true,
+      "label": "desktop source attack invoked"
+    },
+    {
+      "pass": true,
+      "label": "desktop attack returns to continuous idle instead of frozen final pose"
+    },
+    {
+      "pass": true,
+      "label": "desktop original source hit triggered"
+    },
+    {
+      "pass": true,
+      "label": "desktop hit blends back into naturally breathing posture"
+    },
+    {
+      "pass": true,
+      "label": "desktop original source celebration triggered"
+    },
+    {
+      "pass": true,
+      "label": "desktop victory returns to actual continuous idle with crossfades"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual source weighted arms move and outsole remains grounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop no HTTP failures / JS exceptions"
+    },
+    {
+      "pass": true,
+      "label": "portrait real original weighted/source character shown in duel"
+    },
+    {
+      "pass": true,
+      "label": "portrait true full-body+contact source character rather than static puppet"
+    },
+    {
+      "pass": true,
+      "label": "portrait source actor stays live while idle"
+    },
+    {
+      "pass": true,
+      "label": "portrait source attack invoked"
+    },
+    {
+      "pass": true,
+      "label": "portrait attack returns to continuous idle instead of frozen final pose"
+    },
+    {
+      "pass": true,
+      "label": "portrait original source hit triggered"
+    },
+    {
+      "pass": true,
+      "label": "portrait hit blends back into naturally breathing posture"
+    },
+    {
+      "pass": true,
+      "label": "portrait original source celebration triggered"
+    },
+    {
+      "pass": true,
+      "label": "portrait victory returns to actual continuous idle with crossfades"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual source weighted arms move and outsole remains grounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait no HTTP failures / JS exceptions"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "width": 1440,
+      "initial": {
+        "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+        "actor": "G03",
+        "modelKind": "gltf-instance",
+        "sourceSkin": "real_original_skinned_deform_bones",
+        "sourceLegs": 8,
+        "weightedLegTravel": 0.00096,
+        "stage": {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 0.564,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9824,
+              "spread": 0.187,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9892,
+              "spread": 0.1467,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        "originalArms": {
+          "actor": "G03",
+          "source": "actual_original_author_skinned_arm_hierarchy",
+          "flatOriginal": true,
+          "sourceSkinnedMeshes": 28,
+          "sourceArmNodes": 285,
+          "changedParentLinks": 46,
+          "validatedParentLinks": 48,
+          "maxBindRestDrift": 2.498001805406602e-16,
+          "wristBoneNames": [
+            "DEF-WristL",
+            "DEF-WristR"
+          ],
+          "weightedOriginalMesh": "GEO-jay_body",
+          "weightedOriginalBone": "DEF-Finger_Ring1L",
+          "weightedOriginalVertex": 0,
+          "originalVertexWeight": 0.9881,
+          "frames": 28,
+          "maxSourceWristTravel": 0.02052,
+          "maxWeightedArmVertexTravel": 0.01022
+        },
+        "contact": {
+          "enabled": true,
+          "actor": "G03",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-jay_shoes_base_1",
+            "Data_GEO-jay_shoes_base_2"
+          ],
+          "frames": 28,
+          "corrections": 0,
+          "maxPenetrationBefore": 0,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0,
+          "maxFootSeparation": 0.0004,
+          "last": {
+            "actor": "G03",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-jay_shoes_base_1",
+              "Data_GEO-jay_shoes_base_2"
+            ],
+            "before": [
+              0.00363,
+              0.00328
+            ],
+            "after": [
+              0.00363,
+              0.00328
+            ],
+            "appliedLift": 0,
+            "selectedSupport": "Data_GEO-jay_shoes_base_2",
+            "intentionalAirborne": true,
+            "corrected": false,
+            "clamped": false
+          }
+        },
+        "clipNames": [
+          "R119_Skeletal_Idle"
+        ],
+        "orientation": 1,
+        "minY": 0.003,
+        "coverage": 0.221,
+        "sceneDrawCalls": 757
+      },
+      "samples": [
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 0.564,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9824,
+              "spread": 0.187,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9892,
+              "spread": 0.1467,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 1.597,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9791,
+              "spread": 0.2032,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9797,
+              "spread": 0.2004,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 2.397,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9921,
+              "spread": 0.1258,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9815,
+              "spread": 0.1914,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 3.197,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9971,
+              "spread": 0.0767,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9954,
+              "spread": 0.0956,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Worry",
+          "transitions": 1,
+          "autoIdleReturns": 0,
+          "activeSeconds": 0.4,
+          "recent": [
+            "R119_Skeletal_Idle",
+            "R119_Skeletal_Worry"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.5792,
+              "spread": 0.8152,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.635,
+              "spread": 0.7725,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        }
+      ],
+      "attack": {
+        "enabled": true,
+        "source": "original_render_bound_source_bones",
+        "currentClip": "R119_Skeletal_Attack",
+        "transitions": 2,
+        "autoIdleReturns": 0,
+        "activeSeconds": 0.512,
+        "recent": [
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Worry",
+          "R119_Skeletal_Attack"
+        ],
+        "sourceArmDirections": {
+          "L": {
+            "down": 0.4692,
+            "spread": 0.8831,
+            "elbowToWrist": 0.3837
+          },
+          "R": {
+            "down": 0.2397,
+            "spread": 0.9709,
+            "elbowToWrist": 0.3837
+          }
+        },
+        "postureCorrections": 42,
+        "maxPostureCorrection": 0.646,
+        "sourceRigTrackCount": 16
+      },
+      "hit": {
+        "enabled": true,
+        "source": "original_render_bound_source_bones",
+        "currentClip": "R119_Skeletal_Hit",
+        "transitions": 4,
+        "autoIdleReturns": 0,
+        "activeSeconds": 0.355,
+        "recent": [
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Worry",
+          "R119_Skeletal_Attack",
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Hit"
+        ],
+        "sourceArmDirections": {
+          "L": {
+            "down": 0.38,
+            "spread": 0.925,
+            "elbowToWrist": 0.3837
+          },
+          "R": {
+            "down": 0.38,
+            "spread": 0.925,
+            "elbowToWrist": 0.3837
+          }
+        },
+        "postureCorrections": 224,
+        "maxPostureCorrection": 0.7297,
+        "sourceRigTrackCount": 16
+      },
+      "celebrate": {
+        "enabled": true,
+        "source": "original_render_bound_source_bones",
+        "currentClip": "R119_Skeletal_Celebrate",
+        "transitions": 6,
+        "autoIdleReturns": 1,
+        "activeSeconds": 0.428,
+        "recent": [
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Worry",
+          "R119_Skeletal_Attack",
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Hit",
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Celebrate"
+        ],
+        "sourceArmDirections": {
+          "L": {
+            "down": 0.47,
+            "spread": 0.8827,
+            "elbowToWrist": 0.3837
+          },
+          "R": {
+            "down": 0.29,
+            "spread": 0.957,
+            "elbowToWrist": 0.3837
+          }
+        },
+        "postureCorrections": 394,
+        "maxPostureCorrection": 0.7646,
+        "sourceRigTrackCount": 16
+      },
+      "finish": {
+        "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+        "actor": "G03",
+        "modelKind": "gltf-instance",
+        "sourceSkin": "real_original_skinned_deform_bones",
+        "sourceLegs": 8,
+        "weightedLegTravel": 0.05067,
+        "stage": {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 7,
+          "autoIdleReturns": 2,
+          "activeSeconds": 0.867,
+          "recent": [
+            "R119_Skeletal_Idle",
+            "R119_Skeletal_Worry",
+            "R119_Skeletal_Attack",
+            "R119_Skeletal_Idle",
+            "R119_Skeletal_Hit",
+            "R119_Skeletal_Idle",
+            "R119_Skeletal_Celebrate",
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.41,
+              "spread": 0.9121,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.41,
+              "spread": 0.9121,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 594,
+          "maxPostureCorrection": 0.7649,
+          "sourceRigTrackCount": 16
+        },
+        "originalArms": {
+          "actor": "G03",
+          "source": "actual_original_author_skinned_arm_hierarchy",
+          "flatOriginal": true,
+          "sourceSkinnedMeshes": 28,
+          "sourceArmNodes": 285,
+          "changedParentLinks": 46,
+          "validatedParentLinks": 48,
+          "maxBindRestDrift": 2.498001805406602e-16,
+          "wristBoneNames": [
+            "DEF-WristL",
+            "DEF-WristR"
+          ],
+          "weightedOriginalMesh": "GEO-jay_body",
+          "weightedOriginalBone": "DEF-Finger_Ring1L",
+          "weightedOriginalVertex": 0,
+          "originalVertexWeight": 0.9881,
+          "frames": 542,
+          "maxSourceWristTravel": 0.51696,
+          "maxWeightedArmVertexTravel": 0.37816
+        },
+        "contact": {
+          "enabled": true,
+          "actor": "G03",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-jay_shoes_base_1",
+            "Data_GEO-jay_shoes_base_2"
+          ],
+          "frames": 542,
+          "corrections": 364,
+          "maxPenetrationBefore": 0.05695,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0.05745,
+          "maxFootSeparation": 0.00193,
+          "last": {
+            "actor": "G03",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-jay_shoes_base_1",
+              "Data_GEO-jay_shoes_base_2"
+            ],
+            "before": [
+              0.00472,
+              0.00437
+            ],
+            "after": [
+              0.00472,
+              0.00437
+            ],
+            "appliedLift": 0,
+            "selectedSupport": "Data_GEO-jay_shoes_base_2",
+            "intentionalAirborne": true,
+            "corrected": false,
+            "clamped": false
+          }
+        },
+        "clipNames": [
+          "R119_Skeletal_Idle"
+        ],
+        "orientation": 1,
+        "minY": 0.004,
+        "coverage": 0.219,
+        "sceneDrawCalls": 735
+      }
+    },
+    {
+      "view": "portrait",
+      "width": 430,
+      "initial": {
+        "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+        "actor": "G03",
+        "modelKind": "gltf-instance",
+        "sourceSkin": "real_original_skinned_deform_bones",
+        "sourceLegs": 8,
+        "weightedLegTravel": 0.00096,
+        "stage": {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 0.562,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9824,
+              "spread": 0.1869,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9892,
+              "spread": 0.1466,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        "originalArms": {
+          "actor": "G03",
+          "source": "actual_original_author_skinned_arm_hierarchy",
+          "flatOriginal": true,
+          "sourceSkinnedMeshes": 28,
+          "sourceArmNodes": 285,
+          "changedParentLinks": 46,
+          "validatedParentLinks": 48,
+          "maxBindRestDrift": 2.498001805406602e-16,
+          "wristBoneNames": [
+            "DEF-WristL",
+            "DEF-WristR"
+          ],
+          "weightedOriginalMesh": "GEO-jay_body",
+          "weightedOriginalBone": "DEF-Finger_Ring1L",
+          "weightedOriginalVertex": 0,
+          "originalVertexWeight": 0.9881,
+          "frames": 27,
+          "maxSourceWristTravel": 0.02058,
+          "maxWeightedArmVertexTravel": 0.01021
+        },
+        "contact": {
+          "enabled": true,
+          "actor": "G03",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-jay_shoes_base_1",
+            "Data_GEO-jay_shoes_base_2"
+          ],
+          "frames": 27,
+          "corrections": 0,
+          "maxPenetrationBefore": 0,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0,
+          "maxFootSeparation": 0.0004,
+          "last": {
+            "actor": "G03",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-jay_shoes_base_1",
+              "Data_GEO-jay_shoes_base_2"
+            ],
+            "before": [
+              0.00372,
+              0.00337
+            ],
+            "after": [
+              0.00372,
+              0.00337
+            ],
+            "appliedLift": 0,
+            "selectedSupport": "Data_GEO-jay_shoes_base_2",
+            "intentionalAirborne": true,
+            "corrected": false,
+            "clamped": false
+          }
+        },
+        "clipNames": [
+          "R119_Skeletal_Idle"
+        ],
+        "orientation": 1,
+        "minY": 0.003,
+        "coverage": 0.081,
+        "sceneDrawCalls": 757
+      },
+      "samples": [
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 0.562,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9824,
+              "spread": 0.1869,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9892,
+              "spread": 0.1466,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 1.478,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9781,
+              "spread": 0.2083,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9818,
+              "spread": 0.1901,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 2.278,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9901,
+              "spread": 0.1401,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9802,
+              "spread": 0.1979,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 0,
+          "autoIdleReturns": 0,
+          "activeSeconds": 3.062,
+          "recent": [
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.9966,
+              "spread": 0.0819,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.9935,
+              "spread": 0.1136,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        },
+        {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Worry",
+          "transitions": 1,
+          "autoIdleReturns": 0,
+          "activeSeconds": 0.283,
+          "recent": [
+            "R119_Skeletal_Idle",
+            "R119_Skeletal_Worry"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.7751,
+              "spread": 0.6319,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.8391,
+              "spread": 0.5439,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 0,
+          "maxPostureCorrection": 0,
+          "sourceRigTrackCount": 16
+        }
+      ],
+      "attack": {
+        "enabled": true,
+        "source": "original_render_bound_source_bones",
+        "currentClip": "R119_Skeletal_Attack",
+        "transitions": 2,
+        "autoIdleReturns": 0,
+        "activeSeconds": 0.515,
+        "recent": [
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Worry",
+          "R119_Skeletal_Attack"
+        ],
+        "sourceArmDirections": {
+          "L": {
+            "down": 0.4621,
+            "spread": 0.8868,
+            "elbowToWrist": 0.3837
+          },
+          "R": {
+            "down": 0.2223,
+            "spread": 0.975,
+            "elbowToWrist": 0.3837
+          }
+        },
+        "postureCorrections": 29,
+        "maxPostureCorrection": 0.5084,
+        "sourceRigTrackCount": 16
+      },
+      "hit": {
+        "enabled": true,
+        "source": "original_render_bound_source_bones",
+        "currentClip": "R119_Skeletal_Hit",
+        "transitions": 4,
+        "autoIdleReturns": 0,
+        "activeSeconds": 0.364,
+        "recent": [
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Worry",
+          "R119_Skeletal_Attack",
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Hit"
+        ],
+        "sourceArmDirections": {
+          "L": {
+            "down": 0.38,
+            "spread": 0.925,
+            "elbowToWrist": 0.3837
+          },
+          "R": {
+            "down": 0.38,
+            "spread": 0.925,
+            "elbowToWrist": 0.3837
+          }
+        },
+        "postureCorrections": 199,
+        "maxPostureCorrection": 0.7407,
+        "sourceRigTrackCount": 16
+      },
+      "celebrate": {
+        "enabled": true,
+        "source": "original_render_bound_source_bones",
+        "currentClip": "R119_Skeletal_Celebrate",
+        "transitions": 6,
+        "autoIdleReturns": 1,
+        "activeSeconds": 0.444,
+        "recent": [
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Worry",
+          "R119_Skeletal_Attack",
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Hit",
+          "R119_Skeletal_Idle",
+          "R119_Skeletal_Celebrate"
+        ],
+        "sourceArmDirections": {
+          "L": {
+            "down": 0.47,
+            "spread": 0.8827,
+            "elbowToWrist": 0.3837
+          },
+          "R": {
+            "down": 0.29,
+            "spread": 0.957,
+            "elbowToWrist": 0.3837
+          }
+        },
+        "postureCorrections": 371,
+        "maxPostureCorrection": 0.7732,
+        "sourceRigTrackCount": 16
+      },
+      "finish": {
+        "source": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+        "actor": "G03",
+        "modelKind": "gltf-instance",
+        "sourceSkin": "real_original_skinned_deform_bones",
+        "sourceLegs": 8,
+        "weightedLegTravel": 0.05051,
+        "stage": {
+          "enabled": true,
+          "source": "original_render_bound_source_bones",
+          "currentClip": "R119_Skeletal_Idle",
+          "transitions": 7,
+          "autoIdleReturns": 2,
+          "activeSeconds": 0.75,
+          "recent": [
+            "R119_Skeletal_Idle",
+            "R119_Skeletal_Worry",
+            "R119_Skeletal_Attack",
+            "R119_Skeletal_Idle",
+            "R119_Skeletal_Hit",
+            "R119_Skeletal_Idle",
+            "R119_Skeletal_Celebrate",
+            "R119_Skeletal_Idle"
+          ],
+          "sourceArmDirections": {
+            "L": {
+              "down": 0.41,
+              "spread": 0.9121,
+              "elbowToWrist": 0.3837
+            },
+            "R": {
+              "down": 0.41,
+              "spread": 0.9121,
+              "elbowToWrist": 0.3837
+            }
+          },
+          "postureCorrections": 555,
+          "maxPostureCorrection": 0.7732,
+          "sourceRigTrackCount": 16
+        },
+        "originalArms": {
+          "actor": "G03",
+          "source": "actual_original_author_skinned_arm_hierarchy",
+          "flatOriginal": true,
+          "sourceSkinnedMeshes": 28,
+          "sourceArmNodes": 285,
+          "changedParentLinks": 46,
+          "validatedParentLinks": 48,
+          "maxBindRestDrift": 2.498001805406602e-16,
+          "wristBoneNames": [
+            "DEF-WristL",
+            "DEF-WristR"
+          ],
+          "weightedOriginalMesh": "GEO-jay_body",
+          "weightedOriginalBone": "DEF-Finger_Ring1L",
+          "weightedOriginalVertex": 0,
+          "originalVertexWeight": 0.9881,
+          "frames": 520,
+          "maxSourceWristTravel": 0.51745,
+          "maxWeightedArmVertexTravel": 0.37727
+        },
+        "contact": {
+          "enabled": true,
+          "actor": "G03",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-jay_shoes_base_1",
+            "Data_GEO-jay_shoes_base_2"
+          ],
+          "frames": 520,
+          "corrections": 388,
+          "maxPenetrationBefore": 0.05667,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0.05717,
+          "maxFootSeparation": 0.00191,
+          "last": {
+            "actor": "G03",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-jay_shoes_base_1",
+              "Data_GEO-jay_shoes_base_2"
+            ],
+            "before": [
+              0.00272,
+              0.00236
+            ],
+            "after": [
+              0.00272,
+              0.00236
+            ],
+            "appliedLift": 0,
+            "selectedSupport": "Data_GEO-jay_shoes_base_2",
+            "intentionalAirborne": true,
+            "corrected": false,
+            "clamped": false
+          }
+        },
+        "clipNames": [
+          "R119_Skeletal_Idle"
+        ],
+        "orientation": 1,
+        "minY": 0.002,
+        "coverage": 0.081,
+        "sceneDrawCalls": 735
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "official-no-flag",
+      "pass": true,
+      "jay": "G03-Jay-Landing-R97.glb",
+      "chef": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+      "sourceStage": false
+    },
+    {
+      "name": "official-explicit-off",
+      "pass": true,
+      "jay": "G03-Jay-Landing-R97.glb",
+      "chef": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+      "sourceStage": false
+    },
+    {
+      "name": "manual-preview-no-qa",
+      "pass": true,
+      "jay": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+      "chef": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+      "sourceStage": true
+    },
+    {
+      "name": "manual-preview-qa",
+      "pass": true,
+      "jay": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+      "chef": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+      "sourceStage": true
+    }
+  ],
+  "errors": []
+}

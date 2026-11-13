@@ -9,7 +9,7 @@
 import {BY_ID} from '../engine.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {createVrmCharacterActing} from './vrm-character-acting.mjs';
-import {instantiateSummon,UNIT_MODEL_IDS} from './summon-models.mjs';
+import {instantiateSummon,UNIT_MODEL_IDS,R134_JAY_STAGE} from './summon-models.mjs';
 import {faceOpponentYaw,faceOpponentDot} from './summon-orientation.mjs';
 import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mjs';
 import {ACTOR_COMEDY_SIGNATURES} from './actor-comedy-signatures.mjs';
@@ -281,7 +281,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      state={key,id,uid,side,index,kind,object,created:performance.now(),
       r117Rig:kind==='gltf-instance'?createVisibleLifeActing(THREE,object,id):null,
       r117Props:kind==='gltf-instance'?createPropLifeActing(THREE,object,id):null,
-      r133Contact:R133_SHOE_QA&&['E03','G03','T04'].includes(id)&&
+      r133Contact:(R133_SHOE_QA&&['E03','G03','T04'].includes(id)||
+       id==='G03'&&R134_JAY_STAGE)&&
        kind==='gltf-instance'&&object.userData.r61?.r132BakedRestOriginalSource?
        createR133SourceShoeContact(THREE,object,id):null,
       acting:object.userData.r105Acting||null,
@@ -896,7 +897,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   // actual exchange lunge, victory movement, and source-skeleton animation.
   // A supporting original shoe is raised only by its measured penetration;
   // its companion shoe retains its relative distance, preserving real gait.
-  if(R133_SHOE_QA)for(const state of entries.values()){
+  if(R133_SHOE_QA||R134_JAY_STAGE)for(const state of entries.values()){
    const receipt=state.r133Contact?.apply();
    if(receipt?.appliedLift&&state.status?.label)
     state.status.label.position.y+=receipt.appliedLift;
@@ -1080,6 +1081,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     r130FullBody:['G02','T03'].includes(s.id)?s.object.userData.r61?.getR130FullBody?.():undefined,
     r131Arms:s.object.userData.r61?.getR131Arms?.()||null,
     r133ShoeContact:s.r133Contact?.inspect()||null,
+    r134JayStage:s.id==='G03'?s.object.userData.r61?.getR134JayStage?.()||null:null,
     r90Pose:s.kind==='gltf-instance'?s.object.userData.r61?.getCombatPose?.():undefined,
     r90ClipRate:s.kind==='gltf-instance'?s.object.userData.r61?.getClipRate?.():undefined,
     artApproved:false};
