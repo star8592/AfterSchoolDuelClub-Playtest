@@ -197,6 +197,7 @@ let r121ContactReceipts=0;
 const pendingSpellContacts=[];
 const pendingCrowdAccidents=[];
 let r122AccidentReceipts=0;
+let crowdCloseup=null,r123ReactionCuts=0,r123ShotWeight=0;
 let podiumCards=null,handCards=null;
 let absoluteSeconds=0;
 let renderFrameTiming=0;
@@ -755,6 +756,11 @@ function loop(){
   // The corresponding real 3D seat accessory already existed before the
   // accident; it now tumbles, spills/scatters and returns to its owner.
   const prop=bleacherProps?.play(accident,absoluteSeconds);
+  if(prop&&PARAMS.get('r123Closeup')!=='off'){
+   crowdCloseup={anchor:{...hit},started:absoluteSeconds,scenario:accident.scenario,
+    spectatorIndex:accident.spectatorIndex};
+   r123ReactionCuts++;
+  }
   r122AccidentReceipts++;
   reply('ASDC_R122_CROWD_ACCIDENT',{
    serial:accident.serial,card:accident.card,side:accident.side,
@@ -798,7 +804,29 @@ function loop(){
   height+push*.055,CAMERA_LOOK_AT.z+Math.cos(angle)*distance-Math.sin(angle)*arc);
  choreographyQA.cameraOrbit=Number(arc.toFixed(4));
  choreographyQA.maxOrbit=Math.max(choreographyQA.maxOrbit,Math.abs(arc));
- camera.lookAt(CAMERA_LOOK_AT.x,CAMERA_LOOK_AT.y+push*.07,CAMERA_LOOK_AT.z);
+ // R123: a brief forward-facing reaction shot tells the *visible* joke.
+ // The base frontal two-duelist camera is restored mathematically after
+ // 2.6s; no overhead camera, no second render pass or additional drawcalls.
+ let aimX=CAMERA_LOOK_AT.x,aimY=CAMERA_LOOK_AT.y+push*.07,aimZ=CAMERA_LOOK_AT.z;
+ r123ShotWeight=0;
+ if(crowdCloseup){
+  const elapsed=absoluteSeconds-crowdCloseup.started;
+  if(elapsed>2.75)crowdCloseup=null;
+  else if(elapsed>=0&&!reduced&&Math.abs(orbitYaw)<45){
+   const ease=v=>{const x=clamp(v,0,1);return x*x*(3-2*x)};
+   const weight=.96*ease(elapsed/.34)*(1-ease((elapsed-1.68)/.78));
+   const a=crowdCloseup.anchor;
+   const target=new THREE.Vector3(a.x,a.y+1.31,a.z+.22);
+   const eye=new THREE.Vector3(target.x+(target.x>0?-.32:.32),
+    target.y+(narrow?1.6:1.20),target.z+(narrow?8.0:6.05));
+   camera.position.lerp(eye,weight);
+   aimX+=(target.x-aimX)*weight;
+   aimY+=(target.y-aimY)*weight;
+   aimZ+=(target.z-aimZ)*weight;
+   r123ShotWeight=weight;
+  }
+ }
+ camera.lookAt(aimX,aimY,aimZ);
  keepArenaVisible();
  const contact=t>=2.83&&t<3.11||t>=3.88&&t<4.15;
  $('impact').hidden=!playing||!contact;
@@ -977,6 +1005,9 @@ function exposeQA(){
   get spellContactFX(){return spellContactFX?.stats||null},
   get spectatorChaosFX(){return spectatorChaosFX?.stats||null},
   get bleacherProps(){return bleacherProps?.stats||null},
+  get r123Camera(){return {cuts:r123ReactionCuts,weight:+r123ShotWeight.toFixed(3),
+   spectatorIndex:crowdCloseup?.spectatorIndex??null,
+   frontFacingCloseup:true,extraRenderPasses:0}},
   get r122AccidentReceipts(){return r122AccidentReceipts},
   get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
   get r121ContactReceipts(){return r121ContactReceipts},
