@@ -1,0 +1,424 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "msg": "desktop real authored summon model present",
+      "detail": {
+        "side": "ai",
+        "uid": "U9001",
+        "id": "E02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.49,
+          "height": 0.345,
+          "depth": 1.749,
+          "minY": 0.48,
+          "maxY": 0.824,
+          "coverageWidth": 0.108,
+          "coverageHeight": 0.086,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.118,
+            "right": 0.333,
+            "top": -0.012,
+            "bottom": -0.184
+          },
+          "frontDot": 1
+        },
+        "wingMorph": {
+          "wing_left": {
+            "weights": [
+              0.08610666702466985,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          },
+          "wing_right": {
+            "weights": [
+              0.07175555852699436,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          }
+        },
+        "hp": 2,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          1.51,
+          0
+        ],
+        "position": [
+          1.75,
+          0.48,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          0.07
+        ],
+        "skins": 1,
+        "meshes": 17,
+        "clips": 5,
+        "playingClips": [
+          "Idle_Glide"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      }
+    },
+    {
+      "passed": true,
+      "msg": "desktop defeated source GLB retained for physical recoil",
+      "detail": {
+        "ret": {
+          "reservedSpellTargets": 1,
+          "expiredSpellTargets": 0,
+          "active": [
+            "ai:U9001"
+          ]
+        },
+        "entries": [
+          "E02:U9001"
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "msg": "desktop real 3D summon flinched with unique elemental contact",
+      "detail": {
+        "reactions": 1,
+        "fx": {
+          "elements": 15,
+          "spawned": 1,
+          "expired": 0,
+          "rejected": 0,
+          "active": 1,
+          "peak": 1,
+          "activeElements": [
+            "electric"
+          ],
+          "ruleMutations": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "msg": "desktop E02 original Qwen hurt recording accepted",
+      "detail": true
+    },
+    {
+      "passed": true,
+      "msg": "desktop dead GLB returned cleanly with zero rule mutation",
+      "detail": {
+        "summons": {
+          "revision": 3,
+          "r102Comedy": {
+            "gestures": 0,
+            "summons": 0,
+            "comboReactions": 0,
+            "boneFrames": 0,
+            "active": [],
+            "lastComic": null
+          },
+          "r117PropLife": [],
+          "r119TrueSkinVertices": [],
+          "r117CharacterMotion": [],
+          "r116LifeStates": [],
+          "r114FootContacts": [],
+          "r120CharacterTheatre": [],
+          "r113DanceStages": [],
+          "r112Victory": null,
+          "hpDisplayMode": "auto",
+          "activeHpStyle": "full",
+          "visibleHpTags": 0,
+          "total": 0,
+          "models": 0,
+          "pendingArt": 0,
+          "prototypeArt": 0,
+          "loadedPrototypeIds": [
+            "E02",
+            "E03",
+            "E04",
+            "G02",
+            "G03",
+            "G04",
+            "M01",
+            "M02",
+            "T01",
+            "T02",
+            "T03",
+            "T04"
+          ],
+          "cardIds": [
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "G01",
+            "G02",
+            "G03",
+            "G04",
+            "M01",
+            "M02",
+            "T01",
+            "T02",
+            "T03",
+            "T04"
+          ],
+          "entries": []
+        },
+        "retentions": {
+          "reservedSpellTargets": 1,
+          "expiredSpellTargets": 1,
+          "active": []
+        },
+        "spellReactions": 1,
+        "fx": {
+          "elements": 15,
+          "spawned": 1,
+          "expired": 1,
+          "rejected": 0,
+          "active": 0,
+          "peak": 1,
+          "activeElements": [],
+          "ruleMutations": 0
+        },
+        "receipts": 1,
+        "voices": [
+          {
+            "id": "E02",
+            "kind": "hurt",
+            "variant": "hurt_v2"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "msg": "desktop no JS or missing HTTP assets",
+      "detail": []
+    },
+    {
+      "passed": true,
+      "msg": "portrait real authored summon model present",
+      "detail": {
+        "side": "ai",
+        "uid": "U9001",
+        "id": "E02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.49,
+          "height": 0.343,
+          "depth": 1.749,
+          "minY": 0.481,
+          "maxY": 0.825,
+          "coverageWidth": 0.123,
+          "coverageHeight": 0.029,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.152,
+            "right": 0.397,
+            "top": -0.003,
+            "bottom": -0.061
+          },
+          "frontDot": 1
+        },
+        "wingMorph": {
+          "wing_left": {
+            "weights": [
+              0.0834133336738304,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          },
+          "wing_right": {
+            "weights": [
+              0.0695111139843494,
+              0
+            ],
+            "textured": true,
+            "normal": true,
+            "roughness": true
+          }
+        },
+        "hp": 2,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          1.52,
+          0
+        ],
+        "position": [
+          1.75,
+          0.48,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.27,
+          0.03
+        ],
+        "skins": 1,
+        "meshes": 17,
+        "clips": 5,
+        "playingClips": [
+          "Idle_Glide"
+        ],
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      }
+    },
+    {
+      "passed": true,
+      "msg": "portrait defeated source GLB retained for physical recoil",
+      "detail": {
+        "ret": {
+          "reservedSpellTargets": 1,
+          "expiredSpellTargets": 0,
+          "active": [
+            "ai:U9001"
+          ]
+        },
+        "entries": [
+          "E02:U9001"
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "msg": "portrait real 3D summon flinched with unique elemental contact",
+      "detail": {
+        "reactions": 1,
+        "fx": {
+          "elements": 15,
+          "spawned": 1,
+          "expired": 0,
+          "rejected": 0,
+          "active": 1,
+          "peak": 1,
+          "activeElements": [
+            "electric"
+          ],
+          "ruleMutations": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "msg": "portrait E02 original Qwen hurt recording accepted",
+      "detail": true
+    },
+    {
+      "passed": true,
+      "msg": "portrait dead GLB returned cleanly with zero rule mutation",
+      "detail": {
+        "summons": {
+          "revision": 3,
+          "r102Comedy": {
+            "gestures": 0,
+            "summons": 0,
+            "comboReactions": 0,
+            "boneFrames": 0,
+            "active": [],
+            "lastComic": null
+          },
+          "r117PropLife": [],
+          "r119TrueSkinVertices": [],
+          "r117CharacterMotion": [],
+          "r116LifeStates": [],
+          "r114FootContacts": [],
+          "r120CharacterTheatre": [],
+          "r113DanceStages": [],
+          "r112Victory": null,
+          "hpDisplayMode": "auto",
+          "activeHpStyle": "compact",
+          "visibleHpTags": 0,
+          "total": 0,
+          "models": 0,
+          "pendingArt": 0,
+          "prototypeArt": 0,
+          "loadedPrototypeIds": [
+            "E02",
+            "E03",
+            "E04",
+            "G02",
+            "G03",
+            "G04",
+            "M01",
+            "M02",
+            "T01",
+            "T02",
+            "T03",
+            "T04"
+          ],
+          "cardIds": [
+            "E01",
+            "E02",
+            "E03",
+            "E04",
+            "G01",
+            "G02",
+            "G03",
+            "G04",
+            "M01",
+            "M02",
+            "T01",
+            "T02",
+            "T03",
+            "T04"
+          ],
+          "entries": []
+        },
+        "retentions": {
+          "reservedSpellTargets": 1,
+          "expiredSpellTargets": 1,
+          "active": []
+        },
+        "spellReactions": 1,
+        "fx": {
+          "elements": 15,
+          "spawned": 1,
+          "expired": 1,
+          "rejected": 0,
+          "active": 0,
+          "peak": 1,
+          "activeElements": [],
+          "ruleMutations": 0
+        },
+        "receipts": 1,
+        "voices": [
+          {
+            "id": "E02",
+            "kind": "hurt",
+            "variant": "hurt"
+          }
+        ]
+      }
+    },
+    {
+      "passed": true,
+      "msg": "portrait no JS or missing HTTP assets",
+      "detail": []
+    }
+  ],
+  "errors": []
+}

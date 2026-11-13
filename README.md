@@ -1,5 +1,7 @@
 # 放学后决斗社 — 3D 卡牌对战统一主线
 
+**R121 魔法真实命中升级：** 46 张法术卡覆盖 15 类角色锚点魔法，15 条原创元素音效、14 个召唤角色各 2 条独立 Qwen3-TTS 受击配音；击倒后完成动画再退场。见 [R121 施工与 QA 总账](docs/R121_ELEMENTAL_CONTACT_VOICE_RELEASE.md)。
+
 **R111 魔法武器库扩充：** 46张事件牌搭配32种校园魔法造型，恢复R79传送门，含GitHub/X研究和性能实测，见 [R111研究](docs/R111_GAME_MAGIC_ARSENAL_AND_OPEN_SOURCE_RESEARCH.md) 与 [魔法效果预览](r45-duel/qa/r111-magic-gallery.html)。
 
 **R110 真实出牌原画演出：** 旧的3D卡片只显示符号、并拒绝新增事件牌；现以60张实图做左右三维卡板投影与短暂大图入场，参见 [R110实测](docs/R110_ILLUSTRATED_CARD_PLAY_PROJECTION.md)。

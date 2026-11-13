@@ -1,0 +1,198 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "passed": true,
+      "description": "desktop genuine K01 event available",
+      "detail": null
+    },
+    {
+      "passed": true,
+      "description": "desktop 15 elemental FX categories are loaded",
+      "detail": {
+        "sfx": {
+          "elements": 15,
+          "spawned": 0,
+          "expired": 0,
+          "rejected": 0,
+          "active": 0,
+          "peak": 0,
+          "activeElements": [],
+          "ruleMutations": 0
+        },
+        "receipts": 0,
+        "hostHits": {
+          "player": {
+            "time": -100,
+            "damage": 0
+          },
+          "ai": {
+            "time": -100,
+            "damage": 0
+          }
+        }
+      }
+    },
+    {
+      "passed": true,
+      "description": "desktop canonical engine dealt exactly one damage",
+      "detail": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "passed": true,
+      "description": "desktop opponent real VRM receives exact element and damage reaction",
+      "detail": {
+        "player": {
+          "time": -100,
+          "damage": 0
+        },
+        "ai": {
+          "time": 0.6725,
+          "damage": 1,
+          "element": "absurd"
+        }
+      }
+    },
+    {
+      "passed": true,
+      "description": "desktop target anchored 3D contact does not modify rules",
+      "detail": {
+        "elements": 15,
+        "spawned": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "peak": 1,
+        "activeElements": [
+          "absurd"
+        ],
+        "ruleMutations": 0
+      }
+    },
+    {
+      "passed": true,
+      "description": "desktop canonical event confirms actual target hit",
+      "detail": {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "K01",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "stew",
+          "directDamage": 1,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "description": "desktop no JS or HTTP errors",
+      "detail": []
+    },
+    {
+      "passed": true,
+      "description": "portrait genuine K01 event available",
+      "detail": null
+    },
+    {
+      "passed": true,
+      "description": "portrait 15 elemental FX categories are loaded",
+      "detail": {
+        "sfx": {
+          "elements": 15,
+          "spawned": 0,
+          "expired": 0,
+          "rejected": 0,
+          "active": 0,
+          "peak": 0,
+          "activeElements": [],
+          "ruleMutations": 0
+        },
+        "receipts": 0,
+        "hostHits": {
+          "player": {
+            "time": -100,
+            "damage": 0
+          },
+          "ai": {
+            "time": -100,
+            "damage": 0
+          }
+        }
+      }
+    },
+    {
+      "passed": true,
+      "description": "portrait canonical engine dealt exactly one damage",
+      "detail": {
+        "player": 20,
+        "ai": 19
+      }
+    },
+    {
+      "passed": true,
+      "description": "portrait opponent real VRM receives exact element and damage reaction",
+      "detail": {
+        "player": {
+          "time": -100,
+          "damage": 0
+        },
+        "ai": {
+          "time": 0.6331999999880792,
+          "damage": 1,
+          "element": "absurd"
+        }
+      }
+    },
+    {
+      "passed": true,
+      "description": "portrait target anchored 3D contact does not modify rules",
+      "detail": {
+        "elements": 15,
+        "spawned": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "peak": 1,
+        "activeElements": [
+          "absurd"
+        ],
+        "ruleMutations": 0
+      }
+    },
+    {
+      "passed": true,
+      "description": "portrait canonical event confirms actual target hit",
+      "detail": {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "K01",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "stew",
+          "directDamage": 1,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    },
+    {
+      "passed": true,
+      "description": "portrait no JS or HTTP errors",
+      "detail": []
+    }
+  ],
+  "errors": []
+}

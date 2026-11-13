@@ -19,6 +19,8 @@ import {BY_ID} from '../engine.mjs';
 import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
 import {createSpellImpact} from './spell-impact.mjs';
 import {createMagicArsenal} from './magic-arsenal.mjs';
+import {describeSpellContact} from './spell-response-contract.mjs';
+import {createSpellContactFX} from './spell-contact-fx.mjs';
 import {createElementalVfx} from './elemental-vfx.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
@@ -184,11 +186,12 @@ let duelEffects=null;
 let comboDirector=null;
 let comedySpectacle=null;
 let liveScoreboard=null;
-let spellImpact=null,magicArsenal=null,elementalVfx=null;
+let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null;
 const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
 let actualHostHits=0;
-const pendingSpellUnitHits=[];
+let r121ContactReceipts=0;
+const pendingSpellContacts=[];
 let podiumCards=null,handCards=null;
 let absoluteSeconds=0;
 let renderFrameTiming=0;
@@ -244,6 +247,7 @@ function makeScene(){
  spellImpact=createSpellImpact(THREE,scene);
  magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
+ spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
  handCards=createHandPlayCards(THREE,scene);
   clock=new THREE.Clock();
@@ -633,6 +637,22 @@ function updateDuelistHosts(seconds){
    targetOut[hand]=targetVector.toArray();
   }
   host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
+  // Apply element-specific recoil only after the existing R120 body, face
+  // and wrist choreography has solved. No changed camera or card timeline.
+  const r121Age=seconds-strike.time;
+  if(strike.element&&r121Age>=0&&r121Age<.88){
+   const envelope=Math.sin(Math.PI*r121Age/.88);
+   const kind=strike.element;
+   const lean=({wind:.18,electric:.13,fire:.12,water:.14,ice:.025,
+     time:.012,earth:.11,metal:.10,absurd:.19,space:.14})[kind]??.10;
+   host.pivot.rotation.z+=sign*lean*envelope;
+   host.pivot.position.x+=-sign*(kind==='wind'?.17:kind==='time'?.012:.08)*envelope;
+   host.pivot.rotation.x+=(kind==='electric'?.075*Math.sin(r121Age*55):
+      kind==='ice'?.025*Math.sin(r121Age*27):kind==='absurd'?.075*Math.sin(r121Age*19):0)*envelope;
+   const chest=host.bones.get('J_Bip_C_Chest');
+   if(chest)chest.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
+     new THREE.Vector3(0,0,1),sign*lean*.38*envelope));
+  }
   host.choreography={phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
     recoil>.1?'hit':doFollow>.22?'follow_through':doCast>.1?'cast':
     doDisplay>.1?'raise_card':doDraw>.1?'draw':idleBlend>.08?act.type:'idle',
@@ -697,6 +717,7 @@ function loop(){
  spellImpact?.update(absoluteSeconds);
  magicArsenal?.update(absoluteSeconds);
  elementalVfx?.update(absoluteSeconds);
+ spellContactFX?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
  comboDirector?.update(absoluteSeconds,reduced);
  comedySpectacle?.update(absoluteSeconds,reduced);
@@ -710,11 +731,43 @@ function loop(){
  }
  const finishedCombo=comboDirector?.drainDone();
  if(finishedCombo)reply('ASDC_R100_COMBO_DONE',finishedCombo);
- for(let i=pendingSpellUnitHits.length-1;i>=0;i--){
-  const pending=pendingSpellUnitHits[i];
+ // One authoritative 3D contact frame; the rules and HP were resolved
+ // by engine.mjs, never by this renderer.
+ for(let i=pendingSpellContacts.length-1;i>=0;i--){
+  const pending=pendingSpellContacts[i];
   if(absoluteSeconds<pending.due)continue;
-  pendingSpellUnitHits.splice(i,1);
-  summonPresence?.reactToSpell?.(pending.side,pending.uids,absoluteSeconds);
+  pendingSpellContacts.splice(i,1);
+  const d=pending.descriptor;
+  const targets=d.unitDamage>0?
+   summonPresence?.spellWorldAnchors?.(d.victim,d.targetUids)||[]:[];
+  if(d.unitDamage>0&&d.targetUids.length){
+   summonPresence?.reactToSpell?.(d.victim,d.targetUids,absoluteSeconds,d.element);
+   for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
+  }
+  if(d.directDamage>0){
+   hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
+   arenaLife.observe('hit',{side:d.victim,at:absoluteSeconds});
+   livingCast.signal(d.victim,'hurt',absoluteSeconds);
+   stadiumEvidence?.reactAudience?.('hit',d.victim,absoluteSeconds);
+   actualHostHits++;
+   const host=duelistHosts.find(h=>h.side===d.victim);
+   if(host?.pivot){
+    const p=host.pivot.getWorldPosition(new THREE.Vector3());
+    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+   }
+  }else if(!d.damaging){
+   // Healing and buffs are self-side effects, not pretend enemy damage.
+   const host=duelistHosts.find(h=>h.side===d.caster);
+   if(host?.pivot){
+    const p=host.pivot.getWorldPosition(new THREE.Vector3());
+    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+   }
+  }
+  r121ContactReceipts++;
+  reply('ASDC_R121_SPELL_CONTACT',{serial:d.serial,card:d.id,
+   caster:d.caster,victim:d.victim,element:d.element,
+   directDamage:d.directDamage,unitDamage:d.unitDamage,
+   targetIds:targets.map(t=>t.id),contactCount:targets.length+(d.directDamage>0?1:0)});
  }
  arenaLife.tick(absoluteSeconds,{quiet:playing});
  actors.forEach(a=>reactActor(a,t,absoluteSeconds));
@@ -790,6 +843,12 @@ function onMessage(ev){
   comboDirector?.reset();
   comedySpectacle?.clear();
   summonPresence?.clearComicCombo();
+  summonPresence?.clearSpellTargets?.();
+  pendingSpellContacts.length=0;
+  spellSerials.clear(); // serials restart at each tutorial stage / deck
+  spellContactFX?.reset();
+  hostHits.player={time:-100,damage:0};
+  hostHits.ai={time:-100,damage:0};
   return;
  }
  if(msg?.type==='ASDC_R100_REAL_COMBO'){
@@ -839,16 +898,15 @@ function onMessage(ev){
    comedySpectacle?.trigger('spell_'+msg.effect,
     msg.side,msg.serial,absoluteSeconds,{reduced});
   if(spellSerials.size>500)spellSerials.clear();
-  const victim=msg.side==='player'?'ai':'player';
-  const uids=Array.isArray(msg.targetUids)?
-   msg.targetUids.filter(uid=>typeof uid==='string'&&/^U\d+$/.test(uid)).slice(0,5):[];
-  if(uids.length)pendingSpellUnitHits.push({side:victim,uids,due:absoluteSeconds+.46});
-  if(Number.isInteger(msg.directDamage)&&msg.directDamage>0){
-   hostHits[victim]={time:absoluteSeconds+.46,damage:msg.directDamage};
-   arenaLife.observe('hit',{side:victim,at:absoluteSeconds});
-   stadiumEvidence?.reactAudience?.('hit',victim,absoluteSeconds);
-   livingCast.signal(victim,'hurt',absoluteSeconds+.46);
-   actualHostHits++;
+  const descriptor=describeSpellContact(msg);
+  if(descriptor){
+   // The authoritative spell arrives before the post-resolution board sync.
+   // Retain a KO'd source model until its hit and recoil have finished.
+   if(descriptor.unitDamage>0&&descriptor.targetUids.length)
+    summonPresence?.reserveSpellTargets?.(
+     descriptor.victim,descriptor.targetUids,absoluteSeconds+1.28);
+   pendingSpellContacts.push({descriptor,due:absoluteSeconds+.46});
+   if(pendingSpellContacts.length>12)pendingSpellContacts.shift();
   }
   return;
  }
@@ -915,11 +973,14 @@ function exposeQA(){
   get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.selectedFile||x.spec.file,baselineFile:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale,measured:x.measured})):[];},
   get combatEvents(){return summonPresence?.sequenceStats()||null},
   get spellReactions(){return summonPresence?.spellReactions||0},
+  get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
   get spellImpact(){return spellImpact?.stats||null},
   get magicArsenal(){return magicArsenal?.stats||null},
   get elementalVfx(){return elementalVfx?.stats||null},
+  get spellContactFX(){return spellContactFX?.stats||null},
+  get r121ContactReceipts(){return r121ContactReceipts},
   get comboDirector(){return comboDirector?.stats||null},
   get comedySpectacle(){return comedySpectacle?.stats||null},
   get hostHits(){return structuredClone(hostHits)},

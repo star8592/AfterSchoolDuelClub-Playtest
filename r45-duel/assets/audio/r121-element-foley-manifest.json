@@ -1,0 +1,113 @@
+{
+  "version": "R121",
+  "license": "project-original",
+  "sampleRate": 48000,
+  "authoring": "deterministic numpy additive, filtered-noise, impulse, and chirp synthesis",
+  "elements": {
+    "metal": {
+      "file": "r121_metal.ogg",
+      "sha256": "f473be6fb87a016d55c3147feea7ffebb88bec4347655f011e1d5afd9190c646",
+      "bytes": 6374,
+      "seconds": 0.92,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "wood": {
+      "file": "r121_wood.ogg",
+      "sha256": "ff41b6d82cd780037ba2450cbba79b3f978da15eb4fc5faaaee0a4178d5a1179",
+      "bytes": 3921,
+      "seconds": 0.73,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "water": {
+      "file": "r121_water.ogg",
+      "sha256": "c43aa87b1141a649c83ceb5c84bb9c94d6fb62ce101fc7fe9c35c402aa212fc0",
+      "bytes": 4655,
+      "seconds": 0.88,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "fire": {
+      "file": "r121_fire.ogg",
+      "sha256": "dd5aa84d4636d889baedb1de57ad16669aea9131c0fa5ff2b8f338e7c855499d",
+      "bytes": 4804,
+      "seconds": 0.88,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "earth": {
+      "file": "r121_earth.ogg",
+      "sha256": "d1af1aa70256e5800817a66ace456c73cf013a70f0cbb4d7b2a6977fc9c6ef2a",
+      "bytes": 3837,
+      "seconds": 0.77,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "electric": {
+      "file": "r121_electric.ogg",
+      "sha256": "a54d75fb79694a62a63055d665f19b8cee3375ce3c8db05121f13142f854b373",
+      "bytes": 4074,
+      "seconds": 0.73,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "wind": {
+      "file": "r121_wind.ogg",
+      "sha256": "00085cb1f2274cb300f6ed8d1008337786e91274fab53e4d8af612a403df60ee",
+      "bytes": 5297,
+      "seconds": 0.95,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "ice": {
+      "file": "r121_ice.ogg",
+      "sha256": "ea0272f1b0f8d8fe3507642f11c4ea7365ff0574039f009992a38dd21fd25eaa",
+      "bytes": 6270,
+      "seconds": 0.92,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "light": {
+      "file": "r121_light.ogg",
+      "sha256": "f47197abfb72d5dbb661f064efc48c8799ea8893b15fe52ced55c99caba8bc65",
+      "bytes": 4422,
+      "seconds": 0.73,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "shadow": {
+      "file": "r121_shadow.ogg",
+      "sha256": "88d4d339f5a674c96181ef9525a7528367689a2d808818607ed88588864dd268",
+      "bytes": 5125,
+      "seconds": 1.02,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "time": {
+      "file": "r121_time.ogg",
+      "sha256": "fe095d9587e306fda7acf749cce763cb39aa080f1cc3ba16ca73feef2da13c5f",
+      "bytes": 7529,
+      "seconds": 1.04,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "space": {
+      "file": "r121_space.ogg",
+      "sha256": "511b8cb054d4eb5fec833a54ef3bc5bf93865e8116e5906ea97279a954337140",
+      "bytes": 5487,
+      "seconds": 0.99,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "mind": {
+      "file": "r121_mind.ogg",
+      "sha256": "08f1d4433acf2fd5038f7f6b1e9a4d5980944cfbb22bbb783958cc674ec0c6c0",
+      "bytes": 4808,
+      "seconds": 0.73,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "sound": {
+      "file": "r121_sound.ogg",
+      "sha256": "ba63f61bf481db123224d2c20583203ba279af84b2a5244b0d7a8c4fdadf60e3",
+      "bytes": 4691,
+      "seconds": 0.73,
+      "origin": "synthesized-from-source-no-external-samples"
+    },
+    "absurd": {
+      "file": "r121_absurd.ogg",
+      "sha256": "aea535377aef41c28b64286186ea286524d76eeeffa00e22082882edfa231aab",
+      "bytes": 3865,
+      "seconds": 0.73,
+      "origin": "synthesized-from-source-no-external-samples"
+    }
+  }
+}

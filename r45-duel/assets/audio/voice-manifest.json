@@ -70,6 +70,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "E01-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "哎哟！铃声没追上，魔法倒追上了！",
+        "duration_seconds": 5.71,
+        "sha256": "8615977b210618fece3e64423d8e9296bc369efeafe6961c74270189d556df5b",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "E01-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "这一下简直比迟到还吓人！",
+        "duration_seconds": 2.41,
+        "sha256": "57cc17352b6b5e295176362cd6cb7685bbdb9475e70ea57105fff48d5e4afe36",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "G01": {
@@ -138,6 +160,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "G01-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "哇！我刚搭好的结构全散啦！",
+        "duration_seconds": 3.11,
+        "sha256": "a085707a6273c83a5a11d33c278d8b0374bc4b7f939beff1ab754f12c01f6058",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "G01-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "不好！橡皮筋要断啦！",
+        "duration_seconds": 2.01,
+        "sha256": "4dc9c8a3ff30b0056e9d35111be6ad8c71f22552bb5d1641f8e03cf857dbb3b5",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "E03": {
@@ -206,6 +250,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "E03-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "哎呀！加油声不能当盾牌呀！",
+        "duration_seconds": 2.25,
+        "sha256": "aebbdec36d17564f600d714256f49cfca8e46364415d3d9ee0664f71c3a556f3",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "E03-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "我的加油口号都被打断啦！",
+        "duration_seconds": 1.85,
+        "sha256": "eea79d856776daddfbd8cf93f7185e8332e0fe648f350451132f76603c65e503",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "E04": {
@@ -274,6 +340,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "E04-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "哎哟！这盒饭差点被打翻了！",
+        "duration_seconds": 2.09,
+        "sha256": "d92caa85392fca167ffd4191ae442bce2a89975ebb54a73e52c3fc70deb2b4b4",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "E04-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "别碰我的饭盒！那是热的！",
+        "duration_seconds": 2.41,
+        "sha256": "84a609de061bbe13bc98e6f0b55d83b38294005db938a212900e58a34e3ae8d9",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "G02": {
@@ -342,6 +430,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "G02-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "哎呀！这题不能这么乱解呀！",
+        "duration_seconds": 2.57,
+        "sha256": "51b1921af3ad8cfb101193c0d8e2a1ba0b617c923b7c4e5b767c58219a444c6d",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "G02-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "不对不对！这一步算错了！",
+        "duration_seconds": 2.09,
+        "sha256": "a16a51788cb0590a48e84428796528f01555fdd21dfc6d28070832342a90c21e",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "G03": {
@@ -410,6 +520,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "G03-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "实验失控！赶快往后撤！",
+        "duration_seconds": 2.49,
+        "sha256": "1a93fd88f64c424ef9dbc7b8cd47b5c24e1d37087d15973d004e7c24c908171f",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "G03-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "等等，实验报告里没有这一项！",
+        "duration_seconds": 3.11,
+        "sha256": "89c3b78cdcfe6a23cb83feaa6dde6ab3e950a99c8d896ff00b79da429852ca2c",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "G04": {
@@ -478,6 +610,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "G04-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "我宣布！现在暂停三秒！",
+        "duration_seconds": 3.11,
+        "sha256": "92f768eecb413e3073e2122d776cb375b06e46345e703731e15c3255bfbf9fe6",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "G04-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "这可不在我的日程安排里！",
+        "duration_seconds": 2.97,
+        "sha256": "105223c6a0d852a92a7a1abac1c7549a8e9971a669892d47d64cccdc424ec29d",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "T01": {
@@ -546,6 +700,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "T01-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "各位听众！我刚才被击中了！",
+        "duration_seconds": 3.21,
+        "sha256": "20f046af2a35e20e2681e65268fb427e0bf54dfbb39b85863f2e253c0ec035d5",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "T01-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "紧急插播！本台主持人遭到袭击！",
+        "duration_seconds": 3.41,
+        "sha256": "500693bf9262f850e4ec41738e2134611138573caf9ae2335365220fb8ac4de0",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "T03": {
@@ -614,6 +790,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "T03-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "哎呀！包裹飞了，快接住！",
+        "duration_seconds": 3.21,
+        "sha256": "0344af49c0f22ca19e5b06a2bb348b90ec2a9b0e13f776665d33a5537d6cdc14",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "T03-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "这单快递差点被魔法签收啦！",
+        "duration_seconds": 3.11,
+        "sha256": "42b0ddbedc26954a299fc49ed13528c7340eb3279cc7375ff8a58d7d44d982ac",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "T04": {
@@ -682,6 +880,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "T04-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "报告！活动室需要紧急加固！",
+        "duration_seconds": 3.31,
+        "sha256": "0dec82204f3c60b9f37465af0dce442a27ffde613a6780f43f38e587aa2292ff",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "T04-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "警告！禁止在门口乱丢魔法！",
+        "duration_seconds": 3.61,
+        "sha256": "38fcff7ce507270d02d817af7c280284d7e06d799be5315559c83521059a022b",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "M01": {
@@ -750,6 +970,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "M01-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "哎哟！你把我的节拍打乱啦！",
+        "duration_seconds": 2.41,
+        "sha256": "e4f7672b9645c9d3ca654df048f685a64acb5c7610c633503da943703c7f6d68",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "M01-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "喂！你这可是突然变调！",
+        "duration_seconds": 3.11,
+        "sha256": "39046b6a7c6e0dce0b54eb880c66cab5078613fd53f702a3ed28378eb6218188",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "T02": {
@@ -818,6 +1060,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "T02-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "本菜单暂时不能正常翻页！",
+        "duration_seconds": 2.01,
+        "sha256": "edc41eb9c2cf22de84c7730a183357af345aa44bf550b1a658b4c9498c778deb",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "T02-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "今天的推荐菜！是撤退！",
+        "duration_seconds": 1.93,
+        "sha256": "3655e7cf88ee0d7d7b8f77ded565a3f3aa3932432c021e979c0ee182d6f47913",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "M02": {
@@ -886,6 +1150,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "M02-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "哎呀！我的大勺子差点飞啦！",
+        "duration_seconds": 2.41,
+        "sha256": "b1c3be2c44af7e6550e73f46af83be56e1a2fd731080303a635aa7a49388f78b",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "M02-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "谁把我的锅盖当飞盘啦！",
+        "duration_seconds": 1.93,
+        "sha256": "c2d0bbb410b8c38784a2326305e067626dd01cfca8f76377e5b4edff4f41f92b",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "HOST_PLAYER": {
@@ -1112,6 +1398,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "hurt": {
+        "file": "E02-hurt.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "哎呀！我的纸飞机怎么也中招了！",
+        "duration_seconds": 3.91,
+        "sha256": "25c8bab6c53655f6b34aa108d7f058cb9f6faadec02bffad78fe3ecd8af03bd1",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "hurt_v2": {
+        "file": "E02-hurt_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "纸飞机！快来帮我挡一下！",
+        "duration_seconds": 2.17,
+        "sha256": "7c972f1af179857238242d9210d9e162f116555762bee6cc265a2d349b51b565",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     }
   },
