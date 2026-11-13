@@ -6,6 +6,7 @@
 import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
+import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
@@ -677,7 +678,7 @@ $('play').addEventListener('click',()=>{
      setTimeout(()=>audio.playCue(sound,'player'),460);
    else audio.playCue(sound,'player');
   }
-  if(g.hp.ai<preHp.ai)setTimeout(()=>audio.playCharacter('HOST_AI','hurt'),460);
+  // Actual hurt VO is emitted by the scene's R121 physical contact receipt.
  }
  const suffix=c.kind==='unit'?'已进入中央竞技场。本回合待命，下次轮到你才会攻击。':
   '已立即结算事件效果。';
@@ -745,9 +746,7 @@ $('end').addEventListener('click',()=>{
       setTimeout(()=>audio.playCue(fx,'ai'),460);
     else audio.playCue(fx,'ai');
    }
-   if(event.spellOutcome?.directDamage>0){
-    setTimeout(()=>audio.playCharacter('HOST_PLAYER','hurt'),460);
-   }
+   // R121: contact receipt, not an arbitrary timeout, schedules victim VO.
   }
  }
  const fight=findRealExchange(fresh);
@@ -788,8 +787,30 @@ $('end').addEventListener('click',()=>{
   announce(summary+'。现在轮到你了。','ai');
  }
 });
+const r121SpokenContacts=new Set();
 window.addEventListener('message',event=>{
  if(event.origin!==location.origin||event.source!==scene.contentWindow)return;
+ if(event.data?.type==='ASDC_R121_SPELL_CONTACT'){
+  const d=event.data;
+  const match=g.events.find(e=>e.type==='card_play'&&e.serial===d.serial&&
+   e.card===d.card&&e.side===d.caster);
+  const outcome=match?.spellOutcome;
+  if(!outcome||CARD_ELEMENTS[d.card]!==d.element||
+    d.victim!==(d.caster==='player'?'ai':'player')||
+    d.directDamage!==outcome.directDamage||d.unitDamage!==outcome.unitDamage||
+    r121SpokenContacts.has(d.serial))return;
+  r121SpokenContacts.add(d.serial);
+  if(r121SpokenContacts.size>500)r121SpokenContacts.clear();
+  const hasHit=d.directDamage>0||d.unitDamage>0;
+  if(hasHit){
+   audio.playCue(ELEMENTS[d.element]?.sound||'hit',d.victim);
+   if(d.directDamage>0)
+    audio.playCharacter(d.victim==='player'?'HOST_PLAYER':'HOST_AI','hurt');
+   else if(Array.isArray(d.targetIds)&&d.targetIds.length)
+    audio.playCharacter(d.targetIds[0],'hurt');
+  }
+  return;
+ }
  if(event.data?.type==='ASDC_R45_SCENE_READY'){
   sceneReady=true;sceneError=false;
   syncScene();
