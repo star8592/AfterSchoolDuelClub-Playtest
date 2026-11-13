@@ -48,6 +48,12 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
   active={type,winner:side,started:seconds,duration:type==='finale'?6.4:type==='hit'?1.45:1.65};
   events++;return true;
  }
+ function spectatorAnchor(index){
+  const actor=actors[index];
+  if(!actor)return null;
+  const p=actor.object.getWorldPosition(new THREE.Vector3());
+  return {x:p.x,y:p.y,z:p.z,id:actor.spec.id,index,side:actor.spec.team};
+ }
  function reactAccident(incident,seconds){
   if(!incident||!Number.isInteger(incident.spectatorIndex)||
     incident.spectatorIndex<0||incident.spectatorIndex>=PARTICIPANTS.length||
@@ -95,7 +101,7 @@ export function createStadiumAudience(THREE,root,lifeWorld=null){
   frames++;
   if(active&&elapsed>active.duration)active=null;
  }
- return {mount,react,reactAccident,update,get stats(){return{
+ return {mount,react,reactAccident,spectatorAnchor,update,get stats(){return{
   loaded:actors.length,realModelIds:actors.map(a=>a.spec.id),
   skinnedRealActors:actors.filter(a=>a.instance.mixer).length,
   frames,movementFrames,events,accidentEvents,active:active?{...active}:null,
