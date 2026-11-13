@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {MeshoptDecoder} from '../../assets/meshopt/meshopt_decoder.mjs';
 const $=id=>document.getElementById(id);
 const canvas=$('canvas');
 const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});
@@ -63,7 +64,7 @@ function refreshOwlVariant(){
 }
 $('owl-variant').addEventListener('click',()=>{owlStudy=!owlStudy;select(idx)});
 
-const loader=new GLTFLoader();
+const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 const ambient=[];
 
 function fit(){
