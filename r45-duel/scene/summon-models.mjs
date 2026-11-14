@@ -10,6 +10,7 @@ import {createR127OwlSourceFeathers} from './r127-owl-source-feather-motion.mjs'
 import {createR128PhilSourceFullBody,repairR128PhilSourceHierarchy} from './r128-source-lower-body.mjs';
 import {createR130SpecialFullBody,prepareR130SourceLegs} from './r130-special-source-legs.mjs';
 import {repairR131TrueSourceArms} from './r131-real-source-upper-arms.mjs';
+import {repairR143OriginalTorsoHierarchy} from './r143-source-trunk-bind.mjs';
 import {createR134JayClips,createR134JaySequencer} from './r134-jay-source-stage.mjs';
 import {createR135PairClips,createR135PairSequencer} from './r135-source-pair-acting.mjs';
 import {createR136SourceClips,createR136EnsembleSequencer} from './r136-source-ensemble.mjs';
@@ -585,6 +586,17 @@ export function instantiateSummon(THREE,template){
  })();
  const r131Arms=r119Skin&&(r131ArmsOn||r134Jay||r135Pair||r136Cast)?
   repairR131TrueSourceArms(THREE,instance,template.id):null;
+ // R143 audit pilot: only on source high-poly rigs and explicit QA opt-in.
+ // Keep a direct rollback without replacing source GLB or R97 defaults.
+ const r143TrunkEnabled=(()=>{
+  const local=new URLSearchParams(location.search);
+  const parent=(()=>{try{return window.parent!==window?
+   new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+  return local.get('r143Rig')==='on'||parent?.get('r143Rig')==='on';
+ })();
+ const r143Torso=r131Arms&&r143TrunkEnabled&&
+  ['E03','E04','G03','G04','T04'].includes(template.id)?
+  repairR143OriginalTorsoHierarchy(THREE,instance,template.id):null;
  // Diagnostic ONLY: reveal the authentic source skin's unanimated bind
  // pose to distinguish a faulty GLB export from faulty action curves.
  // Disabled in all normal gameplay; not a public rollout option.
@@ -819,6 +831,7 @@ export function instantiateSummon(THREE,template){
   getR130FullBody:()=>r130Special?
    {...r130Special.inspect(),hierarchyProof:r130Hierarchy}:null,
   getR131Arms:()=>r131Arms?.inspect()||null,
+  getR143SourceTrunk:()=>r143Torso?.inspect()||null,
   r131RestReboundMeshes:q131Rebound,
   r131BakedRestOriginalSource:r131SourceBaked,
   r132BakedRestOriginalSource:r132SourceBaked,
