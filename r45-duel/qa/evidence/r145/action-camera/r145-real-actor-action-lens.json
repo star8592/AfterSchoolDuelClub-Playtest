@@ -1,0 +1,862 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop off both real author GLB loaded"
+    },
+    {
+      "pass": true,
+      "label": "desktop off R97 original default retained"
+    },
+    {
+      "pass": true,
+      "label": "desktop off shooting actual engine-validated attack event"
+    },
+    {
+      "pass": true,
+      "label": "desktop off unchanged opponent-facing model direction"
+    },
+    {
+      "pass": true,
+      "label": "desktop off original GPU draw calls remain bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop independent manual camera opt out works"
+    },
+    {
+      "pass": true,
+      "label": "desktop off camera restored wide without cumulative zoom"
+    },
+    {
+      "pass": true,
+      "label": "desktop off court facing and 3D board intact after recovery"
+    },
+    {
+      "pass": true,
+      "label": "desktop on both real author GLB loaded"
+    },
+    {
+      "pass": true,
+      "label": "desktop on R97 original default retained"
+    },
+    {
+      "pass": true,
+      "label": "desktop on shooting actual engine-validated attack event"
+    },
+    {
+      "pass": true,
+      "label": "desktop on unchanged opponent-facing model direction"
+    },
+    {
+      "pass": true,
+      "label": "desktop on original GPU draw calls remain bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop on full original skinned performer visibly inside camera"
+    },
+    {
+      "pass": true,
+      "label": "desktop on action camera actual original attacking source"
+    },
+    {
+      "pass": true,
+      "label": "desktop on camera restored wide without cumulative zoom"
+    },
+    {
+      "pass": true,
+      "label": "desktop on court facing and 3D board intact after recovery"
+    },
+    {
+      "pass": true,
+      "label": "desktop highpoly both real author GLB loaded"
+    },
+    {
+      "pass": true,
+      "label": "desktop highpoly R144 actual weighted hips kept"
+    },
+    {
+      "pass": true,
+      "label": "desktop highpoly shooting actual engine-validated attack event"
+    },
+    {
+      "pass": true,
+      "label": "desktop highpoly unchanged opponent-facing model direction"
+    },
+    {
+      "pass": true,
+      "label": "desktop highpoly original GPU draw calls remain bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop highpoly full original skinned performer visibly inside camera"
+    },
+    {
+      "pass": true,
+      "label": "desktop highpoly action camera actual original attacking source"
+    },
+    {
+      "pass": true,
+      "label": "desktop highpoly camera restored wide without cumulative zoom"
+    },
+    {
+      "pass": true,
+      "label": "desktop highpoly court facing and 3D board intact after recovery"
+    },
+    {
+      "pass": true,
+      "label": "desktop no JS, GLB, resource error"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual attacker visible >=45% larger in the official wide camera"
+    },
+    {
+      "pass": true,
+      "label": "desktop actual skinned highpoly attacker also enlarged"
+    },
+    {
+      "pass": true,
+      "label": "portrait off both real author GLB loaded"
+    },
+    {
+      "pass": true,
+      "label": "portrait off R97 original default retained"
+    },
+    {
+      "pass": true,
+      "label": "portrait off shooting actual engine-validated attack event"
+    },
+    {
+      "pass": true,
+      "label": "portrait off unchanged opponent-facing model direction"
+    },
+    {
+      "pass": true,
+      "label": "portrait off original GPU draw calls remain bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait independent manual camera opt out works"
+    },
+    {
+      "pass": true,
+      "label": "portrait off camera restored wide without cumulative zoom"
+    },
+    {
+      "pass": true,
+      "label": "portrait off court facing and 3D board intact after recovery"
+    },
+    {
+      "pass": true,
+      "label": "portrait on both real author GLB loaded"
+    },
+    {
+      "pass": true,
+      "label": "portrait on R97 original default retained"
+    },
+    {
+      "pass": true,
+      "label": "portrait on shooting actual engine-validated attack event"
+    },
+    {
+      "pass": true,
+      "label": "portrait on unchanged opponent-facing model direction"
+    },
+    {
+      "pass": true,
+      "label": "portrait on original GPU draw calls remain bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait on full original skinned performer visibly inside camera"
+    },
+    {
+      "pass": true,
+      "label": "portrait on action camera actual original attacking source"
+    },
+    {
+      "pass": true,
+      "label": "portrait on smooth source-defender reaction beat"
+    },
+    {
+      "pass": true,
+      "label": "portrait on camera restored wide without cumulative zoom"
+    },
+    {
+      "pass": true,
+      "label": "portrait on court facing and 3D board intact after recovery"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly both real author GLB loaded"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly R144 actual weighted hips kept"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly shooting actual engine-validated attack event"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly unchanged opponent-facing model direction"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly original GPU draw calls remain bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly full original skinned performer visibly inside camera"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly action camera actual original attacking source"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly smooth source-defender reaction beat"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly camera restored wide without cumulative zoom"
+    },
+    {
+      "pass": true,
+      "label": "portrait highpoly court facing and 3D board intact after recovery"
+    },
+    {
+      "pass": true,
+      "label": "portrait no JS, GLB, resource error"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual attacker visible >=45% larger in the official wide camera"
+    },
+    {
+      "pass": true,
+      "label": "portrait actual skinned highpoly attacker also enlarged"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "modes": {
+        "off": {
+          "sourceModels": [
+            {
+              "id": "E03",
+              "file": "E03-Ellie-Landing-R97.glb",
+              "baselineFile": "E03-Ellie-Landing-R97.glb",
+              "meshes": 64,
+              "clips": 3,
+              "scale": 1.1561924704810125,
+              "measured": {
+                "width": 1.0130463540554047,
+                "height": 1.7990084290504456,
+                "depth": 0.47110939770936966,
+                "scaledHeight": 2.08,
+                "scaledWidth": 1.1712765668071008,
+                "scaledDepth": 0.5446931384044179
+              }
+            },
+            {
+              "id": "T04",
+              "file": "T04-Rex-Landing-R97.glb",
+              "baselineFile": "T04-Rex-Landing-R97.glb",
+              "meshes": 38,
+              "clips": 3,
+              "scale": 0.9284593848281754,
+              "measured": {
+                "width": 2.438533514738083,
+                "height": 2.2402703166007996,
+                "depth": 0.5343174412846565,
+                "scaledHeight": 2.08,
+                "scaledWidth": 2.2640793269766086,
+                "scaledDepth": 0.4960920428381169
+              }
+            }
+          ],
+          "camera": {
+            "enabled": false,
+            "frames": 0,
+            "cuts": 0,
+            "peakWeight": 0,
+            "frameWeight": 0,
+            "current": null,
+            "phase": 0,
+            "realTarget": null,
+            "lastSerial": null,
+            "minimumFrameDistance": null,
+            "maximumFrameDistance": 0,
+            "active": null,
+            "sourceFocus": {
+              "serial": 1451,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.36422,
+              "attacker": [
+                -1.3266697684452406,
+                0.004230833926046082,
+                0
+              ],
+              "defender": [
+                1.75,
+                0.004230833926046082,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              0,
+              4.6462,
+              12.5151
+            ],
+            "cameraFov": 42,
+            "orbitDegrees": 0,
+            "crowdShotWeight": 0
+          },
+          "playerCoverage": 0.032,
+          "defenderCoverage": 0.034,
+          "drawCalls": 858,
+          "playerBounds": {
+            "left": -0.188,
+            "right": -0.124,
+            "top": 0.163,
+            "bottom": -0.238
+          },
+          "defenderBounds": {
+            "left": 0.188,
+            "right": 0.255,
+            "top": 0.109,
+            "bottom": -0.247
+          },
+          "receiverFocus": null,
+          "recovered": true
+        },
+        "on": {
+          "sourceModels": [
+            {
+              "id": "E03",
+              "file": "E03-Ellie-Landing-R97.glb",
+              "baselineFile": "E03-Ellie-Landing-R97.glb",
+              "meshes": 64,
+              "clips": 3,
+              "scale": 1.1561924704810125,
+              "measured": {
+                "width": 1.0130463540554047,
+                "height": 1.7990084290504456,
+                "depth": 0.47110939770936966,
+                "scaledHeight": 2.08,
+                "scaledWidth": 1.1712765668071008,
+                "scaledDepth": 0.5446931384044179
+              }
+            },
+            {
+              "id": "T04",
+              "file": "T04-Rex-Landing-R97.glb",
+              "baselineFile": "T04-Rex-Landing-R97.glb",
+              "meshes": 38,
+              "clips": 3,
+              "scale": 0.9284593848281754,
+              "measured": {
+                "width": 2.438533514738083,
+                "height": 2.2402703166007996,
+                "depth": 0.5343174412846565,
+                "scaledHeight": 2.08,
+                "scaledWidth": 2.2640793269766086,
+                "scaledDepth": 0.4960920428381169
+              }
+            }
+          ],
+          "camera": {
+            "enabled": true,
+            "frames": 16,
+            "cuts": 1,
+            "peakWeight": 0.6563125507458789,
+            "frameWeight": 0.65631,
+            "current": "E03",
+            "phase": 0.18289,
+            "realTarget": "attacker",
+            "lastSerial": 1451,
+            "minimumFrameDistance": 9.04416,
+            "maximumFrameDistance": 12.93214,
+            "active": {
+              "x": -0.03504877036943799,
+              "y": 1.0131598688039298,
+              "z": 0,
+              "weight": 0.6563125507458789,
+              "subjectRole": "attacker",
+              "serial": 1451,
+              "phase": 0.18289,
+              "actor": "E03",
+              "side": "player"
+            },
+            "sourceFocus": {
+              "serial": 1451,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.18289,
+              "attacker": [
+                -1.8200975407388758,
+                0.0031598688039298087,
+                0
+              ],
+              "defender": [
+                1.75,
+                0.0031598688039298087,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              0.0558,
+              3.3693,
+              8.7314
+            ],
+            "cameraFov": 42,
+            "orbitDegrees": 0,
+            "crowdShotWeight": 0
+          },
+          "playerCoverage": 0.081,
+          "defenderCoverage": 0.055,
+          "drawCalls": 830,
+          "playerBounds": {
+            "left": -0.455,
+            "right": -0.292,
+            "top": 0.195,
+            "bottom": -0.362
+          },
+          "defenderBounds": {
+            "left": 0.269,
+            "right": 0.379,
+            "top": 0.178,
+            "bottom": -0.334
+          },
+          "receiverFocus": null,
+          "recovered": true
+        },
+        "highpoly": {
+          "sourceModels": [
+            {
+              "id": "E03",
+              "file": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb",
+              "baselineFile": "E03-Ellie-Landing-R97.glb",
+              "meshes": 55,
+              "clips": 0,
+              "scale": 1.5713843899593098,
+              "measured": {
+                "width": 0.48221318030560223,
+                "height": 1.3236735793549919,
+                "depth": 0.2739718157836687,
+                "scaledHeight": 2.08,
+                "scaledWidth": 0.7577422641648575,
+                "scaledDepth": 0.43051503461126467
+              }
+            },
+            {
+              "id": "T04",
+              "file": "T04-Rex-Skinned-R144-WeightedPelvis-PILOT.glb",
+              "baselineFile": "T04-Rex-Landing-R97.glb",
+              "meshes": 32,
+              "clips": 0,
+              "scale": 1.2313487524311328,
+              "measured": {
+                "width": 0.7437608890354171,
+                "height": 1.6892046188322514,
+                "depth": 0.38820097136560905,
+                "scaledHeight": 2.08,
+                "scaledWidth": 0.9158290428208311,
+                "scaledDepth": 0.4780107817835966
+              }
+            }
+          ],
+          "camera": {
+            "enabled": true,
+            "frames": 14,
+            "cuts": 1,
+            "peakWeight": 0.5998338463262305,
+            "frameWeight": 0.59983,
+            "current": "E03",
+            "phase": 0.17267,
+            "realTarget": "attacker",
+            "lastSerial": 1451,
+            "minimumFrameDistance": 9.38642,
+            "maximumFrameDistance": 13.02968,
+            "active": {
+              "x": -0.03510000000000013,
+              "y": 1.0197662912646983,
+              "z": 0,
+              "weight": 0.5998338463262305,
+              "subjectRole": "attacker",
+              "serial": 1451,
+              "phase": 0.17267,
+              "actor": "E03",
+              "side": "player"
+            },
+            "sourceFocus": {
+              "serial": 1451,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.17267,
+              "attacker": [
+                -1.8202,
+                0.015570739444815563,
+                0
+              ],
+              "defender": [
+                1.75,
+                0.003961843084581089,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              0.0509,
+              3.4832,
+              9.057
+            ],
+            "cameraFov": 42,
+            "orbitDegrees": 0,
+            "crowdShotWeight": 0
+          },
+          "playerCoverage": 0.083,
+          "defenderCoverage": 0.065,
+          "drawCalls": 714,
+          "playerBounds": {
+            "left": -0.419,
+            "right": -0.253,
+            "top": 0.294,
+            "bottom": -0.322
+          },
+          "defenderBounds": {
+            "left": 0.246,
+            "right": 0.377,
+            "top": 0.302,
+            "bottom": -0.324
+          },
+          "receiverFocus": null,
+          "recovered": true
+        }
+      }
+    },
+    {
+      "view": "portrait",
+      "modes": {
+        "off": {
+          "sourceModels": [
+            {
+              "id": "E03",
+              "file": "E03-Ellie-Landing-R97.glb",
+              "baselineFile": "E03-Ellie-Landing-R97.glb",
+              "meshes": 64,
+              "clips": 3,
+              "scale": 1.1561924704810125,
+              "measured": {
+                "width": 1.0130463540554047,
+                "height": 1.7990084290504456,
+                "depth": 0.47110939770936966,
+                "scaledHeight": 2.08,
+                "scaledWidth": 1.1712765668071008,
+                "scaledDepth": 0.5446931384044179
+              }
+            },
+            {
+              "id": "T04",
+              "file": "T04-Rex-Landing-R97.glb",
+              "baselineFile": "T04-Rex-Landing-R97.glb",
+              "meshes": 38,
+              "clips": 3,
+              "scale": 0.9284593848281754,
+              "measured": {
+                "width": 2.438533514738083,
+                "height": 2.2402703166007996,
+                "depth": 0.5343174412846565,
+                "scaledHeight": 2.08,
+                "scaledWidth": 2.2640793269766086,
+                "scaledDepth": 0.4960920428381169
+              }
+            }
+          ],
+          "camera": {
+            "enabled": false,
+            "frames": 0,
+            "cuts": 0,
+            "peakWeight": 0,
+            "frameWeight": 0,
+            "current": null,
+            "phase": 0,
+            "realTarget": null,
+            "lastSerial": null,
+            "minimumFrameDistance": null,
+            "maximumFrameDistance": 0,
+            "active": null,
+            "sourceFocus": {
+              "serial": 1451,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.33167,
+              "attacker": [
+                -1.4431799673611105,
+                0.004346313607083369,
+                0
+              ],
+              "defender": [
+                1.75,
+                0.004346313607083369,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              0,
+              8.6211,
+              29.4916
+            ],
+            "cameraFov": 48,
+            "orbitDegrees": 0,
+            "crowdShotWeight": 0
+          },
+          "playerCoverage": 0.035,
+          "defenderCoverage": 0.034,
+          "drawCalls": 858,
+          "playerBounds": {
+            "left": -0.252,
+            "right": -0.182,
+            "top": 0.061,
+            "bottom": -0.086
+          },
+          "defenderBounds": {
+            "left": 0.24,
+            "right": 0.307,
+            "top": 0.043,
+            "bottom": -0.087
+          },
+          "receiverFocus": null,
+          "recovered": true
+        },
+        "on": {
+          "sourceModels": [
+            {
+              "id": "E03",
+              "file": "E03-Ellie-Landing-R97.glb",
+              "baselineFile": "E03-Ellie-Landing-R97.glb",
+              "meshes": 64,
+              "clips": 3,
+              "scale": 1.1561924704810125,
+              "measured": {
+                "width": 1.0130463540554047,
+                "height": 1.7990084290504456,
+                "depth": 0.47110939770936966,
+                "scaledHeight": 2.08,
+                "scaledWidth": 1.1712765668071008,
+                "scaledDepth": 0.5446931384044179
+              }
+            },
+            {
+              "id": "T04",
+              "file": "T04-Rex-Landing-R97.glb",
+              "baselineFile": "T04-Rex-Landing-R97.glb",
+              "meshes": 38,
+              "clips": 3,
+              "scale": 0.9284593848281754,
+              "measured": {
+                "width": 2.438533514738083,
+                "height": 2.2402703166007996,
+                "depth": 0.5343174412846565,
+                "scaledHeight": 2.08,
+                "scaledWidth": 2.2640793269766086,
+                "scaledDepth": 0.4960920428381169
+              }
+            }
+          ],
+          "camera": {
+            "enabled": true,
+            "frames": 16,
+            "cuts": 1,
+            "peakWeight": 0.7348752846221875,
+            "frameWeight": 0.73488,
+            "current": "E03",
+            "phase": 0.17878,
+            "realTarget": "attacker",
+            "lastSerial": 1451,
+            "minimumFrameDistance": 11.57061,
+            "maximumFrameDistance": 30.34395,
+            "active": {
+              "x": -1.8202,
+              "y": 1.1031168203738746,
+              "z": 0,
+              "weight": 0.7348752846221875,
+              "subjectRole": "attacker",
+              "serial": 1451,
+              "phase": 0.17878,
+              "actor": "E03",
+              "side": "player"
+            },
+            "sourceFocus": {
+              "serial": 1451,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.17878,
+              "attacker": [
+                -1.8202,
+                0.003116820373874597,
+                0
+              ],
+              "defender": [
+                1.75,
+                0.003116820373874597,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              -1.514,
+              3.8481,
+              11.2361
+            ],
+            "cameraFov": 48,
+            "orbitDegrees": 0,
+            "crowdShotWeight": 0
+          },
+          "playerCoverage": 0.136,
+          "defenderCoverage": 0.144,
+          "drawCalls": 762,
+          "playerBounds": {
+            "left": -0.417,
+            "right": -0.146,
+            "top": 0.121,
+            "bottom": -0.252
+          },
+          "defenderBounds": {
+            "left": 1.116,
+            "right": 1.404,
+            "top": 0.113,
+            "bottom": -0.229
+          },
+          "receiverFocus": "defender",
+          "recovered": true
+        },
+        "highpoly": {
+          "sourceModels": [
+            {
+              "id": "E03",
+              "file": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb",
+              "baselineFile": "E03-Ellie-Landing-R97.glb",
+              "meshes": 55,
+              "clips": 0,
+              "scale": 1.5713843899593098,
+              "measured": {
+                "width": 0.48221318030560223,
+                "height": 1.3236735793549919,
+                "depth": 0.2739718157836687,
+                "scaledHeight": 2.08,
+                "scaledWidth": 0.7577422641648575,
+                "scaledDepth": 0.43051503461126467
+              }
+            },
+            {
+              "id": "T04",
+              "file": "T04-Rex-Skinned-R144-WeightedPelvis-PILOT.glb",
+              "baselineFile": "T04-Rex-Landing-R97.glb",
+              "meshes": 32,
+              "clips": 0,
+              "scale": 1.2313487524311328,
+              "measured": {
+                "width": 0.7437608890354171,
+                "height": 1.6892046188322514,
+                "depth": 0.38820097136560905,
+                "scaledHeight": 2.08,
+                "scaledWidth": 0.9158290428208311,
+                "scaledDepth": 0.4780107817835966
+              }
+            }
+          ],
+          "camera": {
+            "enabled": true,
+            "frames": 14,
+            "cuts": 1,
+            "peakWeight": 0.6202746417724999,
+            "frameWeight": 0.62027,
+            "current": "E03",
+            "phase": 0.16244,
+            "realTarget": "attacker",
+            "lastSerial": 1451,
+            "minimumFrameDistance": 14.51777,
+            "maximumFrameDistance": 30.23186,
+            "active": {
+              "x": -1.8202,
+              "y": 1.1158833567213258,
+              "z": 0,
+              "weight": 0.6202746417724999,
+              "subjectRole": "attacker",
+              "serial": 1451,
+              "phase": 0.16244,
+              "actor": "E03",
+              "side": "player"
+            },
+            "sourceFocus": {
+              "serial": 1451,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.16244,
+              "attacker": [
+                -1.8202,
+                0.015883356721325754,
+                0
+              ],
+              "defender": [
+                1.75,
+                0.0036195235571420846,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              -1.2779,
+              4.6003,
+              14.083
+            ],
+            "cameraFov": 48,
+            "orbitDegrees": 0,
+            "crowdShotWeight": 0
+          },
+          "playerCoverage": 0.119,
+          "defenderCoverage": 0.124,
+          "drawCalls": 657,
+          "playerBounds": {
+            "left": -0.372,
+            "right": -0.134,
+            "top": 0.156,
+            "bottom": -0.185
+          },
+          "defenderBounds": {
+            "left": 0.813,
+            "right": 1.061,
+            "top": 0.163,
+            "bottom": -0.184
+          },
+          "receiverFocus": "defender",
+          "recovered": true
+        }
+      }
+    }
+  ],
+  "errors": []
+}

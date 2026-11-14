@@ -1,0 +1,366 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop reduced motion genuinely configured on iframe"
+    },
+    {
+      "pass": true,
+      "label": "desktop reduced real combat event still rendered"
+    },
+    {
+      "pass": true,
+      "label": "desktop reduced action closeup correctly suppressed"
+    },
+    {
+      "pass": true,
+      "label": "desktop reduced both original actors still face opponents"
+    },
+    {
+      "pass": true,
+      "label": "desktop reduced zero asset/script errors"
+    },
+    {
+      "pass": true,
+      "label": "desktop manualOrbit real combat event still rendered"
+    },
+    {
+      "pass": true,
+      "label": "desktop manualOrbit action closeup correctly suppressed"
+    },
+    {
+      "pass": true,
+      "label": "desktop manualOrbit both original actors still face opponents"
+    },
+    {
+      "pass": true,
+      "label": "desktop manually selected camera angle respected"
+    },
+    {
+      "pass": true,
+      "label": "desktop manualOrbit zero asset/script errors"
+    },
+    {
+      "pass": true,
+      "label": "portrait reduced motion genuinely configured on iframe"
+    },
+    {
+      "pass": true,
+      "label": "portrait reduced real combat event still rendered"
+    },
+    {
+      "pass": true,
+      "label": "portrait reduced action closeup correctly suppressed"
+    },
+    {
+      "pass": true,
+      "label": "portrait reduced both original actors still face opponents"
+    },
+    {
+      "pass": true,
+      "label": "portrait reduced zero asset/script errors"
+    },
+    {
+      "pass": true,
+      "label": "portrait manualOrbit real combat event still rendered"
+    },
+    {
+      "pass": true,
+      "label": "portrait manualOrbit action closeup correctly suppressed"
+    },
+    {
+      "pass": true,
+      "label": "portrait manualOrbit both original actors still face opponents"
+    },
+    {
+      "pass": true,
+      "label": "portrait manually selected camera angle respected"
+    },
+    {
+      "pass": true,
+      "label": "portrait manualOrbit zero asset/script errors"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "contexts": {
+        "reduced": {
+          "camera": {
+            "enabled": true,
+            "frames": 25,
+            "cuts": 0,
+            "peakWeight": 0,
+            "frameWeight": 0,
+            "current": null,
+            "phase": 0,
+            "realTarget": null,
+            "lastSerial": null,
+            "minimumFrameDistance": null,
+            "maximumFrameDistance": 0,
+            "active": null,
+            "sourceFocus": {
+              "serial": 14571,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.36867,
+              "attacker": [
+                -1.3130102804695891,
+                0.004787503775152714,
+                0
+              ],
+              "defender": [
+                1.75,
+                0.004787503775152714,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              0,
+              4.6462,
+              12.5151
+            ],
+            "cameraFov": 42,
+            "orbitDegrees": 0,
+            "crowdShotWeight": 0
+          },
+          "event": {
+            "active": true,
+            "queued": 1,
+            "index": 0,
+            "playedEvents": 1,
+            "finishedSequences": 0,
+            "r90MotionEnabled": true,
+            "r90ImpactTriggers": 0,
+            "r90SparkBursts": 0,
+            "impactStarted": false,
+            "phase": 0.369
+          },
+          "actors": [
+            {
+              "id": "E03",
+              "facing": 1,
+              "width": 0.032
+            },
+            {
+              "id": "T04",
+              "facing": 1,
+              "width": 0.034
+            }
+          ]
+        },
+        "manualOrbit": {
+          "camera": {
+            "enabled": true,
+            "frames": 38,
+            "cuts": 0,
+            "peakWeight": 0,
+            "frameWeight": 0,
+            "current": null,
+            "phase": 0,
+            "realTarget": null,
+            "lastSerial": null,
+            "minimumFrameDistance": null,
+            "maximumFrameDistance": 0,
+            "active": null,
+            "sourceFocus": {
+              "serial": 14571,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.38711,
+              "attacker": [
+                -1.2651485061991736,
+                0.00662296161099466,
+                0
+              ],
+              "defender": [
+                1.7494935272921115,
+                0.00662296161099466,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              14.2315,
+              4.6654,
+              -1.404
+            ],
+            "cameraFov": 42,
+            "orbitDegrees": 89.00974256078933,
+            "crowdShotWeight": 0
+          },
+          "event": {
+            "active": true,
+            "queued": 1,
+            "index": 0,
+            "playedEvents": 1,
+            "finishedSequences": 0,
+            "r90MotionEnabled": true,
+            "r90ImpactTriggers": 0,
+            "r90SparkBursts": 0,
+            "impactStarted": false,
+            "phase": 0.387
+          },
+          "actors": [
+            {
+              "id": "E03",
+              "facing": 1,
+              "width": 0.04
+            },
+            {
+              "id": "T04",
+              "facing": 1,
+              "width": 0.064
+            }
+          ]
+        }
+      }
+    },
+    {
+      "view": "portrait",
+      "contexts": {
+        "reduced": {
+          "camera": {
+            "enabled": true,
+            "frames": 25,
+            "cuts": 0,
+            "peakWeight": 0,
+            "frameWeight": 0,
+            "current": null,
+            "phase": 0,
+            "realTarget": null,
+            "lastSerial": null,
+            "minimumFrameDistance": null,
+            "maximumFrameDistance": 0,
+            "active": null,
+            "sourceFocus": {
+              "serial": 14571,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.36667,
+              "attacker": [
+                -1.3190679111111105,
+                0.004675261943695849,
+                0
+              ],
+              "defender": [
+                1.75,
+                0.004675261943695849,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              0,
+              8.6211,
+              29.4916
+            ],
+            "cameraFov": 48,
+            "orbitDegrees": 0,
+            "crowdShotWeight": 0
+          },
+          "event": {
+            "active": true,
+            "queued": 1,
+            "index": 0,
+            "playedEvents": 1,
+            "finishedSequences": 0,
+            "r90MotionEnabled": true,
+            "r90ImpactTriggers": 0,
+            "r90SparkBursts": 0,
+            "impactStarted": false,
+            "phase": 0.367
+          },
+          "actors": [
+            {
+              "id": "E03",
+              "facing": 1,
+              "width": 0.035
+            },
+            {
+              "id": "T04",
+              "facing": 1,
+              "width": 0.034
+            }
+          ]
+        },
+        "manualOrbit": {
+          "camera": {
+            "enabled": true,
+            "frames": 38,
+            "cuts": 0,
+            "peakWeight": 0,
+            "frameWeight": 0,
+            "current": null,
+            "phase": 0,
+            "realTarget": null,
+            "lastSerial": null,
+            "minimumFrameDistance": null,
+            "maximumFrameDistance": 0,
+            "active": null,
+            "sourceFocus": {
+              "serial": 14571,
+              "id": "E03",
+              "side": "player",
+              "type": "exchange",
+              "phase": 0.36989,
+              "attacker": [
+                -1.3093831166482426,
+                0.0066155484584156645,
+                0
+              ],
+              "defender": [
+                1.75,
+                0.0066155484584156645,
+                0
+              ],
+              "genuineActor": "gltf-instance",
+              "actualOpponent": "gltf-instance"
+            },
+            "cameraPosition": [
+              31.3065,
+              8.6647,
+              -1.0359
+            ],
+            "cameraFov": 48,
+            "orbitDegrees": 88.87631926217396,
+            "crowdShotWeight": 0
+          },
+          "event": {
+            "active": true,
+            "queued": 1,
+            "index": 0,
+            "playedEvents": 1,
+            "finishedSequences": 0,
+            "r90MotionEnabled": true,
+            "r90ImpactTriggers": 0,
+            "r90SparkBursts": 0,
+            "impactStarted": false,
+            "phase": 0.37
+          },
+          "actors": [
+            {
+              "id": "E03",
+              "facing": 1,
+              "width": 0.052
+            },
+            {
+              "id": "T04",
+              "facing": 1,
+              "width": 0.074
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "errors": []
+}

@@ -15,7 +15,12 @@
       "queued": 1,
       "index": 0,
       "playedEvents": 1,
-      "finishedSequences": 0
+      "finishedSequences": 0,
+      "r90MotionEnabled": true,
+      "r90ImpactTriggers": 1,
+      "r90SparkBursts": 1,
+      "impactStarted": true,
+      "phase": 0.454
     },
     "errors": []
   },
@@ -35,7 +40,12 @@
       "queued": 1,
       "index": 0,
       "playedEvents": 1,
-      "finishedSequences": 0
+      "finishedSequences": 0,
+      "r90MotionEnabled": true,
+      "r90ImpactTriggers": 1,
+      "r90SparkBursts": 1,
+      "impactStarted": true,
+      "phase": 0.449
     },
     "errors": []
   }

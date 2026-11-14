@@ -3,7 +3,7 @@ import {resolve} from 'node:path';
 import {writeFileSync,mkdirSync} from 'node:fs';
 const require=createRequire(import.meta.url);
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const origin=process.env.R67_ORIGIN||'http://127.0.0.1:11085';
+const origin=process.env.ASDC_QA_ORIGIN||process.env.R67_ORIGIN||'http://127.0.0.1:11085';
 const dir=resolve(import.meta.dirname,'evidence/r67');mkdirSync(dir,{recursive:true});
 let browser,failed=false;const rows=[];
 try{
@@ -30,7 +30,15 @@ try{
       attacker_uid:'U100',target_uid:'U200',damage:1,target_hp_after:4,attacker_hp_after:4}]
    },location.origin);
   },units);
-  await page.waitForTimeout(190);
+  // R90/R145: an attack starts immediately, but the original defender
+  // reacts only at the AUTHENTIC hit moment, not 190ms into the windup.
+  // A guard here prevents the old R67 false failure without weakening
+  // animation, damage or human-facing source-model validation.
+  await page.waitForFunction(()=>{
+   const q=document.querySelector('#stadium').contentWindow.__r45SceneQA;
+   return q.combatEvents?.impactStarted===true&&
+     q.combatEvents?.r90ImpactTriggers>=1;
+  },null,{timeout:4000,polling:'raf'});
   const state=await page.evaluate(()=>{
    const q=document.querySelector('#stadium').contentWindow.__r45SceneQA;
    return {entries:q.summonPresence.entries.map(x=>({side:x.side,clips:x.playingClips})),combat:q.combatEvents};
@@ -38,7 +46,9 @@ try{
   await page.screenshot({path:resolve(dir,'combat-'+device+'.png')});
   const attacking=state.entries.find(x=>x.side==='player')?.clips||[];
   const defending=state.entries.find(x=>x.side==='ai')?.clips||[];
-  const passed=resp.status()===200&&state.combat.active&&state.combat.playedEvents>=1&&
+  const passed=resp.status()===200&&state.combat.active&&
+   state.combat.playedEvents>=1&&state.combat.impactStarted===true&&
+   state.combat.r90ImpactTriggers>=1&&
    attacking.includes('Serve_Menu')&&attacking.includes('Attack_Flip_Menu')&&
    defending.includes('Hit_Recoil')&&defending.includes('Hit_Retreat')&&errors.length===0;
   rows.push({device,passed,attacking,defending,combat:state.combat,errors});
