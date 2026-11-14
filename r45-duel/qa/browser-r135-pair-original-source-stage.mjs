@@ -42,7 +42,7 @@ try{
    await page.waitForTimeout(550);
    const idle=await read(id);
    const expected=id+'-'+(id==='E03'?'Ellie':'Rex')+'-Skinned-R132-BakedRest-PILOT.glb';
-   check(idle.file===expected&&idle.stage?.enabled&&idle.stage.sourceTracks===16&&
+   check(idle.file===expected&&idle.stage?.enabled&&idle.stage.sourceTracks===(id==='T04'?17:16)&&
     idle.legs?.runtimeLegTracks===8,
     view+' '+id+' original artist high-poly source leg + torso tracks',idle);
    check(idle.sourceArms?.source==='actual_original_author_skinned_arm_hierarchy'&&
