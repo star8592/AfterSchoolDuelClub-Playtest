@@ -165,10 +165,16 @@ export const R144_REX_PELVIS_ASSET='T04-Rex-Skinned-R144-WeightedPelvis-PILOT.gl
 // Independent opt-in (never changes the R97 default). Requires R135 Rex.
 export const R144_REX_PELVIS=(()=>{
  const local=new URLSearchParams(location.search);
- if(local.has('r144Rex'))return local.get('r144Rex')==='on';
- try{return window.parent!==window&&
-  new URLSearchParams(window.parent.location.search).get('r144Rex')==='on';}
- catch{return false;}
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+ const sourceSetting=local.has('r144Rex')?local.get('r144Rex'):
+  parent?.get('r144Rex');
+ const torsoSetting=local.has('r143Rig')?local.get('r143Rig'):
+  parent?.get('r143Rig');
+ // If the user independently rolls back R143, also choose the original
+ // R132 source file rather than loading an R144 pelvis rig without its
+ // required torso ancestry and breaking the match.
+ return sourceSetting==='on'&&torsoSetting!=='off';
 })();
 export const R134_JAY_STAGE=(()=>{
  const local=new URLSearchParams(location.search);
