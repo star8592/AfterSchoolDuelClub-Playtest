@@ -35,19 +35,24 @@ for(const [id,names] of Object.entries(SOURCES)){
  const probe=createR136OriginalFootContact({Box3:TestBox},root,id);
  let prior=0;
  for(let frame=0;frame<1200;frame++){
-  // Alternate planted/raised shoe geometry, measured on the original actor.
-  // A previous one-way +=raise passes penetration tests but fails this test.
+  // Match real summon-presence: reset the glTF root Y to its authored
+  // hover/pose every frame, then perform the final outsole pass.
+  // Subtracting the previous lift AGAIN here creates fake penetration.
+  root.position.y=0;
+  // Alternate original weighted soles through planted/raised configurations.
   const h=[-.056,-.028,.012,-.013,.025,-.043,.004,id==='T03'?-.109:-.067][frame%8];
   baseline.forEach((_,i)=>baseline[i]=h+i*.006);
   const expected=Math.min(limit,Math.max(0,.0005-Math.min(...baseline)));
   const data=probe.apply();
+  assert.ok(Math.abs(data.raise-expected)<.00002,
+   id+' frame '+frame+' under-corrected this frame\x27s floor pose');
   assert.ok(Math.abs(root.position.y-expected)<1e-7,
    id+' frame '+frame+' actor rose or failed to return to ground');
   assert.ok(Math.abs(data.delta-(expected-prior))<.00002,
    id+' frame '+frame+' incorrect HUD delta');
   assert.ok(data.remainingPenetration<=.00001,
    id+' frame '+frame+' actual lower mesh penetrates floor');
-  prior=expected;checks+=3;
+  prior=expected;checks+=4;
  }
  const end=probe.inspect();
  assert.equal(end.frames,1200);
@@ -55,5 +60,5 @@ for(const [id,names] of Object.entries(SOURCES)){
  assert.ok(end.maxStepDelta<=limit+.00001);
  checks+=4;
 }
-console.log('R137_REVERSIBLE_FOUR_ORIGINAL_SKINS_PASS',checks,
- 'checks; 4 actor rigs x 1200 ground-contact frames, no accumulated rise');
+console.log('R137_REBASED_FOUR_ORIGINAL_SKINS_PASS',checks,
+ 'checks; 4 actor rigs x 1200 per-frame position resets, grounded mesh');
