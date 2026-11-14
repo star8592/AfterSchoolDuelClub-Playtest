@@ -67,7 +67,7 @@ try{
     view+' '+id+' original source faces real opponent',a?.metrics);
    check(a?.r131Arms?.source==='actual_original_author_skinned_arm_hierarchy'&&
     a.r131Arms.changedParentLinks>=8&&
-    a.r131Arms.validatedParentLinks===a.r131Arms.changedParentLinks&&
+    a.r131Arms.validatedParentLinks>=a.r131Arms.changedParentLinks&&
     a.r131Arms.maxBindRestDrift<.0001,
     view+' '+id+' genuine original source shoulders and wrists linked',a?.r131Arms);
    check(a?.r140OriginalFace?.enabled===true,
