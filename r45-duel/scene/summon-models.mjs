@@ -13,6 +13,7 @@ import {repairR131TrueSourceArms} from './r131-real-source-upper-arms.mjs';
 import {createR134JayClips,createR134JaySequencer} from './r134-jay-source-stage.mjs';
 import {createR135PairClips,createR135PairSequencer} from './r135-source-pair-acting.mjs';
 import {createR136SourceClips,createR136EnsembleSequencer} from './r136-source-ensemble.mjs';
+import {createR140OriginalFaceActing} from './r140-source-face-acting.mjs';
 // R85: improved R60 photo-paper model and five native clips are the default.
 // Exact older R57 remains available with ?e02Study=r57 for immediate rollback.
 const isE02R60Study=(()=>{
@@ -632,6 +633,10 @@ export function instantiateSummon(THREE,template){
   THREE,instance,mixer,availableClips,template.id):null;
  const r136Controller=r136Cast?createR136EnsembleSequencer(
   THREE,instance,mixer,availableClips,template.id):null;
+ // Only the explicit high-poly cast study receives source-authored facial
+ // deformation. The R97 production default and its materials stay untouched.
+ const r140Face=r136Controller?
+  createR140OriginalFaceActing(THREE,instance,template.id):null;
  // R90: subtle transient whole-instance lean and lift layered over R89 glTF
  // morph clips; reset each frame. This is not live torso, leg, or foot rigging.
  let groundedY=0;
@@ -796,6 +801,7 @@ export function instantiateSummon(THREE,template){
   if(r135Controller)scaled.position.y=groundedY+(combatPose?.lift||0)+
    r135Controller.getLift();
   r128Phil?.update();r130Special?.update();r131Arms.update();
+  r140Face?.update(dt,r136Controller?.getCurrentClip());
  }):r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),
@@ -814,6 +820,9 @@ export function instantiateSummon(THREE,template){
   getR134JayStage:()=>r134Controller?.inspect()||null,
   getR135PairStage:()=>r135Controller?.inspect()||null,
   getR136CastStage:()=>r136Controller?.inspect()||null,
+  getR140OriginalFace:()=>r140Face?.inspect()||null,
+  startSourceSpeech:details=>r140Face?.startSpeech(details)||false,
+  stopSourceSpeech:serial=>r140Face?.stopSpeech(serial)||false,
   setCombatPose,setClipRate,playLifeClip,
   getCombatPose:()=>combatPose,getClipRate:()=>mixer?.timeScale??1,
   artApproved:false,kind:'real-gltf-prototype'};
