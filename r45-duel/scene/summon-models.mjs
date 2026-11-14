@@ -605,7 +605,8 @@ export function instantiateSummon(THREE,template){
  const r128Phil=sourceBodyPilot?
   createR128PhilSourceFullBody(THREE,instance,source119Clips,template.id,{
    directorAmplify:r135Pair?(template.id==='E03'?1.50:1.30):
-    r136Cast?(template.id==='E04'?1.55:1.30):1
+    r136Cast?(template.id==='E04'?1.55:1.30):1,
+   directorVariant:r136Cast&&template.id==='G04'?'r139Victoria':null
   }):null;
  const r130Special=r130SpecialOn?
   createR130SpecialFullBody(THREE,instance,source119Clips,template.id):null;
