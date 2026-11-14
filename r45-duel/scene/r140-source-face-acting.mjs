@@ -6,6 +6,46 @@
  */
 import {speechMouthAt} from './voice-mouth-timing.mjs';
 const SPECS=Object.freeze({
+ E03:{face:'ellie',eyes:'ellie_eye',jaw:true,blink:false,
+  // Cheer captain: energetic shock/surprise and high-volume joyful shout,
+  // using only the ORIGINAL iris morphs and original weighted DEF-Jaw.
+  states:{
+   Idle:{'iris_grow.L':.10,'iris_narrow.R':.04},
+   Attack:{'iris_narrow.L':.56,'iris_narrow.R':.57},
+   Hit:{'iris_wide.L':.88,'iris_wide.R':.88},
+   Celebrate:{'iris_wide.L':.37,'iris_wide.R':.39},
+   Challenge:{'iris_narrow.L':.29,'iris_narrow.R':.31},
+   Worry:{'iris_wide.L':.55,'iris_wide.R':.57},
+   Walk:{'iris_narrow.L':.09,'iris_narrow.R':.09}
+  },jawAngle:{Idle:.005,Attack:.115,Hit:.16,Celebrate:.185,
+   Challenge:.067,Worry:.094,Walk:.007}},
+ G03:{face:'jay',eyes:'jay_eye',jaw:true,blink:false,
+  // Laboratory senior: narrowed, analytical gaze; measured but distinct
+  // real jaw recoil. The source head's unnamed "Key 1" is NOT assumed a smile.
+  states:{
+   Idle:{'iris_narrow.L':.10,'iris_narrow.R':.10},
+   Attack:{'iris_narrow.L':.79,'iris_narrow.R':.78},
+   Hit:{'iris_wide.L':.83,'iris_wide.R':.83},
+   Celebrate:{'iris_grow.L':.33,'iris_grow.R':.34},
+   Challenge:{'iris_narrow.L':.59,'iris_narrow.R':.58},
+   Worry:{'iris_wide.L':.48,'iris_wide.R':.49},
+   Walk:{'iris_narrow.L':.15,'iris_narrow.R':.15}
+  },jawAngle:{Idle:.003,Attack:.07,Hit:.14,Celebrate:.105,
+   Challenge:.028,Worry:.066,Walk:.005}},
+ T04:{face:'rex',eyes:'rex_eye',jaw:true,blink:false,
+  // Heavy guard: mostly tight stern eyes, sudden large defensive gasp.
+  // No faked eyebrows or texture overlay: only the source's four iris
+  // morphs per eye plus skinned original jaw.
+  states:{
+   Idle:{'iris_narrow.L':.25,'iris_narrow.R':.24},
+   Attack:{'iris_narrow.L':.83,'iris_narrow.R':.82},
+   Hit:{'iris_wide.L':.91,'iris_wide.R':.91},
+   Celebrate:{'iris_grow.L':.31,'iris_grow.R':.32},
+   Challenge:{'iris_narrow.L':.70,'iris_narrow.R':.71},
+   Worry:{'iris_wide.L':.51,'iris_wide.R':.50},
+   Walk:{'iris_narrow.L':.19,'iris_narrow.R':.20}
+  },jawAngle:{Idle:0,Attack:.093,Hit:.162,Celebrate:.119,
+   Challenge:.031,Worry:.085,Walk:.001}},
  E04:{face:'phil',eyes:'phil_eye',jaw:true,blink:false,
   states:{
    Idle:{'iris_grow.L':.05,'iris_grow.R':.05},
