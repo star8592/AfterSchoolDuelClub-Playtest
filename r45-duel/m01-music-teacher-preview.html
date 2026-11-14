@@ -1,0 +1,88 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlayMoru · 音乐老师实机演出对照</title>
+<style>
+:root{font-family:system-ui,"Noto Sans SC",sans-serif;color:#f0eee7;background:#0b1626;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(12px,2vw,30px);background:#132339;border-bottom:1px solid #43576e}
+h1{font-size:clamp(18px,2vw,26px);font-weight:800;margin:0}
+small{color:#a3b8cf}h2{font-size:17px;margin:0 0 5px}
+main{max-width:1680px;margin:0 auto;padding:12px clamp(12px,2vw,32px);display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,295px);gap:14px}
+.stage{min-height:550px;height:min(78vh,850px);background:#1d2c42;border:1px solid #52677d;border-radius:13px;overflow:hidden;position:relative}
+iframe{border:0;display:block;width:100%;height:100%}
+.overlay{position:absolute;left:16px;top:16px;border-radius:10px;background:#102135cc;padding:9px 12px;font-size:13px;pointer-events:none}
+aside{display:flex;flex-direction:column;gap:12px}
+.panel{background:#14283e;border:1px solid #465b72;border-radius:13px;padding:14px}
+button{display:block;width:100%;background:#2b536b;border:1px solid #6e9ab2;border-radius:9px;color:#fff9ec;font:inherit;font-weight:750;font-size:15px;padding:13px 10px;margin:8px 0;cursor:pointer}
+button.primary{background:#bb8650;color:#191d25;border-color:#e9b77d}
+button:disabled{opacity:.42;cursor:not-allowed}
+p{font-size:13px;line-height:1.65;color:#c3d1df;margin:5px 0 8px}
+#status{font-size:14px;line-height:1.5;color:#c5e9dd;min-height:38px}
+@media(max-width:850px){main{grid-template-columns:minmax(0,1fr)}.stage{height:55vh;min-height:340px}aside{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.panel{min-width:0}.panel:last-child{grid-column:1/-1}button{font-size:13px;padding:10px 4px}}
+</style></head>
+<body>
+<header><div><h1>音乐老师 · 酒红舞台服装与动作试演</h1><small>PlayMoru /《放学后决斗社》真实 3D 场景 · M01 角色候选</small></div>
+<small>艺术试验 · 仅显式 QA 入口 · 非正式默认角色</small></header>
+<main><div class="stage"><iframe title="音乐老师真实游戏三维竞技场" id="arena" src="./scene/?qa=1&m01Wardrobe=on&r90Motion=on" allow="autoplay"></iframe>
+<div class="overlay">服装：酒红舞台长外套 / 香槟衬衫 / 珍珠配饰；发令：内嵌 Wave（现成内嵌动画）</div></div>
+<aside>
+<section class="panel"><h2>动作演示</h2>
+<button type="button" id="reset" disabled>角色出场 / 重置站位</button>
+<button type="button" class="primary" id="attack" disabled>老师发令 · 出击</button>
+<button type="button" id="hit" disabled>食堂阿姨反击 · 老师受击</button>
+<button type="button" id="camera" disabled>切换近景 / 全场</button>
+<p>所有动作由真实 GLB 骨骼与游戏原有战斗事件驱动，并非预录视频。</p>
+</section>
+<section class="panel"><h2>场景状态</h2><div id="status" aria-live="polite">正在加载 12 种真实游戏召唤模型…</div>
+<p>老师采用酒红舞台服装与 69 骨、9 段现成动作的候选人物；食堂阿姨保留原有已认可模型。出击使用更适合教师身份的挥手动作，但音乐指挥的最终演出仍在打磨。</p>
+</section>
+<section class="panel"><h2>适用范围</h2><p>研究环境内验证朝向、动作、材质、受击反馈和脚部接地；测试伤害不写入正式对局。</p></section>
+</aside></main>
+<script>
+const iframe=document.querySelector('#arena');
+const $=id=>document.getElementById(id);
+const keys=['reset','attack','hit','camera'];
+const units={player:[{id:'M01',uid:'U101',hp:10,attack:2,shield:0}],
+             ai:[{id:'M02',uid:'U201',hp:10,attack:2,shield:0}]};
+let ready=false,busy=false,closeup=true,serial=311500;
+const api=()=>{try{return iframe.contentWindow?.__r45SceneQA||null}catch{return null}};
+const send=msg=>iframe.contentWindow.postMessage(msg,location.origin);
+const setStatus=text=>$('status').textContent=text;
+const controls=()=>keys.forEach(id=>$(id).disabled=!ready||busy);
+function board(){
+ send({type:'ASDC_R45_BOARD',units,player:['M01'],ai:['M02']});
+}
+function camera(){
+ const q=api();if(!q?.ready)return;
+ q.setStudyCloseup(closeup?'M01':null);
+ q.setStudyViewAngle(68);
+ $('camera').textContent=closeup?'切换至全场镜头':'切换至老师近景';
+}
+async function action(side){
+ if(!ready||busy)return;
+ busy=true;controls();board();
+ const pre=structuredClone(units),post=structuredClone(units);
+ const target=side==='player'?'ai':'player';
+ post[target][0].hp=8;
+ const attacker=side==='player'?units.player[0]:units.ai[0];
+ const defending=side==='player'?units.ai[0]:units.player[0];
+ setStatus(side==='player'?'老师发令：正在播放现成 Wave 动画':'食堂阿姨反击：老师准备受击');
+ await new Promise(resolve=>setTimeout(resolve,200));
+ send({type:'ASDC_R51_COMBAT_EVENTS',pre,post,
+   events:[{serial:++serial,type:'exchange',side,from:attacker.id,to:defending.id,
+     attacker_uid:attacker.uid,target_uid:defending.uid,
+     damage:2,attacker_hp_after:10,target_hp_after:8}]});
+ await new Promise(resolve=>setTimeout(resolve,1250));
+ busy=false;controls();
+}
+$('reset').onclick=()=>{if(!ready||busy)return;board();setStatus('角色已恢复站位，可触发真实攻防动作')};
+$('attack').onclick=()=>action('player');
+$('hit').onclick=()=>action('ai');
+$('camera').onclick=()=>{if(!ready||busy)return;closeup=!closeup;camera()};
+const monitor=setInterval(()=>{
+ const q=api();
+ if(!q?.ready)return;
+ if(!ready){ready=true;board();camera();controls();setStatus('两位真实角色已就位，可以开始演示')}
+ const actor=q.summonPresence?.entries?.find(e=>e.id==='M01');
+ if(!busy&&actor){setStatus('M01 音乐老师 · '+(actor.playingClips?.join(', ')||'等待')+' · 面敌 '+actor.metrics?.frontDot)}
+},250);
+</script></body></html>
