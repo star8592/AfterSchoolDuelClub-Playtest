@@ -61,6 +61,13 @@ try{
    check((end.stage?.sourceTracks??end.stage?.sourceRigTrackCount)===(id==='T04'?17:16),
     view+' '+id+' exactly original upper+lower'+(id==='T04'?'+pelvis':'')+' tracks',
     end.stage);
+   if(id==='T04')check(end.legs.sourcePelvis?.bone==='DEF-Hips'&&
+     end.legs.sourcePelvis.skinWeight>=.20&&
+     end.legs.sourcePelvis.maxPelvisAngle>.035,
+     view+' '+id+' REAL weighted DEF-Hips rotates and visibly skins mesh',
+     end.legs.sourcePelvis);
+   else check(end.legs.sourcePelvis===null,
+     view+' '+id+' no fabricated pelvis for Jay original rig',end.legs);
    check(end.legs.maxLegVertexTravel>=(id==='T04'?.027:.051),
     view+' '+id+' weighted original leg vertex travel actually visible',
     end.legs);
