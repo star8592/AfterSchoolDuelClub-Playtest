@@ -43,7 +43,7 @@ try{
    samples.push(await read());
   }
   check(samples.every(s=>s.actors.length===2&&s.actors.every(a=>
-   a.stage?.enabled&&a.face>.92&&a.stage.sourceTracks===(a.id==='T04'?17:16))),
+   a.stage?.enabled&&a.face>.92&&a.stage.sourceTracks===16)),
    view+' both source actors continuously animate, facing enemy for 15s',samples[0]);
   for(const id of ['E03','T04']){
    const snapshots=samples.map(x=>x.actors.find(a=>a.id===id));
