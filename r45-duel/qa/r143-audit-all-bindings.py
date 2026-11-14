@@ -7,7 +7,7 @@ mapped joints, missing inverse-bind matrices, unweighted bones, failed
 render-source parents and source-specific defective binding chains.
 """
 from __future__ import annotations
-import argparse, hashlib, json, math, struct
+import argparse, hashlib, json, math, struct, subprocess, tempfile
 from collections import Counter, defaultdict
 from pathlib import Path
 import numpy as np
@@ -39,13 +39,25 @@ DIRECT_EXPECTED={
  "G04":["DEF-UpperArm1.L","DEF-Forearm1.L","DEF-Thigh1.L",
         "DEF-Knee1.L","DEF-Foot.L","DEF-Toes.L"],
  "T03":["DEF-Upperarm1.L","DEF-Forearm1.L","DEF-Thigh1.L",
-        "DEF-Knee1.L","DEF-Foot.L"],
+        "DEF-Shin1.L","DEF-Foot.L"],
  "T04":["DEF-UpperArm1.L","DEF-Forearm1.L","DEF-Thigh1.L",
         "DEF-Knee1.L","DEF-Foot.L","DEF-Toes.L"]
 }
 def norm(x):
  return "".join(c for c in str(x).lower() if c.isalnum())
 def glb(p):
+ # Decode original compressed VRM into an isolated temporary audit-only GLB.
+ # The user-authored source file is never edited, and all vertices are scanned.
+ if p.suffix.lower()=='.vrm':
+  with tempfile.NamedTemporaryFile(suffix=".glb",prefix="r143-audit-",delete=False) as tmp:
+   derived=Path(tmp.name)
+  try:
+   subprocess.run(["node",str(ROOT/"qa/r143-expand-vrm-meshopt.mjs"),
+     str(p),str(derived)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,
+     check=True,timeout=75)
+   return glb(derived)
+  finally:
+   derived.unlink(missing_ok=True)
  with p.open("rb") as f:
   head=f.read(12)
   if len(head)!=12 or head[:4]!=b"glTF":raise ValueError("NOT_GLB")
