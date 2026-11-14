@@ -905,6 +905,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    for(const state of entries.values()){
     const old=state.r133Contact?.apply();
     const current=state.r136Contact?.apply();
+    // The actor AND its HUD are freshly positioned every frame above.
+    // Apply this frame's actual outsole raise, not the change from last frame.
     const lift=(old?.appliedLift||0)+(current?.raise||0);
     if(lift&&state.status?.label)
      state.status.label.position.y+=lift;

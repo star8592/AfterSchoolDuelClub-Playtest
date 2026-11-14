@@ -9,7 +9,10 @@ const FOOT_SKINS=Object.freeze({
  G04:['GEO-victoria_boots'],
  T03:['GEO-rain-shoes_1','GEO-rain-shoes_2','GEO-rain-shoes_3','GEO-rain-shoes_4']
 });
-const MAX_CORRECTION=.082;
+// Per-source bounded correction: Rain's genuine rapid hand-off leg action
+// dips further than the three other source rigs. Do not cumulatively raise
+// all characters or relax their individual floor bounds to hide penetration.
+const MAX_CORRECTION=Object.freeze({E04:.082,G02:.082,G04:.082,T03:.13});
 const CLEAR=.0005;
 const canonical=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
 export function createR136OriginalFootContact(THREE,root,id){
@@ -37,7 +40,7 @@ export function createR136OriginalFootContact(THREE,root,id){
  const meshes=expected.map(n=>found.get(n));
  const bbox=new THREE.Box3();
  let frames=0,corrections=0,maxBefore=0,maxAfter=0,maxApplied=0,
-  maxGap=0,last=null;
+  maxGap=0,last=null,previousLift=0,maxStepDelta=0;
  const sample=()=>{
   root.updateMatrixWorld(true);
   return meshes.map(o=>{
@@ -49,12 +52,22 @@ export function createR136OriginalFootContact(THREE,root,id){
   });
  };
  function apply(){
+  // summon-presence recomputes every glTF actor's world Y every frame,
+  // BEFORE calling this probe. The incoming transform is already uncorrected.
+  // Never subtract a previous lift here: that causes a second artificial dip
+  // and a cap-sized penetration under deep movements (Rain/T03).
+  const prior=previousLift;
   const before=sample();
-  if(before.some(x=>!Number.isFinite(x)))throw Error('R136 invalid skin floor '+id);
-  const below=Math.min(...before),raise=below<CLEAR?Math.min(MAX_CORRECTION,CLEAR-below):0;
-  if(raise>0){
-   root.position.y+=raise;root.updateMatrixWorld(true);corrections++;
-  }
+  if(before.some(x=>!Number.isFinite(x)))
+   throw Error('R136 invalid skin floor '+id);
+  const below=Math.min(...before);
+  const limit=MAX_CORRECTION[id];
+  const raise=below<CLEAR?Math.min(limit,CLEAR-below):0;
+  if(raise>0){root.position.y+=raise;root.updateMatrixWorld(true);}
+  previousLift=raise;
+  const delta=raise-prior;
+  if(Math.abs(delta)>1e-7)corrections++;
+  maxStepDelta=Math.max(maxStepDelta,Math.abs(delta));
   const after=sample(),min=Math.min(...after);
   frames++;
   maxBefore=Math.max(maxBefore,Math.max(0,-below));
@@ -63,9 +76,12 @@ export function createR136OriginalFootContact(THREE,root,id){
   maxGap=Math.max(maxGap,Math.max(...after)-Math.min(...after));
   last={actor:id,skins:expected,before:before.map(x=>+x.toFixed(5)),
    after:after.map(x=>+x.toFixed(5)),raise:+raise.toFixed(5),
+   delta:+delta.toFixed(5),previousRaise:+prior.toFixed(5),
+   minAfter:+min.toFixed(5),
    supportedMesh:expected[after.indexOf(min)],
    remainingPenetration:+Math.max(0,-min).toFixed(5),
-   correctionClamped:raise>=MAX_CORRECTION-.00001};
+   correctionLimit:limit,
+   correctionClamped:raise>=limit-.00001};
   return last;
  }
  return{apply,inspect:()=>({enabled:true,actor:id,
@@ -74,5 +90,6 @@ export function createR136OriginalFootContact(THREE,root,id){
   source:'actual_original_rendered_skinned_lower_mesh',
   skins:meshes.map(x=>x.name),frames,corrections,maxBefore:+maxBefore.toFixed(5),
   maxAfter:+maxAfter.toFixed(5),maxApplied:+maxApplied.toFixed(5),
+  activeLift:+previousLift.toFixed(5),maxStepDelta:+maxStepDelta.toFixed(5),
   maxSampleGap:+maxGap.toFixed(5),last})};
 }
