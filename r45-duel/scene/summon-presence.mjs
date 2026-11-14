@@ -9,13 +9,14 @@
 import {BY_ID} from '../engine.mjs';
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {createVrmCharacterActing} from './vrm-character-acting.mjs';
-import {instantiateSummon,UNIT_MODEL_IDS,R134_JAY_STAGE,R135_PAIR_STAGES} from './summon-models.mjs';
+import {instantiateSummon,UNIT_MODEL_IDS,R134_JAY_STAGE,R135_PAIR_STAGES,R136_CAST_STAGES} from './summon-models.mjs';
 import {faceOpponentYaw,faceOpponentDot} from './summon-orientation.mjs';
 import {r90Choreography,isR90Human,R90_HIT_PHASE} from './combat-choreography.mjs';
 import {ACTOR_COMEDY_SIGNATURES} from './actor-comedy-signatures.mjs';
 import {choreographVictory} from './victory-choreography.mjs';
 import {createFootContact} from './foot-contact.mjs';
 import {createR133SourceShoeContact} from './r133-source-shoe-contact.mjs';
+import {createR136OriginalFootContact} from './r136-source-foot-contact.mjs';
 import {createVisibleLifeActing} from './visible-life-acting.mjs';
 import {createPropLifeActing} from './prop-life-acting.mjs';
 
@@ -281,6 +282,8 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      state={key,id,uid,side,index,kind,object,created:performance.now(),
       r117Rig:kind==='gltf-instance'?createVisibleLifeActing(THREE,object,id):null,
       r117Props:kind==='gltf-instance'?createPropLifeActing(THREE,object,id):null,
+      r136Contact:R136_CAST_STAGES.has(id)&&kind==='gltf-instance'?
+       createR136OriginalFootContact(THREE,object,id):null,
       r133Contact:(R133_SHOE_QA&&['E03','G03','T04'].includes(id)||
        id==='G03'&&R134_JAY_STAGE||
        R135_PAIR_STAGES.has(id))&&
@@ -898,11 +901,14 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   // actual exchange lunge, victory movement, and source-skeleton animation.
   // A supporting original shoe is raised only by its measured penetration;
   // its companion shoe retains its relative distance, preserving real gait.
-  if(R133_SHOE_QA||R134_JAY_STAGE||R135_PAIR_STAGES.size)for(const state of entries.values()){
-   const receipt=state.r133Contact?.apply();
-   if(receipt?.appliedLift&&state.status?.label)
-    state.status.label.position.y+=receipt.appliedLift;
-  }
+  if(R133_SHOE_QA||R134_JAY_STAGE||R135_PAIR_STAGES.size||R136_CAST_STAGES.size)
+   for(const state of entries.values()){
+    const old=state.r133Contact?.apply();
+    const current=state.r136Contact?.apply();
+    const lift=(old?.appliedLift||0)+(current?.raise||0);
+    if(lift&&state.status?.label)
+     state.status.label.position.y+=lift;
+   }
  }
  // R119 evidence: a rendered vertex really follows its weighted arm bone.
  // This path runs ONLY when the QA scene inspector is requested, never as a
@@ -1085,6 +1091,9 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     r134JayStage:s.id==='G03'?s.object.userData.r61?.getR134JayStage?.()||null:null,
     r135PairStage:R135_PAIR_STAGES.has(s.id)?
      s.object.userData.r61?.getR135PairStage?.()||null:null,
+    r136CastStage:R136_CAST_STAGES.has(s.id)?
+     s.object.userData.r61?.getR136CastStage?.()||null:null,
+    r136OriginalFoot:s.r136Contact?.inspect()||null,
     r90Pose:s.kind==='gltf-instance'?s.object.userData.r61?.getCombatPose?.():undefined,
     r90ClipRate:s.kind==='gltf-instance'?s.object.userData.r61?.getClipRate?.():undefined,
     artApproved:false};

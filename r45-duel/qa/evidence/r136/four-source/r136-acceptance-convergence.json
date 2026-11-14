@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "defaultOfficialModels": "R97",
+  "pilot": "r136Cast=on",
+  "independentActorFlags": [
+    "r136Cast=E04",
+    "r136Cast=G02",
+    "r136Cast=G04",
+    "r136Cast=T03"
+  ],
+  "rollback": "r136Cast=off",
+  "oneMainOneOfficialGame": true,
+  "sourceActorEvidence": {
+    "E04": {
+      "desktop": {
+        "identity": "fast-relay-footwork",
+        "tracks": 15,
+        "originalArmVertexTravel": 0.76305,
+        "originalLegVertexTravel": 0.09305
+      },
+      "portrait": {
+        "identity": "fast-relay-footwork",
+        "tracks": 15,
+        "originalArmVertexTravel": 0.76332,
+        "originalLegVertexTravel": 0.09366
+      }
+    },
+    "G02": {
+      "desktop": {
+        "identity": "blackboard-thinker-spell",
+        "tracks": 16,
+        "originalArmVertexTravel": 0.11879,
+        "originalLegVertexTravel": 0.0871
+      },
+      "portrait": {
+        "identity": "blackboard-thinker-spell",
+        "tracks": 16,
+        "originalArmVertexTravel": 0.11908,
+        "originalLegVertexTravel": 0.08729
+      }
+    },
+    "G04": {
+      "desktop": {
+        "identity": "commanding-planner-authority",
+        "tracks": 16,
+        "originalArmVertexTravel": 0.56408,
+        "originalLegVertexTravel": 0.02835
+      },
+      "portrait": {
+        "identity": "commanding-planner-authority",
+        "tracks": 16,
+        "originalArmVertexTravel": 0.56498,
+        "originalLegVertexTravel": 0.0282
+      }
+    },
+    "T03": {
+      "desktop": {
+        "identity": "rapid-handoff-courier",
+        "tracks": 16,
+        "originalArmVertexTravel": 0.07929,
+        "originalLegVertexTravel": 0.11843
+      },
+      "portrait": {
+        "identity": "rapid-handoff-courier",
+        "tracks": 16,
+        "originalArmVertexTravel": 0.07871,
+        "originalLegVertexTravel": 0.12064
+      }
+    }
+  },
+  "checks": {
+    "realSourceStage": 83,
+    "flagIsolation": 63,
+    "fourSource15secIdle": 36,
+    "officialGameFullChain": 18
+  },
+  "total": 200,
+  "footwearLimit": "E04 lower hem/body and trousers; other 3 original shoes/boots",
+  "knownOutstanding": [
+    "No human 85/100 stage director artistic approval",
+    "No low-end consumer phone-GPU performance measurements",
+    "No final 14-person long-form animation audio/lipsync closure",
+    "E04 source Phil has no dedicated independent shoe geometry"
+  ],
+  "receipts": [
+    "r136/four-source/r136-four-source-action.json",
+    "r136/four-source/r136-flag-rollback.json",
+    "r136/four-source/r136-four-ensemble-15sec.json",
+    "r124-full-chain/r124-full-chain-report.json"
+  ]
+}
