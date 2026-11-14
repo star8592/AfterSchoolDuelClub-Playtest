@@ -1165,12 +1165,17 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
  // original jaw/head morphs. This never synthesizes speech or an audio clip.
  function startSourceSpeech(id,details){
   if(!['E04','G02','G04','T03'].includes(id))return false;
-  let accepted=false;
-  for(const entry of entries.values()){
-   if(entry.id!==id||entry.kind!=='gltf-instance')continue;
-   accepted=entry.object.userData.r61?.startSourceSpeech?.(details)===true||accepted;
-  }
-  return accepted;
+  const candidates=[...entries.values()].filter(entry=>
+   entry.id===id&&entry.kind==='gltf-instance'&&entry.object.visible&&
+   entry.object.userData.r61?.getR140OriginalFace?.()?.enabled);
+  // Two camps can summon the SAME card. A single Qwen recording must
+  // NEVER make both independent faces pretend to be the speaker.
+  const wanted=details?.kind==='attack'?'Attack':
+   details?.kind==='hurt'?'Hit':null;
+  const chosen=(wanted?candidates.find(entry=>entry.object.userData.r61
+   ?.getR136CastStage?.()?.currentClip==='R119_Skeletal_'+wanted):null)||
+   candidates[0];
+  return chosen?.object.userData.r61?.startSourceSpeech?.(details)===true;
  }
  function stopSourceSpeech(id,serial){
   if(!['E04','G02','G04','T03'].includes(id))return false;
