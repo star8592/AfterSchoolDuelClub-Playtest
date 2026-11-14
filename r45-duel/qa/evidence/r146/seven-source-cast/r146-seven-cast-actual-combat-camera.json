@@ -1,0 +1,502 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop E03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "desktop all seven true skinned source models attack without JS/GLB errors"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 genuinely skinned opt-in GLB not fake R97 or dummy"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 genuine original face linked to attack"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 authored source movement active during real R51 combat"
+    },
+    {
+      "pass": true,
+      "label": "portrait all seven true skinned source models attack without JS/GLB errors"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "actors": {
+        "E03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.078,
+          "sourceCameraWeight": 0.5269177621291212,
+          "drawCalls": 536
+        },
+        "E04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.1,
+          "sourceCameraWeight": 0.52989596804875,
+          "drawCalls": 505
+        },
+        "G02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.086,
+          "sourceCameraWeight": 0.5180606450451563,
+          "drawCalls": 492
+        },
+        "G03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.093,
+          "sourceCameraWeight": 0.5306225031680275,
+          "drawCalls": 504
+        },
+        "G04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.071,
+          "sourceCameraWeight": 0.5601281841579687,
+          "drawCalls": 500
+        },
+        "T03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.109,
+          "sourceCameraWeight": 0.5106087530098242,
+          "drawCalls": 502
+        },
+        "T04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.088,
+          "sourceCameraWeight": 0.6004864496467187,
+          "drawCalls": 496
+        }
+      }
+    },
+    {
+      "view": "portrait",
+      "actors": {
+        "E03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.122,
+          "sourceCameraWeight": 0.6337101480496876,
+          "drawCalls": 484
+        },
+        "E04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.146,
+          "sourceCameraWeight": 0.5781389453125,
+          "drawCalls": 463
+        },
+        "G02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.128,
+          "sourceCameraWeight": 0.600711407368789,
+          "drawCalls": 443
+        },
+        "G03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.13,
+          "sourceCameraWeight": 0.5471893095491797,
+          "drawCalls": 463
+        },
+        "G04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.091,
+          "sourceCameraWeight": 0.5684966063253125,
+          "drawCalls": 461
+        },
+        "T03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.2,
+          "sourceCameraWeight": 0.6477590517015235,
+          "drawCalls": 447
+        },
+        "T04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.125,
+          "sourceCameraWeight": 0.62118633104,
+          "drawCalls": 457
+        }
+      }
+    }
+  ],
+  "errors": []
+}

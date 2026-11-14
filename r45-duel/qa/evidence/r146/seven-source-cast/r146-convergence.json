@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "totalRealGpuChecks": 2498,
+  "newRealGpuChecks": 734,
+  "rerunHistoricalR145GpuChecks": 1764,
+  "originalSourceAssetsAudited": 88,
+  "originalWeightedVerticesAudited": 5327876,
+  "sevenRealWeightedOriginalBlenderStudioActors": [
+    "E03",
+    "E04",
+    "G02",
+    "G03",
+    "G04",
+    "T03",
+    "T04"
+  ],
+  "originalMorphOnlyR97WeightedMeshPrimitives": 0,
+  "sevenHighPolyActualWeightedMeshPrimitives": 207,
+  "oneIsolatedFeatureFlag": "?r146Cast=on",
+  "explicitAndImplicitRollbackVerified": true,
+  "defaultOfficialModelsStill": "R97",
+  "defaultOfficialCameraStill": "R145",
+  "all14GameActorIdentitiesPreserved": true,
+  "newTestGroups": {
+    "allSevenOneStadium": 102,
+    "fourOriginalMovements": 394,
+    "sevenSimultaneousFifteenSeconds": 76,
+    "sevenActualCardCombatAndCamera": 100,
+    "normalR97DefaultAndIndependentRollback": 62
+  },
+  "sourceAuditSha256": "6c822cf733b28d6fe088139e1f0707ee020777c2ac022b24291ec758b1eb13cf",
+  "artApproved": false,
+  "lowEndPhysicalMobileHardwareTested": false,
+  "productionDefaultHighPoly": false,
+  "livePublicSiteDeployed": false,
+  "humanDirector85ScoreVerified": false,
+  "evidencePaths": [
+    "r146/seven-source-cast/r146-seven-cast-load-and-real-weight.json",
+    "r146/seven-source-cast/r146-seven-acting-source-gpu.json",
+    "r146/seven-source-cast/r146-seven-cast-15sec.json",
+    "r146/seven-source-cast/r146-seven-cast-actual-combat-camera.json",
+    "r146/seven-source-cast/r146-cast-safe-rollback.json"
+  ],
+  "screenshots": [
+    "r146/seven-source-cast/desktop-seven-real-source-cast.png",
+    "r146/seven-source-cast/portrait-seven-real-source-cast.png",
+    "r146/seven-source-cast/r146-four-actor-real-game-montage.webp",
+    "r146/seven-source-cast/desktop-seven-source-15sec.png",
+    "r146/seven-source-cast/portrait-seven-source-15sec.png"
+  ],
+  "unverified": [
+    "Art director acting approval 85/100",
+    "Physical low-end mobile performance/VRAM, battery",
+    "Public default highpoly activation/deployment",
+    "Separate high-poly asset commercial-use license distribution review"
+  ]
+}

@@ -1,0 +1,439 @@
+{
+  "passed": true,
+  "actorCount": 7,
+  "artApproved": false,
+  "oldR97RealWeightedPrimitiveCount": 0,
+  "newRealWeightedPrimitiveCount": 207,
+  "originalAllSevenMorphOnlyClips": 21,
+  "originalGLBsNotOverwritten": true,
+  "allSevenRealSkinnedGLBsPreviouslyVerified": true,
+  "oldDefaultStillR97": true,
+  "actors": {
+    "E03": {
+      "morphOnlyOrphanOldR97": {
+        "file": "E03-Ellie-Landing-R97.glb",
+        "sha256": "889d4c737af16725fb4d10f8226e191230683930ecbdac3fc225f4a29e7c0fdf",
+        "bytes": 6307700,
+        "meshPrimitives": 64,
+        "primitivesWithRealJointWeights": 0,
+        "gltfNodesWithSkin": 0,
+        "originalSkeletonJointListCount": 1887,
+        "jointsReachableFromActualScene": 0,
+        "authorClips": {
+          "Idle": [
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Attack": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Hit": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ]
+        }
+      },
+      "realAuthorOriginalSkinnedCast": {
+        "file": "E03-Ellie-Skinned-R132-BakedRest-PILOT.glb",
+        "sha256": "37cf61cad46a5cf6d683d0e17c7c06898152f4555f0334d025e9e567dbba9ef6",
+        "bytes": 16979452,
+        "meshPrimitives": 55,
+        "primitivesWithRealJointWeights": 55,
+        "gltfNodesWithSkin": 28,
+        "originalSkeletonJointListCount": 329,
+        "jointsReachableFromActualScene": 315,
+        "authorClips": {},
+        "unreachableOriginalAuthorSkinJointNodes": 14
+      }
+    },
+    "E04": {
+      "morphOnlyOrphanOldR97": {
+        "file": "E04-Phil-Landing-R97.glb",
+        "sha256": "2e9069fc0fa58dff49abac3433c9dcc77475a02817f807c4f87b75c4a6d40900",
+        "bytes": 2706072,
+        "meshPrimitives": 29,
+        "primitivesWithRealJointWeights": 0,
+        "gltfNodesWithSkin": 0,
+        "originalSkeletonJointListCount": 1383,
+        "jointsReachableFromActualScene": 0,
+        "authorClips": {
+          "Idle": [
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Attack": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Hit": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ]
+        }
+      },
+      "realAuthorOriginalSkinnedCast": {
+        "file": "E04-Phil-Skinned-R131-BakedRest-PILOT.glb",
+        "sha256": "aad92d0a447b99f89e2bb29bbf7d099c8e7a7df8aa9c2a4051ffe55e88bd0460",
+        "bytes": 2847784,
+        "meshPrimitives": 23,
+        "primitivesWithRealJointWeights": 23,
+        "gltfNodesWithSkin": 13,
+        "originalSkeletonJointListCount": 263,
+        "jointsReachableFromActualScene": 259,
+        "authorClips": {},
+        "unreachableOriginalAuthorSkinJointNodes": 4
+      }
+    },
+    "G02": {
+      "morphOnlyOrphanOldR97": {
+        "file": "G02-Snow-Landing-R97.glb",
+        "sha256": "b73370e82a9adeab8161c66e51d5d4c2b6a8c331d464b974d73fd346d6dc912e",
+        "bytes": 8435660,
+        "meshPrimitives": 22,
+        "primitivesWithRealJointWeights": 0,
+        "gltfNodesWithSkin": 0,
+        "originalSkeletonJointListCount": 1494,
+        "jointsReachableFromActualScene": 0,
+        "authorClips": {
+          "Idle": [
+            "weights",
+            "weights"
+          ],
+          "Attack": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Hit": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ]
+        }
+      },
+      "realAuthorOriginalSkinnedCast": {
+        "file": "G02-Snow-Skinned-R132-BakedRest-PILOT.glb",
+        "sha256": "2a846ae175b1c03e36e5481934989678d43114cdf790df39574b26bab887c439",
+        "bytes": 11809228,
+        "meshPrimitives": 16,
+        "primitivesWithRealJointWeights": 16,
+        "gltfNodesWithSkin": 13,
+        "originalSkeletonJointListCount": 293,
+        "jointsReachableFromActualScene": 291,
+        "authorClips": {},
+        "unreachableOriginalAuthorSkinJointNodes": 2
+      }
+    },
+    "G03": {
+      "morphOnlyOrphanOldR97": {
+        "file": "G03-Jay-Landing-R97.glb",
+        "sha256": "04af676079ca7306091dd074ffeead251dbf3e53b86dba5df273a432ee565a03",
+        "bytes": 4573352,
+        "meshPrimitives": 40,
+        "primitivesWithRealJointWeights": 0,
+        "gltfNodesWithSkin": 0,
+        "originalSkeletonJointListCount": 1605,
+        "jointsReachableFromActualScene": 0,
+        "authorClips": {
+          "Idle": [
+            "weights",
+            "weights"
+          ],
+          "Attack": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Hit": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ]
+        }
+      },
+      "realAuthorOriginalSkinnedCast": {
+        "file": "G03-Jay-Skinned-R132-BakedRest-PILOT.glb",
+        "sha256": "2c9e7f6bd53cb026bd1e44deb1c6ff5d1c38dde1dd7f8fecb88dceaf61f1d498",
+        "bytes": 4844504,
+        "meshPrimitives": 28,
+        "primitivesWithRealJointWeights": 28,
+        "gltfNodesWithSkin": 16,
+        "originalSkeletonJointListCount": 295,
+        "jointsReachableFromActualScene": 285,
+        "authorClips": {},
+        "unreachableOriginalAuthorSkinJointNodes": 10
+      }
+    },
+    "G04": {
+      "morphOnlyOrphanOldR97": {
+        "file": "G04-Victoria-Landing-R97.glb",
+        "sha256": "84f621a36293a59b5cd014093453bab2cd3af2583cc044be9005dd19f4173a81",
+        "bytes": 6541032,
+        "meshPrimitives": 34,
+        "primitivesWithRealJointWeights": 0,
+        "gltfNodesWithSkin": 0,
+        "originalSkeletonJointListCount": 1618,
+        "jointsReachableFromActualScene": 0,
+        "authorClips": {
+          "Attack": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Hit": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Idle": [
+            "weights",
+            "weights",
+            "weights"
+          ]
+        }
+      },
+      "realAuthorOriginalSkinnedCast": {
+        "file": "G04-Victoria-Skinned-R132-BakedRest-PILOT.glb",
+        "sha256": "5fb77d05e548477c4a201774bf61fa3927f4993e334a423a8027fb895a09a000",
+        "bytes": 7286436,
+        "meshPrimitives": 29,
+        "primitivesWithRealJointWeights": 29,
+        "gltfNodesWithSkin": 18,
+        "originalSkeletonJointListCount": 311,
+        "jointsReachableFromActualScene": 296,
+        "authorClips": {},
+        "unreachableOriginalAuthorSkinJointNodes": 15
+      }
+    },
+    "T03": {
+      "morphOnlyOrphanOldR97": {
+        "file": "T03-Rain-Landing-R97.glb",
+        "sha256": "701e92115b469ccbfb27ede9f06c9a7f0db95a4ed3870f333cf7daf1b4553ab6",
+        "bytes": 7306420,
+        "meshPrimitives": 23,
+        "primitivesWithRealJointWeights": 0,
+        "gltfNodesWithSkin": 0,
+        "originalSkeletonJointListCount": 2166,
+        "jointsReachableFromActualScene": 0,
+        "authorClips": {
+          "Idle": [
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Attack": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Hit": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ]
+        }
+      },
+      "realAuthorOriginalSkinnedCast": {
+        "file": "T03-Rain-Skinned-R132-BakedRest-PILOT.glb",
+        "sha256": "4f868e73ce9b37df8705dbf2a2fc40af6f8b7634d4ec2a227646a8e4458ea3c5",
+        "bytes": 18554464,
+        "meshPrimitives": 24,
+        "primitivesWithRealJointWeights": 24,
+        "gltfNodesWithSkin": 18,
+        "originalSkeletonJointListCount": 392,
+        "jointsReachableFromActualScene": 392,
+        "authorClips": {},
+        "unreachableOriginalAuthorSkinJointNodes": 0
+      }
+    },
+    "T04": {
+      "morphOnlyOrphanOldR97": {
+        "file": "T04-Rex-Landing-R97.glb",
+        "sha256": "71512e13b065a2075e2259841fc058a77341068f1f6738838db265ddc11229d2",
+        "bytes": 5236624,
+        "meshPrimitives": 38,
+        "primitivesWithRealJointWeights": 0,
+        "gltfNodesWithSkin": 0,
+        "originalSkeletonJointListCount": 1556,
+        "jointsReachableFromActualScene": 0,
+        "authorClips": {
+          "Idle": [
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Attack": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ],
+          "Hit": [
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights",
+            "weights"
+          ]
+        }
+      },
+      "realAuthorOriginalSkinnedCast": {
+        "file": "T04-Rex-Skinned-R144-WeightedPelvis-PILOT.glb",
+        "sha256": "cf40c58125eb9ebc8ccfe3dc56b08589f705ae2e45190e162da7d9b24d67000f",
+        "bytes": 7248864,
+        "meshPrimitives": 32,
+        "primitivesWithRealJointWeights": 32,
+        "gltfNodesWithSkin": 21,
+        "originalSkeletonJointListCount": 299,
+        "jointsReachableFromActualScene": 288,
+        "authorClips": {},
+        "unreachableOriginalAuthorSkinJointNodes": 11
+      }
+    }
+  }
+}
