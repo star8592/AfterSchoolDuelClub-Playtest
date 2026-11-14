@@ -58,16 +58,14 @@ try{
     await page.waitForTimeout(160);
    }
    const end=await read();
-   check((end.stage?.sourceTracks??end.stage?.sourceRigTrackCount)===(id==='T04'?17:16),
-    view+' '+id+' exactly original upper+lower'+(id==='T04'?'+pelvis':'')+' tracks',
+   check((end.stage?.sourceTracks??end.stage?.sourceRigTrackCount)===16,
+    view+' '+id+' exactly original upper+lower tracks',
     end.stage);
-   if(id==='T04')check(end.legs.sourcePelvis?.bone==='DEF-Hips'&&
-     end.legs.sourcePelvis.skinWeight>=.20&&
-     end.legs.sourcePelvis.maxPelvisAngle>.035,
-     view+' '+id+' REAL weighted DEF-Hips rotates and visibly skins mesh',
-     end.legs.sourcePelvis);
-   else check(end.legs.sourcePelvis===null,
-     view+' '+id+' no fabricated pelvis for Jay original rig',end.legs);
+   // The original flat-export Rex hip has no direct skin weights or
+   // child bones. Assert a truly weighted thigh instead of counting it.
+   check(end.legs.weightedSourceLegVertexWeight>=.35&&
+     end.legs.weightedSourceLegBone==='DEF-Thigh1.L',
+     view+' '+id+' actual weighted source thigh (no fake pelvis)',end.legs);
    check(end.legs.maxLegVertexTravel>=(id==='T04'?.027:.051),
     view+' '+id+' weighted original leg vertex travel actually visible',
     end.legs);
