@@ -61,6 +61,16 @@ try{
    const index=side=>Math.abs((poses.celebrate?.stage?.arms?.[side]?.spread||0)-
     (poses.idle?.stage?.arms?.[side]?.spread||0));
    const visibleDelta=+(['L','R'].reduce((n,side)=>n+index(side),0)).toFixed(4);
+   const threshold=id==='G02'?.25:id==='G04'?.28:.20;
+   check(visibleDelta>=threshold,
+    view+' '+id+' real-world wrists distinguish celebration from idle');
+   check(poses.attack.coverageWidth>=poses.idle.coverageWidth+.003,
+    view+' '+id+' real game-camera attack silhouette expands');
+   check(Object.values(poses).every(x=>x.feet?.enabled&&x.feet.maxAfter<=.004),
+    view+' '+id+' original weighted shoes/lower hems stay grounded');
+   if(id==='T03')check(poses.idle.stage.arms.L.spread>.08&&
+    poses.idle.stage.arms.R.spread>.08,
+    view+' '+id+' courier idle is not straight wooden arms');
    result.samples.push({view,id,visibleDelta,poses});
   }
   check(errors.length===0,view+' no JS/HTTP resource errors');
