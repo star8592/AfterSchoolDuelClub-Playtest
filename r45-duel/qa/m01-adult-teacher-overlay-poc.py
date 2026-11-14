@@ -53,7 +53,7 @@ REPLACEMENTS = (
 )
 
 
-def generate(source: Path, output: Path) -> None:
+def generate(source: Path, output: Path, attack_clip: str = "Punch") -> None:
     source = source.resolve(strict=True)
     output = output.absolute()
     if output.resolve() == source or output.exists():
@@ -66,6 +66,15 @@ def generate(source: Path, output: Path) -> None:
         value = value.replace(before, after)
     if "const isM01AdultTeacherStudy" not in value or "m01Adult" not in value:
         raise ValueError("Missing QA guard")
+    # A role-aware alternative: orchestral cue / arm-raise instead of boxing.
+    # Both choices are original embedded GLB clips; no bone editing.
+    if attack_clip not in ("Punch", "Wave"):
+        raise ValueError("Unsupported adult teacher attack clip")
+    if attack_clip == "Wave":
+        marker = "attack:'Punch',hit:'Hit reaction'"
+        if value.count(marker) != 1:
+            raise ValueError("Adult teacher attack mapping changed")
+        value = value.replace(marker, "attack:'Wave',hit:'Hit reaction'")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(value, encoding="utf-8")
     print(f"M01_ADULT_QA_OVERLAY_GENERATED {output}")
@@ -75,8 +84,10 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--attack-clip", choices=("Punch", "Wave"), default="Punch",
+                        help="QA-only M01 animation: Wave is a teacher cue; Punch is baseline")
     args = parser.parse_args()
-    generate(args.source, args.output)
+    generate(args.source, args.output, args.attack_clip)
 
 
 if __name__ == "__main__":
