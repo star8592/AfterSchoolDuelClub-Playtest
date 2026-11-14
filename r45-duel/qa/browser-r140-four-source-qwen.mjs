@@ -68,8 +68,34 @@ try{
     null,{timeout:10000});
    voices[id]={maxMouth,serialStopped:end.voice.sourceStopped};
   }
+  // Real two-sided duplicate-card case: one recorded character voice is
+  // not an excuse to make BOTH visible copies lip-sync to the same sample.
+  const duplicate={player:[{uid:'U14081',id:'G02',hp:6,attack:3,shield:0}],
+   ai:[{uid:'U14082',id:'G02',hp:6,attack:3,shield:0}]};
+  await page.evaluate(units=>document.querySelector('#stadium').contentWindow
+    .postMessage({type:'ASDC_R45_BOARD',units,player:['G02'],ai:['G02']},
+     location.origin),duplicate);
+  await page.waitForFunction(()=>document.querySelector('#stadium').contentWindow
+   .__r45SceneQA.summonPresence.entries.filter(x=>x.id==='G02').length===2,
+   null,{timeout:30000});
+  const beforeBoth=await page.evaluate(()=>document.querySelector('#stadium')
+   .contentWindow.__r45SceneQA.realVoiceActing.sourceStarted);
+  check(await page.evaluate(()=>window.__r45QA.audioVoiceSample('G02','attack')),
+   view+' duplicate scenario actual recording started');
+  await page.waitForFunction(prior=>document.querySelector('#stadium')
+   .contentWindow.__r45SceneQA.realVoiceActing.sourceStarted>prior,
+   beforeBoth,{timeout:18000});
+  const both=await page.evaluate(()=>document.querySelector('#stadium')
+   .contentWindow.__r45SceneQA.summonPresence.entries.filter(x=>x.id==='G02')
+   .map(x=>x.r140OriginalFace));
+  check(both.length===2&&both.filter(x=>x.activeSpeechSerial!==null).length===1,
+   view+' only ONE genuine source head speaks during duplicate-card VO',both);
+  await page.locator('#audio-toggle').click();
+  await page.waitForFunction(()=>document.querySelector('#stadium').contentWindow
+   .__r45SceneQA.summonPresence.entries.filter(x=>x.id==='G02').every(
+   x=>x.r140OriginalFace.activeSpeechSerial===null),null,{timeout:5000});
   check(errors.length===0,view+' no asset/JS failures',errors);
-  report.voices.push({view,voices});
+  report.voices.push({view,voices,duplicateCardVoiceIsolated:true});
   await page.close();
  }
  report.passed=true;
