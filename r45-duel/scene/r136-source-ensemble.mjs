@@ -33,13 +33,13 @@ const PROFILE=Object.freeze({
    left:'DEF-UpperArm_1.L',right:'DEF-UpperArm_1.R',
    elbowL:'DEF-Forearm_1.L',elbowR:'DEF-Forearm_1.R'},
   acts:{
-   Idle:[.048,.072,-.04,-.24,-.22,.24,.27,-.32],
-   Attack:[-.19,-.28,-.15,-.33,-.29,.58,.28,-.62],
-   Hit:[.19,.25,.09,.28,.17,-.16,.16,.18],
-   Walk:[.02,.035,.02,.04,.13,-.12,.13,-.12],
-   Challenge:[-.06,-.08,-.04,-.18,-.17,.21,.15,-.26],
-   Worry:[.17,.20,.07,.24,.14,-.14,.20,.16],
-   Celebrate:[-.21,-.30,-.11,-.28,-.33,.60,.32,-.57]
+   Idle:[.048,.072,-.04,-.24,-.42,.46,.40,-.46],
+   Attack:[-.26,-.38,-.19,-.35,-.64,1.20,.60,-1.04],
+   Hit:[.27,.32,.09,.35,.43,-.48,.48,.45],
+   Walk:[.02,.035,.02,.04,.18,-.17,.22,-.20],
+   Challenge:[-.12,-.15,-.04,-.23,-.50,.70,.48,-.72],
+   Worry:[.22,.28,.09,.28,.36,-.38,.33,.30],
+   Celebrate:[-.30,-.44,-.18,-.36,-.64,1.26,.64,-1.07]
   }
  },
  G04:{
@@ -63,7 +63,7 @@ const PROFILE=Object.freeze({
    left:'DEF-Upperarm1.L',right:'DEF-Upperarm1.R',
    elbowL:'DEF-Forearm1.L',elbowR:'DEF-Forearm1.R'},
   acts:{
-   Idle:[-.08,-.095,-.04,-.16,-.26,.30,.27,-.34],
+   Idle:[-.08,-.10,-.04,-.16,-.48,.51,.42,-.51],
    Attack:[-.31,-.40,-.13,-.26,-.38,.59,.36,-.62],
    Hit:[.21,.28,.11,.29,.18,-.22,.20,.23],
    Walk:[-.085,-.12,.025,.07,-.21,.24,.21,-.25],
@@ -98,8 +98,12 @@ export function createR136SourceClips(THREE,instance,original,id){
    const axes=UPPER.has(role)?Z:X,values=[];
    for(let i=0;i<times.length;i++){
     const t=times[i],ph=t*2*Math.PI;
+    // Snow pauses with a ready-to-write hand; Rain cradles the incoming
+    // parcel between steps. Their weighted original arms never reset to a
+    // dead-straight source rest pose on every idle sine crossing.
+    const basePose=UPPER.has(role)?(id==='G02'?.45:id==='T03'?.50:0):0;
     const a=state==='Idle'?peaks[index]*(
-      Math.sin(ph-.45)*.77+Math.sin(ph*2+index*.39)*.23):
+      basePose+Math.sin(ph-.45)*.77+Math.sin(ph*2+index*.39)*.23):
       state==='Walk'?peaks[index]*Math.sin(t*4*Math.PI):
       peaks[index]*envelope[i];
     const q=rest.clone().multiply(new THREE.Quaternion().setFromAxisAngle(axes,a));
