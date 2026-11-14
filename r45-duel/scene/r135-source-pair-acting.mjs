@@ -202,5 +202,6 @@ export function createR135PairSequencer(THREE,instance,mixer,clips,id){
   lift:+getLift().toFixed(4),
   maxCorrection:+maxCorrection.toFixed(4),arms:armPose(),history:trace.slice(-8)});
  return{play:kind=>launch(names[kind]||kind),
-  playNamed:name=>launch(name),update,inspect,getLift};
+  playNamed:name=>launch(name),update,inspect,getLift,
+  getCurrentClip:()=>currentName};
 }
