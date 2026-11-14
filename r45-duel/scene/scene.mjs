@@ -76,7 +76,10 @@ const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'
 // mouth morphs. Each side independently owns its own original face mesh.
 const hostSpeech={player:null,ai:null};
 const hostSpeechSeen={player:0,ai:0};
-const speechQA={started:0,stopped:0,ignored:0};
+const speechQA={started:0,stopped:0,ignored:0,
+ sourceStarted:0,sourceStopped:0,sourceAbsent:0};
+const R140_SOURCE_VOICES=new Set(['E04','G02','G04','T03']);
+const sourceSpeechSeen=Object.fromEntries([...R140_SOURCE_VOICES].map(id=>[id,0]));
 // R121 secondary physical camera: an actual 3D cinematic inset of the
 // original child, with its source facial morphs and wrist-bound painted card.
 // Main wide stadium composition and manual user orbit remain untouched.
@@ -1118,6 +1121,23 @@ function onMessage(ev){
  if(ev.source!==window.parent||ev.origin!==location.origin||!ready)return;
  const msg=ev.data;
  if(msg?.type==='ASDC_R122_VOICE_START'){
+  // The parent only emits this packet after an actual Audio element starts.
+  // Never accept QA text-only "voice" as speech, and never mutate game rules.
+  if(R140_SOURCE_VOICES.has(msg.actor)){
+   const valid=Number.isInteger(msg.serial)&&
+    msg.serial>sourceSpeechSeen[msg.actor]&&msg.serial<=100000000&&
+    typeof msg.text==='string'&&msg.text.length>0&&msg.text.length<=180&&
+    Number.isFinite(msg.duration_seconds)&&
+    msg.duration_seconds>=.5&&msg.duration_seconds<=18;
+   if(!valid){speechQA.ignored++;return;}
+   sourceSpeechSeen[msg.actor]=msg.serial;
+   const accepted=summonPresence?.startSourceSpeech?.(msg.actor,{
+    serial:msg.serial,text:msg.text,duration:msg.duration_seconds,
+    kind:String(msg.kind||'voice').slice(0,40)})===true;
+   if(accepted)speechQA.sourceStarted++;
+   else speechQA.sourceAbsent++;
+   return;
+  }
   const side=msg.actor==='HOST_PLAYER'?'player':
    msg.actor==='HOST_AI'?'ai':null;
   const valid=side&&Number.isInteger(msg.serial)&&msg.serial>hostSpeechSeen[side]&&
@@ -1133,6 +1153,12 @@ function onMessage(ev){
   return;
  }
  if(msg?.type==='ASDC_R122_VOICE_STOP'){
+  if(R140_SOURCE_VOICES.has(msg.actor)){
+   if(summonPresence?.stopSourceSpeech?.(msg.actor,msg.serial))
+    speechQA.sourceStopped++;
+   else speechQA.ignored++;
+   return;
+  }
   const side=msg.actor==='HOST_PLAYER'?'player':
    msg.actor==='HOST_AI'?'ai':null;
   if(side&&hostSpeech[side]&&msg.serial===hostSpeech[side].serial){
