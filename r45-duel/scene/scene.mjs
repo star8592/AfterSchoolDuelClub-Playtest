@@ -106,16 +106,16 @@ let heroResult={winner:null,started:-100};
 let lastTime=0,frames=0,actionFrames=0,impactFrames=0,drawCount=0,renderInfo=null;
 let currentPayload=null,activePhase='idle',ready=false,hadContact=false;
 const r145ActionLens=createR145RealSourceActionCamera(THREE);
-// The user asked to actually SEE real summoned character acting. Enabled
-// during genuine R51 resolved combat events even in standard R97 gameplay;
-// independent rollback, reduced motion and manual camera always respected.
+// R147 incident hotfix: R145 closeups hid the target's real hit reaction.
+// Safest default is ALWAYS the R104 shared frontal court camera. Previous
+// ?r145ActionCamera=on links also stay wide until the art lab explicitly
+// opts in with a second key. No camera or game-rule changes for players.
 const r145ActionCameraEnabled=(()=>{
  const local=new URLSearchParams(location.search);
  const parent=(()=>{try{return window.parent!==window?
   new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
- const raw=local.has('r145ActionCamera')?local.get('r145ActionCamera'):
-  parent?.get('r145ActionCamera');
- return raw!=='off';
+ const read=key=>local.has(key)?local.get(key):parent?.get(key);
+ return read('r147ArtLab')==='on'&&read('r145ActionCamera')==='on';
 })();
 let r145LastShot=null;
 let lastSourceIds=[],source3DAssetsVerified=false;
