@@ -39,5 +39,6 @@ E03 Ellie、E04 Phil、G03 Jay、G04 Victoria、T04 Rex 的高精原始 BakedRes
 
 - 已把修复设为只对**显式启用的 R134/R135/R136 原高精实验角色**默认生效；提供 `?r143Rig=off` 单独回退。普通无参数游戏仍用 R97。
 - `qa/browser-r143-trunk-rollback-default.mjs` 专门检查旧正式资产完全不变以及五人局部回退。默认启用后的新版 394 项和完整 R142 944 项历史回归也是合并条件。
-- **当前未取得上述最后一轮的实机回执**：Z890 的 Zoria 远程执行通道在最后阶段报错。因此本 PR 保持 **Draft，禁止合并到 main，禁止宣称正式部署**。
+- Zoria 远程执行短暂中断后已恢复；最终代码重新完成七角色实际默认重绑 **394/394**、`r143Rig=off` 回退与普通 R97 隔离 **46/46**、R142 历史全部回归 **944/944**。Z890 严格汇总 `qa/r143-acceptance-summary.py` 返回 **`R143_1384_REAL_GPU_87_ASSETS_PASS`**。共 **1384/1384 项真实 GPU 检查通过，另有 87/87 份资源、5,284,204 个蒙皮顶点的文件级审计通过**。
+- 最终证据写入 `qa/evidence/r143/source-trunk/r143-convergence.json`，逐资源完整摘要 `qa/evidence/r143/r143-compact-binding-report.json`，七角色 GPU 实测摘要 `qa/evidence/r143/source-trunk/r143-compact-trunk-gpu.json`。代码可以合入唯一 `main`，但**仍不得宣称普通玩家高精默认切换或正式公网部署**。
 - 不可把 `artApproved=false` 改为 true。真实低端手机、导演85/100视觉评分、全部角色和看台观众戏剧化表演、Rex 独立有效骨盆权重的资产级重构，仍须单独证据。
