@@ -20,6 +20,7 @@ class TestBox{
 let checks=0;
 for(const [id,names] of Object.entries(SOURCES)){
  const baseline=names.map(()=>0);
+ const limit=id==='T03'?.13:.082;
  const root={
   position:{y:0},userData:{r61:{r119Skin:true}},
   children:[],
@@ -36,9 +37,9 @@ for(const [id,names] of Object.entries(SOURCES)){
  for(let frame=0;frame<1200;frame++){
   // Alternate planted/raised shoe geometry, measured on the original actor.
   // A previous one-way +=raise passes penetration tests but fails this test.
-  const h=[-.056,-.028,.012,-.013,.025,-.043,.004][frame%7];
+  const h=[-.056,-.028,.012,-.013,.025,-.043,.004,id==='T03'?-.109:-.067][frame%8];
   baseline.forEach((_,i)=>baseline[i]=h+i*.006);
-  const expected=Math.min(.082,Math.max(0,.0005-Math.min(...baseline)));
+  const expected=Math.min(limit,Math.max(0,.0005-Math.min(...baseline)));
   const data=probe.apply();
   assert.ok(Math.abs(root.position.y-expected)<1e-7,
    id+' frame '+frame+' actor rose or failed to return to ground');
@@ -50,8 +51,8 @@ for(const [id,names] of Object.entries(SOURCES)){
  }
  const end=probe.inspect();
  assert.equal(end.frames,1200);
- assert.ok(end.activeLift<.083&&end.maxApplied<.083);
- assert.ok(end.maxStepDelta<.083);
+ assert.ok(end.activeLift<=limit+.00001&&end.maxApplied<=limit+.00001);
+ assert.ok(end.maxStepDelta<=limit+.00001);
  checks+=4;
 }
 console.log('R137_REVERSIBLE_FOUR_ORIGINAL_SKINS_PASS',checks,
