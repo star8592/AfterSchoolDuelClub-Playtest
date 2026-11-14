@@ -161,6 +161,16 @@ const R132_BAKED_STUDY=(()=>{
 // R134 visible-performance pilot. Explicit source opt-in initially, so the
 // author-approved R97 default and all existing R131-R133 study routes remain
 // unchanged until official wide-camera acceptance has been obtained.
+// R146 actual seven-performer cast: a single isolated research switch.
+ // All source GLBs have real JOINTS_0, WEIGHTS_0 and verified original
+ // binding. Never attempt to animate the fake/orphan R97 glTF skeleton.
+export const R146_SEVEN_SOURCE_CAST=(()=>{
+ const local=new URLSearchParams(location.search);
+ if(local.has('r146Cast'))return local.get('r146Cast')==='on';
+ try{return window.parent!==window&&
+  new URLSearchParams(window.parent.location.search).get('r146Cast')==='on';}
+ catch{return false;}
+})();
 export const R144_REX_PELVIS_ASSET='T04-Rex-Skinned-R144-WeightedPelvis-PILOT.glb';
 // Independent opt-in (never changes the R97 default). Requires R135 Rex.
 export const R144_REX_PELVIS=(()=>{
@@ -174,14 +184,16 @@ export const R144_REX_PELVIS=(()=>{
  // If the user independently rolls back R143, also choose the original
  // R132 source file rather than loading an R144 pelvis rig without its
  // required torso ancestry and breaking the match.
- return sourceSetting==='on'&&torsoSetting!=='off';
+ return (sourceSetting==='on'||sourceSetting==null&&R146_SEVEN_SOURCE_CAST)&&torsoSetting!=='off';
 })();
 export const R134_JAY_STAGE=(()=>{
  const local=new URLSearchParams(location.search);
  if(local.has('r134Jay'))return local.get('r134Jay')==='on';
- try{return window.parent!==window&&
-  new URLSearchParams(window.parent.location.search).get('r134Jay')==='on';}
- catch{return false;}
+ try{if(window.parent!==window){
+  const parent=new URLSearchParams(window.parent.location.search);
+  if(parent.has('r134Jay'))return parent.get('r134Jay')==='on';
+ }}catch{}
+ return R146_SEVEN_SOURCE_CAST;
 })();
 // One canonical game build, individually selectable production-pilot identities.
 export const R135_PAIR_STAGES=(()=>{
@@ -193,7 +205,7 @@ export const R135_PAIR_STAGES=(()=>{
   catch{return '';}
  };
  const raw=read();
- if(raw==='on'||raw==='all')return new Set(['E03','T04']);
+ if(raw==='on'||raw==='all'||!raw&&R146_SEVEN_SOURCE_CAST)return new Set(['E03','T04']);
  if(raw==='off'||!raw)return new Set();
  return new Set(raw.split(',').filter(x=>['E03','T04'].includes(x)));
 })();
@@ -205,7 +217,7 @@ export const R136_CAST_STAGES=(()=>{
    new URLSearchParams(window.parent.location.search).get('r136Cast')||'':'';}
   catch{return '';}
  })();
- if(raw==='on'||raw==='all')return new Set(['E04','G02','G04','T03']);
+ if(raw==='on'||raw==='all'||!raw&&R146_SEVEN_SOURCE_CAST)return new Set(['E04','G02','G04','T03']);
  if(raw==='off'||!raw)return new Set();
  return new Set(raw.split(',').filter(id=>['E04','G02','G04','T03'].includes(id)));
 })();
