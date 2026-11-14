@@ -46,9 +46,17 @@ DIRECT_EXPECTED={
 def norm(x):
  return "".join(c for c in str(x).lower() if c.isalnum())
 def glb(p):
- # Decode original compressed VRM into an isolated temporary audit-only GLB.
- # The user-authored source file is never edited, and all vertices are scanned.
- if p.suffix.lower()=='.vrm':
+ # All game binaries, including production R97, M01 and M02, may carry
+ # EXT_meshopt_compression virtual fallback buffers. Inspect the real
+ # extension (never the suffix), decode through the game's trusted decoder,
+ # and audit the derived temporary GLB only. The original remains immutable.
+ with p.open("rb") as h:
+  prefix=h.read(20)
+  if len(prefix)!=20 or prefix[:4]!=b"glTF":raise ValueError("NOT_GLB")
+  source_doc=json.loads(h.read(struct.unpack_from("<I",prefix,12)[0]))
+ compressed=any("EXT_meshopt_compression" in v.get("extensions",{})
+   for v in source_doc.get("bufferViews",[]))
+ if compressed:
   with tempfile.NamedTemporaryFile(suffix=".glb",prefix="r143-audit-",delete=False) as tmp:
    derived=Path(tmp.name)
   try:
