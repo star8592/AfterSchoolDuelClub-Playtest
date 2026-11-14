@@ -62,8 +62,20 @@ export function createR136OriginalFootContact(THREE,root,id){
    throw Error('R136 invalid skin floor '+id);
   const below=Math.min(...before);
   const limit=MAX_CORRECTION[id];
-  const raise=below<CLEAR?Math.min(limit,CLEAR-below):0;
-  if(raise>0){root.position.y+=raise;root.updateMatrixWorld(true);}
+  // R139: the authentic Victoria boots were hovering ~0.013 at idle and
+  // ~0.037 during command attacks even though penetration was zero.
+  // Only G04 planted states receive a bounded negative correction. Recoil
+  // and victory may intentionally lift the boots, so never snap those down.
+  const state=id==='G04'?
+   root.userData.r61?.getR136CastStage?.()?.currentClip:null;
+  const victoriaPlanted=id==='G04'&&new Set([
+   'R119_Skeletal_Idle','R119_Skeletal_Attack',
+   'R119_Skeletal_Walk','R119_Skeletal_Challenge',
+   'R119_Skeletal_Worry']).has(state);
+  const desired=CLEAR-below;
+  const raise=desired>=0?Math.min(limit,desired):
+   victoriaPlanted?Math.max(-.04,desired):0;
+  if(Math.abs(raise)>1e-8){root.position.y+=raise;root.updateMatrixWorld(true);}
   previousLift=raise;
   const delta=raise-prior;
   if(Math.abs(delta)>1e-7)corrections++;
@@ -80,8 +92,9 @@ export function createR136OriginalFootContact(THREE,root,id){
    minAfter:+min.toFixed(5),
    supportedMesh:expected[after.indexOf(min)],
    remainingPenetration:+Math.max(0,-min).toFixed(5),
-   correctionLimit:limit,
-   correctionClamped:raise>=limit-.00001};
+   correctionLimit:limit,victoriaPlanted,
+   correctionClamped:raise>=limit-.00001||
+    (victoriaPlanted&&raise<=-.04+.00001)};
   return last;
  }
  return{apply,inspect:()=>({enabled:true,actor:id,
