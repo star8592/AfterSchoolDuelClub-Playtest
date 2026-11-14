@@ -52,15 +52,14 @@ export function createR136OriginalFootContact(THREE,root,id){
   });
  };
  function apply(){
-  // Re-measure against the uncorrected pose each frame. The previous
-  // one-way +=raise accumulated height whenever a foot dipped below court.
+  // summon-presence recomputes every glTF actor's world Y every frame,
+  // BEFORE calling this probe. The incoming transform is already uncorrected.
+  // Never subtract a previous lift here: that causes a second artificial dip
+  // and a cap-sized penetration under deep movements (Rain/T03).
   const prior=previousLift;
-  if(prior){root.position.y-=prior;root.updateMatrixWorld(true);}
   const before=sample();
-  if(before.some(x=>!Number.isFinite(x))){
-   if(prior){root.position.y+=prior;root.updateMatrixWorld(true);}
+  if(before.some(x=>!Number.isFinite(x)))
    throw Error('R136 invalid skin floor '+id);
-  }
   const below=Math.min(...before);
   const limit=MAX_CORRECTION[id];
   const raise=below<CLEAR?Math.min(limit,CLEAR-below):0;
