@@ -81,7 +81,7 @@ function showComedyAside(line){
  // The iframe contains the ORIGINAL source VRM visemes and does not
  // receive a fictitious mouth-motion cue on a text-only fallback.
 function realVoiceStarted(entry){
- if(sceneReady&&['HOST_PLAYER','HOST_AI'].includes(entry?.id)&&
+ if(sceneReady&&['HOST_PLAYER','HOST_AI','E04','G02','G04','T03'].includes(entry?.id)&&
     Number.isInteger(entry.serial)&&entry.serial>0){
   sendScene({type:'ASDC_R122_VOICE_START',actor:entry.id,
    serial:entry.serial,kind:entry.kind,text:entry.text,
@@ -90,7 +90,7 @@ function realVoiceStarted(entry){
  showSpokenLine(entry);
 }
 function realVoiceStopped(entry){
- if(sceneReady&&['HOST_PLAYER','HOST_AI'].includes(entry?.id)&&
+ if(sceneReady&&['HOST_PLAYER','HOST_AI','E04','G02','G04','T03'].includes(entry?.id)&&
     Number.isInteger(entry.serial)&&entry.serial>0)
   sendScene({type:'ASDC_R122_VOICE_STOP',actor:entry.id,
    serial:entry.serial});

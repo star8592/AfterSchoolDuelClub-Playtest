@@ -1096,6 +1096,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     r136CastStage:R136_CAST_STAGES.has(s.id)?
      s.object.userData.r61?.getR136CastStage?.()||null:null,
     r136OriginalFoot:s.r136Contact?.inspect()||null,
+    r140OriginalFace:s.object.userData.r61?.getR140OriginalFace?.()||null,
     r90Pose:s.kind==='gltf-instance'?s.object.userData.r61?.getCombatPose?.():undefined,
     r90ClipRate:s.kind==='gltf-instance'?s.object.userData.r61?.getClipRate?.():undefined,
     artApproved:false};
@@ -1160,6 +1161,31 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   lowest.sort((a,b)=>a.minimum-b.minimum);
   return lowest.slice(0,10);
  }
+ // R140: only the actual played source VO can animate the character's
+ // original jaw/head morphs. This never synthesizes speech or an audio clip.
+ function startSourceSpeech(id,details){
+  if(!['E04','G02','G04','T03'].includes(id))return false;
+  const candidates=[...entries.values()].filter(entry=>
+   entry.id===id&&entry.kind==='gltf-instance'&&entry.object.visible&&
+   entry.object.userData.r61?.getR140OriginalFace?.()?.enabled);
+  // Two camps can summon the SAME card. A single Qwen recording must
+  // NEVER make both independent faces pretend to be the speaker.
+  const wanted=details?.kind==='attack'?'Attack':
+   details?.kind==='hurt'?'Hit':null;
+  const chosen=(wanted?candidates.find(entry=>entry.object.userData.r61
+   ?.getR136CastStage?.()?.currentClip==='R119_Skeletal_'+wanted):null)||
+   candidates[0];
+  return chosen?.object.userData.r61?.startSourceSpeech?.(details)===true;
+ }
+ function stopSourceSpeech(id,serial){
+  if(!['E04','G02','G04','T03'].includes(id))return false;
+  let stopped=false;
+  for(const entry of entries.values()){
+   if(entry.id!==id||entry.kind!=='gltf-instance')continue;
+   stopped=entry.object.userData.r61?.stopSourceSpeech?.(serial)===true||stopped;
+  }
+  return stopped;
+ }
  function playSourceStudyAction(id,kind){
   if(!['idle','attack','hit','walk','celebrate'].includes(kind))return false;
   const actor=[...entries.values()].find(s=>s.id===id&&s.object.userData.r61?.r119Skin);
@@ -1167,7 +1193,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   return actor.object.userData.r61.play(kind)===true;
  }
  return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,
-  playSourceStudyAction,inspectLowestSourceMeshes,
+  playSourceStudyAction,inspectLowestSourceMeshes,startSourceSpeech,stopSourceSpeech,
   reactToSpell,spellWorldAnchors,reserveSpellTargets,clearSpellTargets,reactToSummon,reactToCombo,clearComicCombo,
   celebrate,get celebration(){return celebration&&{...celebration,frames:celebrationFrames,actorFrames:celebratingActors}},
   get spellReactions(){return actualSpellReactions},

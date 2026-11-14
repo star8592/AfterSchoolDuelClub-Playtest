@@ -1,0 +1,1939 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "source": "real GPU Chrome on Z890 original authored GLB, desktop 1440 + portrait 430",
+  "voiceSource": "confirmed Qwen3 HTMLAudioElement playing and stop callbacks",
+  "notForcedPhonemeAlignment": true,
+  "checks": {
+    "face": [
+      {
+        "pass": true,
+        "label": "desktop E04 idle original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 idle REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 idle original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 idle source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 attack original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 attack REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 attack original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 attack source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 attack actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 hit original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 hit REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 hit original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 hit source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 hit actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 celebrate original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 celebrate REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 celebrate original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 celebrate source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 celebrate actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 cannot fake talking before any real audio"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 idle original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 idle REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 idle original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 idle source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 attack original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 attack REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 attack original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 attack source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 attack actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 hit original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 hit REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 hit original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 hit source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 hit actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 celebrate original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 celebrate REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 celebrate original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 celebrate source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 celebrate actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 cannot fake talking before any real audio"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 idle original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 idle REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 idle original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 idle source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 attack original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 attack REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 attack original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 attack source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 attack actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 hit original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 hit REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 hit original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 hit source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 hit actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 celebrate original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 celebrate REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 celebrate original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 celebrate source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 celebrate actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 cannot fake talking before any real audio"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 idle original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 idle REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 idle original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 idle source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 attack original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 attack REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 attack original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 attack source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 attack actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 hit original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 hit REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 hit original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 hit source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 hit actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 celebrate original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 celebrate REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 celebrate original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 celebrate source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 celebrate actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 cannot fake talking before any real audio"
+      },
+      {
+        "pass": true,
+        "label": "desktop real recorded G02 attack is queued"
+      },
+      {
+        "pass": true,
+        "label": "desktop source jaw morph follows ACTUAL audio playback"
+      },
+      {
+        "pass": true,
+        "label": "desktop actual voice playback source serial recorded"
+      },
+      {
+        "pass": true,
+        "label": "desktop original face stops speaking immediately on real mute"
+      },
+      {
+        "pass": true,
+        "label": "desktop no JS or source audio asset errors"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 idle original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 idle REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 idle original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 idle source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 attack original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 attack REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 attack original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 attack source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 attack actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 hit original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 hit REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 hit original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 hit source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 hit actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 celebrate original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 celebrate REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 celebrate original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 celebrate source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 celebrate actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 cannot fake talking before any real audio"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 idle original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 idle REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 idle original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 idle source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 attack original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 attack REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 attack original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 attack source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 attack actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 hit original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 hit REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 hit original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 hit source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 hit actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 celebrate original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 celebrate REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 celebrate original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 celebrate source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 celebrate actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 cannot fake talking before any real audio"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 idle original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 idle REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 idle original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 idle source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 attack original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 attack REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 attack original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 attack source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 attack actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 hit original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 hit REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 hit original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 hit source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 hit actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 celebrate original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 celebrate REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 celebrate original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 celebrate source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 celebrate actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 cannot fake talking before any real audio"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 idle original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 idle REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 idle original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 idle source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 attack original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 attack REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 attack original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 attack source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 attack actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 hit original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 hit REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 hit original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 hit source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 hit actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 celebrate original performance triggered"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 celebrate REAL morph target animation and facing"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 celebrate original outsole remains non-penetrating"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 celebrate source action synchronizes source facial state"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 celebrate actual author facial expression is non-neutral"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 cannot fake talking before any real audio"
+      },
+      {
+        "pass": true,
+        "label": "portrait real recorded G02 attack is queued"
+      },
+      {
+        "pass": true,
+        "label": "portrait source jaw morph follows ACTUAL audio playback"
+      },
+      {
+        "pass": true,
+        "label": "portrait actual voice playback source serial recorded"
+      },
+      {
+        "pass": true,
+        "label": "portrait original face stops speaking immediately on real mute"
+      },
+      {
+        "pass": true,
+        "label": "portrait no JS or source audio asset errors"
+      }
+    ],
+    "voice": [
+      {
+        "pass": true,
+        "label": "desktop E04 source face is silent before real recording"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 real prerecorded Qwen line requested"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 original weighted jaw/morph moves ONLY with live recording"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 real audio opens original mouth repeatedly"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 mute immediately closes original mouth"
+      },
+      {
+        "pass": true,
+        "label": "desktop E04 actual source mute was applied"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 source face is silent before real recording"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 real prerecorded Qwen line requested"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 original weighted jaw/morph moves ONLY with live recording"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 real audio opens original mouth repeatedly"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 mute immediately closes original mouth"
+      },
+      {
+        "pass": true,
+        "label": "desktop G02 actual source mute was applied"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 source face is silent before real recording"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 real prerecorded Qwen line requested"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 original weighted jaw/morph moves ONLY with live recording"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 real audio opens original mouth repeatedly"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 mute immediately closes original mouth"
+      },
+      {
+        "pass": true,
+        "label": "desktop G04 actual source mute was applied"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 source face is silent before real recording"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 real prerecorded Qwen line requested"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 original weighted jaw/morph moves ONLY with live recording"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 real audio opens original mouth repeatedly"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 mute immediately closes original mouth"
+      },
+      {
+        "pass": true,
+        "label": "desktop T03 actual source mute was applied"
+      },
+      {
+        "pass": true,
+        "label": "desktop duplicate scenario actual recording started"
+      },
+      {
+        "pass": true,
+        "label": "desktop only ONE genuine source head speaks during duplicate-card VO"
+      },
+      {
+        "pass": true,
+        "label": "desktop no asset/JS failures"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 source face is silent before real recording"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 real prerecorded Qwen line requested"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 original weighted jaw/morph moves ONLY with live recording"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 real audio opens original mouth repeatedly"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 mute immediately closes original mouth"
+      },
+      {
+        "pass": true,
+        "label": "portrait E04 actual source mute was applied"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 source face is silent before real recording"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 real prerecorded Qwen line requested"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 original weighted jaw/morph moves ONLY with live recording"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 real audio opens original mouth repeatedly"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 mute immediately closes original mouth"
+      },
+      {
+        "pass": true,
+        "label": "portrait G02 actual source mute was applied"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 source face is silent before real recording"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 real prerecorded Qwen line requested"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 original weighted jaw/morph moves ONLY with live recording"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 real audio opens original mouth repeatedly"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 mute immediately closes original mouth"
+      },
+      {
+        "pass": true,
+        "label": "portrait G04 actual source mute was applied"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 source face is silent before real recording"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 real prerecorded Qwen line requested"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 original weighted jaw/morph moves ONLY with live recording"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 real audio opens original mouth repeatedly"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 mute immediately closes original mouth"
+      },
+      {
+        "pass": true,
+        "label": "portrait T03 actual source mute was applied"
+      },
+      {
+        "pass": true,
+        "label": "portrait duplicate scenario actual recording started"
+      },
+      {
+        "pass": true,
+        "label": "portrait only ONE genuine source head speaks during duplicate-card VO"
+      },
+      {
+        "pass": true,
+        "label": "portrait no asset/JS failures"
+      }
+    ]
+  },
+  "faces": {
+    "desktop": {
+      "E04": {
+        "originalModel": true,
+        "stages": {
+          "idle": {
+            "state": "Idle",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.05,
+            "actualTargets": [
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-phil_eyeL",
+                "weight": 0.05
+              },
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-phil_eyeL_1",
+                "weight": 0.05
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-phil_eyeR",
+                "weight": 0.05
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-phil_eyeR_1",
+                "weight": 0.05
+              }
+            ]
+          },
+          "attack": {
+            "state": "Attack",
+            "maxJaw": 0.045,
+            "maxOriginalMorph": 0.58,
+            "actualTargets": [
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-phil_eyeL",
+                "weight": 0.58
+              },
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-phil_eyeL_1",
+                "weight": 0.58
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-phil_eyeR",
+                "weight": 0.58
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-phil_eyeR_1",
+                "weight": 0.58
+              }
+            ]
+          },
+          "hit": {
+            "state": "Hit",
+            "maxJaw": 0.1,
+            "maxOriginalMorph": 0.72,
+            "actualTargets": [
+              {
+                "name": "iris_wide.L",
+                "mesh": "Data_GEO-phil_eyeL",
+                "weight": 0.72
+              },
+              {
+                "name": "iris_wide.L",
+                "mesh": "Data_GEO-phil_eyeL_1",
+                "weight": 0.72
+              },
+              {
+                "name": "iris_wide.R",
+                "mesh": "Data_GEO-phil_eyeR",
+                "weight": 0.72
+              },
+              {
+                "name": "iris_wide.R",
+                "mesh": "Data_GEO-phil_eyeR_1",
+                "weight": 0.72
+              }
+            ]
+          },
+          "celebrate": {
+            "state": "Celebrate",
+            "maxJaw": 0.1,
+            "maxOriginalMorph": 0.72,
+            "actualTargets": [
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-phil_eyeL",
+                "weight": 0.53
+              },
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-phil_eyeL_1",
+                "weight": 0.53
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-phil_eyeR",
+                "weight": 0.53
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-phil_eyeR_1",
+                "weight": 0.53
+              }
+            ]
+          }
+        }
+      },
+      "G02": {
+        "originalModel": true,
+        "stages": {
+          "idle": {
+            "state": "Idle",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.1,
+            "actualTargets": [
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.08
+              },
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.08
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.06
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.06
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.1
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.1
+              }
+            ]
+          },
+          "attack": {
+            "state": "Attack",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.65,
+            "actualTargets": [
+              {
+                "name": "Bothbrows_Down",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.65
+              },
+              {
+                "name": "Bothbrows_Down",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.65
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.17
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.17
+              },
+              {
+                "name": "ShrinkIrisHorizontal.L",
+                "mesh": "GEO-snow-eyes",
+                "weight": 0.25
+              },
+              {
+                "name": "ShrinkIrisHorizontal.R",
+                "mesh": "GEO-snow-eyes",
+                "weight": 0.25
+              }
+            ]
+          },
+          "hit": {
+            "state": "Hit",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.83,
+            "actualTargets": [
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.83
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.83
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.43
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.43
+              },
+              {
+                "name": "GrowIrisHorizontal.L",
+                "mesh": "GEO-snow-eyes",
+                "weight": 0.4
+              },
+              {
+                "name": "GrowIrisHorizontal.R",
+                "mesh": "GEO-snow-eyes",
+                "weight": 0.4
+              }
+            ]
+          },
+          "celebrate": {
+            "state": "Celebrate",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.84,
+            "actualTargets": [
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.84
+              },
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.84
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.84
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.84
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.56
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.56
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.16
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.16
+              }
+            ]
+          }
+        }
+      },
+      "G04": {
+        "originalModel": true,
+        "stages": {
+          "idle": {
+            "state": "Idle",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.1,
+            "actualTargets": [
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-victoria_eyeL",
+                "weight": 0.1
+              },
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-victoria_eyeL_1",
+                "weight": 0.1
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-victoria_eyeR",
+                "weight": 0.1
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-victoria_eyeR_1",
+                "weight": 0.1
+              }
+            ]
+          },
+          "attack": {
+            "state": "Attack",
+            "maxJaw": 0.045,
+            "maxOriginalMorph": 0.69,
+            "actualTargets": [
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-victoria_eyeL",
+                "weight": 0.69
+              },
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-victoria_eyeL_1",
+                "weight": 0.69
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-victoria_eyeR",
+                "weight": 0.69
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-victoria_eyeR_1",
+                "weight": 0.69
+              }
+            ]
+          },
+          "hit": {
+            "state": "Hit",
+            "maxJaw": 0.095,
+            "maxOriginalMorph": 0.84,
+            "actualTargets": [
+              {
+                "name": "iris_wide.L",
+                "mesh": "Data_GEO-victoria_eyeL",
+                "weight": 0.84
+              },
+              {
+                "name": "iris_wide.L",
+                "mesh": "Data_GEO-victoria_eyeL_1",
+                "weight": 0.84
+              },
+              {
+                "name": "iris_wide.R",
+                "mesh": "Data_GEO-victoria_eyeR",
+                "weight": 0.84
+              },
+              {
+                "name": "iris_wide.R",
+                "mesh": "Data_GEO-victoria_eyeR_1",
+                "weight": 0.84
+              }
+            ]
+          },
+          "celebrate": {
+            "state": "Celebrate",
+            "maxJaw": 0.095,
+            "maxOriginalMorph": 0.84,
+            "actualTargets": [
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-victoria_eyeL",
+                "weight": 0.49
+              },
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-victoria_eyeL_1",
+                "weight": 0.49
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-victoria_eyeR",
+                "weight": 0.49
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-victoria_eyeR_1",
+                "weight": 0.49
+              }
+            ]
+          }
+        }
+      },
+      "T03": {
+        "originalModel": true,
+        "stages": {
+          "idle": {
+            "state": "Idle",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.12,
+            "actualTargets": [
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.12
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.12
+              }
+            ]
+          },
+          "attack": {
+            "state": "Attack",
+            "maxJaw": 0.07,
+            "maxOriginalMorph": 0.69,
+            "actualTargets": [
+              {
+                "name": "EyebrowsDown.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.69
+              },
+              {
+                "name": "EyebrowsDown.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.69
+              },
+              {
+                "name": "LipsWide.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.35
+              },
+              {
+                "name": "LipsWide.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.35
+              }
+            ]
+          },
+          "hit": {
+            "state": "Hit",
+            "maxJaw": 0.13,
+            "maxOriginalMorph": 0.69,
+            "actualTargets": [
+              {
+                "name": "EyebrowsTogether.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.68
+              },
+              {
+                "name": "EyebrowsTogether.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.68
+              },
+              {
+                "name": "Lips_Corner_In.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.4
+              },
+              {
+                "name": "Lips_Corner_In.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.4
+              }
+            ]
+          },
+          "celebrate": {
+            "state": "Celebrate",
+            "maxJaw": 0.13,
+            "maxOriginalMorph": 0.89,
+            "actualTargets": [
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.89
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.89
+              },
+              {
+                "name": "LipsUp.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.64
+              },
+              {
+                "name": "LipsUp.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.64
+              }
+            ]
+          }
+        }
+      }
+    },
+    "portrait": {
+      "E04": {
+        "originalModel": true,
+        "stages": {
+          "idle": {
+            "state": "Idle",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.05,
+            "actualTargets": [
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-phil_eyeL",
+                "weight": 0.05
+              },
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-phil_eyeL_1",
+                "weight": 0.05
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-phil_eyeR",
+                "weight": 0.05
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-phil_eyeR_1",
+                "weight": 0.05
+              }
+            ]
+          },
+          "attack": {
+            "state": "Attack",
+            "maxJaw": 0.045,
+            "maxOriginalMorph": 0.58,
+            "actualTargets": [
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-phil_eyeL",
+                "weight": 0.58
+              },
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-phil_eyeL_1",
+                "weight": 0.58
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-phil_eyeR",
+                "weight": 0.58
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-phil_eyeR_1",
+                "weight": 0.58
+              }
+            ]
+          },
+          "hit": {
+            "state": "Hit",
+            "maxJaw": 0.1,
+            "maxOriginalMorph": 0.72,
+            "actualTargets": [
+              {
+                "name": "iris_wide.L",
+                "mesh": "Data_GEO-phil_eyeL",
+                "weight": 0.72
+              },
+              {
+                "name": "iris_wide.L",
+                "mesh": "Data_GEO-phil_eyeL_1",
+                "weight": 0.72
+              },
+              {
+                "name": "iris_wide.R",
+                "mesh": "Data_GEO-phil_eyeR",
+                "weight": 0.72
+              },
+              {
+                "name": "iris_wide.R",
+                "mesh": "Data_GEO-phil_eyeR_1",
+                "weight": 0.72
+              }
+            ]
+          },
+          "celebrate": {
+            "state": "Celebrate",
+            "maxJaw": 0.1,
+            "maxOriginalMorph": 0.72,
+            "actualTargets": [
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-phil_eyeL",
+                "weight": 0.53
+              },
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-phil_eyeL_1",
+                "weight": 0.53
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-phil_eyeR",
+                "weight": 0.53
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-phil_eyeR_1",
+                "weight": 0.53
+              }
+            ]
+          }
+        }
+      },
+      "G02": {
+        "originalModel": true,
+        "stages": {
+          "idle": {
+            "state": "Idle",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.1,
+            "actualTargets": [
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.08
+              },
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.08
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.06
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.06
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.1
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.1
+              }
+            ]
+          },
+          "attack": {
+            "state": "Attack",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.65,
+            "actualTargets": [
+              {
+                "name": "Bothbrows_Down",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.65
+              },
+              {
+                "name": "Bothbrows_Down",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.65
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.17
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.17
+              },
+              {
+                "name": "ShrinkIrisHorizontal.L",
+                "mesh": "GEO-snow-eyes",
+                "weight": 0.25
+              },
+              {
+                "name": "ShrinkIrisHorizontal.R",
+                "mesh": "GEO-snow-eyes",
+                "weight": 0.25
+              }
+            ]
+          },
+          "hit": {
+            "state": "Hit",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.83,
+            "actualTargets": [
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.83
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.83
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.43
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.43
+              },
+              {
+                "name": "GrowIrisHorizontal.L",
+                "mesh": "GEO-snow-eyes",
+                "weight": 0.4
+              },
+              {
+                "name": "GrowIrisHorizontal.R",
+                "mesh": "GEO-snow-eyes",
+                "weight": 0.4
+              }
+            ]
+          },
+          "celebrate": {
+            "state": "Celebrate",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.84,
+            "actualTargets": [
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.84
+              },
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.84
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.84
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.84
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.56
+              },
+              {
+                "name": "Bothbrows_Up",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.56
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_1",
+                "weight": 0.16
+              },
+              {
+                "name": "RIG-snow-JawOpen",
+                "mesh": "GEO-snow-head_2",
+                "weight": 0.16
+              }
+            ]
+          }
+        }
+      },
+      "G04": {
+        "originalModel": true,
+        "stages": {
+          "idle": {
+            "state": "Idle",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.1,
+            "actualTargets": [
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-victoria_eyeL",
+                "weight": 0.1
+              },
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-victoria_eyeL_1",
+                "weight": 0.1
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-victoria_eyeR",
+                "weight": 0.1
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-victoria_eyeR_1",
+                "weight": 0.1
+              }
+            ]
+          },
+          "attack": {
+            "state": "Attack",
+            "maxJaw": 0.045,
+            "maxOriginalMorph": 0.69,
+            "actualTargets": [
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-victoria_eyeL",
+                "weight": 0.69
+              },
+              {
+                "name": "iris_narrow.L",
+                "mesh": "Data_GEO-victoria_eyeL_1",
+                "weight": 0.69
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-victoria_eyeR",
+                "weight": 0.69
+              },
+              {
+                "name": "iris_narrow.R",
+                "mesh": "Data_GEO-victoria_eyeR_1",
+                "weight": 0.69
+              }
+            ]
+          },
+          "hit": {
+            "state": "Hit",
+            "maxJaw": 0.095,
+            "maxOriginalMorph": 0.84,
+            "actualTargets": [
+              {
+                "name": "iris_wide.L",
+                "mesh": "Data_GEO-victoria_eyeL",
+                "weight": 0.84
+              },
+              {
+                "name": "iris_wide.L",
+                "mesh": "Data_GEO-victoria_eyeL_1",
+                "weight": 0.84
+              },
+              {
+                "name": "iris_wide.R",
+                "mesh": "Data_GEO-victoria_eyeR",
+                "weight": 0.84
+              },
+              {
+                "name": "iris_wide.R",
+                "mesh": "Data_GEO-victoria_eyeR_1",
+                "weight": 0.84
+              }
+            ]
+          },
+          "celebrate": {
+            "state": "Celebrate",
+            "maxJaw": 0.095,
+            "maxOriginalMorph": 0.84,
+            "actualTargets": [
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-victoria_eyeL",
+                "weight": 0.49
+              },
+              {
+                "name": "iris_grow.L",
+                "mesh": "Data_GEO-victoria_eyeL_1",
+                "weight": 0.49
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-victoria_eyeR",
+                "weight": 0.49
+              },
+              {
+                "name": "iris_grow.R",
+                "mesh": "Data_GEO-victoria_eyeR_1",
+                "weight": 0.49
+              }
+            ]
+          }
+        }
+      },
+      "T03": {
+        "originalModel": true,
+        "stages": {
+          "idle": {
+            "state": "Idle",
+            "maxJaw": 0,
+            "maxOriginalMorph": 0.12,
+            "actualTargets": [
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.12
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.12
+              }
+            ]
+          },
+          "attack": {
+            "state": "Attack",
+            "maxJaw": 0.07,
+            "maxOriginalMorph": 0.69,
+            "actualTargets": [
+              {
+                "name": "EyebrowsDown.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.69
+              },
+              {
+                "name": "EyebrowsDown.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.69
+              },
+              {
+                "name": "LipsWide.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.35
+              },
+              {
+                "name": "LipsWide.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.35
+              }
+            ]
+          },
+          "hit": {
+            "state": "Hit",
+            "maxJaw": 0.13,
+            "maxOriginalMorph": 0.69,
+            "actualTargets": [
+              {
+                "name": "EyebrowsTogether.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.68
+              },
+              {
+                "name": "EyebrowsTogether.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.68
+              },
+              {
+                "name": "Lips_Corner_In.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.4
+              },
+              {
+                "name": "Lips_Corner_In.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.4
+              }
+            ]
+          },
+          "celebrate": {
+            "state": "Celebrate",
+            "maxJaw": 0.13,
+            "maxOriginalMorph": 0.89,
+            "actualTargets": [
+              {
+                "name": "Smile.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.89
+              },
+              {
+                "name": "Smile.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.89
+              },
+              {
+                "name": "LipsUp.L",
+                "mesh": "GEO-rain-head",
+                "weight": 0.64
+              },
+              {
+                "name": "LipsUp.R",
+                "mesh": "GEO-rain-head",
+                "weight": 0.64
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "voices": {
+    "desktop": {
+      "E04": {
+        "maxActualMouth": 0.7053,
+        "realStopSerial": 1
+      },
+      "G02": {
+        "maxActualMouth": 0.8381,
+        "realStopSerial": 2
+      },
+      "G04": {
+        "maxActualMouth": 0.8153,
+        "realStopSerial": 3
+      },
+      "T03": {
+        "maxActualMouth": 0.733,
+        "realStopSerial": 4
+      },
+      "duplicateCardVoiceIsolated": true
+    },
+    "portrait": {
+      "E04": {
+        "maxActualMouth": 0.8167,
+        "realStopSerial": 1
+      },
+      "G02": {
+        "maxActualMouth": 0.8388,
+        "realStopSerial": 2
+      },
+      "G04": {
+        "maxActualMouth": 0.7891,
+        "realStopSerial": 3
+      },
+      "T03": {
+        "maxActualMouth": 0.6935,
+        "realStopSerial": 4
+      },
+      "duplicateCardVoiceIsolated": true
+    }
+  }
+}
