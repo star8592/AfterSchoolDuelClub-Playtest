@@ -40,10 +40,12 @@ export function createR145RealSourceActionCamera(THREE){
   // Most of the impact is shown on the ATTACKER, then the RECEIVER.
   // At desktop widths, the camera covers BOTH original actors. Portrait
   // pans from attacking actor to hurt actor, then smoothly restores wide.
-  const subject=narrow&&p>=.47&&focus?.defender?
-   focus.defender:focus?.attacker;
-  const subjectRole=narrow&&p>=.47&&focus?.defender?
-   'defender':'attacker';
+  // Camera subject *blends* across the real hit frame. Hard-switching
+  // the target at .47 would teleport the lens 3.5m within one 16ms frame.
+  // Retiming keeps the opponent's actual reaction visible without a whip.
+  const hitFocus=narrow&&focus?.defender?
+   ease((p-.36)/.29):0;
+  const subjectRole=hitFocus>.55?'defender':'attacker';
   const weight=eligible?Math.min(.88,
    pulse(p,.06,.22,.68,.88)*(narrow?.88:.76)):0;
   state.frameWeight=round(weight);
@@ -60,7 +62,11 @@ export function createR145RealSourceActionCamera(THREE){
   state.phase=round(p);
   state.peakWeight=Math.max(state.peakWeight,weight);
   if(narrow){
-   focusPoint.fromArray(subject);
+   focusPoint.fromArray(focus.attacker);
+   if(focus.defender){
+    center.fromArray(focus.defender);
+    focusPoint.lerp(center,hitFocus);
+   }
    focusPoint.y+=1.10;
   }else{
    focusPoint.fromArray(focus.attacker);
