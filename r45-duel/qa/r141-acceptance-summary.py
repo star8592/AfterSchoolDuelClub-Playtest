@@ -4,6 +4,7 @@ import json
 root=Path("r45-duel/qa/evidence")
 cases={
  "r141NewThreeSourceFaceVoice":("r141/seven-source-faces/r141-real-three-source-face-voice.json",152),
+ "r141TwoCampSameCardVoiceIsolation":("r141/seven-source-faces/r141-double-card-voice-isolation.json",32),
  "r134JayOriginalActing":("r134/r134-jay-acting-pilot.json",22),
  "r135EllieRexOriginalActing":("r135/original-pair/r135-pair-original-source-stage.json",53),
  "r135FifteenSecIdle":("r135/original-pair/r135-pair-original-idle-15sec.json",16),
@@ -35,9 +36,9 @@ for v in new["views"]:
  for id,row in v["voices"].items():
   assert row["maxMouth"]>.10 and row["actualStopped"]>0,(v["view"],id,row)
 total=sum(receipt.values())
-assert total==826,total
+assert total==858,total
 result={
- "passed":True,"total":826,"new":152,"historicRetested":674,
+ "passed":True,"total":858,"new":184,"historicRetested":674,
  "mainBase":"a92b43bda27372eb506737e07053e735a080c6e1",
  "artApproved":False,"defaultOfficialModels":"R97",
  "originalSourceActors":["E03","E04","G02","G03","G04","T03","T04"],
@@ -56,9 +57,16 @@ result={
   "Low-end real-device mobile GPU","Full remaining cast and spectator emotion parity"],
  "evidencePaths":[x[0] for x in cases.values()]
 }
+dup=json.loads((root/cases["r141TwoCampSameCardVoiceIsolation"][0]).read_text())
+assert {v["view"] for v in dup["views"]}=={"desktop","portrait"}
+for view in dup["views"]:
+ assert set(view["actors"])=={"E03","G03","T04"}
+ assert all(x["concurrentSpeakers"]==1 and x["independentSourceSkins"]==2
+            for x in view["actors"].values())
+result["duplicateSameCardQwenIsolated"]=True
 dest=root/"r141/seven-source-faces/r141-convergence.json"
 dest.parent.mkdir(parents=True,exist_ok=True)
 dest.write_text(json.dumps(result,ensure_ascii=False,indent=2))
-print("R141_826_REAL_GPU_CHECKS_PASS",
- json.dumps({"total":total,"new":152,"legacy":674,
+print("R141_858_REAL_GPU_CHECKS_PASS",
+ json.dumps({"total":total,"new":184,"legacy":674,
    "artApproved":False,"defaultOfficialModels":"R97"},ensure_ascii=False))
