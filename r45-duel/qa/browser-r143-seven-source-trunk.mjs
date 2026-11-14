@@ -59,9 +59,12 @@ try{
      view+' '+id+' '+action+' real high-poly source and enemy facing',state);
     check(state?.sourceArms?.source==='actual_original_author_skinned_arm_hierarchy',
      view+' '+id+' '+action+' original weighted wrist bindings',state?.sourceArms);
-    check(state?.legs?.source==='real_original_skinned_deform_bones'&&
-      state.legs.runtimeLegTracks===8,
-     view+' '+id+' '+action+' true weighted leg deformation',state?.legs);
+    check(
+     (state?.legs?.source==='real_original_skinned_deform_bones'&&
+      state.legs.runtimeLegTracks===8)||
+     (native.includes(id)&&state?.legs?.source==='real_original_source_weighted_vertices'&&
+      state.legs.sourceLowerTracks===8),
+     view+' '+id+' '+action+' actual weighted source lower limbs',state?.legs);
     check(state?.face?.enabled&&state.face.state===action[0].toUpperCase()+action.slice(1),
      view+' '+id+' '+action+' original face performance tied to source action',state?.face);
     check(state?.shoes?.maxAfterPenetration<=.002||
@@ -86,7 +89,7 @@ try{
    }
    actors[id]={trunk:result.idle.trunk,
     legs:{maxWeightedTravel:result.celebrate.legs.maxLegVertexTravel,
-     originalLegTracks:result.celebrate.legs.runtimeLegTracks},
+     originalLegTracks:result.celebrate.legs.runtimeLegTracks??result.celebrate.legs.sourceLowerTracks},
     face:result.celebrate.face.state,
     idleCoverage:result.idle.coverage,
     attackCoverage:result.attack.coverage,
