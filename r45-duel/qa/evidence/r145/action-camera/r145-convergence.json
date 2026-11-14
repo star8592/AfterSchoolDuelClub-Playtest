@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "realGPUChecks": 1764,
+  "legacyRealGPUChecks": 1568,
+  "newRealGPUChecks": 196,
+  "sourceAssetBindingAuditCount": 88,
+  "sourceWeightedVerticesValidated": 5327876,
+  "normalGameplayNewCameraDefault": true,
+  "independentCameraRollback": "?r145ActionCamera=off",
+  "manualOrbitAndReducedMotionPreserved": true,
+  "noNewMeshesOrAnimationsRequired": true,
+  "sourceLensOnlyFromValidatedR51Events": true,
+  "genuineSkinnedModelCoverageMetrics": {
+    "desktop": {
+      "oldActorWidthFraction": 0.032,
+      "newActorWidthFraction": 0.081,
+      "highPolyActorWidthFraction": 0.083,
+      "oldToNewWidthRatio": 2.531,
+      "newDrawCalls": 830,
+      "highPolyDrawCalls": 714,
+      "trueVictimReactionCut": false
+    },
+    "portrait": {
+      "oldActorWidthFraction": 0.035,
+      "newActorWidthFraction": 0.136,
+      "highPolyActorWidthFraction": 0.119,
+      "oldToNewWidthRatio": 3.886,
+      "newDrawCalls": 762,
+      "highPolyDrawCalls": 657,
+      "trueVictimReactionCut": true
+    }
+  },
+  "every14OriginalCardsTestedInBothViews": true,
+  "artApproved": false,
+  "normalGameplayModelAssetsRemain": "R97",
+  "officialLiveDeploymentVerified": false,
+  "humanDirector85ScoreVerified": false,
+  "lowEndRealMobileHardwareTested": false,
+  "newChecks": {
+    "sourceCombatLens": 60,
+    "motionAndOrbitGuards": 20,
+    "all14OriginalSourceActors": 114,
+    "r67RealDuoImpactTiming": 2
+  },
+  "r67AuthoritativeHitTimingChecked": true,
+  "legacyR144Counts": {
+    "r144GenuinePelvisStage": 152,
+    "r144DefaultAndSafeRollback": 32,
+    "r143SevenSourceTorso": 394,
+    "r143IndependentRollback": 46,
+    "r142RexJayOriginalLegs": 86,
+    "r141ThreeSourceFacesQwen": 152,
+    "r141DuplicateRecordedQwen": 32,
+    "r134JayOriginalStage": 22,
+    "r135EllieRexOriginalStage": 53,
+    "r135FifteenSecIdle": 16,
+    "r135IndependentFlag": 25,
+    "r140OriginalFourFaces": 170,
+    "r140FourRecordedQwen": 54,
+    "r139VictoriaRealLegs": 36,
+    "r138RealCameraSilhouette": 70,
+    "r136FourOriginalActorStage": 83,
+    "r136SelectiveRollback": 63,
+    "r136FourSourceIdle15sec": 36,
+    "r124CardFight": 18,
+    "r122DuelistQwen": 28
+  },
+  "evidencePaths": [
+    "r145/action-camera/r145-real-actor-action-lens.json",
+    "r145/action-camera/r145-accessibility-orbit.json",
+    "r145/action-camera/r145-all-14-source-cards.json",
+    "r67/combat-results.json"
+  ],
+  "photographicScreenshots": [
+    "r145/action-camera/r145-off-on-highpoly-actual-camera.webp",
+    "r145/action-camera/portrait-on-receiver.png",
+    "r145/action-camera/portrait-highpoly-receiver.png"
+  ]
+}

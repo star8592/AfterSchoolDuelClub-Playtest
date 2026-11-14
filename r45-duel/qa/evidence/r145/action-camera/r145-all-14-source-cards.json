@@ -1,0 +1,642 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop E01 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop E01 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop E01 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop E01 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop E02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop E02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop E02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop E02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop E04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop G01 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop G01 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop G01 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G01 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop M01 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop M01 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop M01 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop M01 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop M02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop M02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop M02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop M02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop T01 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop T01 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop T01 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop T01 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop T02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop T02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop T02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop T02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop T03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "desktop all 14 live models loaded without JS/GLB errors"
+    },
+    {
+      "pass": true,
+      "label": "portrait E01 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait E01 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait E01 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait E01 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait E02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait E02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait E02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait E02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait E04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait G01 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait G01 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait G01 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G01 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait M01 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait M01 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait M01 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait M01 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait M02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait M02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait M02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait M02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait T01 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait T01 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait T01 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait T01 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait T02 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait T02 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait T02 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait T02 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait T03 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 real actor camera follows only own combat event"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 real source unit remains fully on screen"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 source actor actual world pose, no fake proxy"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 real GPU workload bounded"
+    },
+    {
+      "pass": true,
+      "label": "portrait all 14 live models loaded without JS/GLB errors"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "actors": {
+        "E01": {
+          "worldKind": "original-vrm",
+          "normalizedActorWidth": 0.07,
+          "sourceCameraWeight": 0.57484513433,
+          "drawCalls": 820
+        },
+        "E02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.147,
+          "sourceCameraWeight": 0.5038513943633399,
+          "drawCalls": 775
+        },
+        "E03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.073,
+          "sourceCameraWeight": 0.52989596804875,
+          "drawCalls": 813
+        },
+        "E04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.074,
+          "sourceCameraWeight": 0.5629840737441993,
+          "drawCalls": 770
+        },
+        "G01": {
+          "worldKind": "vrm-instance",
+          "normalizedActorWidth": 0.057,
+          "sourceCameraWeight": 0.5335227758068555,
+          "drawCalls": 860
+        },
+        "G02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.08,
+          "sourceCameraWeight": 0.56152588645125,
+          "drawCalls": 765
+        },
+        "G03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.07,
+          "sourceCameraWeight": 0.56228707008,
+          "drawCalls": 782
+        },
+        "G04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.044,
+          "sourceCameraWeight": 0.5209996996423437,
+          "drawCalls": 783
+        },
+        "M01": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.116,
+          "sourceCameraWeight": 0.5379207306623438,
+          "drawCalls": 757
+        },
+        "M02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.109,
+          "sourceCameraWeight": 0.53569173607625,
+          "drawCalls": 823
+        },
+        "T01": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.087,
+          "sourceCameraWeight": 0.5465828887091992,
+          "drawCalls": 886
+        },
+        "T02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.062,
+          "sourceCameraWeight": 0.53647910408,
+          "drawCalls": 802
+        },
+        "T03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.072,
+          "sourceCameraWeight": 0.5372002227520118,
+          "drawCalls": 771
+        },
+        "T04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.065,
+          "sourceCameraWeight": 0.5509108932092188,
+          "drawCalls": 783
+        }
+      }
+    },
+    {
+      "view": "portrait",
+      "actors": {
+        "E01": {
+          "worldKind": "original-vrm",
+          "normalizedActorWidth": 0.111,
+          "sourceCameraWeight": 0.6558990319715626,
+          "drawCalls": 759
+        },
+        "E02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.225,
+          "sourceCameraWeight": 0.5471893095491797,
+          "drawCalls": 713
+        },
+        "E03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.109,
+          "sourceCameraWeight": 0.6228555828721876,
+          "drawCalls": 744
+        },
+        "E04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.117,
+          "sourceCameraWeight": 0.6345340904645703,
+          "drawCalls": 708
+        },
+        "G01": {
+          "worldKind": "vrm-instance",
+          "normalizedActorWidth": 0.079,
+          "sourceCameraWeight": 0.5649244706716016,
+          "drawCalls": 799
+        },
+        "G02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.12,
+          "sourceCameraWeight": 0.6320600000000001,
+          "drawCalls": 701
+        },
+        "G03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.111,
+          "sourceCameraWeight": 0.6312338012281642,
+          "drawCalls": 719
+        },
+        "G04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.07,
+          "sourceCameraWeight": 0.65106923904,
+          "drawCalls": 712
+        },
+        "M01": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.171,
+          "sourceCameraWeight": 0.6534879102945704,
+          "drawCalls": 688
+        },
+        "M02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.154,
+          "sourceCameraWeight": 0.6526825208096875,
+          "drawCalls": 753
+        },
+        "T01": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.128,
+          "sourceCameraWeight": 0.548954745179414,
+          "drawCalls": 830
+        },
+        "T02": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.087,
+          "sourceCameraWeight": 0.6534879102945704,
+          "drawCalls": 732
+        },
+        "T03": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.13,
+          "sourceCameraWeight": 0.6534879102945704,
+          "drawCalls": 701
+        },
+        "T04": {
+          "worldKind": "gltf-instance",
+          "normalizedActorWidth": 0.096,
+          "sourceCameraWeight": 0.65106923904,
+          "drawCalls": 716
+        }
+      }
+    }
+  ],
+  "errors": []
+}
