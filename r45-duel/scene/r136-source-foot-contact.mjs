@@ -9,7 +9,10 @@ const FOOT_SKINS=Object.freeze({
  G04:['GEO-victoria_boots'],
  T03:['GEO-rain-shoes_1','GEO-rain-shoes_2','GEO-rain-shoes_3','GEO-rain-shoes_4']
 });
-const MAX_CORRECTION=.082;
+// Per-source bounded correction: Rain's genuine rapid hand-off leg action
+// dips further than the three other source rigs. Do not cumulatively raise
+// all characters or relax their individual floor bounds to hide penetration.
+const MAX_CORRECTION=Object.freeze({E04:.082,G02:.082,G04:.082,T03:.13});
 const CLEAR=.0005;
 const canonical=x=>String(x||'').toLowerCase().replace(/[^a-z0-9]/g,'');
 export function createR136OriginalFootContact(THREE,root,id){
@@ -59,7 +62,8 @@ export function createR136OriginalFootContact(THREE,root,id){
    throw Error('R136 invalid skin floor '+id);
   }
   const below=Math.min(...before);
-  const raise=below<CLEAR?Math.min(MAX_CORRECTION,CLEAR-below):0;
+  const limit=MAX_CORRECTION[id];
+  const raise=below<CLEAR?Math.min(limit,CLEAR-below):0;
   if(raise>0){root.position.y+=raise;root.updateMatrixWorld(true);}
   previousLift=raise;
   const delta=raise-prior;
@@ -77,7 +81,8 @@ export function createR136OriginalFootContact(THREE,root,id){
    minAfter:+min.toFixed(5),
    supportedMesh:expected[after.indexOf(min)],
    remainingPenetration:+Math.max(0,-min).toFixed(5),
-   correctionClamped:raise>=MAX_CORRECTION-.00001};
+   correctionLimit:limit,
+   correctionClamped:raise>=limit-.00001};
   return last;
  }
  return{apply,inspect:()=>({enabled:true,actor:id,
