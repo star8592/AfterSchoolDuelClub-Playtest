@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "mainBase": "b2b98c333a7b051b15a03a74d28d19bf9f2bb452",
+  "defaultOfficialModels": "R97",
+  "stagePilot": "r136Cast=on",
+  "checks": {
+    "victoriaFullBody": 36,
+    "distantCamera": 70,
+    "fourSourceActing": 83,
+    "flagRollback": 63,
+    "ensemble15Sec": 36,
+    "gameFullChain": 18
+  },
+  "total": 306,
+  "realGpuCameraProof": {
+    "desktop": {
+      "sourceLegVertexTravel": 0.05044,
+      "idleScreenCoverage": 0.036,
+      "attackScreenCoverage": 0.062,
+      "outsolePenetration": 0,
+      "idleSupportMinY": 0.0005,
+      "attackSupportMinY": 0.0005
+    },
+    "portrait": {
+      "sourceLegVertexTravel": 0.05046,
+      "idleScreenCoverage": 0.036,
+      "attackScreenCoverage": 0.065,
+      "outsolePenetration": 0,
+      "idleSupportMinY": 0.0005,
+      "attackSupportMinY": 0.0005
+    }
+  },
+  "unresolved": [
+    "Director aesthetic approval 85/100",
+    "Consumer low-end mobile GPU",
+    "14-actor integrated emotion and voice"
+  ],
+  "receipts": [
+    "r139/victoria/r139-victoria-stage.json",
+    "r138/visible-silhouette/r138-visibility-baseline.json",
+    "r136/four-source/r136-four-source-action.json",
+    "r136/four-source/r136-flag-rollback.json",
+    "r136/four-source/r136-four-ensemble-15sec.json",
+    "r124-full-chain/r124-full-chain-report.json"
+  ]
+}
