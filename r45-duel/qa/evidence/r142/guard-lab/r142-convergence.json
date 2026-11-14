@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "total": 944,
+  "newChecks": 86,
+  "legacyRetested": 858,
+  "mainBase": "23138dc206801101b48c683406c77f45fdd94ab0",
+  "artApproved": false,
+  "defaultOfficialModels": "R97",
+  "originalSourceActors": [
+    "T04",
+    "G03"
+  ],
+  "independentPilotFlags": {
+    "T04": "r135Pair=on",
+    "G03": "r134Jay=on"
+  },
+  "unweightedRexPelvisRejected": true,
+  "originalFootCompensationCaps": {
+    "T04": 0.105,
+    "G03": 0.082,
+    "E03": 0.082
+  },
+  "checks": {
+    "r142GuardLabAuthenticSourceLegs": 86,
+    "r141ThreeSourceFaceVoice": 152,
+    "r141DuplicateTwoCampQwen": 32,
+    "r134JaySourceActing": 22,
+    "r135EllieRexSourceStage": 53,
+    "r135SourceIdle15sec": 16,
+    "r135FlagIsolation": 25,
+    "r140FourSourceFaces": 170,
+    "r140FourQwenClips": 54,
+    "r139Victoria": 36,
+    "r138CameraSilhouette": 70,
+    "r136FourActors": 83,
+    "r136Rollback": 63,
+    "r136Ensemble15": 36,
+    "r124OfficialCardFight": 18,
+    "r122DuelistVoice": 28
+  },
+  "sourceLegGpuMetrics": {
+    "T04": {
+      "desktop": {
+        "legVertexTravel": 0.03285,
+        "weightedSourceBone": "DEF-Thigh1.L",
+        "weightedSourceVertexWeight": 1,
+        "realPelvisDirectWeight": false,
+        "shoePenetration": 0,
+        "maxFloorLift": 0.07757,
+        "attackCoverage": 0.086,
+        "idleCoverage": 0.043,
+        "sourceTracks": 16
+      },
+      "portrait": {
+        "legVertexTravel": 0.03259,
+        "weightedSourceBone": "DEF-Thigh1.L",
+        "weightedSourceVertexWeight": 1,
+        "realPelvisDirectWeight": false,
+        "shoePenetration": 0,
+        "maxFloorLift": 0.07673,
+        "attackCoverage": 0.095,
+        "idleCoverage": 0.044,
+        "sourceTracks": 16
+      }
+    },
+    "G03": {
+      "desktop": {
+        "legVertexTravel": 0.07898,
+        "weightedSourceBone": "DEF-Knee1.L",
+        "weightedSourceVertexWeight": 0.5434,
+        "realPelvisDirectWeight": null,
+        "shoePenetration": 0,
+        "maxFloorLift": 0.07217,
+        "attackCoverage": 0.066,
+        "idleCoverage": 0.049,
+        "sourceTracks": 16
+      },
+      "portrait": {
+        "legVertexTravel": 0.07812,
+        "weightedSourceBone": "DEF-Knee1.L",
+        "weightedSourceVertexWeight": 0.5434,
+        "realPelvisDirectWeight": null,
+        "shoePenetration": 0,
+        "maxFloorLift": 0.07255,
+        "attackCoverage": 0.073,
+        "idleCoverage": 0.052,
+        "sourceTracks": 16
+      }
+    }
+  },
+  "notComplete": [
+    "Director 85/100 art signoff",
+    "Low-end real mobile GPU test",
+    "Default high-poly production rollout",
+    "Other full-cast drama and acting"
+  ],
+  "evidencePaths": [
+    "r142/guard-lab/r142-guard-lab-original-source.json",
+    "r141/seven-source-faces/r141-real-three-source-face-voice.json",
+    "r141/seven-source-faces/r141-double-card-voice-isolation.json",
+    "r134/r134-jay-acting-pilot.json",
+    "r135/original-pair/r135-pair-original-source-stage.json",
+    "r135/original-pair/r135-pair-original-idle-15sec.json",
+    "r135/original-pair/r135-independent-flag-isolation.json",
+    "r140/source-faces/r140-real-source-face.json",
+    "r140/source-faces/r140-all-four-actual-qwen.json",
+    "r139/victoria/r139-victoria-stage.json",
+    "r138/visible-silhouette/r138-visibility-baseline.json",
+    "r136/four-source/r136-four-source-action.json",
+    "r136/four-source/r136-flag-rollback.json",
+    "r136/four-source/r136-four-ensemble-15sec.json",
+    "r124-full-chain/r124-full-chain-report.json",
+    "r122-qwen-mouth/r122-real-qwen-mouth-report.json"
+  ]
+}
