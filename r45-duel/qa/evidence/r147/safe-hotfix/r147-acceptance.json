@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "realGpuChecks": 140,
+  "newR147SafetyChecks": 92,
+  "R124FullFightChecks": 18,
+  "R122QwenRealLipChecks": 28,
+  "R67TrueHitActorChecks": 2,
+  "publicOldR146LinkBlocked": true,
+  "automaticR145CinematicDisabled": true,
+  "bothOriginalFightersVisible": true,
+  "sevenUnsafeHighpolyAssetsPubliclyLoaded": 0,
+  "defaultModelSelection": "R97",
+  "legacyCardsAndSpokenCombatPreserved": true,
+  "GitHubPagesRealPublicDeploymentTested": false,
+  "artApproved": false,
+  "fixDoesNotRepairPilotSkinMaterials": true,
+  "performanceNote": "Z890 local cached GPU test; GitHub Pages CDN latency not proven",
+  "R124LoadedBytes": 75569762,
+  "screenshots": [
+    "r147/safe-hotfix/desktop-oldPublicBadLink-wide.png",
+    "r147/safe-hotfix/portrait-oldPublicBadLink-wide.png"
+  ],
+  "measured": {
+    "desktop": {
+      "default": {
+        "loaded": 7,
+        "cameraActive": false,
+        "drawCalls": 732,
+        "loadMs": 3708
+      },
+      "oldPublicBadLink": {
+        "loaded": 7,
+        "cameraActive": false,
+        "drawCalls": 732,
+        "loadMs": 3098
+      },
+      "legacyPlusLab": {
+        "loaded": 7,
+        "cameraActive": false,
+        "drawCalls": 0,
+        "loadMs": 3016
+      }
+    },
+    "portrait": {
+      "default": {
+        "loaded": 7,
+        "cameraActive": false,
+        "drawCalls": 732,
+        "loadMs": 2950
+      },
+      "oldPublicBadLink": {
+        "loaded": 7,
+        "cameraActive": false,
+        "drawCalls": 732,
+        "loadMs": 3127
+      },
+      "legacyPlusLab": {
+        "loaded": 7,
+        "cameraActive": false,
+        "drawCalls": 732,
+        "loadMs": 2998
+      }
+    }
+  }
+}

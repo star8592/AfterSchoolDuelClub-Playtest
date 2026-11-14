@@ -161,15 +161,16 @@ const R132_BAKED_STUDY=(()=>{
 // R134 visible-performance pilot. Explicit source opt-in initially, so the
 // author-approved R97 default and all existing R131-R133 study routes remain
 // unchanged until official wide-camera acceptance has been obtained.
-// R146 actual seven-performer cast: a single isolated research switch.
- // All source GLBs have real JOINTS_0, WEIGHTS_0 and verified original
- // binding. Never attempt to animate the fake/orphan R97 glTF skeleton.
+// R147 incident hotfix: keep grey/untextured, over-rotating pilot rigs
+// OUT of public play, including old shared ?r146Cast=on URLs. Require a
+// second deliberate ART LAB opt-in to reproduce a broken asset for repair.
+// This preserves the archived pilot and avoids deleting all 7 source files.
 export const R146_SEVEN_SOURCE_CAST=(()=>{
  const local=new URLSearchParams(location.search);
- if(local.has('r146Cast'))return local.get('r146Cast')==='on';
- try{return window.parent!==window&&
-  new URLSearchParams(window.parent.location.search).get('r146Cast')==='on';}
- catch{return false;}
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+ const read=key=>local.has(key)?local.get(key):parent?.get(key);
+ return read('r147ArtLab')==='on'&&read('r146Cast')==='on';
 })();
 export const R144_REX_PELVIS_ASSET='T04-Rex-Skinned-R144-WeightedPelvis-PILOT.glb';
 // Independent opt-in (never changes the R97 default). Requires R135 Rex.
