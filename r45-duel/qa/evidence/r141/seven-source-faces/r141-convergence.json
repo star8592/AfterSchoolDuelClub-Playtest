@@ -1,0 +1,126 @@
+{
+  "passed": true,
+  "total": 858,
+  "new": 184,
+  "historicRetested": 674,
+  "mainBase": "a92b43bda27372eb506737e07053e735a080c6e1",
+  "artApproved": false,
+  "defaultOfficialModels": "R97",
+  "originalSourceActors": [
+    "E03",
+    "E04",
+    "G02",
+    "G03",
+    "G04",
+    "T03",
+    "T04"
+  ],
+  "sourceVoices": "pre-recorded Qwen3 clips only",
+  "speechAccuracy": "approximate syllable timing, not forced phoneme alignment",
+  "sourceFaceStagePilot": {
+    "E03": "r135Pair=on",
+    "G03": "r134Jay=on",
+    "T04": "r135Pair=on"
+  },
+  "checks": {
+    "r141NewThreeSourceFaceVoice": 152,
+    "r141TwoCampSameCardVoiceIsolation": 32,
+    "r134JayOriginalActing": 22,
+    "r135EllieRexOriginalActing": 53,
+    "r135FifteenSecIdle": 16,
+    "r135OriginalFlagIsolation": 25,
+    "r140FourSourceFaces": 170,
+    "r140FourActualQwenVoices": 54,
+    "r139VictoriaFullBody": 36,
+    "r138RealCamera": 70,
+    "r136FourSourceActing": 83,
+    "r136FlagRollback": 63,
+    "r136FourSource15s": 36,
+    "r124CardFullChain": 18,
+    "r122HostQwenMouth": 28
+  },
+  "newActorsGPU": {
+    "desktop": {
+      "E03": {
+        "peakMouth": 0.8366,
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ]
+      },
+      "G03": {
+        "peakMouth": 0.7987,
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ]
+      },
+      "T04": {
+        "peakMouth": 0.7701,
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ]
+      }
+    },
+    "portrait": {
+      "E03": {
+        "peakMouth": 0.8383,
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ]
+      },
+      "G03": {
+        "peakMouth": 0.8176,
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ]
+      },
+      "T04": {
+        "peakMouth": 0.8108,
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ]
+      }
+    }
+  },
+  "unresolved": [
+    "Official site deploy acceptance",
+    "Director art review 85/100",
+    "Low-end real-device mobile GPU",
+    "Full remaining cast and spectator emotion parity"
+  ],
+  "evidencePaths": [
+    "r141/seven-source-faces/r141-real-three-source-face-voice.json",
+    "r141/seven-source-faces/r141-double-card-voice-isolation.json",
+    "r134/r134-jay-acting-pilot.json",
+    "r135/original-pair/r135-pair-original-source-stage.json",
+    "r135/original-pair/r135-pair-original-idle-15sec.json",
+    "r135/original-pair/r135-independent-flag-isolation.json",
+    "r140/source-faces/r140-real-source-face.json",
+    "r140/source-faces/r140-all-four-actual-qwen.json",
+    "r139/victoria/r139-victoria-stage.json",
+    "r138/visible-silhouette/r138-visibility-baseline.json",
+    "r136/four-source/r136-four-source-action.json",
+    "r136/four-source/r136-flag-rollback.json",
+    "r136/four-source/r136-four-ensemble-15sec.json",
+    "r124-full-chain/r124-full-chain-report.json",
+    "r122-qwen-mouth/r122-real-qwen-mouth-report.json"
+  ],
+  "duplicateSameCardQwenIsolated": true
+}

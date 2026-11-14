@@ -635,7 +635,10 @@ export function instantiateSummon(THREE,template){
   THREE,instance,mixer,availableClips,template.id):null;
  // Only the explicit high-poly cast study receives source-authored facial
  // deformation. The R97 production default and its materials stay untouched.
- const r140Face=r136Controller?
+ // R141 extends the SAME original facial engine to the separately enabled
+ // R134 Jay and R135 Ellie/Rex high-poly production pilots. Never apply
+ // original face morphs to the released default R97 asset path.
+ const r140Face=(r136Controller||r135Controller||r134Controller)?
   createR140OriginalFaceActing(THREE,instance,template.id):null;
  // R90: subtle transient whole-instance lean and lift layered over R89 glTF
  // morph clips; reset each frame. This is not live torso, leg, or foot rigging.
@@ -801,7 +804,8 @@ export function instantiateSummon(THREE,template){
   if(r135Controller)scaled.position.y=groundedY+(combatPose?.lift||0)+
    r135Controller.getLift();
   r128Phil?.update();r130Special?.update();r131Arms.update();
-  r140Face?.update(dt,r136Controller?.getCurrentClip());
+  r140Face?.update(dt,r136Controller?.getCurrentClip()||
+   r135Controller?.getCurrentClip()||r134Controller?.getCurrentClip());
  }):r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),

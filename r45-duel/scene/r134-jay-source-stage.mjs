@@ -247,6 +247,7 @@ export function createR134JaySequencer(THREE,mixer,clips,instance){
   play:kind=>launch(map[kind]||kind),
   playNamed:name=>launch(name),
   update,
+  getCurrentClip:()=>currentName,
   inspect:()=>({enabled:true,source:'original_render_bound_source_bones',
    currentClip:currentName,transitions,autoIdleReturns,
    activeSeconds:+age.toFixed(3),recent:events.slice(-8),

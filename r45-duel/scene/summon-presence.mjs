@@ -1164,7 +1164,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
  // R140: only the actual played source VO can animate the character's
  // original jaw/head morphs. This never synthesizes speech or an audio clip.
  function startSourceSpeech(id,details){
-  if(!['E04','G02','G04','T03'].includes(id))return false;
+  if(!['E03','G03','T04','E04','G02','G04','T03'].includes(id))return false;
   const candidates=[...entries.values()].filter(entry=>
    entry.id===id&&entry.kind==='gltf-instance'&&entry.object.visible&&
    entry.object.userData.r61?.getR140OriginalFace?.()?.enabled);
@@ -1173,12 +1173,14 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   const wanted=details?.kind==='attack'?'Attack':
    details?.kind==='hurt'?'Hit':null;
   const chosen=(wanted?candidates.find(entry=>entry.object.userData.r61
-   ?.getR136CastStage?.()?.currentClip==='R119_Skeletal_'+wanted):null)||
+   ?.getR136CastStage?.()?.currentClip==='R119_Skeletal_'+wanted||
+   entry.object.userData.r61?.getR135PairStage?.()?.currentClip==='R119_Skeletal_'+wanted||
+   entry.object.userData.r61?.getR134JayStage?.()?.currentClip==='R119_Skeletal_'+wanted):null)||
    candidates[0];
   return chosen?.object.userData.r61?.startSourceSpeech?.(details)===true;
  }
  function stopSourceSpeech(id,serial){
-  if(!['E04','G02','G04','T03'].includes(id))return false;
+  if(!['E03','G03','T04','E04','G02','G04','T03'].includes(id))return false;
   let stopped=false;
   for(const entry of entries.values()){
    if(entry.id!==id||entry.kind!=='gltf-instance')continue;

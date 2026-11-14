@@ -1,0 +1,183 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:11447",
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop E03 independent source faces before Qwen"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 both camps preserve original source skeleton"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 actual recorded Qwen clip requested"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 ONE source face speaks when two camps have same card"
+    },
+    {
+      "pass": true,
+      "label": "desktop E03 both original mouths are silent after real mute"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 independent source faces before Qwen"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 both camps preserve original source skeleton"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 actual recorded Qwen clip requested"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 ONE source face speaks when two camps have same card"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 both original mouths are silent after real mute"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 independent source faces before Qwen"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 both camps preserve original source skeleton"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 actual recorded Qwen clip requested"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 ONE source face speaks when two camps have same card"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 both original mouths are silent after real mute"
+    },
+    {
+      "pass": true,
+      "label": "desktop no actual webgl/voice HTTP failures"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 independent source faces before Qwen"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 both camps preserve original source skeleton"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 actual recorded Qwen clip requested"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 ONE source face speaks when two camps have same card"
+    },
+    {
+      "pass": true,
+      "label": "portrait E03 both original mouths are silent after real mute"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 independent source faces before Qwen"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 both camps preserve original source skeleton"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 actual recorded Qwen clip requested"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 ONE source face speaks when two camps have same card"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 both original mouths are silent after real mute"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 independent source faces before Qwen"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 both camps preserve original source skeleton"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 actual recorded Qwen clip requested"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 ONE source face speaks when two camps have same card"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 both original mouths are silent after real mute"
+    },
+    {
+      "pass": true,
+      "label": "portrait no actual webgl/voice HTTP failures"
+    }
+  ],
+  "errors": [],
+  "views": [
+    {
+      "view": "desktop",
+      "actors": {
+        "E03": {
+          "voiceStarted": 1,
+          "stopCount": 1,
+          "independentSourceSkins": 2,
+          "concurrentSpeakers": 1
+        },
+        "G03": {
+          "voiceStarted": 2,
+          "stopCount": 2,
+          "independentSourceSkins": 2,
+          "concurrentSpeakers": 1
+        },
+        "T04": {
+          "voiceStarted": 3,
+          "stopCount": 3,
+          "independentSourceSkins": 2,
+          "concurrentSpeakers": 1
+        }
+      }
+    },
+    {
+      "view": "portrait",
+      "actors": {
+        "E03": {
+          "voiceStarted": 1,
+          "stopCount": 1,
+          "independentSourceSkins": 2,
+          "concurrentSpeakers": 1
+        },
+        "G03": {
+          "voiceStarted": 2,
+          "stopCount": 2,
+          "independentSourceSkins": 2,
+          "concurrentSpeakers": 1
+        },
+        "T04": {
+          "voiceStarted": 3,
+          "stopCount": 3,
+          "independentSourceSkins": 2,
+          "concurrentSpeakers": 1
+        }
+      }
+    }
+  ]
+}
