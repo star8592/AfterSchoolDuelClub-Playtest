@@ -1,0 +1,379 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop idle real rig action started"
+    },
+    {
+      "pass": true,
+      "label": "desktop idle original source and enemy facing"
+    },
+    {
+      "pass": true,
+      "label": "desktop idle actual Victoria boots clear court"
+    },
+    {
+      "pass": true,
+      "label": "desktop idle original support boot physically planted"
+    },
+    {
+      "pass": true,
+      "label": "desktop attack real rig action started"
+    },
+    {
+      "pass": true,
+      "label": "desktop attack original source and enemy facing"
+    },
+    {
+      "pass": true,
+      "label": "desktop attack actual Victoria boots clear court"
+    },
+    {
+      "pass": true,
+      "label": "desktop attack original support boot physically planted"
+    },
+    {
+      "pass": true,
+      "label": "desktop hit real rig action started"
+    },
+    {
+      "pass": true,
+      "label": "desktop hit original source and enemy facing"
+    },
+    {
+      "pass": true,
+      "label": "desktop hit actual Victoria boots clear court"
+    },
+    {
+      "pass": true,
+      "label": "desktop celebrate real rig action started"
+    },
+    {
+      "pass": true,
+      "label": "desktop celebrate original source and enemy facing"
+    },
+    {
+      "pass": true,
+      "label": "desktop celebrate actual Victoria boots clear court"
+    },
+    {
+      "pass": true,
+      "label": "desktop genuine thigh/knee/ankle/toe skinned deformer"
+    },
+    {
+      "pass": true,
+      "label": "desktop G04 weighted real leg motion exceeds .040"
+    },
+    {
+      "pass": true,
+      "label": "desktop attack distant silhouette discernible"
+    },
+    {
+      "pass": true,
+      "label": "desktop no JS/HTTP error"
+    },
+    {
+      "pass": true,
+      "label": "portrait idle real rig action started"
+    },
+    {
+      "pass": true,
+      "label": "portrait idle original source and enemy facing"
+    },
+    {
+      "pass": true,
+      "label": "portrait idle actual Victoria boots clear court"
+    },
+    {
+      "pass": true,
+      "label": "portrait idle original support boot physically planted"
+    },
+    {
+      "pass": true,
+      "label": "portrait attack real rig action started"
+    },
+    {
+      "pass": true,
+      "label": "portrait attack original source and enemy facing"
+    },
+    {
+      "pass": true,
+      "label": "portrait attack actual Victoria boots clear court"
+    },
+    {
+      "pass": true,
+      "label": "portrait attack original support boot physically planted"
+    },
+    {
+      "pass": true,
+      "label": "portrait hit real rig action started"
+    },
+    {
+      "pass": true,
+      "label": "portrait hit original source and enemy facing"
+    },
+    {
+      "pass": true,
+      "label": "portrait hit actual Victoria boots clear court"
+    },
+    {
+      "pass": true,
+      "label": "portrait celebrate real rig action started"
+    },
+    {
+      "pass": true,
+      "label": "portrait celebrate original source and enemy facing"
+    },
+    {
+      "pass": true,
+      "label": "portrait celebrate actual Victoria boots clear court"
+    },
+    {
+      "pass": true,
+      "label": "portrait genuine thigh/knee/ankle/toe skinned deformer"
+    },
+    {
+      "pass": true,
+      "label": "portrait G04 weighted real leg motion exceeds .040"
+    },
+    {
+      "pass": true,
+      "label": "portrait attack distant silhouette discernible"
+    },
+    {
+      "pass": true,
+      "label": "portrait no JS/HTTP error"
+    }
+  ],
+  "views": [
+    {
+      "view": "desktop",
+      "weightedLegTravel": 0.05044,
+      "sourceRig": "real_original_skinned_deform_bones",
+      "runtimeLegTracks": 8,
+      "outsolePenetration": 0,
+      "poses": {
+        "idle": {
+          "screenWidth": 0.036,
+          "facing": 1,
+          "shoe": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.01288
+            ],
+            "after": [
+              0.0005
+            ],
+            "raise": -0.01238,
+            "delta": -7e-05,
+            "previousRaise": -0.01231,
+            "minAfter": 0.0005,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": true,
+            "correctionClamped": false
+          },
+          "legVertexTravel": 0.00118
+        },
+        "attack": {
+          "screenWidth": 0.062,
+          "facing": 1,
+          "shoe": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.036
+            ],
+            "after": [
+              0.0005
+            ],
+            "raise": -0.0355,
+            "delta": 0.00373,
+            "previousRaise": -0.03923,
+            "minAfter": 0.0005,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": true,
+            "correctionClamped": false
+          },
+          "legVertexTravel": 0.05044
+        },
+        "hit": {
+          "screenWidth": 0.062,
+          "facing": 1,
+          "shoe": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.01293
+            ],
+            "after": [
+              0.01293
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.01293,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          },
+          "legVertexTravel": 0.05044
+        },
+        "celebrate": {
+          "screenWidth": 0.04,
+          "facing": 1,
+          "shoe": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.02888
+            ],
+            "after": [
+              0.02888
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.02888,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          },
+          "legVertexTravel": 0.05044
+        }
+      }
+    },
+    {
+      "view": "portrait",
+      "weightedLegTravel": 0.05046,
+      "sourceRig": "real_original_skinned_deform_bones",
+      "runtimeLegTracks": 8,
+      "outsolePenetration": 0,
+      "poses": {
+        "idle": {
+          "screenWidth": 0.036,
+          "facing": 1,
+          "shoe": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.01293
+            ],
+            "after": [
+              0.0005
+            ],
+            "raise": -0.01243,
+            "delta": -7e-05,
+            "previousRaise": -0.01236,
+            "minAfter": 0.0005,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": true,
+            "correctionClamped": false
+          },
+          "legVertexTravel": 0.00117
+        },
+        "attack": {
+          "screenWidth": 0.065,
+          "facing": 1,
+          "shoe": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.03369
+            ],
+            "after": [
+              0.0005
+            ],
+            "raise": -0.03319,
+            "delta": 0.0035,
+            "previousRaise": -0.03668,
+            "minAfter": 0.0005,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": true,
+            "correctionClamped": false
+          },
+          "legVertexTravel": 0.05046
+        },
+        "hit": {
+          "screenWidth": 0.068,
+          "facing": 1,
+          "shoe": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.01401
+            ],
+            "after": [
+              0.01401
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.01401,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          },
+          "legVertexTravel": 0.05046
+        },
+        "celebrate": {
+          "screenWidth": 0.04,
+          "facing": 1,
+          "shoe": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.02564
+            ],
+            "after": [
+              0.02564
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.02564,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          },
+          "legVertexTravel": 0.05046
+        }
+      }
+    }
+  ],
+  "source": "Z890 real GPU Chrome desktop/portrait original skinned character",
+  "errors": []
+}
