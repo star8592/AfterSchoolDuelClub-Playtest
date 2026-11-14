@@ -25,6 +25,19 @@ for title,(file,expected) in newFiles.items():
  assert all(x.get('pass') is True for x in j['checks']),(title,'failed check')
  checks[title]=expected;report[title]=j
 assert sum(checks.values())==194
+# The old R67 test used to fail at 190 ms because the defender correctly
+# waits for the physical R90 contact phase. Its repaired two-browser
+# receipt is a separate additional genuine action-timing regression.
+r67=json.loads((root/'r67/combat-results.json').read_text())
+assert len(r67)==2 and {r['device'] for r in r67}=={'desktop','portrait'}
+for r in r67:
+ assert r['passed'] is True and not r['errors']
+ assert r['combat']['active'] is True
+ assert r['combat']['impactStarted'] is True
+ assert r['combat']['r90ImpactTriggers']>=1
+ assert all(x in r['attacking'] for x in ('Serve_Menu','Attack_Flip_Menu'))
+ assert all(x in r['defending'] for x in ('Hit_Recoil','Hit_Retreat'))
+checks['r67RealDuoImpactTiming']=2
 stage=report['sourceCombatLens']
 assert {x['view'] for x in stage['views']}=={'desktop','portrait'}
 metrics={}
@@ -74,8 +87,8 @@ for v in all_actors['views']:
   assert p['drawCalls']<=1050
 assert old['artApproved'] is False
 result={
- 'passed':True,'realGPUChecks':1762,
- 'legacyRealGPUChecks':1568,'newRealGPUChecks':194,
+ 'passed':True,'realGPUChecks':1764,
+ 'legacyRealGPUChecks':1568,'newRealGPUChecks':196,
  'sourceAssetBindingAuditCount':88,
  'sourceWeightedVerticesValidated':5327876,
  'normalGameplayNewCameraDefault':True,
@@ -91,8 +104,10 @@ result={
  'humanDirector85ScoreVerified':False,
  'lowEndRealMobileHardwareTested':False,
  'newChecks':checks,
+ 'r67AuthoritativeHitTimingChecked':True,
  'legacyR144Counts':old['testCounts'],
- 'evidencePaths':[x[0] for x in newFiles.values()],
+ 'evidencePaths':[x[0] for x in newFiles.values()]+[
+  'r67/combat-results.json'],
  'photographicScreenshots':[
   'r145/action-camera/r145-off-on-highpoly-actual-camera.webp',
   'r145/action-camera/portrait-on-receiver.png',
@@ -102,7 +117,7 @@ for file in result['photographicScreenshots']:
  assert (root/file).exists(),file
 out=root/'r145/action-camera/r145-convergence.json'
 out.write_text(json.dumps(result,indent=2,ensure_ascii=False))
-print('R145_1762_REAL_GPU_88_ASSETS_PASS',json.dumps({
- 'gpuChecks':1762,'new':194,'history':1568,
+print('R145_1764_REAL_GPU_88_ASSETS_PASS',json.dumps({
+ 'gpuChecks':1764,'new':196,'history':1568,
  'assets':88,'vertices':5327876,'R97Default':True,
  'directorArtApproved':False,'coverage':metrics},ensure_ascii=False))
