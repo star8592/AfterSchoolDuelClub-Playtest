@@ -243,41 +243,11 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E0
    [0,-.09,-.19,-.10,0],[0,-.08,-.18,-.098,0],
    [0,-.04,-.07,-.038,0],[0,-.04,-.07,-.037,0]]
  });
- const rexHips=Object.freeze({
-  Idle:[0,.014,.027,.012,0],Attack:[0,-.045,-.11,-.074,0],
-  Hit:[0,.046,.125,.08,0],Walk:[0,.025,-.025,.025,0],
-  Challenge:[0,-.035,-.085,-.048,0],
-  Worry:[0,.03,.072,.045,0],Celebrate:[0,-.04,-.10,-.055,0]
- });
- // A weighted original pelvis is present on Rex, but Jay's GLB does not
- // contain it. We must not add a fake Jay pelvis node just for animation.
- const hip=rex?[...boneSet].find(b=>canonical(b.name)==='defhips'):null;
- if(rex&&!hip)throw Error('R142 Rex source missing real weighted DEF-Hips');
- const hipRest=hip?.quaternion.clone();
- let weightedPelvis=null;
- if(hip){
-  // A joint merely appearing in the GLB does NOT prove that it visibly
-  // deforms the author mesh. Demand actual source skinIndex/skinWeight.
-  for(const mesh of skinned){
-   const joint=mesh.skeleton.bones.indexOf(hip);
-   const idx=mesh.geometry.attributes.skinIndex;
-   const weight=mesh.geometry.attributes.skinWeight;
-   if(joint<0||!idx||!weight)continue;
-   for(let v=0;v<idx.count;v++){
-    for(let slot=0;slot<4;slot++){
-     if(idx.getComponent(v,slot)!==joint||
-      weight.getComponent(v,slot)<.20)continue;
-     weightedPelvis={mesh:mesh.name,bone:hip.name,
-      vertex:v,weight:weight.getComponent(v,slot)};
-     break;
-    }
-    if(weightedPelvis)break;
-   }
-   if(weightedPelvis)break;
-  }
-  if(!weightedPelvis)
-   throw Error('R142 Rex DEF-Hips has no ORIGINAL weighted visible vertices');
- }
+ // The original T04 GLB contains a DEF-Hips name but it has ZERO directly
+ // weighted vertices and ZERO children in the flat exported source rig.
+ // Do not ship a no-op "pelvis animation" or count an invalid 17th track.
+ // Actual motion uses the eight weighted thigh/knee/foot/toe bones, blended
+ // with the weighted torso source tracks already driven by R135.
  const victoriaRoll={
   Attack:[0,-.035,-.10,-.05,0],
   Hit:[0,.035,.11,.06,0],
@@ -314,17 +284,6 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E0
    }
    return new THREE.QuaternionKeyframeTrack(bone.uuid+'.quaternion',times,arr);
   });
-  if(rex){
-   const state=base.name.replace('R119_Skeletal_','');
-   const angles=rexHips[state],values=[];
-   if(!angles||angles.length!==count)throw Error('R142 Rex hips key count invalid');
-   for(let i=0;i<count;i++){
-    const q=hipRest.clone().multiply(new THREE.Quaternion()
-     .setFromAxisAngle(new THREE.Vector3(0,0,1),angles[i]));
-    values.push(q.x,q.y,q.z,q.w);
-   }
-   tracks.push(new THREE.QuaternionKeyframeTrack(hip.uuid+'.quaternion',times,values));
-  }
   return new THREE.AnimationClip(base.name,base.duration,[...base.tracks,...tracks]);
  });
  // Locate original, visibly weighted *leg* vertices. A driven bone without
@@ -354,13 +313,10 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E0
  const vertex=new THREE.Vector3();
  const originalPose=new Map(bones.map(([name,b])=>[name,b.quaternion.clone()]));
  let frames=0,independentLegFrames=0,maxJointAngle=0,maxLegVertexTravel=0;
- let maxRealPelvisAngle=0;
  let first=null,maxFootHeightSpan=0,footBase=null;
  const feet=bones.filter(([name])=>name.startsWith('DEF-Foot')).map(([,b])=>b);
  const update=()=>{
   frames++;
-  if(hip)maxRealPelvisAngle=Math.max(maxRealPelvisAngle,
-   hipRest.angleTo(hip.quaternion));
   for(const [name,b] of bones){
    const angle=originalPose.get(name).angleTo(b.quaternion);
    maxJointAngle=Math.max(maxJointAngle,angle);
@@ -384,10 +340,6 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E0
   weightedSourceLegVertex:sample.index,weightedSourceLegVertexWeight:+sample.weight.toFixed(4),
   frames,independentLegFrames,
   maxJointAngle:+maxJointAngle.toFixed(4),maxLegVertexTravel:+maxLegVertexTravel.toFixed(5),
-  sourcePelvis:weightedPelvis&&{mesh:weightedPelvis.mesh,bone:weightedPelvis.bone,
-   originalVertex:weightedPelvis.vertex,
-   skinWeight:+weightedPelvis.weight.toFixed(4),
-   maxPelvisAngle:+maxRealPelvisAngle.toFixed(4)},
   maxFootHeightSpan:+maxFootHeightSpan.toFixed(5)
  })};
 }
