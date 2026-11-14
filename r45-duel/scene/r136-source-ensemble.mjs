@@ -200,5 +200,8 @@ export function createR136EnsembleSequencer(THREE,instance,mixer,clips,id){
    transitions,returns,frames,corrected,maxCorrection:+maxCorrection.toFixed(4),
    arms:posture(),history:history.slice(-10)};
  }
- return{play:kind=>launch(names[kind]||kind),playNamed:launch,update,inspect};
+ return{play:kind=>launch(names[kind]||kind),playNamed:launch,update,inspect,
+  // R140: read the authentic source mixer state without calling costly
+  // geometry posture diagnostics every frame just to drive the source face.
+  getCurrentClip:()=>current};
 }
