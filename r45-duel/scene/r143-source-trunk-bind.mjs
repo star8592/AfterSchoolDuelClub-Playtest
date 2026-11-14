@@ -46,7 +46,7 @@ export function repairR143OriginalTorsoHierarchy(THREE,instance,id){
    if(idx<0||!indices||!weights)continue;
    for(let vertex=0;vertex<indices.count&&!found;vertex++){
     for(let slot=0;slot<4;slot++){
-     if(indices.getComponent(vertex,slot)===idx&&weights.getComponent(vertex,slot)>=.35){
+     if(indices.getComponent(vertex,slot)===idx&&weights.getComponent(vertex,slot)>=.20){
       found={mesh,vertex,weight:weights.getComponent(vertex,slot),
        target:target.name};break;
      }
@@ -54,7 +54,7 @@ export function repairR143OriginalTorsoHierarchy(THREE,instance,id){
    }
    if(found)break;
   }
-  if(!found)throw Error('R143 missing high-weight artist vertex '+id+'/'+target.name);
+  if(!found)throw Error('R143 missing directly weighted artist vertex '+id+'/'+target.name);
   samples.push(found);
  }
  instance.updateMatrixWorld(true);
