@@ -355,6 +355,29 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   impact.visible=true;
   return true;
  }
+ // R145 cinematic lens observes the real, rule-approved event and current
+ // world position AFTER frame motion. No game logic or HP writes.
+ function getR145RealFocus(seconds){
+  if(!sequence||sequence.index<0||!Number.isFinite(seconds))return null;
+  const event=sequence.events[sequence.index];
+  if(!event)return null;
+  const phase=(seconds-sequence.started-
+   sequence.index*secondsPerHit)/secondsPerHit;
+  if(phase<0||phase>1)return null;
+  const atk=anchor(event.side,event.attacker_uid,event.from);
+  const target=event.type==='exchange'?
+   anchor(event.side==='player'?'ai':'player',event.target_uid,event.to):null;
+  if(!atk?.object?.visible)return null;
+  const a=atk.object.getWorldPosition(new THREE.Vector3());
+  const b=target?.object?.visible?
+   target.object.getWorldPosition(new THREE.Vector3()):null;
+  return{
+   serial:event.serial,id:event.from,side:event.side,
+   type:event.type,phase:+phase.toFixed(5),
+   attacker:a.toArray(),defender:b?.toArray()||null,
+   genuineActor:atk.kind,actualOpponent:target?.kind||null
+  };
+ }
  function sequenceStats(){
   return{active:!!sequence,queued:sequence?.events.length||0,
    index:sequence?.index??-1,playedEvents,finishedSequences,
@@ -1196,7 +1219,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
   if(!actor)return false;
   return actor.object.userData.r61.play(kind)===true;
  }
- return{sync,update,inspect,startSequence,sequenceStats,setHpDisplayMode,
+ return{sync,update,inspect,startSequence,sequenceStats,getR145RealFocus,setHpDisplayMode,
   playSourceStudyAction,inspectLowestSourceMeshes,startSourceSpeech,stopSourceSpeech,
   reactToSpell,spellWorldAnchors,reserveSpellTargets,clearSpellTargets,reactToSummon,reactToCombo,clearComicCombo,
   celebrate,get celebration(){return celebration&&{...celebration,frames:celebrationFrames,actorFrames:celebratingActors}},
