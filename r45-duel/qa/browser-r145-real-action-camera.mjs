@@ -63,13 +63,18 @@ try{
     const s=q.summonPresence;
     return{camera:q.r145ActionShot,actor:s.entries.find(x=>x.id==='E03'),
      defender:s.entries.find(x=>x.id==='T04'),
-     event:q.combatEvents,
+     event:q.combatEvents,drawCalls:q.drawCalls,
      model:q.summonModels.filter(x=>['E03','T04'].includes(x.id))}
    });
    check(sample.event.active===true&&sample.event.index===0,
     view+' '+mode+' shooting actual engine-validated attack event',sample.event);
    check(sample.actor.metrics.frontDot>.9&&sample.defender.metrics.frontDot>.9,
     view+' '+mode+' unchanged opponent-facing model direction',sample);
+   check(Number.isFinite(sample.drawCalls)&&sample.drawCalls<=1050,
+    view+' '+mode+' original GPU draw calls remain bounded',sample.drawCalls);
+   if(mode!=='off')check(sample.actor.metrics.withinFrame===true,
+    view+' '+mode+' full original skinned performer visibly inside camera',
+    sample.actor.metrics);
    if(mode==='off')check(sample.camera.enabled===false&&
      sample.camera.frameWeight===0&&sample.camera.active===null,
      view+' independent manual camera opt out works',sample.camera);
@@ -110,6 +115,7 @@ try{
    modes[mode]={sourceModels:models,camera:sample.camera,
     playerCoverage:sample.actor.metrics.coverageWidth,
     defenderCoverage:sample.defender.metrics.coverageWidth,
+    drawCalls:sample.drawCalls,
     playerBounds:sample.actor.metrics.ndcBounds,
     defenderBounds:sample.defender.metrics.ndcBounds,
     receiverFocus:receiver?.active?.subjectRole||null,
