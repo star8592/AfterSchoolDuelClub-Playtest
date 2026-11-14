@@ -81,6 +81,22 @@ try{
      sample.camera.active.subjectRole==='attacker',
      view+' '+mode+' action camera actual original attacking source',sample.camera);
    await page.screenshot({path:resolve(dir,view+'-'+mode+'-impact.png')});
+   let receiver=null;
+   if(mode!=='off'&&view==='portrait'){
+    // The victim really gets an on-camera reaction after the attack.
+    // Avoid old instant-whip framing: verify a physically continuous pan.
+    await page.waitForFunction(()=>{
+     const x=document.querySelector('#stadium').contentWindow
+      .__r45SceneQA.r145ActionShot.active;
+     return x?.subjectRole==='defender'&&x?.weight>.2;
+    },null,{timeout:1900,polling:'raf'});
+    receiver=await page.evaluate(()=>document.querySelector('#stadium')
+     .contentWindow.__r45SceneQA.r145ActionShot);
+    check(receiver.active?.subjectRole==='defender'&&
+     receiver.active?.actor==='E03'&&receiver.active?.weight>.2,
+     view+' '+mode+' smooth source-defender reaction beat',receiver);
+    await page.screenshot({path:resolve(dir,view+'-'+mode+'-receiver.png')});
+   }
    await page.waitForTimeout(1130);
    const after=await page.evaluate(()=>{
     const q=document.querySelector('#stadium').contentWindow.__r45SceneQA;
@@ -96,6 +112,7 @@ try{
     defenderCoverage:sample.defender.metrics.coverageWidth,
     playerBounds:sample.actor.metrics.ndcBounds,
     defenderBounds:sample.defender.metrics.ndcBounds,
+    receiverFocus:receiver?.active?.subjectRole||null,
     recovered:after.camera.active===null};
   }
   check(errs.length===0,view+' no JS, GLB, resource error',errs);
