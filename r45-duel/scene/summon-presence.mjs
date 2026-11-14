@@ -905,7 +905,9 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    for(const state of entries.values()){
     const old=state.r133Contact?.apply();
     const current=state.r136Contact?.apply();
-    const lift=(old?.appliedLift||0)+(current?.raise||0);
+    // R137: sync the HUD with NET foot movement, including downward return.
+    // Absolute correction would cumulatively float the health label as well.
+    const lift=(old?.appliedLift||0)+(current?.delta||0);
     if(lift&&state.status?.label)
      state.status.label.position.y+=lift;
    }
