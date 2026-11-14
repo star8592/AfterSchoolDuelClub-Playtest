@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "totalGpuChecks": 1384,
+  "sourceAssetCount": 87,
+  "skinnedVertexDataChecked": 5284204,
+  "actorOriginalTorsoStageChecks": 394,
+  "rollbackChecks": 46,
+  "legacyRegressionChecks": 944,
+  "artApproved": false,
+  "defaultOfficialModels": "R97",
+  "mainBase": "55cbe87afd097ab4ce2f6eebe562e97ec643d728",
+  "flatTrunkRepairs": {
+    "E03": 5,
+    "E04": 4,
+    "G03": 5,
+    "G04": 5,
+    "T04": 5
+  },
+  "nativeTrunksPreserved": [
+    "G02",
+    "T03"
+  ],
+  "unweightedRexHipsKnownUnresolved": true,
+  "sourceBinaryFilesChanged": false,
+  "rollbackParameter": "?r143Rig=off",
+  "checks": {
+    "r143SevenOriginalTorsoStage": 394,
+    "r143ExplicitRollbackAndDefault": 46,
+    "r142GuardLabLegs": 86,
+    "r141ThreeSourceFaceVoice": 152,
+    "r141TwoCampQwenIsolation": 32,
+    "r134Jay": 22,
+    "r135EllieRex": 53,
+    "r135Idle15sec": 16,
+    "r135FlagIsolation": 25,
+    "r140FourOriginalFaces": 170,
+    "r140FourOriginalQwen": 54,
+    "r139Victoria": 36,
+    "r138NormalCamera": 70,
+    "r136OriginalFour": 83,
+    "r136SelectiveRollback": 63,
+    "r136Ensemble15sec": 36,
+    "r124OfficialCardFight": 18,
+    "r122HostsQwen": 28
+  },
+  "notYetSigned": [
+    "Real consumer mobile GPU",
+    "Human director 85/100 aesthetic acceptance",
+    "New physically weighted Rex pelvis authoring",
+    "Official R97-to-high-poly production rollout"
+  ],
+  "evidencePaths": [
+    "r143/source-trunk/r143-torso-7-source-gpu.json",
+    "r143/source-trunk/r143-rig-rollback-default.json",
+    "r142/guard-lab/r142-guard-lab-original-source.json",
+    "r141/seven-source-faces/r141-real-three-source-face-voice.json",
+    "r141/seven-source-faces/r141-double-card-voice-isolation.json",
+    "r134/r134-jay-acting-pilot.json",
+    "r135/original-pair/r135-pair-original-source-stage.json",
+    "r135/original-pair/r135-pair-original-idle-15sec.json",
+    "r135/original-pair/r135-independent-flag-isolation.json",
+    "r140/source-faces/r140-real-source-face.json",
+    "r140/source-faces/r140-all-four-actual-qwen.json",
+    "r139/victoria/r139-victoria-stage.json",
+    "r138/visible-silhouette/r138-visibility-baseline.json",
+    "r136/four-source/r136-four-source-action.json",
+    "r136/four-source/r136-flag-rollback.json",
+    "r136/four-source/r136-four-ensemble-15sec.json",
+    "r124-full-chain/r124-full-chain-report.json",
+    "r122-qwen-mouth/r122-real-qwen-mouth-report.json"
+  ],
+  "assetAudit": "r143/r143-complete-asset-binding-report.json"
+}

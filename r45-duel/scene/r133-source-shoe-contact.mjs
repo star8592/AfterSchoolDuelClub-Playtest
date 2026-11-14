@@ -20,6 +20,10 @@ const OUTSOLES=Object.freeze({
 // place the author-made outsole a little deeper than 0.082. Preserve
 // a per-actor finite cap and report actual cap usage; no accumulating rise.
 const MAX_LIFT=Object.freeze({E03:.082,G03:.082,T04:.105});
+// R143 source trunk reparenting moves genuine weighted upper joints as a
+// coherent body. Only the explicitly enabled Jay rig experiment may need
+// a slightly deeper, finite floor clearance. Production/rollback stay R142.
+const MAX_JAY_REPAIRED_TRUNK_LIFT=.108;
 const FLOOR_CLEARANCE=.0005;
 export function createR133SourceShoeContact(THREE,actor,id){
  const expected=OUTSOLES[id];
@@ -36,6 +40,9 @@ export function createR133SourceShoeContact(THREE,actor,id){
  if(expected.some(name=>!seen.has(name)))
   throw Error('R133 original source outsole missing '+id+' '+expected.filter(n=>!seen.has(n)));
  const shoes=expected.map(name=>seen.get(name));
+ const contactLimit=()=>id==='G03'&&actor.userData.r61
+  ?.getR143SourceTrunk?.()?.enabled?
+  MAX_JAY_REPAIRED_TRUNK_LIFT:MAX_LIFT[id];
  const tempBox=new THREE.Box3();
  let frames=0,corrections=0,maxPenetrationBefore=0,
   maxAfterPenetration=0,maxAppliedLift=0,maxFootSeparation=0,last=null;
@@ -54,7 +61,7 @@ export function createR133SourceShoeContact(THREE,actor,id){
   const min=Math.min(...before);
   // A finite vertical correction in source scene units, with no motion
   // toward the ground while an intentional hop has both feet airborne.
-  const limit=MAX_LIFT[id];
+  const limit=contactLimit();
   const lift=min<FLOOR_CLEARANCE?Math.min(limit,FLOOR_CLEARANCE-min):0;
   if(lift>0){
    actor.position.y+=lift;
@@ -82,7 +89,7 @@ export function createR133SourceShoeContact(THREE,actor,id){
  }
  return{apply,inspect:()=>({
   enabled:true,actor:id,source:'two_original_weighted_skinned_outsoles',
-  shoes:expected,frames,corrections,correctionLimit:MAX_LIFT[id],
+  shoes:expected,frames,corrections,correctionLimit:contactLimit(),
   maxPenetrationBefore:+maxPenetrationBefore.toFixed(5),
   maxAfterPenetration:+maxAfterPenetration.toFixed(5),
   maxAppliedLift:+maxAppliedLift.toFixed(5),

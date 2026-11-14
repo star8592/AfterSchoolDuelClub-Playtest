@@ -1,0 +1,952 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "checks": {
+    "originalTrunkPassed": 394,
+    "rollbackAndOfficialPassed": 46,
+    "failingCheckLabels": []
+  },
+  "views": {
+    "desktop": {
+      "E03": {
+        "connectedSourceBones": 5,
+        "maxRenderedRestDrift": 3.1744368231647515e-10,
+        "maxBindRestDrift": 4.443059973708373e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "Data_GEO-ellie_jacket",
+            "vertex": 98,
+            "sourceWeight": 0.6996
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-ellie_head",
+            "vertex": 12,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "GEO-ellie_handkerchief",
+            "vertex": 1,
+            "sourceWeight": 0.244
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "GEO-ellie_handkerchief",
+            "vertex": 363,
+            "sourceWeight": 0.3205
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.02977,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "E03",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-ellie_boots_5",
+            "Data_GEO-ellie_boots_6"
+          ],
+          "frames": 177,
+          "corrections": 43,
+          "correctionLimit": 0.082,
+          "maxPenetrationBefore": 0.02294,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0.02344,
+          "maxFootSeparation": 0,
+          "last": {
+            "actor": "E03",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-ellie_boots_5",
+              "Data_GEO-ellie_boots_6"
+            ],
+            "before": [
+              0.22937,
+              0.22937
+            ],
+            "after": [
+              0.22937,
+              0.22937
+            ],
+            "appliedLift": 0,
+            "selectedSupport": "Data_GEO-ellie_boots_5",
+            "intentionalAirborne": true,
+            "corrected": false,
+            "correctionLimit": 0.082,
+            "clamped": false
+          }
+        }
+      },
+      "E04": {
+        "connectedSourceBones": 4,
+        "maxRenderedRestDrift": 3.7056355487758027e-09,
+        "maxBindRestDrift": 6.670367046887758e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "GEO-phil_body",
+            "vertex": 0,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-phil_head",
+            "vertex": 19,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "GEO-phil_arms",
+            "vertex": 387,
+            "sourceWeight": 0.2238
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "GEO-phil_arms",
+            "vertex": 1478,
+            "sourceWeight": 0.2238
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.09281,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "E04",
+          "kind": "actual_full_body_and_pants_lower_hem",
+          "source": "actual_original_rendered_skinned_lower_mesh",
+          "skins": [
+            "GEO-phil_body",
+            "GEO-phil_pants"
+          ],
+          "frames": 177,
+          "corrections": 31,
+          "maxBefore": 0.00701,
+          "maxAfter": 0,
+          "maxApplied": 0.00751,
+          "activeLift": 0,
+          "maxStepDelta": 0.00147,
+          "maxSampleGap": 0.46005,
+          "last": {
+            "actor": "E04",
+            "skins": [
+              "GEO-phil_body",
+              "GEO-phil_pants"
+            ],
+            "before": [
+              0.03071,
+              0.45996
+            ],
+            "after": [
+              0.03071,
+              0.45996
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.03071,
+            "supportedMesh": "GEO-phil_body",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          }
+        }
+      },
+      "G03": {
+        "connectedSourceBones": 5,
+        "maxRenderedRestDrift": 8.351878976604309e-10,
+        "maxBindRestDrift": 2.221597715394509e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "Data_GEO-jay_jacket",
+            "vertex": 12,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-jay_head",
+            "vertex": 677,
+            "sourceWeight": 0.2369
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "Data_GEO-jay_jacket",
+            "vertex": 6,
+            "sourceWeight": 0.3392
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "Data_GEO-jay_jacket",
+            "vertex": 1456,
+            "sourceWeight": 0.3392
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.07903,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "G03",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-jay_shoes_base_1",
+            "Data_GEO-jay_shoes_base_2"
+          ],
+          "frames": 176,
+          "corrections": 146,
+          "correctionLimit": 0.108,
+          "maxPenetrationBefore": 0.08669,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0.08719,
+          "maxFootSeparation": 0.00195,
+          "last": {
+            "actor": "G03",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-jay_shoes_base_1",
+              "Data_GEO-jay_shoes_base_2"
+            ],
+            "before": [
+              0.01234,
+              0.01101
+            ],
+            "after": [
+              0.01234,
+              0.01101
+            ],
+            "appliedLift": 0,
+            "selectedSupport": "Data_GEO-jay_shoes_base_2",
+            "intentionalAirborne": true,
+            "corrected": false,
+            "correctionLimit": 0.108,
+            "clamped": false
+          }
+        }
+      },
+      "G04": {
+        "connectedSourceBones": 5,
+        "maxRenderedRestDrift": 6.167730955977473e-09,
+        "maxBindRestDrift": 2.347972415896026e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "Data_GEO-victoria_belt_blue",
+            "vertex": 0,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-victoria_body_upper",
+            "vertex": 2,
+            "sourceWeight": 0.8819
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "Data_GEO-victoria_body_upper",
+            "vertex": 2173,
+            "sourceWeight": 0.6254
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "Data_GEO-victoria_body_upper",
+            "vertex": 4621,
+            "sourceWeight": 0.6145
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.05062,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "G04",
+          "kind": "original_weighted_shoe_or_boot_geometry",
+          "source": "actual_original_rendered_skinned_lower_mesh",
+          "skins": [
+            "Data_GEO-victoria_boots"
+          ],
+          "frames": 177,
+          "corrections": 120,
+          "maxBefore": 0.00981,
+          "maxAfter": 0,
+          "maxApplied": 0.01031,
+          "activeLift": 0,
+          "maxStepDelta": 0.01411,
+          "maxSampleGap": 0,
+          "last": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.02367
+            ],
+            "after": [
+              0.02367
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.02367,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          }
+        }
+      },
+      "T04": {
+        "connectedSourceBones": 5,
+        "maxRenderedRestDrift": 4.448883823837714e-09,
+        "maxBindRestDrift": 4.445768331151997e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "GEO-rex_belt",
+            "vertex": 0,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-rex_head",
+            "vertex": 537,
+            "sourceWeight": 0.4136
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "GEO-rex_polo_shirt",
+            "vertex": 2,
+            "sourceWeight": 0.2
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "GEO-rex_polo_shirt",
+            "vertex": 991,
+            "sourceWeight": 0.2
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.0326,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "T04",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-rex_shoes_1",
+            "Data_GEO-rex_shoes_2"
+          ],
+          "frames": 177,
+          "corrections": 87,
+          "correctionLimit": 0.105,
+          "maxPenetrationBefore": 0.07581,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0.07631,
+          "maxFootSeparation": 0.00795,
+          "last": {
+            "actor": "T04",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-rex_shoes_1",
+              "Data_GEO-rex_shoes_2"
+            ],
+            "before": [
+              -0.00406,
+              -0.00339
+            ],
+            "after": [
+              0.0005,
+              0.00117
+            ],
+            "appliedLift": 0.00456,
+            "selectedSupport": "Data_GEO-rex_shoes_1",
+            "intentionalAirborne": false,
+            "corrected": true,
+            "correctionLimit": 0.105,
+            "clamped": false
+          }
+        }
+      },
+      "G02": {
+        "connectedSourceBones": 0,
+        "maxRenderedRestDrift": 0,
+        "maxBindRestDrift": 0,
+        "trueWeightedVertexRefs": [],
+        "originalSkinnedLegVertexTravel": 0.08795,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "G02",
+          "kind": "original_weighted_shoe_or_boot_geometry",
+          "source": "actual_original_rendered_skinned_lower_mesh",
+          "skins": [
+            "GEO-snow-shoes_bottom",
+            "GEO-snow-shoes_base"
+          ],
+          "frames": 177,
+          "corrections": 0,
+          "maxBefore": 0,
+          "maxAfter": 0,
+          "maxApplied": 0,
+          "activeLift": 0,
+          "maxStepDelta": 0,
+          "maxSampleGap": 0.00225,
+          "last": {
+            "actor": "G02",
+            "skins": [
+              "GEO-snow-shoes_bottom",
+              "GEO-snow-shoes_base"
+            ],
+            "before": [
+              0.00594,
+              0.00762
+            ],
+            "after": [
+              0.00594,
+              0.00762
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.00594,
+            "supportedMesh": "GEO-snow-shoes_bottom",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          }
+        }
+      },
+      "T03": {
+        "connectedSourceBones": 0,
+        "maxRenderedRestDrift": 0,
+        "maxBindRestDrift": 0,
+        "trueWeightedVertexRefs": [],
+        "originalSkinnedLegVertexTravel": 0.12357,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "T03",
+          "kind": "original_weighted_shoe_or_boot_geometry",
+          "source": "actual_original_rendered_skinned_lower_mesh",
+          "skins": [
+            "GEO-rain-shoes_1",
+            "GEO-rain-shoes_2",
+            "GEO-rain-shoes_3",
+            "GEO-rain-shoes_4"
+          ],
+          "frames": 181,
+          "corrections": 132,
+          "maxBefore": 0.01745,
+          "maxAfter": 0,
+          "maxApplied": 0.01795,
+          "activeLift": 0,
+          "maxStepDelta": 0.0035,
+          "maxSampleGap": 0.08355,
+          "last": {
+            "actor": "T03",
+            "skins": [
+              "GEO-rain-shoes_1",
+              "GEO-rain-shoes_2",
+              "GEO-rain-shoes_3",
+              "GEO-rain-shoes_4"
+            ],
+            "before": [
+              0.0077,
+              0.08282,
+              0.0675,
+              0.08067
+            ],
+            "after": [
+              0.0077,
+              0.08282,
+              0.0675,
+              0.08067
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.0077,
+            "supportedMesh": "GEO-rain-shoes_1",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.13,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          }
+        }
+      }
+    },
+    "portrait": {
+      "E03": {
+        "connectedSourceBones": 5,
+        "maxRenderedRestDrift": 3.1744368231647515e-10,
+        "maxBindRestDrift": 4.443059973708373e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "Data_GEO-ellie_jacket",
+            "vertex": 98,
+            "sourceWeight": 0.6996
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-ellie_head",
+            "vertex": 12,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "GEO-ellie_handkerchief",
+            "vertex": 1,
+            "sourceWeight": 0.244
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "GEO-ellie_handkerchief",
+            "vertex": 363,
+            "sourceWeight": 0.3205
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.02961,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "E03",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-ellie_boots_5",
+            "Data_GEO-ellie_boots_6"
+          ],
+          "frames": 163,
+          "corrections": 33,
+          "correctionLimit": 0.082,
+          "maxPenetrationBefore": 0.02294,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0.02344,
+          "maxFootSeparation": 0,
+          "last": {
+            "actor": "E03",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-ellie_boots_5",
+              "Data_GEO-ellie_boots_6"
+            ],
+            "before": [
+              0.22889,
+              0.22889
+            ],
+            "after": [
+              0.22889,
+              0.22889
+            ],
+            "appliedLift": 0,
+            "selectedSupport": "Data_GEO-ellie_boots_5",
+            "intentionalAirborne": true,
+            "corrected": false,
+            "correctionLimit": 0.082,
+            "clamped": false
+          }
+        }
+      },
+      "E04": {
+        "connectedSourceBones": 4,
+        "maxRenderedRestDrift": 3.7056355487758027e-09,
+        "maxBindRestDrift": 6.670367046887758e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "GEO-phil_body",
+            "vertex": 0,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-phil_head",
+            "vertex": 19,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "GEO-phil_arms",
+            "vertex": 387,
+            "sourceWeight": 0.2238
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "GEO-phil_arms",
+            "vertex": 1478,
+            "sourceWeight": 0.2238
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.09305,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "E04",
+          "kind": "actual_full_body_and_pants_lower_hem",
+          "source": "actual_original_rendered_skinned_lower_mesh",
+          "skins": [
+            "GEO-phil_body",
+            "GEO-phil_pants"
+          ],
+          "frames": 163,
+          "corrections": 35,
+          "maxBefore": 0.01012,
+          "maxAfter": 0,
+          "maxApplied": 0.01062,
+          "activeLift": 0,
+          "maxStepDelta": 0.00194,
+          "maxSampleGap": 0.46008,
+          "last": {
+            "actor": "E04",
+            "skins": [
+              "GEO-phil_body",
+              "GEO-phil_pants"
+            ],
+            "before": [
+              0.03354,
+              0.46139
+            ],
+            "after": [
+              0.03354,
+              0.46139
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.03354,
+            "supportedMesh": "GEO-phil_body",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          }
+        }
+      },
+      "G03": {
+        "connectedSourceBones": 5,
+        "maxRenderedRestDrift": 8.351878976604309e-10,
+        "maxBindRestDrift": 2.221597715394509e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "Data_GEO-jay_jacket",
+            "vertex": 12,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-jay_head",
+            "vertex": 677,
+            "sourceWeight": 0.2369
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "Data_GEO-jay_jacket",
+            "vertex": 6,
+            "sourceWeight": 0.3392
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "Data_GEO-jay_jacket",
+            "vertex": 1456,
+            "sourceWeight": 0.3392
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.07808,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "G03",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-jay_shoes_base_1",
+            "Data_GEO-jay_shoes_base_2"
+          ],
+          "frames": 165,
+          "corrections": 138,
+          "correctionLimit": 0.108,
+          "maxPenetrationBefore": 0.08597,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0.08647,
+          "maxFootSeparation": 0.00195,
+          "last": {
+            "actor": "G03",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-jay_shoes_base_1",
+              "Data_GEO-jay_shoes_base_2"
+            ],
+            "before": [
+              0.00716,
+              0.00583
+            ],
+            "after": [
+              0.00716,
+              0.00583
+            ],
+            "appliedLift": 0,
+            "selectedSupport": "Data_GEO-jay_shoes_base_2",
+            "intentionalAirborne": true,
+            "corrected": false,
+            "correctionLimit": 0.108,
+            "clamped": false
+          }
+        }
+      },
+      "G04": {
+        "connectedSourceBones": 5,
+        "maxRenderedRestDrift": 6.167730955977473e-09,
+        "maxBindRestDrift": 2.347972415896026e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "Data_GEO-victoria_belt_blue",
+            "vertex": 0,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-victoria_body_upper",
+            "vertex": 2,
+            "sourceWeight": 0.8819
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "Data_GEO-victoria_body_upper",
+            "vertex": 2173,
+            "sourceWeight": 0.6254
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "Data_GEO-victoria_body_upper",
+            "vertex": 4621,
+            "sourceWeight": 0.6145
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.05053,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "G04",
+          "kind": "original_weighted_shoe_or_boot_geometry",
+          "source": "actual_original_rendered_skinned_lower_mesh",
+          "skins": [
+            "Data_GEO-victoria_boots"
+          ],
+          "frames": 161,
+          "corrections": 96,
+          "maxBefore": 0.00325,
+          "maxAfter": 0,
+          "maxApplied": 0.00375,
+          "activeLift": 0,
+          "maxStepDelta": 0.01095,
+          "maxSampleGap": 0,
+          "last": {
+            "actor": "G04",
+            "skins": [
+              "GEO-victoria_boots"
+            ],
+            "before": [
+              0.01608
+            ],
+            "after": [
+              0.01608
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.01608,
+            "supportedMesh": "GEO-victoria_boots",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          }
+        }
+      },
+      "T04": {
+        "connectedSourceBones": 5,
+        "maxRenderedRestDrift": 4.448883823837714e-09,
+        "maxBindRestDrift": 4.445768331151997e-16,
+        "trueWeightedVertexRefs": [
+          {
+            "bone": "DEF-Spine",
+            "mesh": "GEO-rex_belt",
+            "vertex": 0,
+            "sourceWeight": 1
+          },
+          {
+            "bone": "DEF-Head",
+            "mesh": "Data_GEO-rex_head",
+            "vertex": 537,
+            "sourceWeight": 0.4136
+          },
+          {
+            "bone": "DEF-ShoulderL",
+            "mesh": "GEO-rex_polo_shirt",
+            "vertex": 2,
+            "sourceWeight": 0.2
+          },
+          {
+            "bone": "DEF-ShoulderR",
+            "mesh": "GEO-rex_polo_shirt",
+            "vertex": 991,
+            "sourceWeight": 0.2
+          }
+        ],
+        "originalSkinnedLegVertexTravel": 0.03252,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "T04",
+          "source": "two_original_weighted_skinned_outsoles",
+          "shoes": [
+            "Data_GEO-rex_shoes_1",
+            "Data_GEO-rex_shoes_2"
+          ],
+          "frames": 163,
+          "corrections": 103,
+          "correctionLimit": 0.105,
+          "maxPenetrationBefore": 0.08124,
+          "maxAfterPenetration": 0,
+          "maxAppliedLift": 0.08174,
+          "maxFootSeparation": 0.00801,
+          "last": {
+            "actor": "T04",
+            "source": "two_original_weighted_skinned_outsoles",
+            "shoes": [
+              "Data_GEO-rex_shoes_1",
+              "Data_GEO-rex_shoes_2"
+            ],
+            "before": [
+              0.00612,
+              0.00679
+            ],
+            "after": [
+              0.00612,
+              0.00679
+            ],
+            "appliedLift": 0,
+            "selectedSupport": "Data_GEO-rex_shoes_1",
+            "intentionalAirborne": true,
+            "corrected": false,
+            "correctionLimit": 0.105,
+            "clamped": false
+          }
+        }
+      },
+      "G02": {
+        "connectedSourceBones": 0,
+        "maxRenderedRestDrift": 0,
+        "maxBindRestDrift": 0,
+        "trueWeightedVertexRefs": [],
+        "originalSkinnedLegVertexTravel": 0.08698,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "G02",
+          "kind": "original_weighted_shoe_or_boot_geometry",
+          "source": "actual_original_rendered_skinned_lower_mesh",
+          "skins": [
+            "GEO-snow-shoes_bottom",
+            "GEO-snow-shoes_base"
+          ],
+          "frames": 160,
+          "corrections": 37,
+          "maxBefore": 0.00166,
+          "maxAfter": 0,
+          "maxApplied": 0.00216,
+          "activeLift": 0,
+          "maxStepDelta": 0.00052,
+          "maxSampleGap": 0.00225,
+          "last": {
+            "actor": "G02",
+            "skins": [
+              "GEO-snow-shoes_bottom",
+              "GEO-snow-shoes_base"
+            ],
+            "before": [
+              0.01231,
+              0.01402
+            ],
+            "after": [
+              0.01231,
+              0.01402
+            ],
+            "raise": 0,
+            "delta": 0,
+            "previousRaise": 0,
+            "minAfter": 0.01231,
+            "supportedMesh": "GEO-snow-shoes_bottom",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.082,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          }
+        }
+      },
+      "T03": {
+        "connectedSourceBones": 0,
+        "maxRenderedRestDrift": 0,
+        "maxBindRestDrift": 0,
+        "trueWeightedVertexRefs": [],
+        "originalSkinnedLegVertexTravel": 0.12352,
+        "originalLegTracks": 8,
+        "originalOutsoleContactAfterAction": {
+          "enabled": true,
+          "actor": "T03",
+          "kind": "original_weighted_shoe_or_boot_geometry",
+          "source": "actual_original_rendered_skinned_lower_mesh",
+          "skins": [
+            "GEO-rain-shoes_1",
+            "GEO-rain-shoes_2",
+            "GEO-rain-shoes_3",
+            "GEO-rain-shoes_4"
+          ],
+          "frames": 167,
+          "corrections": 92,
+          "maxBefore": 0.02562,
+          "maxAfter": 0,
+          "maxApplied": 0.02612,
+          "activeLift": 0.00707,
+          "maxStepDelta": 0.00203,
+          "maxSampleGap": 0.08354,
+          "last": {
+            "actor": "T03",
+            "skins": [
+              "GEO-rain-shoes_1",
+              "GEO-rain-shoes_2",
+              "GEO-rain-shoes_3",
+              "GEO-rain-shoes_4"
+            ],
+            "before": [
+              -0.00657,
+              0.06866,
+              0.05324,
+              0.06651
+            ],
+            "after": [
+              0.0005,
+              0.07573,
+              0.06031,
+              0.07359
+            ],
+            "raise": 0.00707,
+            "delta": -0.00031,
+            "previousRaise": 0.00738,
+            "minAfter": 0.0005,
+            "supportedMesh": "GEO-rain-shoes_1",
+            "remainingPenetration": 0,
+            "correctionLimit": 0.13,
+            "victoriaPlanted": false,
+            "correctionClamped": false
+          }
+        }
+      }
+    }
+  },
+  "originalSourceFilesUnmodified": true,
+  "productionDefault": "R97",
+  "rollback": "?r143Rig=off"
+}

@@ -1089,6 +1089,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     r129FullBody:['E03','G03','G04','T04'].includes(s.id)?s.object.userData.r61?.getR129FullBody?.():undefined,
     r130FullBody:['G02','T03'].includes(s.id)?s.object.userData.r61?.getR130FullBody?.():undefined,
     r131Arms:s.object.userData.r61?.getR131Arms?.()||null,
+    r143SourceTrunk:s.object.userData.r61?.getR143SourceTrunk?.()||null,
     r133ShoeContact:s.r133Contact?.inspect()||null,
     r134JayStage:s.id==='G03'?s.object.userData.r61?.getR134JayStage?.()||null:null,
     r135PairStage:R135_PAIR_STAGES.has(s.id)?
