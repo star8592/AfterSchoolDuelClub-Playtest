@@ -44,7 +44,10 @@ roll=json.loads((root/'source-trunk/r143-rig-rollback-default.json').read_text()
 assert face['passed'] is True and len(face['checks'])==394
 assert roll['passed'] is True and len(roll['checks'])==46
 gpu={'passed':True,'artApproved':False,'checks':{
- 'originalTrunk':face['checks'],'rollbackAndOfficial':roll['checks']},
+ 'originalTrunkPassed':len(face['checks']),
+ 'rollbackAndOfficialPassed':len(roll['checks']),
+ 'failingCheckLabels':[c['label'] for c in face['checks']+roll['checks']
+   if c.get('pass') is not True]},
  'views':{},'originalSourceFilesUnmodified':True,
  'productionDefault':'R97',
  'rollback':'?r143Rig=off'}
