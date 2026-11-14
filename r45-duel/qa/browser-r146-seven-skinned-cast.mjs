@@ -65,7 +65,9 @@ try{
    const v=first.weighted.find(x=>x.id===id);
    check(a?.visible===true&&a.metrics.frontDot>.9,
     view+' '+id+' original source faces real opponent',a?.metrics);
-   check(a?.r131Arms?.enabled===true,
+   check(a?.r131Arms?.source==='actual_original_author_skinned_arm_hierarchy'&&
+    a.r131Arms.changedParentLinks>=30&&
+    a.r131Arms.maxBindRestDrift<.0001,
     view+' '+id+' genuine original source shoulders and wrists linked',a?.r131Arms);
    check(a?.r140OriginalFace?.enabled===true,
     view+' '+id+' source face and jaw morph available',a?.r140OriginalFace);
@@ -75,7 +77,7 @@ try{
    check(v?.valid===true&&v?.skinWeight>.28,
     view+' '+id+' actual original source skinned arm vertex is bound',v);
    if(['E03','E04','G03','G04','T04'].includes(id))
-    check(a.r143SourceTrunk?.enabled===true,
+    check(a.r143SourceTrunk?.changedParentLinks>=4,
      view+' '+id+' original R143 torso transmission chain active',a?.r143SourceTrunk);
    if(id==='T04')check(a.r144OriginalPelvis?.enabled===true&&
     a.r144OriginalPelvis.highWeightSourceVertices>=4900,
