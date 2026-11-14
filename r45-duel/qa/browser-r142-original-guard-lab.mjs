@@ -58,7 +58,7 @@ try{
     await page.waitForTimeout(160);
    }
    const end=await read();
-   check(end.stage?.sourceTracks===(id==='T04'?17:16),
+   check((end.stage?.sourceTracks??end.stage?.sourceRigTrackCount)===(id==='T04'?17:16),
     view+' '+id+' exactly original upper+lower'+(id==='T04'?'+pelvis':'')+' tracks',
     end.stage);
    check(end.legs.maxLegVertexTravel>=(id==='T04'?.027:.051),
@@ -83,7 +83,7 @@ console.log('R142_REAL_SOURCE_GUARD_LAB',JSON.stringify({
   legTravel:x.end.legs.maxLegVertexTravel,
   shoePenetration:x.end.shoes.maxAfterPenetration,
   maxFloorLift:x.end.shoes.maxAppliedLift,
-  sourceTracks:x.end.stage.sourceTracks,
+  sourceTracks:x.end.stage.sourceTracks??x.end.stage.sourceRigTrackCount,
   attackCoverage:x.poses.attack.screenWidth,
   idleCoverage:x.poses.idle.screenWidth}))}));
 if(!report.passed)process.exitCode=1;
