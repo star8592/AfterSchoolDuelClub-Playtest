@@ -13,7 +13,8 @@ assert old['originalAssetsAudited']==88
 assert old['defaultOfficialModels']=='R97'
 newFiles={
  'sourceCombatLens':('r145/action-camera/r145-real-actor-action-lens.json',60),
- 'motionAndOrbitGuards':('r145/action-camera/r145-accessibility-orbit.json',20)
+ 'motionAndOrbitGuards':('r145/action-camera/r145-accessibility-orbit.json',20),
+ 'all14OriginalSourceActors':('r145/action-camera/r145-all-14-source-cards.json',114)
 }
 checks={}
 report={}
@@ -23,7 +24,7 @@ for title,(file,expected) in newFiles.items():
  assert len(j['checks'])==expected,(title,len(j['checks']),expected)
  assert all(x.get('pass') is True for x in j['checks']),(title,'failed check')
  checks[title]=expected;report[title]=j
-assert sum(checks.values())==80
+assert sum(checks.values())==194
 stage=report['sourceCombatLens']
 assert {x['view'] for x in stage['views']}=={'desktop','portrait'}
 metrics={}
@@ -60,10 +61,21 @@ for row in safety['views']:
  assert abs(c['manualOrbit']['camera']['orbitDegrees'])>70
  assert c['reduced']['camera']['active'] is None
  assert c['reduced']['camera']['frameWeight']==0
+all_actors=report['all14OriginalSourceActors']
+cast={'E01','E02','E03','E04','G01','G02','G03','G04',
+ 'M01','M02','T01','T02','T03','T04'}
+assert {v['view'] for v in all_actors['views']}=={'desktop','portrait'}
+for v in all_actors['views']:
+ assert set(v['actors'])==cast
+ for actor,p in v['actors'].items():
+  assert p['worldKind'] in ('gltf-instance','original-vrm','vrm-instance')
+  assert p['normalizedActorWidth']>0
+  assert p['sourceCameraWeight']>.38
+  assert p['drawCalls']<=1050
 assert old['artApproved'] is False
 result={
- 'passed':True,'realGPUChecks':1648,
- 'legacyRealGPUChecks':1568,'newRealGPUChecks':80,
+ 'passed':True,'realGPUChecks':1762,
+ 'legacyRealGPUChecks':1568,'newRealGPUChecks':194,
  'sourceAssetBindingAuditCount':88,
  'sourceWeightedVerticesValidated':5327876,
  'normalGameplayNewCameraDefault':True,
@@ -72,6 +84,7 @@ result={
  'noNewMeshesOrAnimationsRequired':True,
  'sourceLensOnlyFromValidatedR51Events':True,
  'genuineSkinnedModelCoverageMetrics':metrics,
+ 'every14OriginalCardsTestedInBothViews':True,
  'artApproved':False,
  'normalGameplayModelAssetsRemain':'R97',
  'officialLiveDeploymentVerified':False,
@@ -89,7 +102,7 @@ for file in result['photographicScreenshots']:
  assert (root/file).exists(),file
 out=root/'r145/action-camera/r145-convergence.json'
 out.write_text(json.dumps(result,indent=2,ensure_ascii=False))
-print('R145_1648_REAL_GPU_88_ASSETS_PASS',json.dumps({
- 'gpuChecks':1648,'new':80,'history':1568,
+print('R145_1762_REAL_GPU_88_ASSETS_PASS',json.dumps({
+ 'gpuChecks':1762,'new':194,'history':1568,
  'assets':88,'vertices':5327876,'R97Default':True,
  'directorArtApproved':False,'coverage':metrics},ensure_ascii=False))
