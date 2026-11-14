@@ -232,6 +232,14 @@ const R119_STUDY_IDS=(()=>{
 })();
 
 // R86: isolated genuine-skin test. Regular players keep R85 static Jay.
+// Isolated M01 adult teacher study: requires explicit QA flag, defaults OFF.
+const isM01AdultTeacherStudy=(()=>{
+ const local=new URLSearchParams(location.search);
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null}})();
+ return (local.get('qa')==='1'||parent?.get('qa')==='1')&&
+  (local.get('m01Wardrobe')==='on'||parent?.get('m01Wardrobe')==='on');
+})();
 const isG03R86Study=(()=>{
  if(new URLSearchParams(location.search).get('g03Study')==='rig')return true;
  try{return window.parent!==window&&new URLSearchParams(window.parent.location.search).get('g03Study')==='rig'}catch{return false}
@@ -344,7 +352,8 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   const spec=id==='T02'&&isT02DuoStudy?
    {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:
    id==='M02'&&r99ChefOld?{...baseSpec,targetHeight:2.07}:baseSpec;
-  const selectedFile=id==='M02'&&r99ChefOld?'M02-CafeteriaAunt-CartoonR76.glb':
+  const selectedFile=id==='M01'&&isM01AdultTeacherStudy?'M01-Maestro-Burgundy-Coat-STUDY.glb':
+   id==='M02'&&r99ChefOld?'M02-CafeteriaAunt-CartoonR76.glb':
    id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
    R119_STUDY_IDS.has(id)?(
@@ -671,7 +680,7 @@ export function instantiateSummon(THREE,template){
   createR130SpecialFullBody(THREE,instance,source119Clips,template.id):null;
  const sourceBodyClips=r130Special?r130Special.clips:r128Phil?r128Phil.clips:source119Clips;
  const r119Clips=r144Pelvis?r144Pelvis.buildClips(sourceBodyClips):sourceBodyClips;
- const r126Teacher=template.id==='M01'?createR126MusicTeacherClips(THREE,instance):null;
+ const r126Teacher=template.id==='M01'&&!isM01AdultTeacherStudy?createR126MusicTeacherClips(THREE,instance):null;
  const r127OwlDisabled=(()=>{
   const q=new URLSearchParams(location.search);
   if(q.get('r127Owl')==='off')return true;
@@ -687,6 +696,116 @@ export function instantiateSummon(THREE,template){
  const availableClips=r119Clips.length?r119Clips:r86Clips.length?r86Clips:
   r126Teacher?[...template.clips,...r126Teacher.clips]:template.clips;
  const mixer=availableClips.length?new THREE.AnimationMixer(instance):null;
+ // M01 R152: isolated test of existing motion + real hand-attached art.
+ // No new skeletal keyframes, no external model purchases, no production default.
+ const m01Conductor=template.id==='M01'&&isM01AdultTeacherStudy?(()=>{
+  const hand=instance.getObjectByName('WeaponR')||instance.getObjectByName('RightHand');
+  const toeL=instance.getObjectByName('LeftFoot');
+  const toeR=instance.getObjectByName('RightFoot');
+  if(!hand?.isBone||!toeL?.isBone||!toeR?.isBone)throw Error('M01_R152 actual hand/feet not in source rig');
+  const baton=new THREE.Group();baton.name='M01_REAL_BONE_BATON_QA';
+  // Anchored to *the original mesh's right-hand bone* so motion follows
+  // the original GLB clip. This does not forge or re-rig any skeleton.
+  const wood=new THREE.Mesh(new THREE.CylinderGeometry(.007,.014,.45,10),
+   new THREE.MeshStandardMaterial({color:'#ffdf9c',metalness:.72,roughness:.21}));
+  wood.position.y=.225;
+  const grip=new THREE.Mesh(new THREE.CylinderGeometry(.016,.016,.085,12),
+   new THREE.MeshStandardMaterial({color:'#38342b',metalness:.35,roughness:.53}));
+  grip.position.y=.025;
+  const tip=new THREE.Mesh(new THREE.SphereGeometry(.024,10,10),
+   new THREE.MeshStandardMaterial({color:'#fff1bb',emissive:'#f5b942',emissiveIntensity:.66}));
+  tip.position.y=.455;
+  baton.add(wood,grip,tip);
+  // The exported standard rig already includes a dedicated right-hand weapon socket.
+  baton.position.set(0,0,0);
+  hand.add(baton);
+  const cvs=document.createElement('canvas');cvs.width=128;cvs.height=128;
+  const ctx=cvs.getContext('2d');
+  ctx.clearRect(0,0,128,128);
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.shadowColor='#66dafa';ctx.shadowBlur=20;
+  ctx.fillStyle='#fff2af';ctx.font='bold 94px serif';ctx.fillText('♫',64,69);
+  const tex=new THREE.CanvasTexture(cvs);tex.colorSpace=THREE.SRGBColorSpace;
+  const notes=Array.from({length:5},(_,i)=>{
+   const m=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,
+     depthWrite:false,depthTest:true,opacity:0}));
+   m.name='M01_MUSICAL_MAGIC_NOTE_QA_'+i;m.visible=false;
+   m.scale.set(.42,.42,1);root.add(m);return m;
+  });
+  const faceMeshes=[];
+  instance.traverse(o=>{if(o.isSkinnedMesh&&o.morphTargetDictionary&&o.morphTargetInfluences){
+   const dict=o.morphTargetDictionary;
+   if(['mouthSmile','browInnerUp','eyeWideLeft','eyeWideRight'].some(k=>Number.isInteger(dict[k])))
+    faceMeshes.push(o);
+  }});
+  let cueAge=100,hitAge=100,celebrateAge=100,cues=0,frames=0,faceFrames=0;
+  let groundedRef=null,groundCorrection=0;
+  const footPos=new THREE.Vector3();
+  const cueHand=new THREE.Vector3(),cueLocal=new THREE.Vector3();
+  const footMin=()=>Math.min(toeL.getWorldPosition(footPos).y,toeR.getWorldPosition(new THREE.Vector3()).y);
+  const recordGround=()=>{
+   instance.updateMatrixWorld(true);
+   groundedRef=footMin();
+  };
+  const begin=(kind)=>{
+   if(kind==='attack'){cueAge=0;cues++;}
+   if(kind==='hit'){cueAge=100;hitAge=0;}
+   if(kind==='celebrate'){celebrateAge=0;}
+   if(kind==='idle'||kind==='walk'){if(cueAge>1.15)cueAge=100;}
+  };
+  const update=(dt)=>{
+   frames++;
+   const d=Math.max(0,Math.min(.05,dt));
+   cueAge+=d;hitAge+=d;celebrateAge+=d;
+   const a=cueAge;
+   notes.forEach((n,i)=>{
+    const t=a-i*.085;
+    const visible=t>0&&t<.90;
+    n.visible=visible;
+    if(!visible)return;
+    const k=t/.90,envelope=Math.sin(Math.PI*k);
+    root.updateMatrixWorld(true);
+    hand.getWorldPosition(cueHand);
+    const dir=cueHand.x<0?1:-1;
+    cueLocal.copy(cueHand).add(new THREE.Vector3(
+     dir*(.20+.85*k+.12*i),.17+.48*Math.sin(k*Math.PI)+.10*i,
+     -.10+Math.sin(t*8+i)*.12));
+    n.position.copy(root.worldToLocal(cueLocal));
+    n.material.opacity=.97*envelope;
+    n.scale.setScalar(.38+.26*envelope);
+   });
+   // Use the source GLB's real face morph targets, not a low-poly face mask.
+   for(const mesh of faceMeshes){
+    const m=mesh.morphTargetDictionary,w=mesh.morphTargetInfluences;
+    const smile=cueAge<1.15?.26* Math.sin(Math.PI*Math.min(1,cueAge/1.15)):
+      celebrateAge<1.2?.55:0;
+    const alarm=hitAge<.65?.62*Math.sin(Math.PI*hitAge/.65):0;
+    for(const [name,value] of Object.entries({
+     mouthSmile:smile,browInnerUp:alarm+.20*smile,
+     eyeWideLeft:alarm*.62,eyeWideRight:alarm*.62,
+     jawOpen:alarm*.18+.1*smile
+    }))if(Number.isInteger(m[name]))w[m[name]]=value;
+    faceFrames++;
+   }
+   // Light, foot-bone based bound instead of recomputing 110k skinned
+   // vertices every frame. Prevent modest below-ground movement without
+   // creating an idle hover: fallback when reference not calibrated.
+   if(groundedRef!==null){
+    instance.updateMatrixWorld(true);
+    const drop=groundedRef-footMin();
+    const wanted=Math.min(.055,Math.max(0,drop-.008));
+    groundCorrection+=(wanted-groundCorrection)*Math.min(1,d*14);
+   }
+  };
+  const inspect=()=>({bone:hand.name,batonAttached:baton.parent===hand,notesVisible:notes.filter(n=>n.visible).length,
+    cues,frames,faceMeshCount:faceMeshes.length,faceFrames,groundCorrection:+groundCorrection.toFixed(4),
+    groundReference:groundedRef===null?null:+groundedRef.toFixed(4),
+    cueAge:+cueAge.toFixed(3),hitAge:+hitAge.toFixed(3)});
+  // Lab-only observer; production never loads this overlay.
+  Object.defineProperty(window,'__m01ConductorQA',{configurable:true,get:inspect});
+  return{update,begin,recordGround,inspect,get groundCorrection(){return groundCorrection}};
+ })():null;
+
  const r134Controller=r134Jay?createR134JaySequencer(THREE,mixer,availableClips,instance):null;
  const r135Controller=r135Pair?createR135PairSequencer(
   THREE,instance,mixer,availableClips,template.id):null;
@@ -709,7 +828,7 @@ export function instantiateSummon(THREE,template){
   scaled.rotation.y=pose?.upperTwist||0;
   scaled.rotation.z=pose?.sideLean||0;
   scaled.position.y=groundedY+(pose?.lift||0)+
-   (r135Controller?.getLift()||0);
+   (r135Controller?.getLift()||0)+(m01Conductor?.groundCorrection||0);
  };
  const setClipRate=(rate)=>{if(mixer)mixer.timeScale=rate};
 
@@ -729,6 +848,11 @@ export function instantiateSummon(THREE,template){
  const choose=(kind)=>{
   if(!mixer)return null;
   const clips=availableClips;
+  if(template.id==='M01'&&isM01AdultTeacherStudy){
+   const action={idle:'Idle',walk:'Walk',attack:'Wave',hit:'Hit reaction',
+    death:'Hit reaction',celebrate:'Cheer'}[kind]||'Talk';
+   return clips.find(c=>c.name===action)||clips[0];
+  }
   const preference=kind==='attack'?['R119_Skeletal_Attack','R86_Skeletal_Attack','Attack_Dart','Attack_Flip_Menu','Attack','attack','Special','Cheer']:
    kind==='hit'?['R119_Skeletal_Hit','R86_Skeletal_Hit','Hit_Recoil','Hit_Retreat','Hit','hit']:
    kind==='death'?['Death','dead']:
@@ -780,6 +904,7 @@ export function instantiateSummon(THREE,template){
  const duo=template.id==='T02' &&
   template.selectedFile==='T02-CanteenAunt-LivingMenu-Duo-STUDY.glb';
  const play=(kind)=>{
+  m01Conductor?.begin(kind);
   if(r136Controller)return r136Controller.play(kind);
   if(r135Controller)return r135Controller.play(kind);
   if(r134Controller)return r134Controller.play(kind);
@@ -832,7 +957,10 @@ export function instantiateSummon(THREE,template){
   if(r134Controller)return r134Controller.playNamed(name)?
    availableClips.find(c=>c.name===name)?.duration||0:0;
   if(r126Teacher){teacherPlay(name);return availableClips.find(c=>c.name===name)?.duration||0;}
-  const clip=availableClips.find(x=>x.name===name);
+  const remap=template.id==='M01'&&isM01AdultTeacherStudy?{
+   R126_M01_Conduct:'Wave',R126_M01_Order:'Talk',
+   R126_M01_Shocked:'Hit reaction',R126_M01_Cheer:'Cheer'}:null;
+  const clip=availableClips.find(x=>x.name===(remap?.[name]||name));
   if(!clip)return 0;
   if(current===name)return clip.duration||0;
   mixer.stopAllAction();
@@ -853,6 +981,7 @@ export function instantiateSummon(THREE,template){
    scaled.position.y-=posed.min.y;
   }
   groundedY=scaled.position.y;
+  m01Conductor?.recordGround();
  }
  return {root,mixer,play,update:r131Arms?(dt=>{
   mixer.update(dt);
@@ -866,7 +995,11 @@ export function instantiateSummon(THREE,template){
   r144Pelvis?.update();
   r140Face?.update(dt,r136Controller?.getCurrentClip()||
    r135Controller?.getCurrentClip()||r134Controller?.getCurrentClip());
- }):r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
+ }):r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:
+  r126Teacher?teacherUpdate:filmStatic?updateStatic:
+  template.id==='M01'&&isM01AdultTeacherStudy?(dt=>{mixer?.update(dt);m01Conductor?.update(dt);
+   if(m01Conductor)scaled.position.y=groundedY+m01Conductor.groundCorrection+(combatPose?.lift||0);
+  }):null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),
   getR127OwlMotion:()=>r127Owl?.inspect()||null,
