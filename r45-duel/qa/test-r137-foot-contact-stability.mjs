@@ -22,7 +22,8 @@ for(const [id,names] of Object.entries(SOURCES)){
  const baseline=names.map(()=>0);
  const limit=id==='T03'?.13:.082;
  const root={
-  position:{y:0},userData:{r61:{r119Skin:true}},
+  position:{y:0},userData:{r61:{r119Skin:true,
+   getR136CastStage:()=>({currentClip:'R119_Skeletal_Idle'})}},
   children:[],
   traverse(fn){fn(this);for(const node of this.children)fn(node)},
   updateMatrixWorld(){for(const node of this.children)node.matrixWorld.y=this.position.y}
@@ -42,7 +43,8 @@ for(const [id,names] of Object.entries(SOURCES)){
   // Alternate original weighted soles through planted/raised configurations.
   const h=[-.056,-.028,.012,-.013,.025,-.043,.004,id==='T03'?-.109:-.067][frame%8];
   baseline.forEach((_,i)=>baseline[i]=h+i*.006);
-  const expected=Math.min(limit,Math.max(0,.0005-Math.min(...baseline)));
+  const delta=.0005-Math.min(...baseline);
+  const expected=delta>=0?Math.min(limit,delta):id==='G04'?Math.max(-.04,delta):0;
   const data=probe.apply();
   assert.ok(Math.abs(data.raise-expected)<.00002,
    id+' frame '+frame+' under-corrected this frame\x27s floor pose');
@@ -60,5 +62,5 @@ for(const [id,names] of Object.entries(SOURCES)){
  assert.ok(end.maxStepDelta<=limit+.00001);
  checks+=4;
 }
-console.log('R137_REBASED_FOUR_ORIGINAL_SKINS_PASS',checks,
+console.log('R139_REBASED_FOUR_ORIGINAL_SKINS_PASS',checks,
  'checks; 4 actor rigs x 1200 per-frame position resets, grounded mesh');
