@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "checks": {
+    "sourceActing": 83,
+    "flagIsolation": 63,
+    "ensemble15sec": 36,
+    "cardFullChain": 18,
+    "distantCamera": 70
+  },
+  "total": 270,
+  "sourceMainR137": "f3c014d",
+  "defaultOfficialModels": "R97",
+  "pilot": "r136Cast=on",
+  "artApproved": false,
+  "gpuCameraMetrics": {
+    "G02": {
+      "desktop": {
+        "celebrateIdleArmDirectionChange": 0.343,
+        "idleCoverage": 0.042,
+        "attackCoverage": 0.051
+      },
+      "portrait": {
+        "celebrateIdleArmDirectionChange": 0.34,
+        "idleCoverage": 0.043,
+        "attackCoverage": 0.054
+      }
+    },
+    "G04": {
+      "desktop": {
+        "celebrateIdleArmDirectionChange": 0.3744,
+        "idleCoverage": 0.035,
+        "attackCoverage": 0.041
+      },
+      "portrait": {
+        "celebrateIdleArmDirectionChange": 0.3822,
+        "idleCoverage": 0.035,
+        "attackCoverage": 0.041
+      }
+    },
+    "T03": {
+      "desktop": {
+        "celebrateIdleArmDirectionChange": 0.3874,
+        "idleCoverage": 0.064,
+        "attackCoverage": 0.076
+      },
+      "portrait": {
+        "celebrateIdleArmDirectionChange": 0.3442,
+        "idleCoverage": 0.073,
+        "attackCoverage": 0.087
+      }
+    }
+  },
+  "stillOpen": [
+    "Human director 85/100 visual acceptance",
+    "Low-end phone GPU",
+    "Final 14-character animation/voice/facial closure"
+  ],
+  "receipts": [
+    "r136/four-source/r136-four-source-action.json",
+    "r136/four-source/r136-flag-rollback.json",
+    "r136/four-source/r136-four-ensemble-15sec.json",
+    "r124-full-chain/r124-full-chain-report.json",
+    "r138/visible-silhouette/r138-visibility-baseline.json"
+  ]
+}
