@@ -36,7 +36,8 @@ export function repairR128PhilSourceHierarchy(THREE,instance,id='E04'){
  }
  return{sourceHierarchyRepaired:true,chains:legs};
 }
-export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E04',{directorAmplify=1}={}){
+export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E04',
+ {directorAmplify=1,directorVariant=null}={}){
  const canonical=v=>String(v||'').toLowerCase().replace(/[^a-z0-9]/g,'');
  // Source animation profiles are per-character, not clones of a single child.
  // Controlled upper-body R119 motions already contain distinct personalities.
@@ -49,6 +50,12 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E0
  if(!Number.isFinite(directorAmplify)||directorAmplify<1||directorAmplify>1.65)
   throw Error('R135 invalid source leg director amplification');
  const lowerBodyStrength=strengths[id]*directorAmplify;
+ // R139 is confined to Victoria's explicitly enabled original-skinned pilot.
+ // It must never mutate R97 defaults, E04/G03/E03/T04, or previous source QA.
+ if(directorVariant!==null&&!(id==='G04'&&directorVariant==='r139Victoria'))
+  throw Error('R139 source-specific director only supports Victoria');
+ const victoria=directorVariant==='r139Victoria';
+
  const skinned=[];const boneSet=new Set();
  instance.traverse(mesh=>{
   if(!mesh.isSkinnedMesh)return;
@@ -111,8 +118,58 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E0
    [0,-.025,-.055,-.02,0],[0,-.025,-.055,-.02,0]
   ]
  });
+ // Director's five-beat court choreography, indexed to the ACTUAL original
+ // thigh/knee/boot/toe bone order (left then right). Victoria announces with
+ // a counterstep, absorbs a setback through both knees, then recovers proud.
+ // These are additional genuine source-joint rotations, not root hopping.
+ const victoriaStance={
+  'R119_Skeletal_Idle':[
+   [0,-.025,.024,-.013,0],[0,.022,-.020,.011,0],
+   [0,.020,.045,.018,0],[0,.016,.037,.015,0],
+   [0,-.012,-.025,-.014,0],[0,-.012,-.021,-.012,0],
+   [0,0,.008,0,0],[0,0,.008,0,0]],
+  'R119_Skeletal_Attack':[
+   [0,-.21,-.44,-.26,0],[0,.10,.28,.10,0],
+   [0,.19,.45,.25,0],[0,.035,.21,.085,0],
+   [0,-.08,-.24,-.11,0],[0,.06,-.11,-.04,0],
+   [0,-.03,-.08,-.035,0],[0,.03,.05,.025,0]],
+  'R119_Skeletal_Hit':[
+   [0,.17,.39,.18,0],[0,-.11,-.26,-.095,0],
+   [0,.19,.46,.22,0],[0,.12,.29,.15,0],
+   [0,-.05,-.19,-.07,0],[0,-.035,-.10,-.04,0],
+   [0,-.02,-.055,-.03,0],[0,0,-.018,0,0]],
+  'R119_Skeletal_Walk':[
+   [0,.25,-.26,.25,0],[0,-.23,.24,-.23,0],
+   [0,.29,.055,.23,0],[0,.055,.28,.05,0],
+   [0,-.16,.12,-.16,0],[0,.13,-.15,.13,0],
+   [0,-.05,.055,-.05,0],[0,.045,-.045,.045,0]],
+  'R119_Skeletal_Challenge':[
+   [0,-.08,-.18,-.09,0],[0,.055,.13,.06,0],
+   [0,.065,.21,.10,0],[0,.04,.15,.08,0],
+   [0,-.025,-.09,-.04,0],[0,-.02,-.06,-.03,0],
+   [0,0,-.025,0,0],[0,0,.013,0,0]],
+  'R119_Skeletal_Worry':[
+   [0,.14,.29,.16,0],[0,.065,.17,.08,0],
+   [0,.16,.34,.15,0],[0,.10,.24,.11,0],
+   [0,-.07,-.16,-.07,0],[0,-.04,-.11,-.05,0],
+   [0,0,-.03,0,0],[0,0,-.02,0,0]],
+  'R119_Skeletal_Celebrate':[
+   [0,-.19,-.37,-.18,0],[0,-.16,-.31,-.15,0],
+   [0,.18,.39,.19,0],[0,.19,.38,.18,0],
+   [0,-.09,-.20,-.09,0],[0,-.09,-.19,-.085,0],
+   [0,-.04,-.07,-.035,0],[0,-.04,-.07,-.035,0]]
+ };
+ const victoriaRoll={
+  Attack:[0,-.035,-.10,-.05,0],
+  Hit:[0,.035,.11,.06,0],
+  Walk:[0,.035,-.035,.035,0],
+  Challenge:[0,-.018,-.055,-.028,0],
+  Worry:[0,.02,.065,.03,0],
+  Celebrate:[0,-.035,-.09,-.035,0],
+  Idle:[0,.006,.01,.006,0]
+ };
  const clips=originalClips.map(base=>{
-  const sequences=stance[base.name];
+  const sequences=victoria?victoriaStance[base.name]:stance[base.name];
   if(!sequences)throw Error('R128 unexpected R119 clip '+base.name);
   const count=sequences[0].length;
   const times=Array.from({length:count},(_,i)=>base.duration*i/(count-1));
@@ -120,9 +177,16 @@ export function createR128PhilSourceFullBody(THREE,instance,originalClips,id='E0
    const angles=sequences[index];
    if(angles.length!==count)throw Error('R128 malformed '+base.name);
    const sourceQ=original.get(name),arr=[];
-   for(const a of angles){
+   for(let i=0;i<angles.length;i++){
     const q=sourceQ.clone().multiply(
-     new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1,0,0),a*lowerBodyStrength));
+     new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1,0,0),
+       angles[i]*lowerBodyStrength));
+    if(victoria&&(index<2||index===4||index===5)){
+     const state=base.name.replace('R119_Skeletal_','');
+     const roll=victoriaRoll[state][i]*(index===0?1:index===1?-.8:index===4?.35:-.35);
+     q.multiply(new THREE.Quaternion().setFromAxisAngle(
+      new THREE.Vector3(0,0,1),roll));
+    }
     arr.push(q.x,q.y,q.z,q.w);
    }
    return new THREE.QuaternionKeyframeTrack(bone.uuid+'.quaternion',times,arr);
