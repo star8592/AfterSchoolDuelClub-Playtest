@@ -586,13 +586,17 @@ export function instantiateSummon(THREE,template){
  })();
  const r131Arms=r119Skin&&(r131ArmsOn||r134Jay||r135Pair||r136Cast)?
   repairR131TrueSourceArms(THREE,instance,template.id):null;
- // R143 audit pilot: only on source high-poly rigs and explicit QA opt-in.
- // Keep a direct rollback without replacing source GLB or R97 defaults.
+ // R143 production safety: enabled by default ONLY on the already
+ // explicitly-selected R134/R135/R136 original high-poly stages, never
+ // regular R97 game models. Independent ?r143Rig=off reverts only the torso
+ // repair without undoing R131 arms, R128 legs, cards or Qwen audio.
  const r143TrunkEnabled=(()=>{
   const local=new URLSearchParams(location.search);
   const parent=(()=>{try{return window.parent!==window?
    new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
-  return local.get('r143Rig')==='on'||parent?.get('r143Rig')==='on';
+  const setting=local.has('r143Rig')?local.get('r143Rig'):
+   parent?.has('r143Rig')?parent.get('r143Rig'):null;
+  return setting===null?(r134Jay||r135Pair||r136Cast):setting==='on';
  })();
  const r143Torso=r131Arms&&r143TrunkEnabled&&
   ['E03','E04','G03','G04','T04'].includes(template.id)?
