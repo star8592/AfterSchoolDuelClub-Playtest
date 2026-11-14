@@ -11,6 +11,7 @@ import {createR128PhilSourceFullBody,repairR128PhilSourceHierarchy} from './r128
 import {createR130SpecialFullBody,prepareR130SourceLegs} from './r130-special-source-legs.mjs';
 import {repairR131TrueSourceArms} from './r131-real-source-upper-arms.mjs';
 import {repairR143OriginalTorsoHierarchy} from './r143-source-trunk-bind.mjs';
+import {createR144GenuineRexPelvis} from './r144-rex-real-pelvis.mjs';
 import {createR134JayClips,createR134JaySequencer} from './r134-jay-source-stage.mjs';
 import {createR135PairClips,createR135PairSequencer} from './r135-source-pair-acting.mjs';
 import {createR136SourceClips,createR136EnsembleSequencer} from './r136-source-ensemble.mjs';
@@ -160,6 +161,21 @@ const R132_BAKED_STUDY=(()=>{
 // R134 visible-performance pilot. Explicit source opt-in initially, so the
 // author-approved R97 default and all existing R131-R133 study routes remain
 // unchanged until official wide-camera acceptance has been obtained.
+export const R144_REX_PELVIS_ASSET='T04-Rex-Skinned-R144-WeightedPelvis-PILOT.glb';
+// Independent opt-in (never changes the R97 default). Requires R135 Rex.
+export const R144_REX_PELVIS=(()=>{
+ const local=new URLSearchParams(location.search);
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+ const sourceSetting=local.has('r144Rex')?local.get('r144Rex'):
+  parent?.get('r144Rex');
+ const torsoSetting=local.has('r143Rig')?local.get('r143Rig'):
+  parent?.get('r143Rig');
+ // If the user independently rolls back R143, also choose the original
+ // R132 source file rather than loading an R144 pelvis rig without its
+ // required torso ancestry and breaking the match.
+ return sourceSetting==='on'&&torsoSetting!=='off';
+})();
 export const R134_JAY_STAGE=(()=>{
  const local=new URLSearchParams(location.search);
  if(local.has('r134Jay'))return local.get('r134Jay')==='on';
@@ -330,6 +346,8 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
     })()?'E04-Phil-Skinned-R131-BakedRest-PILOT.glb':R119_SKIN_STUDY_FILES[id]):
    id==='G03'&&R134_JAY_STAGE?
     R132_BAKED_SOURCE_FILES.G03:
+   id==='T04'&&R135_PAIR_STAGES.has(id)&&R144_REX_PELVIS?
+    R144_REX_PELVIS_ASSET:
    R135_PAIR_STAGES.has(id)?
     R132_BAKED_SOURCE_FILES[id]:
    R136_CAST_STAGES.has(id)?
@@ -539,8 +557,11 @@ export function instantiateSummon(THREE,template){
  const r86Clips=template.id==='G03'&&template.selectedFile==='G03-Jay-Skinned-R86.glb'?createR86JaySkeletonClips(THREE,instance):[];
  const r131SourceBaked=template.id==='E04'&&
   template.selectedFile==='E04-Phil-Skinned-R131-BakedRest-PILOT.glb';
- const r132SourceBaked=Object.hasOwn(R132_BAKED_SOURCE_FILES,template.id)&&
-  template.selectedFile===R132_BAKED_SOURCE_FILES[template.id];
+ const r144RexSource=template.id==='T04'&&
+  template.selectedFile===R144_REX_PELVIS_ASSET;
+ const r132SourceBaked=r144RexSource||
+  (Object.hasOwn(R132_BAKED_SOURCE_FILES,template.id)&&
+   template.selectedFile===R132_BAKED_SOURCE_FILES[template.id]);
  const r134Jay=template.id==='G03'&&r132SourceBaked&&R134_JAY_STAGE;
  const r135Pair=r132SourceBaked&&R135_PAIR_STAGES.has(template.id);
  const r136Cast=(r131SourceBaked||r132SourceBaked)&&R136_CAST_STAGES.has(template.id);
@@ -601,6 +622,12 @@ export function instantiateSummon(THREE,template){
  const r143Torso=r131Arms&&r143TrunkEnabled&&
   ['E03','E04','G03','G04','T04'].includes(template.id)?
   repairR143OriginalTorsoHierarchy(THREE,instance,template.id):null;
+ // Only the NEW opt-in asset contains genuine authored pelvis skin weights.
+ // Restore one original true pelvis parent, not an unweighted proxy bone.
+ if(r144RexSource&&(!r143Torso||!r128Hierarchy||!r135Pair))
+  throw Error('R144 Rex weighted pelvis requires original R143 torso and R128 leg binding');
+ const r144Pelvis=r144RexSource?
+  createR144GenuineRexPelvis(THREE,instance):null;
  // Diagnostic ONLY: reveal the authentic source skin's unanimated bind
  // pose to distinguish a faulty GLB export from faulty action curves.
  // Disabled in all normal gameplay; not a public rollout option.
@@ -629,7 +656,8 @@ export function instantiateSummon(THREE,template){
   }):null;
  const r130Special=r130SpecialOn?
   createR130SpecialFullBody(THREE,instance,source119Clips,template.id):null;
- const r119Clips=r130Special?r130Special.clips:r128Phil?r128Phil.clips:source119Clips;
+ const sourceBodyClips=r130Special?r130Special.clips:r128Phil?r128Phil.clips:source119Clips;
+ const r119Clips=r144Pelvis?r144Pelvis.buildClips(sourceBodyClips):sourceBodyClips;
  const r126Teacher=template.id==='M01'?createR126MusicTeacherClips(THREE,instance):null;
  const r127OwlDisabled=(()=>{
   const q=new URLSearchParams(location.search);
@@ -822,6 +850,7 @@ export function instantiateSummon(THREE,template){
   if(r135Controller)scaled.position.y=groundedY+(combatPose?.lift||0)+
    r135Controller.getLift();
   r128Phil?.update();r130Special?.update();r131Arms.update();
+  r144Pelvis?.update();
   r140Face?.update(dt,r136Controller?.getCurrentClip()||
    r135Controller?.getCurrentClip()||r134Controller?.getCurrentClip());
  }):r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
@@ -836,6 +865,7 @@ export function instantiateSummon(THREE,template){
    {...r130Special.inspect(),hierarchyProof:r130Hierarchy}:null,
   getR131Arms:()=>r131Arms?.inspect()||null,
   getR143SourceTrunk:()=>r143Torso?.inspect()||null,
+  getR144OriginalPelvis:()=>r144Pelvis?.inspect()||null,
   r131RestReboundMeshes:q131Rebound,
   r131BakedRestOriginalSource:r131SourceBaked,
   r132BakedRestOriginalSource:r132SourceBaked,

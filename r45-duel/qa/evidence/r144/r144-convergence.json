@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "totalRealGpuChecks": 1568,
+  "newGpuChecks": 184,
+  "legacyGpuChecksR143": 1384,
+  "originalAssetsAudited": 88,
+  "sourceWeightedVertexDataAudited": 5327876,
+  "originalRexSourceInputUnchanged": true,
+  "realHipBindingVertexCount": 5136,
+  "realHighHipWeightVerts": 4953,
+  "realHipMotionAndAllOldActionsVerified": true,
+  "oldRealSourceTracks": 16,
+  "newRealSourceTracks": 17,
+  "viewMetrics": {
+    "desktop": {
+      "oldRealTracks": 16,
+      "newRealTracks": 17,
+      "pelvisWeightedHighVerts": 4953,
+      "maxActualOriginalHipRotation": 0.09707,
+      "maxActualWeightedSkinTravel": 0.01459,
+      "floorPenetration": 0
+    },
+    "portrait": {
+      "oldRealTracks": 16,
+      "newRealTracks": 17,
+      "pelvisWeightedHighVerts": 4953,
+      "maxActualOriginalHipRotation": 0.09553,
+      "maxActualWeightedSkinTravel": 0.0144,
+      "floorPenetration": 0
+    }
+  },
+  "assetSha256": {
+    "new": "cf40c58125eb9ebc8ccfe3dc56b08589f705ae2e45190e162da7d9b24d67000f",
+    "old": "fabe89345185d8b07c21cee058ee4f0488b164b342525a295084809f4c045179"
+  },
+  "testCounts": {
+    "r144GenuinePelvisStage": 152,
+    "r144DefaultAndSafeRollback": 32,
+    "r143SevenSourceTorso": 394,
+    "r143IndependentRollback": 46,
+    "r142RexJayOriginalLegs": 86,
+    "r141ThreeSourceFacesQwen": 152,
+    "r141DuplicateRecordedQwen": 32,
+    "r134JayOriginalStage": 22,
+    "r135EllieRexOriginalStage": 53,
+    "r135FifteenSecIdle": 16,
+    "r135IndependentFlag": 25,
+    "r140OriginalFourFaces": 170,
+    "r140FourRecordedQwen": 54,
+    "r139VictoriaRealLegs": 36,
+    "r138RealCameraSilhouette": 70,
+    "r136FourOriginalActorStage": 83,
+    "r136SelectiveRollback": 63,
+    "r136FourSourceIdle15sec": 36,
+    "r124CardFight": 18,
+    "r122DuelistQwen": 28
+  },
+  "evidencePaths": [
+    "r144/rex-pelvis/r144-real-weighted-rex-pelvis-gpu.json",
+    "r144/rex-pelvis/r144-default-and-rollback.json",
+    "r143/source-trunk/r143-torso-7-source-gpu.json",
+    "r143/source-trunk/r143-rig-rollback-default.json",
+    "r142/guard-lab/r142-guard-lab-original-source.json",
+    "r141/seven-source-faces/r141-real-three-source-face-voice.json",
+    "r141/seven-source-faces/r141-double-card-voice-isolation.json",
+    "r134/r134-jay-acting-pilot.json",
+    "r135/original-pair/r135-pair-original-source-stage.json",
+    "r135/original-pair/r135-pair-original-idle-15sec.json",
+    "r135/original-pair/r135-independent-flag-isolation.json",
+    "r140/source-faces/r140-real-source-face.json",
+    "r140/source-faces/r140-all-four-actual-qwen.json",
+    "r139/victoria/r139-victoria-stage.json",
+    "r138/visible-silhouette/r138-visibility-baseline.json",
+    "r136/four-source/r136-four-source-action.json",
+    "r136/four-source/r136-flag-rollback.json",
+    "r136/four-source/r136-four-ensemble-15sec.json",
+    "r124-full-chain/r124-full-chain-report.json",
+    "r122-qwen-mouth/r122-real-qwen-mouth-report.json"
+  ],
+  "assetAudit": "r144/r144-all-88-binding-audit.json",
+  "artApproved": false,
+  "defaultOfficialModels": "R97",
+  "newRexFlag": "r135Pair=on&r144Rex=on",
+  "independentRollback": "r144Rex=off or r143Rig=off",
+  "unverified": [
+    "Human director art review (85/100)",
+    "Low-end physical smartphone performance",
+    "Official highpoly-default production rollout",
+    "Larger normal-camera acting range for all cast"
+  ]
+}
