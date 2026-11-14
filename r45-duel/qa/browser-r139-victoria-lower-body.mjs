@@ -44,6 +44,10 @@ try{
     view+' '+kind+' original source and enemy facing',poses[kind]);
    check(poses[kind].shoe?.enabled&&poses[kind].shoe.maxAfter<=.004,
     view+' '+kind+' actual Victoria boots clear court',poses[kind].shoe);
+   if(kind==='idle'||kind==='attack')check(
+    poses[kind].shoe.last?.victoriaPlanted&&
+    Math.abs(poses[kind].shoe.last.minAfter-.0005)<.004,
+    view+' '+kind+' original support boot physically planted',poses[kind].shoe.last);
    await page.screenshot({path:resolve(out,view+'-victoria-'+kind+'.png')});
    await page.waitForTimeout(270);
   }
