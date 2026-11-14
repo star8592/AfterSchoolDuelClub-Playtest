@@ -78,7 +78,7 @@ const hostSpeech={player:null,ai:null};
 const hostSpeechSeen={player:0,ai:0};
 const speechQA={started:0,stopped:0,ignored:0,
  sourceStarted:0,sourceStopped:0,sourceAbsent:0};
-const R140_SOURCE_VOICES=new Set(['E04','G02','G04','T03']);
+const R140_SOURCE_VOICES=new Set(['E03','G03','T04','E04','G02','G04','T03']);
 const sourceSpeechSeen=Object.fromEntries([...R140_SOURCE_VOICES].map(id=>[id,0]));
 // R121 secondary physical camera: an actual 3D cinematic inset of the
 // original child, with its source facial morphs and wrist-bound painted card.
