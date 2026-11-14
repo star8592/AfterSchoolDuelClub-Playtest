@@ -22,7 +22,7 @@ try{
   page.on('pageerror',e=>errors.push('JS '+e.message));
   page.on('response',r=>{if(r.url().startsWith(origin)&&r.status()>=400)
    errors.push('HTTP '+r.status()+' '+r.url().slice(-80))});
-  await page.goto(origin+'/r45-duel/?qa=1&seed=143&r134Jay=on&r135Pair=on&r136Cast=on&r143Rig=on',
+  await page.goto(origin+'/r45-duel/?qa=1&seed=143&r134Jay=on&r135Pair=on&r136Cast=on',
    {waitUntil:'domcontentloaded',timeout:90000});
   await page.waitForFunction(()=>window.__r45QA?.sceneReady===true,null,{timeout:210000});
   const read=actor=>page.evaluate(id=>{
