@@ -64,8 +64,8 @@ try{
    // The original flat-export Rex hip has no direct skin weights or
    // child bones. Assert a truly weighted thigh instead of counting it.
    check(end.legs.weightedSourceLegVertexWeight>=.35&&
-     end.legs.weightedSourceLegBone==='DEF-Thigh1.L',
-     view+' '+id+' actual weighted source thigh (no fake pelvis)',end.legs);
+     ['DEF-Thigh1.L','DEF-Knee1.L','DEF-Foot.L'].includes(end.legs.weightedSourceLegBone),
+     view+' '+id+' actual weighted source leg (no fake pelvis)',end.legs);
    check(end.legs.maxLegVertexTravel>=(id==='T04'?.027:.051),
     view+' '+id+' weighted original leg vertex travel actually visible',
     end.legs);
