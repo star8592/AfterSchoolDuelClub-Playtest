@@ -63,7 +63,7 @@ const PROFILE=Object.freeze({
    left:'DEF-Upperarm1.L',right:'DEF-Upperarm1.R',
    elbowL:'DEF-Forearm1.L',elbowR:'DEF-Forearm1.R'},
   acts:{
-   Idle:[-.08,-.10,-.04,-.16,-.48,.51,.42,-.51],
+   Idle:[-.09,-.12,-.04,-.15,-.34,.39,.32,-.39],
    Attack:[-.31,-.40,-.13,-.26,-.38,.59,.36,-.62],
    Hit:[.21,.28,.11,.29,.18,-.22,.20,.23],
    Walk:[-.085,-.12,.025,.07,-.21,.24,.21,-.25],
@@ -101,7 +101,7 @@ export function createR136SourceClips(THREE,instance,original,id){
     // Snow pauses with a ready-to-write hand; Rain cradles the incoming
     // parcel between steps. Their weighted original arms never reset to a
     // dead-straight source rest pose on every idle sine crossing.
-    const basePose=UPPER.has(role)?(id==='G02'?.45:id==='T03'?.50:0):0;
+    const basePose=UPPER.has(role)?(id==='G02'?.45:id==='T03'?.26:0):0;
     const a=state==='Idle'?peaks[index]*(
       basePose+Math.sin(ph-.45)*.77+Math.sin(ph*2+index*.39)*.23):
       state==='Walk'?peaks[index]*Math.sin(t*4*Math.PI):
