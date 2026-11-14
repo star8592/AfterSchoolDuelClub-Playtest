@@ -65,7 +65,7 @@ def main():
   assert after['primitivesWithRealJointWeights']==after['meshPrimitives']
   assert after['gltfNodesWithSkin']>0
   assert after['originalSkeletonJointListCount']>100
-  assert after['jointsReachableFromActualScene']==len(after['originalSkeletonJointListCount']*'x') or after['jointsReachableFromActualScene']>100
+  assert after['jointsReachableFromActualScene']==after['originalSkeletonJointListCount']
   report[actor]=dict(morphOnlyOrphanOldR97=before,
                      realAuthorOriginalSkinnedCast=after)
  summary_out=dict(
