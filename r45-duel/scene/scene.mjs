@@ -34,6 +34,7 @@ import {faceOpponentYaw} from './summon-orientation.mjs';
 import {preloadSummonModels} from './summon-models.mjs';
 import {createLivingCastDirector} from './living-cast-director.mjs';
 import {createArenaLifeWorld} from './arena-life-world.mjs';
+import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
 const R134_HOST_IDLE_ENABLED=(()=>{
@@ -104,6 +105,19 @@ let heroResult={winner:null,started:-100};
 
 let lastTime=0,frames=0,actionFrames=0,impactFrames=0,drawCount=0,renderInfo=null;
 let currentPayload=null,activePhase='idle',ready=false,hadContact=false;
+const r145ActionLens=createR145RealSourceActionCamera(THREE);
+// The user asked to actually SEE real summoned character acting. Enabled
+// during genuine R51 resolved combat events even in standard R97 gameplay;
+// independent rollback, reduced motion and manual camera always respected.
+const r145ActionCameraEnabled=(()=>{
+ const local=new URLSearchParams(location.search);
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
+ const raw=local.has('r145ActionCamera')?local.get('r145ActionCamera'):
+  parent?.get('r145ActionCamera');
+ return raw!=='off';
+})();
+let r145LastShot=null;
 let lastSourceIds=[],source3DAssetsVerified=false;
 let horizontalFov=0;
 let orbitYaw=0, orbitTargetYaw=0, orbitZoom=1, orbitBaseDistance=12;
@@ -954,6 +968,21 @@ function loop(){
    r123ShotWeight=weight;
   }
  }
+ // R145: briefly let the EXISTING original unit fight occupy the lens
+ // during its verified R51 attack/hit phase. Zero new meshes and no rule
+ // changes. The normal R104 manual frontal orbit is recomputed next frame.
+ const realFocus=r145ActionCameraEnabled?
+  summonPresence?.getR145RealFocus?.(absoluteSeconds):null;
+ r145LastShot=r145ActionCameraEnabled?
+  r145ActionLens.apply(camera,realFocus,{
+   narrow,reducedMotion:reduced,crowdWeight:r123ShotWeight,
+   orbitDegrees:orbitYaw,userDragging:!!pointerDrag
+  }):null;
+ if(r145LastShot){
+  aimX+=(r145LastShot.x-aimX)*r145LastShot.weight;
+  aimY+=(r145LastShot.y-aimY)*r145LastShot.weight;
+  aimZ+=(r145LastShot.z-aimZ)*r145LastShot.weight;
+ }
  camera.lookAt(aimX,aimY,aimZ);
  // Review actual source actors large enough to see knees, soles, hands and
  // clothing deformation. QA-only: no player can accidentally enter this
@@ -1341,6 +1370,15 @@ function exposeQA(){
   get summonPresence(){return summonPresence?.inspect(camera)||null},
   get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.selectedFile||x.spec.file,baselineFile:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale,measured:x.measured})):[];},
   get combatEvents(){return summonPresence?.sequenceStats()||null},
+  get r145ActionShot(){return {
+   ...r145ActionLens.inspect(),enabled:r145ActionCameraEnabled,
+   active:r145LastShot,
+   sourceFocus:summonPresence?.getR145RealFocus?.(absoluteSeconds)||null,
+   cameraPosition:camera?.position.toArray().map(x=>+x.toFixed(4)),
+   cameraFov:camera?.fov,
+   orbitDegrees:orbitYaw,
+   crowdShotWeight:r123ShotWeight
+  }},
   get spellReactions(){return summonPresence?.spellReactions||0},
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
