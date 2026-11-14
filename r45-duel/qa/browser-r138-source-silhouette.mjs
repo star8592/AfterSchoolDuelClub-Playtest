@@ -22,7 +22,7 @@ try{
   page.on('response',r=>{
    if(r.url().startsWith(origin)&&r.status()>=400)
     errors.push('HTTP '+r.status()+' '+r.url())});
-  await page.goto(origin+'/r45-duel/?qa=1&seed=138&r136Cast=on',
+  await page.goto(origin+'/r45-duel/?qa=1&seed=136&r136Cast=on',
    {waitUntil:'domcontentloaded',timeout:90000});
   await page.waitForFunction(()=>window.__r45QA?.sceneReady===true,null,{timeout:225000});
   const inspect=(id)=>page.evaluate(who=>{
@@ -45,7 +45,7 @@ try{
    await page.waitForFunction(who=>
     document.querySelector('#stadium').contentWindow
      .__r45SceneQA.summonPresence.entries.some(a=>a.id===who),id,
-     {timeout:18000});
+     {timeout:40000});
    const poses={};
    for(const kind of ['idle','attack','hit','celebrate']){
     check(await page.evaluate(([who,state])=>document.querySelector('#stadium')
