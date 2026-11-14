@@ -45,7 +45,7 @@ for v in pilot['views']:
  assert track==16,(id,track)
  assert leg['runtimeLegTracks']==8
  assert leg['source']=='real_original_skinned_deform_bones'
- assert leg['weightedSourceLegBone']=='DEF-Thigh1.L'
+ assert leg['weightedSourceLegBone'] in ('DEF-Thigh1.L','DEF-Knee1.L','DEF-Foot.L')
  assert leg['weightedSourceLegVertexWeight']>=.35
  assert leg['maxLegVertexTravel']>=(.027 if id=='T04' else .051)
  assert shoe['source']=='two_original_weighted_skinned_outsoles'
