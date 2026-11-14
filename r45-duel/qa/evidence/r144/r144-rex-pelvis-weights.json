@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "sourceFileUnmodified": true,
+  "oldSha256": "fabe89345185d8b07c21cee058ee4f0488b164b342525a295084809f4c045179",
+  "newSha256": "cf40c58125eb9ebc8ccfe3dc56b08589f705ae2e45190e162da7d9b24d67000f",
+  "sourceFile": "assets/summons/T04-Rex-Skinned-R132-BakedRest-PILOT.glb",
+  "derivedFile": "assets/summons/T04-Rex-Skinned-R144-WeightedPelvis-PILOT.glb",
+  "originalAndNewByteSize": 7248864,
+  "originalMaterialMeshAndUVBuffersPreserved": true,
+  "newBones": 0,
+  "newMeshes": 0,
+  "newInverseBindMatrices": 0,
+  "originalHipSkinJointIndex": 210,
+  "originalSpineSkinJointIndex": 211,
+  "directPelvisWeightedVertices": 5136,
+  "maxNewPelvisWeight": 0.7799705245386166,
+  "originalAuthorMeshesModified": {
+    "GEO-rex_belt": {
+      "weightedPelvisVertices": 977,
+      "highWeightVertices": 977,
+      "fullInfluenceSkipped": 0,
+      "maxWeightSumDrift": 5.960464477539063e-08,
+      "spineToPelvisFactor": 0.75
+    },
+    "GEO-rex_belt_buckle": {
+      "weightedPelvisVertices": 1404,
+      "highWeightVertices": 1404,
+      "fullInfluenceSkipped": 0,
+      "maxWeightSumDrift": 0.0,
+      "spineToPelvisFactor": 0.78
+    },
+    "GEO-rex_shorts": {
+      "weightedPelvisVertices": 2538,
+      "highWeightVertices": 2428,
+      "fullInfluenceSkipped": 0,
+      "maxWeightSumDrift": 5.960464477539063e-08,
+      "spineToPelvisFactor": 0.75
+    },
+    "GEO-rex_sweater_vest": {
+      "weightedPelvisVertices": 217,
+      "highWeightVertices": 144,
+      "fullInfluenceSkipped": 0,
+      "maxWeightSumDrift": 0.0,
+      "spineToPelvisFactor": 0.43
+    }
+  },
+  "productionDefault": "R97",
+  "needsRealGpuActingAcceptance": true
+}
