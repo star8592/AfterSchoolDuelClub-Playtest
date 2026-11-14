@@ -59,6 +59,17 @@ Z890 RTX + Chrome Vulkan，桌面 1440px、竖屏 430px，对原 R132 与新 R14
 
 ## 发布与回归
 
-R144 独立 PR 需在同一最终源代码上重新跑完 R143 **1384项**历史真实 GPU 检查和新 **152项**，并验证 R144 关闭后不影响旧游戏行为。导出来源许可证与作者署名继续沿用原始 Blender Studio GLB。
+R144 最终已在 Z890 完成真实 Chrome Vulkan 复测：
+
+- R144 真正有权骨盆新旧镜头与源骨轨对照：**152/152**。
+- R144 正式 R97、未打开高精演出及 `r143Rig=off` 自动回退：**32/32**。
+- R143 至 R122 全套旧高精角色、男女主持人、配音、模型开关、靴底、正式卡牌链路：**1384/1384**。
+- **共 1568/1568 项真实 GPU 检查通过**，Z890 回执 `R144_1568_REAL_GPU_88_ASSETS_PASS`。新旧 Rex 源模型与其他正式资产 **88/88 份**通过 5,327,876 个原蒙皮顶点数据项静态审计。普通 R97 默认和所有旧模型均未被替换。
+
+可复现脚本 `qa/r144-acceptance-summary.py`；审计回执 `qa/evidence/r144/r144-convergence.json`；88资源逐文件摘要 `qa/evidence/r144/r144-compact-88-assets-and-source.json`，以及 `qa/evidence/r144/rex-pelvis/r144-real-weighted-rex-pelvis-gpu.json`。原资源的 Blender Studio 署名和授权声明继续沿用。
+
+**兼容回退：**若显式组合 `r135Pair=on&r144Rex=on&r143Rig=off`，现在会安全退回 R132，而不是因缺失躯干父链导致整局加载失败。
+
+新旧真实截图保留了原正常体育馆镜头与放大裁切对比：`qa/evidence/r144/rex-pelvis/r144-desktop-before-after.webp`、`r144-portrait-before-after.webp` 和 `r144-rex-body-crop-comparison.webp`。严格的技术绑定成果不能替代人眼对远景动作是否夸张有趣的检查：这些图片仍然显示Rex的全身表演可读性不如食堂阿姨，需继续导演制动、镜头特写与脚步节奏打磨。
 
 `artApproved=false`。没有低端真实手机测试、人工导演验收或公网默认版切换，不得宣称正式向所有玩家上线。
