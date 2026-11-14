@@ -1,0 +1,146 @@
+{
+  "passed": true,
+  "total": 558,
+  "newOriginalActorChecks": 224,
+  "artApproved": false,
+  "mainBase": "8470695396687e40ebb3aeedf68871ac449de3b5",
+  "defaultOfficialModels": "R97",
+  "onlyPilot": "r136Cast=on",
+  "sourceFaceIds": [
+    "E04",
+    "G02",
+    "G04",
+    "T03"
+  ],
+  "voiceSource": "pre-recorded Qwen3 browser HTMLAudioElement playing callbacks",
+  "voiceAlignment": "estimated-syllable-timing, not phoneme forced alignment",
+  "duplicateIdentitySpeechIsolated": true,
+  "checks": {
+    "originalFacialStage": 170,
+    "fourOriginalQwenVoices": 54,
+    "victoriaFullBody": 36,
+    "distantCamera": 70,
+    "fourSourceActing": 83,
+    "flagRollback": 63,
+    "ensemble15sec": 36,
+    "officialCardGame": 18,
+    "originalHostVoices": 28
+  },
+  "sampledFacialActors": {
+    "desktop": {
+      "E04": {
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ],
+        "maxJawAngle": 0.1,
+        "peakMorph": 0.72
+      },
+      "G02": {
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ],
+        "maxJawAngle": 0,
+        "peakMorph": 0.84
+      },
+      "G04": {
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ],
+        "maxJawAngle": 0.095,
+        "peakMorph": 0.84
+      },
+      "T03": {
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ],
+        "maxJawAngle": 0.13,
+        "peakMorph": 0.89
+      }
+    },
+    "portrait": {
+      "E04": {
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ],
+        "maxJawAngle": 0.1,
+        "peakMorph": 0.72
+      },
+      "G02": {
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ],
+        "maxJawAngle": 0,
+        "peakMorph": 0.84
+      },
+      "G04": {
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ],
+        "maxJawAngle": 0.095,
+        "peakMorph": 0.84
+      },
+      "T03": {
+        "states": [
+          "idle",
+          "attack",
+          "hit",
+          "celebrate"
+        ],
+        "maxJawAngle": 0.13,
+        "peakMorph": 0.89
+      }
+    }
+  },
+  "realVoiceMouthPeak": {
+    "desktop": {
+      "E04": 0.7053,
+      "G02": 0.8381,
+      "G04": 0.8153,
+      "T03": 0.733
+    },
+    "portrait": {
+      "E04": 0.8167,
+      "G02": 0.8388,
+      "G04": 0.7891,
+      "T03": 0.6935
+    }
+  },
+  "unresolved": [
+    "Human director 85/100 acceptance",
+    "Low-end real phone GPU",
+    "Full remaining cast face/voice parity",
+    "Official site/default high-poly rollout"
+  ],
+  "receipts": [
+    "r140/source-faces/r140-real-source-face.json",
+    "r140/source-faces/r140-all-four-actual-qwen.json",
+    "r139/victoria/r139-victoria-stage.json",
+    "r138/visible-silhouette/r138-visibility-baseline.json",
+    "r136/four-source/r136-four-source-action.json",
+    "r136/four-source/r136-flag-rollback.json",
+    "r136/four-source/r136-four-ensemble-15sec.json",
+    "r124-full-chain/r124-full-chain-report.json",
+    "r122-qwen-mouth/r122-real-qwen-mouth-report.json"
+  ]
+}
