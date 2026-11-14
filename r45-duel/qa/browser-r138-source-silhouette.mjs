@@ -36,8 +36,8 @@ try{
     fullBody:a.r130FullBody||a.r129FullBody||a.r128FullBody};
   },id);
   for(const id of ids){
-   const u={player:[{uid:'R13801',id,hp:6,attack:3,shield:0}],
-    ai:[{uid:'R13802',id:'M02',hp:6,attack:3,shield:0}]};
+   const u={player:[{uid:'U13801',id,hp:6,attack:3,shield:0}],
+    ai:[{uid:'U13802',id:'M02',hp:6,attack:3,shield:0}]};
    await page.evaluate(units=>
     document.querySelector('#stadium').contentWindow.postMessage({
      type:'ASDC_R45_BOARD',units,player:[units.player[0].id],ai:['M02']
