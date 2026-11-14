@@ -16,7 +16,10 @@ const OUTSOLES=Object.freeze({
  G03:['Data_GEO-jay_shoes_base_1','Data_GEO-jay_shoes_base_2'],
  T04:['Data_GEO-rex_shoes_1','Data_GEO-rex_shoes_2']
 });
-const MAX_LIFT=.082;
+// R142: source Rex's genuine weighted-hip defensive brace can briefly
+// place the author-made outsole a little deeper than 0.082. Preserve
+// a per-actor finite cap and report actual cap usage; no accumulating rise.
+const MAX_LIFT=Object.freeze({E03:.082,G03:.082,T04:.105});
 const FLOOR_CLEARANCE=.0005;
 export function createR133SourceShoeContact(THREE,actor,id){
  const expected=OUTSOLES[id];
@@ -51,7 +54,8 @@ export function createR133SourceShoeContact(THREE,actor,id){
   const min=Math.min(...before);
   // A finite vertical correction in source scene units, with no motion
   // toward the ground while an intentional hop has both feet airborne.
-  const lift=min<FLOOR_CLEARANCE?Math.min(MAX_LIFT,FLOOR_CLEARANCE-min):0;
+  const limit=MAX_LIFT[id];
+  const lift=min<FLOOR_CLEARANCE?Math.min(limit,FLOOR_CLEARANCE-min):0;
   if(lift>0){
    actor.position.y+=lift;
    actor.updateMatrixWorld(true);
@@ -72,13 +76,13 @@ export function createR133SourceShoeContact(THREE,actor,id){
    appliedLift:+lift.toFixed(5),
    selectedSupport:expected[support],
    intentionalAirborne:min>=FLOOR_CLEARANCE,
-   corrected:lift>0,clamped:lift>=MAX_LIFT-.00001};
+   corrected:lift>0,correctionLimit:limit,clamped:lift>=limit-.00001};
   last=report;
   return report;
  }
  return{apply,inspect:()=>({
   enabled:true,actor:id,source:'two_original_weighted_skinned_outsoles',
-  shoes:expected,frames,corrections,
+  shoes:expected,frames,corrections,correctionLimit:MAX_LIFT[id],
   maxPenetrationBefore:+maxPenetrationBefore.toFixed(5),
   maxAfterPenetration:+maxAfterPenetration.toFixed(5),
   maxAppliedLift:+maxAppliedLift.toFixed(5),

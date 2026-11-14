@@ -1,0 +1,423 @@
+{
+  "passed": true,
+  "artApproved": false,
+  "checks": [
+    {
+      "pass": true,
+      "label": "desktop T04 idle real actor action"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 idle original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 idle original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 idle no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 attack real actor action"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 attack original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 attack original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 attack no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 hit real actor action"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 hit original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 hit original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 hit no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 celebrate real actor action"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 celebrate original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 celebrate original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 celebrate no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 exactly original upper+lower tracks"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 actual weighted source leg (no fake pelvis)"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 weighted original leg vertex travel actually visible"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 no penetration throughout full action chain"
+    },
+    {
+      "pass": true,
+      "label": "desktop T04 bounded floor compensation not cumulative floating"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 idle real actor action"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 idle original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 idle original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 idle no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 attack real actor action"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 attack original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 attack original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 attack no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 hit real actor action"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 hit original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 hit original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 hit no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 celebrate real actor action"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 celebrate original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 celebrate original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 celebrate no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 exactly original upper+lower tracks"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 actual weighted source leg (no fake pelvis)"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 weighted original leg vertex travel actually visible"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 no penetration throughout full action chain"
+    },
+    {
+      "pass": true,
+      "label": "desktop G03 bounded floor compensation not cumulative floating"
+    },
+    {
+      "pass": true,
+      "label": "desktop no JS or GLB asset failure"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 idle real actor action"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 idle original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 idle original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 idle no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 attack real actor action"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 attack original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 attack original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 attack no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 hit real actor action"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 hit original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 hit original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 hit no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 celebrate real actor action"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 celebrate original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 celebrate original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 celebrate no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 exactly original upper+lower tracks"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 actual weighted source leg (no fake pelvis)"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 weighted original leg vertex travel actually visible"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 no penetration throughout full action chain"
+    },
+    {
+      "pass": true,
+      "label": "portrait T04 bounded floor compensation not cumulative floating"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 idle real actor action"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 idle original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 idle original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 idle no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 attack real actor action"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 attack original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 attack original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 attack no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 hit real actor action"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 hit original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 hit original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 hit no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 celebrate real actor action"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 celebrate original weighted thigh/knee/foot/toe"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 celebrate original authored pose faces opponent"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 celebrate no original shoe ground penetration"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 exactly original upper+lower tracks"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 actual weighted source leg (no fake pelvis)"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 weighted original leg vertex travel actually visible"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 no penetration throughout full action chain"
+    },
+    {
+      "pass": true,
+      "label": "portrait G03 bounded floor compensation not cumulative floating"
+    },
+    {
+      "pass": true,
+      "label": "portrait no JS or GLB asset failure"
+    }
+  ],
+  "source": "Z890 actual Chrome GPU desktop 1440 / portrait 430",
+  "defaultOfficialModels": "R97",
+  "realPelvisDefHipsWeighted": false,
+  "originalActors": {
+    "T04": {
+      "desktop": {
+        "weightedLegTravel": 0.03285,
+        "weightedLegMesh": "GEO-rex_body",
+        "weightedLegBone": "DEF-Thigh1.L",
+        "weightedLegVertexWeight": 1,
+        "originalSourceTracks": 16,
+        "outsolePenetration": 0,
+        "outsoleMaxCorrection": 0.07757,
+        "originalShoeMeshes": [
+          "Data_GEO-rex_shoes_1",
+          "Data_GEO-rex_shoes_2"
+        ],
+        "idleCoverage": 0.043,
+        "attackCoverage": 0.086,
+        "facing": 1
+      },
+      "portrait": {
+        "weightedLegTravel": 0.03259,
+        "weightedLegMesh": "GEO-rex_body",
+        "weightedLegBone": "DEF-Thigh1.L",
+        "weightedLegVertexWeight": 1,
+        "originalSourceTracks": 16,
+        "outsolePenetration": 0,
+        "outsoleMaxCorrection": 0.07673,
+        "originalShoeMeshes": [
+          "Data_GEO-rex_shoes_1",
+          "Data_GEO-rex_shoes_2"
+        ],
+        "idleCoverage": 0.044,
+        "attackCoverage": 0.095,
+        "facing": 1
+      }
+    },
+    "G03": {
+      "desktop": {
+        "weightedLegTravel": 0.07898,
+        "weightedLegMesh": "GEO-jay_body",
+        "weightedLegBone": "DEF-Knee1.L",
+        "weightedLegVertexWeight": 0.5434,
+        "originalSourceTracks": 16,
+        "outsolePenetration": 0,
+        "outsoleMaxCorrection": 0.07217,
+        "originalShoeMeshes": [
+          "Data_GEO-jay_shoes_base_1",
+          "Data_GEO-jay_shoes_base_2"
+        ],
+        "idleCoverage": 0.049,
+        "attackCoverage": 0.066,
+        "facing": 1
+      },
+      "portrait": {
+        "weightedLegTravel": 0.07812,
+        "weightedLegMesh": "GEO-jay_body",
+        "weightedLegBone": "DEF-Knee1.L",
+        "weightedLegVertexWeight": 0.5434,
+        "originalSourceTracks": 16,
+        "outsolePenetration": 0,
+        "outsoleMaxCorrection": 0.07255,
+        "originalShoeMeshes": [
+          "Data_GEO-jay_shoes_base_1",
+          "Data_GEO-jay_shoes_base_2"
+        ],
+        "idleCoverage": 0.052,
+        "attackCoverage": 0.073,
+        "facing": 1
+      }
+    }
+  }
+}
