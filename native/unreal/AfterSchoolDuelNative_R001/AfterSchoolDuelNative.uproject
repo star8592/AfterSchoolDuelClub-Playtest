@@ -1,0 +1,6 @@
+{"FileVersion":3,"EngineAssociation":"5.8","Category":"PlayMoru Unreal native vertical slice",
+"Description":"Isolated prototype with playable M01/M02 card battle; no changes to web release",
+"Modules":[{"Name":"ASDCNativePlay","Type":"Runtime","LoadingPhase":"Default"}],
+"Plugins":[{"Name":"PythonScriptPlugin","Enabled":true},
+{"Name":"EditorScriptingUtilities","Enabled":true},
+{"Name":"McpAutomationBridge","Enabled":false}]}
