@@ -478,8 +478,17 @@ function styleHostAvatar(source,id){
  });
  return{recolored,accessories:0,palette};
 }
+// R155 opt-in asset experiment: remove ONLY unrendered VRM editor thumbnails.
+const R155_VRM_LITE=(()=>{
+ const direct=PARAMS.get('r155VrmLite');
+ if(direct==='on'||direct==='off')return direct==='on';
+ try{return window.parent!==window&&
+  new URLSearchParams(window.parent.location.search).get('r155VrmLite')==='on'}
+ catch{return false}
+})();
 async function loadActor(spec,idx,onTransfer){
- const url=r125VersionedAssetURL(new URL('../assets/model/'+spec.source,location.href)).href;
+ const filename=R155_VRM_LITE?spec.source.replace(/\.vrm$/,'-R155-Runtime.vrm'):spec.source;
+ const url=r125VersionedAssetURL(new URL('../assets/model/'+filename,location.href)).href;
  const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(
   url,event=>onTransfer?.(url,event));
  const original=gltf.scene;
@@ -1395,6 +1404,7 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
+  get runtimeVrmLite(){return R155_VRM_LITE},
   get renderPerformance(){return {profile:R154_PERF_LAB?'r154-perf-lab':r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,
@@ -1599,7 +1609,8 @@ try{
  $('loading').hidden=true;
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,independentHostVRMRigs:hostSourceActors.length,
-  loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false});
+  loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false,
+  runtimeVrmLite:R155_VRM_LITE});
  broadcastCamera();
  requestAnimationFrame(loop);
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();

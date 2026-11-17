@@ -14,9 +14,14 @@ if('serviceWorker'in navigator&&window.isSecureContext&&!disabled()&&
    event.data?.independentHostVRMRigs!==2||event.data?.originalVRMRigs!==2)return;
   completed=true;
   const r=await init;if(!r)return;
+  // An early register() can resolve before activation. Post only after an
+  // active worker has finished its CacheStorage prune/claim cycle.
+  const activated=await navigator.serviceWorker.ready.catch(()=>null);
+  if(!activated?.active)return;
   const estimate=await navigator.storage?.estimate?.().catch(()=>null);
   if(estimate?.quota&&estimate.quota-estimate.usage<160*1048576)return;
-  const warm=()=>r.active?.postMessage({type:'R125_BACKFILL'});
+  const warm=()=>activated.active.postMessage({type:'R125_BACKFILL',
+   runtimeLite:event.data?.runtimeVrmLite===true});
   if('requestIdleCallback'in window)requestIdleCallback(warm,{timeout:2500});
   else setTimeout(warm,600);
  });
