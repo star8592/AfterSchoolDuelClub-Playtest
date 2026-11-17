@@ -1,0 +1,115 @@
+{
+  "mode": "R160 DOM-only zero-image-change",
+  "pass": true,
+  "cases": 8,
+  "samples": [
+    {
+      "file": "r160-1280-forward.json",
+      "optimized": false,
+      "skippedWrites": 0,
+      "mutations": {
+        "impact": 770,
+        "portrait": 390,
+        "caption": 72
+      },
+      "combat_p95": 33.30000000000109,
+      "active_p95": 33.400000000000546,
+      "drawCalls": 929
+    },
+    {
+      "file": "r160-1280-forward.json",
+      "optimized": true,
+      "skippedWrites": 1635,
+      "mutations": {
+        "impact": 0,
+        "portrait": 7,
+        "caption": 1
+      },
+      "combat_p95": 16.80000000000109,
+      "active_p95": 33.399999999999636,
+      "drawCalls": 929
+    },
+    {
+      "file": "r160-1280-reverse.json",
+      "optimized": true,
+      "skippedWrites": 1596,
+      "mutations": {
+        "impact": 0,
+        "portrait": 7,
+        "caption": 1
+      },
+      "combat_p95": 16.799999999999272,
+      "active_p95": 33.399999999999636,
+      "drawCalls": 929
+    },
+    {
+      "file": "r160-1280-reverse.json",
+      "optimized": false,
+      "skippedWrites": 0,
+      "mutations": {
+        "impact": 770,
+        "portrait": 390,
+        "caption": 60
+      },
+      "combat_p95": 33.30000000000109,
+      "active_p95": 33.400000000000546,
+      "drawCalls": 929
+    },
+    {
+      "file": "r160-430-forward.json",
+      "optimized": false,
+      "skippedWrites": 0,
+      "mutations": {
+        "impact": 770,
+        "portrait": 390,
+        "caption": 52
+      },
+      "combat_p95": 33.400000000001455,
+      "active_p95": 49.899999999999636,
+      "drawCalls": 927
+    },
+    {
+      "file": "r160-430-forward.json",
+      "optimized": true,
+      "skippedWrites": 1500,
+      "mutations": {
+        "impact": 0,
+        "portrait": 7,
+        "caption": 1
+      },
+      "combat_p95": 33.399999999999636,
+      "active_p95": 33.400000000001455,
+      "drawCalls": 927
+    },
+    {
+      "file": "r160-430-reverse.json",
+      "optimized": true,
+      "skippedWrites": 1512,
+      "mutations": {
+        "impact": 0,
+        "portrait": 7,
+        "caption": 1
+      },
+      "combat_p95": 33.400000000001455,
+      "active_p95": 33.400000000001455,
+      "drawCalls": 927
+    },
+    {
+      "file": "r160-430-reverse.json",
+      "optimized": false,
+      "skippedWrites": 0,
+      "mutations": {
+        "impact": 770,
+        "portrait": 390,
+        "caption": 48
+      },
+      "combat_p95": 33.399999999999636,
+      "active_p95": 50,
+      "drawCalls": 927
+    }
+  ],
+  "officialDefaultChanged": false,
+  "pixelRatioChanged": false,
+  "modelResourceChanges": false,
+  "fullPhoneValidated": false
+}
