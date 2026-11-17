@@ -31,7 +31,7 @@ import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
-import {preloadSummonModels} from './summon-models.mjs';
+import {preloadSummonModels,R158_QA_SCHEDULE} from './summon-models.mjs';
 import {createLivingCastDirector} from './living-cast-director.mjs';
 import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
@@ -1447,6 +1447,8 @@ function exposeQA(){
   get frameCount(){return frames},
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
+  get r158LoadSchedule(){return window.__ASDC_R158_LOAD_SCHEDULE?
+   structuredClone(window.__ASDC_R158_LOAD_SCHEDULE):null},
   get drawCalls(){return drawCount},
   get seconds(){return time},
   get mode(){return mode},
@@ -1518,7 +1520,27 @@ try{
  // Full readiness is still gated on every actual model, not a synthetic %.
  const connection=navigator.connection;
  const slowNetwork=connection?.saveData||/2g/.test(connection?.effectiveType||'');
- const glbConcurrency=slowNetwork?2:matchMedia('(pointer:coarse)').matches?3:4;
+ const r158QA=PARAMS.get('qa')==='1'||(()=>{
+  try{return window.parent!==window&&
+   new URLSearchParams(window.parent.location.search).get('qa')==='1'}catch{return false}
+ })();
+ const qaConcurrency=(()=>{
+  if(!r158QA)return null;
+  const own=PARAMS.get('r158Concurrency');
+  let value=own;
+  try{value??=window.parent!==window?
+   new URLSearchParams(window.parent.location.search).get('r158Concurrency'):null}
+  catch{ /* read only within the same origin */ }
+  const n=Number(value);
+  return value!==null&&[1,2,3,4,5,6,8].includes(n)?n:null;
+ })();
+ const glbConcurrency=qaConcurrency??(slowNetwork?2:matchMedia('(pointer:coarse)').matches?3:4);
+ if(r158QA){
+  window.__ASDC_R158_LOAD_SCHEDULE={
+   schedule:R158_QA_SCHEDULE,concurrency:glbConcurrency,completed:[],
+   startedAt:performance.now()
+  };
+ }
  const [loadedActors,loadedHosts,loadedSummons]=await Promise.all([
   Promise.all(MODEL_SPECS.map(async(spec,idx)=>{
    const actor=await loadActor(spec,idx,updateTransferProgress);
@@ -1532,7 +1554,13 @@ try{
   })),
   preloadSummonModels(THREE,new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
    concurrency:glbConcurrency,
-   onLoaded:({id})=>verifiedModelLoaded('GLB:'+id),
+   onLoaded:({id})=>{
+    if(window.__ASDC_R158_LOAD_SCHEDULE)
+      window.__ASDC_R158_LOAD_SCHEDULE.completed.push({
+       id,elapsedMs:Math.round(performance.now()-
+        window.__ASDC_R158_LOAD_SCHEDULE.startedAt)});
+    verifiedModelLoaded('GLB:'+id);
+   },
    onTransfer:updateTransferProgress
   })
  ]);
