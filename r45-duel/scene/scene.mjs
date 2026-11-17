@@ -96,9 +96,21 @@ const r124Legacy=PARAMS.get('r124Quality')==='legacy'||(()=>{
 })();
 heroCamera.layers.set(r124Legacy?0:1);
 let heroLayerSide=null,heroInsetDraws=0,shadowPassRequests=0,shadowAccumulator=0;
+// R154 performance A/B: opt-in only; regular R147 play remains bit-for-bit
+// equivalent in rendering policy. The main full-court camera remains intact.
+const R154_PERF_LAB=(()=>{
+ const here=PARAMS.get('r154Perf');
+ if(here==='on'||here==='off')return here==='on';
+ try{return window.parent!==window&&
+  new URLSearchParams(window.parent.location.search).get('r154Perf')==='on'}
+ catch{return false}
+})();
 const r124Mobile=()=>window.innerWidth<700&&(window.devicePixelRatio||1)>=1.5;
-const r124PixelRatio=()=>Math.min(window.devicePixelRatio||1,
- r124Legacy?1.5:r124Mobile()?1.2:1.5);
+const r124PixelRatio=()=>{
+ const dpr=window.devicePixelRatio||1;
+ const base=r124Legacy?1.5:r124Mobile()?1.2:1.5;
+ return Math.min(dpr,R154_PERF_LAB?Math.min(base,r124Mobile()?1:1.25):base);
+};
 let heroLens={side:null,phase:'idle',frames:0,visible:false,
   inset:null,faceNdc:null,lastDrawCalls:0};
 let heroResult={winner:null,started:-100};
@@ -1016,7 +1028,7 @@ function loop(){
  }
  if(!r124Legacy){
   shadowAccumulator+=delta;
-  const period=playing?1/30:1/20;
+  const period=R154_PERF_LAB?(playing?1/20:1/10):(playing?1/30:1/20);
   if(shadowAccumulator>=period){
    renderer.shadowMap.needsUpdate=true;
    shadowAccumulator%=period;shadowPassRequests++;
@@ -1044,7 +1056,7 @@ function loop(){
   (talkingCandidates[0]?{side:talkingCandidates[0].side,
    age:talkingCandidates[0].age,voice:true}:null);
  heroLens.visible=false;
- if(focus&&!reduced&&!legacyCamera){
+ if(focus&&!reduced&&!legacyCamera&&!R154_PERF_LAB){
   const host=duelistHosts.find(x=>x.side===focus.side);
   if(host){
    if(!r124Legacy&&heroLayerSide!==focus.side){
@@ -1383,7 +1395,7 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
-  get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
+  get renderPerformance(){return {profile:R154_PERF_LAB?'r154-perf-lab':r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,
    heroInsetDraws,heroLayerSide,heroCameraLayer:heroCamera.layers.mask,
