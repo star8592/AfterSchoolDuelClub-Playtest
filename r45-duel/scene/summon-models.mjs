@@ -253,6 +253,15 @@ const r99ChefOld=(()=>{
    new URLSearchParams(window.parent.location.search).get('r99Chef')==='old';}
  catch{return false}
 })();
+// R156: QA-only hybrid procedural owl normals. No public default change.
+export const R156_OWL_NORMAL=(()=>{
+ const q=new URLSearchParams(location.search);
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null}})();
+ const read=k=>q.has(k)?q.get(k):parent?.get(k);
+ return read('qa')==='1'&&['512','1024'].includes(read('r156OwlNormal'))?
+  read('r156OwlNormal'):'default';
+})();
 export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
@@ -282,6 +291,8 @@ export const R124_PACKED_DEFAULTS=Object.freeze([
  'M01-MusicTeacher-PolyforkSchoolTeacher.glb',
  'M02-CafeteriaAunt-ChefHat-Ladle-R114.glb',
  'T01-Owl-Innerscene-R84.glb',
+ 'T01-Owl-Innerscene-R156-HybridNormal-1024.glb',
+ 'T01-Owl-Innerscene-R156-HybridNormal-512.glb',
  'T02-LivingMenu-R59.glb',
  'T03-Rain-Landing-R97.glb',
  'T04-Rex-Landing-R97.glb'
@@ -352,7 +363,9 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   const spec=id==='T02'&&isT02DuoStudy?
    {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:
    id==='M02'&&r99ChefOld?{...baseSpec,targetHeight:2.07}:baseSpec;
-  const selectedFile=id==='M01'&&isM01AdultTeacherStudy?'M01-Maestro-Burgundy-Coat-STUDY.glb':
+  const selectedFile=id==='T01'&&R156_OWL_NORMAL!=='default'?
+   'T01-Owl-Innerscene-R156-HybridNormal-'+R156_OWL_NORMAL+'.glb':
+   id==='M01'&&isM01AdultTeacherStudy?'M01-Maestro-Burgundy-Coat-STUDY.glb':
    id==='M02'&&r99ChefOld?'M02-CafeteriaAunt-CartoonR76.glb':
    id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':

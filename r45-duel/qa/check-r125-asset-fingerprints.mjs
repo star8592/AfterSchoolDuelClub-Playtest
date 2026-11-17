@@ -8,14 +8,18 @@ const rows=Object.entries(data);
 const failed=[];
 let total=0;
 for(const [path,sha] of rows){
- const target=resolve(root,path);
+ const primary=resolve(root,path);
+ const target=!existsSync(primary)&&process.env.ASDC_R125_SOURCE_ASSET_DIR?
+  resolve(process.env.ASDC_R125_SOURCE_ASSET_DIR,path):primary;
  if(!existsSync(target)){failed.push('missing '+path);continue;}
  const bytes=readFileSync(target),actual=createHash('sha256').update(bytes).digest('hex');
  if(actual!==sha)failed.push('content hash mismatch '+path);
  if(!path.startsWith('model/')&&!path.endsWith('.glb.gz'))failed.push('unrecognized manifest path '+path);
  total+=bytes.length;
 }
-const result={passed:failed.length===0&&rows.length===16,assets:rows.length,
+const original=rows.filter(([k])=>!k.includes('-R155-Runtime.vrm'));
+const runtime=rows.filter(([k])=>k.includes('-R155-Runtime.vrm'));
+const result={passed:failed.length===0&&original.length===18&&runtime.length===4,assets:rows.length,
  modelCount:rows.filter(([k])=>k.startsWith('model/')).length,
  packCount:rows.filter(([k])=>k.startsWith('summons/')).length,
  byteCount:total,MiB:+(total/1048576).toFixed(2),errors:failed};

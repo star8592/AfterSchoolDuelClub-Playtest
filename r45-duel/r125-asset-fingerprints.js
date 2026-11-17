@@ -18,5 +18,11 @@ globalThis.ASDC_R125_FINGERPRINTS=Object.freeze({
   "summons/T01-Owl-Innerscene-R84.glb.gz": "7d44b6736a81fe30cfc01f663a8aa2d1179248130e9d549ad82f89f78deeea8d",
   "summons/T02-LivingMenu-R59.glb.gz": "b8aedff8d7827703da47b2e593c93ac96c2537fd704e006ed71693032021e37d",
   "summons/T03-Rain-Landing-R97.glb.gz": "eb185be0568bd0585482db88d5d9bc279503e089580175b20aad16ba79945b60",
-  "summons/T04-Rex-Landing-R97.glb.gz": "3c3374271a31ab1798ad0b254f5cf79f9a5dd453790192550cffbf453db276c5"
+  "summons/T04-Rex-Landing-R97.glb.gz": "3c3374271a31ab1798ad0b254f5cf79f9a5dd453790192550cffbf453db276c5",
+  "model/Fumiriya-original-CC0-R155-Runtime.vrm": "860e3eca323683b00b0eef72ec51c73b1050522e2798a3c1054ad8cbad5f3635",
+  "model/Host-HairSample_Female-CC0-R155-Runtime.vrm": "66b3c29bb78106239e6105d2ade640555f3f8115719af5b6f21a7da12373217d",
+  "model/Host-HairSample_Male-CC0-R155-Runtime.vrm": "188a00dd3433b82a6de4ff9a04d9984ce96471ae3827c70abb12afd2acf8cbc8",
+  "model/Shino-original-CC0-R155-Runtime.vrm": "ca62745fadebaa93ecbdefad0ae0b099ea9cb30d7091685623466bbb586a562e",
+  "summons/T01-Owl-Innerscene-R156-HybridNormal-1024.glb.gz": "d321afa0235ab1862690e39b912539cb0ad76e09314ce1c9e1a81495ead45895",
+  "summons/T01-Owl-Innerscene-R156-HybridNormal-512.glb.gz": "2ed0e9d68a36a5893473050052bd3dd87ba0e4e9b2caa50b71b63ecf60b88045"
 });
