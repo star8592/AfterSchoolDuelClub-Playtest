@@ -7,6 +7,16 @@ import {createStadiumAudience} from './stadium-audience.mjs';
  *
  * No gameplay or collision state here. This is the visual world only.
  */
+// R161 safety: only explicit QA=1 can enable the experimental stationary
+// geometry batching. Players and old links always see R147's original meshes.
+const R161_BATCH=(()=>{
+ const own=new URLSearchParams(location.search);
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null}catch{return null}})();
+ const qa=own.get('qa')==='1'||parent?.get('qa')==='1';
+ const value=own.get('r161StadiumBatch')??parent?.get('r161StadiumBatch');
+ return qa&&value==='on';
+})();
 export function createStadium(THREE, scene, {detail='medium',lifeWorld=null}={}) {
   const stats={label:'R45_ONE_ARENA_GYM_3D',geometryTypes:new Set(),meshCount:0,
     instancedObjects:0,bleacherRows:0,seats:0,lights:0};
@@ -279,6 +289,72 @@ export function createStadium(THREE, scene, {detail='medium',lifeWorld=null}={})
     mast.castShadow=true;
     cylinder(.22,.25,.07,20,[x,3.1,-2.1],gold,'Court_Floodlight_Head_'+sign);
   }
+  // R161: identical, fully STATIC architecture gets a single InstancedMesh
+  // per source-part group. Every original object matrix, geometry attributes,
+  // PBR material/light response, receiveShadow and visibility are preserved.
+  // No facial rig, animated audience, HP labels, dynamically lit screen, or
+  // player object may be changed by this experiment.
+  const r161Groups=[
+   ['CeilingLamps','3D_Ceiling_Lamp_'],
+   ['LongitudinalTrusses','Roof_Truss_Longitudinal_'],
+   ['TrussShadows','Roof_Truss_Shadow_'],
+   ['Pilasters','Structural_Pilaster_'],
+   ['HighWindows','High_Window_']
+  ];
+  const r161BatchAudit={enabled:R161_BATCH,groups:[],originalMeshes:0,
+   instancedDraws:0,nominalSavedDraws:0,checksPassed:0};
+  if(R161_BATCH)for(const [label,prefix] of r161Groups){
+   const items=group.children.filter(o=>o.isMesh&&!o.isInstancedMesh&&
+    o.name.startsWith(prefix));
+   if(items.length<2)throw Error('R161 unexpected stationary item count '+label);
+   const first=items[0],settings=m=>JSON.stringify({
+     castShadow:m.castShadow,receiveShadow:m.receiveShadow,renderOrder:m.renderOrder,
+     materialType:m.material.type,color:m.material.color.getHex(),
+     emissive:m.material.emissive.getHex(),emissiveIntensity:m.material.emissiveIntensity,
+     metalness:m.material.metalness,roughness:m.material.roughness,
+     transparent:m.material.transparent,opacity:m.material.opacity,
+     side:m.material.side,depthWrite:m.material.depthWrite,
+     visible:m.visible,layerMask:m.layers.mask,
+     geometry:m.geometry.parameters});
+   const signature=settings(first);
+   for(const o of items)if(settings(o)!==signature||o.parent!==group)
+    throw Error('R161 cannot batch non-identical mesh '+o.name);
+   const instances=new THREE.InstancedMesh(first.geometry,first.material,items.length);
+   instances.name='R161_ExactStaticInstances_'+label;
+   instances.castShadow=first.castShadow;
+   instances.receiveShadow=first.receiveShadow;
+   instances.renderOrder=first.renderOrder;
+   instances.visible=first.visible;
+   instances.layers.mask=first.layers.mask;
+   const read=new THREE.Matrix4();
+   for(let i=0;i<items.length;i++){
+    const old=items[i];
+    old.updateMatrix();
+    instances.setMatrixAt(i,old.matrix);
+    instances.getMatrixAt(i,read);
+    for(let j=0;j<16;j++)if(Math.abs(old.matrix.elements[j]-read.elements[j])>1e-6)
+      throw Error('R161 transform mismatch '+old.name);
+    r161BatchAudit.checksPassed++;
+   }
+   instances.instanceMatrix.needsUpdate=true;
+   instances.computeBoundingSphere();
+   for(const o of items){
+    group.remove(o);
+    if(o!==first)o.geometry.dispose();
+    // These two prefixes created one unique material per old mesh.
+    if(o!==first&&(label==='CeilingLamps'||label==='HighWindows'))
+      o.material.dispose();
+   }
+   group.add(instances);
+   stats.instancedObjects++;
+   stats.meshCount-=items.length-1;
+   r161BatchAudit.groups.push({label,from:items.length,to:1,
+      materialKey:signature,shadow:instances.receiveShadow});
+   r161BatchAudit.originalMeshes+=items.length;
+   r161BatchAudit.instancedDraws++;
+   r161BatchAudit.nominalSavedDraws+=items.length-1;
+  }
+  stats.r161Batching=r161BatchAudit;
   const polish=addStadiumPolish(THREE,scene,group,stats);
   const audience=createStadiumAudience(THREE,group,lifeWorld);
   let lastCrowdUpdate=0;

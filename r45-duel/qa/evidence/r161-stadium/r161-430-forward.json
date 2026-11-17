@@ -1,0 +1,347 @@
+{
+  "at": "2026-11-17T20:19:18.918Z",
+  "viewport": {
+    "width": 430,
+    "height": 900,
+    "dpr": 2
+  },
+  "scenarios": [
+    {
+      "name": "baseline",
+      "success": true,
+      "elapsedMs": 47324,
+      "errors": [],
+      "idle": {
+        "n": 90,
+        "p50": 16.699999999999818,
+        "p95": 33.399999999999636,
+        "slow33": 25,
+        "slow50": 0
+      },
+      "active": {
+        "n": 130,
+        "p50": 33.29999999999927,
+        "p95": 50,
+        "slow33": 55,
+        "slow50": 3
+      },
+      "combat": {
+        "n": 90,
+        "p50": 16.799999999999272,
+        "p95": 33.400000000001455,
+        "slow33": 33,
+        "slow50": 1
+      },
+      "snapshot": {
+        "cards": 60,
+        "modelsVerified": 16,
+        "receivedBytes": 75569762,
+        "summonCount": 12,
+        "sourceIdentity": true,
+        "cameraSafe": true,
+        "phase": "approach",
+        "active": false,
+        "combat": {
+          "active": false,
+          "queued": 0,
+          "index": -1,
+          "playedEvents": 1,
+          "finishedSequences": 1,
+          "r90MotionEnabled": true,
+          "r90ImpactTriggers": 1,
+          "r90SparkBursts": 1,
+          "impactStarted": false,
+          "phase": null
+        },
+        "stadium": {
+          "label": "R45_ONE_ARENA_GYM_3D",
+          "geometryTypes": [
+            "BoxGeometry",
+            "RingGeometry",
+            "CylinderGeometry"
+          ],
+          "meshCount": 159,
+          "instancedObjects": 27,
+          "bleacherRows": 6,
+          "seats": 396,
+          "lights": 25,
+          "r161Batching": {
+            "enabled": false,
+            "groups": [],
+            "originalMeshes": 0,
+            "instancedDraws": 0,
+            "nominalSavedDraws": 0,
+            "checksPassed": 0
+          },
+          "polish": {
+            "physicalTrim": 82,
+            "liveSigns": 3,
+            "licensedTextures": 3,
+            "lightVolumes": 2,
+            "materials": 7
+          },
+          "totalPhysicalBleacherRows": 14,
+          "realSeatAislesPerBank": 2,
+          "stairTreads": 24,
+          "distinctAreas": [
+            "LEFT_DUELIST_STATION",
+            "CENTRAL_SUMMONING_RING",
+            "RIGHT_DUELIST_STATION",
+            "RAISED_BLEACHERS",
+            "ROOF_TRUSSES",
+            "SCOREBOARD"
+          ]
+        },
+        "r161": {
+          "enabled": true,
+          "qaInsetSkipped": false,
+          "frames": 329,
+          "scenesWithInset": 52,
+          "mainCpuSubmissionMs": {
+            "samples": 240,
+            "p50": 20,
+            "p95": 27.3,
+            "max": 1320.5,
+            "mean": 24.6488
+          },
+          "insetCpuSubmissionMs": {
+            "samples": 52,
+            "p50": 3.1,
+            "p95": 5.3,
+            "max": 9.8,
+            "mean": 3.6673
+          },
+          "mainDrawCalls": {
+            "samples": 240,
+            "p50": 930,
+            "p95": 992,
+            "max": 992,
+            "mean": 929.6333
+          },
+          "insetDrawCalls": {
+            "samples": 52,
+            "p50": 128,
+            "p95": 128,
+            "max": 128,
+            "mean": 128
+          },
+          "caution": "performance.now around WebGLRenderer.render is CPU submission time, NOT GPU execution time"
+        },
+        "currentDraws": 927,
+        "heroLens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 52,
+          "visible": false,
+          "inset": {
+            "x": 240,
+            "y": 360,
+            "width": 172,
+            "height": 235,
+            "topMarginPx": 305,
+            "bottomMarginPx": 360
+          },
+          "faceNdc": [
+            0.208,
+            0.106,
+            0.892
+          ],
+          "cardNdc": [
+            -0.101,
+            -0.6,
+            0.875
+          ],
+          "faceCardSeparation": 0.7707,
+          "lastDrawCalls": 1058
+        }
+      }
+    },
+    {
+      "name": "batch",
+      "success": true,
+      "elapsedMs": 46055,
+      "errors": [],
+      "idle": {
+        "n": 90,
+        "p50": 16.699999999999818,
+        "p95": 33.30000000000018,
+        "slow33": 13,
+        "slow50": 0
+      },
+      "active": {
+        "n": 130,
+        "p50": 33.29999999999927,
+        "p95": 50,
+        "slow33": 53,
+        "slow50": 4
+      },
+      "combat": {
+        "n": 90,
+        "p50": 16.700000000000728,
+        "p95": 33.399999999999636,
+        "slow33": 25,
+        "slow50": 0
+      },
+      "snapshot": {
+        "cards": 60,
+        "modelsVerified": 16,
+        "receivedBytes": 75569762,
+        "summonCount": 12,
+        "sourceIdentity": true,
+        "cameraSafe": true,
+        "phase": "approach",
+        "active": false,
+        "combat": {
+          "active": false,
+          "queued": 0,
+          "index": -1,
+          "playedEvents": 1,
+          "finishedSequences": 1,
+          "r90MotionEnabled": true,
+          "r90ImpactTriggers": 1,
+          "r90SparkBursts": 1,
+          "impactStarted": false,
+          "phase": null
+        },
+        "stadium": {
+          "label": "R45_ONE_ARENA_GYM_3D",
+          "geometryTypes": [
+            "BoxGeometry",
+            "RingGeometry",
+            "CylinderGeometry"
+          ],
+          "meshCount": 111,
+          "instancedObjects": 32,
+          "bleacherRows": 6,
+          "seats": 396,
+          "lights": 25,
+          "r161Batching": {
+            "enabled": true,
+            "groups": [
+              {
+                "label": "CeilingLamps",
+                "from": 25,
+                "to": 1,
+                "materialKey": "{\"castShadow\":false,\"receiveShadow\":true,\"renderOrder\":0,\"materialType\":\"MeshStandardMaterial\",\"color\":16774356,\"emissive\":16767906,\"emissiveIntensity\":0.65,\"metalness\":0.04,\"roughness\":0.35,\"transparent\":false,\"opacity\":1,\"side\":0,\"depthWrite\":true,\"visible\":true,\"layerMask\":1,\"geometry\":{\"width\":0.9,\"height\":0.1,\"depth\":0.45,\"widthSegments\":1,\"heightSegments\":1,\"depthSegments\":1}}",
+                "shadow": true
+              },
+              {
+                "label": "LongitudinalTrusses",
+                "from": 9,
+                "to": 1,
+                "materialKey": "{\"castShadow\":false,\"receiveShadow\":true,\"renderOrder\":0,\"materialType\":\"MeshStandardMaterial\",\"color\":4742512,\"emissive\":0,\"emissiveIntensity\":1,\"metalness\":0.36,\"roughness\":0.51,\"transparent\":false,\"opacity\":1,\"side\":0,\"depthWrite\":true,\"visible\":true,\"layerMask\":1,\"geometry\":{\"width\":0.15,\"height\":0.21,\"depth\":24,\"widthSegments\":1,\"heightSegments\":1,\"depthSegments\":1}}",
+                "shadow": true
+              },
+              {
+                "label": "TrussShadows",
+                "from": 9,
+                "to": 1,
+                "materialKey": "{\"castShadow\":false,\"receiveShadow\":true,\"renderOrder\":0,\"materialType\":\"MeshStandardMaterial\",\"color\":662832,\"emissive\":0,\"emissiveIntensity\":1,\"metalness\":0.12,\"roughness\":0.75,\"transparent\":false,\"opacity\":1,\"side\":0,\"depthWrite\":true,\"visible\":true,\"layerMask\":1,\"geometry\":{\"width\":0.12,\"height\":0.31,\"depth\":24,\"widthSegments\":1,\"heightSegments\":1,\"depthSegments\":1}}",
+                "shadow": true
+              },
+              {
+                "label": "Pilasters",
+                "from": 5,
+                "to": 1,
+                "materialKey": "{\"castShadow\":false,\"receiveShadow\":true,\"renderOrder\":0,\"materialType\":\"MeshStandardMaterial\",\"color\":4742512,\"emissive\":0,\"emissiveIntensity\":1,\"metalness\":0.36,\"roughness\":0.51,\"transparent\":false,\"opacity\":1,\"side\":0,\"depthWrite\":true,\"visible\":true,\"layerMask\":1,\"geometry\":{\"width\":0.24,\"height\":9.9,\"depth\":0.58,\"widthSegments\":1,\"heightSegments\":1,\"depthSegments\":1}}",
+                "shadow": true
+              },
+              {
+                "label": "HighWindows",
+                "from": 5,
+                "to": 1,
+                "materialKey": "{\"castShadow\":false,\"receiveShadow\":true,\"renderOrder\":0,\"materialType\":\"MeshStandardMaterial\",\"color\":5468555,\"emissive\":1388099,\"emissiveIntensity\":0.7,\"metalness\":0.35,\"roughness\":0.22,\"transparent\":false,\"opacity\":1,\"side\":0,\"depthWrite\":true,\"visible\":true,\"layerMask\":1,\"geometry\":{\"width\":2.5,\"height\":2.4,\"depth\":0.055,\"widthSegments\":1,\"heightSegments\":1,\"depthSegments\":1}}",
+                "shadow": true
+              }
+            ],
+            "originalMeshes": 53,
+            "instancedDraws": 5,
+            "nominalSavedDraws": 48,
+            "checksPassed": 53
+          },
+          "polish": {
+            "physicalTrim": 82,
+            "liveSigns": 3,
+            "licensedTextures": 3,
+            "lightVolumes": 2,
+            "materials": 7
+          },
+          "totalPhysicalBleacherRows": 14,
+          "realSeatAislesPerBank": 2,
+          "stairTreads": 24,
+          "distinctAreas": [
+            "LEFT_DUELIST_STATION",
+            "CENTRAL_SUMMONING_RING",
+            "RIGHT_DUELIST_STATION",
+            "RAISED_BLEACHERS",
+            "ROOF_TRUSSES",
+            "SCOREBOARD"
+          ]
+        },
+        "r161": {
+          "enabled": true,
+          "qaInsetSkipped": false,
+          "frames": 332,
+          "scenesWithInset": 53,
+          "mainCpuSubmissionMs": {
+            "samples": 240,
+            "p50": 18.4,
+            "p95": 26.3,
+            "max": 609.4,
+            "mean": 20.2454
+          },
+          "insetCpuSubmissionMs": {
+            "samples": 53,
+            "p50": 2.9,
+            "p95": 5.2,
+            "max": 9.8,
+            "mean": 3.4774
+          },
+          "mainDrawCalls": {
+            "samples": 240,
+            "p50": 891,
+            "p95": 953,
+            "max": 953,
+            "mean": 891.1833
+          },
+          "insetDrawCalls": {
+            "samples": 53,
+            "p50": 128,
+            "p95": 128,
+            "max": 128,
+            "mean": 128
+          },
+          "caution": "performance.now around WebGLRenderer.render is CPU submission time, NOT GPU execution time"
+        },
+        "currentDraws": 888,
+        "heroLens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 53,
+          "visible": false,
+          "inset": {
+            "x": 240,
+            "y": 360,
+            "width": 172,
+            "height": 235,
+            "topMarginPx": 305,
+            "bottomMarginPx": 360
+          },
+          "faceNdc": [
+            0.215,
+            0.106,
+            0.892
+          ],
+          "cardNdc": [
+            -0.099,
+            -0.6,
+            0.875
+          ],
+          "faceCardSeparation": 0.7728,
+          "lastDrawCalls": 1019
+        }
+      }
+    }
+  ],
+  "modelSource": "Original R147 16 GLB/VRM"
+}

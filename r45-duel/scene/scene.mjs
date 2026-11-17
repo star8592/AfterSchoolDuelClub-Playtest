@@ -37,6 +37,40 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// R161 profiling is QA-only. When disabled, the renderer follows the
+// exact original two-camera pipeline with no GPU target or clock changes.
+const R161_RENDER_PROFILE=(()=>{
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null}catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||parent?.get('qa')==='1';
+ const option=PARAMS.get('r161Profile')??parent?.get('r161Profile');
+ const hide=PARAMS.get('r161Inset')??parent?.get('r161Inset');
+ return {enabled:qa&&option==='on',skipInset:qa&&hide==='off'};
+})();
+const r161Samples={mainMs:[],insetMs:[],mainDraws:[],insetDraws:[],
+ scenesWithInset:0,frames:0};
+function r161Record(samples,value){
+ samples.push(value);
+ if(samples.length>240)samples.shift();
+}
+function r161Stats(){
+ const summary=a=>{
+  if(!a.length)return {samples:0,p50:0,p95:0,max:0,mean:0};
+  const ordered=[...a].sort((a,b)=>a-b),at=p=>ordered[Math.min(ordered.length-1,
+   Math.floor(p*(ordered.length-1)))];
+  return {samples:ordered.length,p50:+at(.5).toFixed(4),
+   p95:+at(.95).toFixed(4),max:+ordered.at(-1).toFixed(4),
+   mean:+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(4)};
+ };
+ return {enabled:R161_RENDER_PROFILE.enabled,
+  qaInsetSkipped:R161_RENDER_PROFILE.skipInset,
+  frames:r161Samples.frames,scenesWithInset:r161Samples.scenesWithInset,
+  mainCpuSubmissionMs:summary(r161Samples.mainMs),
+  insetCpuSubmissionMs:summary(r161Samples.insetMs),
+  mainDrawCalls:summary(r161Samples.mainDraws),
+  insetDrawCalls:summary(r161Samples.insetDraws),
+  caution:'performance.now around WebGLRenderer.render is CPU submission time, NOT GPU execution time'};
+}
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -1022,11 +1056,15 @@ function loop(){
    shadowAccumulator%=period;shadowPassRequests++;
   }
  }
+ const r161MainStart=R161_RENDER_PROFILE.enabled?performance.now():0;
  renderer.render(scene,camera);
+ const r161MainMs=R161_RENDER_PROFILE.enabled?
+  performance.now()-r161MainStart:0;
+ const r161MainDraws=renderer.info.render.calls;
  // A camera cut never changes geometry orientation, physical animation or
  // the actual player's chosen orbit. Render an inset in the SAME WebGL
  // context for a maximum ~2 seconds, no second canvas, no fake 2D portrait.
- let currentDraws=renderer.info.render.calls;
+ let currentDraws=r161MainDraws;
  const focusCandidates=['player','ai'].map(side=>({
   side,started:hostAction[side].started,
   age:absoluteSeconds-hostAction[side].started
@@ -1044,7 +1082,7 @@ function loop(){
   (talkingCandidates[0]?{side:talkingCandidates[0].side,
    age:talkingCandidates[0].age,voice:true}:null);
  heroLens.visible=false;
- if(focus&&!reduced&&!legacyCamera){
+ if(focus&&!reduced&&!legacyCamera&&!R161_RENDER_PROFILE.skipInset){
   const host=duelistHosts.find(x=>x.side===focus.side);
   if(host){
    if(!r124Legacy&&heroLayerSide!==focus.side){
@@ -1095,8 +1133,14 @@ function loop(){
    renderer.setScissor(x,y,width,height);
    renderer.autoClear=false;
    renderer.clear(true,true,true);
+   const r161InsetStart=R161_RENDER_PROFILE.enabled?performance.now():0;
    renderer.render(scene,heroCamera);
    heroInsetDraws=renderer.info.render.calls;
+   if(R161_RENDER_PROFILE.enabled){
+    r161Samples.scenesWithInset++;
+    r161Record(r161Samples.insetMs,performance.now()-r161InsetStart);
+    r161Record(r161Samples.insetDraws,heroInsetDraws);
+   }
    currentDraws+=heroInsetDraws;
    renderer.autoClear=true;
    renderer.setScissorTest(false);
@@ -1137,6 +1181,11 @@ function loop(){
     (side==='player'?'我方决斗者 · 原声发言':'对方决斗者 · 原声发言'):
     side==='player'?'我方 · 举牌特写':'对手 · 举牌特写';
   }
+ }
+ if(R161_RENDER_PROFILE.enabled){
+  r161Samples.frames++;
+  r161Record(r161Samples.mainMs,r161MainMs);
+  r161Record(r161Samples.mainDraws,r161MainDraws);
  }
  frames++;drawCount=currentDraws;
 }
@@ -1383,6 +1432,7 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
+  get r161RenderProfile(){return r161Stats()},
   get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,
