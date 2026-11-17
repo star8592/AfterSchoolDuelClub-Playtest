@@ -21,7 +21,8 @@ if('serviceWorker'in navigator&&window.isSecureContext&&!disabled()&&
   const estimate=await navigator.storage?.estimate?.().catch(()=>null);
   if(estimate?.quota&&estimate.quota-estimate.usage<160*1048576)return;
   const warm=()=>activated.active.postMessage({type:'R125_BACKFILL',
-   runtimeLite:event.data?.runtimeVrmLite===true});
+   runtimeLite:event.data?.runtimeVrmLite===true,
+   owlNormal:event.data?.r156OwlNormal||'default'});
   if('requestIdleCallback'in window)requestIdleCallback(warm,{timeout:2500});
   else setTimeout(warm,600);
  });

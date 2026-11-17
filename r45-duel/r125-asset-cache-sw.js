@@ -50,9 +50,17 @@ self.addEventListener('fetch',event=>{
  })());
 });
 // R155 keeps the canonical 16-file wire set; never backfills BOTH sets.
-function selectedBackfillKeys(runtimeLite=false){
+function selectedBackfillKeys(runtimeLite=false,owlNormal='default'){
  const keys=Object.keys(FINGERPRINTS);
- const glbs=keys.filter(k=>k.startsWith('summons/')&&k.endsWith('.glb.gz'));
+ // Select exactly one owl: the source or one QA procedural-normal pilot.
+ const owl=owlNormal==='512'||owlNormal==='1024'?owlNormal:'default';
+ const glbs=keys.filter(k=>{
+  if(!k.startsWith('summons/')||!k.endsWith('.glb.gz'))return false;
+  if(k.includes('T01-Owl-Innerscene-R156-HybridNormal-'))
+   return k.endsWith('-'+owl+'.glb.gz');
+  if(k.endsWith('/T01-Owl-Innerscene-R84.glb.gz'))return owl==='default';
+  return true;
+ });
  const vrms=keys.filter(k=>k.startsWith('model/')&&k.endsWith(
   runtimeLite?'-R155-Runtime.vrm':'.vrm')&&
   (runtimeLite||!k.endsWith('-R155-Runtime.vrm')));
@@ -60,8 +68,8 @@ function selectedBackfillKeys(runtimeLite=false){
   throw Error('R155 fingerprint variant must contain 12 compressed GLBs and 4 VRMs');
  return [...vrms,...glbs];
 }
-async function backfill(runtimeLite=false){
- const c=await caches.open(NAME),todo=selectedBackfillKeys(runtimeLite);
+async function backfill(runtimeLite=false,owlNormal='default'){
+ const c=await caches.open(NAME),todo=selectedBackfillKeys(runtimeLite,owlNormal);
  let n=0;const failures=[];
  async function worker(){
   while(todo.length){
@@ -78,14 +86,15 @@ async function backfill(runtimeLite=false){
   }
  }
  await Promise.all([worker(),worker()]);
- return {cached:n,expected:16,runtimeLite,errors:failures.slice(0,5)};
+ return {cached:n,expected:16,runtimeLite,owlNormal,errors:failures.slice(0,5)};
 }
 self.addEventListener('message',event=>{
  const type=event.data?.type;
  if(type!=='R125_BACKFILL'&&type!=='R125_STATS')return;
  event.waitUntil((async()=>{
   let extra={};
-  if(type==='R125_BACKFILL')extra=await backfill(event.data?.runtimeLite===true);
+  if(type==='R125_BACKFILL')extra=await backfill(event.data?.runtimeLite===true,
+   event.data?.owlNormal||'default');
   const cache=await caches.open(NAME);
   const records=(await cache.keys()).length;
   const reply={type:type==='R125_BACKFILL'?'R125_BACKFILL_DONE':'R125_STATS',

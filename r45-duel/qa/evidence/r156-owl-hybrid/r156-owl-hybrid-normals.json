@@ -1,0 +1,90 @@
+{
+  "purpose": "hybrid procedural feather microdetail with source normal retained at reduced resolution",
+  "source": "T01-Owl-Innerscene-R84.glb",
+  "variants": [
+    {
+      "variant": 1024,
+      "asset": "T01-Owl-Innerscene-R156-HybridNormal-1024.glb",
+      "packed": "T01-Owl-Innerscene-R156-HybridNormal-1024.glb.gz",
+      "glb_original_bytes": 12317072,
+      "glb_variant_bytes": 6267088,
+      "gz_original_bytes": 11755466,
+      "gz_variant_bytes": 5703714,
+      "saved_wire_bytes": 6051752,
+      "original_hash": "96dc576cdc56bd14b030826818b7bbd7d3c26e074145304898ffc17f91520872",
+      "variant_hash": "59fe6de07235a627e75c2a39a087ef559559d2fa2f9c5c99e4808405f59b2c5f",
+      "packed_hash": "d321afa0235ab1862690e39b912539cb0ad76e09314ce1c9e1a81495ead45895",
+      "other_geometry_materials_textures_identical": true,
+      "normal_replacements": [
+        {
+          "id": 1,
+          "bufferView": 45,
+          "size": [
+            1024,
+            1024
+          ],
+          "mean_normal_dot": 0.973892,
+          "min_normal_dot": 0.79837,
+          "vector_rmse": 0.13193,
+          "source_bytes": 3882436,
+          "generated_webp_bytes": 493698
+        },
+        {
+          "id": 4,
+          "bufferView": 68,
+          "size": [
+            1024,
+            1024
+          ],
+          "mean_normal_dot": 0.999722,
+          "min_normal_dot": 0.993697,
+          "vector_rmse": 0.01362,
+          "source_bytes": 2704094,
+          "generated_webp_bytes": 43050
+        }
+      ]
+    },
+    {
+      "variant": 512,
+      "asset": "T01-Owl-Innerscene-R156-HybridNormal-512.glb",
+      "packed": "T01-Owl-Innerscene-R156-HybridNormal-512.glb.gz",
+      "glb_original_bytes": 12317072,
+      "glb_variant_bytes": 5879512,
+      "gz_original_bytes": 11755466,
+      "gz_variant_bytes": 5317516,
+      "saved_wire_bytes": 6437950,
+      "original_hash": "96dc576cdc56bd14b030826818b7bbd7d3c26e074145304898ffc17f91520872",
+      "variant_hash": "7a3c1774976e49556ae0a930009e67cb77c505dd643ac7c76ab7059990b0e2fa",
+      "packed_hash": "2ed0e9d68a36a5893473050052bd3dd87ba0e4e9b2caa50b71b63ecf60b88045",
+      "other_geometry_materials_textures_identical": true,
+      "normal_replacements": [
+        {
+          "id": 1,
+          "bufferView": 45,
+          "size": [
+            512,
+            512
+          ],
+          "mean_normal_dot": 0.961959,
+          "min_normal_dot": 0.699955,
+          "vector_rmse": 0.15925,
+          "source_bytes": 3882436,
+          "generated_webp_bytes": 143668
+        },
+        {
+          "id": 4,
+          "bufferView": 68,
+          "size": [
+            512,
+            512
+          ],
+          "mean_normal_dot": 0.999858,
+          "min_normal_dot": 0.992445,
+          "vector_rmse": 0.009742,
+          "source_bytes": 2704094,
+          "generated_webp_bytes": 5508
+        }
+      ]
+    }
+  ]
+}

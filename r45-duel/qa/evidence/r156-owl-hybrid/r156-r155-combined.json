@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-17T18:29:16.159Z",
+  "withR155": true,
+  "environment": "Z890 Chrome Vulkan, local layered static server",
+  "cases": [
+    {
+      "mode": "1024",
+      "ok": true,
+      "ready": true,
+      "combat": true,
+      "closeup": true,
+      "elapsedMs": 5448,
+      "cache": {
+        "count": 16,
+        "owl": [
+          "T01-Owl-Innerscene-R156-HybridNormal-1024.glb.gz"
+        ],
+        "vrmLite": 4
+      },
+      "errors": [],
+      "snapshot": {
+        "ready": true,
+        "qaMode": "1024",
+        "vrmLite": true,
+        "cardCount": 60,
+        "summons": 12,
+        "owlFile": "T01-Owl-Innerscene-R156-HybridNormal-1024.glb",
+        "normalTextures": [
+          {
+            "width": 1024,
+            "height": 1024,
+            "name": "Original overlapping avian coverts",
+            "normalScale": [
+              0.47999998927116394,
+              -0.47999998927116394
+            ]
+          },
+          {
+            "width": 1024,
+            "height": 1024,
+            "name": "Authored owl coat",
+            "normalScale": [
+              1,
+              -1
+            ]
+          }
+        ],
+        "source": true,
+        "render": {
+          "profile": "balanced-desktop",
+          "pixelRatio": 1,
+          "shadowAutoUpdate": false,
+          "shadowPassRequests": 3,
+          "shadowSize": 2048,
+          "heroInsetDraws": 0,
+          "heroLayerSide": null,
+          "heroCameraLayer": 2,
+          "totalDrawCalls": 734
+        },
+        "r147Shot": false,
+        "load": {
+          "modelsVerified": 16,
+          "modelReadyMs": 1510,
+          "firstFrameReadyMs": 2377,
+          "downloadedBytes": 64344738,
+          "knownTotalBytes": 64344738
+        },
+        "drawCalls": 734
+      }
+    }
+  ]
+}

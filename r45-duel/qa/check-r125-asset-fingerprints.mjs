@@ -19,7 +19,7 @@ for(const [path,sha] of rows){
 }
 const original=rows.filter(([k])=>!k.includes('-R155-Runtime.vrm'));
 const runtime=rows.filter(([k])=>k.includes('-R155-Runtime.vrm'));
-const result={passed:failed.length===0&&original.length===16&&runtime.length===4,assets:rows.length,
+const result={passed:failed.length===0&&original.length===18&&runtime.length===4,assets:rows.length,
  modelCount:rows.filter(([k])=>k.startsWith('model/')).length,
  packCount:rows.filter(([k])=>k.startsWith('summons/')).length,
  byteCount:total,MiB:+(total/1048576).toFixed(2),errors:failed};

@@ -31,7 +31,7 @@ import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
-import {preloadSummonModels} from './summon-models.mjs';
+import {preloadSummonModels,R156_OWL_NORMAL} from './summon-models.mjs';
 import {createLivingCastDirector} from './living-cast-director.mjs';
 import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
@@ -1013,10 +1013,13 @@ function loop(){
    x.id===r131QaCloseup);
   if(actor){
    const [x,y,z]=actor.position;
-   const radius=3.45;
+   // QA-only close material inspection of the 1.15m source owl; ordinary
+   // human study camera remains untouched and no player can enable this.
+   const owlReview=r131QaCloseup==='T01';
+   const radius=owlReview?1.72:3.45;
    camera.position.set(x+Math.cos(r131QaAngle)*radius,
-    y+1.46,z+Math.sin(r131QaAngle)*radius);
-   camera.lookAt(x,y+1.01,z);
+    y+(owlReview?.96:1.46),z+Math.sin(r131QaAngle)*radius);
+   camera.lookAt(x,y+(owlReview?.62:1.01),z);
   }
  }
  keepArenaVisible();
@@ -1369,7 +1372,7 @@ function exposeQA(){
  Object.defineProperty(window,'__r45SceneQA',{value:{
   setStudyCloseup(id){
    if(!R131_IS_QA())return false;
-   r131QaCloseup=typeof id==='string'&&/^(E03|E04|G02|G03|G04|T03|T04|M01)$/.test(id)?id:null;
+   r131QaCloseup=typeof id==='string'&&/^(E03|E04|G02|G03|G04|T03|T04|M01|T01)$/.test(id)?id:null;
    return true;
   },
   studyLowestSourceMeshes(id){
@@ -1405,6 +1408,24 @@ function exposeQA(){
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
   get runtimeVrmLite(){return R155_VRM_LITE},
+  get owlNormalVariant(){return R156_OWL_NORMAL},
+  get owlNormalTextureSizes(){
+    const source=summonModels?.get('T01')?.source;
+    if(!source)return [];
+    const unique=new Map();
+    source.traverse(obj=>{
+      if(!obj.isMesh)return;
+      const materials=Array.isArray(obj.material)?obj.material:[obj.material];
+      for(const material of materials){
+        const tex=material?.normalMap;
+        if(!tex||unique.has(tex.uuid))continue;
+        const img=tex.image;
+        unique.set(tex.uuid,{width:img?.width??null,height:img?.height??null,
+          name:material.name||'',normalScale:material.normalScale?.toArray()??null});
+      }
+    });
+    return [...unique.values()];
+  },
   get renderPerformance(){return {profile:R154_PERF_LAB?'r154-perf-lab':r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,
@@ -1610,7 +1631,7 @@ try{
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,independentHostVRMRigs:hostSourceActors.length,
   loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false,
-  runtimeVrmLite:R155_VRM_LITE});
+  runtimeVrmLite:R155_VRM_LITE,r156OwlNormal:R156_OWL_NORMAL});
  broadcastCamera();
  requestAnimationFrame(loop);
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();
