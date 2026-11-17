@@ -1,0 +1,133 @@
+{
+  "date": "2026-11-17T19:25:16.032Z",
+  "device": "mobile",
+  "throttle": true,
+  "rateBytesPerSecond": 10000000,
+  "cpuSlowdown": 3,
+  "scenarios": [
+    {
+      "schedule": "canonical",
+      "concurrency": 3,
+      "pass": true,
+      "elapsedMs": 44563,
+      "errors": [],
+      "downloadedBytes": 75569762,
+      "firstFrameReadyMs": 12875,
+      "allModelsReadyMs": 9236,
+      "completion": [
+        {
+          "id": "E02",
+          "elapsedMs": 628
+        },
+        {
+          "id": "E04",
+          "elapsedMs": 1663
+        },
+        {
+          "id": "E03",
+          "elapsedMs": 2420
+        },
+        {
+          "id": "G03",
+          "elapsedMs": 5468
+        },
+        {
+          "id": "G04",
+          "elapsedMs": 5654
+        },
+        {
+          "id": "M01",
+          "elapsedMs": 5699
+        },
+        {
+          "id": "M02",
+          "elapsedMs": 6536
+        },
+        {
+          "id": "G02",
+          "elapsedMs": 6615
+        },
+        {
+          "id": "T02",
+          "elapsedMs": 6937
+        },
+        {
+          "id": "T04",
+          "elapsedMs": 8143
+        },
+        {
+          "id": "T03",
+          "elapsedMs": 8401
+        },
+        {
+          "id": "T01",
+          "elapsedMs": 8974
+        }
+      ],
+      "renderCalls": 732,
+      "combat": true
+    },
+    {
+      "schedule": "largest-first",
+      "concurrency": 3,
+      "pass": true,
+      "elapsedMs": 42836,
+      "errors": [],
+      "downloadedBytes": 75569762,
+      "firstFrameReadyMs": 11091,
+      "allModelsReadyMs": 9237,
+      "completion": [
+        {
+          "id": "G02",
+          "elapsedMs": 5262
+        },
+        {
+          "id": "G04",
+          "elapsedMs": 7117
+        },
+        {
+          "id": "T03",
+          "elapsedMs": 7414
+        },
+        {
+          "id": "T01",
+          "elapsedMs": 7523
+        },
+        {
+          "id": "E03",
+          "elapsedMs": 8104
+        },
+        {
+          "id": "T04",
+          "elapsedMs": 8484
+        },
+        {
+          "id": "G03",
+          "elapsedMs": 8576
+        },
+        {
+          "id": "M02",
+          "elapsedMs": 8713
+        },
+        {
+          "id": "E04",
+          "elapsedMs": 8878
+        },
+        {
+          "id": "M01",
+          "elapsedMs": 8963
+        },
+        {
+          "id": "E02",
+          "elapsedMs": 8984
+        },
+        {
+          "id": "T02",
+          "elapsedMs": 8994
+        }
+      ],
+      "renderCalls": 732,
+      "combat": true
+    }
+  ]
+}
