@@ -1,0 +1,531 @@
+{
+  "viewport": {
+    "width": 1280,
+    "height": 720,
+    "dpr": 1
+  },
+  "results": [
+    {
+      "enabled": false,
+      "success": true,
+      "viewport": 1280,
+      "errors": [],
+      "state": {
+        "cards": 60,
+        "modelsVerified": 16,
+        "bytes": 75569762,
+        "draws": 929,
+        "actors": 2,
+        "cameraSafe": true,
+        "originals": true,
+        "combat": {
+          "active": false,
+          "queued": 0,
+          "index": -1,
+          "playedEvents": 1,
+          "finishedSequences": 1,
+          "r90MotionEnabled": true,
+          "r90ImpactTriggers": 1,
+          "r90SparkBursts": 1,
+          "impactStarted": false,
+          "phase": null
+        },
+        "spectator": {
+          "loaded": 8,
+          "realModelIds": [
+            "E04",
+            "E03",
+            "G03",
+            "G04",
+            "G02",
+            "T03",
+            "T04",
+            "M01"
+          ],
+          "supervisorLoaded": true,
+          "supervisorActs": false,
+          "teacherSourceMotion": {
+            "sourceSkinnedMeshes": 10,
+            "sourceBones": 31,
+            "trackedJoints": 19,
+            "boneFrames": 403,
+            "maxRealJointAngle": 0.7946117763256135,
+            "current": "idle"
+          },
+          "disciplineSignVisible": false,
+          "disciplineSignFrames": 0,
+          "castSourceIds": [
+            "E04",
+            "E03",
+            "G03",
+            "G04",
+            "G02",
+            "T03",
+            "T04",
+            "M01"
+          ],
+          "animationMixers": 8,
+          "skinnedRealActors": 1,
+          "boneDrivenActors": 1,
+          "authoredPoseFallbackActors": 7,
+          "frames": 403,
+          "movementFrames": 464,
+          "events": 1,
+          "accidentEvents": 0,
+          "active": null,
+          "poses": [
+            {
+              "id": "E04",
+              "team": "player",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "duelists",
+              "personalIntent": "peek"
+            },
+            {
+              "id": "E03",
+              "team": "player",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "duelists",
+              "personalIntent": "peek"
+            },
+            {
+              "id": "G03",
+              "team": "ai",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "arena",
+              "personalIntent": "idle"
+            },
+            {
+              "id": "G04",
+              "team": "ai",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "arena",
+              "personalIntent": "tiny_clap"
+            },
+            {
+              "id": "G02",
+              "team": "player",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "expectant",
+              "attention": "arena",
+              "personalIntent": "nod"
+            },
+            {
+              "id": "T03",
+              "team": "player",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "expectant",
+              "attention": "arena",
+              "personalIntent": "idle"
+            },
+            {
+              "id": "T04",
+              "team": "ai",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "arena",
+              "personalIntent": "nod"
+            },
+            {
+              "id": "M01",
+              "team": "ai",
+              "role": "supervisor",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": true,
+              "armRigs": 0,
+              "bones": 31,
+              "skinnedMeshes": 10,
+              "emotion": "curious",
+              "attention": "duelists",
+              "personalIntent": "peek"
+            }
+          ]
+        },
+        "dom": {
+          "enabled": false,
+          "skippedWrites": 0
+        },
+        "domTexts": {
+          "impact": "攻击命中",
+          "caption": "我方 · 举牌特写"
+        },
+        "mutations": {
+          "impact": 770,
+          "portrait": 390,
+          "caption": 72
+        },
+        "heroLens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 72,
+          "visible": false,
+          "inset": {
+            "x": 923,
+            "y": 302,
+            "width": 339,
+            "height": 244,
+            "topMarginPx": 174,
+            "bottomMarginPx": 302
+          },
+          "faceNdc": [
+            0.132,
+            0.12,
+            0.892
+          ],
+          "cardNdc": [
+            -0.058,
+            -0.682,
+            0.875
+          ],
+          "faceCardSeparation": 0.8238,
+          "lastDrawCalls": 1060
+        },
+        "frameSamples": {
+          "idle": {
+            "count": 90,
+            "p50": 16.699999999999818,
+            "p90": 16.699999999999818,
+            "p95": 16.699999999999818,
+            "p99": 16.699999999999818,
+            "slow33": 0,
+            "slow50": 0
+          },
+          "active": {
+            "count": 175,
+            "p50": 16.700000000000728,
+            "p90": 33.399999999999636,
+            "p95": 33.400000000000546,
+            "p99": 33.400000000001455,
+            "slow33": 39,
+            "slow50": 0
+          },
+          "combat": {
+            "count": 110,
+            "p50": 16.700000000000728,
+            "p90": 33.20000000000073,
+            "p95": 33.30000000000109,
+            "p99": 33.399999999999636,
+            "slow33": 7,
+            "slow50": 0
+          }
+        }
+      }
+    },
+    {
+      "enabled": true,
+      "success": true,
+      "viewport": 1280,
+      "errors": [],
+      "state": {
+        "cards": 60,
+        "modelsVerified": 16,
+        "bytes": 75569762,
+        "draws": 929,
+        "actors": 2,
+        "cameraSafe": true,
+        "originals": true,
+        "combat": {
+          "active": false,
+          "queued": 0,
+          "index": -1,
+          "playedEvents": 1,
+          "finishedSequences": 1,
+          "r90MotionEnabled": true,
+          "r90ImpactTriggers": 1,
+          "r90SparkBursts": 1,
+          "impactStarted": false,
+          "phase": null
+        },
+        "spectator": {
+          "loaded": 8,
+          "realModelIds": [
+            "E04",
+            "E03",
+            "G03",
+            "G04",
+            "G02",
+            "T03",
+            "T04",
+            "M01"
+          ],
+          "supervisorLoaded": true,
+          "supervisorActs": false,
+          "teacherSourceMotion": {
+            "sourceSkinnedMeshes": 10,
+            "sourceBones": 31,
+            "trackedJoints": 19,
+            "boneFrames": 402,
+            "maxRealJointAngle": 0.7945912841516076,
+            "current": "idle"
+          },
+          "disciplineSignVisible": false,
+          "disciplineSignFrames": 0,
+          "castSourceIds": [
+            "E04",
+            "E03",
+            "G03",
+            "G04",
+            "G02",
+            "T03",
+            "T04",
+            "M01"
+          ],
+          "animationMixers": 8,
+          "skinnedRealActors": 1,
+          "boneDrivenActors": 1,
+          "authoredPoseFallbackActors": 7,
+          "frames": 402,
+          "movementFrames": 480,
+          "events": 1,
+          "accidentEvents": 0,
+          "active": null,
+          "poses": [
+            {
+              "id": "E04",
+              "team": "player",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "duelists",
+              "personalIntent": "peek"
+            },
+            {
+              "id": "E03",
+              "team": "player",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "duelists",
+              "personalIntent": "peek"
+            },
+            {
+              "id": "G03",
+              "team": "ai",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "arena",
+              "personalIntent": "idle"
+            },
+            {
+              "id": "G04",
+              "team": "ai",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "arena",
+              "personalIntent": "idle"
+            },
+            {
+              "id": "G02",
+              "team": "player",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "expectant",
+              "attention": "arena",
+              "personalIntent": "nod"
+            },
+            {
+              "id": "T03",
+              "team": "player",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "expectant",
+              "attention": "arena",
+              "personalIntent": "idle"
+            },
+            {
+              "id": "T04",
+              "team": "ai",
+              "role": "spectator",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": false,
+              "armRigs": 0,
+              "bones": 0,
+              "skinnedMeshes": 0,
+              "emotion": "curious",
+              "attention": "opponent",
+              "personalIntent": "idle"
+            },
+            {
+              "id": "M01",
+              "team": "ai",
+              "role": "supervisor",
+              "mode": "idle",
+              "weight": 0,
+              "chainDelay": 0,
+              "headRig": true,
+              "armRigs": 0,
+              "bones": 31,
+              "skinnedMeshes": 10,
+              "emotion": "curious",
+              "attention": "duelists",
+              "personalIntent": "peek"
+            }
+          ]
+        },
+        "dom": {
+          "enabled": true,
+          "skippedWrites": 1635
+        },
+        "domTexts": {
+          "impact": "攻击命中",
+          "caption": "我方 · 举牌特写"
+        },
+        "mutations": {
+          "impact": 0,
+          "portrait": 7,
+          "caption": 1
+        },
+        "heroLens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 73,
+          "visible": false,
+          "inset": {
+            "x": 923,
+            "y": 302,
+            "width": 339,
+            "height": 244,
+            "topMarginPx": 174,
+            "bottomMarginPx": 302
+          },
+          "faceNdc": [
+            0.133,
+            0.12,
+            0.891
+          ],
+          "cardNdc": [
+            -0.061,
+            -0.678,
+            0.874
+          ],
+          "faceCardSeparation": 0.8209,
+          "lastDrawCalls": 1060
+        },
+        "frameSamples": {
+          "idle": {
+            "count": 90,
+            "p50": 16.699999999999818,
+            "p90": 16.700000000000728,
+            "p95": 16.700000000000728,
+            "p99": 16.800000000000182,
+            "slow33": 0,
+            "slow50": 0
+          },
+          "active": {
+            "count": 175,
+            "p50": 16.699999999999818,
+            "p90": 33.30000000000018,
+            "p95": 33.399999999999636,
+            "p99": 33.400000000000546,
+            "slow33": 34,
+            "slow50": 0
+          },
+          "combat": {
+            "count": 110,
+            "p50": 16.69999999999891,
+            "p90": 16.700000000000728,
+            "p95": 16.80000000000109,
+            "p99": 33.29999999999927,
+            "slow33": 1,
+            "slow50": 0
+          }
+        }
+      }
+    }
+  ]
+}

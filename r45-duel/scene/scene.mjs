@@ -37,6 +37,26 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// QA-only DOM write dedup; content, CSS values and frame timings are untouched.
+const R160_DOM_CACHE=(()=>{
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null}catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||parent?.get('qa')==='1';
+ const v=PARAMS.has('r160FrameCache')?PARAMS.get('r160FrameCache'):
+  parent?.get('r160FrameCache');
+ return qa&&v==='on';
+})();
+let r160SkippedDomWrites=0;
+const r160Set=(element,property,value)=>{
+ if(!element)return;
+ if(R160_DOM_CACHE&&element[property]===value){r160SkippedDomWrites++;return}
+ element[property]=value;
+};
+const r160Style=(element,property,value)=>{
+ if(!element)return;
+ if(R160_DOM_CACHE&&element.style[property]===value){r160SkippedDomWrites++;return}
+ element.style[property]=value;
+};
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -1000,10 +1020,11 @@ function loop(){
  }
  keepArenaVisible();
  const contact=t>=2.83&&t<3.11||t>=3.88&&t<4.15;
- $('impact').hidden=!playing||!contact;
- $('impact').textContent=t<3.5?(currentPayload?.event?
+ const impactLabel=$('impact');
+ r160Set(impactLabel,'hidden',!playing||!contact);
+ r160Set(impactLabel,'textContent',t<3.5?(currentPayload?.event?
   '命中 · '+currentPayload.event.damage+'伤害':'攻击命中'):
-  (currentPayload?.event?'反击 · '+currentPayload.event.retaliation:'反击');
+  (currentPayload?.event?'反击 · '+currentPayload.event.retaliation:'反击'));
  if(contact)hadContact=true;
  if(playing&&time>=DURATION){
   playing=false;time=0;
@@ -1124,18 +1145,20 @@ function loop(){
  if(!heroLens.visible){heroLens.side=null;heroLens.phase='idle'}
  const portrait=$('hero-portrait-frame');
  if(portrait){
-  portrait.hidden=!heroLens.visible;
+  r160Set(portrait,'hidden',!heroLens.visible);
   if(heroLens.visible){
    const{inset,side,phase}=heroLens;
-   portrait.style.left=inset.x+'px';
-   portrait.style.top=inset.topMarginPx+'px';
-   portrait.style.width=inset.width+'px';
-   portrait.style.height=inset.height+'px';
-   portrait.dataset.side=side;
-   $('hero-portrait-caption').textContent=phase==='victory_closeup'?
+   r160Style(portrait,'left',inset.x+'px');
+   r160Style(portrait,'top',inset.topMarginPx+'px');
+   r160Style(portrait,'width',inset.width+'px');
+   r160Style(portrait,'height',inset.height+'px');
+   if(!R160_DOM_CACHE||portrait.dataset.side!==side)
+    portrait.dataset.side=side;
+   else r160SkippedDomWrites++;
+   r160Set($('hero-portrait-caption'),'textContent',phase==='victory_closeup'?
     '决斗者 · 胜利特写':phase==='actual_qwen_voice_closeup'?
     (side==='player'?'我方决斗者 · 原声发言':'对方决斗者 · 原声发言'):
-    side==='player'?'我方 · 举牌特写':'对手 · 举牌特写';
+    side==='player'?'我方 · 举牌特写':'对手 · 举牌特写');
   }
  }
  frames++;drawCount=currentDraws;
@@ -1383,6 +1406,7 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
+  get r160DOMCache(){return {enabled:R160_DOM_CACHE,skippedWrites:r160SkippedDomWrites}},
   get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,
