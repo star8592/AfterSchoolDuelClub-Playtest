@@ -1,0 +1,45 @@
+{
+  "note": "Animations and rAF timing are not synchronized, so full frame cannot be compared for pixel identity",
+  "regions": {
+    "roof_strip": {
+      "mean_abs_rgb": [
+        0.012786,
+        0.009165,
+        0.006643
+      ],
+      "exact_match": false,
+      "width": 1280,
+      "height": 145
+    },
+    "left_upper": {
+      "mean_abs_rgb": [
+        0.02413,
+        0.018314,
+        0.014703
+      ],
+      "exact_match": false,
+      "width": 370,
+      "height": 250
+    },
+    "right_upper": {
+      "mean_abs_rgb": [
+        0.003674,
+        0.002411,
+        0.001411
+      ],
+      "exact_match": false,
+      "width": 380,
+      "height": 250
+    },
+    "full_frame_non_time_synced": {
+      "mean_abs_rgb": [
+        0.407212,
+        0.369326,
+        0.339986
+      ],
+      "exact_match": false,
+      "width": 1280,
+      "height": 720
+    }
+  }
+}

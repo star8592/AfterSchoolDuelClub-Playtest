@@ -1,0 +1,147 @@
+{
+  "cases": 9,
+  "passed": true,
+  "compared": {
+    "r161-1280-forward.json": {
+      "baselineP50DrawCalls": 935,
+      "batchP50DrawCalls": 912,
+      "observedDrawCallReduction": 23,
+      "baselineActiveP95ms": 33.4,
+      "batchActiveP95ms": 33.4
+    },
+    "r161-1280-reverse.json": {
+      "baselineP50DrawCalls": 935,
+      "batchP50DrawCalls": 912,
+      "observedDrawCallReduction": 23,
+      "baselineActiveP95ms": 33.4,
+      "batchActiveP95ms": 33.4
+    },
+    "r161-430-forward.json": {
+      "baselineP50DrawCalls": 930,
+      "batchP50DrawCalls": 891,
+      "observedDrawCallReduction": 39,
+      "baselineActiveP95ms": 50,
+      "batchActiveP95ms": 50
+    },
+    "r161-430-reverse.json": {
+      "baselineP50DrawCalls": 930,
+      "batchP50DrawCalls": 891,
+      "observedDrawCallReduction": 39,
+      "baselineActiveP95ms": 50,
+      "batchActiveP95ms": 50
+    }
+  },
+  "records": [
+    {
+      "experiment": "r161-1280-forward.json",
+      "variant": "baseline",
+      "mainDrawCallsP50": 935,
+      "insetDrawCallsP50": 128,
+      "mainCpuSubmissionP50ms": 12.6,
+      "insetCpuSubmissionP50ms": 2.7,
+      "activeFrameP95ms": 33.399999999999636,
+      "nominalDrawSaved": 0,
+      "passed": true
+    },
+    {
+      "experiment": "r161-1280-forward.json",
+      "variant": "batch",
+      "mainDrawCallsP50": 912,
+      "insetDrawCallsP50": 128,
+      "mainCpuSubmissionP50ms": 12.3,
+      "insetCpuSubmissionP50ms": 2.1,
+      "activeFrameP95ms": 33.399999999999636,
+      "nominalDrawSaved": 48,
+      "passed": true
+    },
+    {
+      "experiment": "r161-1280-forward.json",
+      "variant": "inset-off",
+      "mainDrawCallsP50": 935,
+      "insetDrawCallsP50": 0,
+      "mainCpuSubmissionP50ms": 10.8,
+      "insetCpuSubmissionP50ms": 0,
+      "activeFrameP95ms": 16.800000000000182,
+      "nominalDrawSaved": 0,
+      "passed": true
+    },
+    {
+      "experiment": "r161-1280-reverse.json",
+      "variant": "batch",
+      "mainDrawCallsP50": 912,
+      "insetDrawCallsP50": 128,
+      "mainCpuSubmissionP50ms": 12.3,
+      "insetCpuSubmissionP50ms": 2.6,
+      "activeFrameP95ms": 33.399999999999636,
+      "nominalDrawSaved": 48,
+      "passed": true
+    },
+    {
+      "experiment": "r161-1280-reverse.json",
+      "variant": "baseline",
+      "mainDrawCallsP50": 935,
+      "insetDrawCallsP50": 128,
+      "mainCpuSubmissionP50ms": 13.3,
+      "insetCpuSubmissionP50ms": 2.1,
+      "activeFrameP95ms": 33.399999999999636,
+      "nominalDrawSaved": 0,
+      "passed": true
+    },
+    {
+      "experiment": "r161-430-forward.json",
+      "variant": "baseline",
+      "mainDrawCallsP50": 930,
+      "insetDrawCallsP50": 128,
+      "mainCpuSubmissionP50ms": 20,
+      "insetCpuSubmissionP50ms": 3.1,
+      "activeFrameP95ms": 50,
+      "nominalDrawSaved": 0,
+      "passed": true
+    },
+    {
+      "experiment": "r161-430-forward.json",
+      "variant": "batch",
+      "mainDrawCallsP50": 891,
+      "insetDrawCallsP50": 128,
+      "mainCpuSubmissionP50ms": 18.4,
+      "insetCpuSubmissionP50ms": 2.9,
+      "activeFrameP95ms": 50,
+      "nominalDrawSaved": 48,
+      "passed": true
+    },
+    {
+      "experiment": "r161-430-reverse.json",
+      "variant": "batch",
+      "mainDrawCallsP50": 891,
+      "insetDrawCallsP50": 128,
+      "mainCpuSubmissionP50ms": 19,
+      "insetCpuSubmissionP50ms": 2.9,
+      "activeFrameP95ms": 50,
+      "nominalDrawSaved": 48,
+      "passed": true
+    },
+    {
+      "experiment": "r161-430-reverse.json",
+      "variant": "baseline",
+      "mainDrawCallsP50": 930,
+      "insetDrawCallsP50": 128,
+      "mainCpuSubmissionP50ms": 19.3,
+      "insetCpuSubmissionP50ms": 2.8,
+      "activeFrameP95ms": 50,
+      "nominalDrawSaved": 0,
+      "passed": true
+    }
+  ],
+  "qualityGates": {
+    "geometryMaterialTransforms": "53 static object matrices and source geometry/material signatures checked",
+    "comparisonInterpretation": "animations asynchronous; static RGB crops only, not whole-frame pixel-equivalence claim",
+    "insetOffDiagnosticOnly": true,
+    "officialDefault": false,
+    "reducedPixelRatio": false,
+    "texturesModified": false,
+    "animationsModified": false,
+    "r147CameraSafety": true
+  },
+  "sourceModelsNetworkBytes": 75569762,
+  "officialWebDeploymentChanged": false
+}
