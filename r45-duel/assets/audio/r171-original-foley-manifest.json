@@ -1,0 +1,120 @@
+{
+  "provider": "Original-DSP-Foley",
+  "not_speech": true,
+  "date": "2026-11-18",
+  "method": "Deterministic NumPy procedural synthesis, original; ffmpeg libopus",
+  "clips": {
+    "r171_eraser_thud": {
+      "file": "r171_eraser_thud.ogg",
+      "duration_s": 0.58,
+      "bytes": 2963,
+      "sha256": "bba9760a175f6e159da1e5c86e3b979da88ceff6e9f29b739b5e0aa0855ad462",
+      "audition": "pending-human-listening",
+      "peak": 1.073
+    },
+    "r171_chalk_dust": {
+      "file": "r171_chalk_dust.ogg",
+      "duration_s": 0.64,
+      "bytes": 3376,
+      "sha256": "7800403140a2fda50c4909ec32816dbc11d3fca03500d4f12b01dab6f10322d4",
+      "audition": "pending-human-listening",
+      "peak": 0.885
+    },
+    "r171_wok_clang": {
+      "file": "r171_wok_clang.ogg",
+      "duration_s": 0.71,
+      "bytes": 3753,
+      "sha256": "42b607609ed106eac628f39006e01a72d553fecb7c6e568eeff7eb52bb8c9570",
+      "audition": "pending-human-listening",
+      "peak": 1.608
+    },
+    "r171_food_sizzle": {
+      "file": "r171_food_sizzle.ogg",
+      "duration_s": 0.82,
+      "bytes": 4518,
+      "sha256": "cee9cf764d31a52b522d9cbc63cc9f970842190cc00f24bbe899222dcc87942e",
+      "audition": "pending-human-listening",
+      "peak": 1.035
+    },
+    "r171_milk_tea_bubble": {
+      "file": "r171_milk_tea_bubble.ogg",
+      "duration_s": 0.74,
+      "bytes": 4738,
+      "sha256": "39454915c5657ea2d7f4cd5337e7f58e96eb9bda772d5a9cd3f52392821c738f",
+      "audition": "pending-human-listening",
+      "peak": 0.606
+    },
+    "r171_press_camera": {
+      "file": "r171_press_camera.ogg",
+      "duration_s": 0.54,
+      "bytes": 2458,
+      "sha256": "1cfdb47cddb12e2efc8e4d30259c4fc96e8ff466751aeb94493975108b1dc817",
+      "audition": "pending-human-listening",
+      "peak": 1.193
+    },
+    "r171_whistle_rip": {
+      "file": "r171_whistle_rip.ogg",
+      "duration_s": 0.74,
+      "bytes": 6289,
+      "sha256": "fdffb3f96a587b40fde6e7275da0e535c0848da8e8f7c842b2441f81512133e1",
+      "audition": "pending-human-listening",
+      "peak": 1.087
+    },
+    "r171_ball_bounce": {
+      "file": "r171_ball_bounce.ogg",
+      "duration_s": 0.77,
+      "bytes": 4308,
+      "sha256": "5f31ac3a777e48e39142d1189b979cbca1e59a1c69346f55b6b5f30175397955",
+      "audition": "pending-human-listening",
+      "peak": 1.34
+    },
+    "r171_basket_rim": {
+      "file": "r171_basket_rim.ogg",
+      "duration_s": 0.61,
+      "bytes": 4137,
+      "sha256": "f3527f365213cbd0069faac6cd8b68338ae19accd62fd617117847b81309842c",
+      "audition": "pending-human-listening",
+      "peak": 1.678
+    },
+    "r171_paper_whirl": {
+      "file": "r171_paper_whirl.ogg",
+      "duration_s": 0.86,
+      "bytes": 4937,
+      "sha256": "e3bd901a349ca8761a434f82dd8766abd9514fad1f9aa02ad17b7da7730fd184",
+      "audition": "pending-human-listening",
+      "peak": 0.432
+    },
+    "r171_clock_reverse": {
+      "file": "r171_clock_reverse.ogg",
+      "duration_s": 0.91,
+      "bytes": 5185,
+      "sha256": "98929c85fc68b75901bd0dfd1da8d40dd9c33cd3053176eefe72f30e78e11c5b",
+      "audition": "pending-human-listening",
+      "peak": 1.337
+    },
+    "r171_stamp_thud": {
+      "file": "r171_stamp_thud.ogg",
+      "duration_s": 0.47,
+      "bytes": 2622,
+      "sha256": "a622c931e7e7475268dc2bb2190da0176641d2b984e6038b111d38d6be3c9545",
+      "audition": "pending-human-listening",
+      "peak": 1.159
+    },
+    "r171_pencil_scribble": {
+      "file": "r171_pencil_scribble.ogg",
+      "duration_s": 0.76,
+      "bytes": 4409,
+      "sha256": "98985adc1e8a3dbadeb6579627c7ddfe4ab8a24f4848927757a2409795f47e31",
+      "audition": "pending-human-listening",
+      "peak": 0.327
+    },
+    "r171_foot_shuffle": {
+      "file": "r171_foot_shuffle.ogg",
+      "duration_s": 0.73,
+      "bytes": 4222,
+      "sha256": "cb2758393460fb06546e8e8d76a26a9684ecb9f023a531cff0f268586185dad3",
+      "audition": "pending-human-listening",
+      "peak": 0.354
+    }
+  }
+}
