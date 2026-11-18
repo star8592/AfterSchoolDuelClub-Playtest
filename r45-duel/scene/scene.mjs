@@ -39,6 +39,12 @@ import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs'
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
 // R169 QA-only all-spells replacement. Never silently overwrite R147.
+const R172_STATIC_BATCH=(()=>{
+ const own=PARAMS.get('qa')==='1'&&PARAMS.get('r172BatchStatic')==='on';
+ try{const pp=new URLSearchParams(window.parent.location.search);
+  return own||(pp.get('qa')==='1'&&pp.get('r172BatchStatic')==='on');}
+ catch{return own}
+})();
 const R169_SCHOOL_MAGIC=(()=>{
  const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}
  catch{return null}})();
@@ -326,7 +332,7 @@ function makeScene(){
  spellImpact=createSpellImpact(THREE,scene);
  magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
  if(R169_SCHOOL_MAGIC)
-  schoolMagicStage=createCampusSchoolMagic(THREE,scene,{reducedMotion:reduced});
+  schoolMagicStage=createCampusSchoolMagic(THREE,scene,{reducedMotion:reduced,mergeStatic:R172_STATIC_BATCH});
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
  spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});

@@ -11,16 +11,18 @@
  */
 import {BY_ID} from '../engine.mjs';
 import {renderCampusHeroProp} from './campus-hero-props.mjs';
+import {createCampusStaticBatcher} from './campus-prop-static-batcher.mjs';
 import {SPELL_CHOREOGRAPHY} from './spell-impact.mjs';
 import {SCHOOL_MAGIC_IDENTITIES,SCHOOL_MAGIC_COUNT} from './campus-magic-bible.mjs';
 
 const clip=(x)=>Math.max(0,Math.min(1,x));
 const smooth=x=>{const y=clip(x);return y*y*(3-2*y)};
 const hex=(v)=>String(v).toLowerCase();
-export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false}={}){
+export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeStatic=false}={}){
  const root=new THREE.Group();root.name='R169_SCHOOL_COMEDY_PHYSICAL_MAGIC';scene.add(root);
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
  const active=[],lastBySide={player:null,ai:null};
+ const staticBatcher=mergeStatic?createCampusStaticBatcher(THREE):null;
  const maxActive=4;let played=0,expired=0,rejected=0,peakObjects=0,
   peakDraws=0,distinctProps=new Set(),hitAnimations=0;
  const geometry=(name,...params)=>{
@@ -294,13 +296,14 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false}={}){
   const g=group(root,(target==='player'?-1:1)*1.72,0,0);
   g.name='R169_'+card.id+'_'+identity.prop;
   const props=group(g,0,1.45,-.30);build(props,card.id);
+  const batchReceipt=staticBatcher?.batch(props,card.id)||null;
   props.rotation.y=message.side==='player'?-.24:.24;
   g.traverse(o=>{if(o.isMesh){o.userData.basePosition=o.position.clone();
    o.userData.baseRotation=o.rotation.clone()}});
   const life=reducedMotion?1.4:2.1;
   const entry={id:card.id,identity,side:message.side,target,serial:message.serial,
    created:now,duration:life,group:g,props,contacted:false,
-   parts:g.children.length,appliedDirectDamage:Number(message.directDamage)||0};
+   parts:g.children.length,appliedDirectDamage:Number(message.directDamage)||0,batchReceipt};
   active.push(entry);played++;
   distinctProps.add(identity.prop);
   lastBySide[message.side]=card.id;
@@ -349,6 +352,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false}={}){
   for(const g of gcache.values())g.dispose();gcache.clear();
   for(const m of mcache.values())m.dispose();mcache.clear();
   for(const texture of labels.values())texture.dispose();labels.clear();
+  staticBatcher?.dispose();
   for(const m of labelMaterials.values())m.dispose();labelMaterials.clear();
   root.removeFromParent();
  }
@@ -357,6 +361,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false}={}){
    played,expired,rejected,active:active.length,peakObjects,peakDraws,
    uniqueRenderedProps:distinctProps.size,shaderPointLights:0,
    cacheGeometries:gcache.size,cacheMaterials:mcache.size,
+   staticBatch:staticBatcher?.stats||{enabled:false},
    decalTextures:labels.size,hitAnimations,
    lastBySide:{...lastBySide},
    activeIds:active.map(a=>a.id)}}};
