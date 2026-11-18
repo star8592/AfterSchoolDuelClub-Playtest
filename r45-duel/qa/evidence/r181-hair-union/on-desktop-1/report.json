@@ -1,0 +1,473 @@
+{
+  "mode": "on",
+  "view": "desktop",
+  "run": 1,
+  "errors": [],
+  "batch": {
+    "enabled": true,
+    "batches": 19,
+    "mergedSourceMeshes": 148,
+    "replacementMeshes": 19,
+    "savedCallsNominal": 129,
+    "trianglesBefore": 11648,
+    "trianglesAfter": 11648,
+    "failed": 0,
+    "groups": [
+      {
+        "scope": "venue",
+        "occlusionClass": "always",
+        "count": 5,
+        "triangles": 60,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "e40ab61c-d32b-4b7f-a5ff-4df5f736145c",
+        "examples": [
+          "Court_Structure",
+          "Side_Bleacher_-1_0",
+          "Side_Bleacher_-1_2",
+          "Side_Bleacher_1_0",
+          "Side_Bleacher_1_2"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "always",
+        "count": 2,
+        "triangles": 24,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "90021593-adcc-4280-957b-eaa5c9891e7a",
+        "examples": [
+          "R49_North_Court_Apron",
+          "R49_South_Court_Apron"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "always",
+        "count": 4,
+        "triangles": 256,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "4bd3afad-8e83-4f64-8520-a5fe345f00d3",
+        "examples": [
+          "Conjuration_Aura_Ring",
+          "Gym_Sponsor_Rail",
+          "Duelist_Station_Rail_PLAYER",
+          "Duelist_Station_Rail_AI"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "front-120",
+        "count": 3,
+        "triangles": 36,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "d0f831b9-b398-4639-91f5-8c2ae6de28ab",
+        "examples": [
+          "Grandstand_Back_Tier_0",
+          "Grandstand_Back_Tier_2",
+          "Grandstand_Back_Tier_4"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "front-120",
+        "count": 7,
+        "triangles": 84,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "a484bc39-ef82-4c5c-9ae9-cd1059e1491c",
+        "examples": [
+          "Grandstand_Riser_0",
+          "Grandstand_Riser_1",
+          "Grandstand_Riser_2",
+          "Grandstand_Riser_3",
+          "Grandstand_Riser_4",
+          "Grandstand_Riser_5",
+          "Gym_Scoreboard_Body"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "front-120",
+        "count": 3,
+        "triangles": 36,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "a7055c43-2c86-479c-a8d0-6a3d1225e60a",
+        "examples": [
+          "Grandstand_Back_Tier_1",
+          "Grandstand_Back_Tier_3",
+          "Grandstand_Back_Tier_5"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "always",
+        "count": 17,
+        "triangles": 204,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "a484bc39-ef82-4c5c-9ae9-cd1059e1491c",
+        "examples": [
+          "Side_Riser_-1_0",
+          "Side_Riser_-1_1",
+          "Side_Riser_-1_2",
+          "Side_Riser_-1_3",
+          "Side_Riser_1_0",
+          "Side_Riser_1_1",
+          "Side_Riser_1_2",
+          "Side_Riser_1_3"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "always",
+        "count": 25,
+        "triangles": 300,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "f9a3191d-7404-45a8-a9b5-c48dec2e52ce",
+        "examples": [
+          "Side_Bleacher_-1_1",
+          "Side_Bleacher_-1_3",
+          "Side_Bleacher_1_1",
+          "Side_Bleacher_1_3",
+          "Structural_Pilaster_-10",
+          "Structural_Pilaster_-5",
+          "Structural_Pilaster_0",
+          "Structural_Pilaster_5"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "always",
+        "count": 5,
+        "triangles": 60,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "b58ebb7a-f8e4-496d-95cc-4b4d7995eb64",
+        "examples": [
+          "High_Window_-10",
+          "High_Window_-5",
+          "High_Window_0",
+          "High_Window_5",
+          "High_Window_10"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "always",
+        "count": 25,
+        "triangles": 300,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "d07efccb-1cc0-4354-9f01-def082e9766e",
+        "examples": [
+          "3D_Ceiling_Lamp_-8_-10",
+          "3D_Ceiling_Lamp_-4_-10",
+          "3D_Ceiling_Lamp_0_-10",
+          "3D_Ceiling_Lamp_4_-10",
+          "3D_Ceiling_Lamp_8_-10",
+          "3D_Ceiling_Lamp_-8_-5",
+          "3D_Ceiling_Lamp_-4_-5",
+          "3D_Ceiling_Lamp_0_-5"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "always",
+        "count": 4,
+        "triangles": 544,
+        "shadow": {
+          "cast": true,
+          "receive": true
+        },
+        "materialUuid": "4bd3afad-8e83-4f64-8520-a5fe345f00d3",
+        "examples": [
+          "Duelist_Platform_Inlay_PLAYER",
+          "Duelist_Platform_Inlay_AI",
+          "Court_Floodlight_Head_-1",
+          "Court_Floodlight_Head_1"
+        ]
+      },
+      {
+        "scope": "venue",
+        "occlusionClass": "always",
+        "count": 2,
+        "triangles": 24,
+        "shadow": {
+          "cast": true,
+          "receive": true
+        },
+        "materialUuid": "f9a3191d-7404-45a8-a9b5-c48dec2e52ce",
+        "examples": [
+          "Court_Floodlight_Mast_-1",
+          "Court_Floodlight_Mast_1"
+        ]
+      },
+      {
+        "scope": "decoration",
+        "occlusionClass": "always",
+        "count": 4,
+        "triangles": 48,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "9abc488e-8181-4b2e-bbc9-962eafdc08c3",
+        "examples": [
+          "Championship_Enamel_Court_Perimeter_0",
+          "Championship_Enamel_Court_Perimeter_1",
+          "Championship_Enamel_Court_Perimeter_2",
+          "Championship_Enamel_Court_Perimeter_3"
+        ]
+      },
+      {
+        "scope": "decoration",
+        "occlusionClass": "always",
+        "count": 11,
+        "triangles": 2424,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "3da9d81d-e74e-4bf0-bd3b-bf71c7025615",
+        "examples": [
+          "Center_Summoning_Brass_Outer",
+          "Duelist_Metal_Floor_Border_-1_-0.25",
+          "Duelist_Metal_Floor_Border_-1_0.7",
+          "Duelist_Metal_Floor_Border_-1_1.56",
+          "Duelist_Metal_Floor_Border_1_-0.25",
+          "Duelist_Metal_Floor_Border_1_0.7",
+          "Duelist_Metal_Floor_Border_1_1.56",
+          "Hanging_Competition_Scoreboard_Joint_-3.7"
+        ]
+      },
+      {
+        "scope": "decoration",
+        "occlusionClass": "always",
+        "count": 3,
+        "triangles": 2328,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "144464ec-7fed-4e1b-a9e7-8c24b04d5b47",
+        "examples": [
+          "Center_Summoning_Brass_Inner",
+          "Hanging_Competition_Scoreboard_Strut_-3.7",
+          "Hanging_Competition_Scoreboard_Strut_3.7"
+        ]
+      },
+      {
+        "scope": "decoration",
+        "occlusionClass": "always",
+        "count": 6,
+        "triangles": 2364,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "24d62a07-7c2f-42cf-a718-92d6ec076c1d",
+        "examples": [
+          "Player_Station_Halo",
+          "Duel_CardConsole_Light_Screen_-1",
+          "Gym_Backstage_Vertical_Light_-1_0",
+          "Gym_Backstage_Vertical_Light_-1_1",
+          "Gym_Backstage_Vertical_Light_-1_2",
+          "Gym_Backstage_Vertical_Light_-1_3"
+        ]
+      },
+      {
+        "scope": "decoration",
+        "occlusionClass": "always",
+        "count": 4,
+        "triangles": 48,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "a0255381-a5d3-4c8a-a244-291fecdefd7e",
+        "examples": [
+          "Duel_CardConsole_Display_Body_-1",
+          "Duel_CardConsole_Display_Body_1",
+          "Overhead_Production_Stage_Lamp_0",
+          "Overhead_Production_Stage_Lamp_1"
+        ]
+      },
+      {
+        "scope": "decoration",
+        "occlusionClass": "always",
+        "count": 6,
+        "triangles": 2364,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "193cc8c8-987d-450f-87f3-7c1962069f04",
+        "examples": [
+          "Rival_Station_Halo",
+          "Duel_CardConsole_Light_Screen_1",
+          "Gym_Backstage_Vertical_Light_1_0",
+          "Gym_Backstage_Vertical_Light_1_1",
+          "Gym_Backstage_Vertical_Light_1_2",
+          "Gym_Backstage_Vertical_Light_1_3"
+        ]
+      },
+      {
+        "scope": "decoration",
+        "occlusionClass": "front-120",
+        "count": 12,
+        "triangles": 144,
+        "shadow": {
+          "cast": false,
+          "receive": true
+        },
+        "materialUuid": "144464ec-7fed-4e1b-a9e7-8c24b04d5b47",
+        "examples": [
+          "Stadium_Bleacher_Safety_Rail_10_-9",
+          "Stadium_Bleacher_Rail_Post_10_-9",
+          "Stadium_Bleacher_Safety_Rail_10_9",
+          "Stadium_Bleacher_Rail_Post_10_9",
+          "Stadium_Bleacher_Safety_Rail_20_-9",
+          "Stadium_Bleacher_Rail_Post_20_-9",
+          "Stadium_Bleacher_Safety_Rail_20_9",
+          "Stadium_Bleacher_Rail_Post_20_9"
+        ]
+      }
+    ],
+    "errors": []
+  },
+  "hair": {
+    "enabled": true,
+    "checked": 255,
+    "candidates": 3,
+    "sourceMeshes": 222,
+    "resultMeshes": 3,
+    "savedDraws": 219,
+    "indexCountBefore": 64740,
+    "indexCountAfter": 64740,
+    "rollbacks": 0,
+    "skipped": [],
+    "groups": [
+      {
+        "actor": "R74_PERMANENT_DUELIST_E01",
+        "material": "F00_000_Hair_00_HAIR_01_R105_DISTINCT_HOST",
+        "originalMeshes": 106,
+        "mergedMesh": "R181_HAIR_INDEX_UNION_R74_PERMANENT_DUELIST_E01_0",
+        "originalIndices": 36816,
+        "mergedIndices": 36816,
+        "vertexCount": 10028,
+        "skinBones": 119,
+        "originalMaterialUuid": "c00d8693-b80e-4ffd-a165-c58a73596c23",
+        "sharedArraysPreserved": true,
+        "trianglesPreserved": true
+      },
+      {
+        "actor": "R74_PERMANENT_DUELIST_E01",
+        "material": "F00_000_Hair_00_HAIR_02_R105_DISTINCT_HOST",
+        "originalMeshes": 2,
+        "mergedMesh": "R181_HAIR_INDEX_UNION_R74_PERMANENT_DUELIST_E01_1",
+        "originalIndices": 336,
+        "mergedIndices": 336,
+        "vertexCount": 10028,
+        "skinBones": 119,
+        "originalMaterialUuid": "71b21089-1150-4eab-883d-ff61c7a93169",
+        "sharedArraysPreserved": true,
+        "trianglesPreserved": true
+      },
+      {
+        "actor": "R74_PERMANENT_DUELIST_G01",
+        "material": "F00_000_Hair_00_HAIR_R105_DISTINCT_HOST",
+        "originalMeshes": 114,
+        "mergedMesh": "R181_HAIR_INDEX_UNION_R74_PERMANENT_DUELIST_G01_2",
+        "originalIndices": 27588,
+        "mergedIndices": 27588,
+        "vertexCount": 7775,
+        "skinBones": 91,
+        "originalMaterialUuid": "a31394d6-ab39-4d34-8c47-9510ed19a0e5",
+        "sharedArraysPreserved": true,
+        "trianglesPreserved": true
+      }
+    ]
+  },
+  "render": {
+    "drawCallsLastFrame": 415,
+    "estimatedMeshes": 410,
+    "roots": [
+      {
+        "name": "R45_Real_3D_Stadium",
+        "meshCount": 344,
+        "skinned": 10,
+        "instanced": 14,
+        "materials": 344,
+        "groups": 81
+      },
+      {
+        "name": "R123_Persistent_Real_Spectator_Props",
+        "meshCount": 27,
+        "skinned": 0,
+        "instanced": 4,
+        "materials": 27,
+        "groups": 9
+      },
+      {
+        "name": "R74_PERMANENT_DUELIST_E01",
+        "meshCount": 18,
+        "skinned": 18,
+        "instanced": 0,
+        "materials": 18,
+        "groups": 6
+      },
+      {
+        "name": "R74_PERMANENT_DUELIST_G01",
+        "meshCount": 18,
+        "skinned": 18,
+        "instanced": 0,
+        "materials": 18,
+        "groups": 6
+      },
+      {
+        "name": "R81_Real_Time_Stadium_Jumbotron",
+        "meshCount": 3,
+        "skinned": 0,
+        "instanced": 0,
+        "materials": 3,
+        "groups": 1
+      }
+    ]
+  },
+  "sourceModels": 16,
+  "sourceBytes": 75569762,
+  "readyMs": 4107,
+  "art": [
+    "E06",
+    "K01",
+    "K07"
+  ],
+  "noFloatingPortrait": true,
+  "pass": true
+}

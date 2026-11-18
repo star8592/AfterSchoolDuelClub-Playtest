@@ -1,0 +1,16 @@
+Source: Android 15 ActivityManager exit-info for com.android.chrome, Samsung SM-G9910
+          timestamp=2026-11-18 17:19:33.961 pid=32659 realUid=90001 packageUid=10262 definingUid=10262 user=0
+          process=com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:12 reason=3 (LOW_MEMORY) subreason=0 (UNKNOWN) status=0
+          importance=230 pss=0.00 rss=120MB description=null state=empty trace=null
+
+          timestamp=2026-11-18 17:19:36.600 pid=2112 realUid=90002 packageUid=10262 definingUid=10262 user=0
+          process=com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:13 reason=3 (LOW_MEMORY) subreason=0 (UNKNOWN) status=0
+          importance=100 pss=0.00 rss=148MB description=null state=empty trace=null
+
+          timestamp=2026-11-18 17:09:40.493 pid=26403 realUid=90009 packageUid=10262 definingUid=10262 user=0
+          process=com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:9 reason=3 (LOW_MEMORY) subreason=0 (UNKNOWN) status=0
+          importance=100 pss=0.00 rss=869MB description=null state=empty trace=null
+
+          timestamp=2026-11-18 17:09:38.151 pid=26961 realUid=90010 packageUid=10262 definingUid=10262 user=0
+          process=com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:10 reason=3 (LOW_MEMORY) subreason=0 (UNKNOWN) status=0
+          importance=230 pss=0.00 rss=0.00 description=null state=empty trace=null

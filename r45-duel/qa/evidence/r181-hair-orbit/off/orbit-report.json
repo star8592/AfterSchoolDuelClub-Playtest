@@ -1,0 +1,154 @@
+{
+  "batch": false,
+  "errors": [],
+  "shots": [
+    {
+      "angle": 0,
+      "yaw": 0,
+      "occlusion": {
+        "championshipVisible": true,
+        "reverseVisible": false
+      },
+      "frontSeats": {
+        "cushionZ": -6.36,
+        "backrestZ": -6.69,
+        "seatCount": 198,
+        "visible": true
+      },
+      "reverseSeats": {
+        "cushionZ": 6.36,
+        "backrestZ": 6.69,
+        "seatCount": 198,
+        "visible": false
+      },
+      "draws": 634,
+      "batch": false,
+      "rig": [
+        {
+          "name": "R74_PERMANENT_DUELIST_E01",
+          "meshes": 124,
+          "materials": 124,
+          "morphTargets": 10,
+          "skeletons": 124,
+          "approxTriangles": 27068,
+          "distinctMaterialSkinAttributeGroups": 124,
+          "repeatedEquivalentSignatureGroups": 0,
+          "theoreticalSameSignatureMeshesToSave": 0,
+          "mostRepeated": []
+        },
+        {
+          "name": "R74_PERMANENT_DUELIST_G01",
+          "meshes": 131,
+          "materials": 131,
+          "morphTargets": 10,
+          "skeletons": 131,
+          "approxTriangles": 24858,
+          "distinctMaterialSkinAttributeGroups": 131,
+          "repeatedEquivalentSignatureGroups": 0,
+          "theoreticalSameSignatureMeshesToSave": 0,
+          "mostRepeated": []
+        }
+      ],
+      "pass": true
+    },
+    {
+      "angle": 90,
+      "yaw": 89.86,
+      "occlusion": {
+        "championshipVisible": true,
+        "reverseVisible": false
+      },
+      "frontSeats": {
+        "cushionZ": -6.36,
+        "backrestZ": -6.69,
+        "seatCount": 198,
+        "visible": true
+      },
+      "reverseSeats": {
+        "cushionZ": 6.36,
+        "backrestZ": 6.69,
+        "seatCount": 198,
+        "visible": false
+      },
+      "draws": 624,
+      "batch": false,
+      "rig": [
+        {
+          "name": "R74_PERMANENT_DUELIST_E01",
+          "meshes": 124,
+          "materials": 124,
+          "morphTargets": 10,
+          "skeletons": 124,
+          "approxTriangles": 27068,
+          "distinctMaterialSkinAttributeGroups": 124,
+          "repeatedEquivalentSignatureGroups": 0,
+          "theoreticalSameSignatureMeshesToSave": 0,
+          "mostRepeated": []
+        },
+        {
+          "name": "R74_PERMANENT_DUELIST_G01",
+          "meshes": 131,
+          "materials": 131,
+          "morphTargets": 10,
+          "skeletons": 131,
+          "approxTriangles": 24858,
+          "distinctMaterialSkinAttributeGroups": 131,
+          "repeatedEquivalentSignatureGroups": 0,
+          "theoreticalSameSignatureMeshesToSave": 0,
+          "mostRepeated": []
+        }
+      ],
+      "pass": true
+    },
+    {
+      "angle": 180,
+      "yaw": 179.86,
+      "occlusion": {
+        "championshipVisible": false,
+        "reverseVisible": true
+      },
+      "frontSeats": {
+        "cushionZ": -6.36,
+        "backrestZ": -6.69,
+        "seatCount": 198,
+        "visible": false
+      },
+      "reverseSeats": {
+        "cushionZ": 6.36,
+        "backrestZ": 6.69,
+        "seatCount": 198,
+        "visible": true
+      },
+      "draws": 618,
+      "batch": false,
+      "rig": [
+        {
+          "name": "R74_PERMANENT_DUELIST_E01",
+          "meshes": 124,
+          "materials": 124,
+          "morphTargets": 10,
+          "skeletons": 124,
+          "approxTriangles": 27068,
+          "distinctMaterialSkinAttributeGroups": 124,
+          "repeatedEquivalentSignatureGroups": 0,
+          "theoreticalSameSignatureMeshesToSave": 0,
+          "mostRepeated": []
+        },
+        {
+          "name": "R74_PERMANENT_DUELIST_G01",
+          "meshes": 131,
+          "materials": 131,
+          "morphTargets": 10,
+          "skeletons": 131,
+          "approxTriangles": 24858,
+          "distinctMaterialSkinAttributeGroups": 131,
+          "repeatedEquivalentSignatureGroups": 0,
+          "theoreticalSameSignatureMeshesToSave": 0,
+          "mostRepeated": []
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

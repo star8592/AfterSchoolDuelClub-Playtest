@@ -1,0 +1,109 @@
+{
+  "release": "NO_GO",
+  "revision": "R181",
+  "date": "2026-11-18",
+  "originalModels": 16,
+  "originalSourceBytes": 75569762,
+  "desktop": {
+    "beforeCalls": 634,
+    "afterCalls": 415,
+    "saved": 219,
+    "hairSourceMeshes": 222,
+    "hairUnionMeshes": 3,
+    "indicesBefore": 64740,
+    "indicesAfter": 64740,
+    "sameBoneRefs": true,
+    "sameBindMatrices": true,
+    "sameMaterialObjects": true,
+    "morphedMeshesPreserved": 20,
+    "angleAB": [
+      {
+        "angle": 0,
+        "beforeCalls": 634,
+        "afterCalls": 415,
+        "savedCalls": 219,
+        "meanAbsRgb": 0.0449,
+        "pixelsOver25Ratio": 0.000741,
+        "preservedMorphedMeshes": 20
+      },
+      {
+        "angle": 90,
+        "beforeCalls": 624,
+        "afterCalls": 405,
+        "savedCalls": 219,
+        "meanAbsRgb": 0.1226,
+        "pixelsOver25Ratio": 0.001878,
+        "preservedMorphedMeshes": 20
+      },
+      {
+        "angle": 180,
+        "beforeCalls": 618,
+        "afterCalls": 399,
+        "savedCalls": 219,
+        "meanAbsRgb": 0.1999,
+        "pixelsOver25Ratio": 0.003085,
+        "preservedMorphedMeshes": 20
+      }
+    ],
+    "completeSpellAB": {
+      "OFF": {
+        "93spellsPassed": true,
+        "readyMs": 6131,
+        "maxRafMs": 33.4,
+        "longTaskMaxMs": 0,
+        "shaderDelta": 2
+      },
+      "ON": {
+        "93spellsPassed": true,
+        "readyMs": 5500,
+        "maxRafMs": 33.3,
+        "longTaskMaxMs": 0,
+        "shaderDelta": 2
+      }
+    }
+  },
+  "mobileViewportOnDesktopGPU": {
+    "off": {
+      "calls": 636,
+      "readyMs": 6441,
+      "sourceActors": 16,
+      "allOriginalBytes": 75569762
+    },
+    "on": {
+      "calls": 417,
+      "readyMs": 5938,
+      "sourceActors": 16,
+      "allOriginalBytes": 75569762
+    }
+  },
+  "genuineAndroid": {
+    "model": "Samsung SM-G9910 Android 15 Chrome157 Adreno660",
+    "gpuPreflight": {
+      "pass": true,
+      "renderer": "ANGLE (Qualcomm, Adreno (TM) 660, OpenGL ES 3.2)",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "vendor": "WebKit",
+      "maxTexture": 8192,
+      "maxSamples": 4,
+      "dpr": 3,
+      "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Mobile Safari/537.36",
+      "frameP95Ms": 16.700000000000045,
+      "frameMaxMs": 16.800000000000068,
+      "time": 1794993478127
+    },
+    "firstCoreHairOnPassRecordedIn": "r181-real-android/process-140101-verbatim.log",
+    "firstCoreHairOnCalls": 417,
+    "coreHairOffPass": true,
+    "coreHairOffCalls": 636,
+    "coreHairOnRetestCrash": true,
+    "fullArtQaCrashWithOrWithoutHair": true,
+    "systemExitReason": "LOW_MEMORY",
+    "stableAndroidPlaytest": false
+  },
+  "art": {
+    "true3dCandidates": 3,
+    "proceduralPrototypes": 43,
+    "visuallyAccepted": 0
+  },
+  "limits": "Android results are intermittent; do not claim phone FPS improved. Pixel comparisons may include animation phase. Source VRM face morphs remain untouched. All experimental flags QA-only default off."
+}

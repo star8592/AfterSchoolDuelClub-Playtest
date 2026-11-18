@@ -13,6 +13,7 @@ import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-a
 import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
+import {createSkinnedIndexUnion} from './skinned-index-union.mjs';
 import {createCampusSchoolMagic} from './campus-school-magic.mjs';
 import {schoolGestureForCard} from './campus-spell-gesture.mjs';
 import {schoolHitReactionForCard} from './campus-spell-hit-reaction.mjs';
@@ -73,6 +74,14 @@ const R179_PRIME_FROG=(()=>{
   (PARAMS.get('r179PrimeFrog')??pp?.get('r179PrimeFrog'))==='on';
 })();
 let r179FrogGpuReceipt=null;
+// R181 QA-only identity-preserving hair index union. Default OFF.
+const R181_HAIR_BATCH=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r181HairBatch')??pp?.get('r181HairBatch'))==='on';
+})();
+let r181HairBatchReceipt=null;
 const R180_STADIUM_BATCH=(()=>{
  const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
   catch{return null}})();
@@ -1612,6 +1621,138 @@ function exposeQA(){
   get impactFrames(){return impactFrames},
   get drawCalls(){return drawCount},
   get r180StadiumBatch(){return stadiumEvidence?.r180StaticBatch||{enabled:false}},
+  get r181HairBatch(){return r181HairBatchReceipt||{enabled:false}},
+  // R181 no-write forensic survey: actual live source SkinnedMesh materials,
+  // skinning topology, bind matrices and morphs. Never guesses equivalence from
+  // UUID alone; does NOT rewrite VRM skeletal hierarchy or shader code.
+  get r181IndexUnionCandidates(){
+   return ['R74_PERMANENT_DUELIST_E01','R74_PERMANENT_DUELIST_G01'].map(name=>{
+    const actor=scene.getObjectByName(name),bins=new Map();
+    actor?.traverse(o=>{
+     if(!o.isSkinnedMesh)return;
+     const m=Array.isArray(o.material)?o.material[0]:o.material;
+     const key=m?.uuid||'none';
+     if(!bins.has(key))bins.set(key,[]);
+     bins.get(key).push(o);
+    });
+    const groups=[];
+    for(const meshes of bins.values()){
+     const source=meshes[0],a=source.geometry.attributes;
+     const firstInverse=source.skeleton?.boneInverses;
+     const identicalInv=o=>o.skeleton?.boneInverses?.length===firstInverse?.length&&
+      o.skeleton.boneInverses.every((b,i)=>b.equals(firstInverse[i]));
+     const identicalBones=o=>o.skeleton?.bones?.length===source.skeleton?.bones?.length&&
+      o.skeleton.bones.every((b,i)=>b===source.skeleton.bones[i]);
+     const sameAttributes=o=>{
+      const keys=Object.keys(a);
+      const ours=o.geometry?.attributes;
+      return keys.length===Object.keys(ours).length&&keys.every(k=>
+       ours[k]?.array===a[k]?.array &&
+       ours[k]?.itemSize===a[k]?.itemSize &&
+       ours[k]?.normalized===a[k]?.normalized &&
+       ours[k]?.count===a[k]?.count);
+     };
+     groups.push({
+      materialName:source.material?.name||'',materialUuid:source.material?.uuid,
+      materialType:source.material?.type,opacity:source.material?.opacity,
+      transparent:source.material?.transparent,alphaTest:source.material?.alphaTest,
+      blending:source.material?.blending,side:source.material?.side,
+      count:meshes.length,
+      identicalBoneReferences:meshes.filter(identicalBones).length,
+      identicalBoneInverseValues:meshes.filter(identicalInv).length,
+      identicalAttributeTypedArrays:meshes.filter(sameAttributes).length,
+      identicalMaterialReference:meshes.filter(m=>m.material===source.material).length,
+      identityBindMatrix:meshes.filter(m=>m.bindMatrix.equals(source.bindMatrix)).length,
+      identityBindMode:meshes.filter(m=>m.bindMode===source.bindMode).length,
+      identityLocalMatrix:meshes.filter(m=>m.matrix.equals(source.matrix)).length,
+      indexedMeshes:meshes.filter(m=>!!m.geometry.index).length,
+      groupingEntries:meshes.reduce((n,m)=>n+(m.geometry?.groups?.length||0),0),
+      morphMeshes:meshes.filter(m=>Object.keys(m.geometry.morphAttributes||{}).length>0).length,
+      drawRanges:meshes.slice(0,5).map(m=>[m.geometry.drawRange.start,m.geometry.drawRange.count]),
+      attributeKeys:Object.keys(a),
+      indexRange:meshes.slice(0,5).map(m=>({
+       vertexCount:m.geometry.attributes.position.count,
+       indexCount:m.geometry.index?.count||0,
+       indexMax:m.geometry.index?
+        Math.max(...m.geometry.index.array.subarray(0,Math.min(3000,m.geometry.index.count))):0
+      })),
+      sourceMeshExamples:meshes.slice(0,5).map(m=>m.name)
+     });
+    }
+    return{name,groups:groups.sort((a,b)=>b.count-a.count)};
+   });
+  },
+  get r181SkinForensics(){
+   const names=['R74_PERMANENT_DUELIST_E01','R74_PERMANENT_DUELIST_G01'];
+   const materialFingerprint=m=>{
+    if(!m)return 'missing';
+    const channels=[
+     m.type,m.name||'',m.color?.getHexString()||'',
+     m.emissive?.getHexString()||'',m.emissiveIntensity||0,
+     m.roughness,m.metalness,m.opacity,m.alphaTest,m.side,
+     m.transparent,m.depthTest,m.depthWrite,m.blending,
+     m.flatShading,m.vertexColors,m.skinning,m.toneMapped,
+     m.normalScale?.toArray()?.join(','),m.envMapIntensity,
+     m.map?.uuid,m.normalMap?.uuid,m.roughnessMap?.uuid,
+     m.metalnessMap?.uuid,m.emissiveMap?.uuid,m.alphaMap?.uuid,
+     m.aoMap?.uuid,m.roughnessMap?.uuid,
+     m.onBeforeCompile?.toString()?.slice(0,240),m.customProgramCacheKey?.()
+    ];
+    return JSON.stringify(channels);
+   };
+   return names.map(name=>{
+    const actor=scene.getObjectByName(name);
+    const skins=[],byMaterial=new Map(),bySkeleton=new Map(),
+     bySameBones=new Map(),byMaterialAppearance=new Map(),byGeometry=new Map();
+    actor?.traverse(o=>{
+     if(!o.isSkinnedMesh)return;
+     const s=o.skeleton,geo=o.geometry,m=Array.isArray(o.material)?o.material[0]:o.material;
+     const bonesKey=s?.bones?.map(b=>b.uuid).join('|')||'none';
+     const inverseKey=s?.boneInverses?.map(inv=>inv.elements.map(x=>x.toFixed(5)).join(',')).join('|')||'none';
+     const geomKey=JSON.stringify({
+      attrs:Object.fromEntries(Object.entries(geo.attributes||{}).map(([k,a])=>[k,[a.count,a.itemSize]])),
+      indexed:!!geo.index,morph:Object.keys(geo.morphAttributes||{}),
+      triangles:(geo.index?.count||geo.attributes.position.count)/3
+     });
+     const materialKey=materialFingerprint(m);
+     const increment=(map,key)=>map.set(key,(map.get(key)||0)+1);
+     increment(byMaterial,m?.uuid||'none');
+     increment(bySkeleton,s?.uuid||'none');
+     increment(bySameBones,bonesKey);
+     increment(byMaterialAppearance,materialKey);
+     increment(byGeometry,geomKey);
+     skins.push({
+      name:o.name,uuid:o.uuid,
+      materialName:m?.name,materialType:m?.type,
+      hasMap:!!m?.map,hasNormalMap:!!m?.normalMap,
+      transparent:!!m?.transparent,side:m?.side,
+      skeletonBones:s?.bones?.length||0,
+      firstBone:s?.bones?.[0]?.name||null,
+      identicalBoneKey:bonesKey,
+      inverseSignature:inverseKey,
+      bindMode:o.bindMode,bindMatrix:o.bindMatrix.elements.map(x=>+x.toFixed(5)),
+      meshWorldScale:o.scale.toArray(),
+      vertexCount:geo.attributes.position.count,
+      triangleCount:(geo.index?.count||geo.attributes.position.count)/3,
+      skinIndexWidth:geo.attributes.skinIndex?.itemSize,
+      morphNames:Object.keys(geo.morphAttributes||{}),
+      geometryKey:geomKey,materialKey
+     });
+    });
+    const summary=map=>({unique:map.size,repeatGroups:[...map.values()].filter(x=>x>1).length,
+     repeatMeshes:[...map.values()].reduce((a,n)=>a+Math.max(0,n-1),0),
+     highest:[...map.values()].sort((a,b)=>b-a).slice(0,8)});
+    return{name,count:skins.length,
+     material:summary(byMaterial),
+     skeleton:summary(bySkeleton),
+     sameBoneOrder:summary(bySameBones),
+     materialAppearance:summary(byMaterialAppearance),
+     geometryLayout:summary(byGeometry),
+     sample:skins.slice(0,8),
+     // Complete no-PII technical identifiers for any actual asset recook.
+     raw:skins};
+   });
+  },
   get r180SkinAudit(){
    const roles=['R74_PERMANENT_DUELIST_E01','R74_PERMANENT_DUELIST_G01'];
    return roles.map(name=>{
@@ -1766,6 +1907,11 @@ try{
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
  makeDuelistHosts();
+ if(R181_HAIR_BATCH){
+  const union=createSkinnedIndexUnion(THREE);
+  for(const a of duelistHosts)union.process(a.pivot);
+  r181HairBatchReceipt=union.stats;
+ }
  handCards?.attach(duelistHosts);
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
