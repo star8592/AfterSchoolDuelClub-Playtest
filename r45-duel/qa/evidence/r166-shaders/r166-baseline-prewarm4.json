@@ -1,0 +1,370 @@
+{
+  "started": "2026-11-18T00:58:32.604Z",
+  "order": [
+    "baseline",
+    "prewarm4"
+  ],
+  "device": "Z890 RTX5070Ti Chrome Vulkan",
+  "cases": [
+    {
+      "variant": "baseline",
+      "pass": true,
+      "count": 0,
+      "errors": [],
+      "base": {
+        "programs": {
+          "enabled": true,
+          "programs": 45,
+          "lights": {
+            "point": 4,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 734
+        },
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60
+      },
+      "warmup": null,
+      "spells": [
+        {
+          "repeat": 0,
+          "before": {
+            "programs": {
+              "enabled": true,
+              "programs": 48,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 951
+            },
+            "played": 0,
+            "impact": 0,
+            "longtasks": 1
+          },
+          "during": {
+            "enabled": true,
+            "programs": 84,
+            "lights": {
+              "point": 6,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "rendererDraws": 1024
+          },
+          "after": {
+            "programs": {
+              "enabled": true,
+              "programs": 110,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "tasks": [
+              {
+                "start": 5565.6,
+                "duration": 234
+              }
+            ]
+          },
+          "frame": {
+            "n": 100,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 233.4,
+            "max": 233.4,
+            "over33": 9,
+            "over50": 1
+          }
+        },
+        {
+          "repeat": 1,
+          "before": {
+            "programs": {
+              "enabled": true,
+              "programs": 110,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "played": 1,
+            "impact": 1,
+            "longtasks": 2
+          },
+          "during": {
+            "enabled": true,
+            "programs": 115,
+            "lights": {
+              "point": 6,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "rendererDraws": 1002
+          },
+          "after": {
+            "programs": {
+              "enabled": true,
+              "programs": 110,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "tasks": []
+          },
+          "frame": {
+            "n": 100,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 50.1,
+            "max": 50.1,
+            "over33": 3,
+            "over50": 1
+          }
+        }
+      ],
+      "final": {
+        "shader": {
+          "enabled": true,
+          "programs": 110,
+          "lights": {
+            "point": 4,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 929
+        },
+        "modelIdentity": true,
+        "cameraSafe": true,
+        "spells": 2
+      }
+    },
+    {
+      "variant": "prewarm4",
+      "pass": true,
+      "count": 4,
+      "errors": [],
+      "base": {
+        "programs": {
+          "enabled": true,
+          "programs": 45,
+          "lights": {
+            "point": 4,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 734
+        },
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60
+      },
+      "warmup": {
+        "count": 4,
+        "before": {
+          "enabled": true,
+          "programs": 45,
+          "lights": {
+            "point": 4,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 734
+        },
+        "during": {
+          "enabled": true,
+          "programs": 45,
+          "lights": {
+            "point": 8,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 734
+        },
+        "compiled": {
+          "enabled": true,
+          "programs": 86,
+          "lights": {
+            "point": 8,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 734
+        },
+        "compileBlockingMs": 57.4,
+        "warning": "This blocks during pre-game and may not match actual shader variants; not a production optimization"
+      },
+      "spells": [
+        {
+          "repeat": 0,
+          "before": {
+            "programs": {
+              "enabled": true,
+              "programs": 92,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 951
+            },
+            "played": 0,
+            "impact": 0,
+            "longtasks": 2
+          },
+          "during": {
+            "enabled": true,
+            "programs": 128,
+            "lights": {
+              "point": 6,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "rendererDraws": 1024
+          },
+          "after": {
+            "programs": {
+              "enabled": true,
+              "programs": 154,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "tasks": [
+              {
+                "start": 5462.4,
+                "duration": 119
+              }
+            ]
+          },
+          "frame": {
+            "n": 100,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 116.7,
+            "max": 116.7,
+            "over33": 12,
+            "over50": 1
+          }
+        },
+        {
+          "repeat": 1,
+          "before": {
+            "programs": {
+              "enabled": true,
+              "programs": 154,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "played": 1,
+            "impact": 1,
+            "longtasks": 3
+          },
+          "during": {
+            "enabled": true,
+            "programs": 159,
+            "lights": {
+              "point": 6,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "rendererDraws": 1002
+          },
+          "after": {
+            "programs": {
+              "enabled": true,
+              "programs": 154,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "tasks": []
+          },
+          "frame": {
+            "n": 100,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "max": 33.4,
+            "over33": 14,
+            "over50": 0
+          }
+        }
+      ],
+      "final": {
+        "shader": {
+          "enabled": true,
+          "programs": 154,
+          "lights": {
+            "point": 4,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 929
+        },
+        "modelIdentity": true,
+        "cameraSafe": true,
+        "spells": 2
+      }
+    }
+  ]
+}

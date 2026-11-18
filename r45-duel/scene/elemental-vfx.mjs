@@ -29,7 +29,7 @@ export function presetForCard(item) {
   const kind=item.kind==='unit'?'portal':EFFECT_BY_CARD[item.id]||'glyph';
   return {kind,element,side:item.side,cardId:item.id};
 }
-export function createElementalVfx(THREE,scene,{reducedMotion=false}={}) {
+export function createElementalVfx(THREE,scene,{reducedMotion=false,lightPool=null}={}) {
   const root=new THREE.Group();root.name='R79_Original_Elemental_Cast_Events';
   scene.add(root);
   const active=[];
@@ -185,8 +185,8 @@ export function createElementalVfx(THREE,scene,{reducedMotion=false}={}) {
       const b=bolt(group,palette[i%3],17+11*i+cardId.charCodeAt(0));
       bolts.push(b);
     }
-    const light=new THREE.PointLight(palette[0],0,3.6,2);
-    light.position.y=1.33;group.add(light);
+    const light=lightPool?lightPool.acquire(group,palette[0],0,1.33,0,3.6,2):new THREE.PointLight(palette[0],0,3.6,2);
+    if(!lightPool){light.position.y=1.33;group.add(light)}
     active.push({kind,element,group,created:now,duration:reducedMotion?.72:DURATIONS[kind],
       disk,floor,floor2,arch,core,burst,vortex,insignia,shards,bolts,light});
     played++;
@@ -194,6 +194,7 @@ export function createElementalVfx(THREE,scene,{reducedMotion=false}={}) {
     return true;
   }
   function destroy(a){
+    lightPool?.release(a.light);
     root.remove(a.group);
     a.group.traverse(o=>{
       // Shared geometry (torus, shard, ring, orb) is disposed once in dispose().

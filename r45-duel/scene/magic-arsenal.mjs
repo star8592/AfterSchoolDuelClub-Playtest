@@ -37,7 +37,7 @@ const palettes={
  tide:['#77c9f5','#d5ebff','#6f8df5']
 };
 
-export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
+export function createMagicArsenal(THREE,scene,{reducedMotion=false,lightPool=null}={}){
  const root=new THREE.Group();
  root.name='R111_Campus_30_Magic_Motif_Arsenal';scene.add(root);
  const active=[];
@@ -312,11 +312,13 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
   const floor=hoop(group,.34,secondary,{role:'pulse',glow:false});
   floor.position.y=.04;floor.material.opacity=.23;
   auraParticles(group,primary,c.id.charCodeAt(0)*101+Number(c.id.slice(1)));
-  const flash=new THREE.PointLight(primary,0,3.0,2);flash.position.y=1.1;group.add(flash);
+  const flash=lightPool?lightPool.acquire(group,primary,0,1.1,0,3,2):new THREE.PointLight(primary,0,3.0,2);
+  if(!lightPool){flash.position.y=1.1;group.add(flash)}
   return flash;
  }
 
  function destroy(a){
+  lightPool?.release(a.light);
   root.remove(a.group);
   a.group.traverse(o=>{
    o.material?.dispose?.();

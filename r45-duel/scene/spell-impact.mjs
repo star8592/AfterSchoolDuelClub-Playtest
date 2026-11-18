@@ -31,7 +31,7 @@ export const SPELL_CHOREOGRAPHY=Object.freeze({
    target:c.effect==='blast'?'enemy':'allies'}),label:c.name}]))
 });
 const smooth=v=>{const x=Math.min(1,Math.max(0,v));return x*x*(3-2*x)};
-export function createSpellImpact(THREE,scene){
+export function createSpellImpact(THREE,scene,{lightPool=null}={}){
  const root=new THREE.Group();root.name='R81_Resolved_Spell_Impact_Choreography';scene.add(root);
  const active=[];let played=0,hits=0,noHit=0,expired=0;
  const additive=THREE.AdditiveBlending;
@@ -95,7 +95,8 @@ export function createSpellImpact(THREE,scene){
     g.add(line);bolts.push({line,array});
    }
   }
-  const flash=new THREE.PointLight(color,0,5.0,2);flash.position.set(0,1.35,0);g.add(flash);
+  const flash=lightPool?lightPool.acquire(g,color,0,1.35,0,5.0,2):new THREE.PointLight(color,0,5.0,2);
+  if(!lightPool){flash.position.set(0,1.35,0);g.add(flash)}
   const duration=recipe.kind==='eraser'?1.52:recipe.kind==='sonic'?1.68:1.45;
   active.push({g,rings,core,projectiles,bolts,flash,recipe,side,created:now,duration,
    validHits,damage:m.damage||0,serial:m.serial,color});
@@ -104,6 +105,7 @@ export function createSpellImpact(THREE,scene){
   return true;
  }
  function disposeOne(a){
+  lightPool?.release(a.flash);
   root.remove(a.g);a.g.traverse(o=>{
    if(o.material){const arr=Array.isArray(o.material)?o.material:[o.material];arr.forEach(m=>m.dispose());}
    // Shared circle, orb and eraser geometries disposed after all effects.

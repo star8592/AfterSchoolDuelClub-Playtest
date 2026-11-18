@@ -6,7 +6,7 @@
 import {ELEMENTS} from './spell-response-contract.mjs';
 const clamp=x=>Math.min(1,Math.max(0,x));
 const smooth=x=>{const t=clamp(x);return t*t*(3-2*t)};
-export function createSpellContactFX(THREE,scene,{reducedMotion=false}={}){
+export function createSpellContactFX(THREE,scene,{reducedMotion=false,lightPool=null}={}){
  const root=new THREE.Group();root.name='R121_Elemental_Real_Target_Contacts';
  scene.add(root);
  const active=[];const MAX=8;
@@ -170,8 +170,8 @@ export function createSpellContactFX(THREE,scene,{reducedMotion=false}={}){
     line.userData={role:'bolt',baseOpacity:.9,phase:i};parts.push(line);
    }
   }
-  const light=new THREE.PointLight(color,0,reducedMotion?1.6:2.3,2);
-  light.position.y=1.14;group.add(light);
+  const light=lightPool?lightPool.acquire(group,color,0,1.14,0,reducedMotion?1.6:2.3,2):new THREE.PointLight(color,0,reducedMotion?1.6:2.3,2);
+  if(!lightPool){light.position.y=1.14;group.add(light)}
   const duration=reducedMotion?.46:signature.element==='ice'||signature.element==='time'?1.02:.82;
   active.push({group,parts,light,element:signature.element,started:now,duration,
    id:signature.id,target:kind});
@@ -180,6 +180,7 @@ export function createSpellContactFX(THREE,scene,{reducedMotion=false}={}){
   return true;
  }
  function disposeOne(fx){
+  lightPool?.release(fx.light);
   fx.group.removeFromParent();
   fx.group.traverse(o=>{o.geometry?.dispose?.();o.material?.dispose?.()});
   expired++;
