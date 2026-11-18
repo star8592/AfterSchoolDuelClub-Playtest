@@ -1,0 +1,47 @@
+{
+  "release": "R164 QA-only / no production deployment",
+  "functionalCases": 3,
+  "functionalPassed": true,
+  "originalAssetsChanged": false,
+  "original16ModelsPreserved": true,
+  "original60CardsPreserved": true,
+  "playersForegroundPortraitHiddenInBroadcastMode": true,
+  "stadiumScoreboardClearanceVerified": true,
+  "mobilePhysicalHardwareTested": false,
+  "liveTVVisualDifferences": {
+    "desktop": {
+      "tvAreaPixels": [
+        938,
+        118,
+        1183,
+        253
+      ],
+      "castVsHitMeanAbsRGB": [
+        12.652,
+        5.827,
+        5.557
+      ]
+    },
+    "mobile": {
+      "tvAreaPixels": [
+        587,
+        541,
+        839,
+        685
+      ],
+      "castVsHitMeanAbsRGB": [
+        9.604,
+        4.25,
+        4.032
+      ]
+    }
+  },
+  "performanceFiles": [
+    "r164-perf-desktop-off-on.json",
+    "r164-perf-mobile-off-on-idle.json",
+    "r164-perf-mobile-off-on.json",
+    "r164-perf-mobile-on-off.json"
+  ],
+  "performanceDecision": "NO GO for automatic default: mobile hit-frame p95 has increased from approximately 33 to 50 ms in reversed A/B runs; idle scheduling trial was rejected.",
+  "currentLiveMode": "synchronous capped 18 Hz desktop / 12 Hz mobile only while card/hit active"
+}

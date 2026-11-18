@@ -1,0 +1,192 @@
+{
+  "at": "2026-11-18T00:20:04.528Z",
+  "device": "mobile",
+  "cpuRate": 3,
+  "modes": [
+    "off",
+    "on"
+  ],
+  "captureMode": "idle",
+  "cases": [
+    {
+      "mode": "off",
+      "pass": true,
+      "errors": [],
+      "idle": {
+        "samples": 42,
+        "p50": 16.7,
+        "p95": 33.4,
+        "p99": 33.4,
+        "over33": 3,
+        "over50": 0
+      },
+      "cast": {
+        "samples": 70,
+        "p50": 33.4,
+        "p95": 50.1,
+        "p99": 50.1,
+        "over33": 37,
+        "over50": 4
+      },
+      "hit": {
+        "samples": 70,
+        "p50": 33.3,
+        "p95": 50,
+        "p99": 266.7,
+        "over33": 16,
+        "over50": 3
+      },
+      "stats": {
+        "draw": 927,
+        "portraitVisible": false,
+        "broadcast": {
+          "enabled": false
+        },
+        "cards": 60,
+        "verified": 16,
+        "bytes": 75569762,
+        "cameraSafe": true,
+        "spells": 1,
+        "longTasks": [
+          {
+            "at": 7999.6,
+            "duration": 490
+          },
+          {
+            "at": 11132,
+            "duration": 277
+          }
+        ]
+      }
+    },
+    {
+      "mode": "on",
+      "pass": true,
+      "errors": [],
+      "idle": {
+        "samples": 42,
+        "p50": 16.7,
+        "p95": 33.4,
+        "p99": 33.4,
+        "over33": 5,
+        "over50": 0
+      },
+      "cast": {
+        "samples": 70,
+        "p50": 33.3,
+        "p95": 50.1,
+        "p99": 150,
+        "over33": 16,
+        "over50": 4
+      },
+      "hit": {
+        "samples": 70,
+        "p50": 33.3,
+        "p95": 50.1,
+        "p99": 150,
+        "over33": 21,
+        "over50": 4
+      },
+      "stats": {
+        "draw": 933,
+        "portraitVisible": false,
+        "broadcast": {
+          "mode": "idle",
+          "side": null,
+          "card": null,
+          "serial": 16401,
+          "until": 5.682500000059604,
+          "changedAt": 3.982500000059604,
+          "time": 5.791100000083446,
+          "frames": 13,
+          "casts": 1,
+          "hits": 1,
+          "cardArtFrames": 2,
+          "renderedFrames": 13,
+          "frameThrottleMs": 83,
+          "cameraCalls": 1706,
+          "lastCapture": 5.571300000071526,
+          "errors": 0,
+          "captureMode": "idle",
+          "idleScheduled": 15,
+          "idleCompleted": 13,
+          "idleSkipped": 0,
+          "captureMs": [
+            90.80000001192093,
+            6.199999988079071,
+            3.100000023841858,
+            3.5,
+            5.900000035762787,
+            3.5,
+            3.5,
+            23,
+            3.200000047683716,
+            5.300000011920929,
+            3.600000023841858,
+            5.299999952316284,
+            3.100000023841858
+          ],
+          "captureDraws": [
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135
+          ],
+          "lastCaptureMs": 3.100000023841858,
+          "captureCpuP50Ms": 3.6,
+          "captureCpuP95Ms": 90.8,
+          "captureDrawsP50": 128,
+          "screen": {
+            "x": 4.65,
+            "y": 4.96,
+            "z": -4,
+            "width": 3.92,
+            "height": 2.205
+          },
+          "cameraViewLayers": 2,
+          "overlayVisible": false,
+          "screenVisible": true,
+          "cardImageLoaded": true,
+          "targetSize": [
+            960,
+            540
+          ],
+          "idle": true,
+          "footprintOverlapsScoreboard": false
+        },
+        "cards": 60,
+        "verified": 16,
+        "bytes": 75569762,
+        "cameraSafe": true,
+        "spells": 1,
+        "longTasks": [
+          {
+            "at": 7621.9,
+            "duration": 495
+          },
+          {
+            "at": 8122.1,
+            "duration": 128
+          },
+          {
+            "at": 8305.5,
+            "duration": 91
+          },
+          {
+            "at": 10435.5,
+            "duration": 154
+          }
+        ]
+      }
+    }
+  ]
+}
