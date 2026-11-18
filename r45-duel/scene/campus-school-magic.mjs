@@ -10,6 +10,7 @@
  * recorded Qwen3 voices are separate gated production deliverables.
  */
 import {BY_ID} from '../engine.mjs';
+import {renderCampusHeroProp} from './campus-hero-props.mjs';
 import {SPELL_CHOREOGRAPHY} from './spell-impact.mjs';
 import {SCHOOL_MAGIC_IDENTITIES,SCHOOL_MAGIC_COUNT} from './campus-magic-bible.mjs';
 
@@ -180,6 +181,13 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false}={}){
   p.add(model);
  };
  function build(g,id){
+  // Seven R170 signature gags are authored as independent, denser
+  // physically recognizable props, without generic glowing rings.
+  if(renderCampusHeroProp(id,{THREE,g,group,box,ball,cone,tube,torus,
+    geometry,material,pan,book,paperStack,pencil})){
+   sign(g,BY_ID[id].name);
+   return;
+  }
   // Distinct physical silhouettes; visual identities derive from original
   // school-life props rather than merely swapping glowy material colors.
   switch(id){
