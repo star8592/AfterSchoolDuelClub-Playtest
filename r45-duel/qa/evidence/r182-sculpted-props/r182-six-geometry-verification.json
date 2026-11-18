@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-18",
+  "tool": "Blender5.2.3 native",
+  "items": {
+    "K06": {
+      "triangles": 19270,
+      "meshCount": 11,
+      "actorGroups": [
+        "K06_CHILI_ACTOR",
+        "K06_CUP_ACTOR",
+        "K06_STRAW_ACTOR"
+      ],
+      "materials": 10,
+      "realBlenderSourceBytes": 285016,
+      "realGLBBytes": 423612,
+      "actualEeveePreview": "art/hero-props/qa/K06_Volcano_Chili_Boba_Tea.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "Q05": {
+      "triangles": 41432,
+      "meshCount": 12,
+      "actorGroups": [
+        "Q05_CHALK_ACTOR",
+        "Q05_DUST_ACTOR",
+        "Q05_MICROPHONE_ACTOR",
+        "Q05_PODIUM_STATIC"
+      ],
+      "materials": 10,
+      "realBlenderSourceBytes": 761883,
+      "realGLBBytes": 1029136,
+      "actualEeveePreview": "art/hero-props/qa/Q05_Chalk_Press_Conference.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "P04": {
+      "triangles": 10250,
+      "meshCount": 7,
+      "actorGroups": [
+        "P04_PENNANT_ACTOR",
+        "P04_WHISTLE_ACTOR"
+      ],
+      "materials": 6,
+      "realBlenderSourceBytes": 269536,
+      "realGLBBytes": 249524,
+      "actualEeveePreview": "art/hero-props/qa/P04_Mega_Sports_Whistle.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "S04": {
+      "triangles": 43966,
+      "meshCount": 11,
+      "actorGroups": [
+        "S04_CRANK_ACTOR",
+        "S04_MACHINE_STATIC",
+        "S04_TEST_PAPER_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 795910,
+      "realGLBBytes": 1075828,
+      "actualEeveePreview": "art/hero-props/qa/S04_Wrong_Answer_Generator.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "P05": {
+      "triangles": 18662,
+      "meshCount": 10,
+      "actorGroups": [
+        "P05_HOOP_ACTOR",
+        "P05_VOLLEYBALL_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 362115,
+      "realGLBBytes": 383556,
+      "actualEeveePreview": "art/hero-props/qa/P05_Volleyball_Basketball_Hoop.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "X05": {
+      "triangles": 15596,
+      "meshCount": 12,
+      "actorGroups": [
+        "X05_BOOK_ACTOR",
+        "X05_PAPER_GALAXY_ACTOR",
+        "X05_PENCIL_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 304564,
+      "realGLBBytes": 357352,
+      "actualEeveePreview": "art/hero-props/qa/X05_Homework_Paper_Galaxy.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    }
+  },
+  "release": "NO_GO",
+  "allVisualAccepted": false
+}

@@ -14,6 +14,7 @@ import {renderCampusHeroProp} from './campus-hero-props.mjs';
 import {createCampusStaticBatcher} from './campus-prop-static-batcher.mjs';
 import {SPELL_CHOREOGRAPHY} from './spell-impact.mjs';
 import {SCHOOL_MAGIC_IDENTITIES,SCHOOL_MAGIC_COUNT} from './campus-magic-bible.mjs';
+import {R182_HERO_IDS,r182AnimateActor} from './campus-r182-actor-motions.mjs';
 
 const clip=(x)=>Math.max(0,Math.min(1,x));
 const smooth=x=>{const y=clip(x);return y*y*(3-2*y)};
@@ -23,7 +24,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
  const heroAssets=new Map();
  function registerHeroAsset(id,model){
-  if(!['E06','K01','K07'].includes(id)||!model?.isObject3D)return false;
+  if(!['E06','K01','K07',...R182_HERO_IDS].includes(id)||!model?.isObject3D)return false;
   heroAssets.set(id,model);return true;
  }
 
@@ -252,6 +253,15 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   if(authored){
    const real=authored.clone(true);
    real.name='R179_Original_3D_Sculpt_'+id;
+   // R182 expressive on-stage composition only; never rescale geometry
+   // buffers, decrease textures or pull close-up in front of the opponent.
+   const r182StageSizing={
+    K06:[1.28,-.44],Q05:[1.32,-.42],P04:[1.38,-.45],
+    S04:[1.25,-.42],P05:[1.26,-.48],X05:[1.23,-.45]};
+   if(r182StageSizing[id]){
+    real.scale.setScalar(r182StageSizing[id][0]);
+    real.position.y=r182StageSizing[id][1];
+   }
    g.add(real);
    return;
   }
@@ -467,6 +477,9 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
     // Both baked curved banana ribs and body share exact deterministic motion.
     // K07 is a living custard frog with an independently ringing SCHOOL bell
     // and cloche, not another shared glowing ring or a rigid prop yaw.
+    // Six independent original campus gags animate authored Blender actor groups.
+    // No per-frame geometries, no shader lights or asset downgrade.
+    if(r182AnimateActor(a.id,o,t,a.serial))return;
     if(a.id==='K07'&&o.isObject3D&&!o.isMesh){
      const frog=o.name.includes('K07_JELLY_FROG_ACTOR');
      const bell=o.name.includes('K07_SCHOOL_BELL_ACTOR');
@@ -527,6 +540,20 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
  return {root,play,contact,playCollateral,update,dispose,prepareGpuMaterial,prewarmRealAuthoredHero,registerHeroAsset,
   get prepareReceipts(){return prepareReceipts.map(x=>({...x}))},
   get qaProfile(){return r174Profile.map(x=>({...x}))},
+  get r182ActorMotions(){
+   return active.filter(a=>R182_HERO_IDS.includes(a.id)).map(a=>{
+    const groups=[];
+    a.props.traverse(o=>{
+     if(o.isObject3D&&!o.isMesh&&o.name.startsWith(a.id+'_')&&
+       o.name.endsWith('_ACTOR')){
+      groups.push({name:o.name,
+       pos:o.position.toArray().map(v=>+v.toFixed(4)),
+       rot:o.rotation.toArray().slice(0,3).map(v=>+v.toFixed(4))});
+     }
+    });
+    return{id:a.id,serial:a.serial,groups};
+   });
+  },
   get r179K07ActorMotion(){
    const a=active.find(entry=>entry.id==='K07');
    if(!a)return {active:false,groups:[]};

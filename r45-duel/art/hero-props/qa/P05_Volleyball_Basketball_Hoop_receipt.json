@@ -1,0 +1,19 @@
+{
+  "id": "P05",
+  "originalName": "排球误入篮球筐",
+  "source": "P05_Volleyball_Basketball_Hoop.blend",
+  "glb": "P05_Volleyball_Basketball_Hoop.glb",
+  "render": "P05_Volleyball_Basketball_Hoop.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 362115,
+  "glbBytes": 383556,
+  "triangles": 18662,
+  "meshes": 10,
+  "materials": 9,
+  "actorGroups": [
+    "P05_HOOP_ACTOR",
+    "P05_VOLLEYBALL_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

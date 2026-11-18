@@ -1,0 +1,20 @@
+{
+  "id": "K06",
+  "originalName": "火山辣椒奶茶",
+  "source": "K06_Volcano_Chili_Boba_Tea.blend",
+  "glb": "K06_Volcano_Chili_Boba_Tea.glb",
+  "render": "K06_Volcano_Chili_Boba_Tea.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 285016,
+  "glbBytes": 423612,
+  "triangles": 19270,
+  "meshes": 11,
+  "materials": 10,
+  "actorGroups": [
+    "K06_CHILI_ACTOR",
+    "K06_CUP_ACTOR",
+    "K06_STRAW_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

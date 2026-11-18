@@ -21,6 +21,42 @@ const candidateIds=new Map([
   runtime:'art/hero-props/K07_Sculpted_Frog_Pudding_Bell.glb',
   image:'art/hero-props/qa/K07_Sculpted_Frog_Pudding_Bell.png',
   reproducible:'art/hero-props/build_k07_frog_pudding.py'
+ }],
+ ['K06',{
+  source:'art/hero-props/K06_Volcano_Chili_Boba_Tea.blend',
+  runtime:'art/hero-props/K06_Volcano_Chili_Boba_Tea.glb',
+  image:'art/hero-props/qa/K06_Volcano_Chili_Boba_Tea.png',
+  reproducible:'art/hero-props/build_r182_signature_six.py'
+ }],
+ ['Q05',{
+  source:'art/hero-props/Q05_Chalk_Press_Conference.blend',
+  runtime:'art/hero-props/Q05_Chalk_Press_Conference.glb',
+  image:'art/hero-props/qa/Q05_Chalk_Press_Conference.png',
+  reproducible:'art/hero-props/build_r182_signature_six.py'
+ }],
+ ['P04',{
+  source:'art/hero-props/P04_Mega_Sports_Whistle.blend',
+  runtime:'art/hero-props/P04_Mega_Sports_Whistle.glb',
+  image:'art/hero-props/qa/P04_Mega_Sports_Whistle.png',
+  reproducible:'art/hero-props/build_r182_signature_six.py'
+ }],
+ ['S04',{
+  source:'art/hero-props/S04_Wrong_Answer_Generator.blend',
+  runtime:'art/hero-props/S04_Wrong_Answer_Generator.glb',
+  image:'art/hero-props/qa/S04_Wrong_Answer_Generator.png',
+  reproducible:'art/hero-props/build_r182_signature_six.py'
+ }],
+ ['P05',{
+  source:'art/hero-props/P05_Volleyball_Basketball_Hoop.blend',
+  runtime:'art/hero-props/P05_Volleyball_Basketball_Hoop.glb',
+  image:'art/hero-props/qa/P05_Volleyball_Basketball_Hoop.png',
+  reproducible:'art/hero-props/build_r182_signature_six.py'
+ }],
+ ['X05',{
+  source:'art/hero-props/X05_Homework_Paper_Galaxy.blend',
+  runtime:'art/hero-props/X05_Homework_Paper_Galaxy.glb',
+  image:'art/hero-props/qa/X05_Homework_Paper_Galaxy.png',
+  reproducible:'art/hero-props/build_r182_signature_six.py'
  }]
 ]);
 const records=Object.values(SCHOOL_MAGIC_IDENTITIES).map(e=>{
@@ -41,11 +77,11 @@ const summary={cardCount:SCHOOL_MAGIC_COUNT,true3dCandidateCount:true3d,
   proceduralPlaceholderCount:records.length-true3d,visuallyAccepted:0,
   releaseReady:accepted,release:'NO_GO',
   note:'Scans true physical authored model and referenced source files. Does not automatically validate beauty or mobile performance; manual visual signoff required.',records};
-const dest=resolve(root,'qa/evidence/r179-sculpted-props/r179-46-prop-art-status.json');
+const dest=resolve(root,'qa/evidence/r182-sculpted-props/r182-46-prop-art-status.json');
 mkdirSync(dirname(dest),{recursive:true});
 writeFileSync(dest,JSON.stringify(summary,null,2));
-console.log('R179_REAL_ART_AUDIT',JSON.stringify({
+console.log('R182_REAL_ART_AUDIT',JSON.stringify({
  all:summary.cardCount,sculptedCandidates:true3d,placeholders:records.length-true3d,
  visuallyAccepted:0,release:'NO_GO',report:dest}));
-if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==3)process.exitCode=3;
+if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==9)process.exitCode=3;
 if(process.argv.includes('--release')&&accepted!==46)process.exitCode=2;

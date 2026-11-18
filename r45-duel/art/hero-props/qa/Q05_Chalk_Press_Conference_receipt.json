@@ -1,0 +1,21 @@
+{
+  "id": "Q05",
+  "originalName": "粉笔记者会",
+  "source": "Q05_Chalk_Press_Conference.blend",
+  "glb": "Q05_Chalk_Press_Conference.glb",
+  "render": "Q05_Chalk_Press_Conference.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 761883,
+  "glbBytes": 1029136,
+  "triangles": 41432,
+  "meshes": 12,
+  "materials": 10,
+  "actorGroups": [
+    "Q05_CHALK_ACTOR",
+    "Q05_DUST_ACTOR",
+    "Q05_MICROPHONE_ACTOR",
+    "Q05_PODIUM_STATIC"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

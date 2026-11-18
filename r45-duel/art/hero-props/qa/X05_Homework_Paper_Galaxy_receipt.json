@@ -1,0 +1,20 @@
+{
+  "id": "X05",
+  "originalName": "作业本银河",
+  "source": "X05_Homework_Paper_Galaxy.blend",
+  "glb": "X05_Homework_Paper_Galaxy.glb",
+  "render": "X05_Homework_Paper_Galaxy.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 304564,
+  "glbBytes": 357352,
+  "triangles": 15596,
+  "meshes": 12,
+  "materials": 8,
+  "actorGroups": [
+    "X05_BOOK_ACTOR",
+    "X05_PAPER_GALAXY_ACTOR",
+    "X05_PENCIL_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

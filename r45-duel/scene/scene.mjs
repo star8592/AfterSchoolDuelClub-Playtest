@@ -82,6 +82,33 @@ const R181_HAIR_BATCH=(()=>{
   (PARAMS.get('r181HairBatch')??pp?.get('r181HairBatch'))==='on';
 })();
 let r181HairBatchReceipt=null;
+// R182 asset experiment: single selected actual Blender GLB only.
+// Deliberately refuse eager-loading all six on Android; past S21 LOW_MEMORY.
+const R182_HERO_ID=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||pp?.get('qa')==='1';
+ const id=(PARAMS.get('r182Hero')??pp?.get('r182Hero')??'').trim();
+ return qa&&
+  ['K06','Q05','P04','S04','P05','X05'].includes(id)?id:null;
+})();
+const R182_HERO_ASSET_PATH=Object.freeze({
+ K06:'K06_Volcano_Chili_Boba_Tea.glb',
+ Q05:'Q05_Chalk_Press_Conference.glb',
+ P04:'P04_Mega_Sports_Whistle.glb',
+ S04:'S04_Wrong_Answer_Generator.glb',
+ P05:'P05_Volleyball_Basketball_Hoop.glb',
+ X05:'X05_Homework_Paper_Galaxy.glb'
+});
+let r182HeroLoadReceipt=null;
+const R182_PRIME_SELECTED=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return R182_HERO_ID&&
+  (PARAMS.get('r182PrimeSelected')??pp?.get('r182PrimeSelected'))==='on';
+})();
+let r182SelectedPrewarm=null;
+
 const R180_STADIUM_BATCH=(()=>{
  const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
   catch{return null}})();
@@ -1622,6 +1649,9 @@ function exposeQA(){
   get drawCalls(){return drawCount},
   get r180StadiumBatch(){return stadiumEvidence?.r180StaticBatch||{enabled:false}},
   get r181HairBatch(){return r181HairBatchReceipt||{enabled:false}},
+  get r182HeroLoad(){return r182HeroLoadReceipt||{enabled:false}},
+  get r182ActorMotions(){return schoolMagicStage?.r182ActorMotions||[]},
+  get r182SelectedPrewarm(){return r182SelectedPrewarm},
   // R181 no-write forensic survey: actual live source SkinnedMesh materials,
   // skinning topology, bind matrices and morphs. Never guesses equivalence from
   // UUID alone; does NOT rewrite VRM skeletal hierarchy or shader code.
@@ -1934,6 +1964,25 @@ try{
    '../art/hero-props/K07_Sculpted_Frog_Pudding_Bell.glb');
   if(!schoolMagicStage.registerHeroAsset('K07',glb.scene))
    throw Error('R179 K07 original Blender GLB registration failed');
+ }
+ if(R182_HERO_ID&&R169_SCHOOL_MAGIC){
+  const start=performance.now();
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/'+R182_HERO_ASSET_PATH[R182_HERO_ID]);
+  if(!schoolMagicStage.registerHeroAsset(R182_HERO_ID,glb.scene))
+   throw Error('R182 original physical asset did not register: '+R182_HERO_ID);
+  const parts=[];
+  glb.scene.traverse(o=>{if(o.isMesh)parts.push(o)});
+  r182HeroLoadReceipt={enabled:true,id:R182_HERO_ID,
+   assetPath:R182_HERO_ASSET_PATH[R182_HERO_ID],meshCount:parts.length,
+   loadMs:+(performance.now()-start).toFixed(2),
+   onlyOneNewHeroLoaded:true,sourceFidelity:true};
+ }
+ if(R182_PRIME_SELECTED&&R169_SCHOOL_MAGIC){
+  // Deliberately one 3D hero at a time. Avoid the Android S21 LOW_MEMORY
+  // pathology caused by staging all new materials and models together.
+  r182SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
+   R182_HERO_ID,renderer,camera,scene);
  }
  if(R174_PREPARE_GPU&&R169_SCHOOL_MAGIC){
   r174ReadyPreparation=await schoolMagicStage.prepareGpuMaterial(

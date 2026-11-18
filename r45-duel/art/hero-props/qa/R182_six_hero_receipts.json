@@ -1,0 +1,127 @@
+{
+  "total": 6,
+  "assets": {
+    "K06": {
+      "id": "K06",
+      "originalName": "火山辣椒奶茶",
+      "source": "K06_Volcano_Chili_Boba_Tea.blend",
+      "glb": "K06_Volcano_Chili_Boba_Tea.glb",
+      "render": "K06_Volcano_Chili_Boba_Tea.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 285016,
+      "glbBytes": 423612,
+      "triangles": 19270,
+      "meshes": 11,
+      "materials": 10,
+      "actorGroups": [
+        "K06_CHILI_ACTOR",
+        "K06_CUP_ACTOR",
+        "K06_STRAW_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "Q05": {
+      "id": "Q05",
+      "originalName": "粉笔记者会",
+      "source": "Q05_Chalk_Press_Conference.blend",
+      "glb": "Q05_Chalk_Press_Conference.glb",
+      "render": "Q05_Chalk_Press_Conference.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 761883,
+      "glbBytes": 1029136,
+      "triangles": 41432,
+      "meshes": 12,
+      "materials": 10,
+      "actorGroups": [
+        "Q05_CHALK_ACTOR",
+        "Q05_DUST_ACTOR",
+        "Q05_MICROPHONE_ACTOR",
+        "Q05_PODIUM_STATIC"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "P04": {
+      "id": "P04",
+      "originalName": "体育老师巨型口哨",
+      "source": "P04_Mega_Sports_Whistle.blend",
+      "glb": "P04_Mega_Sports_Whistle.glb",
+      "render": "P04_Mega_Sports_Whistle.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 269536,
+      "glbBytes": 249524,
+      "triangles": 10250,
+      "meshes": 7,
+      "materials": 6,
+      "actorGroups": [
+        "P04_PENNANT_ACTOR",
+        "P04_WHISTLE_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "S04": {
+      "id": "S04",
+      "originalName": "错题发电机",
+      "source": "S04_Wrong_Answer_Generator.blend",
+      "glb": "S04_Wrong_Answer_Generator.glb",
+      "render": "S04_Wrong_Answer_Generator.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 795910,
+      "glbBytes": 1075828,
+      "triangles": 43966,
+      "meshes": 11,
+      "materials": 9,
+      "actorGroups": [
+        "S04_CRANK_ACTOR",
+        "S04_MACHINE_STATIC",
+        "S04_TEST_PAPER_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "P05": {
+      "id": "P05",
+      "originalName": "排球误入篮球筐",
+      "source": "P05_Volleyball_Basketball_Hoop.blend",
+      "glb": "P05_Volleyball_Basketball_Hoop.glb",
+      "render": "P05_Volleyball_Basketball_Hoop.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 362115,
+      "glbBytes": 383556,
+      "triangles": 18662,
+      "meshes": 10,
+      "materials": 9,
+      "actorGroups": [
+        "P05_HOOP_ACTOR",
+        "P05_VOLLEYBALL_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "X05": {
+      "id": "X05",
+      "originalName": "作业本银河",
+      "source": "X05_Homework_Paper_Galaxy.blend",
+      "glb": "X05_Homework_Paper_Galaxy.glb",
+      "render": "X05_Homework_Paper_Galaxy.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 304564,
+      "glbBytes": 357352,
+      "triangles": 15596,
+      "meshes": 12,
+      "materials": 8,
+      "actorGroups": [
+        "X05_BOOK_ACTOR",
+        "X05_PAPER_GALAXY_ACTOR",
+        "X05_PENCIL_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    }
+  },
+  "approval": "NO_GO",
+  "visualApproved": 0,
+  "androidPerformanceApproved": false
+}
