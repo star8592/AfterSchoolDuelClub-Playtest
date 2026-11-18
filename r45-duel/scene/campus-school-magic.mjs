@@ -21,6 +21,13 @@ const hex=(v)=>String(v).toLowerCase();
 export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeStatic=false}={}){
  const root=new THREE.Group();root.name='R169_SCHOOL_COMEDY_PHYSICAL_MAGIC';scene.add(root);
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
+ // R175 QA-only: actual sculpted and authored GLB replaces placeholder subparts.
+ const heroAssets=new Map();
+ const registerHeroAsset=(id,model)=>{
+  if(id!=='E06'||!model?.isObject3D)return false;
+  heroAssets.set(id,model);return true;
+ };
+
  const active=[],lastBySide={player:null,ai:null};
  const staticBatcher=mergeStatic?createCampusStaticBatcher(THREE):null;
  const maxActive=4;let played=0,expired=0,rejected=0,peakObjects=0,
@@ -183,6 +190,13 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   p.add(model);
  };
  function build(g,id){
+  const authored=heroAssets.get(id);
+  if(authored){
+   const realSculpt=authored.clone(true);
+   realSculpt.name='R175_Original_Sculpted_E06';
+   g.add(realSculpt);
+   return;
+  }
   // Seven R170 signature gags are authored as independent, denser
   // physically recognizable props, without generic glowing rings.
   if(renderCampusHeroProp(id,{THREE,g,group,box,ball,cone,tube,torus,
@@ -356,8 +370,9 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   for(const m of labelMaterials.values())m.dispose();labelMaterials.clear();
   root.removeFromParent();
  }
- return {root,play,contact,update,dispose,
+ return {root,play,contact,update,dispose,registerHeroAsset,
   get stats(){return {enabled:true,totalIdentities:SCHOOL_MAGIC_COUNT,
+   authoredHighDetailAssets:[...heroAssets.keys()],
    played,expired,rejected,active:active.length,peakObjects,peakDraws,
    uniqueRenderedProps:distinctProps.size,shaderPointLights:0,
    cacheGeometries:gcache.size,cacheMaterials:mcache.size,

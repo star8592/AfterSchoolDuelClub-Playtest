@@ -40,6 +40,13 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// R175 controlled 3D sculpt audition. Not enabled for production players.
+const R175_HERO_E06=(()=>{
+ const p=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||p?.get('qa')==='1')&&
+  (PARAMS.get('r175HeroE06')??p?.get('r175HeroE06'))==='on';
+})();
 // R169 QA-only all-spells replacement. Never silently overwrite R147.
 const R172_STATIC_BATCH=(()=>{
  const own=PARAMS.get('qa')==='1'&&PARAMS.get('r172BatchStatic')==='on';
@@ -1593,6 +1600,13 @@ try{
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
+ if(R175_HERO_E06&&R169_SCHOOL_MAGIC){
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/E06_Cinematic_Eraser.glb');
+  if(!schoolMagicStage.registerHeroAsset('E06',glb.scene))
+   throw Error('R175 E06 authored hero asset registration failed');
+ }
+
  bleacherProps?.mount?.([0,1,2,3].map(index=>stadiumEvidence?.spectatorAnchor?.(index)));
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,lifeWorld:arenaLife,
