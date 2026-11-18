@@ -1,0 +1,704 @@
+{
+  "started": "2026-11-18T01:18:18.360Z",
+  "order": [
+    "baseline",
+    "slots2"
+  ],
+  "viewport": "desktop",
+  "cpu": 2,
+  "device": "Z890 NVIDIA RTX5070Ti; mobile means viewport emulation, not phone GPU",
+  "experiments": [
+    {
+      "variant": "baseline",
+      "n": 0,
+      "pass": true,
+      "errors": [],
+      "before": {
+        "ready": true,
+        "modelCount": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true,
+        "lights": {
+          "enabled": true,
+          "programs": 45,
+          "lights": {
+            "point": 4,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 734
+        },
+        "slots": {
+          "enabled": false
+        }
+      },
+      "idle": {
+        "n": 125,
+        "p50": 16.7,
+        "p95": 16.8,
+        "p99": 33.3,
+        "max": 33.3,
+        "over33": 0,
+        "over50": 0,
+        "details": {
+          "gpu": {
+            "enabled": true,
+            "supported": true,
+            "n": 127,
+            "p50": 2.25165,
+            "p95": 5.18966,
+            "p99": 6.27674,
+            "max": 6.45789,
+            "totalSamples": 127,
+            "gpuDisjoint": 0,
+            "pending": 1,
+            "error": null
+          },
+          "lighting": {
+            "enabled": true,
+            "programs": 45,
+            "lights": {
+              "point": 4,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "rendererDraws": 734
+          },
+          "slots": {
+            "enabled": false
+          }
+        }
+      },
+      "casts": [
+        {
+          "index": 0,
+          "start": {
+            "programs": 45,
+            "lights": {
+              "point": 4,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "played": 0,
+            "impact": 0,
+            "tasks": 0
+          },
+          "active": {
+            "lighting": {
+              "enabled": true,
+              "programs": 84,
+              "lights": {
+                "point": 6,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 1024
+            },
+            "slots": {
+              "enabled": false
+            }
+          },
+          "frame": {
+            "n": 125,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "max": 216.7,
+            "over33": 13,
+            "over50": 1
+          },
+          "after": {
+            "shader": {
+              "enabled": true,
+              "programs": 110,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "gpu": {
+              "enabled": true,
+              "supported": true,
+              "n": 131,
+              "p50": 3.20656,
+              "p95": 6.50909,
+              "p99": 7.36822,
+              "max": 256.30406,
+              "totalSamples": 131,
+              "gpuDisjoint": 0,
+              "pending": 1,
+              "error": null
+            },
+            "slots": {
+              "enabled": false
+            },
+            "impacts": {
+              "played": 1,
+              "hits": 1,
+              "noHit": 0,
+              "expired": 1,
+              "active": 0,
+              "activeKinds": [],
+              "ruleMutations": 0
+            },
+            "spells": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 1,
+              "expired": 1,
+              "rejected": 0,
+              "active": 0,
+              "activeMotifs": [],
+              "lastBySide": {
+                "player": "E06",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 17,
+              "totalMeshes": 15,
+              "ruleMutations": 0
+            },
+            "tasks": [
+              {
+                "started": 7868.4,
+                "duration": 383
+              },
+              {
+                "started": 8285.6,
+                "duration": 243
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "start": {
+            "programs": 110,
+            "lights": {
+              "point": 4,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "played": 1,
+            "impact": 1,
+            "tasks": 2
+          },
+          "active": {
+            "lighting": {
+              "enabled": true,
+              "programs": 115,
+              "lights": {
+                "point": 6,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 1002
+            },
+            "slots": {
+              "enabled": false
+            }
+          },
+          "frame": {
+            "n": 125,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "max": 33.4,
+            "over33": 12,
+            "over50": 0
+          },
+          "after": {
+            "shader": {
+              "enabled": true,
+              "programs": 110,
+              "lights": {
+                "point": 4,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "gpu": {
+              "enabled": true,
+              "supported": true,
+              "n": 131,
+              "p50": 3.09453,
+              "p95": 6.21648,
+              "p99": 7.14781,
+              "max": 7.26544,
+              "totalSamples": 131,
+              "gpuDisjoint": 0,
+              "pending": 1,
+              "error": null
+            },
+            "slots": {
+              "enabled": false
+            },
+            "impacts": {
+              "played": 2,
+              "hits": 2,
+              "noHit": 0,
+              "expired": 2,
+              "active": 0,
+              "activeKinds": [],
+              "ruleMutations": 0
+            },
+            "spells": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 2,
+              "expired": 2,
+              "rejected": 0,
+              "active": 0,
+              "activeMotifs": [],
+              "lastBySide": {
+                "player": "E06",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 17,
+              "totalMeshes": 30,
+              "ruleMutations": 0
+            },
+            "tasks": []
+          }
+        }
+      ],
+      "final": {
+        "slots": {
+          "enabled": false
+        },
+        "lights": {
+          "enabled": true,
+          "programs": 110,
+          "lights": {
+            "point": 4,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 929
+        },
+        "gpu": {
+          "enabled": true,
+          "supported": true,
+          "n": 268,
+          "p50": 2.87878,
+          "p95": 6.2,
+          "p99": 7.12442,
+          "max": 7.26544,
+          "totalSamples": 268,
+          "gpuDisjoint": 0,
+          "pending": 1,
+          "error": null
+        },
+        "models": 16,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true
+      }
+    },
+    {
+      "variant": "slots2",
+      "n": 2,
+      "pass": true,
+      "errors": [],
+      "before": {
+        "ready": true,
+        "modelCount": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true,
+        "lights": {
+          "enabled": true,
+          "programs": 45,
+          "lights": {
+            "point": 6,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 734
+        },
+        "slots": {
+          "enabled": true,
+          "slots": 2,
+          "hits": 0,
+          "misses": 0,
+          "leases": 0,
+          "peak": 0,
+          "overflow": 0,
+          "active": 0,
+          "initialIntensityAllZero": true,
+          "allSlotsInScene": true,
+          "disposed": false
+        }
+      },
+      "idle": {
+        "n": 125,
+        "p50": 16.7,
+        "p95": 16.8,
+        "p99": 33.4,
+        "max": 33.5,
+        "over33": 3,
+        "over50": 0,
+        "details": {
+          "gpu": {
+            "enabled": true,
+            "supported": true,
+            "n": 127,
+            "p50": 2.62659,
+            "p95": 5.58563,
+            "p99": 6.84666,
+            "max": 9.13347,
+            "totalSamples": 127,
+            "gpuDisjoint": 0,
+            "pending": 1,
+            "error": null
+          },
+          "lighting": {
+            "enabled": true,
+            "programs": 45,
+            "lights": {
+              "point": 6,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "rendererDraws": 734
+          },
+          "slots": {
+            "enabled": true,
+            "slots": 2,
+            "hits": 0,
+            "misses": 0,
+            "leases": 0,
+            "peak": 0,
+            "overflow": 0,
+            "active": 0,
+            "initialIntensityAllZero": true,
+            "allSlotsInScene": true,
+            "disposed": false
+          }
+        }
+      },
+      "casts": [
+        {
+          "index": 0,
+          "start": {
+            "programs": 45,
+            "lights": {
+              "point": 6,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "played": 0,
+            "impact": 0,
+            "tasks": 0
+          },
+          "active": {
+            "lighting": {
+              "enabled": true,
+              "programs": 53,
+              "lights": {
+                "point": 6,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 1024
+            },
+            "slots": {
+              "enabled": true,
+              "slots": 2,
+              "hits": 2,
+              "misses": 0,
+              "leases": 2,
+              "peak": 2,
+              "overflow": 0,
+              "active": 2,
+              "initialIntensityAllZero": true,
+              "allSlotsInScene": true,
+              "disposed": false
+            }
+          },
+          "frame": {
+            "n": 125,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "max": 133.3,
+            "over33": 8,
+            "over50": 1
+          },
+          "after": {
+            "shader": {
+              "enabled": true,
+              "programs": 79,
+              "lights": {
+                "point": 6,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "gpu": {
+              "enabled": true,
+              "supported": true,
+              "n": 131,
+              "p50": 3.09555,
+              "p95": 6.62397,
+              "p99": 7.24502,
+              "max": 258.7799,
+              "totalSamples": 131,
+              "gpuDisjoint": 0,
+              "pending": 1,
+              "error": null
+            },
+            "slots": {
+              "enabled": true,
+              "slots": 2,
+              "hits": 2,
+              "misses": 1,
+              "leases": 2,
+              "peak": 2,
+              "overflow": 1,
+              "active": 0,
+              "initialIntensityAllZero": true,
+              "allSlotsInScene": true,
+              "disposed": false
+            },
+            "impacts": {
+              "played": 1,
+              "hits": 1,
+              "noHit": 0,
+              "expired": 1,
+              "active": 0,
+              "activeKinds": [],
+              "ruleMutations": 0
+            },
+            "spells": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 1,
+              "expired": 1,
+              "rejected": 0,
+              "active": 0,
+              "activeMotifs": [],
+              "lastBySide": {
+                "player": "E06",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 17,
+              "totalMeshes": 15,
+              "ruleMutations": 0
+            },
+            "tasks": [
+              {
+                "started": 7584.1,
+                "duration": 371
+              }
+            ]
+          }
+        },
+        {
+          "index": 1,
+          "start": {
+            "programs": 79,
+            "lights": {
+              "point": 6,
+              "spot": 2,
+              "directional": 3,
+              "hemisphere": 1,
+              "ambient": 0
+            },
+            "played": 1,
+            "impact": 1,
+            "tasks": 1
+          },
+          "active": {
+            "lighting": {
+              "enabled": true,
+              "programs": 84,
+              "lights": {
+                "point": 6,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 1002
+            },
+            "slots": {
+              "enabled": true,
+              "slots": 2,
+              "hits": 4,
+              "misses": 1,
+              "leases": 4,
+              "peak": 2,
+              "overflow": 1,
+              "active": 2,
+              "initialIntensityAllZero": true,
+              "allSlotsInScene": true,
+              "disposed": false
+            }
+          },
+          "frame": {
+            "n": 125,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "max": 33.4,
+            "over33": 9,
+            "over50": 0
+          },
+          "after": {
+            "shader": {
+              "enabled": true,
+              "programs": 79,
+              "lights": {
+                "point": 6,
+                "spot": 2,
+                "directional": 3,
+                "hemisphere": 1,
+                "ambient": 0
+              },
+              "rendererDraws": 929
+            },
+            "gpu": {
+              "enabled": true,
+              "supported": true,
+              "n": 131,
+              "p50": 2.87962,
+              "p95": 6.30058,
+              "p99": 7.07066,
+              "max": 7.15264,
+              "totalSamples": 131,
+              "gpuDisjoint": 0,
+              "pending": 1,
+              "error": null
+            },
+            "slots": {
+              "enabled": true,
+              "slots": 2,
+              "hits": 4,
+              "misses": 2,
+              "leases": 4,
+              "peak": 2,
+              "overflow": 2,
+              "active": 0,
+              "initialIntensityAllZero": true,
+              "allSlotsInScene": true,
+              "disposed": false
+            },
+            "impacts": {
+              "played": 2,
+              "hits": 2,
+              "noHit": 0,
+              "expired": 2,
+              "active": 0,
+              "activeKinds": [],
+              "ruleMutations": 0
+            },
+            "spells": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 2,
+              "expired": 2,
+              "rejected": 0,
+              "active": 0,
+              "activeMotifs": [],
+              "lastBySide": {
+                "player": "E06",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 17,
+              "totalMeshes": 30,
+              "ruleMutations": 0
+            },
+            "tasks": []
+          }
+        }
+      ],
+      "final": {
+        "slots": {
+          "enabled": true,
+          "slots": 2,
+          "hits": 4,
+          "misses": 2,
+          "leases": 4,
+          "peak": 2,
+          "overflow": 2,
+          "active": 0,
+          "initialIntensityAllZero": true,
+          "allSlotsInScene": true,
+          "disposed": false
+        },
+        "lights": {
+          "enabled": true,
+          "programs": 79,
+          "lights": {
+            "point": 6,
+            "spot": 2,
+            "directional": 3,
+            "hemisphere": 1,
+            "ambient": 0
+          },
+          "rendererDraws": 929
+        },
+        "gpu": {
+          "enabled": true,
+          "supported": true,
+          "n": 267,
+          "p50": 2.86208,
+          "p95": 6.26326,
+          "p99": 7.06118,
+          "max": 7.15264,
+          "totalSamples": 267,
+          "gpuDisjoint": 0,
+          "pending": 1,
+          "error": null
+        },
+        "models": 16,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true
+      }
+    }
+  ]
+}

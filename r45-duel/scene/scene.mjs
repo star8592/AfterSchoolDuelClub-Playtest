@@ -13,6 +13,7 @@ import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-a
 import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
+import {createR167SpellLightSlots} from './r167-spell-light-slots.mjs';
 import {contactStep} from './foot-contact.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createComboDirector} from './combo-director.mjs';
@@ -37,6 +38,12 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+const R167_LIGHT_SLOT_COUNT=(()=>{
+ const params=(()=>{try{return new URLSearchParams(window.parent.location.search)}catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||params?.get('qa')==='1';
+ const amount=PARAMS.get('r167LightSlots')??params?.get('r167LightSlots');
+ return qa&&['2','4'].includes(amount)?Number(amount):0;
+})();
 const R166_SHADER_PROBE=(()=>{
  const own=PARAMS.get('qa')==='1'&&PARAMS.get('r166ShaderProbe')==='on';
  try{
@@ -81,6 +88,68 @@ function r166PrewarmPointLightVariants(count=4){
  }
 }
 
+// R167 nonblocking GPU timer during QA only. Measures main arena render
+// exactly; never stalls with gl.finish() or synchronous result polling.
+const R167_GPU_BENCH=R166_SHADER_PROBE&&(()=>{
+ const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}catch{return null}})();
+ return (PARAMS.get('r167GpuBench')??parent?.get('r167GpuBench'))==='on';
+})();
+const r167Gpu={gl:null,ext:null,pending:[],samples:[],gpuDisjoint:0,
+ count:0,unsupportedReason:null};
+function r167GpuInit(){
+ if(!R167_GPU_BENCH)return;
+ const gl=renderer?.getContext();
+ if(!gl||!gl.createQuery){r167Gpu.unsupportedReason='WebGL2 missing';return}
+ const ext=gl.getExtension('EXT_disjoint_timer_query_webgl2');
+ if(!ext){r167Gpu.unsupportedReason='EXT_disjoint_timer_query_webgl2 missing';return}
+ r167Gpu.gl=gl;r167Gpu.ext=ext;
+}
+function r167GpuPoll(){
+ if(!r167Gpu.ext)return;
+ const gl=r167Gpu.gl,ext=r167Gpu.ext;
+ if(gl.getParameter(ext.GPU_DISJOINT_EXT)){
+  r167Gpu.gpuDisjoint++;
+  for(const q of r167Gpu.pending)gl.deleteQuery(q);
+  r167Gpu.pending.length=0;return;
+ }
+ const still=[];
+ for(const q of r167Gpu.pending){
+  if(gl.getQueryParameter(q,gl.QUERY_RESULT_AVAILABLE)){
+   const ns=gl.getQueryParameter(q,gl.QUERY_RESULT);
+   gl.deleteQuery(q);
+   if(Number.isFinite(ns)){
+    r167Gpu.samples.push(ns/1e6);r167Gpu.count++;
+    if(r167Gpu.samples.length>500)r167Gpu.samples.shift();
+   }
+  }else still.push(q);
+ }
+ r167Gpu.pending=still;
+}
+function r167GpuBegin(){
+ if(!r167Gpu.ext||r167Gpu.pending.length>30)return null;
+ const gl=r167Gpu.gl,q=gl.createQuery();
+ if(!q)return null;
+ gl.beginQuery(r167Gpu.ext.TIME_ELAPSED_EXT,q);
+ return q;
+}
+function r167GpuEnd(q){
+ if(!q)return;
+ r167Gpu.gl.endQuery(r167Gpu.ext.TIME_ELAPSED_EXT);
+ r167Gpu.pending.push(q);
+}
+function r167GpuStats(){
+ const s=[...r167Gpu.samples].sort((a,b)=>a-b),n=s.length;
+ const pick=p=>n?+s[Math.min(n-1,Math.floor(n*p))].toFixed(5):null;
+ return {enabled:R167_GPU_BENCH,supported:!!r167Gpu.ext,n,p50:pick(.5),
+  p95:pick(.95),p99:pick(.99),max:pick(1),
+  totalSamples:r167Gpu.count,gpuDisjoint:r167Gpu.gpuDisjoint,
+  pending:r167Gpu.pending.length,error:r167Gpu.unsupportedReason};
+}
+function r167GpuReset(){
+ if(!R131_IS_QA())return false;
+ r167Gpu.samples.length=0;r167Gpu.count=0;
+ return true;
+}
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -114,6 +183,7 @@ let renderer,scene,camera,clock,actors=[],time=0,playing=false,mode='demo';
 // Separate, continuously visible native VRM duelists; the E01/G01 summon
 // bodies remain independently owned by SummonPresence in the arena.
 let duelistHosts=[],hostSourceActors=[];
+let r167SpellLightSlots=null;
 const arenaLife=createArenaLifeWorld(Number(PARAMS.get('seed'))||20261113);
 const livingCast=createLivingCastDirector(Number(PARAMS.get('seed'))||20261113,arenaLife);
 const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
@@ -332,6 +402,7 @@ function makeScene(){
  // second camera must NEVER render the whole shadow atlas a second time.
  renderer.shadowMap.autoUpdate=r124Legacy;renderer.shadowMap.needsUpdate=!r124Legacy;
  renderer.setPixelRatio(r124PixelRatio());
+ r167GpuInit();
  camera=new THREE.PerspectiveCamera(36,1,.1,60);
  camera.position.set(0,4.1,9.0);camera.lookAt(CAMERA_LOOK_AT);
  const ambient=new THREE.HemisphereLight('#cddffe','#425769',1.40);
@@ -357,10 +428,12 @@ function makeScene(){
   comedySpectacle?.clear();
  });
  liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
- spellImpact=createSpellImpact(THREE,scene);
- magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
- elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
- spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
+ if(R167_LIGHT_SLOT_COUNT)
+  r167SpellLightSlots=createR167SpellLightSlots(THREE,scene,R167_LIGHT_SLOT_COUNT);
+ spellImpact=createSpellImpact(THREE,scene,{lightPool:r167SpellLightSlots});
+ magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced,lightPool:r167SpellLightSlots});
+ elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced,lightPool:r167SpellLightSlots});
+ spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced,lightPool:r167SpellLightSlots});
  spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
  bleacherProps=createBleacherPropComedy(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
@@ -847,6 +920,7 @@ function play(payload){
 }
 function loop(){
  requestAnimationFrame(loop);
+ if(R167_GPU_BENCH)r167GpuPoll();
  if(!renderer||!ready)return;
  const delta=Math.min(.065,clock.getDelta());
  if(playing)time=Math.min(DURATION,time+delta);
@@ -1066,7 +1140,9 @@ function loop(){
    shadowAccumulator%=period;shadowPassRequests++;
   }
  }
+ const r167GpuQuery=r167GpuBegin();
  renderer.render(scene,camera);
+ r167GpuEnd(r167GpuQuery);
  // A camera cut never changes geometry orientation, physical animation or
  // the actual player's chosen orbit. Render an inset in the SAME WebGL
  // context for a maximum ~2 seconds, no second canvas, no fake 2D portrait.
@@ -1428,6 +1504,9 @@ function exposeQA(){
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
   get r166ShaderInfo(){return r166ShaderInfo()},
+  get r167SpellLightSlots(){return r167SpellLightSlots?.stats||{enabled:false}},
+  get r167MainGpuTime(){return r167GpuStats()},
+  r167ResetGpuTime:r167GpuReset,
   r166PrewarmPointLightVariants,
   get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
