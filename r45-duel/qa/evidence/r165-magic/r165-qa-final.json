@@ -1,0 +1,126 @@
+{
+  "pass": true,
+  "qaOnly": true,
+  "merged": false,
+  "deployed": false,
+  "totalRealGameRuns": 4,
+  "totalRealGameSpells": 32,
+  "gallerySpellCards": 46,
+  "originalMotifs": 32,
+  "newMotifs": 40,
+  "newDistinctMotifs": 8,
+  "geometryCachePixelExact8of8": true,
+  "noCardElementChanges46of46": true,
+  "realGame": {
+    "desktop": {
+      "optimized": {
+        "passes": 8,
+        "motifs": 40,
+        "cacheHits": 54,
+        "cachedGeometries": 32,
+        "lastFrameDrawCallsIllustrativeOnly": 1033
+      },
+      "original": {
+        "passes": 8,
+        "motifs": 32,
+        "cacheHits": 0,
+        "cachedGeometries": 0,
+        "lastFrameDrawCallsIllustrativeOnly": 932
+      }
+    },
+    "mobile": {
+      "optimized": {
+        "passes": 8,
+        "motifs": 40,
+        "cacheHits": 54,
+        "cachedGeometries": 32,
+        "lastFrameDrawCallsIllustrativeOnly": 886
+      },
+      "original": {
+        "passes": 8,
+        "motifs": 32,
+        "cacheHits": 0,
+        "cachedGeometries": 0,
+        "lastFrameDrawCallsIllustrativeOnly": 835
+      }
+    }
+  },
+  "performance": [
+    {
+      "file": "r165-perf-desktop-original-optimized.json",
+      "cases": [
+        {
+          "variant": "original",
+          "castSamples": 8,
+          "over33AcrossSamples": 11,
+          "perCastP95Ms": [
+            33.3,
+            33.3,
+            33.3,
+            16.8,
+            16.8,
+            16.8,
+            33.3,
+            16.7
+          ],
+          "largestObservedLongTaskMs": 932,
+          "poolHits": 0
+        },
+        {
+          "variant": "optimized",
+          "castSamples": 8,
+          "over33AcrossSamples": 54,
+          "perCastP95Ms": [
+            33.4,
+            33.4,
+            33.4,
+            33.4,
+            33.3,
+            33.3,
+            33.4,
+            33.4
+          ],
+          "largestObservedLongTaskMs": 343,
+          "poolHits": 82
+        }
+      ]
+    },
+    {
+      "file": "r165-perf-desktop-varietyOnly-optimized.json",
+      "cases": [
+        {
+          "variant": "varietyOnly",
+          "castSamples": 4,
+          "over33AcrossSamples": 5,
+          "perCastP95Ms": [
+            33.3,
+            16.8,
+            16.8,
+            16.7
+          ],
+          "largestObservedLongTaskMs": 905,
+          "poolHits": 0
+        },
+        {
+          "variant": "optimized",
+          "castSamples": 4,
+          "over33AcrossSamples": 16,
+          "perCastP95Ms": [
+            33.3,
+            33.3,
+            33.4,
+            33.3
+          ],
+          "largestObservedLongTaskMs": 314,
+          "poolHits": 23
+        }
+      ]
+    }
+  ],
+  "drawCallReductionProven": false,
+  "firstSpellStallResolved": false,
+  "globalFPSImprovementProven": false,
+  "releaseDecision": "NO-GO: visual prototypes and exact geometry caching validated, but real combat frame time not reliably improved and dynamic shader/light compilation persists",
+  "phoneHardwareValidated": false,
+  "reproNotes": "Z890 Chrome WebGL2/Vulkan; mobile was only a browser viewport; original R147 assets and logic were loaded over loopback"
+}

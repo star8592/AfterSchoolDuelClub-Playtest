@@ -31,7 +31,17 @@ const MOTIF_ELEMENTS=Object.freeze({
  eraser:'earth',beasts:'mind',dream:'mind',broadcast:'sound',papers:'wind',
  lamp:'light',moons:'shadow',chalk:'metal',clock:'time',pencil:'wood',
  tornado:'wind',robot:'electric',elastic:'metal',portal:'space',
- vending:'earth',ball:'earth',cosmic:'space',echo:'sound'
+ vending:'earth',ball:'earth',cosmic:'space',echo:'sound',
+ // R165 QA-only additional physical motifs. Keep each card's exact legacy
+ // element, combat feedback, impact voice, and damage unchanged:
+ 'thunder-grid':'electric',      // S04 previously lightning
+ 'paper-cyclone':'wind',         // P01 previously tornado
+ 'speaker-wall':'sound',         // P04 previously broadcast
+ 'tidal-gate':'water',           // P07 previously tidal (override ice)
+ 'comet-rain':'fire',            // P08 previously meteor
+ 'meteor-shower':'fire',         // X03 previously meteor
+ 'blackboard-rupture':'earth',   // X07 previously eraser (override time)
+ 'mirror-door':'space'           // X08 previously portal
 });
 // A few deliberately art-directed deviations from the motif category:
 // these cards carry recognizable elemental identity even with the old mesh.

@@ -1,0 +1,974 @@
+{
+  "results": [
+    {
+      "mode": "off",
+      "motifCount": 40,
+      "samples": [
+        {
+          "id": "S04",
+          "name": "错误答案发电机",
+          "motif": "thunder-grid",
+          "drawCalls": 21,
+          "size": 51400
+        },
+        {
+          "id": "P01",
+          "name": "狂风炸毛超人",
+          "motif": "paper-cyclone",
+          "drawCalls": 28,
+          "size": 44872
+        },
+        {
+          "id": "P04",
+          "name": "体育老师超级口哨",
+          "motif": "speaker-wall",
+          "drawCalls": 18,
+          "size": 51253
+        },
+        {
+          "id": "P07",
+          "name": "黑天鹅冰面慢动作",
+          "motif": "tidal-gate",
+          "drawCalls": 24,
+          "size": 51778
+        },
+        {
+          "id": "P08",
+          "name": "运动会掉下的流星",
+          "motif": "comet-rain",
+          "drawCalls": 30,
+          "size": 44498
+        },
+        {
+          "id": "X03",
+          "name": "屋顶违停的教务车",
+          "motif": "meteor-shower",
+          "drawCalls": 28,
+          "size": 45243
+        },
+        {
+          "id": "X07",
+          "name": "消失的最后一节课",
+          "motif": "blackboard-rupture",
+          "drawCalls": 32,
+          "size": 49994
+        },
+        {
+          "id": "X08",
+          "name": "校门口时空保安",
+          "motif": "mirror-door",
+          "drawCalls": 12,
+          "size": 47382
+        }
+      ],
+      "all": [
+        {
+          "id": "E05",
+          "motif": "aurora",
+          "drawCalls": 30,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "E06",
+          "motif": "meteor",
+          "drawCalls": 32,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "G05",
+          "motif": "crystal",
+          "drawCalls": 24,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "G06",
+          "motif": "runes",
+          "drawCalls": 32,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "T05",
+          "motif": "tidal",
+          "drawCalls": 28,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "T06",
+          "motif": "lightning",
+          "drawCalls": 29,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "K01",
+          "motif": "banana",
+          "drawCalls": 26,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "K02",
+          "motif": "shield",
+          "drawCalls": 12,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "K03",
+          "motif": "fruit",
+          "drawCalls": 48,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "K04",
+          "motif": "chili",
+          "drawCalls": 40,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "K05",
+          "motif": "steam",
+          "drawCalls": 32,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "K06",
+          "motif": "volcano",
+          "drawCalls": 38,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "K07",
+          "motif": "frog",
+          "drawCalls": 30,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "K08",
+          "motif": "chocolate",
+          "drawCalls": 26,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "Q01",
+          "motif": "eraser",
+          "drawCalls": 36,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "Q02",
+          "motif": "beasts",
+          "drawCalls": 22,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "Q03",
+          "motif": "dream",
+          "drawCalls": 34,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "Q04",
+          "motif": "broadcast",
+          "drawCalls": 16,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "Q05",
+          "motif": "papers",
+          "drawCalls": 32,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "Q06",
+          "motif": "lamp",
+          "drawCalls": 10,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "Q07",
+          "motif": "moons",
+          "drawCalls": 10,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "Q08",
+          "motif": "chalk",
+          "drawCalls": 32,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "S01",
+          "motif": "clock",
+          "drawCalls": 30,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "S02",
+          "motif": "pencil",
+          "drawCalls": 28,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "S03",
+          "motif": "tornado",
+          "drawCalls": 10,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "S04",
+          "motif": "thunder-grid",
+          "drawCalls": 21,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "S05",
+          "motif": "robot",
+          "drawCalls": 12,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "S06",
+          "motif": "elastic",
+          "drawCalls": 14,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "S07",
+          "motif": "portal",
+          "drawCalls": 12,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "S08",
+          "motif": "vending",
+          "drawCalls": 18,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "P01",
+          "motif": "paper-cyclone",
+          "drawCalls": 28,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "P02",
+          "motif": "ball",
+          "drawCalls": 28,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "P03",
+          "motif": "beasts",
+          "drawCalls": 22,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "P04",
+          "motif": "speaker-wall",
+          "drawCalls": 18,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "P05",
+          "motif": "ball",
+          "drawCalls": 28,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "P06",
+          "motif": "elastic",
+          "drawCalls": 14,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "P07",
+          "motif": "tidal-gate",
+          "drawCalls": 24,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "P08",
+          "motif": "comet-rain",
+          "drawCalls": 30,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "X01",
+          "motif": "clock",
+          "drawCalls": 30,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "X02",
+          "motif": "portal",
+          "drawCalls": 12,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "X03",
+          "motif": "meteor-shower",
+          "drawCalls": 28,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "X04",
+          "motif": "dream",
+          "drawCalls": 34,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "X05",
+          "motif": "cosmic",
+          "drawCalls": 38,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "X06",
+          "motif": "echo",
+          "drawCalls": 18,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "X07",
+          "motif": "blackboard-rupture",
+          "drawCalls": 32,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        },
+        {
+          "id": "X08",
+          "motif": "mirror-door",
+          "drawCalls": 12,
+          "cache": 0,
+          "hits": 0,
+          "misses": 0,
+          "active": 1
+        }
+      ],
+      "pool": {
+        "enabled": false,
+        "cache": 0,
+        "hits": 0,
+        "misses": 0
+      },
+      "errors": []
+    },
+    {
+      "mode": "on",
+      "motifCount": 40,
+      "samples": [
+        {
+          "id": "S04",
+          "name": "错误答案发电机",
+          "motif": "thunder-grid",
+          "drawCalls": 21,
+          "size": 51400
+        },
+        {
+          "id": "P01",
+          "name": "狂风炸毛超人",
+          "motif": "paper-cyclone",
+          "drawCalls": 28,
+          "size": 44872
+        },
+        {
+          "id": "P04",
+          "name": "体育老师超级口哨",
+          "motif": "speaker-wall",
+          "drawCalls": 18,
+          "size": 51253
+        },
+        {
+          "id": "P07",
+          "name": "黑天鹅冰面慢动作",
+          "motif": "tidal-gate",
+          "drawCalls": 24,
+          "size": 51778
+        },
+        {
+          "id": "P08",
+          "name": "运动会掉下的流星",
+          "motif": "comet-rain",
+          "drawCalls": 30,
+          "size": 44498
+        },
+        {
+          "id": "X03",
+          "name": "屋顶违停的教务车",
+          "motif": "meteor-shower",
+          "drawCalls": 28,
+          "size": 45243
+        },
+        {
+          "id": "X07",
+          "name": "消失的最后一节课",
+          "motif": "blackboard-rupture",
+          "drawCalls": 32,
+          "size": 49994
+        },
+        {
+          "id": "X08",
+          "name": "校门口时空保安",
+          "motif": "mirror-door",
+          "drawCalls": 12,
+          "size": 47382
+        }
+      ],
+      "all": [
+        {
+          "id": "E05",
+          "motif": "aurora",
+          "drawCalls": 30,
+          "cache": 40,
+          "hits": 74,
+          "misses": 40,
+          "active": 1
+        },
+        {
+          "id": "E06",
+          "motif": "meteor",
+          "drawCalls": 32,
+          "cache": 43,
+          "hits": 86,
+          "misses": 43,
+          "active": 1
+        },
+        {
+          "id": "G05",
+          "motif": "crystal",
+          "drawCalls": 24,
+          "cache": 44,
+          "hits": 96,
+          "misses": 44,
+          "active": 1
+        },
+        {
+          "id": "G06",
+          "motif": "runes",
+          "drawCalls": 32,
+          "cache": 47,
+          "hits": 108,
+          "misses": 47,
+          "active": 1
+        },
+        {
+          "id": "T05",
+          "motif": "tidal",
+          "drawCalls": 28,
+          "cache": 50,
+          "hits": 118,
+          "misses": 50,
+          "active": 1
+        },
+        {
+          "id": "T06",
+          "motif": "lightning",
+          "drawCalls": 29,
+          "cache": 51,
+          "hits": 128,
+          "misses": 51,
+          "active": 1
+        },
+        {
+          "id": "K01",
+          "motif": "banana",
+          "drawCalls": 26,
+          "cache": 53,
+          "hits": 138,
+          "misses": 53,
+          "active": 1
+        },
+        {
+          "id": "K02",
+          "motif": "shield",
+          "drawCalls": 12,
+          "cache": 56,
+          "hits": 140,
+          "misses": 56,
+          "active": 1
+        },
+        {
+          "id": "K03",
+          "motif": "fruit",
+          "drawCalls": 48,
+          "cache": 58,
+          "hits": 161,
+          "misses": 58,
+          "active": 1
+        },
+        {
+          "id": "K04",
+          "motif": "chili",
+          "drawCalls": 40,
+          "cache": 60,
+          "hits": 178,
+          "misses": 60,
+          "active": 1
+        },
+        {
+          "id": "K05",
+          "motif": "steam",
+          "drawCalls": 32,
+          "cache": 61,
+          "hits": 192,
+          "misses": 61,
+          "active": 1
+        },
+        {
+          "id": "K06",
+          "motif": "volcano",
+          "drawCalls": 38,
+          "cache": 64,
+          "hits": 207,
+          "misses": 64,
+          "active": 1
+        },
+        {
+          "id": "K07",
+          "motif": "frog",
+          "drawCalls": 30,
+          "cache": 64,
+          "hits": 221,
+          "misses": 64,
+          "active": 1
+        },
+        {
+          "id": "K08",
+          "motif": "chocolate",
+          "drawCalls": 26,
+          "cache": 64,
+          "hits": 233,
+          "misses": 64,
+          "active": 1
+        },
+        {
+          "id": "Q01",
+          "motif": "eraser",
+          "drawCalls": 36,
+          "cache": 66,
+          "hits": 248,
+          "misses": 66,
+          "active": 1
+        },
+        {
+          "id": "Q02",
+          "motif": "beasts",
+          "drawCalls": 22,
+          "cache": 68,
+          "hits": 256,
+          "misses": 68,
+          "active": 1
+        },
+        {
+          "id": "Q03",
+          "motif": "dream",
+          "drawCalls": 34,
+          "cache": 70,
+          "hits": 270,
+          "misses": 70,
+          "active": 1
+        },
+        {
+          "id": "Q04",
+          "motif": "broadcast",
+          "drawCalls": 16,
+          "cache": 73,
+          "hits": 274,
+          "misses": 73,
+          "active": 1
+        },
+        {
+          "id": "Q05",
+          "motif": "papers",
+          "drawCalls": 32,
+          "cache": 74,
+          "hits": 288,
+          "misses": 74,
+          "active": 1
+        },
+        {
+          "id": "Q06",
+          "motif": "lamp",
+          "drawCalls": 10,
+          "cache": 77,
+          "hits": 289,
+          "misses": 77,
+          "active": 1
+        },
+        {
+          "id": "Q07",
+          "motif": "moons",
+          "drawCalls": 10,
+          "cache": 80,
+          "hits": 290,
+          "misses": 80,
+          "active": 1
+        },
+        {
+          "id": "Q08",
+          "motif": "chalk",
+          "drawCalls": 32,
+          "cache": 84,
+          "hits": 301,
+          "misses": 84,
+          "active": 1
+        },
+        {
+          "id": "S01",
+          "motif": "clock",
+          "drawCalls": 30,
+          "cache": 87,
+          "hits": 312,
+          "misses": 87,
+          "active": 1
+        },
+        {
+          "id": "S02",
+          "motif": "pencil",
+          "drawCalls": 28,
+          "cache": 89,
+          "hits": 323,
+          "misses": 89,
+          "active": 1
+        },
+        {
+          "id": "S03",
+          "motif": "tornado",
+          "drawCalls": 10,
+          "cache": 89,
+          "hits": 324,
+          "misses": 89,
+          "active": 1
+        },
+        {
+          "id": "S04",
+          "motif": "thunder-grid",
+          "drawCalls": 21,
+          "cache": 89,
+          "hits": 331,
+          "misses": 89,
+          "active": 1
+        },
+        {
+          "id": "S05",
+          "motif": "robot",
+          "drawCalls": 12,
+          "cache": 92,
+          "hits": 333,
+          "misses": 92,
+          "active": 1
+        },
+        {
+          "id": "S06",
+          "motif": "elastic",
+          "drawCalls": 14,
+          "cache": 96,
+          "hits": 335,
+          "misses": 96,
+          "active": 1
+        },
+        {
+          "id": "S07",
+          "motif": "portal",
+          "drawCalls": 12,
+          "cache": 98,
+          "hits": 338,
+          "misses": 98,
+          "active": 1
+        },
+        {
+          "id": "S08",
+          "motif": "vending",
+          "drawCalls": 18,
+          "cache": 100,
+          "hits": 344,
+          "misses": 100,
+          "active": 1
+        },
+        {
+          "id": "P01",
+          "motif": "paper-cyclone",
+          "drawCalls": 28,
+          "cache": 100,
+          "hits": 357,
+          "misses": 100,
+          "active": 1
+        },
+        {
+          "id": "P02",
+          "motif": "ball",
+          "drawCalls": 28,
+          "cache": 103,
+          "hits": 367,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "P03",
+          "motif": "beasts",
+          "drawCalls": 22,
+          "cache": 103,
+          "hits": 377,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "P04",
+          "motif": "speaker-wall",
+          "drawCalls": 18,
+          "cache": 103,
+          "hits": 385,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "P05",
+          "motif": "ball",
+          "drawCalls": 28,
+          "cache": 103,
+          "hits": 398,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "P06",
+          "motif": "elastic",
+          "drawCalls": 14,
+          "cache": 103,
+          "hits": 404,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "P07",
+          "motif": "tidal-gate",
+          "drawCalls": 24,
+          "cache": 103,
+          "hits": 415,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "P08",
+          "motif": "comet-rain",
+          "drawCalls": 30,
+          "cache": 103,
+          "hits": 429,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "X01",
+          "motif": "clock",
+          "drawCalls": 30,
+          "cache": 103,
+          "hits": 443,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "X02",
+          "motif": "portal",
+          "drawCalls": 12,
+          "cache": 103,
+          "hits": 448,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "X03",
+          "motif": "meteor-shower",
+          "drawCalls": 28,
+          "cache": 103,
+          "hits": 461,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "X04",
+          "motif": "dream",
+          "drawCalls": 34,
+          "cache": 103,
+          "hits": 477,
+          "misses": 103,
+          "active": 1
+        },
+        {
+          "id": "X05",
+          "motif": "cosmic",
+          "drawCalls": 38,
+          "cache": 106,
+          "hits": 492,
+          "misses": 106,
+          "active": 1
+        },
+        {
+          "id": "X06",
+          "motif": "echo",
+          "drawCalls": 18,
+          "cache": 112,
+          "hits": 494,
+          "misses": 112,
+          "active": 1
+        },
+        {
+          "id": "X07",
+          "motif": "blackboard-rupture",
+          "drawCalls": 32,
+          "cache": 112,
+          "hits": 509,
+          "misses": 112,
+          "active": 1
+        },
+        {
+          "id": "X08",
+          "motif": "mirror-door",
+          "drawCalls": 12,
+          "cache": 112,
+          "hits": 514,
+          "misses": 112,
+          "active": 1
+        }
+      ],
+      "pool": {
+        "enabled": true,
+        "cache": 112,
+        "hits": 514,
+        "misses": 112
+      },
+      "errors": []
+    }
+  ]
+}
