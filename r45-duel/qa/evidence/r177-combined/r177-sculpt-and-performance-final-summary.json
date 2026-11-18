@@ -1,0 +1,104 @@
+{
+  "date": "2026-11-18",
+  "publishState": "NO_GO",
+  "desktopHardware": "Z890 RTX5070Ti Chrome Vulkan CPUx2",
+  "mobileViewport": "430x900 DPR2 Chrome CPUx3 on desktop GPU, NOT real mobile GPU",
+  "realGLB": "E06_Cinematic_Eraser.glb",
+  "artCoverage": {
+    "reviewCandidate": 1,
+    "proceduralPrototype": 45,
+    "visuallyAccepted": 0
+  },
+  "cases": [
+    {
+      "variant": "baseline",
+      "view": "desktop",
+      "passAll": true,
+      "coldMaxRafMs": 366.7,
+      "coldP99Ms": 33.4,
+      "longTaskMaxMs": 0,
+      "readyMs": 4412,
+      "priming": null,
+      "realSculptIds": [
+        "E06"
+      ],
+      "modelCount": 16,
+      "originalModelBytes": 75569762,
+      "spells": 93,
+      "uniqueProps": 46,
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "view": "mobile",
+      "passAll": true,
+      "coldMaxRafMs": 483.3,
+      "coldP99Ms": 66.6,
+      "longTaskMaxMs": 0,
+      "readyMs": 6570,
+      "priming": null,
+      "realSculptIds": [
+        "E06"
+      ],
+      "modelCount": 16,
+      "originalModelBytes": 75569762,
+      "spells": 93,
+      "uniqueProps": 46,
+      "errors": []
+    },
+    {
+      "variant": "primed",
+      "view": "desktop",
+      "passAll": true,
+      "coldMaxRafMs": 50,
+      "coldP99Ms": 33.5,
+      "longTaskMaxMs": 0,
+      "readyMs": 5834,
+      "priming": {
+        "models": [
+          "T01",
+          "E03"
+        ],
+        "draws": 3,
+        "ms": 1793.2,
+        "shaderDelta": 43,
+        "sourceQualityPreserved": true
+      },
+      "realSculptIds": [
+        "E06"
+      ],
+      "modelCount": 16,
+      "originalModelBytes": 75569762,
+      "spells": 93,
+      "uniqueProps": 46,
+      "errors": []
+    },
+    {
+      "variant": "primed",
+      "view": "mobile",
+      "passAll": true,
+      "coldMaxRafMs": 50,
+      "coldP99Ms": 50,
+      "longTaskMaxMs": 0,
+      "readyMs": 7557,
+      "priming": {
+        "models": [
+          "T01",
+          "E03"
+        ],
+        "draws": 3,
+        "ms": 2213.7,
+        "shaderDelta": 43,
+        "sourceQualityPreserved": true
+      },
+      "realSculptIds": [
+        "E06"
+      ],
+      "modelCount": 16,
+      "originalModelBytes": 75569762,
+      "spells": 93,
+      "uniqueProps": 46,
+      "errors": []
+    }
+  ]
+}

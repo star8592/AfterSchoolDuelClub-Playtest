@@ -49,6 +49,12 @@ const R176_PRIME_BOARD=(()=>{
   (PARAMS.get('r176PrimeBoard')??pp?.get('r176PrimeBoard'))==='on';
 })();
 let r176PrimeBoardReceipt=null;
+const R175_HERO_E06=(()=>{
+ const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||parent?.get('qa')==='1')&&
+  (PARAMS.get('r175HeroE06')??parent?.get('r175HeroE06'))==='on';
+})();
 // R169 QA-only all-spells replacement. Never silently overwrite R147.
 const R174_PREPARE_GPU=(()=>{
  try{
@@ -1632,6 +1638,13 @@ try{
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
+ if(R175_HERO_E06&&R169_SCHOOL_MAGIC){
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/E06_Cinematic_Eraser.glb');
+  if(!schoolMagicStage.registerHeroAsset('E06',glb.scene))
+   throw Error('R177 E06 original Blender GLB registration failed');
+ }
+
  if(R174_PREPARE_GPU&&R169_SCHOOL_MAGIC){
   r174ReadyPreparation=await schoolMagicStage.prepareGpuMaterial(
     'E06',renderer,camera,scene);
