@@ -1,0 +1,21 @@
+{
+  "id": "Q03",
+  "originalName": "会做梦的黑板",
+  "source": "Q03_Dreaming_School_Blackboard.blend",
+  "glb": "Q03_Dreaming_School_Blackboard.glb",
+  "render": "Q03_Dreaming_School_Blackboard.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 344881,
+  "glbBytes": 351612,
+  "triangles": 13620,
+  "meshes": 9,
+  "materials": 7,
+  "actorGroups": [
+    "Q03_BOARD_STATIC",
+    "Q03_CHALK_HAND_ACTOR",
+    "Q03_EYES_ACTOR",
+    "Q03_WRITING_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

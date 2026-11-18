@@ -6,6 +6,17 @@
 import {GUIDED_LINES} from './guided-tutorial.mjs';
 import {SCHOOL_MAGIC_IDENTITIES} from './scene/campus-magic-bible.mjs';
 const SOUNDS=Object.freeze({
+ // R185 ten additional original object-material digital school Foley.
+ r185_g06:'r185_g06.ogg',
+ r185_t05:'r185_t05.ogg',
+ r185_k05:'r185_k05.ogg',
+ r185_q03:'r185_q03.ogg',
+ r185_q04:'r185_q04.ogg',
+ r185_q07:'r185_q07.ogg',
+ r185_q08:'r185_q08.ogg',
+ r185_s02:'r185_s02.ogg',
+ r185_s05:'r185_s05.ogg',
+ r185_s07:'r185_s07.ogg',
  // R184 genuine new original digital school-material foley synthesis;
  // these are not recorded VO nor stock/original movie clips.
  r184_e05:'r184_e05.ogg',
@@ -145,6 +156,19 @@ export const COMIC_BEATS=Object.freeze({
   S06:[ ['r184_s06',0,0.98,0.69], ['r102_spring_boing',0.44,1.04,0.36], ['r102_crowd_gasp',0.64,0.92,0.25] ],
   P07:[ ['r184_p07',0,0.96,0.69], ['r102_music_gliss',0.28,1.05,0.25], ['r102_crowd_gasp',0.57,0.94,0.24] ],
   X02:[ ['r184_x02',0,0.98,0.68], ['r102_poster_unfurl',0.24,1.06,0.33], ['r102_stamp_pop',0.59,0.97,0.24] ]
+ }).map(([id,arr])=>['school_'+id,arr])),
+ // R185 ten non-reused original material sound sources, unique timelines.
+ ...Object.fromEntries(Object.entries({
+  G06:[ ['r185_g06',0,0.98,0.69], ['r171_paper_whirl',0.16,1.06,0.29], ['r102_stamp_pop',0.42,0.98,0.25] ],
+  T05:[ ['r185_t05',0,0.97,0.7], ['r171_food_sizzle',0.17,1.12,0.24], ['r102_hearts_pulse',0.48,0.91,0.29] ],
+  K05:[ ['r185_k05',0,1.01,0.73], ['r102_music_gliss',0.22,0.81,0.22], ['r102_crowd_gasp',0.58,0.93,0.23] ],
+  Q03:[ ['r185_q03',0,0.94,0.72], ['r171_pencil_scribble',0.18,1.07,0.3], ['r102_magic_tingle',0.61,1.13,0.2] ],
+  Q04:[ ['r185_q04',0,1.02,0.71], ['r102_radio_glitch',0.22,0.93,0.29], ['r102_crowd_gasp',0.63,1.03,0.23] ],
+  Q07:[ ['r185_q07',0,0.95,0.68], ['r171_paper_whirl',0.31,1.06,0.29], ['r102_music_gliss',0.61,0.95,0.2] ],
+  Q08:[ ['r185_q08',0,0.97,0.72], ['r171_chalk_dust',0.16,1.1,0.3], ['r102_shield_chime',0.69,1.01,0.27] ],
+  S02:[ ['r185_s02',0,0.99,0.73], ['r171_pencil_scribble',0.36,1.13,0.27], ['r102_rubber_squeak',0.69,0.99,0.2] ],
+  S05:[ ['r185_s05',0,0.94,0.72], ['r102_radio_tune',0.23,1.06,0.27], ['r102_stamp_pop',0.66,0.91,0.24] ],
+  S07:[ ['r185_s07',0,0.98,0.74], ['r171_clock_reverse',0.29,1.12,0.33], ['r102_school_bell',0.58,0.93,0.27] ]
  }).map(([id,arr])=>['school_'+id,arr]))
 });
 const VOICE_MODEL='Qwen3-TTS';

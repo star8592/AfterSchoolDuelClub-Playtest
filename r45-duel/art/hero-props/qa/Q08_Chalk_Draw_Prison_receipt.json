@@ -1,0 +1,21 @@
+{
+  "id": "Q08",
+  "originalName": "粉笔画地为牢",
+  "source": "Q08_Chalk_Draw_Prison.blend",
+  "glb": "Q08_Chalk_Draw_Prison.glb",
+  "render": "Q08_Chalk_Draw_Prison.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 762772,
+  "glbBytes": 1055168,
+  "triangles": 42516,
+  "meshes": 7,
+  "materials": 6,
+  "actorGroups": [
+    "Q08_CHALK_PRISON_ACTOR",
+    "Q08_CHALK_STICK_ACTOR",
+    "Q08_FLOOR_STATIC",
+    "Q08_LOCK_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

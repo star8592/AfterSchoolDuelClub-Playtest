@@ -165,6 +165,66 @@ const candidateIds=new Map([
   runtime:'art/hero-props/X02_School_Uniform_Passing_Wall.glb',
   image:'art/hero-props/qa/X02_School_Uniform_Passing_Wall.png',
   reproducible:'art/hero-props/build_r184_ten_signature_props.py'
+ }],
+ ['G06',{
+  source:'art/hero-props/G06_Second_Page_PopUp_School_Plan.blend',
+  runtime:'art/hero-props/G06_Second_Page_PopUp_School_Plan.glb',
+  image:'art/hero-props/qa/G06_Second_Page_PopUp_School_Plan.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['T05',{
+  source:'art/hero-props/T05_Heartwarming_Cafeteria_Chef_Soup.blend',
+  runtime:'art/hero-props/T05_Heartwarming_Cafeteria_Chef_Soup.glb',
+  image:'art/hero-props/qa/T05_Heartwarming_Cafeteria_Chef_Soup.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['K05',{
+  source:'art/hero-props/K05_Invisible_Air_Soup_Bowl.blend',
+  runtime:'art/hero-props/K05_Invisible_Air_Soup_Bowl.glb',
+  image:'art/hero-props/qa/K05_Invisible_Air_Soup_Bowl.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['Q03',{
+  source:'art/hero-props/Q03_Dreaming_School_Blackboard.blend',
+  runtime:'art/hero-props/Q03_Dreaming_School_Blackboard.glb',
+  image:'art/hero-props/qa/Q03_Dreaming_School_Blackboard.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['Q04',{
+  source:'art/hero-props/Q04_Embarrassing_Dormitory_Public_Play.blend',
+  runtime:'art/hero-props/Q04_Embarrassing_Dormitory_Public_Play.glb',
+  image:'art/hero-props/qa/Q04_Embarrassing_Dormitory_Public_Play.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['Q07',{
+  source:'art/hero-props/Q07_Second_Cardboard_Classroom_Moon.blend',
+  runtime:'art/hero-props/Q07_Second_Cardboard_Classroom_Moon.glb',
+  image:'art/hero-props/qa/Q07_Second_Cardboard_Classroom_Moon.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['Q08',{
+  source:'art/hero-props/Q08_Chalk_Draw_Prison.blend',
+  runtime:'art/hero-props/Q08_Chalk_Draw_Prison.glb',
+  image:'art/hero-props/qa/Q08_Chalk_Draw_Prison.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['S02',{
+  source:'art/hero-props/S02_One_Pencil_Tiny_Stationery_Case.blend',
+  runtime:'art/hero-props/S02_One_Pencil_Tiny_Stationery_Case.glb',
+  image:'art/hero-props/qa/S02_One_Pencil_Tiny_Stationery_Case.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['S05',{
+  source:'art/hero-props/S05_Confused_Homeroom_Class_Leader_Robot.blend',
+  runtime:'art/hero-props/S05_Confused_Homeroom_Class_Leader_Robot.glb',
+  image:'art/hero-props/qa/S05_Confused_Homeroom_Class_Leader_Robot.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['S07',{
+  source:'art/hero-props/S07_School_Bell_Time_Wormhole.blend',
+  runtime:'art/hero-props/S07_School_Bell_Time_Wormhole.glb',
+  image:'art/hero-props/qa/S07_School_Bell_Time_Wormhole.png',
+  reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
  }]
 ]);
 const records=Object.values(SCHOOL_MAGIC_IDENTITIES).map(e=>{
@@ -185,11 +245,11 @@ const summary={cardCount:SCHOOL_MAGIC_COUNT,true3dCandidateCount:true3d,
   proceduralPlaceholderCount:records.length-true3d,visuallyAccepted:0,
   releaseReady:accepted,release:'NO_GO',
   note:'Scans true physical authored model and referenced source files. Does not automatically validate beauty or mobile performance; manual visual signoff required.',records};
-const dest=resolve(root,'qa/evidence/r184-sculpted-props/r184-46-prop-art-status.json');
+const dest=resolve(root,'qa/evidence/r185-sculpted-props/r185-46-prop-art-status.json');
 mkdirSync(dirname(dest),{recursive:true});
 writeFileSync(dest,JSON.stringify(summary,null,2));
-console.log('R184_REAL_ART_AUDIT',JSON.stringify({
+console.log('R185_REAL_ART_AUDIT',JSON.stringify({
  all:summary.cardCount,sculptedCandidates:true3d,placeholders:records.length-true3d,
  visuallyAccepted:0,release:'NO_GO',report:dest}));
-if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==27)process.exitCode=3;
+if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==37)process.exitCode=3;
 if(process.argv.includes('--release')&&accepted!==46)process.exitCode=2;

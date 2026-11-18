@@ -1,0 +1,20 @@
+{
+  "id": "T05",
+  "originalName": "食堂暖心加餐",
+  "source": "T05_Heartwarming_Cafeteria_Chef_Soup.blend",
+  "glb": "T05_Heartwarming_Cafeteria_Chef_Soup.glb",
+  "render": "T05_Heartwarming_Cafeteria_Chef_Soup.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 210125,
+  "glbBytes": 244420,
+  "triangles": 11752,
+  "meshes": 9,
+  "materials": 9,
+  "actorGroups": [
+    "T05_SOUP_BOWL_ACTOR",
+    "T05_SPOON_ACTOR",
+    "T05_STEAM_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

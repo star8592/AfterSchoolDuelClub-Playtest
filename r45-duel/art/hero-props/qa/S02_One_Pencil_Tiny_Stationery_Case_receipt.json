@@ -1,0 +1,20 @@
+{
+  "id": "S02",
+  "originalName": "只能装一根笔的文具盒",
+  "source": "S02_One_Pencil_Tiny_Stationery_Case.blend",
+  "glb": "S02_One_Pencil_Tiny_Stationery_Case.glb",
+  "render": "S02_One_Pencil_Tiny_Stationery_Case.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 456419,
+  "glbBytes": 435832,
+  "triangles": 16824,
+  "meshes": 12,
+  "materials": 10,
+  "actorGroups": [
+    "S02_CASE_BODY_ACTOR",
+    "S02_LID_ACTOR",
+    "S02_ONLY_PENCIL_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

@@ -1,0 +1,21 @@
+{
+  "id": "S07",
+  "originalName": "放学铃声虫洞",
+  "source": "S07_School_Bell_Time_Wormhole.blend",
+  "glb": "S07_School_Bell_Time_Wormhole.glb",
+  "render": "S07_School_Bell_Time_Wormhole.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 533252,
+  "glbBytes": 546684,
+  "triangles": 21868,
+  "meshes": 10,
+  "materials": 8,
+  "actorGroups": [
+    "S07_BELL_ACTOR",
+    "S07_CLAPPER_ACTOR",
+    "S07_CORRIDOR_DOORS_ACTOR",
+    "S07_TIMETABLE_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

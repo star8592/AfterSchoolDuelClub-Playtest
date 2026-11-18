@@ -1,0 +1,748 @@
+{
+  "cardCount": 46,
+  "true3dCandidateCount": 37,
+  "proceduralPlaceholderCount": 9,
+  "visuallyAccepted": 0,
+  "releaseReady": 0,
+  "release": "NO_GO",
+  "note": "Scans true physical authored model and referenced source files. Does not automatically validate beauty or mobile performance; manual visual signoff required.",
+  "records": [
+    {
+      "id": "E05",
+      "name": "超速呐喊",
+      "family": "体育呐喊",
+      "prop": "megaphone",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "E06",
+      "name": "飞来的巨大黑板擦",
+      "family": "教具投掷",
+      "prop": "eraser",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "G05",
+      "name": "课桌紧急修补",
+      "family": "校舍维修",
+      "prop": "desk",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "G06",
+      "name": "翻到第二页的方案",
+      "family": "作业文具",
+      "prop": "flipbook",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "T05",
+      "name": "食堂暖心加餐",
+      "family": "食堂灾难",
+      "prop": "soup",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "T06",
+      "name": "误播的放学广播",
+      "family": "广播事故",
+      "prop": "speaker",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "K01",
+      "name": "茄子炒香蕉",
+      "family": "黑暗食堂",
+      "prop": "eggplant-banana",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "K02",
+      "name": "西瓜炖橡皮",
+      "family": "黑暗食堂",
+      "prop": "watermelon-eraser",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "K03",
+      "name": "玉米炒葡萄",
+      "family": "黑暗食堂",
+      "prop": "corn-grapes",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "K04",
+      "name": "辣椒炒月饼",
+      "family": "黑暗食堂",
+      "prop": "pepper-mooncake",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "K05",
+      "name": "校长秘制空气汤",
+      "family": "黑暗食堂",
+      "prop": "invisible-soup",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "K06",
+      "name": "火山辣椒奶茶",
+      "family": "黑暗食堂",
+      "prop": "volcano-tea",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "K07",
+      "name": "蛤蟆布丁警报",
+      "family": "黑暗食堂",
+      "prop": "frog-pudding",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "K08",
+      "name": "披甲巧克力香蕉",
+      "family": "黑暗食堂",
+      "prop": "armored-banana",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "Q01",
+      "name": "会写检讨的橡皮",
+      "family": "教室怪谈",
+      "prop": "essay-eraser",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "Q02",
+      "name": "神兽返校通知书",
+      "family": "教室怪谈",
+      "prop": "beast-notice",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "Q03",
+      "name": "会做梦的黑板",
+      "family": "教室怪谈",
+      "prop": "dream-board",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "Q04",
+      "name": "全寝室公开播放",
+      "family": "教室怪谈",
+      "prop": "loud-phone",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "Q05",
+      "name": "粉笔开记者会",
+      "family": "教室怪谈",
+      "prop": "press-chalk",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "Q06",
+      "name": "要按三次才亮的台灯",
+      "family": "教室怪谈",
+      "prop": "three-click-lamp",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "Q07",
+      "name": "教室里的第二个月亮",
+      "family": "教室怪谈",
+      "prop": "second-moon",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "Q08",
+      "name": "粉笔画地为牢",
+      "family": "教室怪谈",
+      "prop": "chalk-prison",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "S01",
+      "name": "时间倒流的闹钟",
+      "family": "社团实验",
+      "prop": "reverse-alarm",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "S02",
+      "name": "只能装一根笔的文具盒",
+      "family": "社团实验",
+      "prop": "pencil-case",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "S03",
+      "name": "反重力大扫把",
+      "family": "社团实验",
+      "prop": "anti-grav-broom",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "S04",
+      "name": "错误答案发电机",
+      "family": "社团实验",
+      "prop": "wrong-answer-generator",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "S05",
+      "name": "乌龙机器人班长",
+      "family": "社团实验",
+      "prop": "robot-monitor",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "S06",
+      "name": "量子橡皮筋",
+      "family": "社团实验",
+      "prop": "quantum-band",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "S07",
+      "name": "放学铃声虫洞",
+      "family": "社团实验",
+      "prop": "bell-wormhole",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "S08",
+      "name": "会生气的自动售货机",
+      "family": "社团实验",
+      "prop": "angry-vending",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "P01",
+      "name": "狂风炸毛超人",
+      "family": "体育荒诞",
+      "prop": "wind-hair",
+      "assetTier": "procedural_placeholder",
+      "independentlySculpted": false,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": null
+    },
+    {
+      "id": "P02",
+      "name": "一百年没进球的墙球赛",
+      "family": "体育荒诞",
+      "prop": "lost-ball",
+      "assetTier": "procedural_placeholder",
+      "independentlySculpted": false,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": null
+    },
+    {
+      "id": "P03",
+      "name": "纸箱恐龙运动员",
+      "family": "体育荒诞",
+      "prop": "box-dinosaur",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "P04",
+      "name": "体育老师超级口哨",
+      "family": "体育荒诞",
+      "prop": "mega-whistle",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "P05",
+      "name": "排球误入篮筐",
+      "family": "体育荒诞",
+      "prop": "volleyball-hoop",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "P06",
+      "name": "反向跑步机",
+      "family": "体育荒诞",
+      "prop": "reverse-treadmill",
+      "assetTier": "procedural_placeholder",
+      "independentlySculpted": false,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": null
+    },
+    {
+      "id": "P07",
+      "name": "黑天鹅冰面慢动作",
+      "family": "体育荒诞",
+      "prop": "black-swan",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "P08",
+      "name": "运动会掉下的流星",
+      "family": "体育荒诞",
+      "prop": "sports-meteor",
+      "assetTier": "procedural_placeholder",
+      "independentlySculpted": false,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": null
+    },
+    {
+      "id": "X01",
+      "name": "倒退一小时的校钟",
+      "family": "时空校园",
+      "prop": "rewind-clock",
+      "assetTier": "procedural_placeholder",
+      "independentlySculpted": false,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": null
+    },
+    {
+      "id": "X02",
+      "name": "能穿墙的校服",
+      "family": "时空校园",
+      "prop": "wall-uniform",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "X03",
+      "name": "屋顶违停的教务车",
+      "family": "时空校园",
+      "prop": "roof-car",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "X04",
+      "name": "会预言的午休枕头",
+      "family": "时空校园",
+      "prop": "prophecy-pillow",
+      "assetTier": "procedural_placeholder",
+      "independentlySculpted": false,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": null
+    },
+    {
+      "id": "X05",
+      "name": "作业本宇宙大战",
+      "family": "时空校园",
+      "prop": "homework-cosmos",
+      "assetTier": "true3d_review_candidate",
+      "independentlySculpted": true,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": {
+        "source": true,
+        "runtime": true,
+        "image": true,
+        "reproducible": true
+      }
+    },
+    {
+      "id": "X06",
+      "name": "早读时间复制器",
+      "family": "时空校园",
+      "prop": "reading-cloner",
+      "assetTier": "procedural_placeholder",
+      "independentlySculpted": false,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": null
+    },
+    {
+      "id": "X07",
+      "name": "消失的最后一节课",
+      "family": "时空校园",
+      "prop": "vanishing-period",
+      "assetTier": "procedural_placeholder",
+      "independentlySculpted": false,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": null
+    },
+    {
+      "id": "X08",
+      "name": "校门口时空保安",
+      "family": "时空校园",
+      "prop": "time-guard",
+      "assetTier": "procedural_placeholder",
+      "independentlySculpted": false,
+      "visualAccepted": false,
+      "performanceAccepted": false,
+      "releaseEligible": false,
+      "files": null
+    }
+  ]
+}
