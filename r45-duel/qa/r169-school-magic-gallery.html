@@ -53,7 +53,7 @@ camera.position.set(0,2.88,4.85);camera.lookAt(0,1.36,0);
 const floor=new THREE.Mesh(new THREE.CylinderGeometry(5.6,5.9,.22,48),
  new THREE.MeshStandardMaterial({color:'#58717c',roughness:.83}));
 floor.position.y=-.26;scene.add(floor);
-const magic=createCampusSchoolMagic(THREE,scene);
+const magic=createCampusSchoolMagic(THREE,scene,{mergeStatic:new URLSearchParams(location.search).get('r172BatchStatic')==='on'});
 const clock=new THREE.Clock(),origin=()=>clock.getElapsedTime();
 let serial=1,card=null,t=0;
 function resize(){
