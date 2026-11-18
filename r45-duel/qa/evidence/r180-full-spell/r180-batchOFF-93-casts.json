@@ -1,0 +1,533 @@
+{
+  "id": "desktop-batched-cpu2",
+  "start": "2026-11-18T08:25:21.086Z",
+  "view": "desktop",
+  "mode": "batched",
+  "cpu": 2,
+  "errors": [],
+  "hardware": "Z890 RTX5070Ti Chrome Vulkan (mobile viewport emulation is not Android GPU)",
+  "initial": {
+    "models": 16,
+    "bytes": 75569762,
+    "cards": 60,
+    "source": true,
+    "beforePrograms": 48,
+    "prime": null,
+    "primeAll": null,
+    "primeHand": null,
+    "primeTwo": {
+      "mode": "exact-two-QA",
+      "allIds": [
+        "T01",
+        "E03"
+      ],
+      "renderFrames": 3,
+      "models": 2,
+      "ms": 447.5,
+      "shaderDelta": 1,
+      "preservedOriginalCharacters": true
+    },
+    "primeHero": {
+      "id": "K07",
+      "renderFrames": 3,
+      "realMeshes": 18,
+      "batch": {
+        "id": "K07",
+        "batchGroups": 0,
+        "sourceMeshes": 0,
+        "savedDraws": 0,
+        "failures": 0
+      },
+      "ms": 1665.9,
+      "shaderDelta": 44,
+      "sourceFidelity": true
+    },
+    "stadiumBatch": {
+      "enabled": false
+    },
+    "authoredHighDetailAssets": [
+      "E06",
+      "K01",
+      "K07"
+    ],
+    "startupMs": 6047,
+    "noFloatingPortrait": true,
+    "gestureFamilies": 11,
+    "spells": [
+      {
+        "id": "E05",
+        "effect": "buff"
+      },
+      {
+        "id": "E06",
+        "effect": "blast"
+      },
+      {
+        "id": "G05",
+        "effect": "repair"
+      },
+      {
+        "id": "G06",
+        "effect": "draw"
+      },
+      {
+        "id": "T05",
+        "effect": "heal"
+      },
+      {
+        "id": "T06",
+        "effect": "confuse"
+      },
+      {
+        "id": "K01",
+        "effect": "stew"
+      },
+      {
+        "id": "K02",
+        "effect": "shield"
+      },
+      {
+        "id": "K03",
+        "effect": "draw"
+      },
+      {
+        "id": "K04",
+        "effect": "splash"
+      },
+      {
+        "id": "K05",
+        "effect": "heal"
+      },
+      {
+        "id": "K06",
+        "effect": "blast"
+      },
+      {
+        "id": "K07",
+        "effect": "chaos"
+      },
+      {
+        "id": "K08",
+        "effect": "banquet"
+      },
+      {
+        "id": "Q01",
+        "effect": "repair"
+      },
+      {
+        "id": "Q02",
+        "effect": "chaos"
+      },
+      {
+        "id": "Q03",
+        "effect": "insight"
+      },
+      {
+        "id": "Q04",
+        "effect": "draw"
+      },
+      {
+        "id": "Q05",
+        "effect": "blast"
+      },
+      {
+        "id": "Q06",
+        "effect": "shield"
+      },
+      {
+        "id": "Q07",
+        "effect": "eclipse"
+      },
+      {
+        "id": "Q08",
+        "effect": "updraft"
+      },
+      {
+        "id": "S01",
+        "effect": "insight"
+      },
+      {
+        "id": "S02",
+        "effect": "reroute"
+      },
+      {
+        "id": "S03",
+        "effect": "updraft"
+      },
+      {
+        "id": "S04",
+        "effect": "splash"
+      },
+      {
+        "id": "S05",
+        "effect": "shield"
+      },
+      {
+        "id": "S06",
+        "effect": "boomerang"
+      },
+      {
+        "id": "S07",
+        "effect": "eclipse"
+      },
+      {
+        "id": "S08",
+        "effect": "blast"
+      },
+      {
+        "id": "P01",
+        "effect": "buff"
+      },
+      {
+        "id": "P02",
+        "effect": "shield"
+      },
+      {
+        "id": "P03",
+        "effect": "splash"
+      },
+      {
+        "id": "P04",
+        "effect": "chaos"
+      },
+      {
+        "id": "P05",
+        "effect": "trick"
+      },
+      {
+        "id": "P06",
+        "effect": "boomerang"
+      },
+      {
+        "id": "P07",
+        "effect": "chaos"
+      },
+      {
+        "id": "P08",
+        "effect": "blast"
+      },
+      {
+        "id": "X01",
+        "effect": "draw"
+      },
+      {
+        "id": "X02",
+        "effect": "shield"
+      },
+      {
+        "id": "X03",
+        "effect": "blast"
+      },
+      {
+        "id": "X04",
+        "effect": "insight"
+      },
+      {
+        "id": "X05",
+        "effect": "splash"
+      },
+      {
+        "id": "X06",
+        "effect": "repair"
+      },
+      {
+        "id": "X07",
+        "effect": "reroute"
+      },
+      {
+        "id": "X08",
+        "effect": "eclipse"
+      }
+    ],
+    "soundPatterns": 46,
+    "originalFoleyUpgrades": 14,
+    "cameraSafe": true
+  },
+  "cold": {
+    "frameCount": 129,
+    "p50": 16.7,
+    "p95": 33.4,
+    "p99": 33.4,
+    "max": 50,
+    "longTaskMax": 0,
+    "longTasks": [],
+    "programsStart": 48,
+    "programsEnd": 52,
+    "shaderDelta": 4,
+    "played": 1,
+    "duelists": [
+      {
+        "side": "player",
+        "posture": {
+          "phase": "idle",
+          "schoolHitSignature": null,
+          "schoolSignature": "flip-wok-7",
+          "schoolStrength": 0,
+          "draw": 0,
+          "display": 0,
+          "cast": 0,
+          "follow": 0.029,
+          "victory": 0,
+          "defeat": 0,
+          "hop": 0,
+          "recoil": 0,
+          "speaking": false,
+          "speechSerial": null,
+          "inspected": 0,
+          "livingBeat": "idle",
+          "r134Idle": {
+            "story": "check_hand",
+            "strength": 0.9431,
+            "phase": 2.862,
+            "headYaw": 0.137,
+            "thighL": 0.0938,
+            "thighR": -0.0938,
+            "inspect": 0.548,
+            "challenge": 0
+          },
+          "footContact": null,
+          "livingStrength": 0,
+          "arms": {
+            "R": {
+              "drop": -0.678,
+              "spread": 0.021,
+              "worldHand": [
+                -5.292,
+                1.894,
+                0.651
+              ],
+              "wristToShoulder": 0.296
+            },
+            "L": {
+              "drop": -0.953,
+              "spread": 0.037,
+              "worldHand": [
+                -5.351,
+                1.618,
+                0.434
+              ],
+              "wristToShoulder": 0.507
+            }
+          },
+          "ik": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.006,
+              "reach": 0.296,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.292,
+                1.894,
+                0.651
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.01,
+              "reach": 0.507,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.351,
+                1.618,
+                0.434
+              ]
+            }
+          },
+          "face": "gesture"
+        }
+      },
+      {
+        "side": "ai",
+        "posture": {
+          "phase": "eye_roll",
+          "schoolHitSignature": null,
+          "schoolSignature": null,
+          "schoolStrength": 0,
+          "draw": 0,
+          "display": 0,
+          "cast": 0,
+          "follow": 0,
+          "victory": 0,
+          "defeat": 0,
+          "hop": 0,
+          "recoil": 0,
+          "speaking": false,
+          "speechSerial": null,
+          "inspected": 0,
+          "livingBeat": "eye_roll",
+          "r134Idle": {
+            "story": "challenge_opponent",
+            "strength": 1,
+            "phase": 5.212,
+            "headYaw": 0.1325,
+            "thighL": 0.0496,
+            "thighR": -0.0277,
+            "inspect": 0,
+            "challenge": 0.5762
+          },
+          "footContact": null,
+          "livingStrength": 1.088,
+          "arms": {
+            "R": {
+              "drop": -0.922,
+              "spread": 0.239,
+              "worldHand": [
+                5.385,
+                2.018,
+                0.554
+              ],
+              "wristToShoulder": 0.253
+            },
+            "L": {
+              "drop": -0.697,
+              "spread": 0.057,
+              "worldHand": [
+                5.498,
+                1.733,
+                0.767
+              ],
+              "wristToShoulder": 0.398
+            }
+          },
+          "ik": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.062,
+              "reach": 0.253,
+              "segmentLength": 0.55,
+              "hand": [
+                5.385,
+                2.018,
+                0.554
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.015,
+              "reach": 0.398,
+              "segmentLength": 0.55,
+              "hand": [
+                5.498,
+                1.733,
+                0.767
+              ]
+            }
+          },
+          "face": "idle"
+        }
+      }
+    ],
+    "portraitInsetDraws": 0
+  },
+  "passOne": {
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "authoredHighDetailAssets": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 47,
+      "expired": 43,
+      "rejected": 0,
+      "active": 4,
+      "peakObjects": 25,
+      "peakDraws": 25,
+      "uniqueRenderedProps": 46,
+      "shaderPointLights": 0,
+      "cacheGeometries": 128,
+      "cacheMaterials": 125,
+      "staticBatch": {
+        "enabled": true,
+        "mergedSets": 37,
+        "sourceMeshes": 134,
+        "drawsSaved": 97,
+        "failures": 0,
+        "cacheEntries": 37,
+        "totalMergedTriangles": 10080
+      },
+      "decalTextures": 43,
+      "hitAnimations": 1,
+      "lastBySide": {
+        "player": "X08",
+        "ai": null
+      },
+      "activeIds": [
+        "X05",
+        "X06",
+        "X07",
+        "X08"
+      ]
+    },
+    "shaderPrograms": 52,
+    "legacyImpact": 0,
+    "legacyArsenal": 0,
+    "cameraSafe": true,
+    "portraitInsetDraws": 0,
+    "noFloatingPortrait": true,
+    "currentGestures": [
+      "turn-clock-8",
+      null
+    ]
+  },
+  "passTwo": {
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "authoredHighDetailAssets": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 93,
+      "expired": 89,
+      "rejected": 0,
+      "active": 4,
+      "peakObjects": 25,
+      "peakDraws": 25,
+      "uniqueRenderedProps": 46,
+      "shaderPointLights": 0,
+      "cacheGeometries": 128,
+      "cacheMaterials": 125,
+      "staticBatch": {
+        "enabled": true,
+        "mergedSets": 74,
+        "sourceMeshes": 268,
+        "drawsSaved": 194,
+        "failures": 0,
+        "cacheEntries": 37,
+        "totalMergedTriangles": 10080
+      },
+      "decalTextures": 43,
+      "hitAnimations": 1,
+      "lastBySide": {
+        "player": "X08",
+        "ai": null
+      },
+      "activeIds": [
+        "X05",
+        "X06",
+        "X07",
+        "X08"
+      ]
+    },
+    "shaderPrograms": 52,
+    "legacyImpact": 0,
+    "legacyArsenal": 0,
+    "cameraSafe": true,
+    "portraitInsetDraws": 0,
+    "noFloatingPortrait": true,
+    "currentGestures": [
+      "turn-clock-8",
+      null
+    ]
+  },
+  "pass": true
+}

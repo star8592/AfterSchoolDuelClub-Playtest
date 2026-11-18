@@ -1,0 +1,76 @@
+{
+  "batch": true,
+  "errors": [],
+  "shots": [
+    {
+      "angle": 0,
+      "yaw": 0,
+      "occlusion": {
+        "championshipVisible": true,
+        "reverseVisible": false
+      },
+      "frontSeats": {
+        "cushionZ": -6.36,
+        "backrestZ": -6.69,
+        "seatCount": 198,
+        "visible": true
+      },
+      "reverseSeats": {
+        "cushionZ": 6.36,
+        "backrestZ": 6.69,
+        "seatCount": 198,
+        "visible": false
+      },
+      "draws": 634,
+      "batch": true,
+      "pass": true
+    },
+    {
+      "angle": 90,
+      "yaw": 89.95,
+      "occlusion": {
+        "championshipVisible": true,
+        "reverseVisible": false
+      },
+      "frontSeats": {
+        "cushionZ": -6.36,
+        "backrestZ": -6.69,
+        "seatCount": 198,
+        "visible": true
+      },
+      "reverseSeats": {
+        "cushionZ": 6.36,
+        "backrestZ": 6.69,
+        "seatCount": 198,
+        "visible": false
+      },
+      "draws": 624,
+      "batch": true,
+      "pass": true
+    },
+    {
+      "angle": 180,
+      "yaw": 179.85,
+      "occlusion": {
+        "championshipVisible": false,
+        "reverseVisible": true
+      },
+      "frontSeats": {
+        "cushionZ": -6.36,
+        "backrestZ": -6.69,
+        "seatCount": 198,
+        "visible": false
+      },
+      "reverseSeats": {
+        "cushionZ": 6.36,
+        "backrestZ": 6.69,
+        "seatCount": 198,
+        "visible": true
+      },
+      "draws": 618,
+      "batch": true,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

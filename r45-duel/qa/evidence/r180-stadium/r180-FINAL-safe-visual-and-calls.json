@@ -1,0 +1,51 @@
+{
+  "project": "AfterSchoolDuelClub R180",
+  "date": "2026-11-18",
+  "gpu": "Z890 RTX5070Ti Chrome Vulkan",
+  "mobileIsViewportNotAndroid": true,
+  "qaOnly": true,
+  "release": "NO_GO",
+  "imagesAffectActors": false,
+  "record": {
+    "desktop": {
+      "viewport": "desktop",
+      "drawCallsOriginal": 734,
+      "drawCallsSafeBatch": 626,
+      "savedCalls": 108,
+      "startupBaselineMs": 4370,
+      "startupBatchMs": 4405,
+      "imageMeanAbsoluteRgb": 0.1313,
+      "pixelsChangedMoreThan25Ratio": 0.001906,
+      "sourceActors": 16,
+      "sourceActorBytes": 75569762,
+      "batches": 19,
+      "physicalMeshesPreserved": true,
+      "trianglesMerged": 11744,
+      "batchFailures": 0,
+      "sources": {
+        "before": "off-desktop-1/report.json",
+        "after": "on-desktop-2/report.json"
+      }
+    },
+    "mobile": {
+      "viewport": "mobile",
+      "drawCallsOriginal": 732,
+      "drawCallsSafeBatch": 636,
+      "savedCalls": 96,
+      "startupBaselineMs": 6449,
+      "startupBatchMs": 6368,
+      "imageMeanAbsoluteRgb": 0.02,
+      "pixelsChangedMoreThan25Ratio": 0.000278,
+      "sourceActors": 16,
+      "sourceActorBytes": 75569762,
+      "batches": 19,
+      "physicalMeshesPreserved": true,
+      "trianglesMerged": 11648,
+      "batchFailures": 0,
+      "sources": {
+        "before": "off-mobile-1/report.json",
+        "after": "on-mobile-2/report.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "allPass": true,
+  "cameraAngles": [
+    0,
+    90,
+    180
+  ],
+  "comparison": [
+    {
+      "yaw": 0,
+      "callsBefore": 734,
+      "callsAfter": 634,
+      "saved": 100,
+      "mae": 0.0243,
+      "changedPixelsOver25": 0.000394,
+      "reverseVisible": false,
+      "championshipVisible": true
+    },
+    {
+      "yaw": 90,
+      "callsBefore": 709,
+      "callsAfter": 624,
+      "saved": 85,
+      "mae": 0.0557,
+      "changedPixelsOver25": 0.000988,
+      "reverseVisible": false,
+      "championshipVisible": true
+    },
+    {
+      "yaw": 180,
+      "callsBefore": 676,
+      "callsAfter": 618,
+      "saved": 58,
+      "mae": 0.7261,
+      "changedPixelsOver25": 0.009829,
+      "reverseVisible": true,
+      "championshipVisible": false
+    }
+  ],
+  "note": "Same fixed seed and user camera positions, differences can include animated actor pose; no game actors removed."
+}

@@ -73,6 +73,13 @@ const R179_PRIME_FROG=(()=>{
   (PARAMS.get('r179PrimeFrog')??pp?.get('r179PrimeFrog'))==='on';
 })();
 let r179FrogGpuReceipt=null;
+const R180_STADIUM_BATCH=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r180StadiumBatch')??pp?.get('r180StadiumBatch'))==='on';
+})();
+
 
 
 // R176 research: front-load authentic board model shader/mesh GPU setup
@@ -321,6 +328,17 @@ function keepArenaVisible(){
  lastOcclusionMode=mode;
  stadiumEvidence.group.traverse(obj=>{
   const n=obj.name||'';
+  const batchVisibility=obj.userData?.r180OcclusionClass;
+  if(batchVisibility){
+   if(batchVisibility==='front-120')obj.visible=at<120;
+   else if(batchVisibility==='front-sign-100')obj.visible=at<100;
+   else if(batchVisibility.startsWith('side-wall-')){
+    const wall=Number(batchVisibility.slice('side-wall-'.length));
+    obj.visible=at<58||wall!==side*11.5;
+   }
+   // 'always' retains the ordinary all-angle visibility.
+   return;
+  }
   if(n==='R49_Reverse_Grandstand'){
    obj.visible=at>=115;
    return;
@@ -401,7 +419,8 @@ function makeScene(){
  const rim=new THREE.DirectionalLight('#a0c9fc',2.25);rim.position.set(5,6,-4);rim.layers.enable(1);scene.add(rim);
  const fill=new THREE.DirectionalLight('#f7d6b9',.8);fill.position.set(3,3,6);fill.layers.enable(1);scene.add(fill);
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
- stadiumEvidence=createStadium(THREE,scene,{detail:'medium',lifeWorld:arenaLife});
+ stadiumEvidence=createStadium(THREE,scene,{detail:'medium',lifeWorld:arenaLife,
+  qaBatchStatic:R180_STADIUM_BATCH});
  duelEffects=createDuelEffects(THREE,scene);
  // The R100 director uses only validated real engine.combo_effect payloads.
  // The 3D stadium, summoners, permanent VRMs and canonical rules stay intact.
@@ -1592,6 +1611,42 @@ function exposeQA(){
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
   get drawCalls(){return drawCount},
+  get r180StadiumBatch(){return stadiumEvidence?.r180StaticBatch||{enabled:false}},
+  get r180SkinAudit(){
+   const roles=['R74_PERMANENT_DUELIST_E01','R74_PERMANENT_DUELIST_G01'];
+   return roles.map(name=>{
+    const actor=scene.getObjectByName(name);
+    const groups=new Map(),skeletons=new Set();
+    let meshes=0,materials=0,morphTargets=0,triangles=0,shareableCandidates=0;
+    actor?.traverse(o=>{
+     if(!o.isSkinnedMesh)return;
+     meshes++;
+     const g=o.geometry||{},mats=Array.isArray(o.material)?o.material:[o.material];
+     materials+=mats.length;
+     if(Object.keys(g.morphAttributes||{}).length)morphTargets++;
+     const groupKey=(o.skeleton?.uuid||'noSkeleton')+'|'+
+      mats.map(m=>m?.uuid).join('/')+'|'+
+      (g.index?'indexed':'nonIndexed')+'|'+
+      Object.keys(g.attributes||{}).sort().join(',');
+     if(!groups.has(groupKey))groups.set(groupKey,{count:0,vertices:0,
+      materialNames:mats.map(m=>m?.name||m?.type),withMorph:0});
+     const grp=groups.get(groupKey);
+     grp.count++;
+     grp.vertices+=g.attributes?.position?.count||0;
+     grp.withMorph+=Object.keys(g.morphAttributes||{}).length?1:0;
+     skeletons.add(o.skeleton?.uuid||'none');
+     triangles+=(g.index?.count||g.attributes?.position?.count||0)/3;
+    });
+    const repeated=[...groups.values()].filter(g=>g.count>1);
+    shareableCandidates=repeated.reduce((n,x)=>n+x.count-1,0);
+    return {name,meshes,materials,morphTargets,skeletons:skeletons.size,
+     approxTriangles:Math.round(triangles),distinctMaterialSkinAttributeGroups:groups.size,
+     repeatedEquivalentSignatureGroups:repeated.length,
+     theoreticalSameSignatureMeshesToSave:shareableCandidates,
+     mostRepeated:repeated.sort((a,b)=>b.count-a.count).slice(0,8)};
+   });
+  },
+
   get r179RenderInventory(){
    const roots=[];
    for(const child of scene.children){
