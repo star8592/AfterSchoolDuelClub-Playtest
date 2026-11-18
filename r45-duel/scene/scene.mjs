@@ -37,6 +37,91 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// Explicit QA-only experiment: suppress synchronous WebGL shader diagnostic
+// info-log calls after linking. Production default remains true.
+const R168_SKIP_SHADER_DIAGNOSTICS=(()=>{
+ const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}catch{return null}})();
+ return (PARAMS.get('qa')==='1'||parent?.get('qa')==='1')&&
+  (PARAMS.get('r168ShaderDiagnostics')??parent?.get('r168ShaderDiagnostics'))==='off';
+})();
+let r168RetainedWarmup=null;
+function r168WarmupActualE06(method='compile'){
+ if(!R131_IS_QA()||!ready||!renderer||!scene||!camera)throw Error('R168 QA ready required');
+ if(!['compile','draw'].includes(method))throw Error('Invalid QA warmup method');
+ if(r168RetainedWarmup)return{...r168RetainedWarmup.summary,previouslyWarmed:true};
+ const impactRoot=scene.getObjectByName('R81_Resolved_Spell_Impact_Choreography');
+ if(!impactRoot||!magicArsenal?.root)throw Error('R168 actual magic modules missing');
+ const magicRoot=magicArsenal.root;
+ const beforeImpact=new Set(impactRoot.children),beforeMagic=new Set(magicRoot.children);
+ const beforeProgramCount=renderer.info.programs?.length||0;
+ const event={type:'ASDC_R81_SPELL_RESULT',serial:168888,side:'player',
+  card:'E06',effect:BY_ID.E06.effect,
+  directDamage:1,damage:1,targetUids:['U16802']};
+ const started=performance.now();
+ const impactOK=spellImpact.play(event,absoluteSeconds);
+ const arsenalOK=magicArsenal.play(event,absoluteSeconds);
+ if(!impactOK||!arsenalOK)throw Error('R168 exact E06 prototype failed');
+ const nowImpact=impactRoot.children.filter(x=>!beforeImpact.has(x));
+ const nowMagic=magicRoot.children.filter(x=>!beforeMagic.has(x));
+ let afterProgramCount;
+ try{
+  if(method==='compile'){
+   renderer.compile(scene,camera);
+  }else{
+   const target=new THREE.WebGLRenderTarget(4,4,{depthBuffer:true});
+   const original=renderer.getRenderTarget();
+   const oldViewport=renderer.getViewport(new THREE.Vector4());
+   const oldScissor=renderer.getScissor(new THREE.Vector4());
+   const oldScissorEnabled=renderer.getScissorTest();
+   const oldClear=renderer.autoClear;
+   const oldShadowAuto=renderer.shadowMap.autoUpdate;
+   const oldShadowDirty=renderer.shadowMap.needsUpdate;
+   try{
+    renderer.setRenderTarget(target);
+    renderer.setViewport(0,0,4,4);
+    renderer.setScissorTest(false);
+    renderer.autoClear=true;
+    renderer.shadowMap.autoUpdate=false;
+    renderer.shadowMap.needsUpdate=false;
+    renderer.clear(true,true,true);
+    renderer.render(scene,camera);
+   }finally{
+    renderer.setRenderTarget(original);
+    renderer.setViewport(oldViewport);
+    renderer.setScissor(oldScissor);
+    renderer.setScissorTest(oldScissorEnabled);
+    renderer.autoClear=oldClear;
+    renderer.shadowMap.autoUpdate=oldShadowAuto;
+    renderer.shadowMap.needsUpdate=oldShadowDirty;
+    target.dispose();
+   }
+  }
+  afterProgramCount=renderer.info.programs?.length||0;
+ }finally{
+  for(const group of nowImpact)impactRoot.remove(group);
+  for(const group of nowMagic)magicRoot.remove(group);
+ }
+ const summary={method,compiledBefore:beforeProgramCount,compiledAfter:afterProgramCount,
+  elapsedMs:+(performance.now()-started).toFixed(3),
+  effectGroupsCreated:nowImpact.length+nowMagic.length,
+  stagedPointLights:nowImpact.concat(nowMagic).reduce((v,group)=>{
+   group.traverse(o=>{if(o.isPointLight)v++});return v;
+  },0),
+  cosmeticOnly:true,retainedGroupsNotVisible:true};
+ r168RetainedWarmup={groups:[...nowImpact,...nowMagic],summary};
+ return {...summary};
+}
+function r168ShaderLinkAudit(){
+ if(!R131_IS_QA()||!renderer)throw Error('R168 shader audit QA-only');
+ const gl=renderer.getContext(),list=renderer.info.programs||[],fails=[];
+ for(const program of list){
+  if(!gl.getProgramParameter(program.program,gl.LINK_STATUS))
+   fails.push({id:program.id,log:String(gl.getProgramInfoLog(program.program)||'').slice(0,800)});
+ }
+ return{passed:fails.length===0,checked:list.length,fails,
+  debugEnabled:renderer.debug.checkShaderErrors};
+}
+
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -282,6 +367,7 @@ function checkIncoming(payload){
 function makeScene(){
  scene=new THREE.Scene();scene.background=new THREE.Color('#192b42');scene.fog=new THREE.Fog('#192b42',17,49);
  renderer=new THREE.WebGLRenderer({canvas:$('battle-canvas'),alpha:false,antialias:true,powerPreference:'high-performance'});
+ if(R168_SKIP_SHADER_DIAGNOSTICS)renderer.debug.checkShaderErrors=false;
  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
  renderer.toneMappingExposure=1.15;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
  // R124: cache the last directional shadow between scheduled updates; the
@@ -1383,6 +1469,13 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
+  get r168ShaderDiagnostics(){return {
+   skip:R168_SKIP_SHADER_DIAGNOSTICS,
+   checkShaderErrors:renderer?.debug?.checkShaderErrors??null,
+   compiledPrograms:renderer?.info?.programs?.length??null
+  }},
+  r168ShaderLinkAudit,
+  r168WarmupActualE06,
   get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,

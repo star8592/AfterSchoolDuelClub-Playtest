@@ -1,0 +1,1528 @@
+{
+  "serverPort": 18669,
+  "skipDiagnostics": true,
+  "tag": "disabled",
+  "date": "2026-11-18T01:34:07.783Z",
+  "source": "UNMODIFIED R147 source + real model bytes",
+  "browser": "Z890 Chrome Vulkan RTX5070Ti",
+  "cases": [
+    {
+      "index": 0,
+      "serial": 168001,
+      "first": true,
+      "frame": {
+        "n": 90,
+        "p50": 16.7,
+        "p95": 33.4,
+        "p99": 216.7,
+        "max": 216.7
+      },
+      "profile": {
+        "samples": 2591,
+        "totalSampledMs": 2904.75,
+        "top": [
+          {
+            "id": 2,
+            "function": "(program)",
+            "url": "",
+            "line": -1,
+            "selfMs": 807.714,
+            "selfPct": 27.81
+          },
+          {
+            "id": 137,
+            "function": "getProgramParameter",
+            "url": "",
+            "line": -1,
+            "selfMs": 497.788,
+            "selfPct": 17.14
+          },
+          {
+            "id": 141,
+            "function": "shaderSource",
+            "url": "",
+            "line": -1,
+            "selfMs": 53.533,
+            "selfPct": 1.84
+          },
+          {
+            "id": 142,
+            "function": "getParameters",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 6825,
+            "selfMs": 53.222,
+            "selfPct": 1.83
+          },
+          {
+            "id": 56,
+            "function": "WebGLRenderer.renderBufferDirect",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 15934,
+            "selfMs": 52.227,
+            "selfPct": 1.8
+          },
+          {
+            "id": 57,
+            "function": "setProgram",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 17020,
+            "selfMs": 50.066,
+            "selfPct": 1.72
+          },
+          {
+            "id": 73,
+            "function": "bindVertexArray",
+            "url": "",
+            "line": -1,
+            "selfMs": 45.106,
+            "selfPct": 1.55
+          },
+          {
+            "id": 90,
+            "function": "getProgram",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16873,
+            "selfMs": 42.104,
+            "selfPct": 1.45
+          },
+          {
+            "id": 144,
+            "function": "replaceLightNums",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5804,
+            "selfMs": 35.426,
+            "selfPct": 1.22
+          },
+          {
+            "id": 233,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 32.301,
+            "selfPct": 1.11
+          },
+          {
+            "id": 28,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 29.298,
+            "selfPct": 1.01
+          },
+          {
+            "id": 51,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 27.767,
+            "selfPct": 0.96
+          },
+          {
+            "id": 29,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 26.376,
+            "selfPct": 0.91
+          },
+          {
+            "id": 71,
+            "function": "setup",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1598,
+            "selfMs": 24.808,
+            "selfPct": 0.85
+          },
+          {
+            "id": 3,
+            "function": "loop",
+            "url": "http://127.0.0.1:18669/r45-duel/scene/scene.mjs?r147Safe=1",
+            "line": 822,
+            "selfMs": 21.735,
+            "selfPct": 0.75
+          },
+          {
+            "id": 152,
+            "function": "(garbage collector)",
+            "url": "",
+            "line": -1,
+            "selfMs": 19.855,
+            "selfPct": 0.68
+          },
+          {
+            "id": 86,
+            "function": "texSubImage2D",
+            "url": "",
+            "line": -1,
+            "selfMs": 17.968,
+            "selfPct": 0.62
+          },
+          {
+            "id": 19,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 17.741,
+            "selfPct": 0.61
+          },
+          {
+            "id": 54,
+            "function": "renderObjects",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16813,
+            "selfMs": 17.472,
+            "selfPct": 0.6
+          },
+          {
+            "id": 138,
+            "function": "markUniformsLightsNeedsUpdate",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 17421,
+            "selfMs": 17.327,
+            "selfPct": 0.6
+          },
+          {
+            "id": 151,
+            "function": "cloneUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 20883,
+            "selfMs": 16.896,
+            "selfPct": 0.58
+          },
+          {
+            "id": 237,
+            "function": "refreshUniformsCommon",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 14036,
+            "selfMs": 16.049,
+            "selfPct": 0.55
+          },
+          {
+            "id": 91,
+            "function": "needsUpdate",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1722,
+            "selfMs": 15.13,
+            "selfPct": 0.52
+          },
+          {
+            "id": 164,
+            "function": "getProgramCacheKey",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 7153,
+            "selfMs": 14.656,
+            "selfPct": 0.5
+          },
+          {
+            "id": 161,
+            "function": "setValueV3f",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4608,
+            "selfMs": 14.063,
+            "selfPct": 0.48
+          },
+          {
+            "id": 147,
+            "function": "includeReplacer",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5843,
+            "selfMs": 13.999,
+            "selfPct": 0.48
+          },
+          {
+            "id": 252,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 24974,
+            "selfMs": 13.789,
+            "selfPct": 0.47
+          },
+          {
+            "id": 55,
+            "function": "renderObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16842,
+            "selfMs": 13.645,
+            "selfPct": 0.47
+          },
+          {
+            "id": 239,
+            "function": "arraysEqual",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4513,
+            "selfMs": 13.549,
+            "selfPct": 0.47
+          },
+          {
+            "id": 189,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 25346,
+            "selfMs": 12.917,
+            "selfPct": 0.44
+          },
+          {
+            "id": 160,
+            "function": "setValue",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5409,
+            "selfMs": 12.882,
+            "selfPct": 0.44
+          },
+          {
+            "id": 67,
+            "function": "upload",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5535,
+            "selfMs": 12.758,
+            "selfPct": 0.44
+          },
+          {
+            "id": 20,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 12.633,
+            "selfPct": 0.43
+          },
+          {
+            "id": 50,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 25346,
+            "selfMs": 12.58,
+            "selfPct": 0.43
+          },
+          {
+            "id": 209,
+            "function": "getBindingState",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1655,
+            "selfMs": 12.379,
+            "selfPct": 0.43
+          },
+          {
+            "id": 58,
+            "function": "refreshFogUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 13939,
+            "selfMs": 11.842,
+            "selfPct": 0.41
+          },
+          {
+            "id": 150,
+            "function": "getUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 7349,
+            "selfMs": 11.634,
+            "selfPct": 0.4
+          },
+          {
+            "id": 23,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 11.602,
+            "selfPct": 0.4
+          },
+          {
+            "id": 17,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 11.557,
+            "selfPct": 0.4
+          },
+          {
+            "id": 145,
+            "function": "parseUniform",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5446,
+            "selfMs": 9.664,
+            "selfPct": 0.33
+          },
+          {
+            "id": 93,
+            "function": "copyArray",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4527,
+            "selfMs": 9.625,
+            "selfPct": 0.33
+          },
+          {
+            "id": 133,
+            "function": "unrollLoops",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5872,
+            "selfMs": 9.347,
+            "selfPct": 0.32
+          },
+          {
+            "id": 234,
+            "function": "sort",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 7641,
+            "selfMs": 9.148,
+            "selfPct": 0.31
+          },
+          {
+            "id": 188,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 3877,
+            "selfMs": 8.856,
+            "selfPct": 0.3
+          },
+          {
+            "id": 267,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 8.662,
+            "selfPct": 0.3
+          }
+        ],
+        "topGame": [
+          {
+            "id": 142,
+            "function": "getParameters",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 6825,
+            "selfMs": 53.222,
+            "selfPct": 1.83
+          },
+          {
+            "id": 56,
+            "function": "WebGLRenderer.renderBufferDirect",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 15934,
+            "selfMs": 52.227,
+            "selfPct": 1.8
+          },
+          {
+            "id": 57,
+            "function": "setProgram",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 17020,
+            "selfMs": 50.066,
+            "selfPct": 1.72
+          },
+          {
+            "id": 90,
+            "function": "getProgram",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16873,
+            "selfMs": 42.104,
+            "selfPct": 1.45
+          },
+          {
+            "id": 144,
+            "function": "replaceLightNums",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5804,
+            "selfMs": 35.426,
+            "selfPct": 1.22
+          },
+          {
+            "id": 233,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 32.301,
+            "selfPct": 1.11
+          },
+          {
+            "id": 28,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 29.298,
+            "selfPct": 1.01
+          },
+          {
+            "id": 51,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 27.767,
+            "selfPct": 0.96
+          },
+          {
+            "id": 29,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 26.376,
+            "selfPct": 0.91
+          },
+          {
+            "id": 71,
+            "function": "setup",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1598,
+            "selfMs": 24.808,
+            "selfPct": 0.85
+          },
+          {
+            "id": 3,
+            "function": "loop",
+            "url": "http://127.0.0.1:18669/r45-duel/scene/scene.mjs?r147Safe=1",
+            "line": 822,
+            "selfMs": 21.735,
+            "selfPct": 0.75
+          },
+          {
+            "id": 19,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 17.741,
+            "selfPct": 0.61
+          },
+          {
+            "id": 54,
+            "function": "renderObjects",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16813,
+            "selfMs": 17.472,
+            "selfPct": 0.6
+          },
+          {
+            "id": 138,
+            "function": "markUniformsLightsNeedsUpdate",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 17421,
+            "selfMs": 17.327,
+            "selfPct": 0.6
+          },
+          {
+            "id": 151,
+            "function": "cloneUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 20883,
+            "selfMs": 16.896,
+            "selfPct": 0.58
+          },
+          {
+            "id": 237,
+            "function": "refreshUniformsCommon",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 14036,
+            "selfMs": 16.049,
+            "selfPct": 0.55
+          },
+          {
+            "id": 91,
+            "function": "needsUpdate",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1722,
+            "selfMs": 15.13,
+            "selfPct": 0.52
+          },
+          {
+            "id": 164,
+            "function": "getProgramCacheKey",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 7153,
+            "selfMs": 14.656,
+            "selfPct": 0.5
+          },
+          {
+            "id": 161,
+            "function": "setValueV3f",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4608,
+            "selfMs": 14.063,
+            "selfPct": 0.48
+          },
+          {
+            "id": 147,
+            "function": "includeReplacer",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5843,
+            "selfMs": 13.999,
+            "selfPct": 0.48
+          },
+          {
+            "id": 252,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 24974,
+            "selfMs": 13.789,
+            "selfPct": 0.47
+          },
+          {
+            "id": 55,
+            "function": "renderObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16842,
+            "selfMs": 13.645,
+            "selfPct": 0.47
+          },
+          {
+            "id": 239,
+            "function": "arraysEqual",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4513,
+            "selfMs": 13.549,
+            "selfPct": 0.47
+          },
+          {
+            "id": 189,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 25346,
+            "selfMs": 12.917,
+            "selfPct": 0.44
+          },
+          {
+            "id": 160,
+            "function": "setValue",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5409,
+            "selfMs": 12.882,
+            "selfPct": 0.44
+          },
+          {
+            "id": 67,
+            "function": "upload",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5535,
+            "selfMs": 12.758,
+            "selfPct": 0.44
+          },
+          {
+            "id": 20,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 12.633,
+            "selfPct": 0.43
+          },
+          {
+            "id": 50,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 25346,
+            "selfMs": 12.58,
+            "selfPct": 0.43
+          },
+          {
+            "id": 209,
+            "function": "getBindingState",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1655,
+            "selfMs": 12.379,
+            "selfPct": 0.43
+          },
+          {
+            "id": 58,
+            "function": "refreshFogUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 13939,
+            "selfMs": 11.842,
+            "selfPct": 0.41
+          },
+          {
+            "id": 150,
+            "function": "getUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 7349,
+            "selfMs": 11.634,
+            "selfPct": 0.4
+          },
+          {
+            "id": 23,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 11.602,
+            "selfPct": 0.4
+          },
+          {
+            "id": 17,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 11.557,
+            "selfPct": 0.4
+          },
+          {
+            "id": 145,
+            "function": "parseUniform",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5446,
+            "selfMs": 9.664,
+            "selfPct": 0.33
+          },
+          {
+            "id": 93,
+            "function": "copyArray",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4527,
+            "selfMs": 9.625,
+            "selfPct": 0.33
+          },
+          {
+            "id": 133,
+            "function": "unrollLoops",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5872,
+            "selfMs": 9.347,
+            "selfPct": 0.32
+          },
+          {
+            "id": 234,
+            "function": "sort",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 7641,
+            "selfMs": 9.148,
+            "selfPct": 0.31
+          },
+          {
+            "id": 188,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 3877,
+            "selfMs": 8.856,
+            "selfPct": 0.3
+          },
+          {
+            "id": 267,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 8.662,
+            "selfPct": 0.3
+          },
+          {
+            "id": 59,
+            "function": "setValue",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5519,
+            "selfMs": 8.487,
+            "selfPct": 0.29
+          },
+          {
+            "id": 15,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 8.325,
+            "selfPct": 0.29
+          },
+          {
+            "id": 256,
+            "function": "arraysEqual",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4513,
+            "selfMs": 7.45,
+            "selfPct": 0.26
+          },
+          {
+            "id": 438,
+            "function": "compose",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 12301,
+            "selfMs": 7.408,
+            "selfPct": 0.26
+          },
+          {
+            "id": 18,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 6.861,
+            "selfPct": 0.24
+          },
+          {
+            "id": 187,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4325,
+            "selfMs": 6.529,
+            "selfPct": 0.22
+          }
+        ]
+      },
+      "finished": {
+        "tasks": [
+          {
+            "started": 4769.2,
+            "duration": 308
+          },
+          {
+            "started": 5323.5,
+            "duration": 215
+          }
+        ],
+        "spells": 1,
+        "impact": 1
+      }
+    },
+    {
+      "index": 1,
+      "serial": 168002,
+      "first": false,
+      "frame": {
+        "n": 90,
+        "p50": 16.7,
+        "p95": 33.3,
+        "p99": 33.4,
+        "max": 33.4
+      },
+      "profile": {
+        "samples": 1706,
+        "totalSampledMs": 1927.06,
+        "top": [
+          {
+            "id": 2,
+            "function": "(program)",
+            "url": "",
+            "line": -1,
+            "selfMs": 759.048,
+            "selfPct": 39.39
+          },
+          {
+            "id": 56,
+            "function": "WebGLRenderer.renderBufferDirect",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 15934,
+            "selfMs": 51.485,
+            "selfPct": 2.67
+          },
+          {
+            "id": 59,
+            "function": "setProgram",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 17020,
+            "selfMs": 40.046,
+            "selfPct": 2.08
+          },
+          {
+            "id": 28,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 35.838,
+            "selfPct": 1.86
+          },
+          {
+            "id": 121,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 29.382,
+            "selfPct": 1.52
+          },
+          {
+            "id": 217,
+            "function": "bindVertexArray",
+            "url": "",
+            "line": -1,
+            "selfMs": 28.876,
+            "selfPct": 1.5
+          },
+          {
+            "id": 25,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 27.661,
+            "selfPct": 1.44
+          },
+          {
+            "id": 72,
+            "function": "getParameters",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 6825,
+            "selfMs": 26.567,
+            "selfPct": 1.38
+          },
+          {
+            "id": 70,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 25.738,
+            "selfPct": 1.34
+          },
+          {
+            "id": 71,
+            "function": "getProgram",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16873,
+            "selfMs": 24.778,
+            "selfPct": 1.29
+          },
+          {
+            "id": 125,
+            "function": "markUniformsLightsNeedsUpdate",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 17421,
+            "selfMs": 23.218,
+            "selfPct": 1.2
+          },
+          {
+            "id": 102,
+            "function": "texSubImage2D",
+            "url": "",
+            "line": -1,
+            "selfMs": 22.858,
+            "selfPct": 1.19
+          },
+          {
+            "id": 74,
+            "function": "refreshUniformsCommon",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 14036,
+            "selfMs": 22.263,
+            "selfPct": 1.16
+          },
+          {
+            "id": 27,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 25346,
+            "selfMs": 19.967,
+            "selfPct": 1.04
+          },
+          {
+            "id": 58,
+            "function": "needsUpdate",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1722,
+            "selfMs": 19.121,
+            "selfPct": 0.99
+          },
+          {
+            "id": 18,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 24974,
+            "selfMs": 18.005,
+            "selfPct": 0.93
+          },
+          {
+            "id": 139,
+            "function": "upload",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5535,
+            "selfMs": 17.174,
+            "selfPct": 0.89
+          },
+          {
+            "id": 60,
+            "function": "getBindingState",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1655,
+            "selfMs": 16.054,
+            "selfPct": 0.83
+          },
+          {
+            "id": 54,
+            "function": "renderObjects",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16813,
+            "selfMs": 15.725,
+            "selfPct": 0.82
+          },
+          {
+            "id": 73,
+            "function": "refreshMaterialUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 13956,
+            "selfMs": 15.714,
+            "selfPct": 0.82
+          },
+          {
+            "id": 3,
+            "function": "loop",
+            "url": "http://127.0.0.1:18669/r45-duel/scene/scene.mjs?r147Safe=1",
+            "line": 822,
+            "selfMs": 15.042,
+            "selfPct": 0.78
+          },
+          {
+            "id": 48,
+            "function": "texSubImage2D",
+            "url": "",
+            "line": -1,
+            "selfMs": 14.422,
+            "selfPct": 0.75
+          },
+          {
+            "id": 16,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 13.449,
+            "selfPct": 0.7
+          },
+          {
+            "id": 129,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 13.393,
+            "selfPct": 0.69
+          },
+          {
+            "id": 138,
+            "function": "arraysEqual",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4513,
+            "selfMs": 13.006,
+            "selfPct": 0.67
+          },
+          {
+            "id": 141,
+            "function": "setValue",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5409,
+            "selfMs": 11.464,
+            "selfPct": 0.59
+          },
+          {
+            "id": 77,
+            "function": "uniformMatrix4fv",
+            "url": "",
+            "line": -1,
+            "selfMs": 11.364,
+            "selfPct": 0.59
+          },
+          {
+            "id": 62,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 10.627,
+            "selfPct": 0.55
+          },
+          {
+            "id": 55,
+            "function": "renderObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16842,
+            "selfMs": 10.432,
+            "selfPct": 0.54
+          },
+          {
+            "id": 15,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 10.373,
+            "selfPct": 0.54
+          },
+          {
+            "id": 120,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 25346,
+            "selfMs": 10.348,
+            "selfPct": 0.54
+          },
+          {
+            "id": 198,
+            "function": "compose",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 12301,
+            "selfMs": 9.746,
+            "selfPct": 0.51
+          },
+          {
+            "id": 215,
+            "function": "refreshFogUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 13939,
+            "selfMs": 9.476,
+            "selfPct": 0.49
+          },
+          {
+            "id": 245,
+            "function": "copyArray",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4527,
+            "selfMs": 9.474,
+            "selfPct": 0.49
+          },
+          {
+            "id": 40,
+            "function": "WebGLRenderer.renderBufferDirect",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 15934,
+            "selfMs": 9.199,
+            "selfPct": 0.48
+          },
+          {
+            "id": 61,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 9.129,
+            "selfPct": 0.47
+          },
+          {
+            "id": 194,
+            "function": "uniform1fv",
+            "url": "",
+            "line": -1,
+            "selfMs": 8.659,
+            "selfPct": 0.45
+          },
+          {
+            "id": 140,
+            "function": "setValue",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5409,
+            "selfMs": 8.605,
+            "selfPct": 0.45
+          },
+          {
+            "id": 57,
+            "function": "setup",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1598,
+            "selfMs": 8.532,
+            "selfPct": 0.44
+          },
+          {
+            "id": 109,
+            "function": "getProgramParameter",
+            "url": "",
+            "line": -1,
+            "selfMs": 8.396,
+            "selfPct": 0.44
+          },
+          {
+            "id": 146,
+            "function": "(idle)",
+            "url": "",
+            "line": -1,
+            "selfMs": 8.343,
+            "selfPct": 0.43
+          },
+          {
+            "id": 281,
+            "function": "copy",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 7905,
+            "selfMs": 7.817,
+            "selfPct": 0.41
+          },
+          {
+            "id": 68,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 7.464,
+            "selfPct": 0.39
+          },
+          {
+            "id": 75,
+            "function": "setValue",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5519,
+            "selfMs": 7.308,
+            "selfPct": 0.38
+          },
+          {
+            "id": 14,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 7.21,
+            "selfPct": 0.37
+          }
+        ],
+        "topGame": [
+          {
+            "id": 56,
+            "function": "WebGLRenderer.renderBufferDirect",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 15934,
+            "selfMs": 51.485,
+            "selfPct": 2.67
+          },
+          {
+            "id": 59,
+            "function": "setProgram",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 17020,
+            "selfMs": 40.046,
+            "selfPct": 2.08
+          },
+          {
+            "id": 28,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 35.838,
+            "selfPct": 1.86
+          },
+          {
+            "id": 121,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 29.382,
+            "selfPct": 1.52
+          },
+          {
+            "id": 25,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 27.661,
+            "selfPct": 1.44
+          },
+          {
+            "id": 72,
+            "function": "getParameters",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 6825,
+            "selfMs": 26.567,
+            "selfPct": 1.38
+          },
+          {
+            "id": 70,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 25.738,
+            "selfPct": 1.34
+          },
+          {
+            "id": 71,
+            "function": "getProgram",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16873,
+            "selfMs": 24.778,
+            "selfPct": 1.29
+          },
+          {
+            "id": 125,
+            "function": "markUniformsLightsNeedsUpdate",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 17421,
+            "selfMs": 23.218,
+            "selfPct": 1.2
+          },
+          {
+            "id": 74,
+            "function": "refreshUniformsCommon",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 14036,
+            "selfMs": 22.263,
+            "selfPct": 1.16
+          },
+          {
+            "id": 27,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 25346,
+            "selfMs": 19.967,
+            "selfPct": 1.04
+          },
+          {
+            "id": 58,
+            "function": "needsUpdate",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1722,
+            "selfMs": 19.121,
+            "selfPct": 0.99
+          },
+          {
+            "id": 18,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 24974,
+            "selfMs": 18.005,
+            "selfPct": 0.93
+          },
+          {
+            "id": 139,
+            "function": "upload",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5535,
+            "selfMs": 17.174,
+            "selfPct": 0.89
+          },
+          {
+            "id": 60,
+            "function": "getBindingState",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1655,
+            "selfMs": 16.054,
+            "selfPct": 0.83
+          },
+          {
+            "id": 54,
+            "function": "renderObjects",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16813,
+            "selfMs": 15.725,
+            "selfPct": 0.82
+          },
+          {
+            "id": 73,
+            "function": "refreshMaterialUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 13956,
+            "selfMs": 15.714,
+            "selfPct": 0.82
+          },
+          {
+            "id": 3,
+            "function": "loop",
+            "url": "http://127.0.0.1:18669/r45-duel/scene/scene.mjs?r147Safe=1",
+            "line": 822,
+            "selfMs": 15.042,
+            "selfPct": 0.78
+          },
+          {
+            "id": 16,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 13.449,
+            "selfPct": 0.7
+          },
+          {
+            "id": 129,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 13.393,
+            "selfPct": 0.69
+          },
+          {
+            "id": 138,
+            "function": "arraysEqual",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4513,
+            "selfMs": 13.006,
+            "selfPct": 0.67
+          },
+          {
+            "id": 141,
+            "function": "setValue",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5409,
+            "selfMs": 11.464,
+            "selfPct": 0.59
+          },
+          {
+            "id": 62,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 10.627,
+            "selfPct": 0.55
+          },
+          {
+            "id": 55,
+            "function": "renderObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16842,
+            "selfMs": 10.432,
+            "selfPct": 0.54
+          },
+          {
+            "id": 15,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 10.373,
+            "selfPct": 0.54
+          },
+          {
+            "id": 120,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 25346,
+            "selfMs": 10.348,
+            "selfPct": 0.54
+          },
+          {
+            "id": 198,
+            "function": "compose",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 12301,
+            "selfMs": 9.746,
+            "selfPct": 0.51
+          },
+          {
+            "id": 215,
+            "function": "refreshFogUniforms",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 13939,
+            "selfMs": 9.476,
+            "selfPct": 0.49
+          },
+          {
+            "id": 245,
+            "function": "copyArray",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4527,
+            "selfMs": 9.474,
+            "selfPct": 0.49
+          },
+          {
+            "id": 40,
+            "function": "WebGLRenderer.renderBufferDirect",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 15934,
+            "selfMs": 9.199,
+            "selfPct": 0.48
+          },
+          {
+            "id": 61,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 9.129,
+            "selfPct": 0.47
+          },
+          {
+            "id": 140,
+            "function": "setValue",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5409,
+            "selfMs": 8.605,
+            "selfPct": 0.45
+          },
+          {
+            "id": 57,
+            "function": "setup",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 1598,
+            "selfMs": 8.532,
+            "selfPct": 0.44
+          },
+          {
+            "id": 281,
+            "function": "copy",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 7905,
+            "selfMs": 7.817,
+            "selfPct": 0.41
+          },
+          {
+            "id": 68,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 7.464,
+            "selfPct": 0.39
+          },
+          {
+            "id": 75,
+            "function": "setValue",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 5519,
+            "selfMs": 7.308,
+            "selfPct": 0.38
+          },
+          {
+            "id": 14,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 7.21,
+            "selfPct": 0.37
+          },
+          {
+            "id": 233,
+            "function": "getProgramCacheKey",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 7153,
+            "selfMs": 7.201,
+            "selfPct": 0.37
+          },
+          {
+            "id": 232,
+            "function": "multiplyMatrices",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 11842,
+            "selfMs": 6.28,
+            "selfPct": 0.33
+          },
+          {
+            "id": 21,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 6.232,
+            "selfPct": 0.32
+          },
+          {
+            "id": 22,
+            "function": "projectObject",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 16548,
+            "selfMs": 6.125,
+            "selfPct": 0.32
+          },
+          {
+            "id": 91,
+            "function": "update",
+            "url": "http://127.0.0.1:18669/r45-duel/scene/vrm-character-acting.mjs",
+            "line": 95,
+            "selfMs": 6.084,
+            "selfPct": 0.32
+          },
+          {
+            "id": 142,
+            "function": "setValueV3f",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.module.js",
+            "line": 4608,
+            "selfMs": 5.521,
+            "selfPct": 0.29
+          },
+          {
+            "id": 69,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 5.294,
+            "selfPct": 0.27
+          },
+          {
+            "id": 13,
+            "function": "updateMatrixWorld",
+            "url": "http://127.0.0.1:18669/r45-duel/assets/three/build/three.core.js",
+            "line": 14279,
+            "selfMs": 5.244,
+            "selfPct": 0.27
+          }
+        ]
+      },
+      "finished": {
+        "tasks": [],
+        "spells": 2,
+        "impact": 2
+      }
+    }
+  ],
+  "errors": [],
+  "assets": {
+    "shaderMode": {
+      "skip": true,
+      "checkShaderErrors": false,
+      "compiledPrograms": 45
+    },
+    "models": 16,
+    "bytes": 75569762,
+    "cards": 60,
+    "sourceVerified": true,
+    "cameraSafe": true
+  },
+  "shaderLinkAudit": {
+    "passed": true,
+    "checked": 170,
+    "fails": [],
+    "debugEnabled": false
+  }
+}
