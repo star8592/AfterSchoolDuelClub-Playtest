@@ -1,0 +1,20 @@
+{
+  "id": "K04",
+  "originalName": "辣椒月饼大灾难",
+  "source": "K04_Chili_Mooncake_Catastrophe.blend",
+  "glb": "K04_Chili_Mooncake_Catastrophe.glb",
+  "render": "K04_Chili_Mooncake_Catastrophe.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 966641,
+  "glbBytes": 1625980,
+  "triangles": 66994,
+  "meshes": 9,
+  "materials": 9,
+  "actorGroups": [
+    "K04_CHILI_ACTOR",
+    "K04_MOONCAKE_ACTOR",
+    "K04_TRAY_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

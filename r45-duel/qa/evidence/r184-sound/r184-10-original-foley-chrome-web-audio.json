@@ -1,0 +1,111 @@
+{
+  "round": "R184",
+  "sourceFormat": "Ogg Vorbis",
+  "backend": "real Chrome WebAudio decodeAudioData",
+  "originalSynthFoley": 10,
+  "recordedVoiceAssets": 0,
+  "pass": true,
+  "clips": [
+    {
+      "id": "E05",
+      "file": "r184_e05.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.56447,
+      "rms": 0.13185,
+      "browserCanHear": true
+    },
+    {
+      "id": "G05",
+      "file": "r184_g05.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.59463,
+      "rms": 0.09222,
+      "browserCanHear": true
+    },
+    {
+      "id": "T06",
+      "file": "r184_t06.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.56699,
+      "rms": 0.11584,
+      "browserCanHear": true
+    },
+    {
+      "id": "K03",
+      "file": "r184_k03.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.55585,
+      "rms": 0.10811,
+      "browserCanHear": true
+    },
+    {
+      "id": "K04",
+      "file": "r184_k04.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.56205,
+      "rms": 0.09653,
+      "browserCanHear": true
+    },
+    {
+      "id": "Q02",
+      "file": "r184_q02.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.55534,
+      "rms": 0.12355,
+      "browserCanHear": true
+    },
+    {
+      "id": "S01",
+      "file": "r184_s01.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.61128,
+      "rms": 0.12224,
+      "browserCanHear": true
+    },
+    {
+      "id": "S06",
+      "file": "r184_s06.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.5634,
+      "rms": 0.12447,
+      "browserCanHear": true
+    },
+    {
+      "id": "P07",
+      "file": "r184_p07.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.61627,
+      "rms": 0.15157,
+      "browserCanHear": true
+    },
+    {
+      "id": "X02",
+      "file": "r184_x02.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.61403,
+      "rms": 0.12908,
+      "browserCanHear": true
+    }
+  ],
+  "errors": []
+}

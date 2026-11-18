@@ -1,0 +1,20 @@
+{
+  "id": "T06",
+  "originalName": "误播的放学广播",
+  "source": "T06_Broken_School_Announcement_System.blend",
+  "glb": "T06_Broken_School_Announcement_System.glb",
+  "render": "T06_Broken_School_Announcement_System.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 657828,
+  "glbBytes": 876836,
+  "triangles": 34698,
+  "meshes": 11,
+  "materials": 8,
+  "actorGroups": [
+    "T06_CONTROL_CONSOLE_ACTOR",
+    "T06_LOUDSPEAKER_ACTOR",
+    "T06_MICROPHONE_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

@@ -1,0 +1,20 @@
+{
+  "id": "S01",
+  "originalName": "逆转迟到闹钟",
+  "source": "S01_Reversed_Forged_School_Alarm.blend",
+  "glb": "S01_Reversed_Forged_School_Alarm.glb",
+  "render": "S01_Reversed_Forged_School_Alarm.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 449408,
+  "glbBytes": 480240,
+  "triangles": 19604,
+  "meshes": 11,
+  "materials": 7,
+  "actorGroups": [
+    "S01_BELLS_ACTOR",
+    "S01_CLOCK_CASE_ACTOR",
+    "S01_HANDS_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

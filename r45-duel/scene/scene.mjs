@@ -134,6 +134,34 @@ const R183_PRIME_SELECTED=(()=>{
   (PARAMS.get('r183PrimeSelected')??pp?.get('r183PrimeSelected'))==='on';
 })();
 let r183HeroLoadReceipt=null, r183SelectedPrewarm=null;
+// R184: one new heroic Blender asset per QA scene, zero eager loading.
+const R184_HERO_ASSET_PATH=Object.freeze({
+ E05:'E05_Giant_Cheer_Megaphone.glb',
+ G05:'G05_Repairing_Animated_School_Desk.glb',
+ T06:'T06_Broken_School_Announcement_System.glb',
+ K03:'K03_Corn_Grape_Cafeteria_Dance.glb',
+ K04:'K04_Chili_Mooncake_Catastrophe.glb',
+ Q02:'Q02_Origami_Beast_From_School_Notice.glb',
+ S01:'S01_Reversed_Forged_School_Alarm.glb',
+ S06:'S06_Quantum_Rubber_Band_Teacher_Hat.glb',
+ P07:'P07_Black_Swan_Ice_Rink.glb',
+ X02:'X02_School_Uniform_Passing_Wall.glb'
+});
+const R184_HERO_ID=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||pp?.get('qa')==='1';
+ const id=(PARAMS.get('r184Hero')??pp?.get('r184Hero')??'').trim();
+ return qa&&!R182_HERO_ID&&!R183_HERO_ID&&R184_HERO_ASSET_PATH[id]?id:null;
+})();
+const R184_PRIME_SELECTED=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return R184_HERO_ID&&
+  (PARAMS.get('r184PrimeSelected')??pp?.get('r184PrimeSelected'))==='on';
+})();
+let r184HeroLoadReceipt=null,r184SelectedPrewarm=null;
+
 
 
 const R180_STADIUM_BATCH=(()=>{
@@ -1682,6 +1710,9 @@ function exposeQA(){
   get r183HeroLoad(){return r183HeroLoadReceipt||{enabled:false}},
   get r183SelectedPrewarm(){return r183SelectedPrewarm},
   get r183ActorMotions(){return schoolMagicStage?.r183ActorMotions||[]},
+  get r184HeroLoad(){return r184HeroLoadReceipt||{enabled:false}},
+  get r184SelectedPrewarm(){return r184SelectedPrewarm},
+  get r184ActorMotions(){return schoolMagicStage?.r184ActorMotions||[]},
   // R181 no-write forensic survey: actual live source SkinnedMesh materials,
   // skinning topology, bind matrices and morphs. Never guesses equivalence from
   // UUID alone; does NOT rewrite VRM skeletal hierarchy or shader code.
@@ -2030,6 +2061,24 @@ try{
  if(R183_PRIME_SELECTED&&R169_SCHOOL_MAGIC){
   r183SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
    R183_HERO_ID,renderer,camera,scene);
+ }
+ if(R184_HERO_ID&&R169_SCHOOL_MAGIC){
+  const started=performance.now();
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/'+R184_HERO_ASSET_PATH[R184_HERO_ID]);
+  if(!schoolMagicStage.registerHeroAsset(R184_HERO_ID,glb.scene))
+   throw Error('R184 original Blender GLB registration failed '+R184_HERO_ID);
+  const parts=[];
+  glb.scene.traverse(o=>{if(o.isMesh)parts.push(o)});
+  r184HeroLoadReceipt={enabled:true,id:R184_HERO_ID,
+   assetPath:R184_HERO_ASSET_PATH[R184_HERO_ID],
+   meshCount:parts.length,
+   loadMs:+(performance.now()-started).toFixed(2),
+   onlyOneNewHeroLoaded:true,originalUnmodified:true};
+ }
+ if(R184_PRIME_SELECTED&&R169_SCHOOL_MAGIC){
+  r184SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
+   R184_HERO_ID,renderer,camera,scene);
  }
  if(R174_PREPARE_GPU&&R169_SCHOOL_MAGIC){
   r174ReadyPreparation=await schoolMagicStage.prepareGpuMaterial(

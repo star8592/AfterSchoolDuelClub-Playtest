@@ -1,0 +1,209 @@
+{
+  "total": 10,
+  "assets": {
+    "E05": {
+      "id": "E05",
+      "originalName": "超速呐喊巨型扩音器",
+      "source": "E05_Giant_Cheer_Megaphone.blend",
+      "glb": "E05_Giant_Cheer_Megaphone.glb",
+      "render": "E05_Giant_Cheer_Megaphone.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 613318,
+      "glbBytes": 892916,
+      "triangles": 36436,
+      "meshes": 8,
+      "materials": 7,
+      "actorGroups": [
+        "E05_BANNER_ACTOR",
+        "E05_HORN_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "G05": {
+      "id": "G05",
+      "originalName": "自动修理校桌",
+      "source": "G05_Repairing_Animated_School_Desk.blend",
+      "glb": "G05_Repairing_Animated_School_Desk.glb",
+      "render": "G05_Repairing_Animated_School_Desk.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 600866,
+      "glbBytes": 774424,
+      "triangles": 30764,
+      "meshes": 9,
+      "materials": 8,
+      "actorGroups": [
+        "G05_LEGS_ACTOR",
+        "G05_REPAIR_TOOL_ACTOR",
+        "G05_TABLETOP_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "T06": {
+      "id": "T06",
+      "originalName": "误播的放学广播",
+      "source": "T06_Broken_School_Announcement_System.blend",
+      "glb": "T06_Broken_School_Announcement_System.glb",
+      "render": "T06_Broken_School_Announcement_System.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 657828,
+      "glbBytes": 876836,
+      "triangles": 34698,
+      "meshes": 11,
+      "materials": 8,
+      "actorGroups": [
+        "T06_CONTROL_CONSOLE_ACTOR",
+        "T06_LOUDSPEAKER_ACTOR",
+        "T06_MICROPHONE_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "K03": {
+      "id": "K03",
+      "originalName": "玉米炒葡萄",
+      "source": "K03_Corn_Grape_Cafeteria_Dance.blend",
+      "glb": "K03_Corn_Grape_Cafeteria_Dance.glb",
+      "render": "K03_Corn_Grape_Cafeteria_Dance.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 2568677,
+      "glbBytes": 5636200,
+      "triangles": 197816,
+      "meshes": 10,
+      "materials": 9,
+      "actorGroups": [
+        "K03_CORN_ACTOR",
+        "K03_GRAPES_ACTOR",
+        "K03_PAN_ACTOR",
+        "K03_SPATULA_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "K04": {
+      "id": "K04",
+      "originalName": "辣椒月饼大灾难",
+      "source": "K04_Chili_Mooncake_Catastrophe.blend",
+      "glb": "K04_Chili_Mooncake_Catastrophe.glb",
+      "render": "K04_Chili_Mooncake_Catastrophe.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 966641,
+      "glbBytes": 1625980,
+      "triangles": 66994,
+      "meshes": 9,
+      "materials": 9,
+      "actorGroups": [
+        "K04_CHILI_ACTOR",
+        "K04_MOONCAKE_ACTOR",
+        "K04_TRAY_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "Q02": {
+      "id": "Q02",
+      "originalName": "返校通知折纸神兽",
+      "source": "Q02_Origami_Beast_From_School_Notice.blend",
+      "glb": "Q02_Origami_Beast_From_School_Notice.glb",
+      "render": "Q02_Origami_Beast_From_School_Notice.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 516971,
+      "glbBytes": 588684,
+      "triangles": 23215,
+      "meshes": 10,
+      "materials": 8,
+      "actorGroups": [
+        "Q02_BEAST_HEAD_ACTOR",
+        "Q02_NOTICE_ACTOR",
+        "Q02_PAPER_LEGS_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "S01": {
+      "id": "S01",
+      "originalName": "逆转迟到闹钟",
+      "source": "S01_Reversed_Forged_School_Alarm.blend",
+      "glb": "S01_Reversed_Forged_School_Alarm.glb",
+      "render": "S01_Reversed_Forged_School_Alarm.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 449408,
+      "glbBytes": 480240,
+      "triangles": 19604,
+      "meshes": 11,
+      "materials": 7,
+      "actorGroups": [
+        "S01_BELLS_ACTOR",
+        "S01_CLOCK_CASE_ACTOR",
+        "S01_HANDS_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "S06": {
+      "id": "S06",
+      "originalName": "弹飞老师帽橡皮筋",
+      "source": "S06_Quantum_Rubber_Band_Teacher_Hat.blend",
+      "glb": "S06_Quantum_Rubber_Band_Teacher_Hat.glb",
+      "render": "S06_Quantum_Rubber_Band_Teacher_Hat.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 219855,
+      "glbBytes": 145728,
+      "triangles": 7156,
+      "meshes": 9,
+      "materials": 8,
+      "actorGroups": [
+        "S06_BAND_ACTOR",
+        "S06_RIG_ACTOR",
+        "S06_TEACHER_HAT_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "P07": {
+      "id": "P07",
+      "originalName": "黑天鹅溜冰",
+      "source": "P07_Black_Swan_Ice_Rink.blend",
+      "glb": "P07_Black_Swan_Ice_Rink.glb",
+      "render": "P07_Black_Swan_Ice_Rink.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 278599,
+      "glbBytes": 227468,
+      "triangles": 9352,
+      "meshes": 11,
+      "materials": 10,
+      "actorGroups": [
+        "P07_ICE_RINK_STATIC",
+        "P07_SKATES_ACTOR",
+        "P07_SWAN_BODY_ACTOR",
+        "P07_SWAN_NECK_ACTOR",
+        "P07_SWAN_WINGS_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "X02": {
+      "id": "X02",
+      "originalName": "穿墙校服",
+      "source": "X02_School_Uniform_Passing_Wall.blend",
+      "glb": "X02_School_Uniform_Passing_Wall.glb",
+      "render": "X02_School_Uniform_Passing_Wall.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 787572,
+      "glbBytes": 1071176,
+      "triangles": 42474,
+      "meshes": 10,
+      "materials": 9,
+      "actorGroups": [
+        "X02_UNIFORM_ACTOR",
+        "X02_WALL_STATIC"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    }
+  },
+  "visualAccepted": 0,
+  "androidPassed": false,
+  "release": "NO_GO"
+}
