@@ -37,6 +37,50 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+const R166_SHADER_PROBE=(()=>{
+ const own=PARAMS.get('qa')==='1'&&PARAMS.get('r166ShaderProbe')==='on';
+ try{
+  const parent=new URLSearchParams(window.parent.location.search);
+  return own||(parent.get('qa')==='1'&&parent.get('r166ShaderProbe')==='on');
+ }catch{return own}
+})();
+function r166ShaderInfo(){
+ if(!R166_SHADER_PROBE)return {enabled:false};
+ const categories={point:0,spot:0,directional:0,hemisphere:0,ambient:0};
+ scene?.traverse(o=>{
+  if(o.isPointLight)categories.point++;
+  else if(o.isSpotLight)categories.spot++;
+  else if(o.isDirectionalLight)categories.directional++;
+  else if(o.isHemisphereLight)categories.hemisphere++;
+  else if(o.isAmbientLight)categories.ambient++;
+ });
+ return {enabled:true,programs:renderer?.info?.programs?.length??null,lights:categories,
+  rendererDraws:renderer?.info?.render?.calls??null};
+}
+function r166PrewarmPointLightVariants(count=4){
+ if(!R166_SHADER_PROBE)throw Error('r166 QA only');
+ if(!ready||!renderer||!scene||!camera)throw Error('Scene not ready');
+ if(![2,4,6,8,12].includes(count))throw Error('Unsupported count');
+ const before=r166ShaderInfo(),start=performance.now();
+ const fixtures=[];
+ try{
+  for(let i=0;i<count;i++){
+   const light=new THREE.PointLight('#ffffff',0,5,2);
+   light.position.set(i%2?4:-4,1.5,0);
+   light.name='R166_TEMP_QA_POINT_LIGHT_PREWARM_'+i;
+   scene.add(light);fixtures.push(light);
+  }
+  const during=r166ShaderInfo();
+  renderer.compile(scene,camera);
+  const compiled=r166ShaderInfo();
+  return {count,before,during,compiled,
+   compileBlockingMs:+(performance.now()-start).toFixed(3),
+   warning:'This blocks during pre-game and may not match actual shader variants; not a production optimization'};
+ }finally{
+  fixtures.forEach(o=>scene.remove(o));
+ }
+}
+
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -1383,6 +1427,8 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
+  get r166ShaderInfo(){return r166ShaderInfo()},
+  r166PrewarmPointLightVariants,
   get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,

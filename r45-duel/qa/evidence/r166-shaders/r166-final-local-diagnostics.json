@@ -1,0 +1,59 @@
+{
+  "fullGameA_BCases": 4,
+  "passed": true,
+  "realModelCount": 16,
+  "realCardCount": 60,
+  "unchangedRawModelBytes": 75569762,
+  "testPlatform": "Z890 RTX5070Ti Chrome Vulkan CPU throttle x2",
+  "originalScenePointLights": 4,
+  "firstSpellPointLights": 6,
+  "experiments": [
+    {
+      "experiment": "r166-baseline-prewarm4.json",
+      "variant": "baseline",
+      "warmupCompileBlockingMs": 0,
+      "shaderCountBeforeFirstCast": 48,
+      "shaderCountAfterFirstCast": 110,
+      "newShadersDuringFirstCast": 62,
+      "firstCastRAF95Ms": 33.4,
+      "firstCastRAF99Ms": 233.4,
+      "largestFirstCastLongTaskMs": 234
+    },
+    {
+      "experiment": "r166-baseline-prewarm4.json",
+      "variant": "prewarm4",
+      "warmupCompileBlockingMs": 57.4,
+      "shaderCountBeforeFirstCast": 92,
+      "shaderCountAfterFirstCast": 154,
+      "newShadersDuringFirstCast": 62,
+      "firstCastRAF95Ms": 33.4,
+      "firstCastRAF99Ms": 116.7,
+      "largestFirstCastLongTaskMs": 119
+    },
+    {
+      "experiment": "r166-prewarm2-baseline.json",
+      "variant": "prewarm2",
+      "warmupCompileBlockingMs": 58.5,
+      "shaderCountBeforeFirstCast": 92,
+      "shaderCountAfterFirstCast": 124,
+      "newShadersDuringFirstCast": 32,
+      "firstCastRAF95Ms": 33.3,
+      "firstCastRAF99Ms": 216.7,
+      "largestFirstCastLongTaskMs": 98
+    },
+    {
+      "experiment": "r166-prewarm2-baseline.json",
+      "variant": "baseline",
+      "warmupCompileBlockingMs": 0,
+      "shaderCountBeforeFirstCast": 48,
+      "shaderCountAfterFirstCast": 110,
+      "newShadersDuringFirstCast": 62,
+      "firstCastRAF95Ms": 33.4,
+      "firstCastRAF99Ms": 133.3,
+      "largestFirstCastLongTaskMs": 129
+    }
+  ],
+  "buildImpact": "R166 QA only, never default or published",
+  "result": "Prewarm2 reduced newly compiled runtime programs 62 ->32 but costs ~58.5ms synchronous precompile, first-cast p99 not consistently improved. Prewarm4 compiled unnecessary programs. NO GO for auto-prewarm.",
+  "nextCandidate": "Fixed-slot lighting without extra idle GPU work, or reuse identical light-count shader variants across spell modules; requires actual mobile hardware benchmarks and visual parity."
+}
