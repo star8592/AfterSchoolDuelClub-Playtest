@@ -40,12 +40,41 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// R176 research: front-load authentic board model shader/mesh GPU setup
+// into the existing loading overlay, never a fake proxy or a resolution cut.
+const R176_PRIME_BOARD=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r176PrimeBoard')??pp?.get('r176PrimeBoard'))==='on';
+})();
+let r176PrimeBoardReceipt=null;
 // R169 QA-only all-spells replacement. Never silently overwrite R147.
+const R174_PREPARE_GPU=(()=>{
+ try{
+  const parent=new URLSearchParams(window.parent.location.search);
+  return (PARAMS.get('qa')==='1'||parent.get('qa')==='1')&&
+   (PARAMS.get('r174Prepare')??parent.get('r174Prepare'))==='async';
+ }catch{
+  return PARAMS.get('qa')==='1'&&PARAMS.get('r174Prepare')==='async';
+ }
+})();
+let r174ReadyPreparation=null;
 const R172_STATIC_BATCH=(()=>{
  const own=PARAMS.get('qa')==='1'&&PARAMS.get('r172BatchStatic')==='on';
  try{const pp=new URLSearchParams(window.parent.location.search);
   return own||(pp.get('qa')==='1'&&pp.get('r172BatchStatic')==='on');}
  catch{return own}
+})();
+const R174_CROWD_EXPERIMENT=(()=>{
+ try{const parent=new URLSearchParams(window.parent.location.search);
+  return PARAMS.get('r174Crowd')??parent.get('r174Crowd')??null;
+ }catch{return PARAMS.get('r174Crowd')}
+})();
+const R122_CROWD_USER_PARAM=(()=>{
+ try{const parent=new URLSearchParams(window.parent.location.search);
+  return PARAMS.get('r122Crowd')??parent.get('r122Crowd')??null;
+ }catch{return PARAMS.get('r122Crowd')}
 })();
 const R169_SCHOOL_MAGIC=(()=>{
  const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}
@@ -919,7 +948,9 @@ function loop(){
    if(absoluteSeconds<pending.launchAt)continue;
    const anchor=stadiumEvidence?.spectatorAnchor?.(accident.spectatorIndex);
    if(!anchor){pendingCrowdAccidents.splice(i,1);continue}
-   pending.launched=spectatorChaosFX?.play(accident,anchor,absoluteSeconds)===true;
+   pending.launched=R169_SCHOOL_MAGIC&&R174_CROWD_EXPERIMENT!=='legacy'?
+    schoolMagicStage?.playCollateral(accident,anchor,absoluteSeconds)===true:
+    spectatorChaosFX?.play(accident,anchor,absoluteSeconds)===true;
    if(!pending.launched){pendingCrowdAccidents.splice(i,1);continue}
    pending.hitAt=absoluteSeconds+(reduced?.24:.49);
   }
@@ -928,7 +959,7 @@ function loop(){
   const hit=stadiumEvidence?.reactSpectatorAccident?.(accident,absoluteSeconds);
   if(!hit)continue;
   const prop=bleacherProps?.play(accident,absoluteSeconds);
-  if(prop&&PARAMS.get('r123Closeup')!=='off'){
+  if(prop&&!R169_SCHOOL_MAGIC&&PARAMS.get('r123Closeup')!=='off'){
    crowdCloseup={anchor:{...hit},started:absoluteSeconds,scenario:accident.scenario,
     spectatorIndex:accident.spectatorIndex};
    r123ReactionCuts++;
@@ -1308,9 +1339,9 @@ function onMessage(ev){
   if(!accepted)return;
   if(!R169_SCHOOL_MAGIC)magicArsenal?.play(msg,absoluteSeconds);
   spellSerials.add(msg.serial);
-  const accident=PARAMS.get('r122Crowd')==='off'?null:
-   chooseCrowdAccident(msg,{force:PARAMS.get('qa')==='1'&&
-    PARAMS.get('r122Crowd')==='force'});
+  const accident=R122_CROWD_USER_PARAM==='off'?null:
+   chooseCrowdAccident(msg,{force:R131_IS_QA()&&
+    R122_CROWD_USER_PARAM==='force'});
   if(accident){
    pendingCrowdAccidents.push({incident:accident,
     launchAt:absoluteSeconds+.28,launched:false,hitAt:Infinity});
@@ -1442,6 +1473,14 @@ function exposeQA(){
   get registeredSpellSerials(){return spellSerials.size},
   get pendingSpellContacts(){return pendingSpellContacts.length},
   get r169SchoolMagic(){return schoolMagicStage?.stats||{enabled:false}},
+  get r174SpellCpuPhases(){return schoolMagicStage?.qaProfile||[]},
+  get r174RendererProgramCount(){return renderer?.info?.programs?.length??null},
+  get r174ReadyPreparation(){return r174ReadyPreparation},
+  get r176PrimeBoardReceipt(){return r176PrimeBoardReceipt},
+  get r174GlobalPerf(){return renderer?{
+   calls:renderer.info.render.calls,
+   triangles:renderer.info.render.triangles,
+   programs:renderer.info.programs?.length||0}:null},
   get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
   get spectatorChaosFX(){return spectatorChaosFX?.stats||null},
   get bleacherProps(){return bleacherProps?.stats||null},
@@ -1593,6 +1632,11 @@ try{
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
+ if(R174_PREPARE_GPU&&R169_SCHOOL_MAGIC){
+  r174ReadyPreparation=await schoolMagicStage.prepareGpuMaterial(
+    'E06',renderer,camera,scene);
+ }
+
  bleacherProps?.mount?.([0,1,2,3].map(index=>stadiumEvidence?.spectatorAnchor?.(index)));
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,lifeWorld:arenaLife,
@@ -1604,6 +1648,21 @@ try{
     effect:type,damage:event.damage});
   }
  });
+ if(R176_PRIME_BOARD&&R169_SCHOOL_MAGIC){
+  const start=performance.now();
+  const shaderStart=renderer.info.programs?.length||0;
+  // The exact same source models and material variants as the first real board;
+  // disposed status labels are regenerated normally and never used as evidence.
+  summonPresence.sync({player:[{uid:'U17601',id:'T01',hp:9,attack:4,shield:0}],
+   ai:[{uid:'U17602',id:'E03',hp:8,attack:4,shield:0}]},{force:true});
+  for(let i=0;i<3;i++)await new Promise(resolve=>
+   requestAnimationFrame(()=>{renderer.render(scene,camera);resolve()}));
+  summonPresence.sync({player:[],ai:[]},{force:true});
+  r176PrimeBoardReceipt={models:['T01','E03'],draws:3,
+   ms:+(performance.now()-start).toFixed(3),
+   shaderDelta:(renderer.info.programs?.length||0)-shaderStart,
+   sourceQualityPreserved:true};
+ }
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');

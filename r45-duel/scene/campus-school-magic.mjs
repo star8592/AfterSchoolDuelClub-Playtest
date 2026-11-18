@@ -22,7 +22,43 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
  const root=new THREE.Group();root.name='R169_SCHOOL_COMEDY_PHYSICAL_MAGIC';scene.add(root);
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
  const active=[],lastBySide={player:null,ai:null};
+ const collateral=[];
+ let collateralLaunched=0,collateralExpired=0;
  const staticBatcher=mergeStatic?createCampusStaticBatcher(THREE):null;
+ const staged=new Map();const prepareReceipts=[];
+ async function prepareGpuMaterial(id,renderer,camera,targetScene){
+  if(!SCHOOL_MAGIC_IDENTITIES[id]||!renderer||!camera||!targetScene)
+   throw Error('R174 invalid stage request');
+  if(staged.has(id))return staged.get(id).receipt;
+  const started=performance.now(),host=new THREE.Group();
+  host.name='R174_SHADER_PREP_'+id;
+  const props=group(host);
+  build(props,id);
+  const buildDone=performance.now();
+  const batch=staticBatcher?.batch(props,id)||null;
+  const batchDone=performance.now();
+  const oldErrorCheck=renderer.debug.checkShaderErrors;
+  // Keep real strict shader checking. Never suppress errors to gain speed.
+  const parallelExt=!!renderer.getContext().getExtension('KHR_parallel_shader_compile');
+  const compileStart=performance.now();
+  await renderer.compileAsync(host,camera,targetScene);
+  const compileDone=performance.now();
+  const uploadStart=performance.now();
+  for(const texture of labels.values())renderer.initTexture(texture);
+  const uploadDone=performance.now();
+  const receipt={
+   id,parallelExt,buildMs:+(buildDone-started).toFixed(3),
+   batchMs:+(batchDone-buildDone).toFixed(3),
+   compileAsyncMs:+(compileDone-compileStart).toFixed(3),
+   uploadMs:+(uploadDone-uploadStart).toFixed(3),
+   totalMs:+(uploadDone-started).toFixed(3),
+   programsAfter:renderer.info.programs?.length||0,
+   checkShaderErrorsUnchanged:renderer.debug.checkShaderErrors===oldErrorCheck};
+  staged.set(id,{host,props,receipt});prepareReceipts.push(receipt);
+  return receipt;
+ }
+
+ const r174Profile=[];
  const maxActive=4;let played=0,expired=0,rejected=0,peakObjects=0,
   peakDraws=0,distinctProps=new Set(),hitAnimations=0;
  const geometry=(name,...params)=>{
@@ -295,8 +331,28 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    (message.side==='player'?'ai':'player'):message.side;
   const g=group(root,(target==='player'?-1:1)*1.72,0,0);
   g.name='R169_'+card.id+'_'+identity.prop;
-  const props=group(g,0,1.45,-.30);build(props,card.id);
-  const batchReceipt=staticBatcher?.batch(props,card.id)||null;
+  const t0=performance.now();
+  const preready=staged.get(card.id);
+  let props;
+  if(preready){
+   props=preready.props;
+   props.position.set(0,1.45,-.30);
+   g.add(props);
+   staged.delete(card.id);
+  }else{
+   props=group(g,0,1.45,-.30);
+   build(props,card.id);
+  }
+  const t1=performance.now();
+  const batchReceipt=preready?.receipt||staticBatcher?.batch(props,card.id)||null;
+  const t2=performance.now();
+  if(r174Profile.length<110)r174Profile.push({
+   card:card.id,buildMs:+(t1-t0).toFixed(3),
+   batchMs:+(t2-t1).toFixed(3),createdAt:t0,
+   numLabelTextures:labels.size,
+   cacheGeometries:gcache.size,
+   cacheMaterials:mcache.size
+  });
   props.rotation.y=message.side==='player'?-.24:.24;
   g.traverse(o=>{if(o.isMesh){o.userData.basePosition=o.position.clone();
    o.userData.baseRotation=o.rotation.clone()}});
@@ -314,6 +370,30 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   while(active.length>maxActive)disposeActive(active.shift());
   return true;
  }
+
+ function playCollateral(incident,anchor,now){
+  if(!incident||!anchor||!Number.isFinite(now))return false;
+  const main=active.find(x=>x.serial===incident.serial&&x.id===incident.card);
+  if(!main||collateral.some(x=>x.serial===incident.serial))return false;
+  // Share the original physical school prop geometry and PBR materials,
+  // never introduce a generic glowing spectator projectile.
+  const g=group(root);
+  g.name='R174_REAL_SCHOOL_PROP_TO_SPECTATOR_'+incident.card;
+  const prop=main.props.clone(true);
+  prop.position.set(0,0,0);prop.rotation.set(0,0,0);
+  prop.scale.setScalar(.62);
+  g.add(prop);
+  const start=new THREE.Vector3(incident.side==='player'?-1.78:1.78,1.55,-.55);
+  const end=new THREE.Vector3(anchor.x,anchor.y+1.32,anchor.z+.20);
+  g.position.copy(start);
+  collateral.push({serial:incident.serial,id:incident.card,start,end,group:g,
+   born:now,duration:.96});
+  collateralLaunched++;
+  while(collateral.length>3){
+   const stale=collateral.shift();root.remove(stale.group);collateralExpired++;
+  }
+  return true;
+ }
  function contact(descriptor,now){
   const entry=active.find(a=>a.serial===descriptor?.serial);
   if(!entry)return false;
@@ -321,6 +401,15 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   return true;
  }
  function update(now=0){
+  for(let i=collateral.length-1;i>=0;i--){
+   const c=collateral[i],t=clip((now-c.born)/c.duration);
+   if(t>=1){root.remove(c.group);collateral.splice(i,1);collateralExpired++;continue}
+   const flight=smooth(t/.60);
+   c.group.position.lerpVectors(c.start,c.end,flight);
+   c.group.position.y+=.64*Math.sin(flight*Math.PI);
+   c.group.rotation.z=(t*4.5)*(c.id==='E06'?-1:1);
+   c.group.scale.setScalar((.7+.3*smooth(t/.20))*(1-smooth((t-.76)/.23)));
+  }
   for(let i=active.length-1;i>=0;i--){
    const a=active[i],t=clip((now-a.created)/a.duration);
    if(t>=1){disposeActive(a);active.splice(i,1);continue}
@@ -348,16 +437,22 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   }
  }
  function dispose(){
+  while(collateral.length){const item=collateral.pop();root.remove(item.group)}
   while(active.length)disposeActive(active.pop());
   for(const g of gcache.values())g.dispose();gcache.clear();
   for(const m of mcache.values())m.dispose();mcache.clear();
   for(const texture of labels.values())texture.dispose();labels.clear();
+  for(const {host} of staged.values())host.clear();
+  staged.clear();
   staticBatcher?.dispose();
   for(const m of labelMaterials.values())m.dispose();labelMaterials.clear();
   root.removeFromParent();
  }
- return {root,play,contact,update,dispose,
+ return {root,play,contact,playCollateral,update,dispose,prepareGpuMaterial,
+  get prepareReceipts(){return prepareReceipts.map(x=>({...x}))},
+  get qaProfile(){return r174Profile.map(x=>({...x}))},
   get stats(){return {enabled:true,totalIdentities:SCHOOL_MAGIC_COUNT,
+   collateralLaunched,collateralExpired,collateralActive:collateral.length,
    played,expired,rejected,active:active.length,peakObjects,peakDraws,
    uniqueRenderedProps:distinctProps.size,shaderPointLights:0,
    cacheGeometries:gcache.size,cacheMaterials:mcache.size,
