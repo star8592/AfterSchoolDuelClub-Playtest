@@ -1,0 +1,430 @@
+{
+  "date": "2026-11-18T00:45:06.639Z",
+  "device": "desktop",
+  "cpuRate": 2,
+  "modes": [
+    "original",
+    "optimized"
+  ],
+  "cards": [
+    "S04",
+    "P04",
+    "E06",
+    "Q01"
+  ],
+  "experiments": [
+    {
+      "variant": "original",
+      "pass": true,
+      "errors": [],
+      "casts": [
+        {
+          "card": "S04",
+          "serial": 165101,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 33.4,
+            "over33": 2,
+            "over50": 1,
+            "max": 200
+          },
+          "tasks": [
+            {
+              "start": 4982.2,
+              "duration": 319
+            },
+            {
+              "start": 5331.1,
+              "duration": 206
+            }
+          ],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 984,
+          "played": 1
+        },
+        {
+          "card": "P04",
+          "serial": 165102,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 33.4,
+            "over33": 3,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [
+            {
+              "start": 7067.3,
+              "duration": 657
+            }
+          ],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 971,
+          "played": 2
+        },
+        {
+          "card": "E06",
+          "serial": 165103,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 33.3,
+            "over33": 1,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 996,
+          "played": 3
+        },
+        {
+          "card": "Q01",
+          "serial": 165104,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 16.8,
+            "p99": 33.4,
+            "over33": 2,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 1020,
+          "played": 4
+        },
+        {
+          "card": "S04",
+          "serial": 165105,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 16.8,
+            "p99": 33.3,
+            "over33": 1,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 984,
+          "played": 5
+        },
+        {
+          "card": "P04",
+          "serial": 165106,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 16.8,
+            "p99": 16.8,
+            "over33": 0,
+            "over50": 0,
+            "max": 33.3
+          },
+          "tasks": [],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 1003,
+          "played": 6
+        },
+        {
+          "card": "E06",
+          "serial": 165107,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 33.4,
+            "over33": 2,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 844,
+          "played": 7
+        },
+        {
+          "card": "Q01",
+          "serial": 165108,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 16.7,
+            "p99": 33.3,
+            "over33": 0,
+            "over50": 0,
+            "max": 33.3
+          },
+          "tasks": [
+            {
+              "start": 15764,
+              "duration": 932
+            }
+          ],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 815,
+          "played": 8
+        }
+      ],
+      "final": {
+        "assets": 16,
+        "assetBytes": 75569762,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true,
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 8,
+          "expired": 7,
+          "rejected": 0,
+          "active": 1,
+          "activeMotifs": [
+            "eraser"
+          ],
+          "lastBySide": {
+            "player": "Q01",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 37,
+          "totalMeshes": 110,
+          "ruleMutations": 0,
+          "poolEnabled": false,
+          "cachedGeometries": 0,
+          "geometryCacheHits": 0,
+          "geometryCacheMisses": 0
+        }
+      }
+    },
+    {
+      "variant": "optimized",
+      "pass": true,
+      "errors": [],
+      "casts": [
+        {
+          "card": "S04",
+          "serial": 165101,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 100,
+            "over33": 7,
+            "over50": 2,
+            "max": 200
+          },
+          "tasks": [
+            {
+              "start": 4833.8,
+              "duration": 343
+            },
+            {
+              "start": 5213.4,
+              "duration": 125
+            }
+          ],
+          "cacheHits": 5,
+          "cached": 2,
+          "drawCalls": 929,
+          "played": 1
+        },
+        {
+          "card": "P04",
+          "serial": 165102,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "over33": 9,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 8,
+          "cached": 7,
+          "drawCalls": 973,
+          "played": 2
+        },
+        {
+          "card": "E06",
+          "serial": 165103,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "over33": 6,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 20,
+          "cached": 10,
+          "drawCalls": 929,
+          "played": 3
+        },
+        {
+          "card": "Q01",
+          "serial": 165104,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "over33": 8,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 35,
+          "cached": 12,
+          "drawCalls": 964,
+          "played": 4
+        },
+        {
+          "card": "S04",
+          "serial": 165105,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 33.4,
+            "over33": 4,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 42,
+          "cached": 12,
+          "drawCalls": 976,
+          "played": 5
+        },
+        {
+          "card": "P04",
+          "serial": 165106,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 33.4,
+            "over33": 4,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [
+            {
+              "start": 13599,
+              "duration": 109
+            }
+          ],
+          "cacheHits": 50,
+          "cached": 12,
+          "drawCalls": 973,
+          "played": 6
+        },
+        {
+          "card": "E06",
+          "serial": 165107,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "over33": 5,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 65,
+          "cached": 12,
+          "drawCalls": 844,
+          "played": 7
+        },
+        {
+          "card": "Q01",
+          "serial": 165108,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "over33": 11,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 82,
+          "cached": 12,
+          "drawCalls": 962,
+          "played": 8
+        }
+      ],
+      "final": {
+        "assets": 16,
+        "assetBytes": 75569762,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true,
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 40,
+          "played": 8,
+          "expired": 7,
+          "rejected": 0,
+          "active": 1,
+          "activeMotifs": [
+            "eraser"
+          ],
+          "lastBySide": {
+            "player": "Q01",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 24,
+          "totalMeshes": 104,
+          "ruleMutations": 0,
+          "poolEnabled": true,
+          "cachedGeometries": 12,
+          "geometryCacheHits": 82,
+          "geometryCacheMisses": 12
+        }
+      }
+    }
+  ]
+}

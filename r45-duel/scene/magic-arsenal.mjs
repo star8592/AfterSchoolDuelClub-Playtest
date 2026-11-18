@@ -5,13 +5,23 @@
  * GlobalGameFoundry's author-verified open-source VFX study, not a copy of
  * third-party code, texture files, 3D character rigs, audio, or FX artwork.
  *
- * 46 spell cards => 30 distinct readable physical motifs. The game engine
+ * 46 spell cards => 32 existing motifs, with 8 additional QA-only ones. The game engine
  * always resolves the attack first. This module is display-only.
  */
 import {BY_ID,CARDS} from '../engine.mjs';
 import {SPELL_CHOREOGRAPHY} from './spell-impact.mjs';
 
+const R163_MAGIC_VARIETY=(()=>{
+ if(typeof window==='undefined')return false;
+ const own=new URLSearchParams(location.search);
+ const parent=(()=>{try{return window.parent!==window?
+   new URLSearchParams(window.parent.location.search):null}catch{return null}})();
+ const qa=own.get('qa')==='1'||parent?.get('qa')==='1';
+ const value=own.get('r163MagicVariety')??parent?.get('r163MagicVariety');
+ return qa&&value==='on';
+})();
 export const CARD_MAGIC_MOTIFS=Object.freeze({
+
  E05:'aurora',E06:'meteor',G05:'crystal',G06:'runes',T05:'tidal',T06:'lightning',
  K01:'banana',K02:'shield',K03:'fruit',K04:'chili',K05:'steam',K06:'volcano',
  K07:'frog',K08:'chocolate',
@@ -22,7 +32,12 @@ export const CARD_MAGIC_MOTIFS=Object.freeze({
  P01:'tornado',P02:'ball',P03:'beasts',P04:'broadcast',P05:'ball',
  P06:'elastic',P07:'tidal',P08:'meteor',
  X01:'clock',X02:'portal',X03:'meteor',X04:'dream',X05:'cosmic',
- X06:'echo',X07:'eraser',X08:'portal'
+ X06:'echo',X07:'eraser',X08:'portal',
+ ...(R163_MAGIC_VARIETY?{
+   S04:'thunder-grid',P01:'paper-cyclone',P04:'speaker-wall',
+   P07:'tidal-gate',P08:'comet-rain',X03:'meteor-shower',
+   X07:'blackboard-rupture',X08:'mirror-door'
+ }:null)
 });
 export const MAGIC_MOTIF_COUNT=new Set(Object.values(CARD_MAGIC_MOTIFS)).size;
 const playableSpells=CARDS.filter(c=>c.kind==='spell');
@@ -44,6 +59,29 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
  const LIMIT=4;
  let played=0,expired=0,rejected=0,totalMeshes=0,peakMeshes=0;
  const lastBySide={player:null,ai:null};
+ // Identical immutable primitive geometry reused across repeated casts.
+ // No reduction in polygon count, points, colors, animations or materials.
+ // Only QA=1&r163MagicPool=on enables this until real device acceptance.
+ const params=(()=>{const own=new URLSearchParams(location.search);
+  try{const pp=window.parent!==window?
+   new URLSearchParams(window.parent.location.search):null;
+   return {qa:own.get('qa')==='1'||pp?.get('qa')==='1',
+    mode:own.get('r163MagicPool')??pp?.get('r163MagicPool')} }
+  catch{return {qa:own.get('qa')==='1',mode:own.get('r163MagicPool')}}})();
+ const poolEnabled=params.qa&&params.mode==='on';
+ const primitiveCache=new Map(),reusedGeometry=new Set();
+ let geoHits=0,geoMisses=0;
+ function primitive(kind,...params){
+  if(!poolEnabled)return new THREE[kind](...params);
+  const key=kind+':'+JSON.stringify(params);
+  const hit=primitiveCache.get(key);
+  if(hit){geoHits++;return hit}
+  const geometry=new THREE[kind](...params);
+  primitiveCache.set(key,geometry);
+  reusedGeometry.add(geometry);
+  geoMisses++;
+  return geometry;
+ }
  const additive=THREE.AdditiveBlending;
  const mat=(color,opacity=.85,glow=false)=>new THREE.MeshBasicMaterial({
   color,transparent:true,opacity,depthWrite:false,side:THREE.DoubleSide,
@@ -56,7 +94,7 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
   return obj;
  }
  function hoop(parent,radius,color,{vertical=false,arc=Math.PI*2,phase=0,role='spin',glow=true}={}){
-  const o=add(parent,new THREE.TorusGeometry(radius,.025,6,60,arc),color,
+  const o=add(parent,primitive('TorusGeometry',radius,.025,6,60,arc),color,
    {opacity:.85,glow,role,phase});
   if(!vertical)o.rotation.x=-Math.PI/2;
   return o;
@@ -134,11 +172,11 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
  }
  function build(group,motif,c){
   const [primary,white,secondary]=palettes[c.style]||palettes.tide;
-  const sphere=(r=.3)=>new THREE.SphereGeometry(r,12,8);
-  const shard=(r=.18,h=.7)=>new THREE.ConeGeometry(r,h,6);
-  const box=(x=.5,y=.5,z=.12)=>new THREE.BoxGeometry(x,y,z);
+  const sphere=(r=.3)=>primitive('SphereGeometry',r,12,8);
+  const shard=(r=.18,h=.7)=>primitive('ConeGeometry',r,h,6);
+  const box=(x=.5,y=.5,z=.12)=>primitive('BoxGeometry',x,y,z);
   const orbit=()=>hoop(group,.8,primary,{role:'pulse'});
-  const glitter=(n=10,col=white)=>bits(group,n,col,()=>new THREE.IcosahedronGeometry(.09,0));
+  const glitter=(n=10,col=white)=>bits(group,n,col,()=>primitive('IcosahedronGeometry',.09,0));
   switch(motif){
    case 'aurora':
     for(let i=0;i<4;i++){const o=hoop(group,.62+i*.15,i%2?white:primary,
@@ -146,7 +184,7 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
      o.position.y=.7+i*.22;o.rotation.y=i*.58;}
     glitter(9);break;
    case 'meteor':
-    {const core=add(group,new THREE.DodecahedronGeometry(.55,0),secondary,{role:'fall'});
+    {const core=add(group,primitive('DodecahedronGeometry',.55,0),secondary,{role:'fall'});
      core.position.y=2.6;
      bits(group,12,primary,()=>shard(.08,.48),'fall',2.2);
      hoop(group,.7,white,{role:'pulse'});break;}
@@ -174,13 +212,13 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
    case 'banana':
    case 'chocolate':
     {const tint=motif==='banana'?'#f5d660':'#e4ba61';
-     const fruit=add(group,new THREE.TorusGeometry(.66,.13,10,28,Math.PI*1.28),
+     const fruit=add(group,primitive('TorusGeometry',.66,.13,10,28,Math.PI*1.28),
       tint,{role:'bounce'});fruit.rotation.x=.38;fruit.position.y=1.15;
      const purple=add(group,sphere(.38),motif==='banana'?'#8555b6':'#4f2e25',
       {role:'orbit'});purple.position.set(-.57,.86,0);
      glitter(9,motif==='banana'?'#ffbdff':'#a77942');break;}
    case 'shield':
-    {const dome=add(group,new THREE.SphereGeometry(1.12,20,12,0,Math.PI*2,0,Math.PI/2),
+    {const dome=add(group,primitive('SphereGeometry',1.12,20,12,0,Math.PI*2,0,Math.PI/2),
      '#78d5ff',{opacity:.22,glow:true,role:'pulse'});
      dome.position.y=.20;
      for(let i=0;i<3;i++){const p=hoop(group,.65+i*.19,white,{role:'pulse',phase:i});
@@ -194,12 +232,12 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
    case 'steam':
     bits(group,14,'#d7e8f4',()=>sphere(.18),'rise',.3);break;
    case 'volcano':
-    {const crater=add(group,new THREE.ConeGeometry(.83,1.13,12,1,true),
+    {const crater=add(group,primitive('ConeGeometry',.83,1.13,12,1,true),
      '#85503b',{role:'pulse'});crater.position.y=.64;
      bits(group,15,'#ff782b',()=>shard(.13,.42),'rise',1.35);
      hoop(group,.91,'#ffcd75',{role:'wave'});break;}
    case 'frog':
-    {const cake=add(group,new THREE.CylinderGeometry(.65,.78,.32,20),
+    {const cake=add(group,primitive('CylinderGeometry',.65,.78,.32,20),
      '#92cc70',{role:'bounce'});cake.position.y=.50;
      for(const x of [-.28,.28]){
       const eye=add(group,sphere(.20),'#f7f2ce',{role:'bounce'});
@@ -222,7 +260,7 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
      }
     }break;
    case 'dream':
-    bits(group,14,'#f5ccf8',()=>new THREE.TetrahedronGeometry(.18),'orbit',1.5);
+    bits(group,14,'#f5ccf8',()=>primitive('TetrahedronGeometry',.18),'orbit',1.5);
     hoop(group,.83,'#a3c8ff',{vertical:true});break;
    case 'broadcast':
     for(let i=0;i<6;i++){
@@ -232,7 +270,7 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
    case 'papers':
     bits(group,14,'#fff2cb',()=>box(.34,.45,.025),'orbit',1.4);break;
    case 'lamp':
-    {const stand=add(group,new THREE.CylinderGeometry(.065,.10,1.16,8),'#e5ce9c',{role:'pulse'});
+    {const stand=add(group,primitive('CylinderGeometry',.065,.10,1.16,8),'#e5ce9c',{role:'pulse'});
      stand.position.y=.72;
      const bulb=add(group,sphere(.33),'#fffabb',{glow:true,role:'lamp'});
      bulb.position.y=1.55;hoop(group,.63,'#ffe1a6',{role:'pulse'});break;}
@@ -251,9 +289,9 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
       needle.position.y=1.24;
      }bits(group,10,primary,()=>sphere(.08),'orbit');break;}
    case 'pencil':
-    {const shaft=add(group,new THREE.CylinderGeometry(.095,.095,1.4,6),'#ffd873',{role:'spin'});
+    {const shaft=add(group,primitive('CylinderGeometry',.095,.095,1.4,6),'#ffd873',{role:'spin'});
      shaft.position.y=1.2;
-     const tip=add(group,new THREE.ConeGeometry(.12,.31,6),'#b5ab98',{role:'spin'});
+     const tip=add(group,primitive('ConeGeometry',.12,.31,6),'#b5ab98',{role:'spin'});
      tip.position.y=.40;glitter();break;}
    case 'tornado':
     for(let i=0;i<3;i++){
@@ -282,12 +320,12 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
     for(let i=0;i<3;i++){
      const p=hoop(group,.77+i*.13,i%2?white:primary,{vertical:true,role:'spin',phase:i});
      p.position.y=1.23;p.rotation.y=i*.31;
-    }{const disk=add(group,new THREE.CircleGeometry(.70,30),'#182a41',
+    }{const disk=add(group,primitive('CircleGeometry',.70,30),'#182a41',
       {opacity:.73,role:'pulse'});disk.position.y=1.23;disk.position.z=-.2;}break;
    case 'vending':
     {const machine=add(group,box(.82,1.60,.60),'#8f7fa1',{role:'bounce'});
      machine.position.y=1.04;
-     bits(group,6,'#eae9fa',()=>new THREE.CylinderGeometry(.10,.1,.27,8),
+     bits(group,6,'#eae9fa',()=>primitive('CylinderGeometry',.10,.1,.27,8),
       'fall',.8);break;}
    case 'ball':
     {const b=add(group,sphere(.48),'#f1eddd',{role:'bounce'});b.position.y=1.2;
@@ -295,11 +333,87 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
       {vertical:true,role:'spin',phase:i});line.position.y=1.2;line.rotation.y=i*Math.PI/3;}
      bits(group,8,white,()=>sphere(.065),'burst',1.3);break;}
    case 'cosmic':
-    {const core=add(group,new THREE.IcosahedronGeometry(.55,1),'#b9a4ff',
+    {const core=add(group,primitive('IcosahedronGeometry',.55,1),'#b9a4ff',
       {role:'spin'});core.position.y=1.35;
      for(let i=0;i<3;i++){const o=hoop(group,.81+i*.12,i%2?white:primary,
       {vertical:true,role:'spin',phase:i});o.position.y=1.35;o.rotation.x=i*.42;}
      glitter(13);break;}
+   // R163: eight formerly repeated silhouettes now have independent
+   // physical motifs while preserving the same per-spell glow cloud and
+   // impact pipeline. Do not add lights, shaders or texture downloads.
+   case 'thunder-grid':
+    for(let j=0;j<5;j++){
+     const pts=[];
+     for(let k=0;k<8;k++){const u=k/7;
+      pts.push([-1.1+2.2*u,.32+j*.28+(k%2?.15:-.15),
+       (j-2)*.24+Math.sin(k*2.1+j)*.19]);}
+     line(group,pts,j%2?white:primary,j);
+    }
+    bits(group,6,'#f6f4ff',()=>shard(.07,.22),'burst',.9);break;
+   case 'paper-cyclone':
+    for(let i=0;i<2;i++){
+     const r=hoop(group,.36+i*.33,'#d5e9ff',{vertical:true,role:'spin',phase:i});
+     r.position.y=1.03;r.rotation.z=i*.58;
+    }
+    bits(group,10,'#fff1c9',()=>box(.27,.37,.02),'orbit',1.22);
+    break;
+   case 'speaker-wall':
+    for(let i=0;i<3;i++){
+     const speaker=add(group,box(.33,.55,.17),i%2?'#53637b':'#a1b6c5',
+      {role:'bounce',phase:i});
+     speaker.position.set((i-1)*.45,.85+i*.15,0);
+    }
+    for(let i=0;i<4;i++){
+     const r=hoop(group,.23+i*.21,i%2?white:primary,
+      {vertical:true,role:'wave',phase:i});
+     r.position.y=1.1;r.position.z=.21;
+    }break;
+   case 'tidal-gate':
+    for(let i=0;i<4;i++){
+     const arc=hoop(group,.59+i*.16,i%2?white:primary,
+      {vertical:true,arc:Math.PI*1.46,role:'wave',phase:i});
+     arc.position.y=.52+i*.19;
+     arc.rotation.y=i*.22;
+    }
+    bits(group,6,'#c0f0ff',()=>sphere(.10),'rise',.5);
+    break;
+   case 'comet-rain':
+    for(let i=0;i<3;i++){
+     const core=add(group,primitive('DodecahedronGeometry',.22+i*.10,0),
+      i%2?white:primary,{glow:true,role:'fall',phase:i});
+     core.position.set((i-1)*.52,2.2+i*.20,0);
+    }
+    bits(group,10,'#ffc591',()=>shard(.07,.32),'fall',1.7);
+    break;
+   case 'meteor-shower':
+    for(let i=0;i<4;i++){
+     const core=add(group,primitive('OctahedronGeometry',.19+i*.045,0),
+      i%2?primary:white,{role:'fall',phase:i});
+     core.position.set((i-1.5)*.41,2.25+(i%2)*.27,0);
+    }
+    bits(group,8,'#e6e8ff',()=>sphere(.075),'burst',1.0);
+    break;
+   case 'blackboard-rupture':
+    {const board=add(group,box(1.33,.88,.065),'#1b5c50',{role:'pulse'});
+     board.position.y=1.0;
+     for(let i=0;i<3;i++){
+      const r=hoop(group,.4+i*.20,'#f7f3df',{role:'burst',phase:i});
+      r.position.y=1.03;
+     }
+     bits(group,10,'#e6eceb',()=>box(.07,.24,.035),'burst',1.05);
+    }break;
+   case 'mirror-door':
+    for(let i=0;i<2;i++){
+     const ring=hoop(group,.75+i*.12,i%2?white:primary,
+      {vertical:true,arc:Math.PI*1.80,role:'spin',phase:i});
+     ring.position.set((i?+.27:-.27),1.18,0);ring.rotation.y=i*.55;
+    }
+    for(let i=0;i<2;i++){
+     const sheet=add(group,box(.85,1.42,.018),i?'#6489bb':'#6ddef0',
+      {opacity:.26,glow:true,role:'wave',phase:i});
+     sheet.position.set((i?+.23:-.23),1.17,-.13-i*.08);
+    }
+    break;
    case 'echo':
     for(let i=0;i<7;i++){
      const o=hoop(group,.27+i*.15,i%2?primary:white,{vertical:true,role:'wave',phase:i});
@@ -320,7 +434,7 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
   root.remove(a.group);
   a.group.traverse(o=>{
    o.material?.dispose?.();
-   o.geometry?.dispose?.();
+   if(o.geometry&&!reusedGeometry.has(o.geometry))o.geometry.dispose();
   });
   expired++;
  }
@@ -404,13 +518,20 @@ export function createMagicArsenal(THREE,scene,{reducedMotion=false}={}){
    a.light.intensity=(reducedMotion?1.1:2.7)*strength;
   }
  }
- function dispose(){while(active.length)destroy(active.pop());root.removeFromParent()}
+ function dispose(){
+  while(active.length)destroy(active.pop());
+  for(const geometry of reusedGeometry)geometry.dispose();
+  primitiveCache.clear();reusedGeometry.clear();
+  root.removeFromParent();
+ }
  return {root,play,update,dispose,get stats(){return{
   name:'R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC',
   playableSpellCoverage:playableSpells.length,
   motifCount:MAGIC_MOTIF_COUNT,played,expired,rejected,
   active:active.length,activeMotifs:active.map(x=>x.motif),
   lastBySide:{...lastBySide},maxActive:LIMIT,peakMeshes,totalMeshes,
-  ruleMutations:0
+  ruleMutations:0,poolEnabled,
+  cachedGeometries:primitiveCache.size,geometryCacheHits:geoHits,
+  geometryCacheMisses:geoMisses
  }}};
 }
