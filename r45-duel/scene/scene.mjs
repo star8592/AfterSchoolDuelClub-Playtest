@@ -13,6 +13,7 @@ import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-a
 import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
+import {createStadiumBroadcast} from './stadium-broadcast.mjs';
 import {contactStep} from './foot-contact.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createComboDirector} from './combo-director.mjs';
@@ -37,6 +38,14 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// R164 opt-in: in-world live screen replaces foreground portraits.
+const R164_BROADCAST_ENABLED=(()=>{
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null}catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||parent?.get('qa')==='1';
+ const option=PARAMS.get('r164Broadcast')??parent?.get('r164Broadcast');
+ return qa&&option==='on';
+})();
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -70,6 +79,7 @@ let renderer,scene,camera,clock,actors=[],time=0,playing=false,mode='demo';
 // Separate, continuously visible native VRM duelists; the E01/G01 summon
 // bodies remain independently owned by SummonPresence in the arena.
 let duelistHosts=[],hostSourceActors=[];
+let stadiumBroadcast=null;
 const arenaLife=createArenaLifeWorld(Number(PARAMS.get('seed'))||20261113);
 const livingCast=createLivingCastDirector(Number(PARAMS.get('seed'))||20261113,arenaLife);
 const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
@@ -301,6 +311,8 @@ function makeScene(){
  const fill=new THREE.DirectionalLight('#f7d6b9',.8);fill.position.set(3,3,6);fill.layers.enable(1);scene.add(fill);
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
  stadiumEvidence=createStadium(THREE,scene,{detail:'medium',lifeWorld:arenaLife});
+ if(R164_BROADCAST_ENABLED)
+  stadiumBroadcast=createStadiumBroadcast(THREE,scene,{mobile:r124Mobile()});
  duelEffects=createDuelEffects(THREE,scene);
  // The R100 director uses only validated real engine.combo_effect payloads.
  // The 3D stadium, summoners, permanent VRMs and canonical rules stay intact.
@@ -849,6 +861,7 @@ function loop(){
    for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
   }
   if(d.directDamage>0){
+   stadiumBroadcast?.hit(d.victim,d.id||d.card,absoluteSeconds);
    hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
    arenaLife.observe('hit',{side:d.victim,at:absoluteSeconds});
    livingCast.signal(d.victim,'hurt',absoluteSeconds);
@@ -889,7 +902,7 @@ function loop(){
   const hit=stadiumEvidence?.reactSpectatorAccident?.(accident,absoluteSeconds);
   if(!hit)continue;
   const prop=bleacherProps?.play(accident,absoluteSeconds);
-  if(prop&&PARAMS.get('r123Closeup')!=='off'){
+  if(prop&&PARAMS.get('r123Closeup')!=='off'&&!R164_BROADCAST_ENABLED){
    crowdCloseup={anchor:{...hit},started:absoluteSeconds,scenario:accident.scenario,
     spectatorIndex:accident.spectatorIndex};
    r123ReactionCuts++;
@@ -1023,6 +1036,20 @@ function loop(){
   }
  }
  renderer.render(scene,camera);
+ // R164: real in-world TV feed updates after main pass and cannot cover
+ // an opponent, the score or the cards. Skip this work on quiet frames.
+ if(stadiumBroadcast){
+  stadiumBroadcast.update(absoluteSeconds);
+  const side=stadiumBroadcast.focusSide;
+  if(side&&heroLayerSide!==side){
+   for(const h of duelistHosts)h.pivot.traverse(obj=>{
+    if(h.side===side)obj.layers.enable(1);
+    else obj.layers.disable(1);
+   });
+   heroLayerSide=side;
+  }
+  stadiumBroadcast.capture(renderer,scene,duelistHosts,absoluteSeconds);
+ }
  // A camera cut never changes geometry orientation, physical animation or
  // the actual player's chosen orbit. Render an inset in the SAME WebGL
  // context for a maximum ~2 seconds, no second canvas, no fake 2D portrait.
@@ -1044,7 +1071,7 @@ function loop(){
   (talkingCandidates[0]?{side:talkingCandidates[0].side,
    age:talkingCandidates[0].age,voice:true}:null);
  heroLens.visible=false;
- if(focus&&!reduced&&!legacyCamera){
+ if(focus&&!reduced&&!legacyCamera&&!R164_BROADCAST_ENABLED){
   const host=duelistHosts.find(x=>x.side===focus.side);
   if(host){
    if(!r124Legacy&&heroLayerSide!==focus.side){
@@ -1254,6 +1281,7 @@ function onMessage(ev){
    actualHostHits++;
    duelEffects?.pulse(msg.side,absoluteSeconds);
    stadiumEvidence?.reactAudience?.('hit',msg.side,absoluteSeconds);
+   stadiumBroadcast?.hit(msg.side,null,absoluteSeconds);
   }
   return;
  }
@@ -1302,6 +1330,7 @@ function onMessage(ev){
   const authorized=['player','ai'].includes(msg.side)&&
     card?.kind===msg.kind&&Number.isInteger(msg.serial)&&msg.serial>0;
   if(authorized){
+   stadiumBroadcast?.play(msg.side,msg.id,msg.serial,absoluteSeconds);
    hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind,id:msg.id};
    handCards?.show(msg.side,msg.id,msg.serial,absoluteSeconds);
    arenaLife.observe('card',{side:msg.side,at:absoluteSeconds,kind:msg.kind});
@@ -1422,6 +1451,24 @@ function exposeQA(){
    ...speechQA
   }},
   get heroLens(){return structuredClone(heroLens)},
+  get stadiumBroadcast(){return stadiumBroadcast?.stats||{enabled:false}},
+  projectQA(x,y,z){
+   return R131_IS_QA()?new THREE.Vector3(x,y,z).project(camera)
+    .toArray().map(n=>+n.toFixed(4)):null;
+  },
+  get broadcastProjected(){
+   if(!stadiumBroadcast)return null;
+   const scr=stadiumBroadcast.stats.screen;
+   const world=(x,y,z)=>new THREE.Vector3(x,y,z).project(camera)
+    .toArray().map(n=>+n.toFixed(4));
+   const board=scene.getObjectByName('Gym_Scoreboard_Body');
+   return {screen:[world(scr.x-scr.width/2,scr.y-scr.height/2,scr.z),
+     world(scr.x+scr.width/2,scr.y+scr.height/2,scr.z)],
+    scoreboard:board?board.getWorldPosition(new THREE.Vector3())
+     .project(camera).toArray().map(n=>+n.toFixed(4)):null,
+    camera:camera.position.toArray().map(n=>+n.toFixed(3)),
+    fov:camera.fov,aspect:camera.aspect};
+  },
   get livingCast(){return livingCast.inspect()},
   get arenaLife(){return arenaLife.inspect()},
 

@@ -1,0 +1,825 @@
+{
+  "at": "2026-11-18T00:23:01.758Z",
+  "captureMode": "sync",
+  "cases": [
+    {
+      "device": "desktop",
+      "mode": "on",
+      "pass": true,
+      "errors": [],
+      "idle": {
+        "broadcast": {
+          "mode": "idle",
+          "side": null,
+          "card": null,
+          "serial": 0,
+          "until": -1,
+          "changedAt": -1,
+          "time": 0.3306999999880791,
+          "frames": 0,
+          "casts": 0,
+          "hits": 0,
+          "cardArtFrames": 0,
+          "renderedFrames": 0,
+          "frameThrottleMs": 55,
+          "cameraCalls": 0,
+          "lastCapture": -999,
+          "errors": 0,
+          "captureMs": [],
+          "captureDraws": [],
+          "lastCaptureMs": 0,
+          "captureCpuP50Ms": null,
+          "captureCpuP95Ms": null,
+          "captureDrawsP50": null,
+          "screen": {
+            "x": 7.8,
+            "y": 2.72,
+            "z": -6.35,
+            "width": 4.1,
+            "height": 2.306
+          },
+          "cameraViewLayers": 2,
+          "overlayVisible": false,
+          "screenVisible": true,
+          "cardImageLoaded": false,
+          "targetSize": [
+            960,
+            540
+          ],
+          "idle": true,
+          "footprintOverlapsScoreboard": false
+        },
+        "projection": {
+          "screen": [
+            [
+              0.4737,
+              0.3107,
+              0.9921
+            ],
+            [
+              0.8409,
+              0.659,
+              0.9917
+            ]
+          ],
+          "scoreboard": [
+            0,
+            0.947,
+            0.994
+          ],
+          "camera": [
+            0,
+            4.32,
+            11.35
+          ],
+          "fov": 42,
+          "aspect": 1.7777777777777777
+        },
+        "portraitHidden": true,
+        "modelCount": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "drawCalls": 740
+      },
+      "casting": {
+        "broadcast": {
+          "mode": "cast",
+          "side": "player",
+          "card": "Q01",
+          "serial": 16401,
+          "until": 2.532400000035763,
+          "changedAt": 0.6824000000357627,
+          "time": 0.8796000000238418,
+          "frames": 3,
+          "casts": 1,
+          "hits": 0,
+          "cardArtFrames": 1,
+          "renderedFrames": 3,
+          "frameThrottleMs": 55,
+          "cameraCalls": 384,
+          "lastCapture": 0.8524999999999999,
+          "errors": 0,
+          "captureMs": [
+            17.69999998807907,
+            1.5,
+            1.300000011920929
+          ],
+          "captureDraws": [
+            128,
+            128,
+            128
+          ],
+          "lastCaptureMs": 1.300000011920929,
+          "captureCpuP50Ms": 1.5,
+          "captureCpuP95Ms": 17.7,
+          "captureDrawsP50": 128,
+          "screen": {
+            "x": 7.8,
+            "y": 2.72,
+            "z": -6.35,
+            "width": 4.1,
+            "height": 2.306
+          },
+          "cameraViewLayers": 2,
+          "overlayVisible": true,
+          "screenVisible": true,
+          "cardImageLoaded": true,
+          "targetSize": [
+            960,
+            540
+          ],
+          "idle": false,
+          "footprintOverlapsScoreboard": false
+        },
+        "portraitHidden": true,
+        "lens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 0,
+          "visible": false,
+          "inset": null,
+          "faceNdc": null,
+          "lastDrawCalls": 0
+        },
+        "proj": {
+          "screen": [
+            [
+              0.4737,
+              0.3107,
+              0.9921
+            ],
+            [
+              0.8409,
+              0.659,
+              0.9917
+            ]
+          ],
+          "scoreboard": [
+            0,
+            0.947,
+            0.994
+          ],
+          "camera": [
+            0,
+            4.32,
+            11.35
+          ],
+          "fov": 42,
+          "aspect": 1.7777777777777777
+        }
+      },
+      "hitting": {
+        "broadcast": {
+          "mode": "hit",
+          "side": "ai",
+          "card": "Q01",
+          "serial": 16401,
+          "until": 3.5586999999880784,
+          "changedAt": 1.8586999999880784,
+          "time": 1.9236999999880784,
+          "frames": 19,
+          "casts": 1,
+          "hits": 1,
+          "cardArtFrames": 2,
+          "renderedFrames": 19,
+          "frameThrottleMs": 55,
+          "cameraCalls": 2446,
+          "lastCapture": 1.9236999999880784,
+          "errors": 0,
+          "captureMs": [
+            17.69999998807907,
+            1.5,
+            1.300000011920929,
+            1.199999988079071,
+            2,
+            1.899999976158142,
+            2,
+            1.100000023841858,
+            1.899999976158142,
+            2,
+            1.100000023841858,
+            1.300000011920929,
+            1.899999976158142,
+            1.100000023841858,
+            2.199999988079071,
+            2.199999988079071,
+            1.899999976158142,
+            9.199999988079071,
+            1.5
+          ],
+          "captureDraws": [
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            135,
+            135
+          ],
+          "lastCaptureMs": 1.5,
+          "captureCpuP50Ms": 1.9,
+          "captureCpuP95Ms": 17.7,
+          "captureDrawsP50": 128,
+          "screen": {
+            "x": 7.8,
+            "y": 2.72,
+            "z": -6.35,
+            "width": 4.1,
+            "height": 2.306
+          },
+          "cameraViewLayers": 2,
+          "overlayVisible": true,
+          "screenVisible": true,
+          "cardImageLoaded": true,
+          "targetSize": [
+            960,
+            540
+          ],
+          "idle": false,
+          "footprintOverlapsScoreboard": false
+        },
+        "heroLens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 0,
+          "visible": false,
+          "inset": null,
+          "faceNdc": null,
+          "lastDrawCalls": 0
+        },
+        "portraitHidden": true,
+        "hits": 1,
+        "pending": 0
+      },
+      "after": {
+        "broadcast": {
+          "mode": "idle",
+          "side": null,
+          "card": null,
+          "serial": 16401,
+          "until": 3.5586999999880784,
+          "changedAt": 1.8586999999880784,
+          "time": 3.5775000000000006,
+          "frames": 43,
+          "casts": 1,
+          "hits": 1,
+          "cardArtFrames": 2,
+          "renderedFrames": 43,
+          "frameThrottleMs": 55,
+          "cameraCalls": 5686,
+          "lastCapture": 3.49419999998808,
+          "errors": 0,
+          "captureMs": [
+            17.69999998807907,
+            1.5,
+            1.300000011920929,
+            1.199999988079071,
+            2,
+            1.899999976158142,
+            2,
+            1.100000023841858,
+            1.899999976158142,
+            2,
+            1.100000023841858,
+            1.300000011920929,
+            1.899999976158142,
+            1.100000023841858,
+            2.199999988079071,
+            2.199999988079071,
+            1.899999976158142,
+            9.199999988079071,
+            1.5,
+            1.9000000357627869,
+            0.9000000357627869,
+            0.8999999761581421,
+            1.5,
+            1.800000011920929,
+            1.199999988079071,
+            2.100000023841858,
+            1.800000011920929,
+            2,
+            1.199999988079071,
+            1.899999976158142,
+            1.899999976158142,
+            1.100000023841858,
+            2.300000011920929,
+            1.300000011920929,
+            2,
+            2,
+            1.199999988079071,
+            2.099999964237213,
+            1.800000011920929,
+            2,
+            1.100000023841858,
+            1.699999988079071,
+            1.899999976158142
+          ],
+          "captureDraws": [
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135
+          ],
+          "lastCaptureMs": 1.899999976158142,
+          "captureCpuP50Ms": 1.9,
+          "captureCpuP95Ms": 2.3,
+          "captureDrawsP50": 135,
+          "screen": {
+            "x": 7.8,
+            "y": 2.72,
+            "z": -6.35,
+            "width": 4.1,
+            "height": 2.306
+          },
+          "cameraViewLayers": 2,
+          "overlayVisible": false,
+          "screenVisible": true,
+          "cardImageLoaded": true,
+          "targetSize": [
+            960,
+            540
+          ],
+          "idle": true,
+          "footprintOverlapsScoreboard": false
+        },
+        "heroLens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 0,
+          "visible": false,
+          "inset": null,
+          "faceNdc": null,
+          "lastDrawCalls": 0
+        }
+      }
+    },
+    {
+      "device": "mobile",
+      "mode": "on",
+      "pass": true,
+      "errors": [],
+      "idle": {
+        "broadcast": {
+          "mode": "idle",
+          "side": null,
+          "card": null,
+          "serial": 0,
+          "until": -1,
+          "changedAt": -1,
+          "time": 0.2661999999880791,
+          "frames": 0,
+          "casts": 0,
+          "hits": 0,
+          "cardArtFrames": 0,
+          "renderedFrames": 0,
+          "frameThrottleMs": 83,
+          "cameraCalls": 0,
+          "lastCapture": -999,
+          "errors": 0,
+          "captureMs": [],
+          "captureDraws": [],
+          "lastCaptureMs": 0,
+          "captureCpuP50Ms": null,
+          "captureCpuP95Ms": null,
+          "captureDrawsP50": null,
+          "screen": {
+            "x": 4.65,
+            "y": 4.96,
+            "z": -4,
+            "width": 3.92,
+            "height": 2.205
+          },
+          "cameraViewLayers": 2,
+          "overlayVisible": false,
+          "screenVisible": true,
+          "cardImageLoaded": false,
+          "targetSize": [
+            960,
+            540
+          ],
+          "idle": true,
+          "footprintOverlapsScoreboard": false
+        },
+        "projection": {
+          "screen": [
+            [
+              0.376,
+              0.2444,
+              0.9974
+            ],
+            [
+              0.9392,
+              0.3935,
+              0.9973
+            ]
+          ],
+          "scoreboard": [
+            0,
+            0.4239,
+            0.9984
+          ],
+          "camera": [
+            0,
+            8.621,
+            29.492
+          ],
+          "fov": 48,
+          "aspect": 0.4777777777777778
+        },
+        "portraitHidden": true,
+        "modelCount": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "drawCalls": 738
+      },
+      "casting": {
+        "broadcast": {
+          "mode": "cast",
+          "side": "player",
+          "card": "Q01",
+          "serial": 16401,
+          "until": 2.4828999999761585,
+          "changedAt": 0.6328999999761582,
+          "time": 0.8653999999761581,
+          "frames": 3,
+          "casts": 1,
+          "hits": 0,
+          "cardArtFrames": 1,
+          "renderedFrames": 3,
+          "frameThrottleMs": 83,
+          "cameraCalls": 384,
+          "lastCapture": 0.8493999999761581,
+          "errors": 0,
+          "captureMs": [
+            10.199999988079071,
+            1.2999999523162842,
+            2.100000023841858
+          ],
+          "captureDraws": [
+            128,
+            128,
+            128
+          ],
+          "lastCaptureMs": 2.100000023841858,
+          "captureCpuP50Ms": 2.1,
+          "captureCpuP95Ms": 10.2,
+          "captureDrawsP50": 128,
+          "screen": {
+            "x": 4.65,
+            "y": 4.96,
+            "z": -4,
+            "width": 3.92,
+            "height": 2.205
+          },
+          "cameraViewLayers": 2,
+          "overlayVisible": true,
+          "screenVisible": true,
+          "cardImageLoaded": true,
+          "targetSize": [
+            960,
+            540
+          ],
+          "idle": false,
+          "footprintOverlapsScoreboard": false
+        },
+        "portraitHidden": true,
+        "lens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 0,
+          "visible": false,
+          "inset": null,
+          "faceNdc": null,
+          "lastDrawCalls": 0
+        },
+        "proj": {
+          "screen": [
+            [
+              0.376,
+              0.2444,
+              0.9974
+            ],
+            [
+              0.9392,
+              0.3935,
+              0.9973
+            ]
+          ],
+          "scoreboard": [
+            0,
+            0.4239,
+            0.9984
+          ],
+          "camera": [
+            0,
+            8.621,
+            29.492
+          ],
+          "fov": 48,
+          "aspect": 0.4777777777777778
+        }
+      },
+      "hitting": {
+        "broadcast": {
+          "mode": "hit",
+          "side": "ai",
+          "card": "Q01",
+          "serial": 16401,
+          "until": 3.4114999999999984,
+          "changedAt": 1.7114999999999985,
+          "time": 1.7764999999999984,
+          "frames": 13,
+          "casts": 1,
+          "hits": 1,
+          "cardArtFrames": 2,
+          "renderedFrames": 13,
+          "frameThrottleMs": 83,
+          "cameraCalls": 1671,
+          "lastCapture": 1.7764999999999984,
+          "errors": 0,
+          "captureMs": [
+            10.199999988079071,
+            1.2999999523162842,
+            2.100000023841858,
+            2.199999988079071,
+            2,
+            2.300000011920929,
+            1.100000023841858,
+            1.5,
+            2.300000011920929,
+            1.600000023841858,
+            1.399999976158142,
+            0.9000000357627869,
+            7
+          ],
+          "captureDraws": [
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            135
+          ],
+          "lastCaptureMs": 7,
+          "captureCpuP50Ms": 2,
+          "captureCpuP95Ms": 10.2,
+          "captureDrawsP50": 128,
+          "screen": {
+            "x": 4.65,
+            "y": 4.96,
+            "z": -4,
+            "width": 3.92,
+            "height": 2.205
+          },
+          "cameraViewLayers": 2,
+          "overlayVisible": true,
+          "screenVisible": true,
+          "cardImageLoaded": true,
+          "targetSize": [
+            960,
+            540
+          ],
+          "idle": false,
+          "footprintOverlapsScoreboard": false
+        },
+        "heroLens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 0,
+          "visible": false,
+          "inset": null,
+          "faceNdc": null,
+          "lastDrawCalls": 0
+        },
+        "portraitHidden": true,
+        "hits": 1,
+        "pending": 0
+      },
+      "after": {
+        "broadcast": {
+          "mode": "idle",
+          "side": null,
+          "card": null,
+          "serial": 16401,
+          "until": 3.4114999999999984,
+          "changedAt": 1.7114999999999985,
+          "time": 3.4396000000238405,
+          "frames": 31,
+          "casts": 1,
+          "hits": 1,
+          "cardArtFrames": 2,
+          "renderedFrames": 31,
+          "frameThrottleMs": 83,
+          "cameraCalls": 4101,
+          "lastCapture": 3.38960000002384,
+          "errors": 0,
+          "captureMs": [
+            10.199999988079071,
+            1.2999999523162842,
+            2.100000023841858,
+            2.199999988079071,
+            2,
+            2.300000011920929,
+            1.100000023841858,
+            1.5,
+            2.300000011920929,
+            1.600000023841858,
+            1.399999976158142,
+            0.9000000357627869,
+            7,
+            1.399999976158142,
+            1.2000000476837158,
+            1.100000023841858,
+            1.199999988079071,
+            1.2000000476837158,
+            2,
+            2,
+            1.100000023841858,
+            2,
+            1.899999976158142,
+            1.899999976158142,
+            2,
+            1.0999999642372131,
+            2,
+            1.9000000357627869,
+            1.199999988079071,
+            1.800000011920929,
+            1.800000011920929
+          ],
+          "captureDraws": [
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135,
+            135
+          ],
+          "lastCaptureMs": 1.800000011920929,
+          "captureCpuP50Ms": 1.8,
+          "captureCpuP95Ms": 7,
+          "captureDrawsP50": 135,
+          "screen": {
+            "x": 4.65,
+            "y": 4.96,
+            "z": -4,
+            "width": 3.92,
+            "height": 2.205
+          },
+          "cameraViewLayers": 2,
+          "overlayVisible": false,
+          "screenVisible": true,
+          "cardImageLoaded": true,
+          "targetSize": [
+            960,
+            540
+          ],
+          "idle": true,
+          "footprintOverlapsScoreboard": false
+        },
+        "heroLens": {
+          "side": null,
+          "phase": "idle",
+          "frames": 0,
+          "visible": false,
+          "inset": null,
+          "faceNdc": null,
+          "lastDrawCalls": 0
+        }
+      }
+    },
+    {
+      "device": "desktop",
+      "mode": "off",
+      "pass": true,
+      "errors": [],
+      "idle": {
+        "broadcast": {
+          "enabled": false
+        },
+        "projection": null,
+        "portraitHidden": true,
+        "modelCount": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "drawCalls": 734
+      },
+      "casting": {
+        "broadcast": {
+          "enabled": false
+        },
+        "portraitHidden": false,
+        "lens": {
+          "side": "player",
+          "phase": "card_reveal_closeup",
+          "frames": 46,
+          "visible": true,
+          "inset": {
+            "x": 923,
+            "y": 302,
+            "width": 339,
+            "height": 244,
+            "topMarginPx": 174,
+            "bottomMarginPx": 302
+          },
+          "faceNdc": [
+            -0.001,
+            0.131,
+            0.889
+          ],
+          "cardNdc": [
+            -0.53,
+            0.278,
+            0.832
+          ],
+          "faceCardSeparation": 0.5493,
+          "lastDrawCalls": 865
+        }
+      },
+      "hitting": null,
+      "after": null
+    }
+  ]
+}
