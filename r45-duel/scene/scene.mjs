@@ -20,7 +20,7 @@ import {contactStep} from './foot-contact.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createComboDirector} from './combo-director.mjs';
 import {createComedySpectacle} from './comedy-spectacle.mjs';
-import {BY_ID} from '../engine.mjs';
+import {BY_ID,createGame,DECK_PRESETS} from '../engine.mjs';
 import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
 import {createSpellImpact} from './spell-impact.mjs';
 import {createMagicArsenal} from './magic-arsenal.mjs';
@@ -40,6 +40,23 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// R178 art/performance lab: explicit QA-only complete first-use shader inventory.
+// The 14 actual summon identities are rendered in three visible on-stage waves
+// behind loading, then returned to the original pool. No lower-resolution proxy.
+const R178_PRIME_ALL=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+   (PARAMS.get('r178PrimeAll')??pp?.get('r178PrimeAll'))==='on';
+})();
+const R178_PRIME_HAND=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+   (PARAMS.get('r178PrimeHand')??pp?.get('r178PrimeHand'))==='on';
+})();
+let r178AllPrimeReceipt=null;
+let r178HandPrimeReceipt=null;
 // R176 research: front-load authentic board model shader/mesh GPU setup
 // into the existing loading overlay, never a fake proxy or a resolution cut.
 const R176_PRIME_BOARD=(()=>{
@@ -54,6 +71,13 @@ const R175_HERO_E06=(()=>{
   catch{return null}})();
  return (PARAMS.get('qa')==='1'||parent?.get('qa')==='1')&&
   (PARAMS.get('r175HeroE06')??parent?.get('r175HeroE06'))==='on';
+})();
+// R178 isolated hand-sculpted K01: no effect on R147 or unapproved assets.
+const R178_HERO_K01=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r178HeroK01')??pp?.get('r178HeroK01'))==='on';
 })();
 // R169 QA-only all-spells replacement. Never silently overwrite R147.
 const R174_PREPARE_GPU=(()=>{
@@ -1483,6 +1507,8 @@ function exposeQA(){
   get r174RendererProgramCount(){return renderer?.info?.programs?.length??null},
   get r174ReadyPreparation(){return r174ReadyPreparation},
   get r176PrimeBoardReceipt(){return r176PrimeBoardReceipt},
+  get r178AllPrimeReceipt(){return r178AllPrimeReceipt},
+  get r178HandPrimeReceipt(){return r178HandPrimeReceipt},
   get r174GlobalPerf(){return renderer?{
    calls:renderer.info.render.calls,
    triangles:renderer.info.render.triangles,
@@ -1645,6 +1671,12 @@ try{
    throw Error('R177 E06 original Blender GLB registration failed');
  }
 
+ if(R178_HERO_K01&&R169_SCHOOL_MAGIC){
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/K01_Sculpted_Wok_Eggplant_Banana.glb');
+  if(!schoolMagicStage.registerHeroAsset('K01',glb.scene))
+   throw Error('R178 K01 real Blender work unavailable');
+ }
  if(R174_PREPARE_GPU&&R169_SCHOOL_MAGIC){
   r174ReadyPreparation=await schoolMagicStage.prepareGpuMaterial(
     'E06',renderer,camera,scene);
@@ -1661,6 +1693,50 @@ try{
     effect:type,damage:event.damage});
   }
  });
+ if((R178_PRIME_ALL||R178_PRIME_HAND)&&R169_SCHOOL_MAGIC){
+  const t0=performance.now(),programsBefore=renderer.info.programs?.length||0;
+  const allIds=['E01','G01',...summonModels.keys()];
+  const parentParams=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+   catch{return null}})();
+  const hintSeed=Number(parentParams?.get('seed')??PARAMS.get('seed'));
+  const requestedDeck=parentParams?.get('deck');
+  const deckKey=Object.hasOwn(DECK_PRESETS,requestedDeck)?requestedDeck:'classic';
+  // Same deterministic initial-hand algorithm as the actual engine. No
+  // guessed/fabricated card identities and no modification to real game state.
+  const preview=(R178_PRIME_HAND&&Number.isInteger(hintSeed)&&hintSeed>0)?
+   createGame(hintSeed,deckKey):null;
+  const target=preview?
+   [...new Set([...preview.hand.player,...preview.hand.ai]
+    .filter(id=>BY_ID[id]?.kind==='unit'))].filter(id=>allIds.includes(id)):
+   allIds;
+  // Strictly render original source VRM + imported GLB in the real stage:
+  // 6 units/wave to cap shadow/skin and associated draw overhead.
+  const waves=[];
+  for(let start=0;start<target.length;start+=6){
+   const ids=target.slice(start,start+6);
+   const board={player:[],ai:[]};
+   ids.forEach((id,i)=>{
+    const side=i%2===0?'player':'ai';
+    board[side].push({uid:'U178'+String(start+i+1).padStart(3,'0'),
+     id,hp:8,attack:4,shield:0});
+   });
+   const begin=performance.now(),from=renderer.info.programs?.length||0;
+   summonPresence.sync(board,{force:true});
+   for(let n=0;n<2;n++)await new Promise(resolve=>
+    requestAnimationFrame(()=>{renderer.render(scene,camera);resolve()}));
+   summonPresence.sync({player:[],ai:[]},{force:true});
+   waves.push({ids,renderFrames:2,
+    ms:+(performance.now()-begin).toFixed(2),
+    shaderDelta:(renderer.info.programs?.length||0)-from});
+  }
+  const receipt={mode:R178_PRIME_HAND?'initial-hand':'all-14',allIds:target,waves,
+   models:target.length,seed:hintSeed,deck:deckKey,
+   totalMs:+(performance.now()-t0).toFixed(2),
+   shaderDelta:(renderer.info.programs?.length||0)-programsBefore,
+   preservedOriginalCharacters:true};
+  if(R178_PRIME_HAND)r178HandPrimeReceipt=receipt;
+  else r178AllPrimeReceipt=receipt;
+ }
  if(R176_PRIME_BOARD&&R169_SCHOOL_MAGIC){
   const start=performance.now();
   const shaderStart=renderer.info.programs?.length||0;

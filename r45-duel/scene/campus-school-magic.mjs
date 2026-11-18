@@ -23,7 +23,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
  const heroAssets=new Map();
  function registerHeroAsset(id,model){
-  if(id!=='E06'||!model?.isObject3D)return false;
+  if(!['E06','K01'].includes(id)||!model?.isObject3D)return false;
   heroAssets.set(id,model);return true;
  }
 
@@ -438,8 +438,25 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    a.props.rotation.y=t*(a.identity.family==='时空校园'?.70:.23);
    a.props.traverse(o=>{
     const motion=o.userData?.motion;
+    const base=o.userData?.basePosition,rotation=o.userData?.baseRotation;
+    // R178: the cooked banana and aubergine actually leap separately
+    // within the curved wok rather than the entire prop rigidly wobbling.
+    // Both baked curved banana ribs and body share exact deterministic motion.
+    if(a.id==='K01'&&o.isMesh){
+     const banana=/banana sculpt|banana raised seam/i.test(o.name);
+     const eggplant=/aubergine body|calyx forest/i.test(o.name);
+     if(banana||eggplant){
+      if(base)o.position.copy(base);
+      if(rotation)o.rotation.copy(rotation);
+      const pulse=banana?Math.sin(t*16+0.7):Math.sin(t*13+2.1);
+      const lift=(.13+.16*Math.max(0,pulse))*smooth(t/.12)*
+       (1-smooth((t-.80)/.15));
+      o.position.y+=lift;
+      o.rotation.z+=(banana?.15:-.09)*pulse;
+      return;
+     }
+    }
     if(!motion)return;
-    const base=o.userData.basePosition,rotation=o.userData.baseRotation;
     if(base)o.position.copy(base);
     if(rotation)o.rotation.copy(rotation);
     if(motion==='flutter')o.rotation.z+=Math.sin(t*11+o.id)*.18;

@@ -1,0 +1,457 @@
+{
+  "date": "2026-11-18",
+  "phase": "R178",
+  "publish": "NO_GO",
+  "runtime": "Z890 RTX5070Ti, Chrome Vulkan, desktop 1280x720 CPU x2",
+  "mobileTested": false,
+  "true3DSculptCandidates": 2,
+  "proceduralPropsRemaining": 44,
+  "visuallyApproved": 0,
+  "cases": [
+    {
+      "pair": "E04-M01",
+      "prime": "off",
+      "firstCard": "K01",
+      "acceptedFunctionalQA": true,
+      "errors": [],
+      "authoredAssets": [
+        "E06",
+        "K01"
+      ],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "totalSpells": 93,
+      "uniqueSchoolProps": 46,
+      "firstReadyMs": 4720,
+      "firstCastP95Ms": 33.4,
+      "firstCastP99Ms": 50,
+      "firstCastMaxRafMs": 50,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 4,
+      "preload": null,
+      "rawEvidence": "qa/evidence/r178-firstcast/R178-E04-M01-off-K01-desktop.json"
+    },
+    {
+      "pair": "E04-M01",
+      "prime": "hand",
+      "firstCard": "K01",
+      "acceptedFunctionalQA": true,
+      "errors": [],
+      "authoredAssets": [
+        "E06",
+        "K01"
+      ],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "totalSpells": 93,
+      "uniqueSchoolProps": 46,
+      "firstReadyMs": 6427,
+      "firstCastP95Ms": 33.4,
+      "firstCastP99Ms": 50,
+      "firstCastMaxRafMs": 50.1,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 2,
+      "preload": {
+        "mode": "initial-hand",
+        "allIds": [
+          "E01",
+          "T04",
+          "T01",
+          "E02",
+          "E04",
+          "M01",
+          "G03"
+        ],
+        "waves": [
+          {
+            "ids": [
+              "E01",
+              "T04",
+              "T01",
+              "E02",
+              "E04",
+              "M01"
+            ],
+            "renderFrames": 2,
+            "ms": 2254.6,
+            "shaderDelta": 48
+          },
+          {
+            "ids": [
+              "G03"
+            ],
+            "renderFrames": 2,
+            "ms": 67.8,
+            "shaderDelta": 0
+          }
+        ],
+        "models": 7,
+        "seed": 173,
+        "deck": "classic",
+        "totalMs": 2322.7,
+        "shaderDelta": 48,
+        "preservedOriginalCharacters": true
+      },
+      "rawEvidence": "qa/evidence/r178-firstcast/R178-E04-M01-hand-K01-desktop.json"
+    },
+    {
+      "pair": "E04-M01",
+      "prime": "all",
+      "firstCard": "K01",
+      "acceptedFunctionalQA": true,
+      "errors": [],
+      "authoredAssets": [
+        "E06",
+        "K01"
+      ],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "totalSpells": 93,
+      "uniqueSchoolProps": 46,
+      "firstReadyMs": 6548,
+      "firstCastP95Ms": 16.8,
+      "firstCastP99Ms": 33.3,
+      "firstCastMaxRafMs": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 2,
+      "preload": {
+        "mode": "all-14",
+        "allIds": [
+          "E01",
+          "G01",
+          "E02",
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "M01",
+          "M02",
+          "T01",
+          "T02",
+          "T03",
+          "T04"
+        ],
+        "waves": [
+          {
+            "ids": [
+              "E01",
+              "G01",
+              "E02",
+              "E03",
+              "E04",
+              "G02"
+            ],
+            "renderFrames": 2,
+            "ms": 2159.4,
+            "shaderDelta": 47
+          },
+          {
+            "ids": [
+              "G03",
+              "G04",
+              "M01",
+              "M02",
+              "T01",
+              "T02"
+            ],
+            "renderFrames": 2,
+            "ms": 497,
+            "shaderDelta": 3
+          },
+          {
+            "ids": [
+              "T03",
+              "T04"
+            ],
+            "renderFrames": 2,
+            "ms": 64.4,
+            "shaderDelta": 0
+          }
+        ],
+        "models": 14,
+        "seed": 173,
+        "deck": "classic",
+        "totalMs": 2721.2,
+        "shaderDelta": 50,
+        "preservedOriginalCharacters": true
+      },
+      "rawEvidence": "qa/evidence/r178-firstcast/R178-E04-M01-all-K01-desktop.json"
+    },
+    {
+      "pair": "M02-G04",
+      "prime": "off",
+      "firstCard": "K01",
+      "acceptedFunctionalQA": true,
+      "errors": [],
+      "authoredAssets": [
+        "E06",
+        "K01"
+      ],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "totalSpells": 93,
+      "uniqueSchoolProps": 46,
+      "firstReadyMs": 4410,
+      "firstCastP95Ms": 16.8,
+      "firstCastP99Ms": 33.3,
+      "firstCastMaxRafMs": 33.4,
+      "longTaskMaxMs": 127,
+      "shaderDeltaAtCast": 2,
+      "preload": null,
+      "rawEvidence": "qa/evidence/r178-firstcast/R178-M02-G04-off-K01-desktop.json"
+    },
+    {
+      "pair": "M02-G04",
+      "prime": "all",
+      "firstCard": "K01",
+      "acceptedFunctionalQA": true,
+      "errors": [],
+      "authoredAssets": [
+        "E06",
+        "K01"
+      ],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "totalSpells": 93,
+      "uniqueSchoolProps": 46,
+      "firstReadyMs": 6446,
+      "firstCastP95Ms": 16.8,
+      "firstCastP99Ms": 33.3,
+      "firstCastMaxRafMs": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 4,
+      "preload": {
+        "allIds": [
+          "E01",
+          "G01",
+          "E02",
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "M01",
+          "M02",
+          "T01",
+          "T02",
+          "T03",
+          "T04"
+        ],
+        "waves": [
+          {
+            "ids": [
+              "E01",
+              "G01",
+              "E02",
+              "E03",
+              "E04",
+              "G02"
+            ],
+            "renderFrames": 2,
+            "ms": 2072.8,
+            "shaderDelta": 47
+          },
+          {
+            "ids": [
+              "G03",
+              "G04",
+              "M01",
+              "M02",
+              "T01",
+              "T02"
+            ],
+            "renderFrames": 2,
+            "ms": 474.8,
+            "shaderDelta": 3
+          },
+          {
+            "ids": [
+              "T03",
+              "T04"
+            ],
+            "renderFrames": 2,
+            "ms": 55.2,
+            "shaderDelta": 0
+          }
+        ],
+        "models": 14,
+        "totalMs": 2602.9,
+        "shaderDelta": 50,
+        "preservedOriginalCharacters": true
+      },
+      "rawEvidence": "qa/evidence/r178-firstcast/R178-M02-G04-all-K01-desktop.json"
+    },
+    {
+      "pair": "T01-E03",
+      "prime": "off",
+      "firstCard": "K01",
+      "acceptedFunctionalQA": true,
+      "errors": [],
+      "authoredAssets": [
+        "E06",
+        "K01"
+      ],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "totalSpells": 93,
+      "uniqueSchoolProps": 46,
+      "firstReadyMs": 4493,
+      "firstCastP95Ms": 33.4,
+      "firstCastP99Ms": 50,
+      "firstCastMaxRafMs": 383.3,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 5,
+      "preload": null,
+      "rawEvidence": "qa/evidence/r178-firstcast/R178-T01-E03-off-K01-desktop.json"
+    },
+    {
+      "pair": "T01-E03",
+      "prime": "hand",
+      "firstCard": "K01",
+      "acceptedFunctionalQA": true,
+      "errors": [],
+      "authoredAssets": [
+        "E06",
+        "K01"
+      ],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "totalSpells": 93,
+      "uniqueSchoolProps": 46,
+      "firstReadyMs": 6201,
+      "firstCastP95Ms": 33.4,
+      "firstCastP99Ms": 33.4,
+      "firstCastMaxRafMs": 50.1,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 2,
+      "preload": {
+        "mode": "initial-hand",
+        "allIds": [
+          "E01",
+          "T04",
+          "T01",
+          "E02",
+          "E04",
+          "M01",
+          "G03"
+        ],
+        "waves": [
+          {
+            "ids": [
+              "E01",
+              "T04",
+              "T01",
+              "E02",
+              "E04",
+              "M01"
+            ],
+            "renderFrames": 2,
+            "ms": 2194.9,
+            "shaderDelta": 48
+          },
+          {
+            "ids": [
+              "G03"
+            ],
+            "renderFrames": 2,
+            "ms": 63.4,
+            "shaderDelta": 0
+          }
+        ],
+        "models": 7,
+        "seed": 173,
+        "deck": "classic",
+        "totalMs": 2259.1,
+        "shaderDelta": 48,
+        "preservedOriginalCharacters": true
+      },
+      "rawEvidence": "qa/evidence/r178-firstcast/R178-T01-E03-hand-K01-desktop.json"
+    },
+    {
+      "pair": "T01-E03",
+      "prime": "all",
+      "firstCard": "K01",
+      "acceptedFunctionalQA": true,
+      "errors": [],
+      "authoredAssets": [
+        "E06",
+        "K01"
+      ],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "totalSpells": 93,
+      "uniqueSchoolProps": 46,
+      "firstReadyMs": 6549,
+      "firstCastP95Ms": 33.4,
+      "firstCastP99Ms": 33.4,
+      "firstCastMaxRafMs": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 4,
+      "preload": {
+        "mode": "all-14",
+        "allIds": [
+          "E01",
+          "G01",
+          "E02",
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "M01",
+          "M02",
+          "T01",
+          "T02",
+          "T03",
+          "T04"
+        ],
+        "waves": [
+          {
+            "ids": [
+              "E01",
+              "G01",
+              "E02",
+              "E03",
+              "E04",
+              "G02"
+            ],
+            "renderFrames": 2,
+            "ms": 2190.9,
+            "shaderDelta": 47
+          },
+          {
+            "ids": [
+              "G03",
+              "G04",
+              "M01",
+              "M02",
+              "T01",
+              "T02"
+            ],
+            "renderFrames": 2,
+            "ms": 472,
+            "shaderDelta": 3
+          },
+          {
+            "ids": [
+              "T03",
+              "T04"
+            ],
+            "renderFrames": 2,
+            "ms": 50.7,
+            "shaderDelta": 0
+          }
+        ],
+        "models": 14,
+        "seed": 173,
+        "deck": "classic",
+        "totalMs": 2714.1,
+        "shaderDelta": 50,
+        "preservedOriginalCharacters": true
+      },
+      "rawEvidence": "qa/evidence/r178-firstcast/R178-T01-E03-all-K01-desktop.json"
+    }
+  ],
+  "note": "Not randomized, limited single-run comparisons, rAF and longtask are distinct metrics. Do not infer general device FPS or eliminate initial loading overhead."
+}

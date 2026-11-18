@@ -9,6 +9,12 @@ const candidateIds=new Map([
   runtime:'art/hero-props/E06_Cinematic_Eraser.glb',
   image:'art/hero-props/qa/E06_Cinematic_Eraser.png',
   reproducible:'art/hero-props/build_e06_sculpt.py'
+ }],
+ ['K01',{
+  source:'art/hero-props/K01_Sculpted_Wok_Eggplant_Banana.blend',
+  runtime:'art/hero-props/K01_Sculpted_Wok_Eggplant_Banana.glb',
+  image:'art/hero-props/qa/K01_Sculpted_Wok_Eggplant_Banana.png',
+  reproducible:'art/hero-props/build_k01_wok_sculpt.py'
  }]
 ]);
 const records=Object.values(SCHOOL_MAGIC_IDENTITIES).map(e=>{
@@ -29,11 +35,11 @@ const summary={cardCount:SCHOOL_MAGIC_COUNT,true3dCandidateCount:true3d,
   proceduralPlaceholderCount:records.length-true3d,visuallyAccepted:0,
   releaseReady:accepted,release:'NO_GO',
   note:'Scans true physical authored model and referenced source files. Does not automatically validate beauty or mobile performance; manual visual signoff required.',records};
-const dest=resolve(root,'qa/evidence/r177-combined/r177-46-prop-art-status.json');
+const dest=resolve(root,'qa/evidence/r178-sculpted-props/r178-46-prop-art-status.json');
 mkdirSync(dirname(dest),{recursive:true});
 writeFileSync(dest,JSON.stringify(summary,null,2));
-console.log('R177_REAL_ART_AUDIT',JSON.stringify({
+console.log('R178_REAL_ART_AUDIT',JSON.stringify({
  all:summary.cardCount,sculptedCandidates:true3d,placeholders:records.length-true3d,
  visuallyAccepted:0,release:'NO_GO',report:dest}));
-if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==1)process.exitCode=3;
+if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==2)process.exitCode=3;
 if(process.argv.includes('--release')&&accepted!==46)process.exitCode=2;
