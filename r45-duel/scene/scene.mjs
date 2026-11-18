@@ -13,6 +13,9 @@ import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-a
 import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
+import {createCampusSchoolMagic} from './campus-school-magic.mjs';
+import {schoolGestureForCard} from './campus-spell-gesture.mjs';
+import {schoolHitReactionForCard} from './campus-spell-hit-reaction.mjs';
 import {contactStep} from './foot-contact.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createComboDirector} from './combo-director.mjs';
@@ -37,6 +40,27 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// R175 controlled 3D sculpt audition. Not enabled for production players.
+const R175_HERO_E06=(()=>{
+ const p=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||p?.get('qa')==='1')&&
+  (PARAMS.get('r175HeroE06')??p?.get('r175HeroE06'))==='on';
+})();
+// R169 QA-only all-spells replacement. Never silently overwrite R147.
+const R172_STATIC_BATCH=(()=>{
+ const own=PARAMS.get('qa')==='1'&&PARAMS.get('r172BatchStatic')==='on';
+ try{const pp=new URLSearchParams(window.parent.location.search);
+  return own||(pp.get('qa')==='1'&&pp.get('r172BatchStatic')==='on');}
+ catch{return own}
+})();
+const R169_SCHOOL_MAGIC=(()=>{
+ const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+ catch{return null}})();
+ return (PARAMS.get('qa')==='1'||parent?.get('qa')==='1')&&
+  (PARAMS.get('r169SchoolMagic')??parent?.get('r169SchoolMagic'))==='on';
+})();
+
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -264,6 +288,7 @@ let shownCards={player:[],ai:[]};
 let shownUnits={player:[],ai:[]};
 let pendingCombatEvents=null;
 let summonPresence=null;
+let schoolMagicStage=null;
 let summonModels=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -315,6 +340,8 @@ function makeScene(){
  liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
  spellImpact=createSpellImpact(THREE,scene);
  magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
+ if(R169_SCHOOL_MAGIC)
+  schoolMagicStage=createCampusSchoolMagic(THREE,scene,{reducedMotion:reduced,mergeStatic:R172_STATIC_BATCH});
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
  spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
@@ -605,7 +632,11 @@ function updateDuelistHosts(seconds){
  const targetVector=new THREE.Vector3(),targetOut={R:[0,0,0],L:[0,0,0]};
  for(const host of duelistHosts){
   const side=host.side,gesture=hostAction[side],strike=hostHits[side];
+  const customGesture=R169_SCHOOL_MAGIC&&gesture.kind==='spell'?
+   schoolGestureForCard(gesture.id,seconds-gesture.started,side):null;
   const age=seconds-gesture.started,hitAge=seconds-strike.time;
+  const schoolHit=R169_SCHOOL_MAGIC&&strike.card?
+   schoolHitReactionForCard(strike.card,hitAge,side):null;
   const breath=Math.sin(seconds*1.18+(side==='player'?0:1.6));
   const glance=Math.sin(seconds*.52+(side==='player'?.4:2.1));
   const sign=side==='player'?1:-1;
@@ -645,15 +676,15 @@ function updateDuelistHosts(seconds){
   const winnerHop=victory*.19*Math.max(0,Math.sin(seconds*11.7+(side==='player'?.2:1.1)))*intensity;
   host.pivot.position.x=host.baseX+
     sign*(.13*doCast+.09*doFollow-.25*recoil)+
-    sign*.14*victory-sign*.13*defeat+
+    sign*.14*victory-sign*.13*defeat+(customGesture?.step||0)+
     .018*glance*(1-actionStrength)+sign*(act.step||0)*idleBlend*
       (footwork?.stance?.32:1)+(r134Idle?.shiftX||0);
-  host.pivot.position.y=.48+.012*breath+cardHop+winnerHop+
+  host.pivot.position.y=.48+.012*breath+cardHop+winnerHop+(customGesture?.hop||0)-(schoolHit?.crouch||0)+
     (footwork?0:(act.jump||0)*idleBlend*.6)+(r134Idle?.liftY||0);
   host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.21*doDisplay+.29*doCast)+
     sign*(act.headYaw||0)*idleBlend*.30+
     sign*.16*victory-sign*.12*defeat+(r134Idle?.yaw||0);
-  host.pivot.rotation.z=sign*(-.12*doCast+.15*doFollow+.23*recoil-
+  host.pivot.rotation.z=(schoolHit?.lean||0)+sign*(customGesture?.torsoPitch||0)+sign*(-.12*doCast+.15*doFollow+.23*recoil-
     .095*victory+.24*defeat)+.011*glance+
     sign*(act.tilt||0)*idleBlend;
   // Facial blink and the source VRM blendshapes remain animated independently.
@@ -691,11 +722,11 @@ function updateDuelistHosts(seconds){
   // participation without rotating a proxy body away from the opponent.
   const syllableNod=speaking?
    Math.sin((seconds-speaking.started)*13.1+(side==='ai'?.7:0))*.032:0;
-  setBone(host,'C_Head',-.030*inspectCard-.12*doDisplay-.13*doCast+
+  setBone(host,'C_Head',(schoolHit?.headPitch||0)+(customGesture?.headPitch||0)-.030*inspectCard-.12*doDisplay-.13*doCast+
    .27*recoil-.13*victory+.28*defeat+(act.headPitch||0)*idleBlend+
    syllableNod+(r134Idle?.headPitch||0),
    sign*(.065*glance+.13*doDisplay+(act.headYaw||0)*idleBlend)+(r134Idle?.headYaw||0),
-   sign*.02*glance+(r134Idle?.headRoll||0));
+   sign*.02*glance+(r134Idle?.headRoll||0)+(schoolHit?.headRoll||0));
   setBone(host,'L_UpperLeg',.026*glance-.10*doCast+.16*recoil+
    .20*victory-.27*defeat+(footwork?.swing==='L'?legSwing*2:0)+(r134Idle?.thighL||0),0,0);
   setBone(host,'R_UpperLeg',-.026*glance+.11*doCast-.12*recoil+
@@ -730,6 +761,14 @@ function updateDuelistHosts(seconds){
     targetVector.x+=sign*.055*doFollow;
     targetVector.y-=.12*doFollow;
    }
+   if(customGesture){
+    const shift=hand==='R'?customGesture.right:customGesture.left;
+    targetVector.add(new THREE.Vector3(...shift));
+   }
+   if(schoolHit){
+    const shift=hand==='R'?schoolHit.right:schoolHit.left;
+    targetVector.add(new THREE.Vector3(...shift));
+   }
    targetOut[hand]=targetVector.toArray();
   }
   host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
@@ -749,7 +788,10 @@ function updateDuelistHosts(seconds){
    if(chest)chest.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
      new THREE.Vector3(0,0,1),sign*lean*.38*envelope));
   }
-  host.choreography={phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
+  host.choreography={schoolHitSignature:schoolHit?.signature??null,
+    schoolSignature:customGesture?.signature??null,
+    schoolStrength:+(customGesture?.strength||0).toFixed(3),
+    phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
     recoil>.1?'hit':doFollow>.22?'follow_through':doCast>.1?'cast':
     doDisplay>.1?'raise_card':doDraw>.1?'draw':idleBlend>.08?act.type:'idle',
     draw:+doDraw.toFixed(3),display:+doDisplay.toFixed(3),
@@ -816,8 +858,11 @@ function loop(){
  absoluteSeconds+=delta;
  liveScoreboard?.update(performance.now());
  stadiumEvidence?.update?.(absoluteSeconds,{reduced});
- spellImpact?.update(absoluteSeconds);
- magicArsenal?.update(absoluteSeconds);
+ if(R169_SCHOOL_MAGIC)schoolMagicStage?.update(absoluteSeconds);
+ else{
+  spellImpact?.update(absoluteSeconds);
+  magicArsenal?.update(absoluteSeconds);
+ }
  elementalVfx?.update(absoluteSeconds);
  spellContactFX?.update(absoluteSeconds);
  spectatorChaosFX?.update(absoluteSeconds);
@@ -846,10 +891,10 @@ function loop(){
    summonPresence?.spellWorldAnchors?.(d.victim,d.targetUids)||[]:[];
   if(d.unitDamage>0&&d.targetUids.length){
    summonPresence?.reactToSpell?.(d.victim,d.targetUids,absoluteSeconds,d.element);
-   for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
+   if(!R169_SCHOOL_MAGIC)for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
   }
   if(d.directDamage>0){
-   hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
+   hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element,card:d.id};
    arenaLife.observe('hit',{side:d.victim,at:absoluteSeconds});
    livingCast.signal(d.victim,'hurt',absoluteSeconds);
    stadiumEvidence?.reactAudience?.('hit',d.victim,absoluteSeconds);
@@ -857,16 +902,17 @@ function loop(){
    const host=duelistHosts.find(h=>h.side===d.victim);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(!R169_SCHOOL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }else if(!d.damaging){
    // Healing and buffs are self-side effects, not pretend enemy damage.
    const host=duelistHosts.find(h=>h.side===d.caster);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(!R169_SCHOOL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }
+  if(R169_SCHOOL_MAGIC)schoolMagicStage?.contact(d,absoluteSeconds);
   r121ContactReceipts++;
   reply('ASDC_R121_SPELL_CONTACT',{serial:d.serial,card:d.id,
    caster:d.caster,victim:d.victim,element:d.element,
@@ -1044,7 +1090,9 @@ function loop(){
   (talkingCandidates[0]?{side:talkingCandidates[0].side,
    age:talkingCandidates[0].age,voice:true}:null);
  heroLens.visible=false;
- if(focus&&!reduced&&!legacyCamera){
+ // Player explicitly rejected floating portrait occluding rival reactions.
+ // R169+ has no floating face inset; the physical stadium screen is separate.
+ if(focus&&!reduced&&!legacyCamera&&!R169_SCHOOL_MAGIC){
   const host=duelistHosts.find(x=>x.side===focus.side);
   if(host){
    if(!r124Legacy&&heroLayerSide!==focus.side){
@@ -1261,9 +1309,11 @@ function onMessage(ev){
   // Only rule-emitted card identifiers and serials are permitted; this layer
   // displays the authoritative result but cannot mutate HP or winner.
   if(!Number.isInteger(msg.serial)||msg.serial<=0||spellSerials.has(msg.serial))return;
-  const accepted=spellImpact?.play(msg,absoluteSeconds);
+  const accepted=R169_SCHOOL_MAGIC?
+   schoolMagicStage?.play(msg,absoluteSeconds):
+   spellImpact?.play(msg,absoluteSeconds);
   if(!accepted)return;
-  magicArsenal?.play(msg,absoluteSeconds);
+  if(!R169_SCHOOL_MAGIC)magicArsenal?.play(msg,absoluteSeconds);
   spellSerials.add(msg.serial);
   const accident=PARAMS.get('r122Crowd')==='off'?null:
    chooseCrowdAccident(msg,{force:PARAMS.get('qa')==='1'&&
@@ -1273,7 +1323,7 @@ function onMessage(ev){
     launchAt:absoluteSeconds+.28,launched:false,hitAt:Infinity});
    if(pendingCrowdAccidents.length>5)pendingCrowdAccidents.shift();
   }
-  if(['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
+  if(!R169_SCHOOL_MAGIC&&['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
    comedySpectacle?.trigger('spell_'+msg.effect,
     msg.side,msg.serial,absoluteSeconds,{reduced});
   if(spellSerials.size>500)spellSerials.clear();
@@ -1383,6 +1433,8 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
+  get r173ShaderPrograms(){return renderer?.info?.programs?.length??null},
+  get r173NoFloatingPortrait(){return R169_SCHOOL_MAGIC},
   get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,
@@ -1396,6 +1448,7 @@ function exposeQA(){
   get r122AccidentReceipts(){return r122AccidentReceipts},
   get registeredSpellSerials(){return spellSerials.size},
   get pendingSpellContacts(){return pendingSpellContacts.length},
+  get r169SchoolMagic(){return schoolMagicStage?.stats||{enabled:false}},
   get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
   get spectatorChaosFX(){return spectatorChaosFX?.stats||null},
   get bleacherProps(){return bleacherProps?.stats||null},
@@ -1547,6 +1600,13 @@ try{
  if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
+ if(R175_HERO_E06&&R169_SCHOOL_MAGIC){
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/E06_Cinematic_Eraser.glb');
+  if(!schoolMagicStage.registerHeroAsset('E06',glb.scene))
+   throw Error('R175 E06 authored hero asset registration failed');
+ }
+
  bleacherProps?.mount?.([0,1,2,3].map(index=>stadiumEvidence?.spectatorAnchor?.(index)));
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,lifeWorld:arenaLife,

@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-18",
+  "newOriginalOgg": 14,
+  "decodedByChrome": 14,
+  "encodedBytes": 57915,
+  "modifiedCardLevelFoley": 14,
+  "remainingExistingFoleyPatterns": 32,
+  "spellsWithAudioPatterns": 46,
+  "sourceSHA256Pass": true,
+  "song_or_third_party_audio": false,
+  "newQwenVoicesRecorded": 0,
+  "voiceScriptsReady": 230,
+  "QwenTTSBlockingReason": "Old env missing torch; offline uv install cannot retrieve compatible torch/sentencepiece/pandas wheels; no fake recordings generated",
+  "releaseDecision": "DRAFT / NO-GO (new voice missing; SFX pending subjective listening and game performance review)"
+}

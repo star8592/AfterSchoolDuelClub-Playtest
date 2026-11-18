@@ -4,7 +4,23 @@
  * Completely presentation-only: cannot mutate the rules engine/HP.
  */
 import {GUIDED_LINES} from './guided-tutorial.mjs';
+import {SCHOOL_MAGIC_IDENTITIES} from './scene/campus-magic-bible.mjs';
 const SOUNDS=Object.freeze({
+ // R171 original authored school-prop Foley, all files have SHA256 manifest.
+ r171_eraser_thud:'r171_eraser_thud.ogg',
+ r171_chalk_dust:'r171_chalk_dust.ogg',
+ r171_wok_clang:'r171_wok_clang.ogg',
+ r171_food_sizzle:'r171_food_sizzle.ogg',
+ r171_milk_tea_bubble:'r171_milk_tea_bubble.ogg',
+ r171_press_camera:'r171_press_camera.ogg',
+ r171_whistle_rip:'r171_whistle_rip.ogg',
+ r171_ball_bounce:'r171_ball_bounce.ogg',
+ r171_basket_rim:'r171_basket_rim.ogg',
+ r171_paper_whirl:'r171_paper_whirl.ogg',
+ r171_clock_reverse:'r171_clock_reverse.ogg',
+ r171_stamp_thud:'r171_stamp_thud.ogg',
+ r171_pencil_scribble:'r171_pencil_scribble.ogg',
+ r171_foot_shuffle:'r171_foot_shuffle.ogg',
  select:'select.ogg',cast:'cast.ogg',enemy_cast:'enemy_cast.ogg',
  turn:'turn.ogg',attack:'attack.ogg',hit:'hit.ogg',
  heal:'heal.ogg',win:'win.ogg',lose:'lose.ogg',
@@ -81,7 +97,30 @@ export const COMIC_BEATS=Object.freeze({
  'combo_poster_draw':[['r102_paper_flap',0,1,.51],['r102_magic_tingle',.14,1.04,.48]],
  'direct_hit':[['r102_score_trumpet',0,.93,.48],['r102_crowd_gasp',.19,1.08,.32]],
  'actual_exchange':[['r102_school_steps',0,1.13,.38],['r102_rubber_squeak',.15,.88,.30]],
- 'game_finish':[['r102_score_trumpet',0,1,.54],['r102_confetti_pop',.25,1,.51]]
+ 'game_finish':[['r102_score_trumpet',0,1,.54],['r102_confetti_pop',.25,1,.51]],
+ ...Object.fromEntries(Object.values(SCHOOL_MAGIC_IDENTITIES).map((s,i)=>[
+  'school_'+s.id,[
+   [s.foley[0],0,.83+(i%6)*.045,.60],
+   [s.foley[1],.17+(i%4)*.035,.95+(i%5)*.03,.56]
+  ]
+ ])),
+ // Cinematic, characteristic material Foley. NO generic whoosh + boom.
+ ...Object.fromEntries(Object.entries({
+  E06:[['r171_foot_shuffle',0,.95,.45],['r171_eraser_thud',.24,.82,.78],['r171_chalk_dust',.31,1.05,.44]],
+  K01:[['r171_wok_clang',0,.94,.68],['r171_food_sizzle',.10,.92,.50],['r171_milk_tea_bubble',.38,1.10,.28]],
+  K06:[['r171_milk_tea_bubble',0,.8,.65],['r171_food_sizzle',.22,1.10,.51],['r171_wok_clang',.46,1.22,.28]],
+  Q05:[['r171_pencil_scribble',0,1.04,.52],['r171_press_camera',.22,.94,.69],['r171_chalk_dust',.40,.91,.38]],
+  P04:[['r171_foot_shuffle',0,1.1,.40],['r171_whistle_rip',.19,.99,.83]],
+  P05:[['r171_ball_bounce',0,.91,.68],['r171_basket_rim',.31,1.08,.75],['r102_crowd_gasp',.43,1.1,.32]],
+  X05:[['r171_paper_whirl',0,.93,.65],['r171_pencil_scribble',.20,1.11,.38],['r171_chalk_dust',.40,.86,.31]],
+  X01:[['r171_clock_reverse',0,.91,.55],['r102_school_bell',.22,.92,.36]],
+  Q01:[['r171_pencil_scribble',0,1.15,.56],['r171_chalk_dust',.24,1.02,.33]],
+  Q06:[['r171_stamp_thud',0,.91,.53],['r171_stamp_thud',.18,1.02,.48],['r102_magic_tingle',.34,1.23,.42]],
+  S04:[['r171_pencil_scribble',0,.96,.52],['r102_radio_glitch',.19,.77,.55],['r171_press_camera',.32,1.03,.48]],
+  S07:[['r102_school_bell',0,.86,.52],['r171_clock_reverse',.24,1.16,.53]],
+  X03:[['r171_foot_shuffle',0,1.02,.47],['r171_stamp_thud',.36,.80,.69],['r102_crowd_gasp',.49,.91,.34]],
+  T06:[['r102_radio_tune',0,1.08,.59],['r171_whistle_rip',.22,.75,.31],['r102_radio_glitch',.41,.93,.52]]
+ }).map(([id,arr])=>['school_'+id,arr]))
 });
 const VOICE_MODEL='Qwen3-TTS';
 export const MUSIC_TRACKS=Object.freeze([
