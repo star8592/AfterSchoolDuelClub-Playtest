@@ -13,6 +13,7 @@ import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-a
 import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
+import {createCampusSchoolMagic} from './campus-school-magic.mjs';
 import {contactStep} from './foot-contact.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createComboDirector} from './combo-director.mjs';
@@ -37,6 +38,14 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// R169 QA-only all-spells replacement. Never silently overwrite R147.
+const R169_SCHOOL_MAGIC=(()=>{
+ const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+ catch{return null}})();
+ return (PARAMS.get('qa')==='1'||parent?.get('qa')==='1')&&
+  (PARAMS.get('r169SchoolMagic')??parent?.get('r169SchoolMagic'))==='on';
+})();
+
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -264,6 +273,7 @@ let shownCards={player:[],ai:[]};
 let shownUnits={player:[],ai:[]};
 let pendingCombatEvents=null;
 let summonPresence=null;
+let schoolMagicStage=null;
 let summonModels=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -315,6 +325,8 @@ function makeScene(){
  liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
  spellImpact=createSpellImpact(THREE,scene);
  magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
+ if(R169_SCHOOL_MAGIC)
+  schoolMagicStage=createCampusSchoolMagic(THREE,scene,{reducedMotion:reduced});
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
  spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
@@ -816,8 +828,11 @@ function loop(){
  absoluteSeconds+=delta;
  liveScoreboard?.update(performance.now());
  stadiumEvidence?.update?.(absoluteSeconds,{reduced});
- spellImpact?.update(absoluteSeconds);
- magicArsenal?.update(absoluteSeconds);
+ if(R169_SCHOOL_MAGIC)schoolMagicStage?.update(absoluteSeconds);
+ else{
+  spellImpact?.update(absoluteSeconds);
+  magicArsenal?.update(absoluteSeconds);
+ }
  elementalVfx?.update(absoluteSeconds);
  spellContactFX?.update(absoluteSeconds);
  spectatorChaosFX?.update(absoluteSeconds);
@@ -846,7 +861,7 @@ function loop(){
    summonPresence?.spellWorldAnchors?.(d.victim,d.targetUids)||[]:[];
   if(d.unitDamage>0&&d.targetUids.length){
    summonPresence?.reactToSpell?.(d.victim,d.targetUids,absoluteSeconds,d.element);
-   for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
+   if(!R169_SCHOOL_MAGIC)for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
   }
   if(d.directDamage>0){
    hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
@@ -857,16 +872,17 @@ function loop(){
    const host=duelistHosts.find(h=>h.side===d.victim);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(!R169_SCHOOL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }else if(!d.damaging){
    // Healing and buffs are self-side effects, not pretend enemy damage.
    const host=duelistHosts.find(h=>h.side===d.caster);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(!R169_SCHOOL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }
+  if(R169_SCHOOL_MAGIC)schoolMagicStage?.contact(d,absoluteSeconds);
   r121ContactReceipts++;
   reply('ASDC_R121_SPELL_CONTACT',{serial:d.serial,card:d.id,
    caster:d.caster,victim:d.victim,element:d.element,
@@ -1261,9 +1277,11 @@ function onMessage(ev){
   // Only rule-emitted card identifiers and serials are permitted; this layer
   // displays the authoritative result but cannot mutate HP or winner.
   if(!Number.isInteger(msg.serial)||msg.serial<=0||spellSerials.has(msg.serial))return;
-  const accepted=spellImpact?.play(msg,absoluteSeconds);
+  const accepted=R169_SCHOOL_MAGIC?
+   schoolMagicStage?.play(msg,absoluteSeconds):
+   spellImpact?.play(msg,absoluteSeconds);
   if(!accepted)return;
-  magicArsenal?.play(msg,absoluteSeconds);
+  if(!R169_SCHOOL_MAGIC)magicArsenal?.play(msg,absoluteSeconds);
   spellSerials.add(msg.serial);
   const accident=PARAMS.get('r122Crowd')==='off'?null:
    chooseCrowdAccident(msg,{force:PARAMS.get('qa')==='1'&&
@@ -1273,7 +1291,7 @@ function onMessage(ev){
     launchAt:absoluteSeconds+.28,launched:false,hitAt:Infinity});
    if(pendingCrowdAccidents.length>5)pendingCrowdAccidents.shift();
   }
-  if(['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
+  if(!R169_SCHOOL_MAGIC&&['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
    comedySpectacle?.trigger('spell_'+msg.effect,
     msg.side,msg.serial,absoluteSeconds,{reduced});
   if(spellSerials.size>500)spellSerials.clear();
@@ -1396,6 +1414,7 @@ function exposeQA(){
   get r122AccidentReceipts(){return r122AccidentReceipts},
   get registeredSpellSerials(){return spellSerials.size},
   get pendingSpellContacts(){return pendingSpellContacts.length},
+  get r169SchoolMagic(){return schoolMagicStage?.stats||{enabled:false}},
   get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
   get spectatorChaosFX(){return spectatorChaosFX?.stats||null},
   get bleacherProps(){return bleacherProps?.stats||null},

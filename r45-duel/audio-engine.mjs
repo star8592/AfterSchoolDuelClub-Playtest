@@ -4,6 +4,7 @@
  * Completely presentation-only: cannot mutate the rules engine/HP.
  */
 import {GUIDED_LINES} from './guided-tutorial.mjs';
+import {SCHOOL_MAGIC_IDENTITIES} from './scene/campus-magic-bible.mjs';
 const SOUNDS=Object.freeze({
  select:'select.ogg',cast:'cast.ogg',enemy_cast:'enemy_cast.ogg',
  turn:'turn.ogg',attack:'attack.ogg',hit:'hit.ogg',
@@ -81,7 +82,13 @@ export const COMIC_BEATS=Object.freeze({
  'combo_poster_draw':[['r102_paper_flap',0,1,.51],['r102_magic_tingle',.14,1.04,.48]],
  'direct_hit':[['r102_score_trumpet',0,.93,.48],['r102_crowd_gasp',.19,1.08,.32]],
  'actual_exchange':[['r102_school_steps',0,1.13,.38],['r102_rubber_squeak',.15,.88,.30]],
- 'game_finish':[['r102_score_trumpet',0,1,.54],['r102_confetti_pop',.25,1,.51]]
+ 'game_finish':[['r102_score_trumpet',0,1,.54],['r102_confetti_pop',.25,1,.51]],
+ ...Object.fromEntries(Object.values(SCHOOL_MAGIC_IDENTITIES).map((s,i)=>[
+  'school_'+s.id,[
+   [s.foley[0],0,.83+(i%6)*.045,.60],
+   [s.foley[1],.17+(i%4)*.035,.95+(i%5)*.03,.56]
+  ]
+ ]))
 });
 const VOICE_MODEL='Qwen3-TTS';
 export const MUSIC_TRACKS=Object.freeze([
