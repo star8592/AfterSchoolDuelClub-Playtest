@@ -1,0 +1,368 @@
+{
+  "date": "2026-11-18T05:54:33.476Z",
+  "hardware": "Z890 RTX5070Ti Chrome Vulkan, CPU slowdown 2",
+  "modelQuality": "Full original 16 models 75,569,762 bytes and 60 cards; no reduced assets",
+  "cases": [
+    {
+      "kind": "physical",
+      "run": 1,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 16.8,
+        "p99": 33.3,
+        "max": 50,
+        "over50": 0,
+        "over100": 0
+      },
+      "shaderDelta": 2,
+      "crowdReceipts": 1,
+      "physicalProps": 1,
+      "oldSpectatorFX": 0,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "physical",
+      "run": 2,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 16.8,
+        "p99": 33.4,
+        "max": 50,
+        "over50": 0,
+        "over100": 0
+      },
+      "shaderDelta": 2,
+      "crowdReceipts": 1,
+      "physicalProps": 1,
+      "oldSpectatorFX": 0,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "physical",
+      "run": 3,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 16.8,
+        "p99": 33.4,
+        "max": 50,
+        "over50": 0,
+        "over100": 0
+      },
+      "shaderDelta": 2,
+      "crowdReceipts": 1,
+      "physicalProps": 1,
+      "oldSpectatorFX": 0,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "physical",
+      "run": 4,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 16.8,
+        "p99": 33.4,
+        "max": 50,
+        "over50": 0,
+        "over100": 0
+      },
+      "shaderDelta": 2,
+      "crowdReceipts": 1,
+      "physicalProps": 1,
+      "oldSpectatorFX": 0,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "legacy",
+      "run": 1,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 16.8,
+        "p99": 33.4,
+        "max": 216.8,
+        "over50": 1,
+        "over100": 1
+      },
+      "shaderDelta": 35,
+      "crowdReceipts": 1,
+      "physicalProps": 0,
+      "oldSpectatorFX": 1,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "legacy",
+      "run": 2,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 33.4,
+        "p99": 50,
+        "max": 116.6,
+        "over50": 1,
+        "over100": 1
+      },
+      "shaderDelta": 35,
+      "crowdReceipts": 1,
+      "physicalProps": 0,
+      "oldSpectatorFX": 1,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "legacy",
+      "run": 3,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 33.3,
+        "p99": 50,
+        "max": 116.7,
+        "over50": 1,
+        "over100": 1
+      },
+      "shaderDelta": 35,
+      "crowdReceipts": 1,
+      "physicalProps": 0,
+      "oldSpectatorFX": 1,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "legacy",
+      "run": 4,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 33.3,
+        "p99": 50,
+        "max": 116.7,
+        "over50": 1,
+        "over100": 1
+      },
+      "shaderDelta": 35,
+      "crowdReceipts": 1,
+      "physicalProps": 0,
+      "oldSpectatorFX": 1,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "off",
+      "run": 1,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 33.3,
+        "p99": 33.4,
+        "max": 50,
+        "over50": 0,
+        "over100": 0
+      },
+      "shaderDelta": 2,
+      "crowdReceipts": 0,
+      "physicalProps": 0,
+      "oldSpectatorFX": 0,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "off",
+      "run": 2,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 16.8,
+        "p99": 33.4,
+        "max": 50,
+        "over50": 0,
+        "over100": 0
+      },
+      "shaderDelta": 2,
+      "crowdReceipts": 0,
+      "physicalProps": 0,
+      "oldSpectatorFX": 0,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "off",
+      "run": 3,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 33.4,
+        "p99": 33.4,
+        "max": 66.8,
+        "over50": 1,
+        "over100": 0
+      },
+      "shaderDelta": 2,
+      "crowdReceipts": 0,
+      "physicalProps": 0,
+      "oldSpectatorFX": 0,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    },
+    {
+      "kind": "off",
+      "run": 4,
+      "pass": true,
+      "errors": [],
+      "init": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "noFloatingPortrait": true,
+        "programs": 45
+      },
+      "rAF": {
+        "p50": 16.7,
+        "p95": 33.4,
+        "p99": 50,
+        "max": 66.6,
+        "over50": 1,
+        "over100": 0
+      },
+      "shaderDelta": 2,
+      "crowdReceipts": 0,
+      "physicalProps": 0,
+      "oldSpectatorFX": 0,
+      "oldMagic": 0,
+      "actorHit": 1,
+      "cameraCutCount": 0,
+      "noFloatingPortrait": true,
+      "magicPlayed": 1
+    }
+  ],
+  "errors": []
+}

@@ -6,6 +6,7 @@
 import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
+import {schoolSpellIdentity} from './scene/campus-magic-bible.mjs';
 import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
 import {chooseCrowdAccident} from './scene/spectator-chaos-contract.mjs';
 import {resolveSpectatorProp} from './scene/bleacher-prop-comedy.mjs';
@@ -16,6 +17,17 @@ import {GUIDED_LINES,createGuidedGame,guidedStatus,guidedCanPlay,guidedPlayCard,
 
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
+// Only QA visitors can opt into original rules + all-new comic spell staging.
+const R169_SCHOOL_MAGIC=params.get('qa')==='1'&&params.get('r169SchoolMagic')==='on';
+const r169SpellAside=(id,serial,side)=>{
+ const item=schoolSpellIdentity(id);
+ if(!item)return null;
+ return {key:'r169_'+id,serial,side,
+  text:item.lines.cast,
+  speaker:(side==='player'?'我方':'对方')+'校园法术 · 原创台词脚本（未配音）',
+  spoken:false};
+};
+
 // R101: ordinary new sessions should not always receive the SAME seed-1
 // starting hand. A shared ?seed=N remains exactly reproducible for challenges
 // and QA. Show the real random seed in the URL without reloading the scene.
@@ -807,18 +819,19 @@ $('play').addEventListener('click',()=>{
  render();syncScene();
  showComedyAside(c.kind==='unit'?
   comedyScript.forCard(id,played.serial,'player'):
-  comedyScript.forSpell(id,played.serial,'player'));
+  (R169_SCHOOL_MAGIC?r169SpellAside(id,played.serial,'player'):
+   comedyScript.forSpell(id,played.serial,'player')));
  presentRealCombos(previousSerial);
  audio.playCue(cardSound(c),'player');
  projectPlayedCard(id,'player',played.serial);
  audio.playComicBeat(c.kind==='unit'?'summon_'+c.style:
-  'spell_'+c.effect,'player',played.serial);
+  R169_SCHOOL_MAGIC?'school_'+id:'spell_'+c.effect,'player',played.serial);
  audio.playCue('card_flip','player');
  // The host announces once per turn, then the freshly summoned unit gets a
  // distinct entrance sentence. Previously host cast cut off every unit voice.
  sayHostOnce('player');
  if(c.kind==='unit')summonSpeaksAfterGesture(id,played.serial);
- if(c.kind==='spell'){
+ if(c.kind==='spell'&&!R169_SCHOOL_MAGIC){
   const sound={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
     repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
     stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
@@ -886,15 +899,17 @@ $('end').addEventListener('click',()=>{
   audio.playCue(enemyCard?.kind==='unit'?'enemy_cast':cardSound(enemyCard),'ai');
   projectPlayedCard(event.card,'ai',event.serial);
   if(enemyCard)audio.playComicBeat(enemyCard.kind==='unit'?
-   'summon_'+enemyCard.style:'spell_'+enemyCard.effect,'ai',event.serial);
+   'summon_'+enemyCard.style:R169_SCHOOL_MAGIC?
+   'school_'+enemyCard.id:'spell_'+enemyCard.effect,'ai',event.serial);
   showComedyAside(enemyCard?.kind==='unit'?
     comedyScript.forCard(event.card,event.serial,'ai'):
-    comedyScript.forSpell(event.card,event.serial,'ai'));
+    (R169_SCHOOL_MAGIC?r169SpellAside(event.card,event.serial,'ai'):
+      comedyScript.forSpell(event.card,event.serial,'ai')));
   if(!guidedMode){
    sayHostOnce('ai');
    if(enemyCard?.kind==='unit')summonSpeaksAfterGesture(event.card,event.serial);
   }
-  if(enemyCard?.kind==='spell') {
+  if(enemyCard?.kind==='spell'&&!R169_SCHOOL_MAGIC) {
    const fx={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
      repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
      stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
@@ -1004,6 +1019,18 @@ window.addEventListener('message',event=>{
   r121SpokenContacts.add(d.serial);
   if(r121SpokenContacts.size>500)r121SpokenContacts.clear();
   const hasHit=d.directDamage>0||d.unitDamage>0;
+  if(R169_SCHOOL_MAGIC){
+   const identity=schoolSpellIdentity(d.card);
+   if(identity){
+    showComedyAside({key:'r169_contact_'+d.card,serial:d.serial,
+     side:hasHit?d.victim:d.caster,
+     text:hasHit?(d.serial%2?identity.lines.hit:identity.lines.audience):
+       identity.lines.audience,
+     speaker:hasHit?'对手与看台现场 · 原创反应文本（未配音）':
+      '校园现场 · 原创反应文本（未配音）',
+     spoken:false});
+   }
+  }
   if(hasHit){
    audio.playCue(ELEMENTS[d.element]?.sound||'hit',d.victim,{gainScale:.80});
    if(!guidedMode){
