@@ -14,6 +14,8 @@ import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
 import {createCampusSchoolMagic} from './campus-school-magic.mjs';
+import {schoolGestureForCard} from './campus-spell-gesture.mjs';
+import {schoolHitReactionForCard} from './campus-spell-hit-reaction.mjs';
 import {contactStep} from './foot-contact.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createComboDirector} from './combo-director.mjs';
@@ -623,7 +625,11 @@ function updateDuelistHosts(seconds){
  const targetVector=new THREE.Vector3(),targetOut={R:[0,0,0],L:[0,0,0]};
  for(const host of duelistHosts){
   const side=host.side,gesture=hostAction[side],strike=hostHits[side];
+  const customGesture=R169_SCHOOL_MAGIC&&gesture.kind==='spell'?
+   schoolGestureForCard(gesture.id,seconds-gesture.started,side):null;
   const age=seconds-gesture.started,hitAge=seconds-strike.time;
+  const schoolHit=R169_SCHOOL_MAGIC&&strike.card?
+   schoolHitReactionForCard(strike.card,hitAge,side):null;
   const breath=Math.sin(seconds*1.18+(side==='player'?0:1.6));
   const glance=Math.sin(seconds*.52+(side==='player'?.4:2.1));
   const sign=side==='player'?1:-1;
@@ -663,15 +669,15 @@ function updateDuelistHosts(seconds){
   const winnerHop=victory*.19*Math.max(0,Math.sin(seconds*11.7+(side==='player'?.2:1.1)))*intensity;
   host.pivot.position.x=host.baseX+
     sign*(.13*doCast+.09*doFollow-.25*recoil)+
-    sign*.14*victory-sign*.13*defeat+
+    sign*.14*victory-sign*.13*defeat+(customGesture?.step||0)+
     .018*glance*(1-actionStrength)+sign*(act.step||0)*idleBlend*
       (footwork?.stance?.32:1)+(r134Idle?.shiftX||0);
-  host.pivot.position.y=.48+.012*breath+cardHop+winnerHop+
+  host.pivot.position.y=.48+.012*breath+cardHop+winnerHop+(customGesture?.hop||0)-(schoolHit?.crouch||0)+
     (footwork?0:(act.jump||0)*idleBlend*.6)+(r134Idle?.liftY||0);
   host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.21*doDisplay+.29*doCast)+
     sign*(act.headYaw||0)*idleBlend*.30+
     sign*.16*victory-sign*.12*defeat+(r134Idle?.yaw||0);
-  host.pivot.rotation.z=sign*(-.12*doCast+.15*doFollow+.23*recoil-
+  host.pivot.rotation.z=(schoolHit?.lean||0)+sign*(customGesture?.torsoPitch||0)+sign*(-.12*doCast+.15*doFollow+.23*recoil-
     .095*victory+.24*defeat)+.011*glance+
     sign*(act.tilt||0)*idleBlend;
   // Facial blink and the source VRM blendshapes remain animated independently.
@@ -709,11 +715,11 @@ function updateDuelistHosts(seconds){
   // participation without rotating a proxy body away from the opponent.
   const syllableNod=speaking?
    Math.sin((seconds-speaking.started)*13.1+(side==='ai'?.7:0))*.032:0;
-  setBone(host,'C_Head',-.030*inspectCard-.12*doDisplay-.13*doCast+
+  setBone(host,'C_Head',(schoolHit?.headPitch||0)+(customGesture?.headPitch||0)-.030*inspectCard-.12*doDisplay-.13*doCast+
    .27*recoil-.13*victory+.28*defeat+(act.headPitch||0)*idleBlend+
    syllableNod+(r134Idle?.headPitch||0),
    sign*(.065*glance+.13*doDisplay+(act.headYaw||0)*idleBlend)+(r134Idle?.headYaw||0),
-   sign*.02*glance+(r134Idle?.headRoll||0));
+   sign*.02*glance+(r134Idle?.headRoll||0)+(schoolHit?.headRoll||0));
   setBone(host,'L_UpperLeg',.026*glance-.10*doCast+.16*recoil+
    .20*victory-.27*defeat+(footwork?.swing==='L'?legSwing*2:0)+(r134Idle?.thighL||0),0,0);
   setBone(host,'R_UpperLeg',-.026*glance+.11*doCast-.12*recoil+
@@ -748,6 +754,14 @@ function updateDuelistHosts(seconds){
     targetVector.x+=sign*.055*doFollow;
     targetVector.y-=.12*doFollow;
    }
+   if(customGesture){
+    const shift=hand==='R'?customGesture.right:customGesture.left;
+    targetVector.add(new THREE.Vector3(...shift));
+   }
+   if(schoolHit){
+    const shift=hand==='R'?schoolHit.right:schoolHit.left;
+    targetVector.add(new THREE.Vector3(...shift));
+   }
    targetOut[hand]=targetVector.toArray();
   }
   host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
@@ -767,7 +781,10 @@ function updateDuelistHosts(seconds){
    if(chest)chest.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
      new THREE.Vector3(0,0,1),sign*lean*.38*envelope));
   }
-  host.choreography={phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
+  host.choreography={schoolHitSignature:schoolHit?.signature??null,
+    schoolSignature:customGesture?.signature??null,
+    schoolStrength:+(customGesture?.strength||0).toFixed(3),
+    phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
     recoil>.1?'hit':doFollow>.22?'follow_through':doCast>.1?'cast':
     doDisplay>.1?'raise_card':doDraw>.1?'draw':idleBlend>.08?act.type:'idle',
     draw:+doDraw.toFixed(3),display:+doDisplay.toFixed(3),
@@ -870,7 +887,7 @@ function loop(){
    if(!R169_SCHOOL_MAGIC)for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
   }
   if(d.directDamage>0){
-   hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
+   hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element,card:d.id};
    arenaLife.observe('hit',{side:d.victim,at:absoluteSeconds});
    livingCast.signal(d.victim,'hurt',absoluteSeconds);
    stadiumEvidence?.reactAudience?.('hit',d.victim,absoluteSeconds);
@@ -1066,7 +1083,9 @@ function loop(){
   (talkingCandidates[0]?{side:talkingCandidates[0].side,
    age:talkingCandidates[0].age,voice:true}:null);
  heroLens.visible=false;
- if(focus&&!reduced&&!legacyCamera){
+ // Player explicitly rejected floating portrait occluding rival reactions.
+ // R169+ has no floating face inset; the physical stadium screen is separate.
+ if(focus&&!reduced&&!legacyCamera&&!R169_SCHOOL_MAGIC){
   const host=duelistHosts.find(x=>x.side===focus.side);
   if(host){
    if(!r124Legacy&&heroLayerSide!==focus.side){
@@ -1407,6 +1426,8 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
+  get r173ShaderPrograms(){return renderer?.info?.programs?.length??null},
+  get r173NoFloatingPortrait(){return R169_SCHOOL_MAGIC},
   get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,

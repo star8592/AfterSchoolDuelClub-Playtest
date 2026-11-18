@@ -1,0 +1,55 @@
+{
+  "start": "2026-11-18T04:28:21.063Z",
+  "spells": [
+    {
+      "id": "E06",
+      "castSignature": "throw-eraser-6",
+      "castStrength": 0.059,
+      "castPhase": "draw",
+      "hitSignature": "eraser-head-bonk-6",
+      "victimRecoil": 1,
+      "originalHostSkeletons": 124,
+      "noFloatingPortrait": true,
+      "contact": true,
+      "hitCount": 1
+    },
+    {
+      "id": "K01",
+      "castSignature": "flip-wok-1",
+      "castStrength": 0.01,
+      "castPhase": "draw",
+      "hitSignature": "disgust-nose-cover-1",
+      "victimRecoil": 1,
+      "originalHostSkeletons": 124,
+      "noFloatingPortrait": true,
+      "contact": true,
+      "hitCount": 2
+    },
+    {
+      "id": "P04",
+      "castSignature": "sports-shout-4",
+      "castStrength": 0.056,
+      "castPhase": "draw",
+      "hitSignature": "duck-sports-projectile-4",
+      "victimRecoil": 1,
+      "originalHostSkeletons": 124,
+      "noFloatingPortrait": true,
+      "contact": true,
+      "hitCount": 3
+    },
+    {
+      "id": "X05",
+      "castSignature": "turn-clock-5",
+      "castStrength": 0.057,
+      "castPhase": "draw",
+      "hitSignature": "dizzy-time-glance-5",
+      "victimRecoil": 1,
+      "originalHostSkeletons": 124,
+      "noFloatingPortrait": true,
+      "contact": true,
+      "hitCount": 4
+    }
+  ],
+  "errors": [],
+  "pass": true
+}
