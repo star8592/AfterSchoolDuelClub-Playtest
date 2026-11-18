@@ -23,7 +23,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
  const heroAssets=new Map();
  function registerHeroAsset(id,model){
-  if(!['E06','K01'].includes(id)||!model?.isObject3D)return false;
+  if(!['E06','K01','K07'].includes(id)||!model?.isObject3D)return false;
   heroAssets.set(id,model);return true;
  }
 
@@ -64,6 +64,29 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   return receipt;
  }
 
+ // R179: actually draw the unchanged Blender source mesh under the normal
+ // scene loading cover. compileAsync alone previously left 100ms+ stutters.
+ // This does NOT simulate a cast, change score, or suppress shader errors.
+ async function prewarmRealAuthoredHero(id,renderer,camera,targetScene){
+  if(!heroAssets.has(id)||!renderer||!camera||!targetScene)
+   throw Error('R179 genuine authored asset required for GPU prime');
+  const started=performance.now(),programsBefore=renderer.info.programs?.length||0;
+  const host=group(root,0,1.45,-.30);
+  host.name='R179_GPU_PRIME_REAL_3D_'+id;
+  build(host,id);
+  const batch=staticBatcher?.batch(host,id)||null;
+  // Three real GPU frame submissions (frustum position is the actual battle
+  // plane; use source materials with shader checks unchanged).
+  for(let i=0;i<3;i++)await new Promise(resolve=>
+   requestAnimationFrame(()=>{renderer.render(targetScene,camera);resolve()}));
+  root.remove(host);
+  let renderedMeshes=0;
+  host.traverse(o=>{if(o.isMesh)renderedMeshes++});
+  return {id,renderFrames:3,realMeshes:renderedMeshes,
+   batch,ms:+(performance.now()-started).toFixed(2),
+   shaderDelta:(renderer.info.programs?.length||0)-programsBefore,
+   sourceFidelity:true};
+ }
  const r174Profile=[];
  const maxActive=4;let played=0,expired=0,rejected=0,peakObjects=0,
   peakDraws=0,distinctProps=new Set(),hitAnimations=0;
@@ -228,7 +251,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   const authored=heroAssets.get(id);
   if(authored){
    const real=authored.clone(true);
-   real.name='R177_Original_Sculpted_E06';
+   real.name='R179_Original_3D_Sculpt_'+id;
    g.add(real);
    return;
   }
@@ -442,6 +465,29 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
     // R178: the cooked banana and aubergine actually leap separately
     // within the curved wok rather than the entire prop rigidly wobbling.
     // Both baked curved banana ribs and body share exact deterministic motion.
+    // K07 is a living custard frog with an independently ringing SCHOOL bell
+    // and cloche, not another shared glowing ring or a rigid prop yaw.
+    if(a.id==='K07'&&o.isObject3D&&!o.isMesh){
+     const frog=o.name.includes('K07_JELLY_FROG_ACTOR');
+     const bell=o.name.includes('K07_SCHOOL_BELL_ACTOR');
+     const lid=o.name.includes('K07_LIFTED_CLOCHE_ACTOR');
+     if(frog||bell||lid){
+      if(base)o.position.copy(base);else o.position.set(0,0,0);
+      if(rotation)o.rotation.copy(rotation);else o.rotation.set(0,0,0);
+      const pulse=Math.abs(Math.sin(t*(frog?13:22)+a.serial*.15));
+      if(frog){
+       o.position.y+=.27*pulse*smooth(t/.09)*(1-smooth((t-.81)/.16));
+       o.rotation.z+=.08*Math.sin(t*15);
+      }else if(bell){
+       o.position.y+=.31+.20*Math.sin(t*21);
+       o.rotation.z+=.35*Math.sin(t*24);
+      }else if(lid){
+       o.position.y+=.15+.16*Math.sin(t*8);
+       o.rotation.z+=.21*Math.sin(t*9+1);
+      }
+      return;
+     }
+    }
     if(a.id==='K01'&&o.isMesh){
      const banana=/banana sculpt|banana raised seam/i.test(o.name);
      const eggplant=/aubergine body|calyx forest/i.test(o.name);
@@ -478,9 +524,19 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   for(const m of labelMaterials.values())m.dispose();labelMaterials.clear();
   root.removeFromParent();
  }
- return {root,play,contact,playCollateral,update,dispose,prepareGpuMaterial,registerHeroAsset,
+ return {root,play,contact,playCollateral,update,dispose,prepareGpuMaterial,prewarmRealAuthoredHero,registerHeroAsset,
   get prepareReceipts(){return prepareReceipts.map(x=>({...x}))},
   get qaProfile(){return r174Profile.map(x=>({...x}))},
+  get r179K07ActorMotion(){
+   const a=active.find(entry=>entry.id==='K07');
+   if(!a)return {active:false,groups:[]};
+   const groups=[];
+   a.props.traverse(o=>{
+    if(o.isObject3D&&!o.isMesh&&/^K07_(JELLY_FROG|SCHOOL_BELL|LIFTED_CLOCHE)_ACTOR/.test(o.name))
+     groups.push({name:o.name,y:+o.position.y.toFixed(4),rz:+o.rotation.z.toFixed(4)});
+   });
+   return {active:true,groups};
+  },
   get stats(){return {enabled:true,totalIdentities:SCHOOL_MAGIC_COUNT,
    authoredHighDetailAssets:[...heroAssets.keys()],
    collateralLaunched,collateralExpired,collateralActive:collateral.length,

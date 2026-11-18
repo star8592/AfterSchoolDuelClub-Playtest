@@ -57,6 +57,24 @@ const R178_PRIME_HAND=(()=>{
 })();
 let r178AllPrimeReceipt=null;
 let r178HandPrimeReceipt=null;
+// R179 research-only lower bound: initialize exactly TWO genuine model IDs,
+// never all 14. Only explicit QA query parameters can exercise this path.
+const R179_PRIME_TWO=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r179PrimeTwo')??pp?.get('r179PrimeTwo'))==='on';
+})();
+let r179TwoPrimeReceipt=null;
+const R179_PRIME_FROG=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r179PrimeFrog')??pp?.get('r179PrimeFrog'))==='on';
+})();
+let r179FrogGpuReceipt=null;
+
+
 // R176 research: front-load authentic board model shader/mesh GPU setup
 // into the existing loading overlay, never a fake proxy or a resolution cut.
 const R176_PRIME_BOARD=(()=>{
@@ -78,6 +96,12 @@ const R178_HERO_K01=(()=>{
   catch{return null}})();
  return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
   (PARAMS.get('r178HeroK01')??pp?.get('r178HeroK01'))==='on';
+})();
+const R179_HERO_K07=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r179HeroK07')??pp?.get('r179HeroK07'))==='on';
 })();
 // R169 QA-only all-spells replacement. Never silently overwrite R147.
 const R174_PREPARE_GPU=(()=>{
@@ -1503,12 +1527,15 @@ function exposeQA(){
   get registeredSpellSerials(){return spellSerials.size},
   get pendingSpellContacts(){return pendingSpellContacts.length},
   get r169SchoolMagic(){return schoolMagicStage?.stats||{enabled:false}},
+  get r179K07ActorMotion(){return schoolMagicStage?.r179K07ActorMotion||null},
   get r174SpellCpuPhases(){return schoolMagicStage?.qaProfile||[]},
   get r174RendererProgramCount(){return renderer?.info?.programs?.length??null},
   get r174ReadyPreparation(){return r174ReadyPreparation},
   get r176PrimeBoardReceipt(){return r176PrimeBoardReceipt},
   get r178AllPrimeReceipt(){return r178AllPrimeReceipt},
   get r178HandPrimeReceipt(){return r178HandPrimeReceipt},
+  get r179TwoPrimeReceipt(){return r179TwoPrimeReceipt},
+  get r179FrogGpuReceipt(){return r179FrogGpuReceipt},
   get r174GlobalPerf(){return renderer?{
    calls:renderer.info.render.calls,
    triangles:renderer.info.render.triangles,
@@ -1565,6 +1592,30 @@ function exposeQA(){
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
   get drawCalls(){return drawCount},
+  get r179RenderInventory(){
+   const roots=[];
+   for(const child of scene.children){
+    let rendered=0,skinned=0,instances=0,groups=0,materials=0;
+    child.traverse(o=>{
+     // THREE.Object3D.traverse visits children even when an ancestor is
+     // hidden. Match the renderer's hierarchical visible flag.
+     for(let ancestor=o;ancestor&&ancestor!==scene;ancestor=ancestor.parent)
+      if(!ancestor.visible)return;
+     if(o.isSkinnedMesh)skinned++;
+     if(o.isInstancedMesh)instances++;
+     if(o.isMesh){
+      rendered++;
+      materials+=Array.isArray(o.material)?o.material.length:1;
+     }else if(o.isGroup)groups++;
+    });
+    if(rendered)roots.push({name:child.name||child.type,
+     meshCount:rendered,skinned,instanced:instances,materials,groups});
+   }
+   roots.sort((a,b)=>b.meshCount-a.meshCount);
+   return {drawCallsLastFrame:drawCount,estimatedMeshes:roots.reduce((a,r)=>a+r.meshCount,0),
+    roots:roots.slice(0,18)};
+  },
+
   get seconds(){return time},
   get mode(){return mode},
   get active(){return playing},
@@ -1677,6 +1728,12 @@ try{
   if(!schoolMagicStage.registerHeroAsset('K01',glb.scene))
    throw Error('R178 K01 real Blender work unavailable');
  }
+ if(R179_HERO_K07&&R169_SCHOOL_MAGIC){
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/K07_Sculpted_Frog_Pudding_Bell.glb');
+  if(!schoolMagicStage.registerHeroAsset('K07',glb.scene))
+   throw Error('R179 K07 original Blender GLB registration failed');
+ }
  if(R174_PREPARE_GPU&&R169_SCHOOL_MAGIC){
   r174ReadyPreparation=await schoolMagicStage.prepareGpuMaterial(
     'E06',renderer,camera,scene);
@@ -1693,6 +1750,29 @@ try{
     effect:type,damage:event.damage});
   }
  });
+ if(R179_PRIME_FROG&&R169_SCHOOL_MAGIC){
+  r179FrogGpuReceipt=await schoolMagicStage.prewarmRealAuthoredHero(
+   'K07',renderer,camera,scene);
+ }
+ if(R179_PRIME_TWO&&R169_SCHOOL_MAGIC){
+  const parentParams=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+   catch{return PARAMS}})();
+  const all=['E01','G01',...summonModels.keys()];
+  const playerId=parentParams.get('r179PairP')||'T01';
+  const aiId=parentParams.get('r179PairA')||'E03';
+  if(!all.includes(playerId)||!all.includes(aiId)||playerId===aiId)
+   throw Error('R179 exact pair must be two distinct real source models');
+  const start=performance.now(),before=renderer.info.programs?.length||0;
+  summonPresence.sync({player:[{uid:'U17901',id:playerId,hp:9,attack:4,shield:0}],
+   ai:[{uid:'U17902',id:aiId,hp:8,attack:4,shield:0}]},{force:true});
+  for(let n=0;n<3;n++)await new Promise(resolve=>
+   requestAnimationFrame(()=>{renderer.render(scene,camera);resolve()}));
+  summonPresence.sync({player:[],ai:[]},{force:true});
+  r179TwoPrimeReceipt={mode:'exact-two-QA',allIds:[playerId,aiId],
+   renderFrames:3,models:2,ms:+(performance.now()-start).toFixed(2),
+   shaderDelta:(renderer.info.programs?.length||0)-before,
+   preservedOriginalCharacters:true};
+ }
  if((R178_PRIME_ALL||R178_PRIME_HAND)&&R169_SCHOOL_MAGIC){
   const t0=performance.now(),programsBefore=renderer.info.programs?.length||0;
   const allIds=['E01','G01',...summonModels.keys()];

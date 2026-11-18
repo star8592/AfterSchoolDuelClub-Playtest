@@ -1,0 +1,582 @@
+{
+  "project": "AfterSchoolDuelClub",
+  "date": "2026-11-18",
+  "hardware": "Z890 RTX5070Ti, Chrome WebGL2 Vulkan, 1280x720 desktop CPUx2 / 430x900 DPR2 CPUx3 emulation",
+  "realAndroidTest": false,
+  "variant": "R179 QA-only genuine source GLB and first GPU use",
+  "release": "NO_GO",
+  "artCandidates": 3,
+  "unapprovedProcedural": 43,
+  "visualApproved": 0,
+  "cases": [
+    {
+      "id": "T01-E03-off-K01-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01"
+      ],
+      "firstReadyMs": 4331,
+      "firstCastMaxRafMs": 366.6,
+      "firstCastP99Ms": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 5,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": null,
+      "heroPreload": null,
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-off-K01-desktop.json"
+    },
+    {
+      "id": "T01-E03-two-K01-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01"
+      ],
+      "firstReadyMs": 5459,
+      "firstCastMaxRafMs": 33.4,
+      "firstCastP99Ms": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 2,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": {
+        "mode": "exact-two-QA",
+        "allIds": [
+          "T01",
+          "E03"
+        ],
+        "renderFrames": 3,
+        "models": 2,
+        "ms": 1674.2,
+        "shaderDelta": 43,
+        "preservedOriginalCharacters": true
+      },
+      "heroPreload": null,
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-two-K01-desktop.json"
+    },
+    {
+      "id": "T01-E03-hand-K01-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01"
+      ],
+      "firstReadyMs": 5961,
+      "firstCastMaxRafMs": 33.4,
+      "firstCastP99Ms": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 2,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": null,
+      "heroPreload": null,
+      "initialHandPreload": {
+        "mode": "initial-hand",
+        "allIds": [
+          "E01",
+          "T04",
+          "T01",
+          "E02",
+          "E04",
+          "M01",
+          "G03"
+        ],
+        "waves": [
+          {
+            "ids": [
+              "E01",
+              "T04",
+              "T01",
+              "E02",
+              "E04",
+              "M01"
+            ],
+            "renderFrames": 2,
+            "ms": 2105,
+            "shaderDelta": 48
+          },
+          {
+            "ids": [
+              "G03"
+            ],
+            "renderFrames": 2,
+            "ms": 50,
+            "shaderDelta": 0
+          }
+        ],
+        "models": 7,
+        "seed": 173,
+        "deck": "classic",
+        "totalMs": 2155.5,
+        "shaderDelta": 48,
+        "preservedOriginalCharacters": true
+      },
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-hand-K01-desktop.json"
+    },
+    {
+      "id": "T01-E03-all-K01-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01"
+      ],
+      "firstReadyMs": 6821,
+      "firstCastMaxRafMs": 33.4,
+      "firstCastP99Ms": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 2,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": null,
+      "heroPreload": null,
+      "initialHandPreload": null,
+      "allPreload": {
+        "mode": "all-14",
+        "allIds": [
+          "E01",
+          "G01",
+          "E02",
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "M01",
+          "M02",
+          "T01",
+          "T02",
+          "T03",
+          "T04"
+        ],
+        "waves": [
+          {
+            "ids": [
+              "E01",
+              "G01",
+              "E02",
+              "E03",
+              "E04",
+              "G02"
+            ],
+            "renderFrames": 2,
+            "ms": 2244.1,
+            "shaderDelta": 47
+          },
+          {
+            "ids": [
+              "G03",
+              "G04",
+              "M01",
+              "M02",
+              "T01",
+              "T02"
+            ],
+            "renderFrames": 2,
+            "ms": 513.1,
+            "shaderDelta": 3
+          },
+          {
+            "ids": [
+              "T03",
+              "T04"
+            ],
+            "renderFrames": 2,
+            "ms": 48.8,
+            "shaderDelta": 0
+          }
+        ],
+        "models": 14,
+        "seed": 173,
+        "deck": "classic",
+        "totalMs": 2806.1,
+        "shaderDelta": 50,
+        "preservedOriginalCharacters": true
+      },
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-all-K01-desktop.json"
+    },
+    {
+      "id": "T01-E03-off-K07-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "firstReadyMs": 4590,
+      "firstCastMaxRafMs": 333.4,
+      "firstCastP99Ms": 233.3,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 7,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": null,
+      "heroPreload": null,
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-off-K07-desktop.json"
+    },
+    {
+      "id": "T01-E03-two-K07-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "firstReadyMs": 5588,
+      "firstCastMaxRafMs": 166.6,
+      "firstCastP99Ms": 50,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 4,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": {
+        "mode": "exact-two-QA",
+        "allIds": [
+          "T01",
+          "E03"
+        ],
+        "renderFrames": 3,
+        "models": 2,
+        "ms": 1666.2,
+        "shaderDelta": 43,
+        "preservedOriginalCharacters": true
+      },
+      "heroPreload": null,
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-two-K07-desktop.json"
+    },
+    {
+      "id": "T01-E03-two-K07-herooff-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "firstReadyMs": 5788,
+      "firstCastMaxRafMs": 166.7,
+      "firstCastP99Ms": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 6,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": {
+        "mode": "exact-two-QA",
+        "allIds": [
+          "T01",
+          "E03"
+        ],
+        "renderFrames": 3,
+        "models": 2,
+        "ms": 1831.2,
+        "shaderDelta": 43,
+        "preservedOriginalCharacters": true
+      },
+      "heroPreload": null,
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-two-K07-herooff-desktop.json"
+    },
+    {
+      "id": "T01-E03-two-K07-heroon-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "firstReadyMs": 5949,
+      "firstCastMaxRafMs": 33.4,
+      "firstCastP99Ms": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 2,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": {
+        "mode": "exact-two-QA",
+        "allIds": [
+          "T01",
+          "E03"
+        ],
+        "renderFrames": 3,
+        "models": 2,
+        "ms": 461,
+        "shaderDelta": 1,
+        "preservedOriginalCharacters": true
+      },
+      "heroPreload": {
+        "id": "K07",
+        "renderFrames": 3,
+        "realMeshes": 1,
+        "batch": {
+          "id": "K07",
+          "batchGroups": 0,
+          "sourceMeshes": 0,
+          "savedDraws": 0,
+          "failures": 0
+        },
+        "ms": 1547.6,
+        "shaderDelta": 44,
+        "sourceFidelity": true
+      },
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-two-K07-heroon-desktop.json"
+    },
+    {
+      "id": "T01-E03-off-K07-heroon-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "firstReadyMs": 6006,
+      "firstCastMaxRafMs": 366.6,
+      "firstCastP99Ms": 50.1,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 5,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": null,
+      "heroPreload": {
+        "id": "K07",
+        "renderFrames": 3,
+        "realMeshes": 1,
+        "batch": {
+          "id": "K07",
+          "batchGroups": 0,
+          "sourceMeshes": 0,
+          "savedDraws": 0,
+          "failures": 0
+        },
+        "ms": 2024.2,
+        "shaderDelta": 44,
+        "sourceFidelity": true
+      },
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-off-K07-heroon-desktop.json"
+    },
+    {
+      "id": "T01-E03-off-K01-heroon-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "firstReadyMs": 5339,
+      "firstCastMaxRafMs": 33.4,
+      "firstCastP99Ms": 33.4,
+      "longTaskMaxMs": 340,
+      "shaderDeltaAtCast": 2,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": null,
+      "heroPreload": {
+        "id": "K07",
+        "renderFrames": 3,
+        "realMeshes": 1,
+        "batch": {
+          "id": "K07",
+          "batchGroups": 0,
+          "sourceMeshes": 0,
+          "savedDraws": 0,
+          "failures": 0
+        },
+        "ms": 1433.6,
+        "shaderDelta": 44,
+        "sourceFidelity": true
+      },
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-off-K01-heroon-desktop.json"
+    },
+    {
+      "id": "M02-G04-off-K07-heroon-desktop",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "firstReadyMs": 5882,
+      "firstCastMaxRafMs": 150,
+      "firstCastP99Ms": 66.7,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 6,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": null,
+      "heroPreload": {
+        "id": "K07",
+        "renderFrames": 3,
+        "realMeshes": 1,
+        "batch": {
+          "id": "K07",
+          "batchGroups": 0,
+          "sourceMeshes": 0,
+          "savedDraws": 0,
+          "failures": 0
+        },
+        "ms": 1737.9,
+        "shaderDelta": 44,
+        "sourceFidelity": true
+      },
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/M02-G04-off-K07-heroon-desktop.json"
+    },
+    {
+      "id": "T01-E03-two-K07-herooff-mobile",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "firstReadyMs": 8355,
+      "firstCastMaxRafMs": 133.3,
+      "firstCastP99Ms": 50.1,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 6,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": {
+        "mode": "exact-two-QA",
+        "allIds": [
+          "T01",
+          "E03"
+        ],
+        "renderFrames": 3,
+        "models": 2,
+        "ms": 2905.7,
+        "shaderDelta": 43,
+        "preservedOriginalCharacters": true
+      },
+      "heroPreload": null,
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-two-K07-herooff-mobile.json"
+    },
+    {
+      "id": "T01-E03-two-K07-heroon-mobile",
+      "pass": true,
+      "errors": [],
+      "sourceModels": 16,
+      "sourceBytes": 75569762,
+      "originalCardCount": 60,
+      "authored3D": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "firstReadyMs": 8221,
+      "firstCastMaxRafMs": 83.3,
+      "firstCastP99Ms": 50.1,
+      "longTaskMaxMs": 0,
+      "shaderDeltaAtCast": 4,
+      "events": 93,
+      "uniqueSpells": 46,
+      "pairPreload": {
+        "mode": "exact-two-QA",
+        "allIds": [
+          "T01",
+          "E03"
+        ],
+        "renderFrames": 3,
+        "models": 2,
+        "ms": 611.7,
+        "shaderDelta": 1,
+        "preservedOriginalCharacters": true
+      },
+      "heroPreload": {
+        "id": "K07",
+        "renderFrames": 3,
+        "realMeshes": 1,
+        "batch": {
+          "id": "K07",
+          "batchGroups": 0,
+          "sourceMeshes": 0,
+          "savedDraws": 0,
+          "failures": 0
+        },
+        "ms": 2098.2,
+        "shaderDelta": 44,
+        "sourceFidelity": true
+      },
+      "initialHandPreload": null,
+      "allPreload": null,
+      "rawEvidence": "r45-duel/qa/evidence/r179-selective/T01-E03-two-K07-heroon-mobile.json"
+    }
+  ],
+  "interpretation": {
+    "K07_noPriming": "Original role/material shaders compiled at first battle cause 300ms+ delay",
+    "K07_twoOnly": "Exact first board pair addresses summon shaders but leaves K07-specific first-use stutter (~166ms)",
+    "K07_heroOnly": "Real K07 GPU prime does not address first two summons (366ms remains)",
+    "K07_pairPlusHero": "Combining 2 authentic source units and 1 real high-detail authored hero gives 33.4ms desktop max rAF",
+    "mobile": "Mobile viewport + CPU slowdown is NOT Android GPU; pair+hero remained 83.3ms max frame and is NOT acceptable",
+    "firstReady": "Desktop baseline 4590ms vs combined 5949ms in separate sequential single runs; about +1359ms, not a statistical distribution",
+    "sourceIntegrity": "16 original models and 75569762 original GLB/VRM bytes unchanged",
+    "rAF_LongTask": "rAF samples may miss tasks depending on recording phase; always keep both",
+    "fullArt": "3 physical authored Blender models only; remaining 43 still prototypes; visual acceptance zero."
+  }
+}

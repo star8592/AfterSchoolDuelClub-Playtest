@@ -1,0 +1,99 @@
+{
+  "prior": {
+    "models": 16,
+    "authored": [
+      "E06",
+      "K01",
+      "K07"
+    ]
+  },
+  "after": {
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "authoredHighDetailAssets": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 1,
+      "expired": 0,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 18,
+      "peakDraws": 18,
+      "uniqueRenderedProps": 1,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": true,
+        "mergedSets": 0,
+        "sourceMeshes": 0,
+        "drawsSaved": 0,
+        "failures": 0,
+        "cacheEntries": 0,
+        "totalMergedTriangles": 0
+      },
+      "decalTextures": 0,
+      "hitAnimations": 1,
+      "lastBySide": {
+        "player": "K07",
+        "ai": null
+      },
+      "activeIds": [
+        "K07"
+      ]
+    },
+    "drawCalls": 750,
+    "programs": 48
+  },
+  "errors": [],
+  "actorMotion": {
+    "firstMotion": {
+      "active": true,
+      "groups": [
+        {
+          "name": "K07_JELLY_FROG_ACTOR",
+          "y": 0,
+          "rz": 0
+        },
+        {
+          "name": "K07_LIFTED_CLOCHE_ACTOR",
+          "y": 0,
+          "rz": 0
+        },
+        {
+          "name": "K07_SCHOOL_BELL_ACTOR",
+          "y": 0,
+          "rz": 0
+        }
+      ]
+    },
+    "secondMotion": {
+      "active": true,
+      "groups": [
+        {
+          "name": "K07_JELLY_FROG_ACTOR",
+          "y": 0.2021,
+          "rz": 0.0765
+        },
+        {
+          "name": "K07_LIFTED_CLOCHE_ACTOR",
+          "y": 0.2504,
+          "rz": 0.2061
+        },
+        {
+          "name": "K07_SCHOOL_BELL_ACTOR",
+          "y": 0.5056,
+          "rz": 0.3129
+        }
+      ]
+    },
+    "moved": true
+  },
+  "pass": true
+}

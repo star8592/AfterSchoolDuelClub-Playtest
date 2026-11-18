@@ -6,16 +6,17 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 CANDIDATES={
 'E06':('E06_Cinematic_Eraser',6,10000,['felt','grip','walnut']),
-'K01':('K01_Sculpted_Wok_Eggplant_Banana',10,15000,['wok','banana','aubergine'])
+'K01':('K01_Sculpted_Wok_Eggplant_Banana',10,15000,['wok','banana','aubergine']),
+'K07':('K07_Sculpted_Frog_Pudding_Bell',15,24000,['frog','bell','cloche'])
 }
 results={}
 for key,(stem,min_mesh,min_tri,needle) in CANDIDATES.items():
  base=ROOT/'art'/'hero-props'
  src=base/(stem+'.blend')
  runtime=base/(stem+'.glb')
- script=base/('build_e06_sculpt.py' if key=='E06' else 'build_k01_wok_sculpt.py')
+ script=base/({'E06':'build_e06_sculpt.py','K01':'build_k01_wok_sculpt.py','K07':'build_k07_frog_pudding.py'}[key])
  image=base/'qa'/(stem+'.png' if key=='E06' else stem+'.png')
- receipt=base/'qa'/('E06_mesh_receipt.json' if key=='E06' else 'K01_mesh_receipt.json')
+ receipt=base/'qa'/({'E06':'E06_mesh_receipt.json','K01':'K01_mesh_receipt.json','K07':'K07_mesh_receipt.json'}[key])
  assert all(x.is_file() for x in (src,runtime,script,image,receipt)),key+' missing authored source/runtime/evidence'
  assert src.stat().st_size>100000 and image.stat().st_size>100000,key+' empty source or photo'
  sig=src.read_bytes()[:32]
@@ -45,6 +46,6 @@ for key,(stem,min_mesh,min_tri,needle) in CANDIDATES.items():
  results[key]={'sourceBytes':src.stat().st_size,'runtimeBytes':len(data),
   'meshCount':mesh_count,'triangles':tri,'materials':len(gltf.get('materials',[])),
   'namedDetailsFound':needle,'visualApproval':False}
-print('R178_AUTHORED_GLBS_STRUCTURAL_PASS',json.dumps(results,ensure_ascii=False))
-(ROOT/'qa'/'evidence'/'r178-sculpted-props'/'r178-two-true-glb-geometry.json').write_text(
+print('R179_AUTHORED_GLBS_STRUCTURAL_PASS',json.dumps(results,ensure_ascii=False))
+(ROOT/'qa'/'evidence'/'r179-sculpted-props'/'r179-three-true-glb-geometry.json').write_text(
  json.dumps({'technicalCandidates':results,'approvedForRelease':False},ensure_ascii=False,indent=2))
