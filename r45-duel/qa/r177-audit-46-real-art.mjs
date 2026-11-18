@@ -57,6 +57,54 @@ const candidateIds=new Map([
   runtime:'art/hero-props/X05_Homework_Paper_Galaxy.glb',
   image:'art/hero-props/qa/X05_Homework_Paper_Galaxy.png',
   reproducible:'art/hero-props/build_r182_signature_six.py'
+ }],
+ ['P03',{
+  source:'art/hero-props/P03_Cardboard_Tyrannosaurus_Stomp.blend',
+  runtime:'art/hero-props/P03_Cardboard_Tyrannosaurus_Stomp.glb',
+  image:'art/hero-props/qa/P03_Cardboard_Tyrannosaurus_Stomp.png',
+  reproducible:'art/hero-props/build_r183_eight_character_props.py'
+ }],
+ ['S08',{
+  source:'art/hero-props/S08_Angry_Campus_Vending_Machine.blend',
+  runtime:'art/hero-props/S08_Angry_Campus_Vending_Machine.glb',
+  image:'art/hero-props/qa/S08_Angry_Campus_Vending_Machine.png',
+  reproducible:'art/hero-props/build_r183_eight_character_props.py'
+ }],
+ ['X03',{
+  source:'art/hero-props/X03_Rooftop_School_Patrol_Car.blend',
+  runtime:'art/hero-props/X03_Rooftop_School_Patrol_Car.glb',
+  image:'art/hero-props/qa/X03_Rooftop_School_Patrol_Car.png',
+  reproducible:'art/hero-props/build_r183_eight_character_props.py'
+ }],
+ ['Q06',{
+  source:'art/hero-props/Q06_Three_Click_Moonlight_Desk_Lamp.blend',
+  runtime:'art/hero-props/Q06_Three_Click_Moonlight_Desk_Lamp.glb',
+  image:'art/hero-props/qa/Q06_Three_Click_Moonlight_Desk_Lamp.png',
+  reproducible:'art/hero-props/build_r183_eight_character_props.py'
+ }],
+ ['K02',{
+  source:'art/hero-props/K02_Watermelon_Rubber_Eraser_Stew.blend',
+  runtime:'art/hero-props/K02_Watermelon_Rubber_Eraser_Stew.glb',
+  image:'art/hero-props/qa/K02_Watermelon_Rubber_Eraser_Stew.png',
+  reproducible:'art/hero-props/build_r183_eight_character_props.py'
+ }],
+ ['K08',{
+  source:'art/hero-props/K08_Chocolate_Armored_Banana_Knight.blend',
+  runtime:'art/hero-props/K08_Chocolate_Armored_Banana_Knight.glb',
+  image:'art/hero-props/qa/K08_Chocolate_Armored_Banana_Knight.png',
+  reproducible:'art/hero-props/build_r183_eight_character_props.py'
+ }],
+ ['S03',{
+  source:'art/hero-props/S03_Antigravity_School_Broom.blend',
+  runtime:'art/hero-props/S03_Antigravity_School_Broom.glb',
+  image:'art/hero-props/qa/S03_Antigravity_School_Broom.png',
+  reproducible:'art/hero-props/build_r183_eight_character_props.py'
+ }],
+ ['Q01',{
+  source:'art/hero-props/Q01_SelfWriting_Apology_Eraser.blend',
+  runtime:'art/hero-props/Q01_SelfWriting_Apology_Eraser.glb',
+  image:'art/hero-props/qa/Q01_SelfWriting_Apology_Eraser.png',
+  reproducible:'art/hero-props/build_r183_eight_character_props.py'
  }]
 ]);
 const records=Object.values(SCHOOL_MAGIC_IDENTITIES).map(e=>{
@@ -77,11 +125,11 @@ const summary={cardCount:SCHOOL_MAGIC_COUNT,true3dCandidateCount:true3d,
   proceduralPlaceholderCount:records.length-true3d,visuallyAccepted:0,
   releaseReady:accepted,release:'NO_GO',
   note:'Scans true physical authored model and referenced source files. Does not automatically validate beauty or mobile performance; manual visual signoff required.',records};
-const dest=resolve(root,'qa/evidence/r182-sculpted-props/r182-46-prop-art-status.json');
+const dest=resolve(root,'qa/evidence/r183-sculpted-props/r183-46-prop-art-status.json');
 mkdirSync(dirname(dest),{recursive:true});
 writeFileSync(dest,JSON.stringify(summary,null,2));
-console.log('R182_REAL_ART_AUDIT',JSON.stringify({
+console.log('R183_REAL_ART_AUDIT',JSON.stringify({
  all:summary.cardCount,sculptedCandidates:true3d,placeholders:records.length-true3d,
  visuallyAccepted:0,release:'NO_GO',report:dest}));
-if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==9)process.exitCode=3;
+if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==17)process.exitCode=3;
 if(process.argv.includes('--release')&&accepted!==46)process.exitCode=2;

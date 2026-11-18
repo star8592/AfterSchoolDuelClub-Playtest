@@ -108,6 +108,33 @@ const R182_PRIME_SELECTED=(()=>{
   (PARAMS.get('r182PrimeSelected')??pp?.get('r182PrimeSelected'))==='on';
 })();
 let r182SelectedPrewarm=null;
+// R183: one-at-a-time campus asset selection. Never co-load R182+R183
+// previews on the real S21 Android GPU; do not worsen prior LOW_MEMORY.
+const R183_HERO_ASSET_PATH=Object.freeze({
+ P03:'P03_Cardboard_Tyrannosaurus_Stomp.glb',
+ S08:'S08_Angry_Campus_Vending_Machine.glb',
+ X03:'X03_Rooftop_School_Patrol_Car.glb',
+ Q06:'Q06_Three_Click_Moonlight_Desk_Lamp.glb',
+ K02:'K02_Watermelon_Rubber_Eraser_Stew.glb',
+ K08:'K08_Chocolate_Armored_Banana_Knight.glb',
+ S03:'S03_Antigravity_School_Broom.glb',
+ Q01:'Q01_SelfWriting_Apology_Eraser.glb'
+});
+const R183_HERO_ID=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||pp?.get('qa')==='1';
+ const id=(PARAMS.get('r183Hero')??pp?.get('r183Hero')??'').trim();
+ return qa&&!R182_HERO_ID&&R183_HERO_ASSET_PATH[id]?id:null;
+})();
+const R183_PRIME_SELECTED=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return R183_HERO_ID&&
+  (PARAMS.get('r183PrimeSelected')??pp?.get('r183PrimeSelected'))==='on';
+})();
+let r183HeroLoadReceipt=null, r183SelectedPrewarm=null;
+
 
 const R180_STADIUM_BATCH=(()=>{
  const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
@@ -1652,6 +1679,9 @@ function exposeQA(){
   get r182HeroLoad(){return r182HeroLoadReceipt||{enabled:false}},
   get r182ActorMotions(){return schoolMagicStage?.r182ActorMotions||[]},
   get r182SelectedPrewarm(){return r182SelectedPrewarm},
+  get r183HeroLoad(){return r183HeroLoadReceipt||{enabled:false}},
+  get r183SelectedPrewarm(){return r183SelectedPrewarm},
+  get r183ActorMotions(){return schoolMagicStage?.r183ActorMotions||[]},
   // R181 no-write forensic survey: actual live source SkinnedMesh materials,
   // skinning topology, bind matrices and morphs. Never guesses equivalence from
   // UUID alone; does NOT rewrite VRM skeletal hierarchy or shader code.
@@ -1983,6 +2013,23 @@ try{
   // pathology caused by staging all new materials and models together.
   r182SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
    R182_HERO_ID,renderer,camera,scene);
+ }
+ if(R183_HERO_ID&&R169_SCHOOL_MAGIC){
+  const started=performance.now();
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/'+R183_HERO_ASSET_PATH[R183_HERO_ID]);
+  if(!schoolMagicStage.registerHeroAsset(R183_HERO_ID,glb.scene))
+   throw Error('R183 original Blender GLB registration failed '+R183_HERO_ID);
+  const parts=[];
+  glb.scene.traverse(o=>{if(o.isMesh)parts.push(o)});
+  r183HeroLoadReceipt={enabled:true,id:R183_HERO_ID,
+   assetPath:R183_HERO_ASSET_PATH[R183_HERO_ID],
+   meshCount:parts.length,loadMs:+(performance.now()-started).toFixed(2),
+   onlyOneNewHeroLoaded:true,sourceFidelity:true};
+ }
+ if(R183_PRIME_SELECTED&&R169_SCHOOL_MAGIC){
+  r183SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
+   R183_HERO_ID,renderer,camera,scene);
  }
  if(R174_PREPARE_GPU&&R169_SCHOOL_MAGIC){
   r174ReadyPreparation=await schoolMagicStage.prepareGpuMaterial(

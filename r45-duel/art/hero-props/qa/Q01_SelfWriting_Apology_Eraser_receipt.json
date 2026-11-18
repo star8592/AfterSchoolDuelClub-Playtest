@@ -1,0 +1,20 @@
+{
+  "id": "Q01",
+  "originalName": "自动写检讨橡皮",
+  "source": "Q01_SelfWriting_Apology_Eraser.blend",
+  "glb": "Q01_SelfWriting_Apology_Eraser.glb",
+  "render": "Q01_SelfWriting_Apology_Eraser.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 517071,
+  "glbBytes": 558412,
+  "triangles": 22144,
+  "meshes": 10,
+  "materials": 10,
+  "actorGroups": [
+    "Q01_APOLOGY_PAPER_ACTOR",
+    "Q01_AUTOWRITING_PENCIL_ACTOR",
+    "Q01_ERASER_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

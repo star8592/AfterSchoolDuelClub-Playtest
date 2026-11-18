@@ -1,0 +1,21 @@
+{
+  "id": "P03",
+  "originalName": "纸箱霸王龙",
+  "source": "P03_Cardboard_Tyrannosaurus_Stomp.blend",
+  "glb": "P03_Cardboard_Tyrannosaurus_Stomp.glb",
+  "render": "P03_Cardboard_Tyrannosaurus_Stomp.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 607328,
+  "glbBytes": 819144,
+  "triangles": 31610,
+  "meshes": 13,
+  "materials": 7,
+  "actorGroups": [
+    "P03_BOX_BODY_ACTOR",
+    "P03_DINO_HEAD_ACTOR",
+    "P03_DINO_LEGS_ACTOR",
+    "P03_DINO_TAIL_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

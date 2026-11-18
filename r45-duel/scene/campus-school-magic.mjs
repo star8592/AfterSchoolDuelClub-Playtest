@@ -15,6 +15,7 @@ import {createCampusStaticBatcher} from './campus-prop-static-batcher.mjs';
 import {SPELL_CHOREOGRAPHY} from './spell-impact.mjs';
 import {SCHOOL_MAGIC_IDENTITIES,SCHOOL_MAGIC_COUNT} from './campus-magic-bible.mjs';
 import {R182_HERO_IDS,r182AnimateActor} from './campus-r182-actor-motions.mjs';
+import {R183_HERO_IDS,r183AnimateActor} from './campus-r183-actor-motions.mjs';
 
 const clip=(x)=>Math.max(0,Math.min(1,x));
 const smooth=x=>{const y=clip(x);return y*y*(3-2*y)};
@@ -24,7 +25,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
  const heroAssets=new Map();
  function registerHeroAsset(id,model){
-  if(!['E06','K01','K07',...R182_HERO_IDS].includes(id)||!model?.isObject3D)return false;
+  if(!['E06','K01','K07',...R182_HERO_IDS,...R183_HERO_IDS].includes(id)||!model?.isObject3D)return false;
   heroAssets.set(id,model);return true;
  }
 
@@ -257,7 +258,10 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    // buffers, decrease textures or pull close-up in front of the opponent.
    const r182StageSizing={
     K06:[1.28,-.44],Q05:[1.32,-.42],P04:[1.38,-.45],
-    S04:[1.25,-.42],P05:[1.26,-.48],X05:[1.23,-.45]};
+    S04:[1.25,-.42],P05:[1.26,-.48],X05:[1.23,-.45],
+    P03:[1.12,-.70],S08:[1.18,-.62],X03:[1.29,-.47],
+    Q06:[1.10,-.49],K02:[1.27,-.43],K08:[1.14,-.49],
+    S03:[1.12,-.56],Q01:[1.21,-.42]};
    if(r182StageSizing[id]){
     real.scale.setScalar(r182StageSizing[id][0]);
     real.position.y=r182StageSizing[id][1];
@@ -480,6 +484,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
     // Six independent original campus gags animate authored Blender actor groups.
     // No per-frame geometries, no shader lights or asset downgrade.
     if(r182AnimateActor(a.id,o,t,a.serial))return;
+    if(r183AnimateActor(a.id,o,t,a.serial))return;
     if(a.id==='K07'&&o.isObject3D&&!o.isMesh){
      const frog=o.name.includes('K07_JELLY_FROG_ACTOR');
      const bell=o.name.includes('K07_SCHOOL_BELL_ACTOR');
@@ -546,6 +551,20 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
     a.props.traverse(o=>{
      if(o.isObject3D&&!o.isMesh&&o.name.startsWith(a.id+'_')&&
        o.name.endsWith('_ACTOR')){
+      groups.push({name:o.name,
+       pos:o.position.toArray().map(v=>+v.toFixed(4)),
+       rot:o.rotation.toArray().slice(0,3).map(v=>+v.toFixed(4))});
+     }
+    });
+    return{id:a.id,serial:a.serial,groups};
+   });
+  },
+  get r183ActorMotions(){
+   return active.filter(a=>R183_HERO_IDS.includes(a.id)).map(a=>{
+    const groups=[];
+    a.props.traverse(o=>{
+     if(o.isObject3D&&!o.isMesh&&o.name.startsWith(a.id+'_')&&
+        o.name.endsWith('_ACTOR')){
       groups.push({name:o.name,
        pos:o.position.toArray().map(v=>+v.toFixed(4)),
        rot:o.rotation.toArray().slice(0,3).map(v=>+v.toFixed(4))});
