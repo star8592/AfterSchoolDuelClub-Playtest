@@ -761,9 +761,10 @@ $('play').addEventListener('click',()=>{
   if(!result.ok){announce('请按教学提示出牌：'+result.reason,'warning');return;}
   selected=null;render();syncScene();
   const played=g.events.findLast(e=>e.type==='card_play'&&e.side==='player'&&e.serial>before);
-  audio.playCue(cardSound(c),'player');
+  audio.playCue(c.kind==='spell'&&R199_REAL_MAGIC?'card_flip':cardSound(c),'player');
   if(played){projectPlayedCard(id,'player',played.serial);
-   audio.playComicBeat(c.kind==='unit'?'summon_'+c.style:'spell_'+c.effect,'player',played.serial);
+   if(c.kind==='unit'||!R199_REAL_MAGIC)
+    audio.playComicBeat(c.kind==='unit'?'summon_'+c.style:'spell_'+c.effect,'player',played.serial);
    if(c.kind==='spell')sendSpellImpact(played);
   }
   const step=guidedStatus(g).key;
@@ -797,16 +798,17 @@ $('play').addEventListener('click',()=>{
   comedyScript.forCard(id,played.serial,'player'):
   comedyScript.forSpell(id,played.serial,'player'));
  presentRealCombos(previousSerial);
- audio.playCue(cardSound(c),'player');
+ audio.playCue(c.kind==='spell'&&R199_REAL_MAGIC?'card_flip':cardSound(c),'player');
  projectPlayedCard(id,'player',played.serial);
- audio.playComicBeat(c.kind==='unit'?'summon_'+c.style:
-  'spell_'+c.effect,'player',played.serial);
+ if(c.kind==='unit'||!R199_REAL_MAGIC)
+  audio.playComicBeat(c.kind==='unit'?'summon_'+c.style:
+   'spell_'+c.effect,'player',played.serial);
  audio.playCue('card_flip','player');
  // The host announces once per turn, then the freshly summoned unit gets a
  // distinct entrance sentence. Previously host cast cut off every unit voice.
  sayHostOnce('player');
  if(c.kind==='unit')summonSpeaksAfterGesture(id,played.serial);
- if(c.kind==='spell'){
+ if(c.kind==='spell'&&!R199_REAL_MAGIC){
   const sound={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
     repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
     stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
@@ -872,10 +874,12 @@ $('end').addEventListener('click',()=>{
   if(R199_REAL_MAGIC)setTimeout(r199PrefetchVisible,1000);
  for(const event of fresh.filter(e=>e.type==='card_play'&&e.side==='ai').slice(-3)){
   const enemyCard=BY_ID[event.card];
-  audio.playCue(enemyCard?.kind==='unit'?'enemy_cast':cardSound(enemyCard),'ai');
+  audio.playCue(enemyCard?.kind==='unit'?'enemy_cast':
+   R199_REAL_MAGIC?'card_flip':cardSound(enemyCard),'ai');
   projectPlayedCard(event.card,'ai',event.serial);
-  if(enemyCard)audio.playComicBeat(enemyCard.kind==='unit'?
-   'summon_'+enemyCard.style:'spell_'+enemyCard.effect,'ai',event.serial);
+  if(enemyCard&&(enemyCard.kind==='unit'||!R199_REAL_MAGIC))
+   audio.playComicBeat(enemyCard.kind==='unit'?
+    'summon_'+enemyCard.style:'spell_'+enemyCard.effect,'ai',event.serial);
   showComedyAside(enemyCard?.kind==='unit'?
     comedyScript.forCard(event.card,event.serial,'ai'):
     comedyScript.forSpell(event.card,event.serial,'ai'));
@@ -883,7 +887,7 @@ $('end').addEventListener('click',()=>{
    sayHostOnce('ai');
    if(enemyCard?.kind==='unit')summonSpeaksAfterGesture(event.card,event.serial);
   }
-  if(enemyCard?.kind==='spell') {
+  if(enemyCard?.kind==='spell'&&!R199_REAL_MAGIC) {
    const fx={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
      repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
      stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
@@ -1020,10 +1024,26 @@ window.addEventListener('message',event=>{
   r199Gallery?.onEvent(d);
   if(d.event==='cast'&&r199MagicBible?.[d.id]){
    const magic=r199MagicBible[d.id];
+   // Authored foley #1 belongs to the actual prop entrance, not the rule
+   // settlement frame (which can precede the original GLB load).
    audio.playCue(magic.foley[0],d.side,{gainScale:.73});
-   audio.playCue(magic.foley[1],d.side,{gainScale:.75,delay:.34});
+   if(d.preview)
+    // A manual inspector has no canonical target contact event.
+    audio.playCue(magic.foley[1],d.side,{gainScale:.75,delay:.45});
    showComedyAside({text:magic.lines.cast,
     side:d.side,speaker:'校园荒诞魔法 · '+BY_ID[d.id].name});
+  }
+  if(d.event==='contact'&&r199MagicBible?.[d.id]){
+   const genuine=g.events.some(e=>e.type==='card_play'&&e.serial===d.serial&&
+     e.card===d.id&&e.side===d.side&&!!e.spellOutcome);
+   if(genuine){
+    const magic=r199MagicBible[d.id];
+    audio.playCue(magic.foley[1],d.side,{gainScale:.76});
+    if(d.directDamage>0||d.unitDamage>0){
+     showComedyAside({text:magic.lines.hit,
+      side:d.victim,speaker:'校园魔法命中 · '+BY_ID[d.id].name});
+    }
+   }
   }
   if(d.event==='loadError'||d.event==='castFailed')
    console.warn('R199_AUTHORED_GLB_FAILED',d.id,d.message);

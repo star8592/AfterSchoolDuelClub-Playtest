@@ -275,6 +275,7 @@ let actualHostHits=0;
 let r121ContactReceipts=0,r122AccidentReceipts=0;
 let crowdCloseup=null,r123ReactionCuts=0,r123ShotWeight=0;
 const pendingSpellContacts=[];
+const r201VisualContactQueue=new Map();
 const pendingCrowdAccidents=[];
 let podiumCards=null,handCards=null;
 let absoluteSeconds=0;
@@ -299,6 +300,39 @@ function checkIncoming(payload){
   Number.isInteger(e.serial)&&e.serial>0&&[e.damage,e.blocked,e.retaliation,e.retaliation_blocked].every(x=>Number.isInteger(x)&&x>=0&&x<=99)&&
   payload.noRulesMutation===true;
 }
+function r201ApplyResolvedContact(d){
+  const targets=d.unitDamage>0?
+   summonPresence?.spellWorldAnchors?.(d.victim,d.targetUids)||[]:[];
+  if(d.unitDamage>0&&d.targetUids.length){
+   summonPresence?.reactToSpell?.(d.victim,d.targetUids,absoluteSeconds,d.element);
+   for(const t of targets)if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
+  }
+  if(d.directDamage>0){
+   hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
+   arenaLife.observe('hit',{side:d.victim,at:absoluteSeconds});
+   livingCast.signal(d.victim,'hurt',absoluteSeconds);
+   stadiumEvidence?.reactAudience?.('hit',d.victim,absoluteSeconds);
+   actualHostHits++;
+   const host=duelistHosts.find(h=>h.side===d.victim);
+   if(host?.pivot){
+    const p=host.pivot.getWorldPosition(new THREE.Vector3());
+    if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+   }
+  }else if(!d.damaging){
+   // Healing and buffs are self-side effects, not pretend enemy damage.
+   const host=duelistHosts.find(h=>h.side===d.caster);
+   if(host?.pivot){
+    const p=host.pivot.getWorldPosition(new THREE.Vector3());
+    if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+   }
+  }
+  r121ContactReceipts++;
+  reply('ASDC_R121_SPELL_CONTACT',{serial:d.serial,card:d.id,
+   caster:d.caster,victim:d.victim,element:d.element,
+   directDamage:d.directDamage,unitDamage:d.unitDamage,
+   targetIds:targets.map(t=>t.id),contactCount:targets.length+(d.directDamage>0?1:0)});
+}
+
 function makeScene(){
  scene=new THREE.Scene();scene.background=new THREE.Color('#192b42');scene.fog=new THREE.Fog('#192b42',17,49);
  renderer=new THREE.WebGLRenderer({canvas:$('battle-canvas'),alpha:false,antialias:true,powerPreference:'high-performance'});
@@ -341,7 +375,16 @@ function makeScene(){
    loader:new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),camera,reducedMotion:reduced,
    r200Pbr:R200_PBR,r200Readable:R200_READABLE,
    now:()=>absoluteSeconds,
-   onEvent:(event,detail)=>reply('ASDC_R199_MAGIC_EVENT',{event,...detail})
+   onEvent:(event,detail)=>{
+    if(event==='contact'){
+     const canonical=r201VisualContactQueue.get(detail.serial);
+     if(canonical&&canonical.id===detail.id){
+      r201VisualContactQueue.delete(detail.serial);
+      r201ApplyResolvedContact(canonical);
+     }
+    }
+    reply('ASDC_R199_MAGIC_EVENT',{event,...detail});
+   }
   });
  }
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
@@ -851,7 +894,7 @@ function loop(){
  // Original unit-summoning effects remain unaffected by spell replacement.
  elementalVfx?.update(absoluteSeconds);
  if(!R199_PHYSICAL_MAGIC)spellContactFX?.update(absoluteSeconds);
- spectatorChaosFX?.update(absoluteSeconds);
+ if(!R199_PHYSICAL_MAGIC)spectatorChaosFX?.update(absoluteSeconds);
  bleacherProps?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
  comboDirector?.update(absoluteSeconds,reduced);
@@ -873,37 +916,14 @@ function loop(){
   if(absoluteSeconds<pending.due)continue;
   pendingSpellContacts.splice(i,1);
   const d=pending.descriptor;
-  const targets=d.unitDamage>0?
-   summonPresence?.spellWorldAnchors?.(d.victim,d.targetUids)||[]:[];
-  if(d.unitDamage>0&&d.targetUids.length){
-   summonPresence?.reactToSpell?.(d.victim,d.targetUids,absoluteSeconds,d.element);
-   for(const t of targets)if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
-  }
-  if(d.directDamage>0){
-   hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
-   arenaLife.observe('hit',{side:d.victim,at:absoluteSeconds});
-   livingCast.signal(d.victim,'hurt',absoluteSeconds);
-   stadiumEvidence?.reactAudience?.('hit',d.victim,absoluteSeconds);
-   actualHostHits++;
-   const host=duelistHosts.find(h=>h.side===d.victim);
-   if(host?.pivot){
-    const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
-   }
-  }else if(!d.damaging){
-   // Healing and buffs are self-side effects, not pretend enemy damage.
-   const host=duelistHosts.find(h=>h.side===d.caster);
-   if(host?.pivot){
-    const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
-   }
-  }
-  if(R199_PHYSICAL_MAGIC)r199Magic?.contact(d);
-  r121ContactReceipts++;
-  reply('ASDC_R121_SPELL_CONTACT',{serial:d.serial,card:d.id,
-   caster:d.caster,victim:d.victim,element:d.element,
-   directDamage:d.directDamage,unitDamage:d.unitDamage,
-   targetIds:targets.map(t=>t.id),contactCount:targets.length+(d.directDamage>0?1:0)});
+  if(R199_PHYSICAL_MAGIC){
+   // The rule has already settled, but 3D reaction / actual hurt voice must
+   // wait for the Blender prop's visible contact pose, not a 460ms timer.
+   r201VisualContactQueue.set(d.serial,d);
+   if(r201VisualContactQueue.size>24)
+    r201VisualContactQueue.delete(r201VisualContactQueue.keys().next().value);
+   r199Magic?.contact(d);
+  }else r201ApplyResolvedContact(d);
  }
  // R125: only a real R81 spell can launch a non-damaging spectator gag.
  for(let i=pendingCrowdAccidents.length-1;i>=0;i--){
@@ -912,8 +932,14 @@ function loop(){
    if(absoluteSeconds<pending.launchAt)continue;
    const anchor=stadiumEvidence?.spectatorAnchor?.(accident.spectatorIndex);
    if(!anchor){pendingCrowdAccidents.splice(i,1);continue}
-   pending.launched=spectatorChaosFX?.play(accident,anchor,absoluteSeconds)===true;
-   if(!pending.launched){pendingCrowdAccidents.splice(i,1);continue}
+   pending.launched=R199_PHYSICAL_MAGIC?
+    r199Magic?.playCollateral(accident,anchor,absoluteSeconds)===true:
+    spectatorChaosFX?.play(accident,anchor,absoluteSeconds)===true;
+   if(!pending.launched){
+    if(R199_PHYSICAL_MAGIC&&absoluteSeconds<pending.launchAt+2.7)
+     continue; // the authored physical original is still decoding
+    pendingCrowdAccidents.splice(i,1);continue;
+   }
    pending.hitAt=absoluteSeconds+(reduced?.24:.49);
   }
   if(absoluteSeconds<pending.hitAt)continue;
@@ -1085,7 +1111,7 @@ function onMessage(ev){
   comedySpectacle?.clear();
   summonPresence?.clearComicCombo();
   summonPresence?.clearSpellTargets?.();
-  pendingSpellContacts.length=0;
+  pendingSpellContacts.length=0;r201VisualContactQueue.clear();
   hostSpeech.player=null;hostSpeech.ai=null;
   spellSerials.clear(); // serials restart at each tutorial stage / deck
   spellContactFX?.reset();

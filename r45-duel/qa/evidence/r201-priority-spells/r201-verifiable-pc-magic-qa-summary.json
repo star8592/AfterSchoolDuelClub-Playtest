@@ -1,0 +1,87 @@
+{
+  "version": "R201",
+  "title": "PC priority-first authored spell and physical hit",
+  "release": "Draft NO-GO, main R198 untouched",
+  "originalBlenderAssetsOnly": true,
+  "noAutofocusCloseup": true,
+  "browserDevice": "Z890 RTX5070Ti real Chrome Vulkan WebGL2",
+  "intentionalGlbDelayMs": 1600,
+  "priorityCase": {
+    "pass": true,
+    "requestedGLBOrder": [
+      "S08_Angry_Campus_Vending_Machine.glb",
+      "X01_Reversing_School_Clock_Tower.glb",
+      "K01_Sculpted_Wok_Eggplant_Banana_R200.glb",
+      "Q05_Chalk_Press_Conference_R200.glb",
+      "T05_Heartwarming_Cafeteria_Chef_Soup.glb",
+      "E05_Giant_Cheer_Megaphone.glb"
+    ],
+    "promotionCount": 1,
+    "firstRequest": "S08 background already decoding",
+    "secondRequest": "X01 genuine urgent preview overtook queued K01/Q05",
+    "errors": []
+  },
+  "contactCase": {
+    "pass": true,
+    "source": "Q05_Chalk_Press_Conference_R200.glb",
+    "canonicalDirectDamage": 2,
+    "realActorToContactMs": 1164.9,
+    "earlyDuringNetworkCanonicalSettled": true,
+    "earlyDuringNetworkContactCount": 0,
+    "earlyDuringNetworkHostHitDamage": 0,
+    "afterPhysicalContactReceipt": 1,
+    "afterPhysicalHitDamage": 2,
+    "oldGenericArsenalCasts": 0,
+    "oldGenericImpactCasts": 0,
+    "errors": []
+  },
+  "spectatorCase": {
+    "pass": true,
+    "sameAuthenticGlbProjectile": true,
+    "realCollateralFlights": 1,
+    "oldTorusBallPointlightFlights": 0,
+    "actualSpectatorReactions": 1,
+    "extraDamageToCanonicalMatch": 0,
+    "hasGamePlayHit": false,
+    "errors": []
+  },
+  "fullRotation": {
+    "uniqueAuthoredIdentityCount": 46,
+    "castsWithRepeat": 47,
+    "lastRepeated": "E05",
+    "cachedAtEnd": 8,
+    "maxCached": 8,
+    "safeEvictions": 40,
+    "errors": []
+  },
+  "realXPS": {
+    "device": "XPS15-7590 Intel UHD630 Chrome155 Linux independent PC",
+    "pass": true,
+    "startupMs": 5875,
+    "startupSampleIsWarmCache": true,
+    "realSpellCard": "K05",
+    "mesh": 10,
+    "oldLightCalls": 0,
+    "errors": []
+  },
+  "soundContract": {
+    "spells": 46,
+    "originalFoleyAssignments": 92,
+    "locallyVerifiedOggSources": 20,
+    "distinctSourceCombinations": 39,
+    "46IndependentRecordedVoiceLines": false
+  },
+  "limits": [
+    "PC cold load and FPS not proven fixed by priority preemption",
+    "Only five R200 art props have added PBR microtexture",
+    "R199/R200/R201 are still isolated Draft branches",
+    "48+ actual unique recorded dialogue lines not yet produced"
+  ],
+  "qaLinks": [
+    "r201-priority.json",
+    "r201-impact.json",
+    "r201-real-spectator-collateral.json",
+    "r201-xps-real-magic.json",
+    "r201-four-real-pc-cast-audience.jpg"
+  ]
+}

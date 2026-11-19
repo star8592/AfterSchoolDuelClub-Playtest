@@ -1,0 +1,456 @@
+{
+  "name": "R201 actual Q05 spectator miss",
+  "pass": true,
+  "errors": [],
+  "before": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "round": 1,
+    "cardEvents": [],
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "gracefulRetirements": 0,
+      "authoredHighDetailAssets": [],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "peakObjects": 0,
+      "peakDraws": 0,
+      "uniqueRenderedProps": 0,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "activeIds": []
+    },
+    "magic": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "loadedRealAssets": 0,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0,
+        "urgentWaiting": [],
+        "backgroundWaiting": [],
+        "promotions": 0,
+        "completed": 0,
+        "failed": 0
+      },
+      "pendingUnrenderedContacts": 0,
+      "synchronisedContacts": 0,
+      "casts": 0,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "gracefulRetirements": 0,
+        "authoredHighDetailAssets": [],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 0,
+        "expired": 0,
+        "rejected": 0,
+        "active": 0,
+        "peakObjects": 0,
+        "peakDraws": 0,
+        "uniqueRenderedProps": 0,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": null,
+          "ai": null
+        },
+        "activeIds": []
+      },
+      "loadedReceipts": [],
+      "loadedAssetDetails": []
+    },
+    "legacySpectator": {
+      "launched": 0,
+      "impacts": 0,
+      "expired": 0,
+      "active": 0,
+      "peak": 0,
+      "activeScenarios": [],
+      "ruleMutations": 0
+    },
+    "r122AccidentReceipts": 0,
+    "closeup": false,
+    "heroInset": 0,
+    "realSpectatorReplies": [],
+    "genericLights": 0
+  },
+  "flying": {
+    "hp": {
+      "player": 20,
+      "ai": 18
+    },
+    "round": 1,
+    "cardEvents": [
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "Q05",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "blast",
+          "directDamage": 2,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    ],
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "gracefulRetirements": 0,
+      "authoredHighDetailAssets": [
+        "Q05"
+      ],
+      "collateralLaunched": 1,
+      "collateralExpired": 0,
+      "collateralActive": 1,
+      "played": 1,
+      "expired": 0,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 12,
+      "peakDraws": 12,
+      "uniqueRenderedProps": 1,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": "Q05",
+        "ai": null
+      },
+      "activeIds": [
+        "Q05"
+      ]
+    },
+    "magic": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "loadedRealAssets": 1,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [
+        "Q05"
+      ],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0,
+        "urgentWaiting": [],
+        "backgroundWaiting": [],
+        "promotions": 0,
+        "completed": 1,
+        "failed": 0
+      },
+      "pendingUnrenderedContacts": 0,
+      "synchronisedContacts": 0,
+      "casts": 1,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "gracefulRetirements": 0,
+        "authoredHighDetailAssets": [
+          "Q05"
+        ],
+        "collateralLaunched": 1,
+        "collateralExpired": 0,
+        "collateralActive": 1,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "peakObjects": 12,
+        "peakDraws": 12,
+        "uniqueRenderedProps": 1,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": "Q05",
+          "ai": null
+        },
+        "activeIds": [
+          "Q05"
+        ]
+      },
+      "loadedReceipts": [
+        {
+          "id": "Q05",
+          "source": "real-blender-glb",
+          "file": "Q05_Chalk_Press_Conference_R200.glb",
+          "meshes": 12,
+          "triangles": 41432,
+          "texturedVariant": true,
+          "priority": "urgent",
+          "readyMs": 86.5
+        }
+      ],
+      "loadedAssetDetails": [
+        {
+          "id": "Q05",
+          "source": "real-blender-glb",
+          "file": "Q05_Chalk_Press_Conference_R200.glb",
+          "meshes": 12,
+          "triangles": 41432,
+          "texturedVariant": true,
+          "priority": "urgent",
+          "readyMs": 86.5
+        }
+      ]
+    },
+    "legacySpectator": {
+      "launched": 0,
+      "impacts": 0,
+      "expired": 0,
+      "active": 0,
+      "peak": 0,
+      "activeScenarios": [],
+      "ruleMutations": 0
+    },
+    "r122AccidentReceipts": 0,
+    "closeup": false,
+    "heroInset": 0,
+    "realSpectatorReplies": [],
+    "genericLights": 0
+  },
+  "after": {
+    "hp": {
+      "player": 20,
+      "ai": 18
+    },
+    "round": 1,
+    "cardEvents": [
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "Q05",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "blast",
+          "directDamage": 2,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    ],
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "gracefulRetirements": 0,
+      "authoredHighDetailAssets": [
+        "Q05"
+      ],
+      "collateralLaunched": 1,
+      "collateralExpired": 0,
+      "collateralActive": 1,
+      "played": 1,
+      "expired": 0,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 12,
+      "peakDraws": 12,
+      "uniqueRenderedProps": 1,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": "Q05",
+        "ai": null
+      },
+      "activeIds": [
+        "Q05"
+      ]
+    },
+    "magic": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "loadedRealAssets": 1,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [
+        "Q05"
+      ],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0,
+        "urgentWaiting": [],
+        "backgroundWaiting": [],
+        "promotions": 0,
+        "completed": 1,
+        "failed": 0
+      },
+      "pendingUnrenderedContacts": 1,
+      "synchronisedContacts": 0,
+      "casts": 1,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "gracefulRetirements": 0,
+        "authoredHighDetailAssets": [
+          "Q05"
+        ],
+        "collateralLaunched": 1,
+        "collateralExpired": 0,
+        "collateralActive": 1,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "peakObjects": 12,
+        "peakDraws": 12,
+        "uniqueRenderedProps": 1,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": "Q05",
+          "ai": null
+        },
+        "activeIds": [
+          "Q05"
+        ]
+      },
+      "loadedReceipts": [
+        {
+          "id": "Q05",
+          "source": "real-blender-glb",
+          "file": "Q05_Chalk_Press_Conference_R200.glb",
+          "meshes": 12,
+          "triangles": 41432,
+          "texturedVariant": true,
+          "priority": "urgent",
+          "readyMs": 86.5
+        }
+      ],
+      "loadedAssetDetails": [
+        {
+          "id": "Q05",
+          "source": "real-blender-glb",
+          "file": "Q05_Chalk_Press_Conference_R200.glb",
+          "meshes": 12,
+          "triangles": 41432,
+          "texturedVariant": true,
+          "priority": "urgent",
+          "readyMs": 86.5
+        }
+      ]
+    },
+    "legacySpectator": {
+      "launched": 0,
+      "impacts": 0,
+      "expired": 0,
+      "active": 0,
+      "peak": 0,
+      "activeScenarios": [],
+      "ruleMutations": 0
+    },
+    "r122AccidentReceipts": 1,
+    "closeup": false,
+    "heroInset": 0,
+    "realSpectatorReplies": [
+      {
+        "type": "ASDC_R122_CROWD_ACCIDENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "serial": 2,
+        "card": "Q05",
+        "side": "player",
+        "scenario": "shockwave",
+        "spectatorIndex": 3,
+        "spectatorId": "G04",
+        "element": "wind",
+        "caption": "魔法冲击波扫过观众席",
+        "line": "啊——等等，我的假发……不对，是校帽！",
+        "prop": "backpack",
+        "propLine": "我的书包比我先参加了体育考试！",
+        "gameplayHit": false,
+        "ruleDamage": 0
+      }
+    ],
+    "genericLights": 0
+  }
+}

@@ -465,12 +465,16 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    o.userData.baseRotation=o.rotation.clone()}});
   const life=reducedMotion?1.4:r200Readable?2.5:2.1;
   if(r200Readable){
-   // Sequential magic should stay legible in one wide arena. Do not stack
-   // three huge unrelated school props over the opponent reaction.
-   for(const prior of active)if(prior.retireAt===undefined)prior.retireAt=now;
+   // A real spell must not vanish before its physical hit. Manual previews
+   // have no canonical target and may retire on the next selected preview.
+   for(const prior of active)if(prior.retireAt===undefined){
+    prior.retireAt=prior.preview||prior.contacted?now:
+     Math.max(now,prior.created+prior.duration*.52);
+   }
   }
   const entry={id:card.id,identity,side:message.side,target,serial:message.serial,
    created:now,duration:life,group:g,props,contacted:false,
+   preview:!!message.preview,
    parts:g.children.length,appliedDirectDamage:Number(message.directDamage)||0,batchReceipt};
   active.push(entry);played++;
   distinctProps.add(identity.prop);
@@ -505,6 +509,12 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    const stale=collateral.shift();root.remove(stale.group);collateralExpired++;
   }
   return true;
+ }
+ function physicalContactReadyAt(serial){
+  const entry=active.find(a=>a.serial===serial);
+  // Spell throw/swap choreography converges near this fraction of life.
+  // The result was already settled by the canonical rules engine.
+  return entry?entry.created+entry.duration*.46:null;
  }
  function contact(descriptor,now){
   const entry=active.find(a=>a.serial===descriptor?.serial);
@@ -623,7 +633,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   for(const m of labelMaterials.values())m.dispose();labelMaterials.clear();
   root.removeFromParent();
  }
- return {root,play,contact,playCollateral,update,dispose,prepareGpuMaterial,prewarmRealAuthoredHero,registerHeroAsset,releaseHeroAsset,stageOriginalHeroForExistingFrames,
+ return {root,play,contact,physicalContactReadyAt,playCollateral,update,dispose,prepareGpuMaterial,prewarmRealAuthoredHero,registerHeroAsset,releaseHeroAsset,stageOriginalHeroForExistingFrames,
   get prepareReceipts(){return prepareReceipts.map(x=>({...x}))},
   get qaProfile(){return r174Profile.map(x=>({...x}))},
   get r182ActorMotions(){
