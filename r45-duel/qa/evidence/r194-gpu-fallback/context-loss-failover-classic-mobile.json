@@ -1,0 +1,171 @@
+{
+  "scenario": "context-loss-failover",
+  "view": "mobile",
+  "deck": "classic",
+  "runId": "context-loss-failover-classic-mobile",
+  "errors": [],
+  "pass": true,
+  "preflight": {
+    "ready": true,
+    "webgl2": true,
+    "supported": true,
+    "reason": "RGBA16F storage/upload/sampler2DArray sample verified",
+    "maxTextureSize": 32768,
+    "maxArrayTextureLayers": 2048,
+    "sample": [
+      127,
+      0,
+      0,
+      255
+    ],
+    "gpuRenderer": "ANGLE (NVIDIA, Vulkan 1.4.351 (NVIDIA NVIDIA GeForce RTX 5070 Ti (0x00002C05)), NVIDIA)",
+    "contextLoss": {
+      "requested": false,
+      "extension": false,
+      "lost": false,
+      "restored": false,
+      "reProbePass": false
+    }
+  },
+  "choice": {
+    "mode": "rgba16f",
+    "reason": "RGBA16F allocation and sampling supported",
+    "fallback": false
+  },
+  "before": {
+    "ready": true,
+    "gpu": 153,
+    "originals": [
+      "T04",
+      "T01",
+      "E02",
+      "E04",
+      "M01",
+      "G03"
+    ],
+    "morphAllocations": 69,
+    "morphFloatUploadMiB": 32.268,
+    "formats": [
+      {
+        "shape": "4722x1x41x34842",
+        "count": 10
+      },
+      {
+        "shape": "4672x1x39x34842",
+        "count": 10
+      },
+      {
+        "shape": "576x1x4x34842",
+        "count": 4
+      },
+      {
+        "shape": "4022x1x2x34842",
+        "count": 1
+      },
+      {
+        "shape": "258x1x1x34842",
+        "count": 1
+      },
+      {
+        "shape": "656x1x4x34842",
+        "count": 1
+      },
+      {
+        "shape": "17724x1x4x34842",
+        "count": 1
+      },
+      {
+        "shape": "5206x1x6x34842",
+        "count": 1
+      },
+      {
+        "shape": "6980x1x1x34842",
+        "count": 1
+      },
+      {
+        "shape": "3086x1x1x34842",
+        "count": 1
+      },
+      {
+        "shape": "1228x1x1x34842",
+        "count": 1
+      },
+      {
+        "shape": "186x1x1x34842",
+        "count": 1
+      }
+    ],
+    "drawCalls": 274
+  },
+  "contextLoss": {
+    "extension": true,
+    "lost": true
+  },
+  "fallbackReason": "context loss observed; QA controlled reload to original 32F",
+  "after": {
+    "ready": true,
+    "gpu": 153,
+    "originals": [
+      "T04",
+      "T01",
+      "E02",
+      "E04",
+      "M01",
+      "G03"
+    ],
+    "morphAllocations": 69,
+    "morphFloatUploadMiB": 64.537,
+    "formats": [
+      {
+        "shape": "4722x1x41x34836",
+        "count": 10
+      },
+      {
+        "shape": "4672x1x39x34836",
+        "count": 10
+      },
+      {
+        "shape": "576x1x4x34836",
+        "count": 4
+      },
+      {
+        "shape": "4022x1x2x34836",
+        "count": 1
+      },
+      {
+        "shape": "258x1x1x34836",
+        "count": 1
+      },
+      {
+        "shape": "656x1x4x34836",
+        "count": 1
+      },
+      {
+        "shape": "17724x1x4x34836",
+        "count": 1
+      },
+      {
+        "shape": "5206x1x6x34836",
+        "count": 1
+      },
+      {
+        "shape": "6980x1x1x34836",
+        "count": 1
+      },
+      {
+        "shape": "3086x1x1x34836",
+        "count": 1
+      },
+      {
+        "shape": "1228x1x1x34836",
+        "count": 1
+      },
+      {
+        "shape": "186x1x1x34836",
+        "count": 1
+      }
+    ],
+    "drawCalls": 274
+  },
+  "overlayHits": 1
+}

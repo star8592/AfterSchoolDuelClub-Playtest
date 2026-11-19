@@ -1,0 +1,103 @@
+{
+  "scenario": "restore-strict",
+  "view": "desktop",
+  "deck": "classic",
+  "runId": "restore-strict-classic-desktop-gl",
+  "gpuBackend": "gl",
+  "errors": [],
+  "pass": true,
+  "preflight": {
+    "ready": true,
+    "webgl2": true,
+    "supported": true,
+    "reason": "RGBA16F storage/upload/sampler2DArray sample verified",
+    "maxTextureSize": 32768,
+    "maxArrayTextureLayers": 2048,
+    "sample": [
+      127,
+      0,
+      0,
+      255
+    ],
+    "gpuRenderer": "ANGLE (NVIDIA Corporation, NVIDIA GeForce RTX 5070 Ti/PCIe/SSE2, OpenGL ES 3.2)",
+    "contextLoss": {
+      "requested": true,
+      "extension": true,
+      "lost": true,
+      "restored": false,
+      "reProbePass": false
+    },
+    "probeDurationMs": 3742.5
+  },
+  "choice": {
+    "mode": "rgba32f",
+    "reason": "context-loss restore/reprobe not verified",
+    "fallback": true
+  },
+  "before": {
+    "ready": true,
+    "gpu": 153,
+    "originals": [
+      "T04",
+      "T01",
+      "E02",
+      "E04",
+      "M01",
+      "G03"
+    ],
+    "morphAllocations": 69,
+    "morphFloatUploadMiB": 64.537,
+    "formats": [
+      {
+        "shape": "4722x1x41x34836",
+        "count": 10
+      },
+      {
+        "shape": "4672x1x39x34836",
+        "count": 10
+      },
+      {
+        "shape": "576x1x4x34836",
+        "count": 4
+      },
+      {
+        "shape": "4022x1x2x34836",
+        "count": 1
+      },
+      {
+        "shape": "258x1x1x34836",
+        "count": 1
+      },
+      {
+        "shape": "656x1x4x34836",
+        "count": 1
+      },
+      {
+        "shape": "17724x1x4x34836",
+        "count": 1
+      },
+      {
+        "shape": "5206x1x6x34836",
+        "count": 1
+      },
+      {
+        "shape": "6980x1x1x34836",
+        "count": 1
+      },
+      {
+        "shape": "3086x1x1x34836",
+        "count": 1
+      },
+      {
+        "shape": "1228x1x1x34836",
+        "count": 1
+      },
+      {
+        "shape": "186x1x1x34836",
+        "count": 1
+      }
+    ],
+    "drawCalls": 272
+  },
+  "overlayHits": 0
+}
