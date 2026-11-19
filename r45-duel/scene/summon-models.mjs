@@ -253,6 +253,17 @@ const r99ChefOld=(()=>{
    new URLSearchParams(window.parent.location.search).get('r99Chef')==='old';}
  catch{return false}
 })();
+// R188: reuse two real existing authored, animated source characters (not
+// a pixelated decimation of the heavy 129-mesh T01). Pixel-free Radio Owl has
+// 16 meshes, 6 materials and 4 source clips; Barn Owl has 1 skinned mesh.
+const R188_T01_ALT=(()=>{
+ const q=new URLSearchParams(location.search);
+ const parent=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null}})();
+ const qa=q.get('qa')==='1'||parent?.get('qa')==='1';
+ const mode=q.get('r188Owl')??parent?.get('r188Owl');
+ return qa&&['radio','barn'].includes(mode)?mode:null;
+})();
 // R187 QA-only texture LOD study. Source owl mesh, animation, and character
 // identity are bit-for-bit unchanged; the original 2K GLB stays untouched.
 // Never apply to main/player until genuine visual+Android memory QA.
@@ -363,7 +374,10 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   const spec=id==='T02'&&isT02DuoStudy?
    {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:
    id==='M02'&&r99ChefOld?{...baseSpec,targetHeight:2.07}:baseSpec;
-  const selectedFile=id==='T01'&&R187_T01_TEX?
+  const selectedFile=id==='T01'&&R188_T01_ALT?
+   (R188_T01_ALT==='radio'?'T01-BroadcastOwl-PolyforkRadio-R73.glb':
+    'T01-BroadcastOwl-BarnOwl.glb'):
+   id==='T01'&&R187_T01_TEX?
    'T01-Owl-Innerscene-R187-'+R187_T01_TEX+'.glb':
    id==='M01'&&isM01AdultTeacherStudy?'M01-Maestro-Burgundy-Coat-STUDY.glb':
    id==='M02'&&r99ChefOld?'M02-CafeteriaAunt-CartoonR76.glb':
@@ -694,13 +708,19 @@ export function instantiateSummon(THREE,template){
  const sourceBodyClips=r130Special?r130Special.clips:r128Phil?r128Phil.clips:source119Clips;
  const r119Clips=r144Pelvis?r144Pelvis.buildClips(sourceBodyClips):sourceBodyClips;
  const r126Teacher=template.id==='M01'&&!isM01AdultTeacherStudy?createR126MusicTeacherClips(THREE,instance):null;
+ // R127's 129-mesh feather animation is strictly tied to the original R84
+ // Owl named-node topology. Old R73 / BarnOwl have their OWN real skeleton
+ // and 4 genuine original animation clips: do not run R127 on wrong geometry.
+ const r188AnimatedOwl=template.id==='T01'&&
+  ['T01-BroadcastOwl-PolyforkRadio-R73.glb',
+   'T01-BroadcastOwl-BarnOwl.glb'].includes(template.selectedFile);
  const r127OwlDisabled=(()=>{
   const q=new URLSearchParams(location.search);
   if(q.get('r127Owl')==='off')return true;
   try{return window.parent!==window&&new URLSearchParams(window.parent.location.search).get('r127Owl')==='off';}
   catch{return false}
  })();
- const r127Owl=template.id==='T01'&&!r127OwlDisabled?
+ const r127Owl=template.id==='T01'&&!r188AnimatedOwl&&!r127OwlDisabled?
   createR127OwlSourceFeathers(THREE,instance,{reduced:matchMedia('(prefers-reduced-motion: reduce)').matches}):null;
  // If a source-export model is missing one of the actual bound arm bones,
  // don't silently pretend the artist's character has its desired animation.
@@ -866,6 +886,15 @@ export function instantiateSummon(THREE,template){
     death:'Hit reaction',celebrate:'Cheer'}[kind]||'Talk';
    return clips.find(c=>c.name===action)||clips[0];
   }
+  if(r188AnimatedOwl){
+   const radio=template.selectedFile.includes('PolyforkRadio');
+   const name=radio?
+    ({attack:'Fly',hit:'Run',celebrate:'Fly',walk:'Walk',idle:'Idle',
+      defeat:'Idle',death:'Idle'}[kind]||'Idle'):
+    ({attack:'attack',hit:'walk',celebrate:'attack',walk:'walk',idle:'idle',
+      defeat:'dead',death:'dead'}[kind]||'idle');
+   return clips.find(c=>c.name===name)||clips[0];
+  }
   const preference=kind==='attack'?['R119_Skeletal_Attack','R86_Skeletal_Attack','Attack_Dart','Attack_Flip_Menu','Attack','attack','Special','Cheer']:
    kind==='hit'?['R119_Skeletal_Hit','R86_Skeletal_Hit','Hit_Recoil','Hit_Retreat','Hit','hit']:
    kind==='death'?['Death','dead']:
@@ -1008,7 +1037,7 @@ export function instantiateSummon(THREE,template){
   r144Pelvis?.update();
   r140Face?.update(dt,r136Controller?.getCurrentClip()||
    r135Controller?.getCurrentClip()||r134Controller?.getCurrentClip());
- }):r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r126Teacher?teacherUpdate:filmStatic?updateStatic:
+ }):r130Special?(dt=>{mixer.update(dt);r130Special.update();}):r128Phil?(dt=>{mixer.update(dt);r128Phil.update();}):r127Owl?r127Owl.update:r188AnimatedOwl?(dt=>mixer?.update(dt)):r126Teacher?teacherUpdate:filmStatic?updateStatic:
   r126Teacher?teacherUpdate:filmStatic?updateStatic:
   template.id==='M01'&&isM01AdultTeacherStudy?(dt=>{mixer?.update(dt);m01Conductor?.update(dt);
    if(m01Conductor)scaled.position.y=groundedY+m01Conductor.groundCorrection+(combatPose?.lift||0);
