@@ -1,0 +1,777 @@
+{
+  "name": "stable-classic-seed173",
+  "seed": 173,
+  "deck": "classic",
+  "pass": true,
+  "errors": [],
+  "before": {
+    "ready": true,
+    "round": 1,
+    "sceneSources": [
+      {
+        "id": "E02",
+        "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+        "baselineFile": "E02-PaperPlane-R57.glb",
+        "meshes": 17,
+        "clips": 5,
+        "scale": 0.7421767179774135,
+        "measured": {
+          "width": 2.357928991317749,
+          "height": 0.42010927200317383,
+          "depth": 2.011215567588806,
+          "scaledHeight": 0.311795320687196,
+          "scaledWidth": 1.75,
+          "scaledDepth": 1.492677369098141
+        }
+      },
+      {
+        "id": "E03",
+        "file": "E03-Ellie-Landing-R97.glb",
+        "baselineFile": "E03-Ellie-Landing-R97.glb",
+        "meshes": 64,
+        "clips": 3,
+        "scale": 1.1561924704810125,
+        "measured": {
+          "width": 1.0130463540554047,
+          "height": 1.7990084290504456,
+          "depth": 0.47110939770936966,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.1712765668071008,
+          "scaledDepth": 0.5446931384044179
+        }
+      },
+      {
+        "id": "E04",
+        "file": "E04-Phil-Landing-R97.glb",
+        "baselineFile": "E04-Phil-Landing-R97.glb",
+        "meshes": 29,
+        "clips": 3,
+        "scale": 1.0196946503812525,
+        "measured": {
+          "width": 1.7490627467632294,
+          "height": 2.0398263335227966,
+          "depth": 0.6859154850244522,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.7835099260556044,
+          "scaledDepth": 0.699424350693096
+        }
+      },
+      {
+        "id": "G02",
+        "file": "G02-Snow-Landing-R97.glb",
+        "baselineFile": "G02-Snow-Landing-R97.glb",
+        "meshes": 22,
+        "clips": 3,
+        "scale": 1.1601123857160573,
+        "measured": {
+          "width": 1.819528877735138,
+          "height": 2.137723922729492,
+          "depth": 0.5725657716393471,
+          "scaledHeight": 2.48,
+          "scaledWidth": 2.110857987228571,
+          "scaledDepth": 0.6642406433158782
+        }
+      },
+      {
+        "id": "G03",
+        "file": "G03-Jay-Landing-R97.glb",
+        "baselineFile": "G03-Jay-Landing-R97.glb",
+        "meshes": 40,
+        "clips": 3,
+        "scale": 1.2680175077181488,
+        "measured": {
+          "width": 0.942365825176239,
+          "height": 1.6403558999300003,
+          "depth": 0.4358918368816376,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.1949363649987312,
+          "scaledDepth": 0.55271848063734
+        }
+      },
+      {
+        "id": "G04",
+        "file": "G04-Victoria-Landing-R97.glb",
+        "baselineFile": "G04-Victoria-Landing-R97.glb",
+        "meshes": 34,
+        "clips": 3,
+        "scale": 1.0462093766002631,
+        "measured": {
+          "width": 1.2005715370178223,
+          "height": 1.9881297630490735,
+          "depth": 0.3593907505273819,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.2560491993074356,
+          "scaledDepth": 0.3759979730651529
+        }
+      },
+      {
+        "id": "M01",
+        "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+        "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+        "meshes": 10,
+        "clips": 3,
+        "scale": 1.2145548303491536,
+        "measured": {
+          "width": 1.7198226432418822,
+          "height": 1.7125616300106048,
+          "depth": 0.34595575991321004,
+          "scaledHeight": 2.08,
+          "scaledWidth": 2.088818898693277,
+          "scaledDepth": 0.42018223928970133
+        }
+      },
+      {
+        "id": "M02",
+        "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+        "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+        "meshes": 13,
+        "clips": 10,
+        "scale": 1.207605590818463,
+        "measured": {
+          "width": 1.3318469087349012,
+          "height": 1.9459996027405533,
+          "depth": 0.7072997859928739,
+          "scaledHeight": 2.35,
+          "scaledWidth": 1.608345773102554,
+          "scaledDepth": 0.854139175949697
+        }
+      },
+      {
+        "id": "T01",
+        "file": "T01-Owl-Innerscene-R84.glb",
+        "baselineFile": "T01-Owl-Innerscene-R84.glb",
+        "meshes": 129,
+        "clips": 0,
+        "scale": 2.2423853646804206,
+        "measured": {
+          "width": 0.40802671015262604,
+          "height": 0.5128467292524874,
+          "depth": 0.21212051063776016,
+          "scaledHeight": 1.15,
+          "scaledWidth": 0.9149531232449486,
+          "scaledDepth": 0.4756559286026509
+        }
+      },
+      {
+        "id": "T02",
+        "file": "T02-LivingMenu-R59.glb",
+        "baselineFile": "T02-LivingMenu-R59.glb",
+        "meshes": 43,
+        "clips": 5,
+        "scale": 0.5544554685220894,
+        "measured": {
+          "width": 2.01999991628792,
+          "height": 2.6460000057680704,
+          "depth": 0.699999988079071,
+          "scaledHeight": 1.4670891729075866,
+          "scaledWidth": 1.12,
+          "scaledDepth": 0.3881188213558383
+        }
+      },
+      {
+        "id": "T03",
+        "file": "T03-Rain-Landing-R97.glb",
+        "baselineFile": "T03-Rain-Landing-R97.glb",
+        "meshes": 23,
+        "clips": 3,
+        "scale": 0.8400759744407087,
+        "measured": {
+          "width": 1.4443415105342865,
+          "height": 2.4759665355086327,
+          "depth": 0.8561546057462692,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.213356601887256,
+          "scaledDepth": 0.7192349146941979
+        }
+      },
+      {
+        "id": "T04",
+        "file": "T04-Rex-Landing-R97.glb",
+        "baselineFile": "T04-Rex-Landing-R97.glb",
+        "meshes": 38,
+        "clips": 3,
+        "scale": 0.9284593848281754,
+        "measured": {
+          "width": 2.438533514738083,
+          "height": 2.2402703166007996,
+          "depth": 0.5343174412846565,
+          "scaledHeight": 2.08,
+          "scaledWidth": 2.2640793269766086,
+          "scaledDepth": 0.4960920428381169
+        }
+      }
+    ],
+    "events": 1,
+    "angle": "0°",
+    "camera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.32,
+        11.35
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "portrait": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "crowd": {
+      "cuts": 0,
+      "weight": 0,
+      "spectatorIndex": null,
+      "frontFacingCloseup": false,
+      "teacherIntervention": false,
+      "extraRenderPasses": 0
+    },
+    "gpu": {
+      "profile": "balanced-desktop",
+      "pixelRatio": 1,
+      "shadowAutoUpdate": false,
+      "shadowPassRequests": 0,
+      "shadowSize": 2048,
+      "heroInsetDraws": 0,
+      "heroLayerSide": null,
+      "heroCameraLayer": null,
+      "totalDrawCalls": 734
+    },
+    "hasPortrait": false,
+    "hasAutoCard": false,
+    "manualArt": true,
+    "originalSourcePresent": true,
+    "soundOn": "true"
+  },
+  "playCardId": "E01",
+  "afterCard": {
+    "ready": true,
+    "round": 1,
+    "sceneSources": [
+      {
+        "id": "E02",
+        "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+        "baselineFile": "E02-PaperPlane-R57.glb",
+        "meshes": 17,
+        "clips": 5,
+        "scale": 0.7421767179774135,
+        "measured": {
+          "width": 2.357928991317749,
+          "height": 0.42010927200317383,
+          "depth": 2.011215567588806,
+          "scaledHeight": 0.311795320687196,
+          "scaledWidth": 1.75,
+          "scaledDepth": 1.492677369098141
+        }
+      },
+      {
+        "id": "E03",
+        "file": "E03-Ellie-Landing-R97.glb",
+        "baselineFile": "E03-Ellie-Landing-R97.glb",
+        "meshes": 64,
+        "clips": 3,
+        "scale": 1.1561924704810125,
+        "measured": {
+          "width": 1.0130463540554047,
+          "height": 1.7990084290504456,
+          "depth": 0.47110939770936966,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.1712765668071008,
+          "scaledDepth": 0.5446931384044179
+        }
+      },
+      {
+        "id": "E04",
+        "file": "E04-Phil-Landing-R97.glb",
+        "baselineFile": "E04-Phil-Landing-R97.glb",
+        "meshes": 29,
+        "clips": 3,
+        "scale": 1.0196946503812525,
+        "measured": {
+          "width": 1.7490627467632294,
+          "height": 2.0398263335227966,
+          "depth": 0.6859154850244522,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.7835099260556044,
+          "scaledDepth": 0.699424350693096
+        }
+      },
+      {
+        "id": "G02",
+        "file": "G02-Snow-Landing-R97.glb",
+        "baselineFile": "G02-Snow-Landing-R97.glb",
+        "meshes": 22,
+        "clips": 3,
+        "scale": 1.1601123857160573,
+        "measured": {
+          "width": 1.819528877735138,
+          "height": 2.137723922729492,
+          "depth": 0.5725657716393471,
+          "scaledHeight": 2.48,
+          "scaledWidth": 2.110857987228571,
+          "scaledDepth": 0.6642406433158782
+        }
+      },
+      {
+        "id": "G03",
+        "file": "G03-Jay-Landing-R97.glb",
+        "baselineFile": "G03-Jay-Landing-R97.glb",
+        "meshes": 40,
+        "clips": 3,
+        "scale": 1.2680175077181488,
+        "measured": {
+          "width": 0.942365825176239,
+          "height": 1.6403558999300003,
+          "depth": 0.4358918368816376,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.1949363649987312,
+          "scaledDepth": 0.55271848063734
+        }
+      },
+      {
+        "id": "G04",
+        "file": "G04-Victoria-Landing-R97.glb",
+        "baselineFile": "G04-Victoria-Landing-R97.glb",
+        "meshes": 34,
+        "clips": 3,
+        "scale": 1.0462093766002631,
+        "measured": {
+          "width": 1.2005715370178223,
+          "height": 1.9881297630490735,
+          "depth": 0.3593907505273819,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.2560491993074356,
+          "scaledDepth": 0.3759979730651529
+        }
+      },
+      {
+        "id": "M01",
+        "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+        "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+        "meshes": 10,
+        "clips": 3,
+        "scale": 1.2145548303491536,
+        "measured": {
+          "width": 1.7198226432418822,
+          "height": 1.7125616300106048,
+          "depth": 0.34595575991321004,
+          "scaledHeight": 2.08,
+          "scaledWidth": 2.088818898693277,
+          "scaledDepth": 0.42018223928970133
+        }
+      },
+      {
+        "id": "M02",
+        "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+        "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+        "meshes": 13,
+        "clips": 10,
+        "scale": 1.207605590818463,
+        "measured": {
+          "width": 1.3318469087349012,
+          "height": 1.9459996027405533,
+          "depth": 0.7072997859928739,
+          "scaledHeight": 2.35,
+          "scaledWidth": 1.608345773102554,
+          "scaledDepth": 0.854139175949697
+        }
+      },
+      {
+        "id": "T01",
+        "file": "T01-Owl-Innerscene-R84.glb",
+        "baselineFile": "T01-Owl-Innerscene-R84.glb",
+        "meshes": 129,
+        "clips": 0,
+        "scale": 2.2423853646804206,
+        "measured": {
+          "width": 0.40802671015262604,
+          "height": 0.5128467292524874,
+          "depth": 0.21212051063776016,
+          "scaledHeight": 1.15,
+          "scaledWidth": 0.9149531232449486,
+          "scaledDepth": 0.4756559286026509
+        }
+      },
+      {
+        "id": "T02",
+        "file": "T02-LivingMenu-R59.glb",
+        "baselineFile": "T02-LivingMenu-R59.glb",
+        "meshes": 43,
+        "clips": 5,
+        "scale": 0.5544554685220894,
+        "measured": {
+          "width": 2.01999991628792,
+          "height": 2.6460000057680704,
+          "depth": 0.699999988079071,
+          "scaledHeight": 1.4670891729075866,
+          "scaledWidth": 1.12,
+          "scaledDepth": 0.3881188213558383
+        }
+      },
+      {
+        "id": "T03",
+        "file": "T03-Rain-Landing-R97.glb",
+        "baselineFile": "T03-Rain-Landing-R97.glb",
+        "meshes": 23,
+        "clips": 3,
+        "scale": 0.8400759744407087,
+        "measured": {
+          "width": 1.4443415105342865,
+          "height": 2.4759665355086327,
+          "depth": 0.8561546057462692,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.213356601887256,
+          "scaledDepth": 0.7192349146941979
+        }
+      },
+      {
+        "id": "T04",
+        "file": "T04-Rex-Landing-R97.glb",
+        "baselineFile": "T04-Rex-Landing-R97.glb",
+        "meshes": 38,
+        "clips": 3,
+        "scale": 0.9284593848281754,
+        "measured": {
+          "width": 2.438533514738083,
+          "height": 2.2402703166007996,
+          "depth": 0.5343174412846565,
+          "scaledHeight": 2.08,
+          "scaledWidth": 2.2640793269766086,
+          "scaledDepth": 0.4960920428381169
+        }
+      }
+    ],
+    "events": 2,
+    "angle": "0°",
+    "camera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.32,
+        11.35
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "portrait": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "crowd": {
+      "cuts": 0,
+      "weight": 0,
+      "spectatorIndex": null,
+      "frontFacingCloseup": false,
+      "teacherIntervention": false,
+      "extraRenderPasses": 0
+    },
+    "gpu": {
+      "profile": "balanced-desktop",
+      "pixelRatio": 1,
+      "shadowAutoUpdate": false,
+      "shadowPassRequests": 45,
+      "shadowSize": 2048,
+      "heroInsetDraws": 0,
+      "heroLayerSide": null,
+      "heroCameraLayer": null,
+      "totalDrawCalls": 825
+    },
+    "hasPortrait": false,
+    "hasAutoCard": false,
+    "manualArt": true,
+    "originalSourcePresent": true,
+    "soundOn": "true"
+  },
+  "afterAI": {
+    "ready": true,
+    "round": 2,
+    "sceneSources": [
+      {
+        "id": "E02",
+        "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+        "baselineFile": "E02-PaperPlane-R57.glb",
+        "meshes": 17,
+        "clips": 5,
+        "scale": 0.7421767179774135,
+        "measured": {
+          "width": 2.357928991317749,
+          "height": 0.42010927200317383,
+          "depth": 2.011215567588806,
+          "scaledHeight": 0.311795320687196,
+          "scaledWidth": 1.75,
+          "scaledDepth": 1.492677369098141
+        }
+      },
+      {
+        "id": "E03",
+        "file": "E03-Ellie-Landing-R97.glb",
+        "baselineFile": "E03-Ellie-Landing-R97.glb",
+        "meshes": 64,
+        "clips": 3,
+        "scale": 1.1561924704810125,
+        "measured": {
+          "width": 1.0130463540554047,
+          "height": 1.7990084290504456,
+          "depth": 0.47110939770936966,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.1712765668071008,
+          "scaledDepth": 0.5446931384044179
+        }
+      },
+      {
+        "id": "E04",
+        "file": "E04-Phil-Landing-R97.glb",
+        "baselineFile": "E04-Phil-Landing-R97.glb",
+        "meshes": 29,
+        "clips": 3,
+        "scale": 1.0196946503812525,
+        "measured": {
+          "width": 1.7490627467632294,
+          "height": 2.0398263335227966,
+          "depth": 0.6859154850244522,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.7835099260556044,
+          "scaledDepth": 0.699424350693096
+        }
+      },
+      {
+        "id": "G02",
+        "file": "G02-Snow-Landing-R97.glb",
+        "baselineFile": "G02-Snow-Landing-R97.glb",
+        "meshes": 22,
+        "clips": 3,
+        "scale": 1.1601123857160573,
+        "measured": {
+          "width": 1.819528877735138,
+          "height": 2.137723922729492,
+          "depth": 0.5725657716393471,
+          "scaledHeight": 2.48,
+          "scaledWidth": 2.110857987228571,
+          "scaledDepth": 0.6642406433158782
+        }
+      },
+      {
+        "id": "G03",
+        "file": "G03-Jay-Landing-R97.glb",
+        "baselineFile": "G03-Jay-Landing-R97.glb",
+        "meshes": 40,
+        "clips": 3,
+        "scale": 1.2680175077181488,
+        "measured": {
+          "width": 0.942365825176239,
+          "height": 1.6403558999300003,
+          "depth": 0.4358918368816376,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.1949363649987312,
+          "scaledDepth": 0.55271848063734
+        }
+      },
+      {
+        "id": "G04",
+        "file": "G04-Victoria-Landing-R97.glb",
+        "baselineFile": "G04-Victoria-Landing-R97.glb",
+        "meshes": 34,
+        "clips": 3,
+        "scale": 1.0462093766002631,
+        "measured": {
+          "width": 1.2005715370178223,
+          "height": 1.9881297630490735,
+          "depth": 0.3593907505273819,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.2560491993074356,
+          "scaledDepth": 0.3759979730651529
+        }
+      },
+      {
+        "id": "M01",
+        "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+        "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+        "meshes": 10,
+        "clips": 3,
+        "scale": 1.2145548303491536,
+        "measured": {
+          "width": 1.7198226432418822,
+          "height": 1.7125616300106048,
+          "depth": 0.34595575991321004,
+          "scaledHeight": 2.08,
+          "scaledWidth": 2.088818898693277,
+          "scaledDepth": 0.42018223928970133
+        }
+      },
+      {
+        "id": "M02",
+        "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+        "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+        "meshes": 13,
+        "clips": 10,
+        "scale": 1.207605590818463,
+        "measured": {
+          "width": 1.3318469087349012,
+          "height": 1.9459996027405533,
+          "depth": 0.7072997859928739,
+          "scaledHeight": 2.35,
+          "scaledWidth": 1.608345773102554,
+          "scaledDepth": 0.854139175949697
+        }
+      },
+      {
+        "id": "T01",
+        "file": "T01-Owl-Innerscene-R84.glb",
+        "baselineFile": "T01-Owl-Innerscene-R84.glb",
+        "meshes": 129,
+        "clips": 0,
+        "scale": 2.2423853646804206,
+        "measured": {
+          "width": 0.40802671015262604,
+          "height": 0.5128467292524874,
+          "depth": 0.21212051063776016,
+          "scaledHeight": 1.15,
+          "scaledWidth": 0.9149531232449486,
+          "scaledDepth": 0.4756559286026509
+        }
+      },
+      {
+        "id": "T02",
+        "file": "T02-LivingMenu-R59.glb",
+        "baselineFile": "T02-LivingMenu-R59.glb",
+        "meshes": 43,
+        "clips": 5,
+        "scale": 0.5544554685220894,
+        "measured": {
+          "width": 2.01999991628792,
+          "height": 2.6460000057680704,
+          "depth": 0.699999988079071,
+          "scaledHeight": 1.4670891729075866,
+          "scaledWidth": 1.12,
+          "scaledDepth": 0.3881188213558383
+        }
+      },
+      {
+        "id": "T03",
+        "file": "T03-Rain-Landing-R97.glb",
+        "baselineFile": "T03-Rain-Landing-R97.glb",
+        "meshes": 23,
+        "clips": 3,
+        "scale": 0.8400759744407087,
+        "measured": {
+          "width": 1.4443415105342865,
+          "height": 2.4759665355086327,
+          "depth": 0.8561546057462692,
+          "scaledHeight": 2.08,
+          "scaledWidth": 1.213356601887256,
+          "scaledDepth": 0.7192349146941979
+        }
+      },
+      {
+        "id": "T04",
+        "file": "T04-Rex-Landing-R97.glb",
+        "baselineFile": "T04-Rex-Landing-R97.glb",
+        "meshes": 38,
+        "clips": 3,
+        "scale": 0.9284593848281754,
+        "measured": {
+          "width": 2.438533514738083,
+          "height": 2.2402703166007996,
+          "depth": 0.5343174412846565,
+          "scaledHeight": 2.08,
+          "scaledWidth": 2.2640793269766086,
+          "scaledDepth": 0.4960920428381169
+        }
+      }
+    ],
+    "events": 5,
+    "angle": "0°",
+    "camera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.32,
+        11.35
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "portrait": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "crowd": {
+      "cuts": 0,
+      "weight": 0,
+      "spectatorIndex": null,
+      "frontFacingCloseup": false,
+      "teacherIntervention": false,
+      "extraRenderPasses": 0
+    },
+    "gpu": {
+      "profile": "balanced-desktop",
+      "pixelRatio": 1,
+      "shadowAutoUpdate": false,
+      "shadowPassRequests": 75,
+      "shadowSize": 2048,
+      "heroInsetDraws": 0,
+      "heroLayerSide": null,
+      "heroCameraLayer": null,
+      "totalDrawCalls": 877
+    },
+    "hasPortrait": false,
+    "hasAutoCard": false,
+    "manualArt": true,
+    "originalSourcePresent": true,
+    "soundOn": "true"
+  },
+  "manualCardDialog": true
+}
