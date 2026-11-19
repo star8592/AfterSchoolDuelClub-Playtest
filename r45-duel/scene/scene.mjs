@@ -16,6 +16,7 @@ import {createStadium} from './stadium.mjs';
 import {auditTextures} from './texture-gpu-audit.mjs';
 import {installTextureLifecycleTrace} from './texture-gpu-lifecycle.mjs';
 import {inspectMorphTextureBudget} from './morph-texture-budget.mjs';
+import {auditMorphHalfError} from './morph-half-error-audit.mjs';
 import {createSkinnedIndexUnion} from './skinned-index-union.mjs';
 import {createCampusSchoolMagic} from './campus-school-magic.mjs';
 import {schoolGestureForCard} from './campus-spell-gesture.mjs';
@@ -1917,6 +1918,7 @@ function exposeQA(){
   get r186ActorMotions(){return schoolMagicStage?.r186ActorMotions||[]},
   get r187InterleaveReceipt(){return r187InterleaveReceipt||{enabled:false}},
   get r192MorphBudget(){return R192_TRACE_GPU?inspectMorphTextureBudget(scene,renderer):{enabled:false}},
+  get r193MorphHalfError(){return R192_TRACE_GPU&&(PARAMS.get('r193MorphError')??r189Params.get('r193MorphError'))==='on'?auditMorphHalfError(THREE,scene):{enabled:false}},
   get r192Lifecycle(){return R192_TRACE_GPU&&r192GpuTrace?
      r192GpuTrace.snapshot(renderer,auditTextures(scene,renderer,r192GpuTrace).traceIDs):{enabled:false}},
   get r191TextureAudit(){return R189_STREAM&&(PARAMS.get('r191TextureAudit')??r189Params.get('r191TextureAudit'))==='on'

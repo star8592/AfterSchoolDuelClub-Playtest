@@ -1,0 +1,64 @@
+{
+  "version": "R193",
+  "pass": true,
+  "phase": "ended",
+  "realRounds": 6,
+  "cachedLabelKeys": 7,
+  "unusedScene2D": 8,
+  "unowned2DDimensions": [
+    {
+      "dimensions": {
+        "width": 1,
+        "height": 1
+      },
+      "count": 1
+    },
+    {
+      "dimensions": {
+        "width": 768,
+        "height": 184
+      },
+      "count": 7
+    }
+  ],
+  "allCachedLabelCountBounded": true,
+  "rounds": [
+    {
+      "turn": 1,
+      "labels": 1,
+      "gpu": 128,
+      "unowned2D": 1
+    },
+    {
+      "turn": 2,
+      "labels": 2,
+      "gpu": 130,
+      "unowned2D": 1
+    },
+    {
+      "turn": 3,
+      "labels": 2,
+      "gpu": 130,
+      "unowned2D": 1
+    },
+    {
+      "turn": 4,
+      "labels": 4,
+      "gpu": 134,
+      "unowned2D": 2
+    },
+    {
+      "turn": 5,
+      "labels": 5,
+      "gpu": 142,
+      "unowned2D": 3
+    },
+    {
+      "turn": 6,
+      "labels": 7,
+      "gpu": 162,
+      "unowned2D": 5
+    }
+  ],
+  "jsHttpErrors": []
+}

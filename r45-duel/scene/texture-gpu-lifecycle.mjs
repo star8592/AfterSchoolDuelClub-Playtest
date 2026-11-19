@@ -6,12 +6,13 @@
 export function installTextureLifecycleTrace(canvas){
   let nextId=1, installed=false, installError=null;
   const live=new Map(), ids=new WeakMap(), events=[],uploads3D=[],allocations3D=[];
+  const boundByUnit=new Map();let activeTextureUnit=0,glContext=null;
   const nativeGetContext=canvas.getContext;
   const maxEvents=2000;
   canvas.getContext=function(...args){
     const gl=nativeGetContext.apply(this,args);
     if(!gl||!/^webgl2?$|^experimental-webgl$/.test(String(args[0]))||installed)return gl;
-    installed=true;
+    installed=true;glContext=gl;
     try{
       const rawCreate=gl.createTexture.bind(gl);
       const rawDelete=gl.deleteTexture.bind(gl);
@@ -20,11 +21,56 @@ export function installTextureLifecycleTrace(canvas){
         if(texture){
           const id=nextId++;
           const stack=(new Error().stack||'').split('\n').slice(2,9).join(' | ').slice(0,1050);
-          const row={id,createdMs:Math.round(performance.now()),stack};
+          const row={id,createdMs:Math.round(performance.now()),stack,
+            targets:[],uploads2D:0,storage2D:null,lastUploadMs:null,uploadKinds:[]};
           ids.set(texture,id);live.set(id,row);
           if(events.length<maxEvents)events.push({kind:'create',id,ms:row.createdMs});
         }
         return texture;
+      };
+      // Read-only per-texture binding tracker, not a texture upload or cache change.
+      // Multi-unit tracking is essential: Three.js changes active texture units.
+      const rawActive=gl.activeTexture?.bind(gl);
+      if(rawActive)gl.activeTexture=function(unit){activeTextureUnit=unit-gl.TEXTURE0;return rawActive(unit)};
+      const rawBind=gl.bindTexture.bind(gl);
+      gl.bindTexture=function(target,texture){
+        let unit=boundByUnit.get(activeTextureUnit);
+        if(!unit){unit=new Map();boundByUnit.set(activeTextureUnit,unit)}
+        unit.set(target,texture);
+        const id=texture&&ids.get(texture),row=live.get(id);
+        if(row&&!row.targets.includes(target))row.targets.push(target);
+        return rawBind(target,texture);
+      };
+      function current(target){
+        const texture=boundByUnit.get(activeTextureUnit)?.get(target);
+        return live.get(texture&&ids.get(texture));
+      }
+      function mark2D(target,kind,width,height,byteLength=null){
+        const row=current(target);if(!row)return;
+        row.uploads2D++;
+        row.lastUploadMs=Math.round(performance.now());
+        if(row.uploadKinds.length<8)row.uploadKinds.push(kind);
+        if(width!=null&&height!=null)row.storage2D={width,height,byteLength,kind};
+      }
+      const rawStorage2D=gl.texStorage2D?.bind(gl);
+      if(rawStorage2D)gl.texStorage2D=function(...p){
+        mark2D(p[0],'texStorage2D',p[3],p[4]);return rawStorage2D(...p)
+      };
+      const rawImage2D=gl.texImage2D?.bind(gl);
+      if(rawImage2D)gl.texImage2D=function(...p){
+        const explicit=p.length>=9&&typeof p[3]==='number'&&typeof p[4]==='number';
+        const source=explicit?p[8]:p[p.length-1];
+        mark2D(p[0],'texImage2D',explicit?p[3]:source?.width??null,
+          explicit?p[4]:source?.height??null,source?.byteLength??null);
+        return rawImage2D(...p)
+      };
+      const rawSubImage2D=gl.texSubImage2D?.bind(gl);
+      if(rawSubImage2D)gl.texSubImage2D=function(...p){
+        const explicit=p.length>=9&&typeof p[4]==='number'&&typeof p[5]==='number';
+        const source=explicit?p[8]:p[p.length-1];
+        mark2D(p[0],'texSubImage2D',explicit?p[4]:source?.width??null,
+          explicit?p[5]:source?.height??null,source?.byteLength??null);
+        return rawSubImage2D(...p)
       };
       // Three.js morphTargetsTexture uses Float DataArrayTexture uploaded via
       // texImage3D. We record API-visible payload dimensions only; no pixel data.
@@ -95,6 +141,13 @@ export function installTextureLifecycleTrace(canvas){
           map.set(shape,value);return map;
         },new Map()).values()].sort((a,b)=>b.payloadBytes-a.payloadBytes).slice(0,20),
         unownedStacks:[...stacks.values()].sort((a,b)=>b.count-a.count).slice(0,25),
+        // R193: enumerate every unowned live object, not just the first 30.
+        // This includes morph textures, engine fallback textures and transient
+        // 2D labels cached by the school-magic stage (without assuming leaks).
+        unowned2DDetail:unowned.filter(x=>x.targets.includes(glContext?.TEXTURE_2D))
+          .map(x=>({...x,ageMs:Math.round(performance.now()-x.createdMs)})).slice(0,100),
+        unowned3DCount:unowned.filter(x=>x.targets.includes(glContext?.TEXTURE_2D_ARRAY)).length,
+        unownedUnknownTargetCount:unowned.filter(x=>x.targets.length===0).length,
         recentUnowned:unowned.slice(0,30),
         lastEvents:events.slice(-30)
       };

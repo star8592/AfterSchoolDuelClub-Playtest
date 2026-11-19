@@ -1,0 +1,69 @@
+{
+  "version": "R193",
+  "benchmark": "single-run observational first frame times, NOT rigorous latency comparison",
+  "startup": [
+    {
+      "runId": "classic-desktop-rgba16f_cpu2",
+      "pass": true,
+      "readyMs": 3015,
+      "morphUploadMiB": 32.268,
+      "alloc3D": 69,
+      "halfOverflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "classic-desktop-rgba16f_cpu2_native",
+      "pass": true,
+      "readyMs": 2957,
+      "morphUploadMiB": 32.268,
+      "alloc3D": 69,
+      "halfOverflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "classic-desktop-rgba32f_cpu2",
+      "pass": true,
+      "readyMs": 2900,
+      "morphUploadMiB": 64.537,
+      "alloc3D": 69,
+      "halfOverflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "classic-mobile-rgba16f_cpu4",
+      "pass": true,
+      "readyMs": 5722,
+      "morphUploadMiB": 32.268,
+      "alloc3D": 69,
+      "halfOverflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "classic-mobile-rgba16f_cpu4_native",
+      "pass": true,
+      "readyMs": 5405,
+      "morphUploadMiB": 32.268,
+      "alloc3D": 69,
+      "halfOverflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "classic-mobile-rgba32f_cpu4",
+      "pass": true,
+      "readyMs": 5487,
+      "morphUploadMiB": 64.537,
+      "alloc3D": 69,
+      "halfOverflow": 0,
+      "errors": []
+    }
+  ],
+  "nativeSample": {
+    "nativeBitsSamples": 250000,
+    "nativeBitsMismatch": 18867,
+    "nativeBetter": 17427,
+    "nativeWorse": 0,
+    "nativeMaxVsSoftware": 0.000977,
+    "nativeMaxAbsError": 0.000455,
+    "nativeOver001": 0
+  }
+}

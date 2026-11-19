@@ -1,0 +1,5 @@
+R193 full precision vs QA half precision — separately captured real Chrome PNGs.
+ImageMagick compare metrics; pixel deltas include asynchronous animation/timing.
+classic-desktop | AE: 1446 (0.00156901) | MAE: 0.488382 (7.45223e-06)
+kitchen-desktop | AE: 1098 (0.00119141) | MAE: 0.429635 (6.55581e-06)
+classic-mobile | AE: 280 (0.000723514) | MAE: 0.237078 (3.61757e-06)
