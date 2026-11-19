@@ -84,7 +84,7 @@ const sourceSpeechSeen=Object.fromEntries([...R140_SOURCE_VOICES].map(id=>[id,0]
 // R121 secondary physical camera: an actual 3D cinematic inset of the
 // original child, with its source facial morphs and wrist-bound painted card.
 // Main wide stadium composition and manual user orbit remain untouched.
-const heroCamera=new THREE.PerspectiveCamera(43,1,.10,90);
+// Secondary portrait camera eliminated by R198 wide-arena rule.
 // R124: show only the current podium performer in the cinematic inset.
 // The wide camera stays on layer 0; no low-poly proxy replaces the real VRM.
 // The game embeds scene/ as a same-origin iframe. Read the rollout
@@ -94,7 +94,7 @@ const r124Legacy=PARAMS.get('r124Quality')==='legacy'||(()=>{
    new URLSearchParams(window.parent.location.search).get('r124Quality')==='legacy'}
  catch{return false}
 })();
-heroCamera.layers.set(r124Legacy?0:1);
+// No portrait camera layers are allocated.
 let heroLayerSide=null,heroInsetDraws=0,shadowPassRequests=0,shadowAccumulator=0;
 const r124Mobile=()=>window.innerWidth<700&&(window.devicePixelRatio||1)>=1.5;
 const r124PixelRatio=()=>Math.min(window.devicePixelRatio||1,
@@ -110,13 +110,9 @@ const r145ActionLens=createR145RealSourceActionCamera(THREE);
 // Safest default is ALWAYS the R104 shared frontal court camera. Previous
 // ?r145ActionCamera=on links also stay wide until the art lab explicitly
 // opts in with a second key. No camera or game-rule changes for players.
-const r145ActionCameraEnabled=(()=>{
- const local=new URLSearchParams(location.search);
- const parent=(()=>{try{return window.parent!==window?
-  new URLSearchParams(window.parent.location.search):null;}catch{return null;}})();
- const read=key=>local.has(key)?local.get(key):parent?.get(key);
- return read('r147ArtLab')==='on'&&read('r145ActionCamera')==='on';
-})();
+// R198 permanent PC battle art rule: all automatic zoom/cut-in is disabled.
+// Explicit old r145/r147 art-lab links cannot override the wide 3D battlefield.
+const r145ActionCameraEnabled=false;
 let r145LastShot=null;
 let lastSourceIds=[],source3DAssetsVerified=false;
 let horizontalFov=0;
@@ -889,11 +885,7 @@ function loop(){
   const hit=stadiumEvidence?.reactSpectatorAccident?.(accident,absoluteSeconds);
   if(!hit)continue;
   const prop=bleacherProps?.play(accident,absoluteSeconds);
-  if(prop&&PARAMS.get('r123Closeup')!=='off'){
-   crowdCloseup={anchor:{...hit},started:absoluteSeconds,scenario:accident.scenario,
-    spectatorIndex:accident.spectatorIndex};
-   r123ReactionCuts++;
-  }
+  // Keep the crowd gag visible in the shared wide arena; no camera cut.
   r122AccidentReceipts++;
   reply('ASDC_R122_CROWD_ACCIDENT',{
    serial:accident.serial,card:accident.card,side:accident.side,
@@ -916,7 +908,8 @@ function loop(){
  // Deliberate single slow push-in during actual contact. No shake or
  // random camera jitter. Stays inside the same view and card layout.
  const narrow=camera.aspect<.85;
- const push=playing?(phaseValue(t,1.90,2.75)*(1-phaseValue(t,4.25,5.55))):0;
+ // Automatic attack/card push-ins are prohibited.
+ const push=0;
  orbitYaw+=(orbitTargetYaw-orbitYaw)*(1-Math.exp(-delta*8));
  const angle=orbitYaw*Math.PI/180;
  // World-space orbital viewpoint with a dynamically fitted camera distance.
@@ -925,7 +918,8 @@ function loop(){
  // orbit radius rather than cropping an actor or altering its world scale.
  const diagonalFit=1+.14*Math.abs(Math.sin(2*angle));
  const distance=orbitBaseDistance*orbitZoom*diagonalFit-push*(narrow?.10:.25);
- const arc=playing&&!reduced?Math.sin(Math.PI*clamp((t-1.5)/3.6,0,1))*(narrow?.035:.11):0;
+ // The player may orbit manually; attacks do not steer this camera.
+ const arc=0;
  // R104: natural *front-row audience* camera; no overhead-isometric shot.
  // Scale the modest elevation with fitted orbit distance so desktop and phone
  // always share a stable 15-degree viewing pitch despite aspect differences.
@@ -940,64 +934,10 @@ function loop(){
  // audience shot; restore the original camera mathematically every frame.
  let aimX=CAMERA_LOOK_AT.x,aimY=CAMERA_LOOK_AT.y+push*.07,aimZ=CAMERA_LOOK_AT.z;
  r123ShotWeight=0;
- if(crowdCloseup){
-  const elapsed=absoluteSeconds-crowdCloseup.started;
-  if(elapsed>4.85)crowdCloseup=null;
-  else if(elapsed>=0&&!reduced&&Math.abs(orbitYaw)<45){
-   const smooth=v=>{const q=clamp(v,0,1);return q*q*(3-2*q)};
-   // Student takes the hit; only afterwards does the *actual mounted*
-   // M01 music teacher become the hero of a short disciplinary cutaway.
-   // The teacher's source GLB and Qwen line must match the same character.
-   const teacher=elapsed>=2.32?stadiumEvidence?.spectatorAnchor?.(7):null;
-   const teacherBeat=!!teacher&&elapsed>=2.32;
-   const weight=teacherBeat?
-    .94*smooth((elapsed-2.32)/.30)*(1-smooth((elapsed-3.87)/.65)):
-    .96*smooth(elapsed/.34)*(1-smooth((elapsed-1.68)/.78));
-   const a=teacherBeat?teacher:crowdCloseup.anchor;
-   const target=new THREE.Vector3(a.x+(teacherBeat?.62:0),
-    a.y+(teacherBeat?.92:1.31),a.z+.22);
-   const eye=teacherBeat?
-    new THREE.Vector3(target.x+1.25,target.y+(narrow?.78:.59),
-     target.z+(narrow?4.70:3.34)):
-    new THREE.Vector3(target.x+(target.x>0?-.32:.32),
-     target.y+(narrow?1.18:.82),target.z+(narrow?5.50:4.28));
-   camera.position.lerp(eye,weight);
-   aimX+=(target.x-aimX)*weight;
-   aimY+=(target.y-aimY)*weight;
-   aimZ+=(target.z-aimZ)*weight;
-   r123ShotWeight=weight;
-  }
- }
- // R145: briefly let the EXISTING original unit fight occupy the lens
- // during its verified R51 attack/hit phase. Zero new meshes and no rule
- // changes. The normal R104 manual frontal orbit is recomputed next frame.
- const realFocus=r145ActionCameraEnabled?
-  summonPresence?.getR145RealFocus?.(absoluteSeconds):null;
- r145LastShot=r145ActionCameraEnabled?
-  r145ActionLens.apply(camera,realFocus,{
-   narrow,reducedMotion:reduced,crowdWeight:r123ShotWeight,
-   orbitDegrees:orbitYaw,userDragging:!!pointerDrag
-  }):null;
- if(r145LastShot){
-  aimX+=(r145LastShot.x-aimX)*r145LastShot.weight;
-  aimY+=(r145LastShot.y-aimY)*r145LastShot.weight;
-  aimZ+=(r145LastShot.z-aimZ)*r145LastShot.weight;
- }
+ // Do not apply the R145 action camera under any URL or action.
+ r145LastShot=null;
  camera.lookAt(aimX,aimY,aimZ);
- // Review actual source actors large enough to see knees, soles, hands and
- // clothing deformation. QA-only: no player can accidentally enter this
- // mode without the explicit ?qa=1 flag.
- if(R131_IS_QA()&&r131QaCloseup&&summonPresence){
-  const actor=summonPresence.inspect(camera)?.entries?.find(x=>
-   x.id===r131QaCloseup);
-  if(actor){
-   const [x,y,z]=actor.position;
-   const radius=3.45;
-   camera.position.set(x+Math.cos(r131QaAngle)*radius,
-    y+1.46,z+Math.sin(r131QaAngle)*radius);
-   camera.lookAt(x,y+1.01,z);
-  }
- }
+ // No QA face/actor zoom either; both opponents remain visible.
  keepArenaVisible();
  const contact=t>=2.83&&t<3.11||t>=3.88&&t<4.15;
  $('impact').hidden=!playing||!contact;
@@ -1023,121 +963,10 @@ function loop(){
   }
  }
  renderer.render(scene,camera);
- // A camera cut never changes geometry orientation, physical animation or
- // the actual player's chosen orbit. Render an inset in the SAME WebGL
- // context for a maximum ~2 seconds, no second canvas, no fake 2D portrait.
- let currentDraws=renderer.info.render.calls;
- const focusCandidates=['player','ai'].map(side=>({
-  side,started:hostAction[side].started,
-  age:absoluteSeconds-hostAction[side].started
- })).filter(x=>x.age>.28&&x.age<2.19).sort((a,b)=>b.started-a.started);
- const ending=absoluteSeconds-heroResult.started;
- const talkingCandidates=['player','ai'].map(side=>({
-  side,speech:hostSpeech[side],age:hostSpeech[side]?
-   absoluteSeconds-hostSpeech[side].started:Infinity
- })).filter(x=>x.speech&&x.age>=.12&&
-   x.age<Math.min(x.speech.duration,2.7))
-  .sort((a,b)=>b.speech.started-a.speech.started);
- const focus=focusCandidates[0]||
-  (['player','ai'].includes(heroResult.winner)&&ending>=.38&&ending<2.25?
-   {side:heroResult.winner,age:ending,result:true}:null)||
-  (talkingCandidates[0]?{side:talkingCandidates[0].side,
-   age:talkingCandidates[0].age,voice:true}:null);
- heroLens.visible=false;
- if(focus&&!reduced&&!legacyCamera){
-  const host=duelistHosts.find(x=>x.side===focus.side);
-  if(host){
-   if(!r124Legacy&&heroLayerSide!==focus.side){
-    for(const h of duelistHosts)h.pivot.traverse(obj=>{
-     if(h.side===focus.side)obj.layers.enable(1);else obj.layers.disable(1);
-    });
-    heroLayerSide=focus.side;
-   }
-   const size=new THREE.Vector2();renderer.getSize(size);
-   const width=Math.max(1,Math.floor(size.x*(size.x<680?.40:.265)));
-   const height=Math.max(1,Math.floor(size.y*(size.x<680?.262:.34)));
-   const x=focus.side==='player'?Math.floor(size.x-width-18):18;
-   // Stay below the 3D scene top controls and scoreboard; the original
-   // R121 first shot occupied this HUD row and hid the child's face.
-   const y=Math.floor(size.y*(size.x<680?.40:.42));
-   const sign=focus.side==='player'?1:-1;
-   const cx=host.pivot.position.x,cy=host.pivot.position.y;
-   heroCamera.aspect=width/height;
-   heroCamera.fov=focus.voice?(size.x<680?39:35):size.x<680?46:41;
-   heroCamera.updateProjectionMatrix();
-   // Camera approaches from spectator side and slightly towards opponent,
-   // so the actual card and each child's eyes remain simultaneously visible.
-   // Actual chest-up shot: original VRM face + the raised card, not a
-   // redundant long-shot with an oversized card eclipsing the eyes.
-   // Film the eyes from the direction the child is facing (opponent side),
-   // rather than filming the BACK of the raised card from the grandstand.
-   // A speaking child gets an ACTUAL face-and-shoulders shot, aimed at the
-   // source head bone. Card play retains the wider physical-hand framing.
-   host.pivot.updateWorldMatrix(true,true);
-   const sourceHead=host.pivot.getObjectByName('J_Bip_C_Head');
-   const sourceFace=sourceHead?.getWorldPosition(new THREE.Vector3());
-   let eye;
-   if(focus.voice&&sourceFace){
-    heroCamera.position.set(sourceFace.x+sign*1.48,
-     sourceFace.y+.22,sourceFace.z+.52);
-    eye=sourceFace.clone().add(new THREE.Vector3(0,-.10,0));
-   }else{
-    // R124 native face readability: the original distance framed almost the
-    // whole body and concealed the original VRM Joy/Sorrow behind hair.
-    // Keep the real face in the close-up; artwork remains visible in the main
-    // arena. A stronger side view made the physical card obscure the eyes.
-    heroCamera.position.set(cx+sign*1.75,cy+1.84,host.pivot.position.z+.48);
-    eye=new THREE.Vector3(cx+sign*.30,cy+1.74,host.pivot.position.z+.04);
-   }
-   heroCamera.lookAt(eye);
-   renderer.setScissorTest(true);
-   renderer.setViewport(x,y,width,height);
-   renderer.setScissor(x,y,width,height);
-   renderer.autoClear=false;
-   renderer.clear(true,true,true);
-   renderer.render(scene,heroCamera);
-   heroInsetDraws=renderer.info.render.calls;
-   currentDraws+=heroInsetDraws;
-   renderer.autoClear=true;
-   renderer.setScissorTest(false);
-   renderer.setViewport(0,0,size.x,size.y);
-   renderer.setScissor(0,0,size.x,size.y);
-   host.pivot.updateWorldMatrix(true,true);
-   const head=host.pivot.getObjectByName('J_Bip_C_Head');
-   const face=head?.getWorldPosition(new THREE.Vector3()).project(heroCamera);
-   const wrist=host.pivot.getObjectByName('J_Bip_R_Hand');
-   const card=wrist?.getWorldPosition(new THREE.Vector3())
-    .add(new THREE.Vector3(0,.070,.067)).project(heroCamera);
-   const separation=face&&card?Math.hypot(face.x-card.x,face.y-card.y):0;
-   heroLens={side:focus.side,phase:focus.result?'victory_closeup':
-    focus.voice?'actual_qwen_voice_closeup':
-    focus.age<1.25?'card_reveal_closeup':'card_cast_closeup',
-    frames:heroLens.frames+1,visible:true,
-    inset:{x,y,width,height,
-     topMarginPx:size.y-(y+height),bottomMarginPx:y},faceNdc:face?
-     [face.x,face.y,face.z].map(v=>+v.toFixed(3)):null,
-    cardNdc:card?[card.x,card.y,card.z].map(v=>+v.toFixed(3)):null,
-    faceCardSeparation:+separation.toFixed(4),
-    lastDrawCalls:currentDraws};
-  }
- }
- if(!heroLens.visible){heroLens.side=null;heroLens.phase='idle'}
- const portrait=$('hero-portrait-frame');
- if(portrait){
-  portrait.hidden=!heroLens.visible;
-  if(heroLens.visible){
-   const{inset,side,phase}=heroLens;
-   portrait.style.left=inset.x+'px';
-   portrait.style.top=inset.topMarginPx+'px';
-   portrait.style.width=inset.width+'px';
-   portrait.style.height=inset.height+'px';
-   portrait.dataset.side=side;
-   $('hero-portrait-caption').textContent=phase==='victory_closeup'?
-    '决斗者 · 胜利特写':phase==='actual_qwen_voice_closeup'?
-    (side==='player'?'我方决斗者 · 原声发言':'对方决斗者 · 原声发言'):
-    side==='player'?'我方 · 举牌特写':'对手 · 举牌特写';
-  }
- }
+ // Exactly one full-arena render; no portrait inset or second GPU pass.
+ const currentDraws=renderer.info.render.calls;
+ heroLens.visible=false;heroLens.side=null;heroLens.phase='idle';
+ heroInsetDraws=0;
  frames++;drawCount=currentDraws;
 }
 function reply(type,other={}){
@@ -1386,7 +1215,7 @@ function exposeQA(){
   get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,
-   heroInsetDraws,heroLayerSide,heroCameraLayer:heroCamera.layers.mask,
+   heroInsetDraws,heroLayerSide,heroCameraLayer:null,
    totalDrawCalls:drawCount};},
   get spellImpact(){return spellImpact?.stats||null},
   get magicArsenal(){return magicArsenal?.stats||null},
@@ -1401,7 +1230,7 @@ function exposeQA(){
   get bleacherProps(){return bleacherProps?.stats||null},
   get r123Camera(){return {cuts:r123ReactionCuts,weight:+r123ShotWeight.toFixed(3),
    spectatorIndex:crowdCloseup?.spectatorIndex??null,
-   frontFacingCloseup:true,teacherIntervention:!!crowdCloseup&&absoluteSeconds-crowdCloseup.started>=2.32,extraRenderPasses:0}},
+   frontFacingCloseup:false,teacherIntervention:!!crowdCloseup&&absoluteSeconds-crowdCloseup.started>=2.32,extraRenderPasses:0}},
   get comboDirector(){return comboDirector?.stats||null},
   get comedySpectacle(){return comedySpectacle?.stats||null},
   get hostHits(){return structuredClone(hostHits)},
