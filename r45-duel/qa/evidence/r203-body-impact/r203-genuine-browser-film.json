@@ -1,0 +1,54 @@
+{
+  "source": "Chrome/Vulkan/WebGL2 real gameplay",
+  "screenSize": "1440x860",
+  "videoCapture": "Playwright real page video, silent by design",
+  "ids": [
+    "K04",
+    "S08",
+    "P03",
+    "X05",
+    "Q07"
+  ],
+  "errors": [],
+  "pass": true,
+  "K04": {
+    "id": "K04",
+    "head": 1.6276999999955295,
+    "prop": "K04",
+    "zoom": false,
+    "old": 0,
+    "inset": 0
+  },
+  "S08": {
+    "id": "S08",
+    "head": 4.722299999997021,
+    "prop": "S08",
+    "zoom": false,
+    "old": 0,
+    "inset": 0
+  },
+  "P03": {
+    "id": "P03",
+    "head": 7.8303999999985106,
+    "prop": "P03",
+    "zoom": false,
+    "old": 0,
+    "inset": 0
+  },
+  "X05": {
+    "id": "X05",
+    "head": 10.964699999995517,
+    "prop": "X05",
+    "zoom": false,
+    "old": 0,
+    "inset": 0
+  },
+  "Q07": {
+    "id": "Q07",
+    "head": 14.079899999998482,
+    "prop": "Q07",
+    "zoom": false,
+    "old": 0,
+    "inset": 0
+  }
+}

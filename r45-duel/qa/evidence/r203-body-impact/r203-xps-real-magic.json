@@ -1,0 +1,211 @@
+{
+  "source": "independent XPS 15 Intel UHD630 Linux Chrome 155",
+  "url": "http://10.10.10.138:18689/r45-duel/?qa=1&seed=1&deck=science&r199PhysicalMagic=on&r200Pbr=on&r200Readable=on&r202BodyHit=on&r203BodyHit=on",
+  "pass": true,
+  "errors": [],
+  "tests": [
+    "16 genuine source models and physical spell stage ready",
+    "Real hand S08 spell authored GLB with physical staging; no old lights/closeup"
+  ],
+  "initial": {
+    "ready": true,
+    "models": 16,
+    "magic": true,
+    "turn": 1
+  },
+  "readyMs": 5586,
+  "after": {
+    "spell": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "r202BodyHit": true,
+      "r203BodyHit": true,
+      "signatureBodies": [
+        "E06",
+        "Q05",
+        "K01",
+        "K07",
+        "P07",
+        "K04",
+        "S08",
+        "P03",
+        "X05",
+        "Q07"
+      ],
+      "loadedRealAssets": 2,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [
+        "S08",
+        "S02"
+      ],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0,
+        "urgentWaiting": [],
+        "backgroundWaiting": [],
+        "promotions": 0,
+        "completed": 2,
+        "failed": 0
+      },
+      "pendingUnrenderedContacts": 0,
+      "synchronisedContacts": 1,
+      "casts": 1,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "r202BodyImpact": true,
+        "r203BodyImpact": true,
+        "gracefulRetirements": 0,
+        "signatureImpactIds": [
+          "E06",
+          "Q05",
+          "K01",
+          "K07",
+          "P07",
+          "K04",
+          "S08",
+          "P03",
+          "X05",
+          "Q07"
+        ],
+        "originalDetachedProjectiles": [
+          {
+            "id": "S08",
+            "names": [
+              "S08_FLYING_CAN_ACTOR"
+            ],
+            "meshCount": 4,
+            "originalMeshSource": true
+          }
+        ],
+        "physicalFlights": 1,
+        "actualBodyContacts": 1,
+        "previewBodyContacts": 0,
+        "physicalConsequences": {
+          "spawned": 1,
+          "expired": 0,
+          "active": 1,
+          "peak": 1,
+          "physicalKinds": [
+            "soda"
+          ],
+          "oneMeshDrawPerPhysicalMaterial": true,
+          "addedPointLights": 0,
+          "addedGlowRings": 0,
+          "addedSprites": 0
+        },
+        "activeBodyFlights": [
+          {
+            "id": "S08",
+            "serial": 2,
+            "preview": false,
+            "enemy": true,
+            "propWorld": [
+              -2.8,
+              0.18,
+              -0.44
+            ],
+            "bodyHitWorld": [
+              5.331,
+              2.146,
+              0.944
+            ],
+            "originalVisibleMeshCenter": [
+              5.307,
+              2.146,
+              0.945
+            ],
+            "actualMeshToBodyMeters": 0.024
+          }
+        ],
+        "authoredHighDetailAssets": [
+          "S08",
+          "S02"
+        ],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "peakObjects": 14,
+        "peakDraws": 14,
+        "uniqueRenderedProps": 1,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 1,
+        "lastBySide": {
+          "player": "S08",
+          "ai": null
+        },
+        "activeIds": [
+          "S08"
+        ]
+      },
+      "loadedReceipts": [
+        {
+          "id": "S08",
+          "source": "real-blender-glb",
+          "file": "S08_Angry_Campus_Vending_Machine.glb",
+          "meshes": 14,
+          "triangles": 40552,
+          "texturedVariant": false,
+          "priority": "urgent",
+          "readyMs": 173.1
+        },
+        {
+          "id": "S02",
+          "source": "real-blender-glb",
+          "file": "S02_One_Pencil_Tiny_Stationery_Case.glb",
+          "meshes": 12,
+          "triangles": 16824,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 47.7
+        }
+      ],
+      "loadedAssetDetails": [
+        {
+          "id": "S08",
+          "source": "real-blender-glb",
+          "file": "S08_Angry_Campus_Vending_Machine.glb",
+          "meshes": 14,
+          "triangles": 40552,
+          "texturedVariant": false,
+          "priority": "urgent",
+          "readyMs": 173.1
+        },
+        {
+          "id": "S02",
+          "source": "real-blender-glb",
+          "file": "S02_One_Pencil_Tiny_Stationery_Case.glb",
+          "meshes": 12,
+          "triangles": 16824,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 47.7
+        }
+      ]
+    },
+    "legacy": 0,
+    "oldImpact": 0,
+    "events": [
+      "S08"
+    ],
+    "camera": false,
+    "heroInset": 0
+  }
+}

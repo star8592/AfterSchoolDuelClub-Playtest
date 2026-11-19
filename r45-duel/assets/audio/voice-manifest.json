@@ -1306,6 +1306,61 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "r203_K04": {
+        "file": "HOST_PLAYER-r203_K04.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "哎呀！辣椒月饼也不能往脸上扔呀！",
+        "duration_seconds": 3.51,
+        "sha256": "689baf9cfc34894b8aaa700a7a76d66109c32e2e6abfaf5926102206fef505c6",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r203_S08": {
+        "file": "HOST_PLAYER-r203_S08.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "我还没投币呢！汽水就砸过来啦！",
+        "duration_seconds": 2.65,
+        "sha256": "fc9f2235bfc7dff31a46e6ad1096be14bd4b7ee8a7f4bba46a018690f6d7ff1f",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r203_P03": {
+        "file": "HOST_PLAYER-r203_P03.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "哎呀！恐龙是纸箱做的也不能踩我呀！",
+        "duration_seconds": 3.51,
+        "sha256": "42b2207b7e6fa4240d5fb4dca99198b3adc0fa60d0509be0f7ca7148bc4d5db0",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r203_X05": {
+        "file": "HOST_PLAYER-r203_X05.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "啊！这么多作业，先让我把脸露出来呀！",
+        "duration_seconds": 4.01,
+        "sha256": "25684aecc3dd9bf9fa9b7df39dfb8ea572e9468ed371f7502573d3f69de21e58",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r203_Q07": {
+        "file": "HOST_PLAYER-r203_Q07.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "等等！天上的月亮怎么掉到我头上啦！",
+        "duration_seconds": 2.81,
+        "sha256": "ec20b439a6e2b4e87f1d323ec60c165fecb1e9beefce92c41c998aa336029da9",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "HOST_AI": {
@@ -1437,6 +1492,61 @@
         "text": "哎哟喂！天鹅滑冰怎么滑到我脚下啦！",
         "duration_seconds": 3.81,
         "sha256": "db9fe089aec88ded1b3f11fdaf301f881f248ccfc8ab457cc23ee122bb6d0ce2",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r203_K04": {
+        "file": "HOST_AI-r203_K04.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "辣死我啦！谁把辣椒塞进月饼里了！",
+        "duration_seconds": 2.65,
+        "sha256": "7676d4e1e27f811eab4f702d84c52068910fc929ec6d847d7e9d1db0bb0adde0",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r203_S08": {
+        "file": "HOST_AI-r203_S08.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "哎哟！售货机怎么把汽水罐当炮弹啦！",
+        "duration_seconds": 3.41,
+        "sha256": "ab8975db38f53c1573433b0065a7324d5c771eedfaaa8dcf82eb36f4a664ccda",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r203_P03": {
+        "file": "HOST_AI-r203_P03.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "快跑！那个纸箱恐龙踩到我鞋了！",
+        "duration_seconds": 3.21,
+        "sha256": "e7a53e08c4ae4dc5d5371d78a1e1b828f78c7acced691d8850436558505379f8",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r203_X05": {
+        "file": "HOST_AI-r203_X05.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "救命！作业本怎么下起暴风雪啦！",
+        "duration_seconds": 3.31,
+        "sha256": "7a8e5720f6e3cb14a645496baf59944690a2860bf76794817bb514fdb90ce7e1",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r203_Q07": {
+        "file": "HOST_AI-r203_Q07.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "哎哟！教室里的第二个月亮砸我头了！",
+        "duration_seconds": 3.61,
+        "sha256": "74427fcf5760b37bea1f38b362fc01f176d6dd9b755e1e1eaa3b8c635eacba94",
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
