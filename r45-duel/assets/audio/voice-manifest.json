@@ -1251,6 +1251,61 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "r202_E06": {
+        "file": "HOST_PLAYER-r202_E06.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "哎呀！黑板擦擦的是我这张脸呀！",
+        "duration_seconds": 3.81,
+        "sha256": "e6c3d3a18f25bb1dd3a92fe7bd8c82d7ea9d1bd4004d01000b2d3687aebe1011",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r202_Q05": {
+        "file": "HOST_PLAYER-r202_Q05.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "阿嚏！这采访我拒绝，粉笔灰太大啦！",
+        "duration_seconds": 4.41,
+        "sha256": "8e9099e8b7dfefcdc8adb3a5dad99c7cadb6ab36d5a5cf57559c0e75f0aee4d0",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r202_K01": {
+        "file": "HOST_PLAYER-r202_K01.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "救命！我头上怎么多了一道黑暗料理！",
+        "duration_seconds": 4.41,
+        "sha256": "9e930bb70c2d2c27e3e3fdd951b3cd58fcd5ec34d6fd3633f5be80c69dd8763d",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r202_K07": {
+        "file": "HOST_PLAYER-r202_K07.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "呀！这布丁里面居然藏着一只蛤蟆！",
+        "duration_seconds": 4.41,
+        "sha256": "993822414f8986b4336e7675c60d27eafc68ba6ff3aeffcf690c82b26fae3920",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r202_P07": {
+        "file": "HOST_PLAYER-r202_P07.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "啊呀！冰太滑了，我的鞋都刹不住啦！",
+        "duration_seconds": 4.01,
+        "sha256": "9530cb82cd428fd6664a0f5d56e24e9fbc9b638b3dc4e86fc73ee929d6e30307",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "HOST_AI": {
@@ -1330,6 +1385,61 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "loudness_processing": "EBU R128 target -16 LUFS / -1.5 dBTP; Qwen3 source voice preserved"
+      },
+      "r202_E06": {
+        "file": "HOST_AI-r202_E06.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "哎哟！谁拿黑板擦砸我的脑袋！",
+        "duration_seconds": 2.89,
+        "sha256": "02fdd035a6d5a42a1438583c087a896456fb569c4d580dcc4c1e868daaef0173",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r202_Q05": {
+        "file": "HOST_AI-r202_Q05.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "阿嚏！粉笔记者会怎么开到我鼻子里了！",
+        "duration_seconds": 4.01,
+        "sha256": "687f2fb9e05b9b63f433833ba75bb5abe0660d0fe72a8505f72ba20607188428",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r202_K01": {
+        "file": "HOST_AI-r202_K01.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "等等！为什么茄子和香蕉都砸过来了！",
+        "duration_seconds": 2.81,
+        "sha256": "b22b5a1e3f007879854f8f6686016a055967a331043d0a8d967ef3458ff3b192",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r202_K07": {
+        "file": "HOST_AI-r202_K07.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "啊！蛤蟆怎么跳到我肩膀上了！",
+        "duration_seconds": 4.01,
+        "sha256": "c79a8f45b5aa342810992fcccc0913a0e4a59a104e51836e9a17ba10ea7508d6",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "r202_P07": {
+        "file": "HOST_AI-r202_P07.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "哎哟喂！天鹅滑冰怎么滑到我脚下啦！",
+        "duration_seconds": 3.81,
+        "sha256": "db9fe089aec88ded1b3f11fdaf301f881f248ccfc8ab457cc23ee122bb6d0ce2",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "E02": {

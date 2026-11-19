@@ -1,0 +1,162 @@
+{
+  "version": "R202",
+  "productionStatus": "Draft NO-GO, isolated on R201/R200/R199",
+  "realActorsOnly": true,
+  "noCloseup": true,
+  "sourceScene": "Real Chrome WebGL2 desktop and independent Intel UHD630",
+  "fiveDistinctOpposingBodyReactions": [
+    {
+      "id": "E06",
+      "originalGLB": true,
+      "originalSourceBodyContactDistanceMeters": 0.065,
+      "actualVRMHeadOrChestOrFoot": [
+        5.283,
+        2.302,
+        0.902
+      ],
+      "originalModelAtContact": [
+        5.241,
+        2.351,
+        0.909
+      ],
+      "showcaseRuleHpUnchanged": true
+    },
+    {
+      "id": "Q05",
+      "originalGLB": true,
+      "originalSourceBodyContactDistanceMeters": 0.136,
+      "actualVRMHeadOrChestOrFoot": [
+        5.324,
+        2.151,
+        0.864
+      ],
+      "originalModelAtContact": [
+        5.356,
+        2.24,
+        0.962
+      ],
+      "showcaseRuleHpUnchanged": true
+    },
+    {
+      "id": "K01",
+      "originalGLB": true,
+      "originalSourceBodyContactDistanceMeters": 0.242,
+      "actualVRMHeadOrChestOrFoot": [
+        5.28,
+        2.086,
+        0.955
+      ],
+      "originalModelAtContact": [
+        5.138,
+        2.282,
+        0.962
+      ],
+      "showcaseRuleHpUnchanged": true
+    },
+    {
+      "id": "K07",
+      "originalGLB": true,
+      "originalSourceBodyContactDistanceMeters": 0.305,
+      "actualVRMHeadOrChestOrFoot": [
+        5.247,
+        2.171,
+        1.491
+      ],
+      "originalModelAtContact": [
+        4.955,
+        2.106,
+        1.427
+      ],
+      "showcaseRuleHpUnchanged": true
+    },
+    {
+      "id": "P07",
+      "originalGLB": true,
+      "originalSourceBodyContactDistanceMeters": 0.234,
+      "actualVRMHeadOrChestOrFoot": [
+        5.264,
+        0.804,
+        0.94
+      ],
+      "originalModelAtContact": [
+        5.227,
+        0.573,
+        0.928
+      ],
+      "showcaseRuleHpUnchanged": true
+    }
+  ],
+  "fiveHitVisibleEffects": [
+    "heavy blackboard eraser hits skull, falls with solid chalk debris and guarding source rig",
+    "chalk press sprays original opponent face, sneeze + original body pose",
+    "eggplant-banana hot pan food splat against chest and disgust dodge",
+    "jelly frog leaps to shoulder, bell and jump scare source body reaction",
+    "black swan ice sheet slides under feet, original VRM body slips"
+  ],
+  "realRuleCard": {
+    "id": "Q05",
+    "actualDamage": 2,
+    "actualContactOnce": true,
+    "actualMaleVoicePlayed": true,
+    "voiceClip": "HOST_AI-r202_Q05.ogg",
+    "oldLightArsenalPlayed": 0,
+    "oldSpellImpactPlayed": 0
+  },
+  "femaleVoicePreview": {
+    "id": "E06",
+    "realOpusActuallyPlayed": true,
+    "clip": "HOST_PLAYER-r202_E06.ogg",
+    "noHpChange": true
+  },
+  "originalQwenRecordings": {
+    "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "clips": 10,
+    "speakerGenders": {
+      "male": 5,
+      "female": 5
+    },
+    "totalBytes": 225535,
+    "humanListeningAcceptance": "pending",
+    "hashes": {
+      "HOST_PLAYER-r202_E06.ogg": "e6c3d3a18f25bb1dd3a92fe7bd8c82d7ea9d1bd4004d01000b2d3687aebe1011",
+      "HOST_AI-r202_E06.ogg": "02fdd035a6d5a42a1438583c087a896456fb569c4d580dcc4c1e868daaef0173",
+      "HOST_PLAYER-r202_Q05.ogg": "8e9099e8b7dfefcdc8adb3a5dad99c7cadb6ab36d5a5cf57559c0e75f0aee4d0",
+      "HOST_AI-r202_Q05.ogg": "687f2fb9e05b9b63f433833ba75bb5abe0660d0fe72a8505f72ba20607188428",
+      "HOST_PLAYER-r202_K01.ogg": "9e930bb70c2d2c27e3e3fdd951b3cd58fcd5ec34d6fd3633f5be80c69dd8763d",
+      "HOST_AI-r202_K01.ogg": "b22b5a1e3f007879854f8f6686016a055967a331043d0a8d967ef3458ff3b192",
+      "HOST_PLAYER-r202_K07.ogg": "993822414f8986b4336e7675c60d27eafc68ba6ff3aeffcf690c82b26fae3920",
+      "HOST_AI-r202_K07.ogg": "c79a8f45b5aa342810992fcccc0913a0e4a59a104e51836e9a17ba10ea7508d6",
+      "HOST_PLAYER-r202_P07.ogg": "9530cb82cd428fd6664a0f5d56e24e9fbc9b638b3dc4e86fc73ee929d6e30307",
+      "HOST_AI-r202_P07.ogg": "db9fe089aec88ded1b3f11fdaf301f881f248ccfc8ab457cc23ee122bb6d0ce2"
+    }
+  },
+  "wideArenaOriginalModelRotation": {
+    "uniqueSpellGLBs": 46,
+    "castPreviewEvents": 47,
+    "realLoadedGLBCacheMax": 8,
+    "safeEvictions": 40,
+    "realPhysicalFlightLaunches": 47,
+    "5SpecificImpactQA": "separate 5/5 collision tests, not 46 unique post-impact actions"
+  },
+  "realIntelUHD630": {
+    "realCard": "Q05",
+    "actualBodyContacts": 1,
+    "originalModelMeshCount": 12,
+    "sampleWarmStartupMs": 5567,
+    "gpuErrors": []
+  },
+  "video": {
+    "realBrowserSilentVideo": "r202-five-real-opponent-hits-silent.mp4",
+    "durationSeconds": 19.72,
+    "doesNotContainAudio": true,
+    "audioInActualPlayableGame": true,
+    "screens": "r202-five-original-3d-prop-body-hit-contact-sheet.jpg"
+  },
+  "defaultStableUnchanged": true,
+  "limitations": [
+    "No verified cold-load or FPS improvement; model GLB queue remains gated on R201.",
+    "Other 41 spells have original GLB flight to real body but NOT bespoke body collision, particles and character voices.",
+    "All R202 voices are new recorded original Chinese Opus assets but human listening has not approved naturalness.",
+    "The game is not public default and no CI check statuses are yet observed."
+  ]
+}

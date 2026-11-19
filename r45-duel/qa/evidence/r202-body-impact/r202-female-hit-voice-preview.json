@@ -1,0 +1,119 @@
+{
+  "pass": true,
+  "errors": [],
+  "before": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "events": 1
+  },
+  "after": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "events": 1,
+    "voice": [
+      {
+        "id": "HOST_PLAYER",
+        "kind": "r202_E06",
+        "variant": "r202_E06"
+      }
+    ],
+    "actualPlayed": [
+      {
+        "id": "HOST_PLAYER",
+        "kind": "r202_E06",
+        "variant": "r202_E06",
+        "text": "哎呀！黑板擦擦的是我这张脸呀！",
+        "duration_seconds": 3.81,
+        "serial": 2
+      }
+    ],
+    "realOriginal": true,
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "r202BodyImpact": true,
+      "gracefulRetirements": 0,
+      "physicalFlights": 1,
+      "actualBodyContacts": 0,
+      "previewBodyContacts": 1,
+      "physicalConsequences": {
+        "spawned": 1,
+        "expired": 0,
+        "active": 1,
+        "peak": 1,
+        "physicalKinds": [
+          "chalk"
+        ],
+        "oneMeshDrawPerPhysicalMaterial": true,
+        "addedPointLights": 0,
+        "addedGlowRings": 0,
+        "addedSprites": 0
+      },
+      "activeBodyFlights": [
+        {
+          "id": "E06",
+          "serial": 40000001,
+          "preview": true,
+          "enemy": true,
+          "propWorld": [
+            -5.231,
+            1.232,
+            1.132
+          ],
+          "bodyHitWorld": [
+            -5.255,
+            2.289,
+            0.927
+          ],
+          "originalVisibleMeshCenter": [
+            -5.254,
+            2.339,
+            0.932
+          ],
+          "actualMeshToBodyMeters": 0.05
+        }
+      ],
+      "authoredHighDetailAssets": [
+        "E06"
+      ],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 1,
+      "expired": 0,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 8,
+      "peakDraws": 8,
+      "uniqueRenderedProps": 1,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": null,
+        "ai": "E06"
+      },
+      "activeIds": [
+        "E06"
+      ]
+    },
+    "playerHost": {
+      "id": "E06",
+      "time": 1.1981999999955293,
+      "serial": 40000001,
+      "preview": true
+    },
+    "oldLights": 0,
+    "camera": false
+  }
+}

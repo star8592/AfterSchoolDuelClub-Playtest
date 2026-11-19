@@ -1,0 +1,226 @@
+{
+  "source": "independent XPS 15 Intel UHD630 Linux Chrome 155",
+  "url": "http://10.10.10.138:18689/r45-duel/?qa=1&seed=2&deck=classroom&r199PhysicalMagic=on&r200Pbr=on&r200Readable=on&r202BodyHit=on",
+  "pass": true,
+  "errors": [],
+  "tests": [
+    "16 genuine source models and physical spell stage ready",
+    "Real hand Q05 spell authored GLB with physical staging; no old lights/closeup"
+  ],
+  "initial": {
+    "ready": true,
+    "models": 16,
+    "magic": true,
+    "turn": 1
+  },
+  "readyMs": 5567,
+  "after": {
+    "spell": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "r202BodyHit": true,
+      "signatureBodies": [
+        "E06",
+        "Q05",
+        "K01",
+        "K07",
+        "P07"
+      ],
+      "loadedRealAssets": 4,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [
+        "Q05",
+        "Q07",
+        "Q02",
+        "Q06"
+      ],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0,
+        "urgentWaiting": [],
+        "backgroundWaiting": [],
+        "promotions": 0,
+        "completed": 4,
+        "failed": 0
+      },
+      "pendingUnrenderedContacts": 0,
+      "synchronisedContacts": 1,
+      "casts": 1,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "r202BodyImpact": true,
+        "gracefulRetirements": 0,
+        "physicalFlights": 1,
+        "actualBodyContacts": 1,
+        "previewBodyContacts": 0,
+        "physicalConsequences": {
+          "spawned": 1,
+          "expired": 0,
+          "active": 1,
+          "peak": 1,
+          "physicalKinds": [
+            "chalk"
+          ],
+          "oneMeshDrawPerPhysicalMaterial": true,
+          "addedPointLights": 0,
+          "addedGlowRings": 0,
+          "addedSprites": 0
+        },
+        "activeBodyFlights": [
+          {
+            "id": "Q05",
+            "serial": 2,
+            "preview": false,
+            "enemy": true,
+            "propWorld": [
+              4.706,
+              1.544,
+              1.038
+            ],
+            "bodyHitWorld": [
+              5.311,
+              2.297,
+              0.903
+            ],
+            "originalVisibleMeshCenter": [
+              5.573,
+              1.957,
+              1.004
+            ],
+            "actualMeshToBodyMeters": 0.441
+          }
+        ],
+        "authoredHighDetailAssets": [
+          "Q05",
+          "Q07",
+          "Q02",
+          "Q06"
+        ],
+        "collateralLaunched": 1,
+        "collateralExpired": 1,
+        "collateralActive": 0,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "peakObjects": 12,
+        "peakDraws": 12,
+        "uniqueRenderedProps": 1,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 1,
+        "lastBySide": {
+          "player": "Q05",
+          "ai": null
+        },
+        "activeIds": [
+          "Q05"
+        ]
+      },
+      "loadedReceipts": [
+        {
+          "id": "Q05",
+          "source": "real-blender-glb",
+          "file": "Q05_Chalk_Press_Conference_R200.glb",
+          "meshes": 12,
+          "triangles": 41432,
+          "texturedVariant": true,
+          "priority": "urgent",
+          "readyMs": 195.5
+        },
+        {
+          "id": "Q07",
+          "source": "real-blender-glb",
+          "file": "Q07_Second_Cardboard_Classroom_Moon.glb",
+          "meshes": 9,
+          "triangles": 61844,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 82.5
+        },
+        {
+          "id": "Q02",
+          "source": "real-blender-glb",
+          "file": "Q02_Origami_Beast_From_School_Notice.glb",
+          "meshes": 10,
+          "triangles": 23215,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 52.9
+        },
+        {
+          "id": "Q06",
+          "source": "real-blender-glb",
+          "file": "Q06_Three_Click_Moonlight_Desk_Lamp.glb",
+          "meshes": 10,
+          "triangles": 12804,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 33.2
+        }
+      ],
+      "loadedAssetDetails": [
+        {
+          "id": "Q05",
+          "source": "real-blender-glb",
+          "file": "Q05_Chalk_Press_Conference_R200.glb",
+          "meshes": 12,
+          "triangles": 41432,
+          "texturedVariant": true,
+          "priority": "urgent",
+          "readyMs": 195.5
+        },
+        {
+          "id": "Q07",
+          "source": "real-blender-glb",
+          "file": "Q07_Second_Cardboard_Classroom_Moon.glb",
+          "meshes": 9,
+          "triangles": 61844,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 82.5
+        },
+        {
+          "id": "Q02",
+          "source": "real-blender-glb",
+          "file": "Q02_Origami_Beast_From_School_Notice.glb",
+          "meshes": 10,
+          "triangles": 23215,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 52.9
+        },
+        {
+          "id": "Q06",
+          "source": "real-blender-glb",
+          "file": "Q06_Three_Click_Moonlight_Desk_Lamp.glb",
+          "meshes": 10,
+          "triangles": 12804,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 33.2
+        }
+      ]
+    },
+    "legacy": 0,
+    "oldImpact": 0,
+    "events": [
+      "Q05"
+    ],
+    "camera": false,
+    "heroInset": 0
+  }
+}

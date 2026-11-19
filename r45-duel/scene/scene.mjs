@@ -59,6 +59,7 @@ const r200Flag=key=>{
 };
 const R200_PBR=R199_PHYSICAL_MAGIC&&r200Flag('r200Pbr');
 const R200_READABLE=R199_PHYSICAL_MAGIC&&r200Flag('r200Readable');
+const R202_BODY_HIT=R199_PHYSICAL_MAGIC&&r200Flag('r202BodyHit');
 let r199Magic=null,r199MagicModule=null;
 
 const R134_HOST_IDLE_ENABLED=(()=>{
@@ -271,6 +272,7 @@ let liveScoreboard=null;
 let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null,spectatorChaosFX=null,bleacherProps=null;
 const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
+const r202HostHit={player:null,ai:null};
 let actualHostHits=0;
 let r121ContactReceipts=0,r122AccidentReceipts=0;
 let crowdCloseup=null,r123ReactionCuts=0,r123ShotWeight=0;
@@ -326,6 +328,17 @@ function r201ApplyResolvedContact(d){
     if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }
+  if(R202_BODY_HIT&&['E06','Q05','K01','K07','P07'].includes(d.id)&&
+     ['player','ai'].includes(d.victim)){
+   r202HostHit[d.victim]={id:d.id,time:absoluteSeconds,
+    serial:d.serial,preview:false};
+   // K07's frog jump or P07 ice slip can have no direct HP damage. Visual
+   // surprise is still real presentation, not a fake canonical damage event.
+   if(d.directDamage===0&&d.unitDamage===0){
+    hostHits[d.victim]={time:absoluteSeconds,damage:0,element:'absurd'};
+    livingCast.signal(d.victim,'hurt',absoluteSeconds);
+   }
+  }
   r121ContactReceipts++;
   reply('ASDC_R121_SPELL_CONTACT',{serial:d.serial,card:d.id,
    caster:d.caster,victim:d.victim,element:d.element,
@@ -373,9 +386,34 @@ function makeScene(){
   if(!r199MagicModule)throw Error('R199 magic module not available');
   r199Magic=r199MagicModule.createR199RealCampusMagic(THREE,scene,{
    loader:new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),camera,reducedMotion:reduced,
-   r200Pbr:R200_PBR,r200Readable:R200_READABLE,
+   r200Pbr:R200_PBR,r200Readable:R200_READABLE,r202BodyHit:R202_BODY_HIT,
+   targetWorld:(target,id)=>{
+    const host=duelistHosts.find(x=>x.side===target);
+    if(!host)return null;
+    host.pivot.updateWorldMatrix(true,true);
+    const ref=id==='P07'?null:host.bones.get(
+      id==='K01'?'J_Bip_C_Chest':'J_Bip_C_Head');
+    const point=ref?ref.getWorldPosition(new THREE.Vector3()):
+     host.pivot.getWorldPosition(new THREE.Vector3());
+    if(id==='P07')point.y+=.13; // ice sheet collides at the ORIGINAL foot
+    if(id==='K01')point.y+=.22; // flying food reaches the chest and chin
+    point.x+=target==='ai'?-.27:.27; // camera can still see opponent's face
+    point.z+=.34; // impact in front of source VRM, never hidden behind it
+    return {x:point.x,y:point.y,z:point.z};
+   },
    now:()=>absoluteSeconds,
    onEvent:(event,detail)=>{
+    if(event==='previewImpact'&&R202_BODY_HIT&&R199_SHOWCASE){
+     // Pure visual preview: show the real opponent flinching without
+     // writing HP, claiming an engine hit or emitting an R121 contact.
+     const victim=detail.victim;
+     if(['player','ai'].includes(victim)){
+      hostHits[victim]={time:absoluteSeconds,damage:0,element:'absurd'};
+      r202HostHit[victim]={id:detail.id,time:absoluteSeconds,
+       serial:detail.serial,preview:true};
+      livingCast.signal(victim,'hurt',absoluteSeconds);
+     }
+    }
     if(event==='contact'){
      const canonical=r201VisualContactQueue.get(detail.serial);
      if(canonical&&canonical.id===detail.id){
@@ -804,6 +842,27 @@ function updateDuelistHosts(seconds){
    }
    targetOut[hand]=targetVector.toArray();
   }
+  // R202: five different comedic real-body reactions on original VRM
+  // arms; IK wrist targets are solved with the existing skeleton.
+  const r202Act=R202_BODY_HIT?r202HostHit[side]:null;
+  const r202Age=r202Act?seconds-r202Act.time:Infinity;
+  const r202React=r202Age>=0&&r202Age<1.28?
+    Math.sin(Math.PI*r202Age/1.28):0;
+  const r202Kind=r202React>.005?r202Act.id:null;
+  if(r202Kind){
+   const pose=({
+    E06:{R:[.08,.34,-.24],L:[-.13,.33,-.24]},
+    Q05:{R:[.10,.38,-.21],L:[-.12,.20,-.16]},
+    K01:{R:[.06,.32,-.11],L:[-.10,.28,-.16]},
+    K07:{R:[.31,.53,-.16],L:[-.29,.52,-.19]},
+    P07:{R:[.44,.28,-.18],L:[-.40,.26,-.21]}
+   })[r202Kind];
+   if(pose)for(const hand of ['R','L']){
+    const current=new THREE.Vector3(...targetOut[hand]);
+    current.lerp(new THREE.Vector3(...pose[hand]),Math.min(.93,r202React*.88));
+    targetOut[hand]=current.toArray();
+   }
+  }
   host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
   // Apply element-specific recoil only after the existing R120 body, face
   // and wrist choreography has solved. No changed camera or card timeline.
@@ -821,6 +880,24 @@ function updateDuelistHosts(seconds){
    if(chest)chest.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
      new THREE.Vector3(0,0,1),sign*lean*.38*envelope));
   }
+  if(r202Kind){
+   const re=r202React;
+   const hitStyle={
+    E06:{headPitch:-.38,headRoll:.18,bodyRoll:.11,jump:-.16},
+    Q05:{headPitch:.48,headRoll:.15,bodyRoll:.09,jump:-.07},
+    K01:{headPitch:-.21,headRoll:-.25,bodyRoll:-.18,jump:-.05},
+    K07:{headPitch:-.26,headRoll:.13,bodyRoll:.10,jump:.23},
+    P07:{headPitch:.04,headRoll:-.31,bodyRoll:-.35,jump:.09}
+   }[r202Kind];
+   host.pivot.rotation.z+=sign*hitStyle.bodyRoll*re;
+   host.pivot.position.y+=hitStyle.jump*re;
+   const head=host.bones.get('J_Bip_C_Head');
+   if(head){
+    head.quaternion.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(
+     hitStyle.headPitch*re,0,sign*hitStyle.headRoll*re)));
+   }
+   // Physics-like slip keeps the original feet, original face morphs and IK.
+  }
   host.choreography={phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
     recoil>.1?'hit':doFollow>.22?'follow_through':doCast>.1?'cast':
     doDisplay>.1?'raise_card':doDraw>.1?'draw':idleBlend>.08?act.type:'idle',
@@ -829,6 +906,7 @@ function updateDuelistHosts(seconds){
     victory:+victory.toFixed(3),defeat:+defeat.toFixed(3),
     hop:+(cardHop+winnerHop).toFixed(3),
     recoil:+recoil.toFixed(3),
+    r202Hit:r202Kind,r202Intensity:+r202React.toFixed(3),
     speaking:!!speaking,speechSerial:speaking?.serial??null,
     inspected:+inspectCard.toFixed(3),livingBeat:act.type,
     r134Idle:r134Idle?{story:r134Idle.story,
@@ -1120,6 +1198,7 @@ function onMessage(ev){
   stadiumEvidence?.resetAudience?.();
   hostHits.player={time:-100,damage:0};
   hostHits.ai={time:-100,damage:0};
+  r202HostHit.player=null;r202HostHit.ai=null;
   return;
  }
  if(msg?.type==='ASDC_R100_REAL_COMBO'){
@@ -1312,6 +1391,7 @@ function exposeQA(){
   get comboDirector(){return comboDirector?.stats||null},
   get comedySpectacle(){return comedySpectacle?.stats||null},
   get hostHits(){return structuredClone(hostHits)},
+  get r202HostImpact(){return structuredClone(r202HostHit)},
   get actualHostHits(){return actualHostHits},
   get actorVisibility(){return actors.map(a=>({id:a.id,visible:a.pivot.visible}))},
   get duelistHosts(){return duelistHosts.map(a=>({id:a.id,side:a.side,visible:a.pivot.visible,

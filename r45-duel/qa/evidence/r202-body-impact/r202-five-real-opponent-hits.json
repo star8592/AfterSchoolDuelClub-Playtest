@@ -1,0 +1,372 @@
+{
+  "ids": [
+    "E06",
+    "Q05",
+    "K01",
+    "K07",
+    "P07"
+  ],
+  "cases": [
+    {
+      "id": "E06",
+      "originalGlbLoaded": true,
+      "contactDistanceMeters": 0.065,
+      "originalMeshWorld": [
+        5.241,
+        2.351,
+        0.909
+      ],
+      "boneHitWorld": [
+        5.283,
+        2.302,
+        0.902
+      ],
+      "originalOpponentHit": "E06",
+      "physicalFlights": 1,
+      "physicalPieces": 1,
+      "beforeHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "afterHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "image": "r202-01-E06-actual-opponent-impact.png"
+    },
+    {
+      "id": "Q05",
+      "originalGlbLoaded": true,
+      "contactDistanceMeters": 0.136,
+      "originalMeshWorld": [
+        5.356,
+        2.24,
+        0.962
+      ],
+      "boneHitWorld": [
+        5.324,
+        2.151,
+        0.864
+      ],
+      "originalOpponentHit": "Q05",
+      "physicalFlights": 2,
+      "physicalPieces": 2,
+      "beforeHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "afterHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "image": "r202-02-Q05-actual-opponent-impact.png"
+    },
+    {
+      "id": "K01",
+      "originalGlbLoaded": true,
+      "contactDistanceMeters": 0.242,
+      "originalMeshWorld": [
+        5.138,
+        2.282,
+        0.962
+      ],
+      "boneHitWorld": [
+        5.28,
+        2.086,
+        0.955
+      ],
+      "originalOpponentHit": "K01",
+      "physicalFlights": 3,
+      "physicalPieces": 3,
+      "beforeHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "afterHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "image": "r202-03-K01-actual-opponent-impact.png"
+    },
+    {
+      "id": "K07",
+      "originalGlbLoaded": true,
+      "contactDistanceMeters": 0.305,
+      "originalMeshWorld": [
+        4.955,
+        2.106,
+        1.427
+      ],
+      "boneHitWorld": [
+        5.247,
+        2.171,
+        1.491
+      ],
+      "originalOpponentHit": "K07",
+      "physicalFlights": 4,
+      "physicalPieces": 4,
+      "beforeHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "afterHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "image": "r202-04-K07-actual-opponent-impact.png"
+    },
+    {
+      "id": "P07",
+      "originalGlbLoaded": true,
+      "contactDistanceMeters": 0.234,
+      "originalMeshWorld": [
+        5.227,
+        0.573,
+        0.928
+      ],
+      "boneHitWorld": [
+        5.264,
+        0.804,
+        0.94
+      ],
+      "originalOpponentHit": "P07",
+      "physicalFlights": 5,
+      "physicalPieces": 5,
+      "beforeHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "afterHp": {
+        "player": 20,
+        "ai": 20
+      },
+      "image": "r202-05-P07-actual-opponent-impact.png"
+    }
+  ],
+  "errors": [],
+  "pass": true,
+  "before": {
+    "rules": {
+      "round": 1,
+      "events": 1,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      }
+    },
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "r202BodyImpact": true,
+      "gracefulRetirements": 0,
+      "physicalFlights": 0,
+      "actualBodyContacts": 0,
+      "previewBodyContacts": 0,
+      "physicalConsequences": {
+        "spawned": 0,
+        "expired": 0,
+        "active": 0,
+        "peak": 0,
+        "physicalKinds": [],
+        "oneMeshDrawPerPhysicalMaterial": true,
+        "addedPointLights": 0,
+        "addedGlowRings": 0,
+        "addedSprites": 0
+      },
+      "activeBodyFlights": [],
+      "authoredHighDetailAssets": [],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "peakObjects": 0,
+      "peakDraws": 0,
+      "uniqueRenderedProps": 0,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "activeIds": []
+    },
+    "cache": [],
+    "hosts": [
+      {
+        "side": "player",
+        "id": "E01",
+        "posture": "idle",
+        "hit": null,
+        "intensity": 0,
+        "x": -5.542,
+        "y": 0.482,
+        "z": 0.6
+      },
+      {
+        "side": "ai",
+        "id": "G01",
+        "posture": "idle",
+        "hit": null,
+        "intensity": 0,
+        "x": 5.604,
+        "y": 0.496,
+        "z": 0.6
+      }
+    ],
+    "special": {
+      "player": null,
+      "ai": null
+    },
+    "oldArsenal": 0,
+    "oldImpact": 0,
+    "camera": false,
+    "inset": 0,
+    "gallery": 46
+  },
+  "after": {
+    "rules": {
+      "round": 1,
+      "events": 1,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      }
+    },
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "r202BodyImpact": true,
+      "gracefulRetirements": 4,
+      "physicalFlights": 5,
+      "actualBodyContacts": 0,
+      "previewBodyContacts": 5,
+      "physicalConsequences": {
+        "spawned": 5,
+        "expired": 4,
+        "active": 1,
+        "peak": 1,
+        "physicalKinds": [
+          "ice"
+        ],
+        "oneMeshDrawPerPhysicalMaterial": true,
+        "addedPointLights": 0,
+        "addedGlowRings": 0,
+        "addedSprites": 0
+      },
+      "activeBodyFlights": [
+        {
+          "id": "P07",
+          "serial": 40000005,
+          "preview": true,
+          "enemy": true,
+          "propWorld": [
+            4.601,
+            -0.229,
+            1.079
+          ],
+          "bodyHitWorld": [
+            5.264,
+            0.804,
+            0.94
+          ],
+          "originalVisibleMeshCenter": [
+            5.395,
+            0.282,
+            0.931
+          ],
+          "actualMeshToBodyMeters": 0.538
+        }
+      ],
+      "authoredHighDetailAssets": [
+        "E06",
+        "T05",
+        "E05",
+        "Q05",
+        "K01",
+        "K07",
+        "P07"
+      ],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 5,
+      "expired": 4,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 18,
+      "peakDraws": 18,
+      "uniqueRenderedProps": 5,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": "P07",
+        "ai": null
+      },
+      "activeIds": [
+        "P07"
+      ]
+    },
+    "cache": [
+      "E06",
+      "T05",
+      "E05",
+      "Q05",
+      "K01",
+      "K07",
+      "P07"
+    ],
+    "hosts": [
+      {
+        "side": "player",
+        "id": "E01",
+        "posture": "smirk",
+        "hit": null,
+        "intensity": 0,
+        "x": -5.611,
+        "y": 0.479,
+        "z": 0.6
+      },
+      {
+        "side": "ai",
+        "id": "G01",
+        "posture": "hit",
+        "hit": "P07",
+        "intensity": 0.974,
+        "x": 5.625,
+        "y": 0.579,
+        "z": 0.6
+      }
+    ],
+    "special": {
+      "player": null,
+      "ai": {
+        "id": "P07",
+        "time": 9.533300000004479,
+        "serial": 40000005,
+        "preview": true
+      }
+    },
+    "oldArsenal": 0,
+    "oldImpact": 0,
+    "camera": false,
+    "inset": 0,
+    "gallery": 46
+  }
+}

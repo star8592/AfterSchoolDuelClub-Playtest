@@ -1,0 +1,238 @@
+{
+  "pass": true,
+  "errors": [],
+  "stage": "real human Q05 player cast with recorded male victim voice",
+  "before": {
+    "rules": [],
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "round": 1,
+    "audio": {
+      "assetsReady": true,
+      "enabled": true,
+      "voicePlaying": false,
+      "voiceVariants": [],
+      "speechHistory": [],
+      "voiceCount": 0,
+      "sfxCount": 0
+    },
+    "school": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "r202BodyImpact": true,
+      "gracefulRetirements": 0,
+      "physicalFlights": 0,
+      "actualBodyContacts": 0,
+      "previewBodyContacts": 0,
+      "physicalConsequences": {
+        "spawned": 0,
+        "expired": 0,
+        "active": 0,
+        "peak": 0,
+        "physicalKinds": [],
+        "oneMeshDrawPerPhysicalMaterial": true,
+        "addedPointLights": 0,
+        "addedGlowRings": 0,
+        "addedSprites": 0
+      },
+      "activeBodyFlights": [],
+      "authoredHighDetailAssets": [],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "peakObjects": 0,
+      "peakDraws": 0,
+      "uniqueRenderedProps": 0,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "activeIds": []
+    },
+    "opponent": null,
+    "canonicalHits": 0,
+    "oldLights": 0,
+    "oldImpact": 0,
+    "zoom": false
+  },
+  "after": {
+    "rules": [
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "Q05",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "blast",
+          "directDamage": 2,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    ],
+    "hp": {
+      "player": 20,
+      "ai": 18
+    },
+    "round": 1,
+    "audio": {
+      "assetsReady": true,
+      "enabled": true,
+      "voicePlaying": true,
+      "voiceVariants": [
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v4"
+        },
+        {
+          "id": "HOST_AI",
+          "kind": "r202_Q05",
+          "variant": "r202_Q05"
+        }
+      ],
+      "speechHistory": [
+        {
+          "id": "STADIUM_PA",
+          "kind": "start",
+          "variant": "start",
+          "text": "同学们注意！放学后决斗社，现在开战！",
+          "duration_seconds": 3.81,
+          "serial": 1
+        },
+        {
+          "id": "HOST_PLAYER",
+          "kind": "cast",
+          "variant": "cast_v4",
+          "text": "现在轮到我进攻，接招吧！",
+          "duration_seconds": 2.97,
+          "serial": 2
+        },
+        {
+          "id": "SPECTATOR_3",
+          "kind": "accident",
+          "variant": "shockwave_b",
+          "text": "天呐，书包飞走啦！",
+          "duration_seconds": 2.97
+        },
+        {
+          "id": "HOST_AI",
+          "kind": "r202_Q05",
+          "variant": "r202_Q05",
+          "text": "阿嚏！粉笔记者会怎么开到我鼻子里了！",
+          "duration_seconds": 4.01,
+          "serial": 3
+        }
+      ],
+      "voiceCount": 3,
+      "sfxCount": 7
+    },
+    "school": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "r202BodyImpact": true,
+      "gracefulRetirements": 0,
+      "physicalFlights": 1,
+      "actualBodyContacts": 1,
+      "previewBodyContacts": 0,
+      "physicalConsequences": {
+        "spawned": 1,
+        "expired": 0,
+        "active": 1,
+        "peak": 1,
+        "physicalKinds": [
+          "chalk"
+        ],
+        "oneMeshDrawPerPhysicalMaterial": true,
+        "addedPointLights": 0,
+        "addedGlowRings": 0,
+        "addedSprites": 0
+      },
+      "activeBodyFlights": [
+        {
+          "id": "Q05",
+          "serial": 2,
+          "preview": false,
+          "enemy": true,
+          "propWorld": [
+            4.647,
+            1.562,
+            1.037
+          ],
+          "bodyHitWorld": [
+            5.282,
+            2.301,
+            0.902
+          ],
+          "originalVisibleMeshCenter": [
+            5.302,
+            0.894,
+            1.003
+          ],
+          "actualMeshToBodyMeters": 1.411
+        }
+      ],
+      "authoredHighDetailAssets": [
+        "Q05",
+        "Q07",
+        "Q02",
+        "Q06"
+      ],
+      "collateralLaunched": 1,
+      "collateralExpired": 1,
+      "collateralActive": 0,
+      "played": 1,
+      "expired": 0,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 12,
+      "peakDraws": 12,
+      "uniqueRenderedProps": 1,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 1,
+      "lastBySide": {
+        "player": "Q05",
+        "ai": null
+      },
+      "activeIds": [
+        "Q05"
+      ]
+    },
+    "opponent": {
+      "id": "Q05",
+      "time": 1.4455999999940399,
+      "serial": 2,
+      "preview": false
+    },
+    "canonicalHits": 1,
+    "oldLights": 0,
+    "oldImpact": 0,
+    "zoom": false
+  }
+}
