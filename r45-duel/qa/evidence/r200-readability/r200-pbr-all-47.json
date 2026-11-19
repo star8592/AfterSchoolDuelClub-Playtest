@@ -1,0 +1,1444 @@
+{
+  "ids": [
+    "E05",
+    "E06",
+    "G05",
+    "G06",
+    "K01",
+    "K02",
+    "K03",
+    "K04",
+    "K05",
+    "K06",
+    "K07",
+    "K08",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "Q01",
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q05",
+    "Q06",
+    "Q07",
+    "Q08",
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "T05",
+    "T06",
+    "X01",
+    "X02",
+    "X03",
+    "X04",
+    "X05",
+    "X06",
+    "X07",
+    "X08",
+    "E05"
+  ],
+  "passes": [
+    {
+      "id": "E05",
+      "loadedRealActors": 1,
+      "realMesh": 8,
+      "triangles": 36436,
+      "loadedMs": 6.1,
+      "casts": 1,
+      "active": 1,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-01-E05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_E05_megaphone",
+          "widthPct": 14.9,
+          "heightPct": 25.39,
+          "xCenterPct": 42,
+          "yCenterPct": 36.94,
+          "widthPx": 214.6,
+          "heightPx": 218.3
+        }
+      ]
+    },
+    {
+      "id": "E06",
+      "loadedRealActors": 2,
+      "realMesh": 8,
+      "triangles": 18844,
+      "loadedMs": 17.4,
+      "casts": 2,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-02-E06-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_E06_eraser",
+          "widthPct": 14.85,
+          "heightPct": 16.83,
+          "xCenterPct": 48.18,
+          "yCenterPct": 32.91,
+          "widthPx": 213.8,
+          "heightPx": 144.8
+        }
+      ]
+    },
+    {
+      "id": "G05",
+      "loadedRealActors": 4,
+      "realMesh": 9,
+      "triangles": 30764,
+      "loadedMs": 4.8,
+      "casts": 3,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-03-G05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_G05_desk",
+          "widthPct": 14.71,
+          "heightPct": 17.05,
+          "xCenterPct": 37.82,
+          "yCenterPct": 40.51,
+          "widthPx": 211.8,
+          "heightPx": 146.6
+        }
+      ]
+    },
+    {
+      "id": "G06",
+      "loadedRealActors": 5,
+      "realMesh": 10,
+      "triangles": 21768,
+      "loadedMs": 3.7,
+      "casts": 4,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-04-G06-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_G06_flipbook",
+          "widthPct": 13.04,
+          "heightPct": 16.92,
+          "xCenterPct": 37.8,
+          "yCenterPct": 40.94,
+          "widthPx": 187.8,
+          "heightPx": 145.6
+        }
+      ]
+    },
+    {
+      "id": "K01",
+      "loadedRealActors": 6,
+      "realMesh": 14,
+      "triangles": 24676,
+      "loadedMs": 22.9,
+      "casts": 5,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-05-K01-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K01_eggplant-banana",
+          "widthPct": 20.57,
+          "heightPct": 17.39,
+          "xCenterPct": 59.23,
+          "yCenterPct": 39.81,
+          "widthPx": 296.2,
+          "heightPx": 149.5
+        }
+      ]
+    },
+    {
+      "id": "K02",
+      "loadedRealActors": 7,
+      "realMesh": 8,
+      "triangles": 58748,
+      "loadedMs": 7.6,
+      "casts": 6,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-06-K02-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K02_watermelon-eraser",
+          "widthPct": 20.89,
+          "heightPct": 28.87,
+          "xCenterPct": 31.98,
+          "yCenterPct": 35.28,
+          "widthPx": 300.8,
+          "heightPx": 248.3
+        }
+      ]
+    },
+    {
+      "id": "K03",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 197816,
+      "loadedMs": 43.5,
+      "casts": 7,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-07-K03-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K03_corn-grapes",
+          "widthPct": 21.3,
+          "heightPct": 24.71,
+          "xCenterPct": 34.98,
+          "yCenterPct": 36.29,
+          "widthPx": 306.7,
+          "heightPx": 212.5
+        }
+      ]
+    },
+    {
+      "id": "K04",
+      "loadedRealActors": 8,
+      "realMesh": 9,
+      "triangles": 66994,
+      "loadedMs": 17,
+      "casts": 8,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-08-K04-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K04_pepper-mooncake",
+          "widthPct": 16.07,
+          "heightPct": 31.5,
+          "xCenterPct": 56.12,
+          "yCenterPct": 34.33,
+          "widthPx": 231.4,
+          "heightPx": 270.9
+        }
+      ]
+    },
+    {
+      "id": "K05",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 58648,
+      "loadedMs": 16,
+      "casts": 9,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-09-K05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K05_invisible-soup",
+          "widthPct": 18.9,
+          "heightPct": 28.6,
+          "xCenterPct": 32.28,
+          "yCenterPct": 35.35,
+          "widthPx": 272.2,
+          "heightPx": 246
+        }
+      ]
+    },
+    {
+      "id": "K06",
+      "loadedRealActors": 8,
+      "realMesh": 11,
+      "triangles": 19270,
+      "loadedMs": 3.9,
+      "casts": 10,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-10-K06-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K06_volcano-tea",
+          "widthPct": 13.69,
+          "heightPct": 37.03,
+          "xCenterPct": 56.09,
+          "yCenterPct": 31.02,
+          "widthPx": 197.1,
+          "heightPx": 318.5
+        }
+      ]
+    },
+    {
+      "id": "K07",
+      "loadedRealActors": 8,
+      "realMesh": 18,
+      "triangles": 31708,
+      "loadedMs": 19.7,
+      "casts": 11,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-11-K07-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K07_frog-pudding",
+          "widthPct": 18,
+          "heightPct": 26.61,
+          "xCenterPct": 57.11,
+          "yCenterPct": 32.43,
+          "widthPx": 259.1,
+          "heightPx": 228.9
+        }
+      ]
+    },
+    {
+      "id": "K08",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 8916,
+      "loadedMs": 3.8,
+      "casts": 12,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-12-K08-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K08_armored-banana",
+          "widthPct": 12.01,
+          "heightPct": 21.95,
+          "xCenterPct": 33.95,
+          "yCenterPct": 34.97,
+          "widthPx": 172.9,
+          "heightPx": 188.7
+        }
+      ]
+    },
+    {
+      "id": "P01",
+      "loadedRealActors": 8,
+      "realMesh": 13,
+      "triangles": 32508,
+      "loadedMs": 5.3,
+      "casts": 13,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-13-P01-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_P01_wind-hair",
+          "widthPct": 16.77,
+          "heightPct": 31.77,
+          "xCenterPct": 32.32,
+          "yCenterPct": 34.84,
+          "widthPx": 241.5,
+          "heightPx": 273.2
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "loadedRealActors": 8,
+      "realMesh": 8,
+      "triangles": 33484,
+      "loadedMs": 15.3,
+      "casts": 14,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-14-P02-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_P02_lost-ball",
+          "widthPct": 18.38,
+          "heightPct": 26.38,
+          "xCenterPct": 33.3,
+          "yCenterPct": 35.19,
+          "widthPx": 264.7,
+          "heightPx": 226.9
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "loadedRealActors": 8,
+      "realMesh": 13,
+      "triangles": 31610,
+      "loadedMs": 5,
+      "casts": 15,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-15-P03-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_P03_box-dinosaur",
+          "widthPct": 21.82,
+          "heightPct": 25.31,
+          "xCenterPct": 58.15,
+          "yCenterPct": 36.75,
+          "widthPx": 314.2,
+          "heightPx": 217.6
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "loadedRealActors": 8,
+      "realMesh": 7,
+      "triangles": 10250,
+      "loadedMs": 3.3,
+      "casts": 16,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-16-P04-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_P04_mega-whistle",
+          "widthPct": 24.63,
+          "heightPct": 21.8,
+          "xCenterPct": 59.73,
+          "yCenterPct": 33.05,
+          "widthPx": 354.6,
+          "heightPx": 187.5
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 18662,
+      "loadedMs": 4.1,
+      "casts": 17,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-17-P05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_P05_volleyball-hoop",
+          "widthPct": 22.61,
+          "heightPct": 38.72,
+          "xCenterPct": 55.41,
+          "yCenterPct": 37.17,
+          "widthPx": 325.5,
+          "heightPx": 333
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "loadedRealActors": 8,
+      "realMesh": 13,
+      "triangles": 21886,
+      "loadedMs": 13,
+      "casts": 18,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-18-P06-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_P06_reverse-treadmill",
+          "widthPct": 14.81,
+          "heightPct": 27.46,
+          "xCenterPct": 55.56,
+          "yCenterPct": 37.96,
+          "widthPx": 213.3,
+          "heightPx": 236.2
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "loadedRealActors": 8,
+      "realMesh": 11,
+      "triangles": 9352,
+      "loadedMs": 16.9,
+      "casts": 19,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-19-P07-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_P07_black-swan",
+          "widthPct": 18.44,
+          "heightPct": 29.48,
+          "xCenterPct": 56.46,
+          "yCenterPct": 35.19,
+          "widthPx": 265.5,
+          "heightPx": 253.5
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "loadedRealActors": 8,
+      "realMesh": 13,
+      "triangles": 56990,
+      "loadedMs": 7.9,
+      "casts": 20,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-20-P08-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_P08_sports-meteor",
+          "widthPct": 17.76,
+          "heightPct": 30.43,
+          "xCenterPct": 56.43,
+          "yCenterPct": 34.55,
+          "widthPx": 255.7,
+          "heightPx": 261.7
+        }
+      ]
+    },
+    {
+      "id": "Q01",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 22144,
+      "loadedMs": 4.2,
+      "casts": 21,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-21-Q01-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_Q01_essay-eraser",
+          "widthPct": 13.12,
+          "heightPct": 20.3,
+          "xCenterPct": 37.9,
+          "yCenterPct": 39.63,
+          "widthPx": 189,
+          "heightPx": 174.6
+        }
+      ]
+    },
+    {
+      "id": "Q02",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 23215,
+      "loadedMs": 4.9,
+      "casts": 22,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-22-Q02-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_Q02_beast-notice",
+          "widthPct": 16.79,
+          "heightPct": 23.37,
+          "xCenterPct": 61.94,
+          "yCenterPct": 38.08,
+          "widthPx": 241.7,
+          "heightPx": 200.9
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "loadedRealActors": 8,
+      "realMesh": 9,
+      "triangles": 13620,
+      "loadedMs": 3.6,
+      "casts": 23,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-23-Q03-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_Q03_dream-board",
+          "widthPct": 16.36,
+          "heightPct": 22,
+          "xCenterPct": 37.39,
+          "yCenterPct": 36.72,
+          "widthPx": 235.5,
+          "heightPx": 189.2
+        }
+      ]
+    },
+    {
+      "id": "Q04",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 25616,
+      "loadedMs": 4.7,
+      "casts": 24,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-24-Q04-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_Q04_loud-phone",
+          "widthPct": 17.99,
+          "heightPct": 23.29,
+          "xCenterPct": 38.87,
+          "yCenterPct": 37.94,
+          "widthPx": 259,
+          "heightPx": 200.3
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "loadedRealActors": 8,
+      "realMesh": 12,
+      "triangles": 41432,
+      "loadedMs": 34.4,
+      "casts": 25,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-25-Q05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_Q05_press-chalk",
+          "widthPct": 15.04,
+          "heightPct": 27.62,
+          "xCenterPct": 60.51,
+          "yCenterPct": 39.6,
+          "widthPx": 216.5,
+          "heightPx": 237.5
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 12804,
+      "loadedMs": 3.9,
+      "casts": 26,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-26-Q06-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_Q06_three-click-lamp",
+          "widthPct": 11.3,
+          "heightPct": 24.96,
+          "xCenterPct": 37.08,
+          "yCenterPct": 38.65,
+          "widthPx": 162.7,
+          "heightPx": 214.7
+        }
+      ]
+    },
+    {
+      "id": "Q07",
+      "loadedRealActors": 8,
+      "realMesh": 9,
+      "triangles": 61844,
+      "loadedMs": 16.6,
+      "casts": 27,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-27-Q07-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_Q07_second-moon",
+          "widthPct": 17.75,
+          "heightPct": 26.16,
+          "xCenterPct": 61.03,
+          "yCenterPct": 36.38,
+          "widthPx": 255.5,
+          "heightPx": 225
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "loadedRealActors": 8,
+      "realMesh": 7,
+      "triangles": 42516,
+      "loadedMs": 6.7,
+      "casts": 28,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-28-Q08-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_Q08_chalk-prison",
+          "widthPct": 16.19,
+          "heightPct": 14.09,
+          "xCenterPct": 37.58,
+          "yCenterPct": 44.77,
+          "widthPx": 233.1,
+          "heightPx": 121.1
+        }
+      ]
+    },
+    {
+      "id": "S01",
+      "loadedRealActors": 8,
+      "realMesh": 11,
+      "triangles": 19604,
+      "loadedMs": 4.6,
+      "casts": 29,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-29-S01-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_S01_reverse-alarm",
+          "widthPct": 16.24,
+          "heightPct": 24.92,
+          "xCenterPct": 30.55,
+          "yCenterPct": 31.04,
+          "widthPx": 233.8,
+          "heightPx": 214.3
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "loadedRealActors": 8,
+      "realMesh": 12,
+      "triangles": 16824,
+      "loadedMs": 4.1,
+      "casts": 30,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-30-S02-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_S02_pencil-case",
+          "widthPct": 11.9,
+          "heightPct": 16.02,
+          "xCenterPct": 33.17,
+          "yCenterPct": 40.1,
+          "widthPx": 171.3,
+          "heightPx": 137.8
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "loadedRealActors": 8,
+      "realMesh": 7,
+      "triangles": 6704,
+      "loadedMs": 3.1,
+      "casts": 31,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-31-S03-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_S03_anti-grav-broom",
+          "widthPct": 14.16,
+          "heightPct": 26.88,
+          "xCenterPct": 33.12,
+          "yCenterPct": 35.88,
+          "widthPx": 203.9,
+          "heightPx": 231.1
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "loadedRealActors": 8,
+      "realMesh": 11,
+      "triangles": 43966,
+      "loadedMs": 18.5,
+      "casts": 32,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-32-S04-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_S04_wrong-answer-generator",
+          "widthPct": 20.15,
+          "heightPct": 28.1,
+          "xCenterPct": 54.08,
+          "yCenterPct": 38.84,
+          "widthPx": 290.1,
+          "heightPx": 241.7
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "loadedRealActors": 8,
+      "realMesh": 14,
+      "triangles": 33212,
+      "loadedMs": 18.2,
+      "casts": 33,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-33-S05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_S05_robot-monitor",
+          "widthPct": 15.05,
+          "heightPct": 22.71,
+          "xCenterPct": 33.69,
+          "yCenterPct": 34.98,
+          "widthPx": 216.7,
+          "heightPx": 195.3
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "loadedRealActors": 8,
+      "realMesh": 9,
+      "triangles": 7156,
+      "loadedMs": 3,
+      "casts": 34,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-34-S06-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_S06_quantum-band",
+          "widthPct": 14.5,
+          "heightPct": 32.67,
+          "xCenterPct": 55.46,
+          "yCenterPct": 31.53,
+          "widthPx": 208.8,
+          "heightPx": 281
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 21868,
+      "loadedMs": 4.9,
+      "casts": 35,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-35-S07-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_S07_bell-wormhole",
+          "widthPct": 21.89,
+          "heightPct": 27.82,
+          "xCenterPct": 54.45,
+          "yCenterPct": 36.11,
+          "widthPx": 315.2,
+          "heightPx": 239.3
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "loadedRealActors": 8,
+      "realMesh": 14,
+      "triangles": 40552,
+      "loadedMs": 7.3,
+      "casts": 36,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-36-S08-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_S08_angry-vending",
+          "widthPct": 11.72,
+          "heightPct": 37.5,
+          "xCenterPct": 54.85,
+          "yCenterPct": 42.47,
+          "widthPx": 168.8,
+          "heightPx": 322.5
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "loadedRealActors": 8,
+      "realMesh": 9,
+      "triangles": 11752,
+      "loadedMs": 2.4,
+      "casts": 37,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-37-T05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_T05_soup",
+          "widthPct": 18.26,
+          "heightPct": 23.55,
+          "xCenterPct": 37.21,
+          "yCenterPct": 38.5,
+          "widthPx": 263,
+          "heightPx": 202.5
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "loadedRealActors": 8,
+      "realMesh": 11,
+      "triangles": 34698,
+      "loadedMs": 5.5,
+      "casts": 38,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-38-T06-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_T06_speaker",
+          "widthPct": 15.18,
+          "heightPct": 21.52,
+          "xCenterPct": 59.77,
+          "yCenterPct": 38.93,
+          "widthPx": 218.6,
+          "heightPx": 185.1
+        }
+      ]
+    },
+    {
+      "id": "X01",
+      "loadedRealActors": 8,
+      "realMesh": 13,
+      "triangles": 33424,
+      "loadedMs": 5.7,
+      "casts": 39,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-39-X01-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_X01_rewind-clock",
+          "widthPct": 12.21,
+          "heightPct": 31.41,
+          "xCenterPct": 38.01,
+          "yCenterPct": 36.28,
+          "widthPx": 175.9,
+          "heightPx": 270.1
+        }
+      ]
+    },
+    {
+      "id": "X02",
+      "loadedRealActors": 8,
+      "realMesh": 10,
+      "triangles": 42474,
+      "loadedMs": 19.1,
+      "casts": 40,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-40-X02-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_X02_wall-uniform",
+          "widthPct": 16.86,
+          "heightPct": 26.97,
+          "xCenterPct": 37.71,
+          "yCenterPct": 37.77,
+          "widthPx": 242.7,
+          "heightPx": 232
+        }
+      ]
+    },
+    {
+      "id": "X03",
+      "loadedRealActors": 8,
+      "realMesh": 9,
+      "triangles": 27380,
+      "loadedMs": 5.3,
+      "casts": 41,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-41-X03-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_X03_roof-car",
+          "widthPct": 22.13,
+          "heightPct": 25.61,
+          "xCenterPct": 61.74,
+          "yCenterPct": 38.04,
+          "widthPx": 318.7,
+          "heightPx": 220.2
+        }
+      ]
+    },
+    {
+      "id": "X04",
+      "loadedRealActors": 8,
+      "realMesh": 8,
+      "triangles": 27824,
+      "loadedMs": 4.6,
+      "casts": 42,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-42-X04-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_X04_prophecy-pillow",
+          "widthPct": 16.92,
+          "heightPct": 21.72,
+          "xCenterPct": 37.51,
+          "yCenterPct": 39.98,
+          "widthPx": 243.7,
+          "heightPx": 186.8
+        }
+      ]
+    },
+    {
+      "id": "X05",
+      "loadedRealActors": 8,
+      "realMesh": 12,
+      "triangles": 15596,
+      "loadedMs": 4.2,
+      "casts": 43,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-43-X05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_X05_homework-cosmos",
+          "widthPct": 19.5,
+          "heightPct": 26.37,
+          "xCenterPct": 59.88,
+          "yCenterPct": 35.2,
+          "widthPx": 280.8,
+          "heightPx": 226.8
+        }
+      ]
+    },
+    {
+      "id": "X06",
+      "loadedRealActors": 8,
+      "realMesh": 13,
+      "triangles": 33830,
+      "loadedMs": 14.5,
+      "casts": 44,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-44-X06-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_X06_reading-cloner",
+          "widthPct": 17.98,
+          "heightPct": 19.52,
+          "xCenterPct": 39.02,
+          "yCenterPct": 41.47,
+          "widthPx": 258.9,
+          "heightPx": 167.9
+        }
+      ]
+    },
+    {
+      "id": "X07",
+      "loadedRealActors": 8,
+      "realMesh": 12,
+      "triangles": 29840,
+      "loadedMs": 14.9,
+      "casts": 45,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-45-X07-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_X07_vanishing-period",
+          "widthPct": 17.07,
+          "heightPct": 28.96,
+          "xCenterPct": 37.12,
+          "yCenterPct": 37.28,
+          "widthPx": 245.8,
+          "heightPx": 249.1
+        }
+      ]
+    },
+    {
+      "id": "X08",
+      "loadedRealActors": 8,
+      "realMesh": 16,
+      "triangles": 43100,
+      "loadedMs": 18.9,
+      "casts": 46,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-46-X08-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_X08_time-guard",
+          "widthPct": 16.93,
+          "heightPct": 29.76,
+          "xCenterPct": 60.6,
+          "yCenterPct": 38.05,
+          "widthPx": 243.7,
+          "heightPx": 256
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "loadedRealActors": 9,
+      "realMesh": 8,
+      "triangles": 36436,
+      "loadedMs": 4.1,
+      "casts": 47,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/pbrRead-47-E05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_E05_megaphone",
+          "widthPct": 17.59,
+          "heightPct": 24.73,
+          "xCenterPct": 40.74,
+          "yCenterPct": 36.26,
+          "widthPx": 253.3,
+          "heightPx": 212.7
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "ready": true,
+  "readyMs": 2680,
+  "first": {
+    "ready": true,
+    "round": 1,
+    "history": 1,
+    "gpu": {
+      "profile": "balanced-desktop",
+      "pixelRatio": 1,
+      "shadowAutoUpdate": false,
+      "shadowPassRequests": 0,
+      "shadowSize": 2048,
+      "heroInsetDraws": 0,
+      "heroLayerSide": null,
+      "heroCameraLayer": null,
+      "totalDrawCalls": 732
+    },
+    "cam": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.4837,
+        11.9346
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "school": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "loadedRealAssets": 0,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0
+      },
+      "casts": 0,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "gracefulRetirements": 0,
+        "authoredHighDetailAssets": [],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 0,
+        "expired": 0,
+        "rejected": 0,
+        "active": 0,
+        "peakObjects": 0,
+        "peakDraws": 0,
+        "uniqueRenderedProps": 0,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": null,
+          "ai": null
+        },
+        "activeIds": []
+      },
+      "loadedReceipts": [],
+      "loadedAssetDetails": []
+    },
+    "actorCount": 12,
+    "hero": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "galleryCount": 46,
+    "bounds": [],
+    "autoCard": false,
+    "fullScene": true
+  },
+  "final": {
+    "ready": true,
+    "round": 1,
+    "history": 1,
+    "gpu": {
+      "profile": "balanced-desktop",
+      "pixelRatio": 1,
+      "shadowAutoUpdate": false,
+      "shadowPassRequests": 885,
+      "shadowSize": 2048,
+      "heroInsetDraws": 0,
+      "heroLayerSide": null,
+      "heroCameraLayer": null,
+      "totalDrawCalls": 740
+    },
+    "cam": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.4837,
+        11.9346
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "school": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "loadedRealAssets": 8,
+      "cacheMax": 8,
+      "evictions": 40,
+      "loadedIds": [
+        "X02",
+        "X03",
+        "X04",
+        "X05",
+        "X06",
+        "X07",
+        "X08",
+        "E05"
+      ],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0
+      },
+      "casts": 47,
+      "previews": 47,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "gracefulRetirements": 46,
+        "authoredHighDetailAssets": [
+          "X02",
+          "X03",
+          "X04",
+          "X05",
+          "X06",
+          "X07",
+          "X08",
+          "E05"
+        ],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 47,
+        "expired": 46,
+        "rejected": 0,
+        "active": 1,
+        "peakObjects": 18,
+        "peakDraws": 18,
+        "uniqueRenderedProps": 46,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": "E05",
+          "ai": null
+        },
+        "activeIds": [
+          "E05"
+        ]
+      },
+      "loadedReceipts": [
+        {
+          "id": "T06",
+          "source": "real-blender-glb",
+          "file": "T06_Broken_School_Announcement_System.glb",
+          "meshes": 11,
+          "triangles": 34698,
+          "texturedVariant": false,
+          "readyMs": 5.5
+        },
+        {
+          "id": "X01",
+          "source": "real-blender-glb",
+          "file": "X01_Reversing_School_Clock_Tower.glb",
+          "meshes": 13,
+          "triangles": 33424,
+          "texturedVariant": false,
+          "readyMs": 5.7
+        },
+        {
+          "id": "X02",
+          "source": "real-blender-glb",
+          "file": "X02_School_Uniform_Passing_Wall.glb",
+          "meshes": 10,
+          "triangles": 42474,
+          "texturedVariant": false,
+          "readyMs": 19.1
+        },
+        {
+          "id": "X03",
+          "source": "real-blender-glb",
+          "file": "X03_Rooftop_School_Patrol_Car.glb",
+          "meshes": 9,
+          "triangles": 27380,
+          "texturedVariant": false,
+          "readyMs": 5.3
+        },
+        {
+          "id": "X04",
+          "source": "real-blender-glb",
+          "file": "X04_Lunchtime_Prophecy_Pillow.glb",
+          "meshes": 8,
+          "triangles": 27824,
+          "texturedVariant": false,
+          "readyMs": 4.6
+        },
+        {
+          "id": "X05",
+          "source": "real-blender-glb",
+          "file": "X05_Homework_Paper_Galaxy.glb",
+          "meshes": 12,
+          "triangles": 15596,
+          "texturedVariant": false,
+          "readyMs": 4.2
+        },
+        {
+          "id": "X06",
+          "source": "real-blender-glb",
+          "file": "X06_Morning_Reading_Duplicator.glb",
+          "meshes": 13,
+          "triangles": 33830,
+          "texturedVariant": false,
+          "readyMs": 14.5
+        },
+        {
+          "id": "X07",
+          "source": "real-blender-glb",
+          "file": "X07_Vanishing_Last_Classroom_Lesson.glb",
+          "meshes": 12,
+          "triangles": 29840,
+          "texturedVariant": false,
+          "readyMs": 14.9
+        },
+        {
+          "id": "X08",
+          "source": "real-blender-glb",
+          "file": "X08_Campus_Gate_Time_Security_Guard.glb",
+          "meshes": 16,
+          "triangles": 43100,
+          "texturedVariant": false,
+          "readyMs": 18.9
+        },
+        {
+          "id": "E05",
+          "source": "real-blender-glb",
+          "file": "E05_Giant_Cheer_Megaphone.glb",
+          "meshes": 8,
+          "triangles": 36436,
+          "texturedVariant": false,
+          "readyMs": 4.1
+        }
+      ],
+      "loadedAssetDetails": [
+        {
+          "id": "X02",
+          "source": "real-blender-glb",
+          "file": "X02_School_Uniform_Passing_Wall.glb",
+          "meshes": 10,
+          "triangles": 42474,
+          "texturedVariant": false,
+          "readyMs": 19.1
+        },
+        {
+          "id": "X03",
+          "source": "real-blender-glb",
+          "file": "X03_Rooftop_School_Patrol_Car.glb",
+          "meshes": 9,
+          "triangles": 27380,
+          "texturedVariant": false,
+          "readyMs": 5.3
+        },
+        {
+          "id": "X04",
+          "source": "real-blender-glb",
+          "file": "X04_Lunchtime_Prophecy_Pillow.glb",
+          "meshes": 8,
+          "triangles": 27824,
+          "texturedVariant": false,
+          "readyMs": 4.6
+        },
+        {
+          "id": "X05",
+          "source": "real-blender-glb",
+          "file": "X05_Homework_Paper_Galaxy.glb",
+          "meshes": 12,
+          "triangles": 15596,
+          "texturedVariant": false,
+          "readyMs": 4.2
+        },
+        {
+          "id": "X06",
+          "source": "real-blender-glb",
+          "file": "X06_Morning_Reading_Duplicator.glb",
+          "meshes": 13,
+          "triangles": 33830,
+          "texturedVariant": false,
+          "readyMs": 14.5
+        },
+        {
+          "id": "X07",
+          "source": "real-blender-glb",
+          "file": "X07_Vanishing_Last_Classroom_Lesson.glb",
+          "meshes": 12,
+          "triangles": 29840,
+          "texturedVariant": false,
+          "readyMs": 14.9
+        },
+        {
+          "id": "X08",
+          "source": "real-blender-glb",
+          "file": "X08_Campus_Gate_Time_Security_Guard.glb",
+          "meshes": 16,
+          "triangles": 43100,
+          "texturedVariant": false,
+          "readyMs": 18.9
+        },
+        {
+          "id": "E05",
+          "source": "real-blender-glb",
+          "file": "E05_Giant_Cheer_Megaphone.glb",
+          "meshes": 8,
+          "triangles": 36436,
+          "texturedVariant": false,
+          "readyMs": 4.1
+        }
+      ]
+    },
+    "actorCount": 12,
+    "hero": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "galleryCount": 46,
+    "bounds": [
+      {
+        "name": "R169_E05_megaphone",
+        "widthPct": 18.39,
+        "heightPct": 23.07,
+        "xCenterPct": 39.63,
+        "yCenterPct": 37.44,
+        "widthPx": 264.9,
+        "heightPx": 198.4
+      }
+    ],
+    "autoCard": false,
+    "fullScene": true
+  },
+  "pass": true
+}

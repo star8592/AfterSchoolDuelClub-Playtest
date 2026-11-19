@@ -52,6 +52,13 @@ const R199_SHOWCASE=R199_PHYSICAL_MAGIC&&(()=>{
    .get('r199Showcase')==='on')}
  catch{return false}
 })();
+const r200Flag=key=>{
+ try{return PARAMS.get(key)==='on'||
+  (window.parent!==window&&new URLSearchParams(window.parent.location.search).get(key)==='on')
+ }catch{return false}
+};
+const R200_PBR=R199_PHYSICAL_MAGIC&&r200Flag('r200Pbr');
+const R200_READABLE=R199_PHYSICAL_MAGIC&&r200Flag('r200Readable');
 let r199Magic=null,r199MagicModule=null;
 
 const R134_HOST_IDLE_ENABLED=(()=>{
@@ -331,7 +338,8 @@ function makeScene(){
  if(R199_PHYSICAL_MAGIC){
   if(!r199MagicModule)throw Error('R199 magic module not available');
   r199Magic=r199MagicModule.createR199RealCampusMagic(THREE,scene,{
-   loader:new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),reducedMotion:reduced,
+   loader:new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),camera,reducedMotion:reduced,
+   r200Pbr:R200_PBR,r200Readable:R200_READABLE,
    now:()=>absoluteSeconds,
    onEvent:(event,detail)=>reply('ASDC_R199_MAGIC_EVENT',{event,...detail})
   });
@@ -1262,6 +1270,7 @@ function exposeQA(){
   get spellImpact(){return spellImpact?.stats||null},
   get magicArsenal(){return magicArsenal?.stats||null},
   get r199RealMagic(){return r199Magic?.stats||{enabled:false}},
+  get r200MagicBounds(){return r199Magic?.visibleStageBounds()||[]},
   get elementalVfx(){return elementalVfx?.stats||null},
   get spellContactFX(){return spellContactFX?.stats||null},
   get r121ContactReceipts(){return r121ContactReceipts},

@@ -1,0 +1,76 @@
+{
+  "version": "R200",
+  "release": "Draft not approved; stable main unchanged",
+  "scope": "PC preview, explicit r200Pbr=on&r200Readable=on",
+  "5PbrVariants": [
+    {
+      "stem": "E06_Cinematic_Eraser",
+      "originalBytes": 541512,
+      "variantBytes": 591352,
+      "extraBytes": 49840,
+      "pbrTextureImages": 8,
+      "originalGeometrySourceUntouched": true
+    },
+    {
+      "stem": "K01_Sculpted_Wok_Eggplant_Banana",
+      "originalBytes": 558656,
+      "variantBytes": 636772,
+      "extraBytes": 78116,
+      "pbrTextureImages": 10,
+      "originalGeometrySourceUntouched": true
+    },
+    {
+      "stem": "K07_Sculpted_Frog_Pudding_Bell",
+      "originalBytes": 702104,
+      "variantBytes": 806120,
+      "extraBytes": 104016,
+      "pbrTextureImages": 16,
+      "originalGeometrySourceUntouched": true
+    },
+    {
+      "stem": "Q05_Chalk_Press_Conference",
+      "originalBytes": 1029136,
+      "variantBytes": 1121940,
+      "extraBytes": 92804,
+      "pbrTextureImages": 12,
+      "originalGeometrySourceUntouched": true
+    },
+    {
+      "stem": "P07_Black_Swan_Ice_Rink",
+      "originalBytes": 227468,
+      "variantBytes": 288992,
+      "extraBytes": 61524,
+      "pbrTextureImages": 10,
+      "originalGeometrySourceUntouched": true
+    }
+  ],
+  "5TotalAdditionalBytes": 386300,
+  "5TextureImageCount": 56,
+  "realGlbPresentationCount": 46,
+  "previewCastCount": 47,
+  "replayedFirstId": "E05",
+  "cacheMax": 8,
+  "loadedAtEnd": 8,
+  "evictions": 40,
+  "errors": [],
+  "oldPointLights": 0,
+  "noRuleMutation": true,
+  "E06OriginalScreenPx": [
+    148.5,
+    106.8
+  ],
+  "E06R200ScreenPx": [
+    216.3,
+    149.7
+  ],
+  "framingNote": "Different animation timestamps; illustrative not a locked-time render diff",
+  "actualCardRule": {
+    "id": "Q05",
+    "deck": "classroom",
+    "authoredTextureVariant": true,
+    "oldArsenal": 0,
+    "oldImpact": 0,
+    "canonicalDamage": 2
+  },
+  "performanceLimit": "R200 has not solved Intel UHD630 cold startup; no FPS improvement asserted"
+}

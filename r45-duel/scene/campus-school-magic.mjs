@@ -23,7 +23,7 @@ import {R186_HERO_IDS,r186AnimateActor} from './campus-r186-actor-motions.mjs';
 const clip=(x)=>Math.max(0,Math.min(1,x));
 const smooth=x=>{const y=clip(x);return y*y*(3-2*y)};
 const hex=(v)=>String(v).toLowerCase();
-export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeStatic=false}={}){
+export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeStatic=false,r200Readable=false}={}){
  const root=new THREE.Group();root.name='R169_SCHOOL_COMEDY_PHYSICAL_MAGIC';scene.add(root);
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
  const heroAssets=new Map();
@@ -33,6 +33,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
  }
 
  const active=[],lastBySide={player:null,ai:null};
+ let gracefulRetirements=0;
  const collateral=[];
  let collateralLaunched=0,collateralExpired=0;
  const staticBatcher=mergeStatic?createCampusStaticBatcher(THREE):null;
@@ -462,7 +463,12 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   props.rotation.y=message.side==='player'?-.24:.24;
   g.traverse(o=>{if(o.isMesh){o.userData.basePosition=o.position.clone();
    o.userData.baseRotation=o.rotation.clone()}});
-  const life=reducedMotion?1.4:2.1;
+  const life=reducedMotion?1.4:r200Readable?2.5:2.1;
+  if(r200Readable){
+   // Sequential magic should stay legible in one wide arena. Do not stack
+   // three huge unrelated school props over the opponent reaction.
+   for(const prior of active)if(prior.retireAt===undefined)prior.retireAt=now;
+  }
   const entry={id:card.id,identity,side:message.side,target,serial:message.serial,
    created:now,duration:life,group:g,props,contacted:false,
    parts:g.children.length,appliedDirectDamage:Number(message.directDamage)||0,batchReceipt};
@@ -518,16 +524,32 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   }
   for(let i=active.length-1;i>=0;i--){
    const a=active[i],t=clip((now-a.created)/a.duration);
-   if(t>=1){disposeActive(a);active.splice(i,1);continue}
-   const appear=smooth(t/.17),vanish=1-smooth((t-.83)/.17);
+   if(t>=1 || (r200Readable&&a.retireAt!==undefined&&
+      now-a.retireAt>=.26)){
+    disposeActive(a);active.splice(i,1);
+    if(r200Readable&&a.retireAt!==undefined)gracefulRetirements++;
+    continue;
+   }
+   const appear=smooth(t/(r200Readable?.115:.17)),vanish=1-smooth((t-.83)/.17);
    const throwStage=smooth((t-.12)/.38),impact=smooth((t-.46)/.12);
    const wobble=Math.sin(t*20+a.serial)*.09;
    const isThrow=['教具投掷','黑暗食堂','社团实验','体育荒诞'].includes(a.identity.family);
-   a.group.scale.setScalar((.76+.24*appear)*vanish);
-   a.props.position.x=(a.side==='player'?-1:1)*(isThrow?1.05*(1-throwStage):.17*Math.sin(t*8));
-   a.props.position.y=1.45+(isThrow?.65*Math.sin(throwStage*Math.PI):.12*Math.sin(t*8))-
-    (a.contacted?.28*impact:0);
-   a.props.rotation.z=isThrow?throwStage*.7+wobble:wobble*.8;
+   // R200: actor-specific wide-shot silhouettes. Only the small eraser
+   // grows; large food/gag actors retain their established source scale.
+   // No automatic camera zoom, no second camera/portrait pass.
+   const scaleBoost=r200Readable&&a.id==='E06'?1.44:1;
+   const retire=r200Readable&&a.retireAt!==undefined?
+    1-smooth((now-a.retireAt)/.26):1;
+   a.group.scale.setScalar((.76+.24*appear)*vanish*scaleBoost*retire);
+   const throwDistance=r200Readable&&a.id==='E06'?1.70:1.05;
+   a.props.position.x=(a.side==='player'?-1:1)*(isThrow?
+    throwDistance*(1-throwStage):.17*Math.sin(t*8));
+   a.props.position.y=1.45+(isThrow?
+    (r200Readable&&a.id==='E06'?.80:.65)*Math.sin(throwStage*Math.PI):
+    .12*Math.sin(t*8))-(a.contacted?.28*impact:0);
+   a.props.rotation.z=isThrow?
+    ((r200Readable&&a.id==='E06')?throwStage*.95:throwStage*.7)+wobble:
+    wobble*.8;
    a.props.rotation.y=t*(a.identity.family==='时空校园'?.70:.23);
    a.props.traverse(o=>{
     const motion=o.userData?.motion;
@@ -683,6 +705,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    return {active:true,groups};
   },
   get stats(){return {enabled:true,totalIdentities:SCHOOL_MAGIC_COUNT,
+   r200Readable,gracefulRetirements,
    authoredHighDetailAssets:[...heroAssets.keys()],
    collateralLaunched,collateralExpired,collateralActive:collateral.length,
    played,expired,rejected,active:active.length,peakObjects,peakDraws,
