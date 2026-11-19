@@ -60,6 +60,8 @@ const r200Flag=key=>{
 const R200_PBR=R199_PHYSICAL_MAGIC&&r200Flag('r200Pbr');
 const R200_READABLE=R199_PHYSICAL_MAGIC&&r200Flag('r200Readable');
 const R202_BODY_HIT=R199_PHYSICAL_MAGIC&&r200Flag('r202BodyHit');
+const R203_BODY_HIT=R202_BODY_HIT&&r200Flag('r203BodyHit');
+const R203_NEW_IDS=Object.freeze(['K04','S08','P03','X05','Q07']);
 let r199Magic=null,r199MagicModule=null;
 
 const R134_HOST_IDLE_ENABLED=(()=>{
@@ -328,7 +330,8 @@ function r201ApplyResolvedContact(d){
     if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }
-  if(R202_BODY_HIT&&['E06','Q05','K01','K07','P07'].includes(d.id)&&
+  if(R202_BODY_HIT&&(['E06','Q05','K01','K07','P07'].includes(d.id)||
+     (R203_BODY_HIT&&R203_NEW_IDS.includes(d.id)))&&
      ['player','ai'].includes(d.victim)){
    r202HostHit[d.victim]={id:d.id,time:absoluteSeconds,
     serial:d.serial,preview:false};
@@ -387,16 +390,19 @@ function makeScene(){
   r199Magic=r199MagicModule.createR199RealCampusMagic(THREE,scene,{
    loader:new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),camera,reducedMotion:reduced,
    r200Pbr:R200_PBR,r200Readable:R200_READABLE,r202BodyHit:R202_BODY_HIT,
+   r203BodyHit:R203_BODY_HIT,
    targetWorld:(target,id)=>{
     const host=duelistHosts.find(x=>x.side===target);
     if(!host)return null;
     host.pivot.updateWorldMatrix(true,true);
-    const ref=id==='P07'?null:host.bones.get(
-      id==='K01'?'J_Bip_C_Chest':'J_Bip_C_Head');
+    const footTarget=id==='P07'||id==='P03';
+    const chestTarget=id==='K01'||id==='S08';
+    const ref=footTarget?null:host.bones.get(
+      chestTarget?'J_Bip_C_Chest':'J_Bip_C_Head');
     const point=ref?ref.getWorldPosition(new THREE.Vector3()):
      host.pivot.getWorldPosition(new THREE.Vector3());
-    if(id==='P07')point.y+=.13; // ice sheet collides at the ORIGINAL foot
-    if(id==='K01')point.y+=.22; // flying food reaches the chest and chin
+    if(footTarget)point.y+=.20; // ice/dinosaur at original shoes
+    if(chestTarget)point.y+=.22; // hot food/can at original torso
     point.x+=target==='ai'?-.27:.27; // camera can still see opponent's face
     point.z+=.34; // impact in front of source VRM, never hidden behind it
     return {x:point.x,y:point.y,z:point.z};
@@ -855,7 +861,12 @@ function updateDuelistHosts(seconds){
     Q05:{R:[.10,.38,-.21],L:[-.12,.20,-.16]},
     K01:{R:[.06,.32,-.11],L:[-.10,.28,-.16]},
     K07:{R:[.31,.53,-.16],L:[-.29,.52,-.19]},
-    P07:{R:[.44,.28,-.18],L:[-.40,.26,-.21]}
+    P07:{R:[.44,.28,-.18],L:[-.40,.26,-.21]},
+    K04:{R:[.27,.38,-.18],L:[-.26,.27,-.14]},
+    S08:{R:[.08,.26,-.18],L:[-.15,.32,-.15]},
+    P03:{R:[.48,.38,-.20],L:[-.42,.34,-.21]},
+    X05:{R:[.20,.44,-.13],L:[-.22,.46,-.14]},
+    Q07:{R:[.29,.56,-.14],L:[-.31,.52,-.16]}
    })[r202Kind];
    if(pose)for(const hand of ['R','L']){
     const current=new THREE.Vector3(...targetOut[hand]);
@@ -887,7 +898,12 @@ function updateDuelistHosts(seconds){
     Q05:{headPitch:.48,headRoll:.15,bodyRoll:.09,jump:-.07},
     K01:{headPitch:-.21,headRoll:-.25,bodyRoll:-.18,jump:-.05},
     K07:{headPitch:-.26,headRoll:.13,bodyRoll:.10,jump:.23},
-    P07:{headPitch:.04,headRoll:-.31,bodyRoll:-.35,jump:.09}
+    P07:{headPitch:.04,headRoll:-.31,bodyRoll:-.35,jump:.09},
+    K04:{headPitch:-.24,headRoll:.23,bodyRoll:.18,jump:.11},
+    S08:{headPitch:-.19,headRoll:-.16,bodyRoll:-.27,jump:-.09},
+    P03:{headPitch:-.30,headRoll:.19,bodyRoll:-.33,jump:.22},
+    X05:{headPitch:-.52,headRoll:.08,bodyRoll:.15,jump:-.09},
+    Q07:{headPitch:.36,headRoll:-.22,bodyRoll:.11,jump:-.15}
    }[r202Kind];
    host.pivot.rotation.z+=sign*hitStyle.bodyRoll*re;
    host.pivot.position.y+=hitStyle.jump*re;

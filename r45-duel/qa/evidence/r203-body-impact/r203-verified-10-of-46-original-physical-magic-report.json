@@ -1,0 +1,239 @@
+{
+  "release": "R203 Draft NO-GO",
+  "prodMainChanged": false,
+  "source": "Chrome 1440x860 Vulkan WebGL2 RTX5070Ti / independent XPS Intel UHD630",
+  "realOriginalBlenderProps": true,
+  "noAutomaticCloseups": true,
+  "newFive": [
+    {
+      "id": "K04",
+      "originalGlbLoaded": true,
+      "distanceFromRealCharacterBoneMeters": 0.258,
+      "originalHitWorld": [
+        5.1,
+        2.482,
+        0.871
+      ],
+      "realVrMTargetWorld": [
+        5.283,
+        2.302,
+        0.902
+      ],
+      "showcaseNoFalseDamage": true
+    },
+    {
+      "id": "S08",
+      "originalGlbLoaded": true,
+      "distanceFromRealCharacterBoneMeters": 0.029,
+      "originalHitWorld": [
+        5.279,
+        2.215,
+        0.808
+      ],
+      "realVrMTargetWorld": [
+        5.308,
+        2.212,
+        0.806
+      ],
+      "showcaseNoFalseDamage": true
+    },
+    {
+      "id": "P03",
+      "originalGlbLoaded": true,
+      "distanceFromRealCharacterBoneMeters": 0.223,
+      "originalHitWorld": [
+        5.068,
+        0.688,
+        1
+      ],
+      "realVrMTargetWorld": [
+        5.267,
+        0.607,
+        0.94
+      ],
+      "showcaseNoFalseDamage": true
+    },
+    {
+      "id": "X05",
+      "originalGlbLoaded": true,
+      "distanceFromRealCharacterBoneMeters": 0.145,
+      "originalHitWorld": [
+        5.291,
+        2.31,
+        1.801
+      ],
+      "realVrMTargetWorld": [
+        5.247,
+        2.33,
+        1.664
+      ],
+      "showcaseNoFalseDamage": true
+    },
+    {
+      "id": "Q07",
+      "originalGlbLoaded": true,
+      "distanceFromRealCharacterBoneMeters": 0.075,
+      "originalHitWorld": [
+        5.246,
+        2.128,
+        1.071
+      ],
+      "realVrMTargetWorld": [
+        5.247,
+        2.201,
+        1.051
+      ],
+      "showcaseNoFalseDamage": true
+    }
+  ],
+  "newPhysicalMaterials": {
+    "K04": "individual chili pepper flakes and mooncake crumbs",
+    "S08": "real ejected original-source soda cans + physical liquid droplets",
+    "P03": "real cardboard dinosaur + tumbling real cardboard chips",
+    "X05": "original-source pages + actual flat paper squares, rotating independently",
+    "Q07": "original-source second cardboard moon + torn cardboard moon fragments"
+  },
+  "realRuleCases": {
+    "S08": {
+      "canonicalDirectDamage": 2,
+      "realBodyContacts": 1,
+      "originalHumanVoiceActuallyPlayed": "HOST_AI-r203_S08.ogg",
+      "errors": []
+    },
+    "P03": {
+      "canonicalDirectDamage": 0,
+      "realBodyContacts": 1,
+      "originalHumanVoiceActuallyPlayed": "HOST_AI-r203_P03.ogg",
+      "note": "No summoned units on board, so real official splash damage is 0: visual slapstick does not manufacture HP loss",
+      "errors": []
+    }
+  },
+  "femaleOriginalVoice": {
+    "id": "S08",
+    "voice": "HOST_PLAYER-r203_S08.ogg",
+    "audioActuallyPlayed": true,
+    "showcaseRulesUnmodified": true
+  },
+  "localQwenOriginalVoices": {
+    "newCount": 10,
+    "totalAfterR202": 20,
+    "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+    "totalNewBytes": 185408,
+    "humanListeningApproved": false,
+    "clips": {
+      "HOST_PLAYER:K04": {
+        "path": "assets/audio/voices/HOST_PLAYER-r203_K04.ogg",
+        "sha256": "689baf9cfc34894b8aaa700a7a76d66109c32e2e6abfaf5926102206fef505c6",
+        "seconds": 3.51,
+        "bytes": 21529,
+        "review": "pending-human-listening",
+        "text": "哎呀！辣椒月饼也不能往脸上扔呀！"
+      },
+      "HOST_AI:K04": {
+        "path": "assets/audio/voices/HOST_AI-r203_K04.ogg",
+        "sha256": "7676d4e1e27f811eab4f702d84c52068910fc929ec6d847d7e9d1db0bb0adde0",
+        "seconds": 2.65,
+        "bytes": 14129,
+        "review": "pending-human-listening",
+        "text": "辣死我啦！谁把辣椒塞进月饼里了！"
+      },
+      "HOST_PLAYER:S08": {
+        "path": "assets/audio/voices/HOST_PLAYER-r203_S08.ogg",
+        "sha256": "fc9f2235bfc7dff31a46e6ad1096be14bd4b7ee8a7f4bba46a018690f6d7ff1f",
+        "seconds": 2.65,
+        "bytes": 16300,
+        "review": "pending-human-listening",
+        "text": "我还没投币呢！汽水就砸过来啦！"
+      },
+      "HOST_AI:S08": {
+        "path": "assets/audio/voices/HOST_AI-r203_S08.ogg",
+        "sha256": "ab8975db38f53c1573433b0065a7324d5c771eedfaaa8dcf82eb36f4a664ccda",
+        "seconds": 3.41,
+        "bytes": 17781,
+        "review": "pending-human-listening",
+        "text": "哎哟！售货机怎么把汽水罐当炮弹啦！"
+      },
+      "HOST_PLAYER:P03": {
+        "path": "assets/audio/voices/HOST_PLAYER-r203_P03.ogg",
+        "sha256": "42b2207b7e6fa4240d5fb4dca99198b3adc0fa60d0509be0f7ca7148bc4d5db0",
+        "seconds": 3.51,
+        "bytes": 19290,
+        "review": "pending-human-listening",
+        "text": "哎呀！恐龙是纸箱做的也不能踩我呀！"
+      },
+      "HOST_AI:P03": {
+        "path": "assets/audio/voices/HOST_AI-r203_P03.ogg",
+        "sha256": "e7a53e08c4ae4dc5d5371d78a1e1b828f78c7acced691d8850436558505379f8",
+        "seconds": 3.21,
+        "bytes": 20096,
+        "review": "pending-human-listening",
+        "text": "快跑！那个纸箱恐龙踩到我鞋了！"
+      },
+      "HOST_PLAYER:X05": {
+        "path": "assets/audio/voices/HOST_PLAYER-r203_X05.ogg",
+        "sha256": "25684aecc3dd9bf9fa9b7df39dfb8ea572e9468ed371f7502573d3f69de21e58",
+        "seconds": 4.01,
+        "bytes": 21936,
+        "review": "pending-human-listening",
+        "text": "啊！这么多作业，先让我把脸露出来呀！"
+      },
+      "HOST_AI:X05": {
+        "path": "assets/audio/voices/HOST_AI-r203_X05.ogg",
+        "sha256": "7a8e5720f6e3cb14a645496baf59944690a2860bf76794817bb514fdb90ce7e1",
+        "seconds": 3.31,
+        "bytes": 19525,
+        "review": "pending-human-listening",
+        "text": "救命！作业本怎么下起暴风雪啦！"
+      },
+      "HOST_PLAYER:Q07": {
+        "path": "assets/audio/voices/HOST_PLAYER-r203_Q07.ogg",
+        "sha256": "ec20b439a6e2b4e87f1d323ec60c165fecb1e9beefce92c41c998aa336029da9",
+        "seconds": 2.81,
+        "bytes": 15671,
+        "review": "pending-human-listening",
+        "text": "等等！天上的月亮怎么掉到我头上啦！"
+      },
+      "HOST_AI:Q07": {
+        "path": "assets/audio/voices/HOST_AI-r203_Q07.ogg",
+        "sha256": "74427fcf5760b37bea1f38b362fc01f176d6dd9b755e1e1eaa3b8c635eacba94",
+        "seconds": 3.61,
+        "bytes": 19151,
+        "review": "pending-human-listening",
+        "text": "哎哟！教室里的第二个月亮砸我头了！"
+      }
+    }
+  },
+  "full46OriginalBlenderRotation": {
+    "originalIdentities": 46,
+    "castPreviewRuns": 47,
+    "cacheLimit": 8,
+    "safeEvictions": 40,
+    "glErrors": []
+  },
+  "oldR202FiveSignatureRegression": {
+    "pass": true,
+    "count": 5
+  },
+  "realIntelUHD630": {
+    "pass": true,
+    "model": "S08_Angry_Campus_Vending_Machine.glb",
+    "meshCount": 14,
+    "actualBodyContacts": 1,
+    "startupWarmSampleMs": 5586,
+    "coldStartOrFpsImprovementClaimed": false
+  },
+  "realChromeVideo": {
+    "silentFile": "qa/evidence/r203-body-impact/r203-five-real-opponent-hits-silent.mp4",
+    "seconds": 19.67,
+    "noAudioTrack": true,
+    "humanVoiceInPlayableGame": true,
+    "visualSheet": "qa/evidence/r203-body-impact/r203-five-original-3d-prop-body-hit-contact-sheet.jpg"
+  },
+  "knownLimits": [
+    "Only 10 of 46 signature spell impacts have full bespoke body + voice; other 36 still require full bespoke production.",
+    "GPU instanced fragments are stylized material particles; no claim of full fluid simulation.",
+    "Human listening/visual quality acceptance outstanding.",
+    "XPS data is one warm/local PC sample; not a cold-load FPS benchmark.",
+    "Dependent on Draft R202/R201/R200/R199; stable main untouched."
+  ]
+}

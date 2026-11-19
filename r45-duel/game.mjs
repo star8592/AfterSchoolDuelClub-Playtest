@@ -21,6 +21,11 @@ const params=new URLSearchParams(location.search);
 const R199_REAL_MAGIC=params.get('r199PhysicalMagic')==='on';
 const R199_SHOWCASE=R199_REAL_MAGIC&&params.get('r199Showcase')==='on';
 const R202_BODY_HIT=R199_REAL_MAGIC&&params.get('r202BodyHit')==='on';
+const R203_BODY_HIT=R202_BODY_HIT&&params.get('r203BodyHit')==='on';
+const R203_FIVE_IDS=Object.freeze(['K04','S08','P03','X05','Q07']);
+const r203VoiceKind=id=>R203_BODY_HIT&&R203_FIVE_IDS.includes(id)?
+ 'r203_'+id:R202_BODY_HIT&&['E06','Q05','K01','K07','P07'].includes(id)?
+ 'r202_'+id:null;
 let r199Gallery=null,r199MagicBible=null;
 if(R199_REAL_MAGIC)
  void import('./scene/campus-magic-bible.mjs').then(m=>{
@@ -1005,9 +1010,11 @@ window.addEventListener('message',event=>{
   r121SpokenContacts.add(d.serial);
   if(r121SpokenContacts.size>500)r121SpokenContacts.clear();
   const hasHit=d.directDamage>0||d.unitDamage>0;
-  if(!hasHit&&R202_BODY_HIT&&['K07','P07'].includes(d.card)&&!guidedMode){
+  if(!hasHit&&R202_BODY_HIT&&(['K07','P07'].includes(d.card)||
+     (R203_BODY_HIT&&R203_FIVE_IDS.includes(d.card)))&&!guidedMode){
    const host=d.victim==='player'?'HOST_PLAYER':'HOST_AI';
-   if(!audio.playCharacter(host,'r202_'+d.card))
+   const kind=r203VoiceKind(d.card);
+   if(!(kind&&audio.playCharacter(host,kind)))
     audio.playCharacter(host,'hurt');
   }
   if(hasHit){
@@ -1018,8 +1025,8 @@ window.addEventListener('message',event=>{
    if(!guidedMode){
     if(d.directDamage>0){
      const hostId=d.victim==='player'?'HOST_PLAYER':'HOST_AI';
-     if(!(R202_BODY_HIT&&['E06','Q05','K01','K07','P07'].includes(d.card)&&
-       audio.playCharacter(hostId,'r202_'+d.card)))
+     const kind=r203VoiceKind(d.card);
+     if(!(kind&&audio.playCharacter(hostId,kind)))
       audio.playCharacter(hostId,'hurt');
     }else if(Array.isArray(d.targetIds)&&d.targetIds.length){
      // A summoned source GLB is not a human voice; use its authored
@@ -1049,7 +1056,8 @@ window.addEventListener('message',event=>{
    const magic=r199MagicBible[d.id];
    audio.playCue(magic.foley[1],d.side,{gainScale:.84});
    const host=d.victim==='player'?'HOST_PLAYER':'HOST_AI';
-   if(!audio.playCharacter(host,'r202_'+d.id))
+   const kind=r203VoiceKind(d.id);
+   if(!(kind&&audio.playCharacter(host,kind)))
     audio.playCharacter(host,'hurt');
    showComedyAside({text:magic.lines.hit,
     side:d.victim,speaker:'实物命中预览 · '+BY_ID[d.id].name});

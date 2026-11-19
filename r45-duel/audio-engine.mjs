@@ -516,7 +516,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   recentVoiceKeys.set(key,now);
   if(recentVoiceKeys.size>45)recentVoiceKeys.clear();
   const item={id,kind,file:clip.file,variant:clip.variant,text:clip.text,duration_seconds:clip.duration_seconds};
-  if(kind==='attack'||kind==='hurt'||kind==='cast'||/^r202_(E06|Q05|K01|K07|P07)$/.test(kind)){
+  if(kind==='attack'||kind==='hurt'||kind==='cast'||/^r202_(E06|Q05|K01|K07|P07)$/.test(kind)||/^r203_(K04|S08|P03|X05|Q07)$/.test(kind)){
    // Attack VO must accompany the actual animation; cancel the old line,
    // leaving pending entrances behind this higher priority combat call.
    if(voiceAudio){voiceAudio.pause();voiceAudio=null;currentVoiceKey=null;counters.voiceInterrupted++;}

@@ -1,0 +1,142 @@
+{
+  "pass": true,
+  "errors": [],
+  "before": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "events": 1
+  },
+  "after": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "events": 1,
+    "voice": [
+      {
+        "id": "HOST_PLAYER",
+        "kind": "r203_S08",
+        "variant": "r203_S08"
+      }
+    ],
+    "actualPlayed": [
+      {
+        "id": "HOST_PLAYER",
+        "kind": "r203_S08",
+        "variant": "r203_S08",
+        "text": "我还没投币呢！汽水就砸过来啦！",
+        "duration_seconds": 2.65,
+        "serial": 2
+      }
+    ],
+    "realOriginal": true,
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "r202BodyImpact": true,
+      "r203BodyImpact": true,
+      "gracefulRetirements": 0,
+      "signatureImpactIds": [
+        "E06",
+        "Q05",
+        "K01",
+        "K07",
+        "P07",
+        "K04",
+        "S08",
+        "P03",
+        "X05",
+        "Q07"
+      ],
+      "originalDetachedProjectiles": [
+        {
+          "id": "S08",
+          "names": [
+            "S08_FLYING_CAN_ACTOR"
+          ],
+          "meshCount": 4,
+          "originalMeshSource": true
+        }
+      ],
+      "physicalFlights": 1,
+      "actualBodyContacts": 0,
+      "previewBodyContacts": 1,
+      "physicalConsequences": {
+        "spawned": 1,
+        "expired": 0,
+        "active": 1,
+        "peak": 1,
+        "physicalKinds": [
+          "soda"
+        ],
+        "oneMeshDrawPerPhysicalMaterial": true,
+        "addedPointLights": 0,
+        "addedGlowRings": 0,
+        "addedSprites": 0
+      },
+      "activeBodyFlights": [
+        {
+          "id": "S08",
+          "serial": 40000001,
+          "preview": true,
+          "enemy": true,
+          "propWorld": [
+            2.8,
+            0.18,
+            -0.44
+          ],
+          "bodyHitWorld": [
+            -5.207,
+            2.114,
+            0.933
+          ],
+          "originalVisibleMeshCenter": [
+            -5.211,
+            2.121,
+            0.934
+          ],
+          "actualMeshToBodyMeters": 0.008
+        }
+      ],
+      "authoredHighDetailAssets": [
+        "S08"
+      ],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 1,
+      "expired": 0,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 14,
+      "peakDraws": 14,
+      "uniqueRenderedProps": 1,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": null,
+        "ai": "S08"
+      },
+      "activeIds": [
+        "S08"
+      ]
+    },
+    "playerHost": {
+      "id": "S08",
+      "time": 1.1919999999999995,
+      "serial": 40000001,
+      "preview": true
+    },
+    "oldLights": 0,
+    "camera": false
+  }
+}
