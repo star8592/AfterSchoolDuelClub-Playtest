@@ -1,0 +1,45 @@
+{
+  "backend": "vulkan",
+  "checks": [
+    {
+      "label": "empty_html",
+      "visibility": "visible",
+      "raf": {
+        "count": 256,
+        "p50": 16.699999999999818,
+        "p95": 16.700000000000728,
+        "p99": 16.800000000000182,
+        "max": 16.800000000000182,
+        "gaps": []
+      },
+      "jsLongTasks": []
+    },
+    {
+      "label": "game_after_load_idle",
+      "visibility": "visible",
+      "raf": {
+        "count": 271,
+        "p50": 16.699999999999818,
+        "p95": 16.700000000000728,
+        "p99": 16.800000000000182,
+        "max": 16.800000000000182,
+        "gaps": []
+      },
+      "jsLongTasks": []
+    },
+    {
+      "label": "game_after_play_and_ai",
+      "visibility": "visible",
+      "raf": {
+        "count": 268,
+        "p50": 16.69999999999891,
+        "p95": 16.799999999999272,
+        "p99": 16.80000000000109,
+        "max": 33.29999999999927,
+        "gaps": []
+      },
+      "jsLongTasks": []
+    }
+  ],
+  "errors": []
+}

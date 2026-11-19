@@ -1,0 +1,43 @@
+{
+  "test": "XPS 15 laptop independent Intel UHD630/GTX1650 PC no-QA via LAN Chrome",
+  "browser": "Chrome 155",
+  "device": "XPS 15-7590 Linux",
+  "url": "http://10.10.10.138:18687/r45-duel/?seed=173",
+  "ready": true,
+  "entryMs": 47194,
+  "metrics": {
+    "title": "放学后决斗社 · R45 全新单场地卡牌对决",
+    "models": 16,
+    "firstFrame": 45521,
+    "round": "第 1 回合",
+    "ready": true,
+    "audio": "true",
+    "hand": 5,
+    "webgl2": true
+  },
+  "events": [
+    {
+      "before": "第 1 回合",
+      "after": "第 2 回合"
+    },
+    {
+      "before": "第 2 回合",
+      "after": "第 3 回合"
+    },
+    {
+      "before": "第 3 回合",
+      "after": "第 4 回合"
+    }
+  ],
+  "issues": [],
+  "firstPlayed": "E01",
+  "frameTime": {
+    "frames": 22,
+    "p50": 33.4,
+    "p95": 83.3,
+    "p99": 166.6,
+    "max": 2833.2
+  },
+  "screen": "/tmp/r197-xps-real-chrome-playing.jpg",
+  "pass": true
+}

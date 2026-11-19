@@ -1,0 +1,108 @@
+{
+  "source": "non-QA player page",
+  "name": "public-classroom-seed6-desktop1280-cpu1-vulkan",
+  "host": "127.0.0.1",
+  "backend": "vulkan",
+  "seed": 6,
+  "deck": "classroom",
+  "cpu": 1,
+  "width": 1280,
+  "pass": true,
+  "errors": [],
+  "turns": [
+    {
+      "index": 1,
+      "beforeRound": "第 1 回合",
+      "afterRound": "第 2 回合",
+      "playerHp": "20",
+      "enemyHp": "20",
+      "hand": 5,
+      "sourceModelsReady": 16
+    },
+    {
+      "index": 2,
+      "beforeRound": "第 2 回合",
+      "afterRound": "第 3 回合",
+      "playerHp": "17",
+      "enemyHp": "20",
+      "hand": 6,
+      "sourceModelsReady": 16
+    },
+    {
+      "index": 3,
+      "beforeRound": "第 3 回合",
+      "afterRound": "第 4 回合",
+      "playerHp": "16",
+      "enemyHp": "20",
+      "hand": 7,
+      "sourceModelsReady": 16
+    }
+  ],
+  "checklist": {
+    "firstPlayerEntry": true,
+    "realHighDetailModels": true,
+    "rulesHelp": true,
+    "defaultSoundEnabled": true,
+    "tutorialDiscoverable": true,
+    "realCardAndAIInteractions": true
+  },
+  "elapsedMs": 3243,
+  "initial": {
+    "round": "第 1 回合",
+    "playerHp": "20",
+    "enemyHp": "20",
+    "energy": "2",
+    "handCount": 5,
+    "playable": 3,
+    "arenaCanvas": true,
+    "sceneUrl": "http://127.0.0.1:18687/r45-duel/scene/?r147Safe=1&r146Cast=off&r145ActionCamera=off",
+    "modelMetrics": {
+      "modelsVerified": 16,
+      "modelReadyMs": 1557,
+      "firstFrameReadyMs": 2412,
+      "downloadedBytes": 75569762,
+      "knownTotalBytes": 75569762
+    },
+    "sourceModelsReady": 16,
+    "firstFrameReadyMs": 2412,
+    "cardLibrary": "60 张图鉴",
+    "tutorial": "▶ 新手必玩 · 男女对打教学",
+    "help": true,
+    "soundOn": "true",
+    "renderedReady": true,
+    "url": "http://127.0.0.1:18687/r45-duel/?seed=6&deck=classroom"
+  },
+  "firstPlayedCard": "E01",
+  "frameTime": {
+    "frames": 152,
+    "p50Ms": 16.7,
+    "p95Ms": 33.3,
+    "p99Ms": 183.3,
+    "worstMs": 800.1
+  },
+  "after": {
+    "round": "第 4 回合",
+    "playerHp": "16",
+    "enemyHp": "20",
+    "energy": "5",
+    "handCount": 7,
+    "playable": 7,
+    "arenaCanvas": true,
+    "sceneUrl": "http://127.0.0.1:18687/r45-duel/scene/?r147Safe=1&r146Cast=off&r145ActionCamera=off",
+    "modelMetrics": {
+      "modelsVerified": 16,
+      "modelReadyMs": 1557,
+      "firstFrameReadyMs": 2412,
+      "downloadedBytes": 75569762,
+      "knownTotalBytes": 75569762
+    },
+    "sourceModelsReady": 16,
+    "firstFrameReadyMs": 2412,
+    "cardLibrary": "60 张图鉴",
+    "tutorial": "▶ 新手必玩 · 男女对打教学",
+    "help": true,
+    "soundOn": "true",
+    "renderedReady": true,
+    "url": "http://127.0.0.1:18687/r45-duel/?seed=6&deck=classroom"
+  }
+}

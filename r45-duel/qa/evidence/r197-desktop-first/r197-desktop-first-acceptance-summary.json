@@ -1,0 +1,189 @@
+{
+  "version": "R197",
+  "release": "Draft NOT READY",
+  "currentRelease": "R147 unchanged",
+  "policy": "Desktop-first; Android GPU pressure testing is not required for a PC Web release",
+  "tests": [
+    {
+      "test": "Z890_classic_nonQA",
+      "machine": "Z890 RTX 5070 Ti",
+      "browser": "Chrome 157",
+      "qa": false,
+      "deck": "classic",
+      "verifiedOriginals": 16,
+      "playableMs": 3504,
+      "realTurns": 3,
+      "defaultSound": "true",
+      "frameStats": {
+        "frames": 129,
+        "p50Ms": 16.7,
+        "p95Ms": 33.3,
+        "p99Ms": 350,
+        "worstMs": 950.1
+      },
+      "errors": [],
+      "passTest": true
+    },
+    {
+      "test": "Z890_classroom_nonQA",
+      "machine": "Z890 RTX 5070 Ti",
+      "browser": "Chrome 157",
+      "qa": false,
+      "deck": "classroom",
+      "verifiedOriginals": 16,
+      "playableMs": 3243,
+      "realTurns": 3,
+      "defaultSound": "true",
+      "frameStats": {
+        "frames": 152,
+        "p50Ms": 16.7,
+        "p95Ms": 33.3,
+        "p99Ms": 183.3,
+        "worstMs": 800.1
+      },
+      "errors": [],
+      "passTest": true
+    },
+    {
+      "test": "Z890_kitchen_nonQA",
+      "machine": "Z890 RTX 5070 Ti",
+      "browser": "Chrome 157",
+      "qa": false,
+      "deck": "kitchen",
+      "verifiedOriginals": 16,
+      "playableMs": 4578,
+      "realTurns": 3,
+      "defaultSound": "true",
+      "frameStats": {
+        "frames": 28,
+        "p50Ms": 33.3,
+        "p95Ms": 1033.3,
+        "p99Ms": 1483.3,
+        "worstMs": 1483.3
+      },
+      "errors": [],
+      "passTest": true
+    },
+    {
+      "test": "XPS_normal_nonQA",
+      "machine": "XPS 15 Intel UHD Graphics 630",
+      "browser": "Chrome 155",
+      "qa": false,
+      "deck": "classic",
+      "verifiedOriginals": 16,
+      "playableMs": 47194,
+      "realTurns": 3,
+      "defaultSound": "true",
+      "frameStats": {
+        "frames": 22,
+        "p50": 33.4,
+        "p95": 83.3,
+        "p99": 166.6,
+        "max": 2833.2
+      },
+      "errors": [],
+      "passTest": true
+    },
+    {
+      "test": "XPS_demand_QA",
+      "machine": "XPS 15 Intel UHD Graphics 630",
+      "browser": "Chrome 155",
+      "qa": true,
+      "deck": "classic",
+      "verifiedOriginals": 10,
+      "playableMs": 36828,
+      "realTurns": 3,
+      "defaultSound": "true",
+      "frameStats": {
+        "frames": 58,
+        "p50": 33.2,
+        "p95": 116.7,
+        "p99": 333.4,
+        "max": 1799.9
+      },
+      "errors": [],
+      "passTest": true
+    }
+  ],
+  "controlRaf": [
+    {
+      "backend": "vulkan",
+      "checks": [
+        {
+          "scenario": "empty_html",
+          "visible": "visible",
+          "p95Ms": 16.7,
+          "p99Ms": 16.8,
+          "maxMs": 16.8,
+          "gapCountOver100ms": 0,
+          "longTaskCount": 0
+        },
+        {
+          "scenario": "game_after_load_idle",
+          "visible": "visible",
+          "p95Ms": 16.7,
+          "p99Ms": 16.8,
+          "maxMs": 16.8,
+          "gapCountOver100ms": 0,
+          "longTaskCount": 0
+        },
+        {
+          "scenario": "game_after_play_and_ai",
+          "visible": "visible",
+          "p95Ms": 16.8,
+          "p99Ms": 16.8,
+          "maxMs": 33.3,
+          "gapCountOver100ms": 0,
+          "longTaskCount": 0
+        }
+      ]
+    },
+    {
+      "backend": "gl",
+      "checks": [
+        {
+          "scenario": "empty_html",
+          "visible": "visible",
+          "p95Ms": 16.7,
+          "p99Ms": 16.8,
+          "maxMs": 33.3,
+          "gapCountOver100ms": 0,
+          "longTaskCount": 0
+        },
+        {
+          "scenario": "game_after_load_idle",
+          "visible": "visible",
+          "p95Ms": 16.7,
+          "p99Ms": 16.8,
+          "maxMs": 16.8,
+          "gapCountOver100ms": 0,
+          "longTaskCount": 0
+        },
+        {
+          "scenario": "game_after_play_and_ai",
+          "visible": "visible",
+          "p95Ms": 16.8,
+          "p99Ms": 16.8,
+          "maxMs": 266.5,
+          "gapCountOver100ms": 2,
+          "longTaskCount": 0
+        }
+      ]
+    }
+  ],
+  "xpsRendererVerified": "ANGLE Intel Mesa UHD Graphics 630 OpenGL ES 3.2 WebGL2",
+  "xpsLanSingleG02Transfer": {
+    "bytes": 7426296,
+    "seconds": 0.184391,
+    "throughputBytesPerSec": 40274720
+  },
+  "limitations": [
+    "Headless Chrome RAF intervals alone are not confirmed physical desktop frame timings",
+    "XPS has Linux Chrome rather than actual Windows Edge; Windows UX needs an independent check",
+    "XPS normal and demand runs are not strictly cache-condition matched (demand cache disabled)",
+    "XPS demand still blocks for 36.8s and has >1s sampled frame intervals",
+    "No PC candidate has been merged/deployed"
+  ],
+  "androidReleaseGate": false,
+  "serverOwner": "Z890 localhost/LAN QA only, not public"
+}

@@ -1,0 +1,77 @@
+{
+  "test": "XPS 15 Intel UHD630 PC QA demand-first startup with network cache disabled",
+  "browser": "Chrome 155",
+  "device": "XPS 15-7590 Linux",
+  "url": "http://10.10.10.138:18687/r45-duel/?seed=173&qa=1&r189Stream=on&r190Demand=on&r181HairBatch=on&r180StadiumBatch=on",
+  "ready": true,
+  "entryMs": 36828,
+  "metrics": {
+    "title": "放学后决斗社 · R45 全新单场地卡牌对决",
+    "models": 10,
+    "firstFrame": 35300,
+    "stream": {
+      "enabled": true,
+      "readyIds": [
+        "T04",
+        "T01",
+        "E02",
+        "E04",
+        "M01",
+        "G03",
+        "E01",
+        "G01"
+      ],
+      "allReady": false,
+      "backgroundMs": null,
+      "backgroundError": null,
+      "nextAiMissing": [],
+      "canSafelyEndTurn": true,
+      "restrictedCardCount": 0
+    },
+    "demand": {
+      "enabled": true,
+      "requestedIDs": [],
+      "requestsSent": 0,
+      "readyOriginals": [
+        "T04",
+        "T01",
+        "E02",
+        "E04",
+        "M01",
+        "G03"
+      ],
+      "allOriginalsLoaded": false,
+      "canSafelyEndTurn": true
+    },
+    "round": "第 1 回合",
+    "ready": true,
+    "audio": "true",
+    "hand": 5,
+    "webgl2": true
+  },
+  "events": [
+    {
+      "before": "第 1 回合",
+      "after": "第 2 回合"
+    },
+    {
+      "before": "第 2 回合",
+      "after": "第 3 回合"
+    },
+    {
+      "before": "第 3 回合",
+      "after": "第 4 回合"
+    }
+  ],
+  "issues": [],
+  "firstPlayed": "E01",
+  "frameTime": {
+    "frames": 58,
+    "p50": 33.2,
+    "p95": 116.7,
+    "p99": 333.4,
+    "max": 1799.9
+  },
+  "screen": "/tmp/r197-xps-demand-chrome-playing.jpg",
+  "pass": true
+}
