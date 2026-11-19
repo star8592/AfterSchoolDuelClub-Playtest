@@ -1,0 +1,506 @@
+{
+  "ids": [
+    "E06",
+    "K01",
+    "K07",
+    "P07",
+    "X05"
+  ],
+  "passes": [
+    {
+      "id": "E06",
+      "loadedRealActors": 1,
+      "realMesh": 8,
+      "triangles": 18844,
+      "loadedMs": 5.2,
+      "casts": 1,
+      "active": 1,
+      "image": "r45-duel/qa/evidence/r200-readability/01-E06-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_E06_eraser",
+          "widthPct": 10.31,
+          "heightPct": 12.42,
+          "xCenterPct": 56.62,
+          "yCenterPct": 40.48,
+          "widthPx": 148.5,
+          "heightPx": 106.8
+        }
+      ]
+    },
+    {
+      "id": "K01",
+      "loadedRealActors": 2,
+      "realMesh": 14,
+      "triangles": 24676,
+      "loadedMs": 4.6,
+      "casts": 2,
+      "active": 2,
+      "image": "r45-duel/qa/evidence/r200-readability/02-K01-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_E06_eraser",
+          "widthPct": 10.48,
+          "heightPct": 17.31,
+          "xCenterPct": 60.83,
+          "yCenterPct": 46.31,
+          "widthPx": 150.9,
+          "heightPx": 148.8
+        },
+        {
+          "name": "R169_K01_eggplant-banana",
+          "widthPct": 20.87,
+          "heightPct": 16.01,
+          "xCenterPct": 60.43,
+          "yCenterPct": 38.04,
+          "widthPx": 300.6,
+          "heightPx": 137.7
+        }
+      ]
+    },
+    {
+      "id": "K07",
+      "loadedRealActors": 5,
+      "realMesh": 18,
+      "triangles": 31708,
+      "loadedMs": 5.5,
+      "casts": 3,
+      "active": 3,
+      "image": "r45-duel/qa/evidence/r200-readability/03-K07-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K01_eggplant-banana",
+          "widthPct": 15.78,
+          "heightPct": 28.52,
+          "xCenterPct": 62.71,
+          "yCenterPct": 40.13,
+          "widthPx": 227.2,
+          "heightPx": 245.3
+        },
+        {
+          "name": "R169_K07_frog-pudding",
+          "widthPct": 18,
+          "heightPct": 26.75,
+          "xCenterPct": 58.39,
+          "yCenterPct": 30.81,
+          "widthPx": 259.2,
+          "heightPx": 230
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "loadedRealActors": 6,
+      "realMesh": 11,
+      "triangles": 9352,
+      "loadedMs": 3.5,
+      "casts": 4,
+      "active": 3,
+      "image": "r45-duel/qa/evidence/r200-readability/04-P07-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_K07_frog-pudding",
+          "widthPct": 15.53,
+          "heightPct": 33.17,
+          "xCenterPct": 59.59,
+          "yCenterPct": 38.76,
+          "widthPx": 223.7,
+          "heightPx": 285.2
+        },
+        {
+          "name": "R169_P07_black-swan",
+          "widthPct": 18.03,
+          "heightPct": 30.96,
+          "xCenterPct": 57.61,
+          "yCenterPct": 34.54,
+          "widthPx": 259.6,
+          "heightPx": 266.3
+        }
+      ]
+    },
+    {
+      "id": "X05",
+      "loadedRealActors": 7,
+      "realMesh": 12,
+      "triangles": 15596,
+      "loadedMs": 19.2,
+      "casts": 5,
+      "active": 3,
+      "image": "r45-duel/qa/evidence/r200-readability/05-X05-real-GLB.png",
+      "bounds": [
+        {
+          "name": "R169_P07_black-swan",
+          "widthPct": 18.74,
+          "heightPct": 33.53,
+          "xCenterPct": 61.54,
+          "yCenterPct": 42.41,
+          "widthPx": 269.9,
+          "heightPx": 288.3
+        },
+        {
+          "name": "R169_X05_homework-cosmos",
+          "widthPct": 20.73,
+          "heightPct": 28.72,
+          "xCenterPct": 59.36,
+          "yCenterPct": 37.27,
+          "widthPx": 298.5,
+          "heightPx": 247
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "ready": true,
+  "readyMs": 2599,
+  "first": {
+    "ready": true,
+    "round": 1,
+    "history": 1,
+    "gpu": {
+      "profile": "balanced-desktop",
+      "pixelRatio": 1,
+      "shadowAutoUpdate": false,
+      "shadowPassRequests": 0,
+      "shadowSize": 2048,
+      "heroInsetDraws": 0,
+      "heroLayerSide": null,
+      "heroCameraLayer": null,
+      "totalDrawCalls": 732
+    },
+    "cam": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.4837,
+        11.9346
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "school": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "loadedRealAssets": 0,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0
+      },
+      "casts": 0,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "authoredHighDetailAssets": [],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 0,
+        "expired": 0,
+        "rejected": 0,
+        "active": 0,
+        "peakObjects": 0,
+        "peakDraws": 0,
+        "uniqueRenderedProps": 0,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": null,
+          "ai": null
+        },
+        "activeIds": []
+      },
+      "loadedReceipts": [],
+      "loadedAssetDetails": []
+    },
+    "actorCount": 12,
+    "hero": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "galleryCount": 46,
+    "bounds": [],
+    "autoCard": false,
+    "fullScene": true
+  },
+  "final": {
+    "ready": true,
+    "round": 1,
+    "history": 1,
+    "gpu": {
+      "profile": "balanced-desktop",
+      "pixelRatio": 1,
+      "shadowAutoUpdate": false,
+      "shadowPassRequests": 97,
+      "shadowSize": 2048,
+      "heroInsetDraws": 0,
+      "heroLayerSide": null,
+      "heroCameraLayer": null,
+      "totalDrawCalls": 755
+    },
+    "cam": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.4837,
+        11.9346
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "school": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "loadedRealAssets": 7,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [
+        "E06",
+        "K01",
+        "T05",
+        "E05",
+        "K07",
+        "P07",
+        "X05"
+      ],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0
+      },
+      "casts": 5,
+      "previews": 5,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "authoredHighDetailAssets": [
+          "E06",
+          "K01",
+          "T05",
+          "E05",
+          "K07",
+          "P07",
+          "X05"
+        ],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 5,
+        "expired": 3,
+        "rejected": 0,
+        "active": 2,
+        "peakObjects": 18,
+        "peakDraws": 18,
+        "uniqueRenderedProps": 5,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": "X05",
+          "ai": null
+        },
+        "activeIds": [
+          "P07",
+          "X05"
+        ]
+      },
+      "loadedReceipts": [
+        {
+          "id": "E06",
+          "source": "real-blender-glb",
+          "file": "E06_Cinematic_Eraser.glb",
+          "meshes": 8,
+          "triangles": 18844,
+          "readyMs": 5.2
+        },
+        {
+          "id": "K01",
+          "source": "real-blender-glb",
+          "file": "K01_Sculpted_Wok_Eggplant_Banana.glb",
+          "meshes": 14,
+          "triangles": 24676,
+          "readyMs": 4.6
+        },
+        {
+          "id": "T05",
+          "source": "real-blender-glb",
+          "file": "T05_Heartwarming_Cafeteria_Chef_Soup.glb",
+          "meshes": 9,
+          "triangles": 11752,
+          "readyMs": 4.1
+        },
+        {
+          "id": "E05",
+          "source": "real-blender-glb",
+          "file": "E05_Giant_Cheer_Megaphone.glb",
+          "meshes": 8,
+          "triangles": 36436,
+          "readyMs": 14.8
+        },
+        {
+          "id": "K07",
+          "source": "real-blender-glb",
+          "file": "K07_Sculpted_Frog_Pudding_Bell.glb",
+          "meshes": 18,
+          "triangles": 31708,
+          "readyMs": 5.5
+        },
+        {
+          "id": "P07",
+          "source": "real-blender-glb",
+          "file": "P07_Black_Swan_Ice_Rink.glb",
+          "meshes": 11,
+          "triangles": 9352,
+          "readyMs": 3.5
+        },
+        {
+          "id": "X05",
+          "source": "real-blender-glb",
+          "file": "X05_Homework_Paper_Galaxy.glb",
+          "meshes": 12,
+          "triangles": 15596,
+          "readyMs": 19.2
+        }
+      ],
+      "loadedAssetDetails": [
+        {
+          "id": "E06",
+          "source": "real-blender-glb",
+          "file": "E06_Cinematic_Eraser.glb",
+          "meshes": 8,
+          "triangles": 18844,
+          "readyMs": 5.2
+        },
+        {
+          "id": "K01",
+          "source": "real-blender-glb",
+          "file": "K01_Sculpted_Wok_Eggplant_Banana.glb",
+          "meshes": 14,
+          "triangles": 24676,
+          "readyMs": 4.6
+        },
+        {
+          "id": "T05",
+          "source": "real-blender-glb",
+          "file": "T05_Heartwarming_Cafeteria_Chef_Soup.glb",
+          "meshes": 9,
+          "triangles": 11752,
+          "readyMs": 4.1
+        },
+        {
+          "id": "E05",
+          "source": "real-blender-glb",
+          "file": "E05_Giant_Cheer_Megaphone.glb",
+          "meshes": 8,
+          "triangles": 36436,
+          "readyMs": 14.8
+        },
+        {
+          "id": "K07",
+          "source": "real-blender-glb",
+          "file": "K07_Sculpted_Frog_Pudding_Bell.glb",
+          "meshes": 18,
+          "triangles": 31708,
+          "readyMs": 5.5
+        },
+        {
+          "id": "P07",
+          "source": "real-blender-glb",
+          "file": "P07_Black_Swan_Ice_Rink.glb",
+          "meshes": 11,
+          "triangles": 9352,
+          "readyMs": 3.5
+        },
+        {
+          "id": "X05",
+          "source": "real-blender-glb",
+          "file": "X05_Homework_Paper_Galaxy.glb",
+          "meshes": 12,
+          "triangles": 15596,
+          "readyMs": 19.2
+        }
+      ]
+    },
+    "actorCount": 12,
+    "hero": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "galleryCount": 46,
+    "bounds": [
+      {
+        "name": "R169_P07_black-swan",
+        "widthPct": 15.58,
+        "heightPct": 29.18,
+        "xCenterPct": 61.1,
+        "yCenterPct": 46.05,
+        "widthPx": 224.3,
+        "heightPx": 250.9
+      },
+      {
+        "name": "R169_X05_homework-cosmos",
+        "widthPct": 24.26,
+        "heightPct": 31.51,
+        "xCenterPct": 59.01,
+        "yCenterPct": 39.27,
+        "widthPx": 349.4,
+        "heightPx": 271
+      }
+    ],
+    "autoCard": false,
+    "fullScene": true
+  },
+  "pass": true
+}
