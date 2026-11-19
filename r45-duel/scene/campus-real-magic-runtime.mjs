@@ -9,10 +9,13 @@ const R200_TEXTURED_IDS=new Set(['E06','K01','K07','Q05','P07']);
 import {createCampusSchoolMagic} from './campus-school-magic.mjs';
 import {createR201SpellLoadQueue} from './campus-spell-priority-queue.mjs';
 import {SCHOOL_MAGIC_IDENTITIES} from './campus-magic-bible.mjs';
+import {R202_SIGNATURE_IMPACTS} from './campus-r202-physical-consequences.mjs';
 export function createR199RealCampusMagic(THREE,scene,{loader,camera,
- reducedMotion=false,now=()=>0,onEvent=()=>{},mergeStatic=false,r200Pbr=false,r200Readable=false}={}){
+ reducedMotion=false,now=()=>0,onEvent=()=>{},mergeStatic=false,r200Pbr=false,r200Readable=false,r202BodyHit=false,targetWorld=null}={}){
  if(!loader?.loadAsync)throw Error('R199 genuine GLTFLoader required');
- const stage=createCampusSchoolMagic(THREE,scene,{reducedMotion,mergeStatic,r200Readable});
+ const stage=createCampusSchoolMagic(THREE,scene,{reducedMotion,mergeStatic,r200Readable,
+  r202BodyImpact:r202BodyHit,targetWorld,
+  onPreviewImpact:(hit)=>onEvent('previewImpact',hit)});
  const originals=new Map(),failed=new Map();
  const contacts=new Map(),contactedSerials=new Set();
  let played=0,previews=0,serial=40000000,disposed=false,evictions=0;
@@ -178,7 +181,7 @@ export function createR199RealCampusMagic(THREE,scene,{loader,camera,
  }
  return {ensure,play,preview,contact,playCollateral,prefetch,update,dispose,visibleStageBounds,
   get stats(){return {enabled:!disposed,originalCatalog:R199_HERO_COUNT,
-   r200Pbr,r200Readable,loadedRealAssets:originals.size,cacheMax:maxLoaded,evictions,loadedIds:[...originals.keys()],
+   r200Pbr,r200Readable,r202BodyHit,signatureBodies:Object.keys(R202_SIGNATURE_IMPACTS),loadedRealAssets:originals.size,cacheMax:maxLoaded,evictions,loadedIds:[...originals.keys()],
    failedIds:[...failed.keys()],
    inflight:[...new Set([loadQueue.stats.running,
      ...loadQueue.stats.urgentWaiting,...loadQueue.stats.backgroundWaiting].filter(Boolean))],

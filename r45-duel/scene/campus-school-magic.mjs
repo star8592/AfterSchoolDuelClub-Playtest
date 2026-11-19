@@ -19,11 +19,12 @@ import {R183_HERO_IDS,r183AnimateActor} from './campus-r183-actor-motions.mjs';
 import {R184_HERO_IDS,r184AnimateActor} from './campus-r184-actor-motions.mjs';
 import {R185_HERO_IDS,r185AnimateActor} from './campus-r185-actor-motions.mjs';
 import {R186_HERO_IDS,r186AnimateActor} from './campus-r186-actor-motions.mjs';
+import {createR202MaterialConsequences} from './campus-r202-physical-consequences.mjs';
 
 const clip=(x)=>Math.max(0,Math.min(1,x));
 const smooth=x=>{const y=clip(x);return y*y*(3-2*y)};
 const hex=(v)=>String(v).toLowerCase();
-export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeStatic=false,r200Readable=false}={}){
+export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeStatic=false,r200Readable=false,r202BodyImpact=false,targetWorld=null,onPreviewImpact=()=>{}}={}){
  const root=new THREE.Group();root.name='R169_SCHOOL_COMEDY_PHYSICAL_MAGIC';scene.add(root);
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
  const heroAssets=new Map();
@@ -33,6 +34,8 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
  }
 
  const active=[],lastBySide={player:null,ai:null};
+ const physical=r202BodyImpact?createR202MaterialConsequences(THREE,root,{reducedMotion}):null;
+ let actualBodyContacts=0,previewBodyContacts=0,physicalFlights=0;
  let gracefulRetirements=0;
  const collateral=[];
  let collateralLaunched=0,collateralExpired=0;
@@ -436,7 +439,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   }
   const target=SPELL_CHOREOGRAPHY[card.id]?.target==='enemy'?
    (message.side==='player'?'ai':'player'):message.side;
-  const g=group(root,(target==='player'?-1:1)*1.72,0,0);
+  const g=group(root,r202BodyImpact?0:(target==='player'?-1:1)*1.72,0,0);
   g.name='R169_'+card.id+'_'+identity.prop;
   const t0=performance.now();
   const preready=staged.get(card.id);
@@ -472,10 +475,25 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
      Math.max(now,prior.created+prior.duration*.52);
    }
   }
+  const bodyPoint=r202BodyImpact&&typeof targetWorld==='function'?
+   targetWorld(target,card.id,message):null;
+  const realBodyPoint=bodyPoint&&[bodyPoint.x,bodyPoint.y,bodyPoint.z].every(Number.isFinite)?
+    new THREE.Vector3(bodyPoint.x,bodyPoint.y,bodyPoint.z):null;
+  const bodyStart=r202BodyImpact?new THREE.Vector3(message.side==='player'?-2.8:2.8,.62,-.44):null;
+  // Compensate for the actual ORIGINAL mesh center, not just the actor's
+  // group origin. A board can be tall/thick and still actually hit the face.
+  const realLocalCenter=r202BodyImpact&&realBodyPoint?
+   new THREE.Box3().setFromObject(props,true).getCenter(new THREE.Vector3()):null;
+  const finalImpactSize=(r200Readable&&card.id==='E06'?1.44:1)*.51;
+  const bodyEnd=realBodyPoint&&realLocalCenter?
+   realBodyPoint.clone().sub(realLocalCenter.clone().multiplyScalar(finalImpactSize)):null;
   const entry={id:card.id,identity,side:message.side,target,serial:message.serial,
+   r202Start:bodyStart,r202End:bodyEnd,r202Point:realBodyPoint,
+   r202HeadHit:false,r202Enemy:target!==message.side,
    created:now,duration:life,group:g,props,contacted:false,
    preview:!!message.preview,
    parts:g.children.length,appliedDirectDamage:Number(message.directDamage)||0,batchReceipt};
+  if(r202BodyImpact&&realBodyPoint)physicalFlights++;
   active.push(entry);played++;
   distinctProps.add(identity.prop);
   lastBySide[message.side]=card.id;
@@ -520,9 +538,14 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   const entry=active.find(a=>a.serial===descriptor?.serial);
   if(!entry)return false;
   entry.contacted=true;entry.contactTime=now;hitAnimations++;
+  if(r202BodyImpact&&entry.r202Enemy&&entry.r202Point&&!entry.r202HeadHit){
+   entry.r202HeadHit=true;actualBodyContacts++;
+   physical?.spawn(entry.id,entry.r202Point.toArray(),now);
+  }
   return true;
  }
  function update(now=0){
+  physical?.update(now);
   for(let i=collateral.length-1;i>=0;i--){
    const c=collateral[i],t=clip((now-c.born)/c.duration);
    if(t>=1){root.remove(c.group);collateral.splice(i,1);collateralExpired++;continue}
@@ -542,6 +565,28 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    }
    const appear=smooth(t/(r200Readable?.115:.17)),vanish=1-smooth((t-.83)/.17);
    const throwStage=smooth((t-.12)/.38),impact=smooth((t-.46)/.12);
+   if(r202BodyImpact&&a.r202Start&&a.r202End){
+    // An ACTUAL original Blender GLB flies to the real source VRM head,
+    // chest, or foot. Never move camera or layer an actor closeup.
+    const flight=smooth((t-.07)/.39);
+    a.group.position.lerpVectors(a.r202Start,a.r202End,flight);
+    a.group.position.y+=(a.id==='P07'?.09:.55)*Math.sin(Math.PI*flight);
+    if(a.r202Enemy&&t>.46){
+     // The original solid prop BOUNCES off the real VRM rather than
+     // permanently hiding the other player's face. Dust/food fragments
+     // and actual original-rig recoil remain visible after the rebound.
+     const bounce=smooth((t-.46)/.16);
+     a.group.position.x+=(a.side==='player'?-.66:.66)*bounce;
+     a.group.position.y+=(a.id==='P07'?.14:.32)*bounce;
+     a.group.rotation.z+=(a.id==='E06'?.42:-.22)*bounce;
+    }
+    if(a.preview&&a.r202Enemy&&!a.r202HeadHit&&t>=.46){
+     a.r202HeadHit=true;previewBodyContacts++;
+     physical?.spawn(a.id,a.r202Point.toArray(),now);
+     onPreviewImpact({id:a.id,side:a.side,victim:a.target,serial:a.serial,
+      preview:true,point:a.r202Point.toArray()});
+    }
+   }
    const wobble=Math.sin(t*20+a.serial)*.09;
    const isThrow=['教具投掷','黑暗食堂','社团实验','体育荒诞'].includes(a.identity.family);
    // R200: actor-specific wide-shot silhouettes. Only the small eraser
@@ -550,13 +595,17 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    const scaleBoost=r200Readable&&a.id==='E06'?1.44:1;
    const retire=r200Readable&&a.retireAt!==undefined?
     1-smooth((now-a.retireAt)/.26):1;
-   a.group.scale.setScalar((.76+.24*appear)*vanish*scaleBoost*retire);
+   const hitShrink=r202BodyImpact&&a.r202Enemy&&a.r202End?
+    1-.49*smooth((t-.345)/.11):1;
+   a.group.scale.setScalar((.76+.24*appear)*vanish*scaleBoost*retire*hitShrink);
    const throwDistance=r200Readable&&a.id==='E06'?1.70:1.05;
-   a.props.position.x=(a.side==='player'?-1:1)*(isThrow?
+   a.props.position.x=r202BodyImpact&&a.r202End?0:
+    (a.side==='player'?-1:1)*(isThrow?
     throwDistance*(1-throwStage):.17*Math.sin(t*8));
-   a.props.position.y=1.45+(isThrow?
-    (r200Readable&&a.id==='E06'?.80:.65)*Math.sin(throwStage*Math.PI):
-    .12*Math.sin(t*8))-(a.contacted?.28*impact:0);
+   a.props.position.y=1.45+(r202BodyImpact&&a.r202End?
+    .08*Math.sin(t*18)*smooth(t/.17):
+    isThrow?(r200Readable&&a.id==='E06'?.80:.65)*Math.sin(throwStage*Math.PI):
+    .12*Math.sin(t*8))-(a.contacted?.18*impact:0);
    a.props.rotation.z=isThrow?
     ((r200Readable&&a.id==='E06')?throwStage*.95:throwStage*.7)+wobble:
     wobble*.8;
@@ -630,6 +679,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   for(const {host} of staged.values())host.clear();
   staged.clear();
   staticBatcher?.dispose();
+  physical?.dispose();
   for(const m of labelMaterials.values())m.dispose();labelMaterials.clear();
   root.removeFromParent();
  }
@@ -715,7 +765,19 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    return {active:true,groups};
   },
   get stats(){return {enabled:true,totalIdentities:SCHOOL_MAGIC_COUNT,
-   r200Readable,gracefulRetirements,
+   r200Readable,r202BodyImpact,gracefulRetirements,
+   physicalFlights,actualBodyContacts,previewBodyContacts,
+   physicalConsequences:physical?.stats||null,
+   activeBodyFlights:active.filter(a=>a.r202End).map(a=>({
+    id:a.id,serial:a.serial,preview:a.preview,enemy:a.r202Enemy,
+    propWorld:a.group.position.toArray().map(x=>+x.toFixed(3)),
+    bodyHitWorld:a.r202Point?.toArray().map(x=>+x.toFixed(3))||null,
+    originalVisibleMeshCenter:new THREE.Box3().setFromObject(a.props,true)
+     .getCenter(new THREE.Vector3()).toArray().map(x=>+x.toFixed(3)),
+    actualMeshToBodyMeters:a.r202Point?+
+     new THREE.Box3().setFromObject(a.props,true).getCenter(new THREE.Vector3())
+      .distanceTo(a.r202Point).toFixed(3):null
+   })),
    authoredHighDetailAssets:[...heroAssets.keys()],
    collateralLaunched,collateralExpired,collateralActive:collateral.length,
    played,expired,rejected,active:active.length,peakObjects,peakDraws,

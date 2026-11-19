@@ -20,6 +20,7 @@ const params=new URLSearchParams(location.search);
 // The stable game keeps its original approved behavior until visual QA.
 const R199_REAL_MAGIC=params.get('r199PhysicalMagic')==='on';
 const R199_SHOWCASE=R199_REAL_MAGIC&&params.get('r199Showcase')==='on';
+const R202_BODY_HIT=R199_REAL_MAGIC&&params.get('r202BodyHit')==='on';
 let r199Gallery=null,r199MagicBible=null;
 if(R199_REAL_MAGIC)
  void import('./scene/campus-magic-bible.mjs').then(m=>{
@@ -1004,11 +1005,22 @@ window.addEventListener('message',event=>{
   r121SpokenContacts.add(d.serial);
   if(r121SpokenContacts.size>500)r121SpokenContacts.clear();
   const hasHit=d.directDamage>0||d.unitDamage>0;
+  if(!hasHit&&R202_BODY_HIT&&['K07','P07'].includes(d.card)&&!guidedMode){
+   const host=d.victim==='player'?'HOST_PLAYER':'HOST_AI';
+   if(!audio.playCharacter(host,'r202_'+d.card))
+    audio.playCharacter(host,'hurt');
+  }
   if(hasHit){
-   audio.playCue(ELEMENTS[d.element]?.sound||'hit',d.victim,{gainScale:.80});
+   // R202 impact foley plays on the actual physical hit from the original
+   // Blender prop. Do not layer legacy elemental boom over school comedy.
+   if(!R202_BODY_HIT)
+    audio.playCue(ELEMENTS[d.element]?.sound||'hit',d.victim,{gainScale:.80});
    if(!guidedMode){
     if(d.directDamage>0){
-     audio.playCharacter(d.victim==='player'?'HOST_PLAYER':'HOST_AI','hurt');
+     const hostId=d.victim==='player'?'HOST_PLAYER':'HOST_AI';
+     if(!(R202_BODY_HIT&&['E06','Q05','K01','K07','P07'].includes(d.card)&&
+       audio.playCharacter(hostId,'r202_'+d.card)))
+      audio.playCharacter(hostId,'hurt');
     }else if(Array.isArray(d.targetIds)&&d.targetIds.length){
      // A summoned source GLB is not a human voice; use its authored
      // Qwen file when present, otherwise the actual side's host line.
@@ -1027,11 +1039,20 @@ window.addEventListener('message',event=>{
    // Authored foley #1 belongs to the actual prop entrance, not the rule
    // settlement frame (which can precede the original GLB load).
    audio.playCue(magic.foley[0],d.side,{gainScale:.73});
-   if(d.preview)
-    // A manual inspector has no canonical target contact event.
+   if(d.preview&&!R202_BODY_HIT)
+    // Original preview mode has no staged hit event.
     audio.playCue(magic.foley[1],d.side,{gainScale:.75,delay:.45});
    showComedyAside({text:magic.lines.cast,
     side:d.side,speaker:'校园荒诞魔法 · '+BY_ID[d.id].name});
+  }
+  if(d.event==='previewImpact'&&R202_BODY_HIT&&r199MagicBible?.[d.id]){
+   const magic=r199MagicBible[d.id];
+   audio.playCue(magic.foley[1],d.side,{gainScale:.84});
+   const host=d.victim==='player'?'HOST_PLAYER':'HOST_AI';
+   if(!audio.playCharacter(host,'r202_'+d.id))
+    audio.playCharacter(host,'hurt');
+   showComedyAside({text:magic.lines.hit,
+    side:d.victim,speaker:'实物命中预览 · '+BY_ID[d.id].name});
   }
   if(d.event==='contact'&&r199MagicBible?.[d.id]){
    const genuine=g.events.some(e=>e.type==='card_play'&&e.serial===d.serial&&
@@ -1039,10 +1060,9 @@ window.addEventListener('message',event=>{
    if(genuine){
     const magic=r199MagicBible[d.id];
     audio.playCue(magic.foley[1],d.side,{gainScale:.76});
-    if(d.directDamage>0||d.unitDamage>0){
+    if((d.directDamage>0||d.unitDamage>0)&&!R202_BODY_HIT)
      showComedyAside({text:magic.lines.hit,
       side:d.victim,speaker:'校园魔法命中 · '+BY_ID[d.id].name});
-    }
    }
   }
   if(d.event==='loadError'||d.event==='castFailed')
