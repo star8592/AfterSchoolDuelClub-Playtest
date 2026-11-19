@@ -92,6 +92,23 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
    shaderDelta:(renderer.info.programs?.length||0)-programsBefore,
    sourceFidelity:true};
  }
+ // R187: stage the genuine currently selected GLB for exactly the FIRST
+ // already-required visible scene frames. No separate render-loop or delay.
+ // Strictly dispose preview group before announcing game ready; reuse the
+ // same imported mesh+material GPU objects when first cast clones source.
+ function stageOriginalHeroForExistingFrames(id){
+  if(!heroAssets.has(id))
+   throw Error('R187 selected genuine Blender source not registered '+id);
+  const t0=performance.now(),host=group(root,0,1.45,-.30);
+  host.name='R187_EXISTING_FRAME_GPU_PRIME_'+id;
+  build(host,id);
+  const batch=staticBatcher?.batch(host,id)||null;
+  let meshCount=0;host.traverse(o=>{if(o.isMesh)meshCount++});
+  let cleared=false;
+  return {id,meshCount,batch,buildMs:+(performance.now()-t0).toFixed(2),
+   get cleared(){return cleared},
+   stop(){if(cleared)return;root.remove(host);cleared=true;}};
+ }
  const r174Profile=[];
  const maxActive=4;let played=0,expired=0,rejected=0,peakObjects=0,
   peakDraws=0,distinctProps=new Set(),hitAnimations=0;
@@ -559,7 +576,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   for(const m of labelMaterials.values())m.dispose();labelMaterials.clear();
   root.removeFromParent();
  }
- return {root,play,contact,playCollateral,update,dispose,prepareGpuMaterial,prewarmRealAuthoredHero,registerHeroAsset,
+ return {root,play,contact,playCollateral,update,dispose,prepareGpuMaterial,prewarmRealAuthoredHero,registerHeroAsset,stageOriginalHeroForExistingFrames,
   get prepareReceipts(){return prepareReceipts.map(x=>({...x}))},
   get qaProfile(){return r174Profile.map(x=>({...x}))},
   get r182ActorMotions(){

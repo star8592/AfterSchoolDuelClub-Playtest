@@ -1,0 +1,338 @@
+{
+  "actualGPUUseNotClaimed": true,
+  "measure": "decoded texture RGBA8 pixel potential prior to mipmaps, duplicates and GPU format",
+  "models": [
+    {
+      "id": "T01",
+      "file": "T01-Owl-Innerscene-R84.glb",
+      "originalGLBbytes": 12317072,
+      "imageCount": 12,
+      "gpuRGBA_MiB": 192.0,
+      "largestImage": 2048,
+      "totalPackedImageMB": 10.43,
+      "images": [
+        {
+          "id": 0,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 318,
+          "format": "WEBP",
+          "name": "2bbd809e2edae227"
+        },
+        {
+          "id": 1,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 3882436,
+          "format": "WEBP",
+          "name": "bird_vane_shared_normal_v3"
+        },
+        {
+          "id": 2,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 775942,
+          "format": "WEBP",
+          "name": "bird_vane_389212dab7e30b25_basecolor"
+        },
+        {
+          "id": 3,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 316,
+          "format": "WEBP",
+          "name": "9c021ffafcc84e7c"
+        },
+        {
+          "id": 4,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 2704094,
+          "format": "WEBP",
+          "name": "902_owl_normal"
+        },
+        {
+          "id": 5,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 1435780,
+          "format": "WEBP",
+          "name": "902_owl_basecolor"
+        },
+        {
+          "id": 6,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 316,
+          "format": "WEBP",
+          "name": "2af43b07f3331c17"
+        },
+        {
+          "id": 7,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 318,
+          "format": "WEBP",
+          "name": "ec6d1c53063132bc"
+        },
+        {
+          "id": 8,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 628170,
+          "format": "WEBP",
+          "name": "bird_vane_926b2a88eb7f07ea_basecolor"
+        },
+        {
+          "id": 9,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 761988,
+          "format": "WEBP",
+          "name": "bird_vane_84462f3aaa9f7b78_basecolor"
+        },
+        {
+          "id": 10,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 741702,
+          "format": "WEBP",
+          "name": "bird_vane_65faa9b67504f3c8_basecolor"
+        },
+        {
+          "id": 11,
+          "w": 2048,
+          "h": 2048,
+          "gpuRGBA": 16777216,
+          "packed": 318,
+          "format": "WEBP",
+          "name": "79ee5abdd02be5c8"
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "file": "G02-Snow-Landing-R97.glb",
+      "originalGLBbytes": 8435660,
+      "imageCount": 5,
+      "gpuRGBA_MiB": 45.0,
+      "largestImage": 1536,
+      "totalPackedImageMB": 3.69,
+      "images": [
+        {
+          "id": 0,
+          "w": 1536,
+          "h": 1536,
+          "gpuRGBA": 9437184,
+          "packed": 500454,
+          "format": "WEBP",
+          "name": "hair_diffuse"
+        },
+        {
+          "id": 1,
+          "w": 1536,
+          "h": 1536,
+          "gpuRGBA": 9437184,
+          "packed": 227350,
+          "format": "WEBP",
+          "name": "eyes_diffuse"
+        },
+        {
+          "id": 2,
+          "w": 1536,
+          "h": 1536,
+          "gpuRGBA": 9437184,
+          "packed": 1781076,
+          "format": "WEBP",
+          "name": "pants_diffuse"
+        },
+        {
+          "id": 3,
+          "w": 1536,
+          "h": 1536,
+          "gpuRGBA": 9437184,
+          "packed": 474438,
+          "format": "WEBP",
+          "name": "shirt_diffuse"
+        },
+        {
+          "id": 4,
+          "w": 1536,
+          "h": 1536,
+          "gpuRGBA": 9437184,
+          "packed": 881880,
+          "format": "WEBP",
+          "name": "shoes_diffuse"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "file": "T03-Rain-Landing-R97.glb",
+      "originalGLBbytes": 7306420,
+      "imageCount": 3,
+      "gpuRGBA_MiB": 27.0,
+      "largestImage": 1536,
+      "totalPackedImageMB": 2.23,
+      "images": [
+        {
+          "id": 0,
+          "w": 1536,
+          "h": 1536,
+          "gpuRGBA": 9437184,
+          "packed": 86244,
+          "format": "WEBP",
+          "name": "TEX-rain_eyes"
+        },
+        {
+          "id": 1,
+          "w": 1536,
+          "h": 1536,
+          "gpuRGBA": 9437184,
+          "packed": 664768,
+          "format": "WEBP",
+          "name": "TEX-rain_hair_diffuse"
+        },
+        {
+          "id": 2,
+          "w": 1536,
+          "h": 1536,
+          "gpuRGBA": 9437184,
+          "packed": 1590750,
+          "format": "WEBP",
+          "name": "TEX-rain_jeans_diffuse"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "file": "T02-LivingMenu-R59.glb",
+      "originalGLBbytes": 1751256,
+      "imageCount": 2,
+      "gpuRGBA_MiB": 8.0,
+      "largestImage": 1024,
+      "totalPackedImageMB": 0.92,
+      "images": [
+        {
+          "id": 0,
+          "w": 1024,
+          "h": 1024,
+          "gpuRGBA": 4194304,
+          "packed": 481738,
+          "format": "WEBP",
+          "name": "R59_Ink_Paper_Illustration_front"
+        },
+        {
+          "id": 1,
+          "w": 1024,
+          "h": 1024,
+          "gpuRGBA": 4194304,
+          "packed": 483864,
+          "format": "WEBP",
+          "name": "R59_Ink_Paper_Illustration_back"
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+      "originalGLBbytes": 2329612,
+      "imageCount": 1,
+      "gpuRGBA_MiB": 4.0,
+      "largestImage": 1024,
+      "totalPackedImageMB": 0.19,
+      "images": [
+        {
+          "id": 0,
+          "w": 1024,
+          "h": 1024,
+          "gpuRGBA": 4194304,
+          "packed": 202143,
+          "format": "JPEG",
+          "name": "Material_0_baseColor"
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "file": "E02-PaperPlane-R57.glb",
+      "originalGLBbytes": 530652,
+      "imageCount": 0,
+      "gpuRGBA_MiB": 0.0,
+      "largestImage": 0,
+      "totalPackedImageMB": 0.0,
+      "images": []
+    },
+    {
+      "id": "E03",
+      "file": "E03-Ellie-Landing-R97.glb",
+      "originalGLBbytes": 6307700,
+      "imageCount": 0,
+      "gpuRGBA_MiB": 0.0,
+      "largestImage": 0,
+      "totalPackedImageMB": 0.0,
+      "images": []
+    },
+    {
+      "id": "E04",
+      "file": "E04-Phil-Landing-R97.glb",
+      "originalGLBbytes": 2706072,
+      "imageCount": 0,
+      "gpuRGBA_MiB": 0.0,
+      "largestImage": 0,
+      "totalPackedImageMB": 0.0,
+      "images": []
+    },
+    {
+      "id": "G03",
+      "file": "G03-Jay-Landing-R97.glb",
+      "originalGLBbytes": 4573352,
+      "imageCount": 0,
+      "gpuRGBA_MiB": 0.0,
+      "largestImage": 0,
+      "totalPackedImageMB": 0.0,
+      "images": []
+    },
+    {
+      "id": "G04",
+      "file": "G04-Victoria-Landing-R97.glb",
+      "originalGLBbytes": 6541032,
+      "imageCount": 0,
+      "gpuRGBA_MiB": 0.0,
+      "largestImage": 0,
+      "totalPackedImageMB": 0.0,
+      "images": []
+    },
+    {
+      "id": "M01",
+      "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "originalGLBbytes": 423112,
+      "imageCount": 0,
+      "gpuRGBA_MiB": 0.0,
+      "largestImage": 0,
+      "totalPackedImageMB": 0.0,
+      "images": []
+    },
+    {
+      "id": "T04",
+      "file": "T04-Rex-Landing-R97.glb",
+      "originalGLBbytes": 5236624,
+      "imageCount": 0,
+      "gpuRGBA_MiB": 0.0,
+      "largestImage": 0,
+      "totalPackedImageMB": 0.0,
+      "images": []
+    }
+  ]
+}

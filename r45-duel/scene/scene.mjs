@@ -217,6 +217,19 @@ const R186_PRIME_SELECTED=(()=>{
   (PARAMS.get('r186PrimeSelected')??pp?.get('r186PrimeSelected'))==='on';
 })();
 let r186HeroLoadReceipt=null,r186SelectedPrewarm=null;
+// R187 performance test: use existing visible scene readiness frames as
+// first genuine hero/board GPU draws. No extra first-load render cycles.
+// QA only, no roll-out to player branch unless benchmark proves improvement.
+const R187_INTERLEAVE_MODE=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const mode=(PARAMS.get('r187Interleave')??pp?.get('r187Interleave')??'off');
+ return R186_HERO_ID&&(PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  ['on','actors','hero','compile'].includes(mode)?mode:'off';
+})();
+const R187_INTERLEAVE=R187_INTERLEAVE_MODE!=='off';
+let r187InterleaveReceipt=null;
+
 
 
 
@@ -1777,6 +1790,7 @@ function exposeQA(){
   get r186HeroLoad(){return r186HeroLoadReceipt||{enabled:false}},
   get r186SelectedPrewarm(){return r186SelectedPrewarm},
   get r186ActorMotions(){return schoolMagicStage?.r186ActorMotions||[]},
+  get r187InterleaveReceipt(){return r187InterleaveReceipt||{enabled:false}},
   // R181 no-write forensic survey: actual live source SkinnedMesh materials,
   // skinning topology, bind matrices and morphs. Never guesses equivalence from
   // UUID alone; does NOT rewrite VRM skeletal hierarchy or shader code.
@@ -2288,16 +2302,71 @@ try{
  exposeQA();
  const warmupStarted=performance.now();
  let warmupFrames=0;
- // Headless Vulkan's first visible compositor image can remain white for
- // ~400-600ms even though GL has rendered. Keep the in-scene loading cover
- // until the presentation surface has had time to acquire painted frames.
+ // New QA-only strategy moves first REAL shader submissions into the
+ // loading-cover interval Chrome ALREADY needs to present an actual frame.
+ // Do not add extra render frames or block on an additional 3-frame prewarm.
+ let r187Staged=null,r187ActorsStaged=false;
+ if(R187_INTERLEAVE&&schoolMagicStage&&summonPresence){
+  const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+    catch{return PARAMS}})();
+  const a=pp.get('r179PairP')||'T01',b=pp.get('r179PairA')||'E03';
+  if(a===b||!['E01','G01',...summonModels.keys()].includes(a)||
+    !['E01','G01',...summonModels.keys()].includes(b))
+   throw Error('R187 two real actors must be distinct source ids');
+  const before=renderer.info.programs?.length||0,started=performance.now();
+  if(!['actors','compile'].includes(R187_INTERLEAVE_MODE))
+   r187Staged=schoolMagicStage.stageOriginalHeroForExistingFrames(R186_HERO_ID);
+  if(R187_INTERLEAVE_MODE!=='hero'){
+   summonPresence.sync({player:[{uid:'U18701',id:a,hp:9,attack:4,shield:0}],
+    ai:[{uid:'U18702',id:b,hp:8,attack:4,shield:0}]},{force:true});
+   r187ActorsStaged=true;
+  }
+  r187InterleaveReceipt={enabled:true,mode:R187_INTERLEAVE_MODE,
+   ids:r187ActorsStaged?[a,b]:[],model:r187Staged?R186_HERO_ID:null,
+   realMeshes:r187Staged?.meshCount||0,
+   firstGpuDraws:0,beforePrograms:before,
+   startedAtMs:started,scheduledInExistingSceneWarmup:true};
+  if(R187_INTERLEAVE_MODE==='compile'){
+   const beforeCompile=performance.now();
+   // Distinguish asynchronously shader compilation from ACTUAL first
+   // geometry+material texture GPU upload; no extra rendered frames.
+   await renderer.compileAsync(scene,camera);
+   r187InterleaveReceipt.compileAsyncMs=
+    +(performance.now()-beforeCompile).toFixed(2);
+   r187InterleaveReceipt.shaderDelta=
+    (renderer.info.programs?.length||0)-before;
+   r187InterleaveReceipt.firstGpuDraws=0;
+   r187InterleaveReceipt.compileOnly=true;
+   summonPresence.sync({player:[],ai:[]},{force:true});
+   r187ActorsStaged=false;
+  }
+ }
  do {
   await new Promise(resolve=>requestAnimationFrame(()=>{
    renderer.render(scene,camera);
    resolve();
   }));
   warmupFrames++;
+  if(r187InterleaveReceipt&&warmupFrames===3){
+   if(r187Staged){r187Staged.stop();r187Staged=null}
+   if(r187ActorsStaged){
+    summonPresence.sync({player:[],ai:[]},{force:true});
+    r187ActorsStaged=false;
+   }
+   if(!r187InterleaveReceipt.compileOnly)
+    r187InterleaveReceipt.firstGpuDraws=3;
+   r187InterleaveReceipt.shaderDelta=
+    (renderer.info.programs?.length||0)-r187InterleaveReceipt.beforePrograms;
+   r187InterleaveReceipt.originalModelsPreserved=true;
+   r187InterleaveReceipt.elapsedMs=
+    +(performance.now()-r187InterleaveReceipt.startedAtMs).toFixed(2);
+  }
  } while((performance.now()-warmupStarted<(PARAMS.has('qa')||navigator.webdriver?850:320)||warmupFrames<7)&&warmupFrames<95);
+ if(r187Staged||r187ActorsStaged){
+  r187Staged?.stop();
+  if(r187ActorsStaged)summonPresence.sync({player:[],ai:[]},{force:true});
+  throw Error('R187 stage did not finish in original mandatory frames');
+ }
  window.__ASDC_LOAD_METRICS.firstFrameReadyMs=Math.round(performance.now()-loadingStartedAt);
  clearTimeout(slowLoadTimer);
  const slowHintOnReady=$('load-slow');

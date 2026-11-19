@@ -1,0 +1,38 @@
+{
+  "source": "assets/summons/T01-Owl-Innerscene-R84.glb",
+  "originalSha256": "96dc576cdc56bd14b030826818b7bbd7d3c26e074145304898ffc17f91520872",
+  "originalMeshCount": 129,
+  "originalTextureCount": 17,
+  "originalImageCount": 12,
+  "unchanged": {
+    "geometryBuffers": true,
+    "animations": true,
+    "skins": true,
+    "UV": true,
+    "meshMaterialSlots": true,
+    "characterCoordinates": true
+  },
+  "qualityGate": "unapproved runtime texture LOD experiment; do not enable for players",
+  "variants": {
+    "1024": {
+      "file": "T01-Owl-Innerscene-R187-1024.glb",
+      "bytes": 5506568,
+      "sha256": "f5105bef41c79e471a5371dc030ffc170d6db94c7d021e6fe0e7e2a80333890e",
+      "imageEdge": 1024,
+      "images": 12,
+      "uncompressedGpuImageBytes": 50331648,
+      "maxPotentialUncompressedRGBA": 201326592,
+      "geometryAnimBufferViewsByteForByteEqual": true
+    },
+    "512": {
+      "file": "T01-Owl-Innerscene-R187-512.glb",
+      "bytes": 2528604,
+      "sha256": "c865fa500d59b75fde8687bd26b31f9f4dadcbc85b5da2226c5bb85639a13315",
+      "imageEdge": 512,
+      "images": 12,
+      "uncompressedGpuImageBytes": 12582912,
+      "maxPotentialUncompressedRGBA": 201326592,
+      "geometryAnimBufferViewsByteForByteEqual": true
+    }
+  }
+}

@@ -253,6 +253,17 @@ const r99ChefOld=(()=>{
    new URLSearchParams(window.parent.location.search).get('r99Chef')==='old';}
  catch{return false}
 })();
+// R187 QA-only texture LOD study. Source owl mesh, animation, and character
+// identity are bit-for-bit unchanged; the original 2K GLB stays untouched.
+// Never apply to main/player until genuine visual+Android memory QA.
+const R187_T01_TEX=(()=>{
+ const params=new URLSearchParams(location.search);
+ const pp=(()=>{try{return window.parent!==window?
+  new URLSearchParams(window.parent.location.search):null;}catch{return null}})();
+ const qa=params.get('qa')==='1'||pp?.get('qa')==='1';
+ const edge=params.get('r187OwlTex')??pp?.get('r187OwlTex');
+ return qa&&['1024','512'].includes(edge)?edge:null;
+})();
 export const UNIT_MODEL_SPECS=Object.freeze({
  // targetHeight is a game-relative visual scale, NOT a raw STL meter value.
  // maxFootprint prevents flat models (E02) from blanketing adjacent lanes.
@@ -352,7 +363,9 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   const spec=id==='T02'&&isT02DuoStudy?
    {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:
    id==='M02'&&r99ChefOld?{...baseSpec,targetHeight:2.07}:baseSpec;
-  const selectedFile=id==='M01'&&isM01AdultTeacherStudy?'M01-Maestro-Burgundy-Coat-STUDY.glb':
+  const selectedFile=id==='T01'&&R187_T01_TEX?
+   'T01-Owl-Innerscene-R187-'+R187_T01_TEX+'.glb':
+   id==='M01'&&isM01AdultTeacherStudy?'M01-Maestro-Burgundy-Coat-STUDY.glb':
    id==='M02'&&r99ChefOld?'M02-CafeteriaAunt-CartoonR76.glb':
    id==='T02'&&isT02DuoStudy?
    'T02-CanteenAunt-LivingMenu-Duo-STUDY.glb':
