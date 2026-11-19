@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>R181 Android GPU QA Preflight</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body><canvas id="gpu" width="512" height="256"></canvas><pre id="log">WebGL2 probe starting</pre>
+<script>
+(async function(){
+ const canvas=document.getElementById('gpu');
+ const gl=canvas.getContext('webgl2',{alpha:false,antialias:true,powerPreference:'high-performance'});
+ if(!gl){window.__R181_GPU={pass:false,error:'no WebGL2'};return}
+ const vs=gl.createShader(gl.VERTEX_SHADER);
+ gl.shaderSource(vs,'#version 300 es\nin vec2 position;\nvoid main(){gl_Position=vec4(position,0.0,1.0);}');
+ gl.compileShader(vs);
+ const fs=gl.createShader(gl.FRAGMENT_SHADER);
+ gl.shaderSource(fs,'#version 300 es\nprecision mediump float;\nout vec4 color;\nvoid main(){color=vec4(.18,.76,.54,1.0);}');
+ gl.compileShader(fs);
+ const pg=gl.createProgram();gl.attachShader(pg,vs);gl.attachShader(pg,fs);gl.linkProgram(pg);
+ const ok=!!gl.getProgramParameter(pg,gl.LINK_STATUS);
+ const vbo=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,vbo);
+ gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-.8,-.8,.8,-.8,0,.8]),gl.STATIC_DRAW);
+ gl.useProgram(pg);const loc=gl.getAttribLocation(pg,'position');
+ gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+ gl.viewport(0,0,512,256);gl.drawArrays(gl.TRIANGLES,0,3);
+ const debug=gl.getExtension('WEBGL_debug_renderer_info');
+ const renderer=debug?gl.getParameter(debug.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER);
+ const frames=[];let previous=performance.now();
+ for(let j=0;j<120;j++){
+  const t=await new Promise(resolve=>requestAnimationFrame(resolve));
+  frames.push(t-previous);previous=t;
+ }
+ frames.sort((a,b)=>a-b);
+ window.__R181_GPU={
+  pass:ok&&gl.getError()===gl.NO_ERROR,
+  renderer,version:gl.getParameter(gl.VERSION),
+  vendor:gl.getParameter(gl.VENDOR),
+  maxTexture:gl.getParameter(gl.MAX_TEXTURE_SIZE),
+  maxSamples:gl.getParameter(gl.MAX_SAMPLES),
+  dpr:devicePixelRatio,userAgent:navigator.userAgent,
+  frameP95Ms:frames[114],frameMaxMs:frames[119],
+  time:Date.now()
+ };
+ document.getElementById('log').textContent=JSON.stringify(window.__R181_GPU,null,2);
+})();
+</script></body></html>

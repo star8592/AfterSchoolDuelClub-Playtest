@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-18",
+  "hardware": "Z890 RTX5070Ti Chrome 157 Vulkan CPU x2 desktop / x3 mobile viewport",
+  "mobileIsSimulation": true,
+  "qaOnly": true,
+  "release": "NO_GO",
+  "cases": [
+    {
+      "variant": "baseline",
+      "view": "desktop",
+      "passed": true,
+      "maxRafMs": 49.9,
+      "p99Ms": 33.4,
+      "maxLongTaskMs": 333,
+      "firstReadyMs": 4312,
+      "priming": null,
+      "shaderDelta": 2,
+      "originalModels": 16,
+      "originalBytes": 75569762,
+      "spells": 93,
+      "uniqueProps": 46,
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "view": "mobile",
+      "passed": true,
+      "maxRafMs": 483.2,
+      "p99Ms": 66.7,
+      "maxLongTaskMs": 0,
+      "firstReadyMs": 7820,
+      "priming": null,
+      "shaderDelta": 5,
+      "originalModels": 16,
+      "originalBytes": 75569762,
+      "spells": 93,
+      "uniqueProps": 46,
+      "errors": []
+    },
+    {
+      "variant": "primed",
+      "view": "desktop",
+      "passed": true,
+      "maxRafMs": 50.1,
+      "p99Ms": 33.4,
+      "maxLongTaskMs": 0,
+      "firstReadyMs": 5389,
+      "priming": {
+        "models": [
+          "T01",
+          "E03"
+        ],
+        "draws": 3,
+        "ms": 1579.9,
+        "shaderDelta": 43,
+        "sourceQualityPreserved": true
+      },
+      "shaderDelta": 2,
+      "originalModels": 16,
+      "originalBytes": 75569762,
+      "spells": 93,
+      "uniqueProps": 46,
+      "errors": []
+    },
+    {
+      "variant": "primed",
+      "view": "mobile",
+      "passed": true,
+      "maxRafMs": 83.4,
+      "p99Ms": 33.5,
+      "maxLongTaskMs": 0,
+      "firstReadyMs": 7710,
+      "priming": {
+        "models": [
+          "T01",
+          "E03"
+        ],
+        "draws": 3,
+        "ms": 2373.6,
+        "shaderDelta": 43,
+        "sourceQualityPreserved": true
+      },
+      "shaderDelta": 4,
+      "originalModels": 16,
+      "originalBytes": 75569762,
+      "spells": 93,
+      "uniqueProps": 46,
+      "errors": []
+    }
+  ],
+  "note": "Latest per-mode JSON represents last sample. Repeated desktop run logs confirmed baseline 333ms longtask or 366.6ms rAF gap versus prepared max50.1ms no longtask; single paired mobile sample only."
+}

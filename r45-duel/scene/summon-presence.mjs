@@ -22,9 +22,17 @@ import {createPropLifeActing} from './prop-life-acting.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
-export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpact,lifeWorld=null}={}){
- if(!(prototypes instanceof Map)||prototypes.size!==12||
-   UNIT_MODEL_IDS.some(id=>!prototypes.has(id))){
+export function createSummonPresence(THREE,scene,{
+ actors,prototypes,onCombatImpact,lifeWorld=null,allowR189Partial=false,
+ requiredR189Ids=[]
+}={}){
+ if(allowR189Partial&&(!Array.isArray(requiredR189Ids)||
+   requiredR189Ids.some(id=>!UNIT_MODEL_IDS.includes(id)||!prototypes.has(id))))
+  throw Error('R189 cannot create arena with missing initial-hand real GLB');
+
+ if(!(prototypes instanceof Map)||
+   (!allowR189Partial&&(prototypes.size!==12||
+     UNIT_MODEL_IDS.some(id=>!prototypes.has(id))))){
    throw Error('R61 fail-closed: all twelve summoned GLB prototypes must load');
  }
  const root=new THREE.Group();

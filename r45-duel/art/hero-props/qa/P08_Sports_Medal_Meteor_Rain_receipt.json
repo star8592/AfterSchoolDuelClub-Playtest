@@ -1,0 +1,21 @@
+{
+  "id": "P08",
+  "originalName": "运动会流星奖牌",
+  "source": "P08_Sports_Medal_Meteor_Rain.blend",
+  "glb": "P08_Sports_Medal_Meteor_Rain.glb",
+  "render": "P08_Sports_Medal_Meteor_Rain.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 822133,
+  "glbBytes": 1421020,
+  "triangles": 56990,
+  "meshes": 13,
+  "materials": 9,
+  "actorGroups": [
+    "P08_CRATER_STATIC",
+    "P08_MEDALS_ACTOR",
+    "P08_METEOR_ACTOR",
+    "P08_RIBBONS_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

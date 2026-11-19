@@ -1,0 +1,843 @@
+{
+  "r181-skin-forensics": {
+    "pass": true,
+    "modelCount": 16,
+    "bytes": 75569762,
+    "gpuDraws": 634,
+    "forensics": [
+      {
+        "name": "R74_PERMANENT_DUELIST_E01",
+        "count": 124,
+        "material": {
+          "unique": 14,
+          "repeatGroups": 4,
+          "repeatMeshes": 110,
+          "highest": [
+            106,
+            4,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "skeleton": {
+          "unique": 124,
+          "repeatGroups": 0,
+          "repeatMeshes": 0,
+          "highest": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "sameBoneOrder": {
+          "unique": 1,
+          "repeatGroups": 1,
+          "repeatMeshes": 123,
+          "highest": [
+            124
+          ]
+        },
+        "materialAppearance": {
+          "unique": 14,
+          "repeatGroups": 4,
+          "repeatMeshes": 110,
+          "highest": [
+            106,
+            4,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "geometryLayout": {
+          "unique": 42,
+          "repeatGroups": 21,
+          "repeatMeshes": 82,
+          "highest": [
+            21,
+            15,
+            8,
+            6,
+            6,
+            6,
+            5,
+            4
+          ]
+        }
+      },
+      {
+        "name": "R74_PERMANENT_DUELIST_G01",
+        "count": 131,
+        "material": {
+          "unique": 14,
+          "repeatGroups": 3,
+          "repeatMeshes": 117,
+          "highest": [
+            114,
+            4,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "skeleton": {
+          "unique": 131,
+          "repeatGroups": 0,
+          "repeatMeshes": 0,
+          "highest": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "sameBoneOrder": {
+          "unique": 1,
+          "repeatGroups": 1,
+          "repeatMeshes": 130,
+          "highest": [
+            131
+          ]
+        },
+        "materialAppearance": {
+          "unique": 14,
+          "repeatGroups": 3,
+          "repeatMeshes": 117,
+          "highest": [
+            114,
+            4,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "geometryLayout": {
+          "unique": 34,
+          "repeatGroups": 15,
+          "repeatMeshes": 97,
+          "highest": [
+            19,
+            15,
+            13,
+            12,
+            9,
+            9,
+            6,
+            6
+          ]
+        }
+      }
+    ],
+    "indexGroups": [],
+    "errors": []
+  },
+  "r181-buffer-audit": {
+    "pass": true,
+    "modelCount": 16,
+    "bytes": 75569762,
+    "gpuDraws": 634,
+    "forensics": [
+      {
+        "name": "R74_PERMANENT_DUELIST_E01",
+        "count": 124,
+        "material": {
+          "unique": 14,
+          "repeatGroups": 4,
+          "repeatMeshes": 110,
+          "highest": [
+            106,
+            4,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "skeleton": {
+          "unique": 124,
+          "repeatGroups": 0,
+          "repeatMeshes": 0,
+          "highest": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "sameBoneOrder": {
+          "unique": 1,
+          "repeatGroups": 1,
+          "repeatMeshes": 123,
+          "highest": [
+            124
+          ]
+        },
+        "materialAppearance": {
+          "unique": 14,
+          "repeatGroups": 4,
+          "repeatMeshes": 110,
+          "highest": [
+            106,
+            4,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "geometryLayout": {
+          "unique": 42,
+          "repeatGroups": 21,
+          "repeatMeshes": 82,
+          "highest": [
+            21,
+            15,
+            8,
+            6,
+            6,
+            6,
+            5,
+            4
+          ]
+        }
+      },
+      {
+        "name": "R74_PERMANENT_DUELIST_G01",
+        "count": 131,
+        "material": {
+          "unique": 14,
+          "repeatGroups": 3,
+          "repeatMeshes": 117,
+          "highest": [
+            114,
+            4,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "skeleton": {
+          "unique": 131,
+          "repeatGroups": 0,
+          "repeatMeshes": 0,
+          "highest": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "sameBoneOrder": {
+          "unique": 1,
+          "repeatGroups": 1,
+          "repeatMeshes": 130,
+          "highest": [
+            131
+          ]
+        },
+        "materialAppearance": {
+          "unique": 14,
+          "repeatGroups": 3,
+          "repeatMeshes": 117,
+          "highest": [
+            114,
+            4,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "geometryLayout": {
+          "unique": 34,
+          "repeatGroups": 15,
+          "repeatMeshes": 97,
+          "highest": [
+            19,
+            15,
+            13,
+            12,
+            9,
+            9,
+            6,
+            6
+          ]
+        }
+      }
+    ],
+    "indexGroups": [
+      {
+        "name": "R74_PERMANENT_DUELIST_E01",
+        "groups": [
+          {
+            "materialName": "F00_000_Hair_00_HAIR_01_R105_DISTINCT_HOST",
+            "materialUuid": "73ffb8ef-571c-4b42-a1e3-53159365b07e",
+            "materialType": "MeshBasicMaterial",
+            "opacity": 1,
+            "transparent": false,
+            "alphaTest": 0.5,
+            "blending": 1,
+            "side": 2,
+            "count": 106,
+            "identicalBoneReferences": 106,
+            "identicalBoneInverseValues": 106,
+            "identicalAttributeTypedArrays": 106,
+            "identicalMaterialReference": 106,
+            "identityBindMatrix": 106,
+            "identityBindMode": 106,
+            "identityLocalMatrix": 106,
+            "indexedMeshes": 106,
+            "groupingEntries": 0,
+            "morphMeshes": 0,
+            "drawRanges": [
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ]
+            ],
+            "attributeKeys": [
+              "position",
+              "normal",
+              "uv",
+              "skinIndex",
+              "skinWeight"
+            ],
+            "indexRange": [
+              {
+                "vertexCount": 10028,
+                "indexCount": 180,
+                "indexMax": 47
+              },
+              {
+                "vertexCount": 10028,
+                "indexCount": 180,
+                "indexMax": 95
+              },
+              {
+                "vertexCount": 10028,
+                "indexCount": 144,
+                "indexMax": 179
+              },
+              {
+                "vertexCount": 10028,
+                "indexCount": 180,
+                "indexMax": 227
+              },
+              {
+                "vertexCount": 10028,
+                "indexCount": 516,
+                "indexMax": 412
+              }
+            ],
+            "sourceMeshExamples": [
+              "Hair001baked",
+              "Hair001baked_1",
+              "Hair001baked_3",
+              "Hair001baked_4",
+              "Hair001baked_6"
+            ]
+          },
+          {
+            "materialName": "F00_002_02_Body_00_SKIN",
+            "materialUuid": "029cd90e-b28f-4b7e-8077-f0708e756bba",
+            "materialType": "MeshBasicMaterial",
+            "opacity": 1,
+            "transparent": false,
+            "alphaTest": 0.5,
+            "blending": 1,
+            "side": 0,
+            "count": 4,
+            "identicalBoneReferences": 4,
+            "identicalBoneInverseValues": 4,
+            "identicalAttributeTypedArrays": 4,
+            "identicalMaterialReference": 4,
+            "identityBindMatrix": 4,
+            "identityBindMode": 4,
+            "identityLocalMatrix": 4,
+            "indexedMeshes": 4,
+            "groupingEntries": 0,
+            "morphMeshes": 0,
+            "drawRanges": [
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ]
+            ],
+            "attributeKeys": [
+              "position",
+              "normal",
+              "uv",
+              "skinIndex",
+              "skinWeight"
+            ],
+            "indexRange": [
+              {
+                "vertexCount": 7131,
+                "indexCount": 13080,
+                "indexMax": 571
+              },
+              {
+                "vertexCount": 7131,
+                "indexCount": 5268,
+                "indexMax": 3049
+              },
+              {
+                "vertexCount": 7131,
+                "indexCount": 6906,
+                "indexMax": 4292
+              },
+              {
+                "vertexCount": 7131,
+                "indexCount": 678,
+                "indexMax": 5355
+              }
+            ],
+            "sourceMeshExamples": [
+              "Bodybaked",
+              "Bodybaked_1",
+              "Bodybaked_2",
+              "Bodybaked_3"
+            ]
+          },
+          {
+            "materialName": "F00_000_00_Face_00_SKIN",
+            "materialUuid": "2cd034cc-ed90-40dd-a347-87b3e1d9134d",
+            "materialType": "MeshBasicMaterial",
+            "opacity": 1,
+            "transparent": false,
+            "alphaTest": 0,
+            "blending": 1,
+            "side": 0,
+            "count": 2,
+            "identicalBoneReferences": 2,
+            "identicalBoneInverseValues": 2,
+            "identicalAttributeTypedArrays": 2,
+            "identicalMaterialReference": 2,
+            "identityBindMatrix": 2,
+            "identityBindMode": 2,
+            "identityLocalMatrix": 2,
+            "indexedMeshes": 2,
+            "groupingEntries": 0,
+            "morphMeshes": 2,
+            "drawRanges": [
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ]
+            ],
+            "attributeKeys": [
+              "position",
+              "normal",
+              "uv",
+              "skinIndex",
+              "skinWeight"
+            ],
+            "indexRange": [
+              {
+                "vertexCount": 2361,
+                "indexCount": 3192,
+                "indexMax": 2079
+              },
+              {
+                "vertexCount": 2361,
+                "indexCount": 858,
+                "indexMax": 2310
+              }
+            ],
+            "sourceMeshExamples": [
+              "Facebaked_7",
+              "Facebaked_8"
+            ]
+          },
+          {
+            "materialName": "F00_000_Hair_00_HAIR_02_R105_DISTINCT_HOST",
+            "materialUuid": "2352b5da-78f0-4796-b5e0-16e55f4b7b02",
+            "materialType": "MeshBasicMaterial",
+            "opacity": 1,
+            "transparent": false,
+            "alphaTest": 0.5,
+            "blending": 1,
+            "side": 2,
+            "count": 2,
+            "identicalBoneReferences": 2,
+            "identicalBoneInverseValues": 2,
+            "identicalAttributeTypedArrays": 2,
+            "identicalMaterialReference": 2,
+            "identityBindMatrix": 2,
+            "identityBindMode": 2,
+            "identityLocalMatrix": 2,
+            "indexedMeshes": 2,
+            "groupingEntries": 0,
+            "morphMeshes": 0,
+            "drawRanges": [
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ]
+            ],
+            "attributeKeys": [
+              "position",
+              "normal",
+              "uv",
+              "skinIndex",
+              "skinWeight"
+            ],
+            "indexRange": [
+              {
+                "vertexCount": 10028,
+                "indexCount": 168,
+                "indexMax": 140
+              },
+              {
+                "vertexCount": 10028,
+                "indexCount": 168,
+                "indexMax": 272
+              }
+            ],
+            "sourceMeshExamples": [
+              "Hair001baked_2",
+              "Hair001baked_5"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "R74_PERMANENT_DUELIST_G01",
+        "groups": [
+          {
+            "materialName": "F00_000_Hair_00_HAIR_R105_DISTINCT_HOST",
+            "materialUuid": "424a6046-9a0d-49b8-95ca-9650c23abde9",
+            "materialType": "MeshBasicMaterial",
+            "opacity": 1,
+            "transparent": false,
+            "alphaTest": 0.5,
+            "blending": 1,
+            "side": 2,
+            "count": 114,
+            "identicalBoneReferences": 114,
+            "identicalBoneInverseValues": 114,
+            "identicalAttributeTypedArrays": 114,
+            "identicalMaterialReference": 114,
+            "identityBindMatrix": 114,
+            "identityBindMode": 114,
+            "identityLocalMatrix": 114,
+            "indexedMeshes": 114,
+            "groupingEntries": 0,
+            "morphMeshes": 0,
+            "drawRanges": [
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ]
+            ],
+            "attributeKeys": [
+              "position",
+              "normal",
+              "uv",
+              "skinIndex",
+              "skinWeight"
+            ],
+            "indexRange": [
+              {
+                "vertexCount": 7775,
+                "indexCount": 348,
+                "indexMax": 97
+              },
+              {
+                "vertexCount": 7775,
+                "indexCount": 300,
+                "indexMax": 183
+              },
+              {
+                "vertexCount": 7775,
+                "indexCount": 300,
+                "indexMax": 269
+              },
+              {
+                "vertexCount": 7775,
+                "indexCount": 348,
+                "indexMax": 367
+              },
+              {
+                "vertexCount": 7775,
+                "indexCount": 372,
+                "indexMax": 471
+              }
+            ],
+            "sourceMeshExamples": [
+              "Hair001baked",
+              "Hair001baked_1",
+              "Hair001baked_2",
+              "Hair001baked_3",
+              "Hair001baked_4"
+            ]
+          },
+          {
+            "materialName": "M00_001_01_Body_00_SKIN",
+            "materialUuid": "a83877f7-7b2a-4749-90cb-77a6ad25139b",
+            "materialType": "MeshBasicMaterial",
+            "opacity": 1,
+            "transparent": false,
+            "alphaTest": 0.5,
+            "blending": 1,
+            "side": 0,
+            "count": 4,
+            "identicalBoneReferences": 4,
+            "identicalBoneInverseValues": 4,
+            "identicalAttributeTypedArrays": 4,
+            "identicalMaterialReference": 4,
+            "identityBindMatrix": 4,
+            "identityBindMode": 4,
+            "identityLocalMatrix": 4,
+            "indexedMeshes": 4,
+            "groupingEntries": 0,
+            "morphMeshes": 0,
+            "drawRanges": [
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ]
+            ],
+            "attributeKeys": [
+              "position",
+              "normal",
+              "uv",
+              "skinIndex",
+              "skinWeight"
+            ],
+            "indexRange": [
+              {
+                "vertexCount": 8034,
+                "indexCount": 11898,
+                "indexMax": 585
+              },
+              {
+                "vertexCount": 8034,
+                "indexCount": 2532,
+                "indexMax": 2746
+              },
+              {
+                "vertexCount": 8034,
+                "indexCount": 6906,
+                "indexMax": 3405
+              },
+              {
+                "vertexCount": 8034,
+                "indexCount": 684,
+                "indexMax": 4471
+              }
+            ],
+            "sourceMeshExamples": [
+              "Bodybaked",
+              "Bodybaked_1",
+              "Bodybaked_2",
+              "Bodybaked_3"
+            ]
+          },
+          {
+            "materialName": "M00_000_00_Face_00_SKIN",
+            "materialUuid": "c58ea951-67d3-40da-baf8-44768c9d5403",
+            "materialType": "MeshBasicMaterial",
+            "opacity": 1,
+            "transparent": false,
+            "alphaTest": 0,
+            "blending": 1,
+            "side": 0,
+            "count": 2,
+            "identicalBoneReferences": 2,
+            "identicalBoneInverseValues": 2,
+            "identicalAttributeTypedArrays": 2,
+            "identicalMaterialReference": 2,
+            "identityBindMatrix": 2,
+            "identityBindMode": 2,
+            "identityLocalMatrix": 2,
+            "indexedMeshes": 2,
+            "groupingEntries": 0,
+            "morphMeshes": 2,
+            "drawRanges": [
+              [
+                0,
+                null
+              ],
+              [
+                0,
+                null
+              ]
+            ],
+            "attributeKeys": [
+              "position",
+              "normal",
+              "uv",
+              "skinIndex",
+              "skinWeight"
+            ],
+            "indexRange": [
+              {
+                "vertexCount": 2336,
+                "indexCount": 3216,
+                "indexMax": 1632
+              },
+              {
+                "vertexCount": 2336,
+                "indexCount": 864,
+                "indexMax": 2285
+              }
+            ],
+            "sourceMeshExamples": [
+              "Facebaked_5",
+              "Facebaked_8"
+            ]
+          },
+          {
+            "materialName": "M00_000_00_FaceBrow_00_FACE",
+            "materialUuid": "b35d3ea1-6eb4-4858-8b6b-a9ad344e067f",
+            "materialType": "MeshBasicMaterial",
+            "opacity": 1,
+            "transparent": true,
+            "alphaTest": 0,
+            "blending": 1,
+            "side": 2,
+            "count": 1,
+            "identicalBoneReferences": 1,
+            "identicalBoneInverseValues": 1,
+            "identicalAttributeTypedArrays": 1,
+            "identicalMaterialReference": 1,
+            "identityBindMatrix": 1,
+            "identityBindMode": 1,
+            "identityLocalMatrix": 1,
+            "indexedMeshes": 1,
+            "groupingEntries": 0,
+            "morphMeshes": 1,
+            "drawRanges": [
+              [
+                0,
+                null
+              ]
+            ],
+            "attributeKeys": [
+              "position",
+              "normal",
+              "uv",
+              "skinIndex",
+              "skinWeight"
+            ],
+            "indexRange": [
+              {
+                "vertexCount": 2336,
+                "indexCount": 480,
+                "indexMax": 109
+              }
+            ],
+            "sourceMeshExamples": [
+              "Facebaked"
+            ]
+          }
+        ]
+      }
+    ],
+    "errors": []
+  }
+}

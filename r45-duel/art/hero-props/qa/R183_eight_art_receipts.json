@@ -1,0 +1,167 @@
+{
+  "total": 8,
+  "assets": {
+    "P03": {
+      "id": "P03",
+      "originalName": "纸箱霸王龙",
+      "source": "P03_Cardboard_Tyrannosaurus_Stomp.blend",
+      "glb": "P03_Cardboard_Tyrannosaurus_Stomp.glb",
+      "render": "P03_Cardboard_Tyrannosaurus_Stomp.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 607328,
+      "glbBytes": 819144,
+      "triangles": 31610,
+      "meshes": 13,
+      "materials": 7,
+      "actorGroups": [
+        "P03_BOX_BODY_ACTOR",
+        "P03_DINO_HEAD_ACTOR",
+        "P03_DINO_LEGS_ACTOR",
+        "P03_DINO_TAIL_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "S08": {
+      "id": "S08",
+      "originalName": "暴怒售货机",
+      "source": "S08_Angry_Campus_Vending_Machine.blend",
+      "glb": "S08_Angry_Campus_Vending_Machine.glb",
+      "render": "S08_Angry_Campus_Vending_Machine.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 734642,
+      "glbBytes": 1022708,
+      "triangles": 40552,
+      "meshes": 14,
+      "materials": 9,
+      "actorGroups": [
+        "S08_FACE_ACTOR",
+        "S08_FLYING_CAN_ACTOR",
+        "S08_MACHINE_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "X03": {
+      "id": "X03",
+      "originalName": "教务车屋顶违停",
+      "source": "X03_Rooftop_School_Patrol_Car.blend",
+      "glb": "X03_Rooftop_School_Patrol_Car.glb",
+      "render": "X03_Rooftop_School_Patrol_Car.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 566094,
+      "glbBytes": 709976,
+      "triangles": 27380,
+      "meshes": 9,
+      "materials": 8,
+      "actorGroups": [
+        "X03_CAR_ACTOR",
+        "X03_ROOF_STATIC",
+        "X03_TICKET_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "Q06": {
+      "id": "Q06",
+      "originalName": "三连拍台灯",
+      "source": "Q06_Three_Click_Moonlight_Desk_Lamp.blend",
+      "glb": "Q06_Three_Click_Moonlight_Desk_Lamp.glb",
+      "render": "Q06_Three_Click_Moonlight_Desk_Lamp.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 326840,
+      "glbBytes": 322132,
+      "triangles": 12804,
+      "meshes": 10,
+      "materials": 8,
+      "actorGroups": [
+        "Q06_BASE_ACTOR",
+        "Q06_BUTTONS_ACTOR",
+        "Q06_SHADE_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "K02": {
+      "id": "K02",
+      "originalName": "橡皮炖西瓜",
+      "source": "K02_Watermelon_Rubber_Eraser_Stew.blend",
+      "glb": "K02_Watermelon_Rubber_Eraser_Stew.glb",
+      "render": "K02_Watermelon_Rubber_Eraser_Stew.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 1051644,
+      "glbBytes": 1467836,
+      "triangles": 58748,
+      "meshes": 8,
+      "materials": 8,
+      "actorGroups": [
+        "K02_ERASER_ACTOR",
+        "K02_MELON_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "K08": {
+      "id": "K08",
+      "originalName": "巧克力装甲香蕉",
+      "source": "K08_Chocolate_Armored_Banana_Knight.blend",
+      "glb": "K08_Chocolate_Armored_Banana_Knight.glb",
+      "render": "K08_Chocolate_Armored_Banana_Knight.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 262762,
+      "glbBytes": 218604,
+      "triangles": 8916,
+      "meshes": 10,
+      "materials": 7,
+      "actorGroups": [
+        "K08_ARMOR_ACTOR",
+        "K08_BANANA_ACTOR",
+        "K08_HELMET_ACTOR",
+        "K08_SHIELD_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "S03": {
+      "id": "S03",
+      "originalName": "反重力扫把",
+      "source": "S03_Antigravity_School_Broom.blend",
+      "glb": "S03_Antigravity_School_Broom.glb",
+      "render": "S03_Antigravity_School_Broom.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 249756,
+      "glbBytes": 176808,
+      "triangles": 6704,
+      "meshes": 7,
+      "materials": 7,
+      "actorGroups": [
+        "S03_BROOM_ACTOR",
+        "S03_REVERSED_DUST_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "Q01": {
+      "id": "Q01",
+      "originalName": "自动写检讨橡皮",
+      "source": "Q01_SelfWriting_Apology_Eraser.blend",
+      "glb": "Q01_SelfWriting_Apology_Eraser.glb",
+      "render": "Q01_SelfWriting_Apology_Eraser.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 517071,
+      "glbBytes": 558412,
+      "triangles": 22144,
+      "meshes": 10,
+      "materials": 10,
+      "actorGroups": [
+        "Q01_APOLOGY_PAPER_ACTOR",
+        "Q01_AUTOWRITING_PENCIL_ACTOR",
+        "Q01_ERASER_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    }
+  },
+  "finalArtApproved": 0,
+  "release": "NO_GO"
+}

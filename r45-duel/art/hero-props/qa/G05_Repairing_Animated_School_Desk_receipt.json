@@ -1,0 +1,20 @@
+{
+  "id": "G05",
+  "originalName": "自动修理校桌",
+  "source": "G05_Repairing_Animated_School_Desk.blend",
+  "glb": "G05_Repairing_Animated_School_Desk.glb",
+  "render": "G05_Repairing_Animated_School_Desk.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 600866,
+  "glbBytes": 774424,
+  "triangles": 30764,
+  "meshes": 9,
+  "materials": 8,
+  "actorGroups": [
+    "G05_LEGS_ACTOR",
+    "G05_REPAIR_TOOL_ACTOR",
+    "G05_TABLETOP_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

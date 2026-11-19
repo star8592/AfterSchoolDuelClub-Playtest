@@ -1,0 +1,21 @@
+{
+  "id": "P02",
+  "originalName": "百年没有进球的足球",
+  "source": "P02_Century_Without_Goal_Soccer.blend",
+  "glb": "P02_Century_Without_Goal_Soccer.glb",
+  "render": "P02_Century_Without_Goal_Soccer.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 588376,
+  "glbBytes": 829532,
+  "triangles": 33484,
+  "meshes": 8,
+  "materials": 8,
+  "actorGroups": [
+    "P02_BALL_ACTOR",
+    "P02_GOAL_STATIC",
+    "P02_NET_ACTOR",
+    "P02_SCOREBOARD_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

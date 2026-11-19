@@ -1,0 +1,348 @@
+{
+  "mode": "demand",
+  "seed": 2,
+  "deck": "kitchen",
+  "view": "mobile",
+  "run": "primary",
+  "errors": [],
+  "pass": true,
+  "first": {
+    "firstReadyMs": 5389,
+    "realModelCount": 2,
+    "originalIDs": [
+      "E04",
+      "G04"
+    ],
+    "initialIDs": [
+      "E04",
+      "G04"
+    ],
+    "resourceVerified": 6,
+    "demand": {
+      "enabled": true,
+      "seed": 2,
+      "deck": "kitchen",
+      "initialRealGLBs": [
+        "E04",
+        "G04"
+      ],
+      "deferredOriginalGLBs": [
+        "E02",
+        "E03",
+        "G02",
+        "G03",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "initialCount": 2,
+      "fullModelCount": 12,
+      "bgConcurrency": 4,
+      "bgDelayMs": 0,
+      "demandOnly": true,
+      "demandConcurrency": 1,
+      "expectedSourceIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "hasNoProxy": true,
+      "loadedNow": [
+        "E04",
+        "G04"
+      ],
+      "backgroundStarted": true,
+      "allLoaded": false,
+      "backgroundError": null,
+      "loadedRealResources": 6,
+      "demandQueued": 0,
+      "demandActive": 1,
+      "demandCompleted": 0,
+      "demandFailed": 0,
+      "demandedIDs": [],
+      "cpuHeapMB": 163,
+      "gpuTextureObjects": 360,
+      "gpuGeometryObjects": 401
+    },
+    "hostDemand": {
+      "enabled": true,
+      "requestedIDs": [
+        "E02"
+      ],
+      "requestsSent": 1,
+      "readyOriginals": [
+        "E04",
+        "G04"
+      ],
+      "allOriginalsLoaded": false,
+      "canSafelyEndTurn": false
+    },
+    "hostStream": {
+      "enabled": true,
+      "readyIds": [
+        "E04",
+        "G04",
+        "E01",
+        "G01"
+      ],
+      "allReady": false,
+      "backgroundMs": null,
+      "backgroundError": null,
+      "nextAiMissing": [
+        "E02"
+      ],
+      "canSafelyEndTurn": false,
+      "restrictedCardCount": 0
+    },
+    "sceneReady": true,
+    "endDisabled": true,
+    "cpuMemoryMB": 163,
+    "gpuTextureObjects": 360,
+    "gpuGeometryObjects": 401
+  },
+  "afterBackground": {
+    "firstReadyMs": 5389,
+    "realModelCount": 3,
+    "originalIDs": [
+      "E04",
+      "G04",
+      "E02"
+    ],
+    "initialIDs": [
+      "E04",
+      "G04"
+    ],
+    "resourceVerified": 7,
+    "demand": {
+      "enabled": true,
+      "seed": 2,
+      "deck": "kitchen",
+      "initialRealGLBs": [
+        "E04",
+        "G04"
+      ],
+      "deferredOriginalGLBs": [
+        "E02",
+        "E03",
+        "G02",
+        "G03",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "initialCount": 2,
+      "fullModelCount": 12,
+      "bgConcurrency": 4,
+      "bgDelayMs": 0,
+      "demandOnly": true,
+      "demandConcurrency": 1,
+      "expectedSourceIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "hasNoProxy": true,
+      "loadedNow": [
+        "E04",
+        "G04",
+        "E02"
+      ],
+      "backgroundStarted": true,
+      "allLoaded": false,
+      "backgroundError": null,
+      "loadedRealResources": 7,
+      "demandQueued": 0,
+      "demandActive": 0,
+      "demandCompleted": 1,
+      "demandFailed": 0,
+      "demandedIDs": [
+        "E02"
+      ],
+      "cpuHeapMB": 119,
+      "gpuTextureObjects": 360,
+      "gpuGeometryObjects": 401
+    },
+    "hostDemand": {
+      "enabled": true,
+      "requestedIDs": [
+        "E02"
+      ],
+      "requestsSent": 1,
+      "readyOriginals": [
+        "E04",
+        "G04",
+        "E02"
+      ],
+      "allOriginalsLoaded": false,
+      "canSafelyEndTurn": true
+    },
+    "hostStream": {
+      "enabled": true,
+      "readyIds": [
+        "E04",
+        "G04",
+        "E01",
+        "G01",
+        "E02"
+      ],
+      "allReady": false,
+      "backgroundMs": null,
+      "backgroundError": null,
+      "nextAiMissing": [],
+      "canSafelyEndTurn": true,
+      "restrictedCardCount": 0
+    },
+    "sceneReady": true,
+    "endDisabled": false,
+    "cpuMemoryMB": 119,
+    "gpuTextureObjects": 360,
+    "gpuGeometryObjects": 401
+  },
+  "actualCardPlayed": true,
+  "realAiTurn": {
+    "cards": [
+      "E02"
+    ],
+    "readyAtEnd": [
+      "E04",
+      "G04",
+      "E01",
+      "G01",
+      "E02"
+    ]
+  },
+  "final": {
+    "firstReadyMs": 5389,
+    "realModelCount": 3,
+    "originalIDs": [
+      "E04",
+      "G04",
+      "E02"
+    ],
+    "initialIDs": [
+      "E04",
+      "G04"
+    ],
+    "resourceVerified": 7,
+    "demand": {
+      "enabled": true,
+      "seed": 2,
+      "deck": "kitchen",
+      "initialRealGLBs": [
+        "E04",
+        "G04"
+      ],
+      "deferredOriginalGLBs": [
+        "E02",
+        "E03",
+        "G02",
+        "G03",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "initialCount": 2,
+      "fullModelCount": 12,
+      "bgConcurrency": 4,
+      "bgDelayMs": 0,
+      "demandOnly": true,
+      "demandConcurrency": 1,
+      "expectedSourceIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "hasNoProxy": true,
+      "loadedNow": [
+        "E04",
+        "G04",
+        "E02"
+      ],
+      "backgroundStarted": true,
+      "allLoaded": false,
+      "backgroundError": null,
+      "loadedRealResources": 7,
+      "demandQueued": 0,
+      "demandActive": 0,
+      "demandCompleted": 1,
+      "demandFailed": 0,
+      "demandedIDs": [
+        "E02"
+      ],
+      "cpuHeapMB": 164,
+      "gpuTextureObjects": 401,
+      "gpuGeometryObjects": 521
+    },
+    "hostDemand": {
+      "enabled": true,
+      "requestedIDs": [
+        "E02"
+      ],
+      "requestsSent": 1,
+      "readyOriginals": [
+        "E04",
+        "G04",
+        "E02"
+      ],
+      "allOriginalsLoaded": false,
+      "canSafelyEndTurn": true
+    },
+    "hostStream": {
+      "enabled": true,
+      "readyIds": [
+        "E04",
+        "G04",
+        "E01",
+        "G01",
+        "E02"
+      ],
+      "allReady": false,
+      "backgroundMs": null,
+      "backgroundError": null,
+      "nextAiMissing": [],
+      "canSafelyEndTurn": true,
+      "restrictedCardCount": 0
+    },
+    "sceneReady": true,
+    "endDisabled": false,
+    "cpuMemoryMB": 164,
+    "gpuTextureObjects": 401,
+    "gpuGeometryObjects": 521
+  }
+}

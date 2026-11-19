@@ -1,0 +1,44 @@
+{
+  "technicalCandidates": {
+    "E06": {
+      "sourceBytes": 400106,
+      "runtimeBytes": 541512,
+      "meshCount": 8,
+      "triangles": 18844,
+      "materials": 8,
+      "namedDetailsFound": [
+        "felt",
+        "grip",
+        "walnut"
+      ],
+      "visualApproval": false
+    },
+    "K01": {
+      "sourceBytes": 396792,
+      "runtimeBytes": 558656,
+      "meshCount": 14,
+      "triangles": 24676,
+      "materials": 14,
+      "namedDetailsFound": [
+        "wok",
+        "banana",
+        "aubergine"
+      ],
+      "visualApproval": false
+    },
+    "K07": {
+      "sourceBytes": 487485,
+      "runtimeBytes": 702104,
+      "meshCount": 18,
+      "triangles": 31708,
+      "materials": 16,
+      "namedDetailsFound": [
+        "frog",
+        "bell",
+        "cloche"
+      ],
+      "visualApproval": false
+    }
+  },
+  "approvedForRelease": false
+}

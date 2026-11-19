@@ -1,5 +1,6 @@
 import {addStadiumPolish} from './stadium-polish.mjs';
 import {createStadiumAudience} from './stadium-audience.mjs';
+import {createStadiumStaticBatcher} from './stadium-static-batcher.mjs';
 /**
  * R45 procedural 3D school-gymnasium battle environment.
  * All architecture (court, bleachers, roof, light rigs, podiums and screens)
@@ -7,7 +8,7 @@ import {createStadiumAudience} from './stadium-audience.mjs';
  *
  * No gameplay or collision state here. This is the visual world only.
  */
-export function createStadium(THREE, scene, {detail='medium',lifeWorld=null}={}) {
+export function createStadium(THREE, scene, {detail='medium',lifeWorld=null,qaBatchStatic=false}={}) {
   const stats={label:'R45_ONE_ARENA_GYM_3D',geometryTypes:new Set(),meshCount:0,
     instancedObjects:0,bleacherRows:0,seats:0,lights:0};
   const mat=(color,metalness=0,roughness=.7)=>new THREE.MeshStandardMaterial({color,metalness,roughness});
@@ -233,20 +234,41 @@ export function createStadium(THREE, scene, {detail='medium',lifeWorld=null}={})
   // School-gym architecture, with actual volume: walls, beams and truss roof.
   box([24,10,.46],[0,4.7,-11.85],navy,'Gym_Back_Wall');
   for(const x of [-11.5,11.5])box([.5,11.8,24],[x,4.7,-.6],navy,'Gym_Side_Wall_'+x);
+  // R180 QA only: all five architectural windows share byte-identical
+  // emissive PBR values. Reusing exactly one material allows geometric
+  // batching without changing textures, roughness, normals or polygons.
+  const r180WindowMat=qaBatchStatic?mat('#53718b',.35,.22):null;
+  if(r180WindowMat){
+    r180WindowMat.emissive=new THREE.Color('#152e43');
+    r180WindowMat.emissiveIntensity=.7;
+  }
   for(const x of [-10,-5,0,5,10]){
     box([.24,9.9,.58],[x,4.7,-11.50],beam,'Structural_Pilaster_'+x);
-    const window=box([2.5,2.4,.055],[x+2.15,6.8,-11.48],mat('#53718b',.35,.22),'High_Window_'+x);
-    window.material.emissive=new THREE.Color('#152e43');window.material.emissiveIntensity=.7;
+    const window=box([2.5,2.4,.055],[x+2.15,6.8,-11.48],
+      r180WindowMat||mat('#53718b',.35,.22),'High_Window_'+x);
+    if(!r180WindowMat){
+      window.material.emissive=new THREE.Color('#152e43');
+      window.material.emissiveIntensity=.7;
+    }
   }
   for(let x=-12;x<=12;x+=3){
     box([.15,.21,24],[x,9.3,-.1],beam,'Roof_Truss_Longitudinal_'+x);
     box([.12,.31,24],[x,9.55,-.1],dark,'Roof_Truss_Shadow_'+x);
   }
+  const r180CeilingLampMat=qaBatchStatic?mat('#fff4d4',.04,.35):null;
+  if(r180CeilingLampMat){
+    r180CeilingLampMat.emissive=new THREE.Color('#ffdba2');
+    r180CeilingLampMat.emissiveIntensity=.65;
+  }
   for(const z of [-10,-5,0,5,10]){
     box([24,.22,.18],[0,9.2,z],beam,'Roof_Crossbar_'+z);
     for(const x of [-8,-4,0,4,8]){
-      const light=box([.9,.10,.45],[x,8.92,z],mat('#fff4d4',.04,.35),'3D_Ceiling_Lamp_'+x+'_'+z);
-      light.material.emissive=new THREE.Color('#ffdba2');light.material.emissiveIntensity=.65;
+      const light=box([.9,.10,.45],[x,8.92,z],
+        r180CeilingLampMat||mat('#fff4d4',.04,.35),'3D_Ceiling_Lamp_'+x+'_'+z);
+      if(!r180CeilingLampMat){
+        light.material.emissive=new THREE.Color('#ffdba2');
+        light.material.emissiveIntensity=.65;
+      }
       stats.lights++;
     }
   }
@@ -323,7 +345,15 @@ export function createStadium(THREE, scene, {detail='medium',lifeWorld=null}={})
      (.20+.22*(.5+.5*Math.sin(t*6.8)))*envelope;
    }
   }
+  // Static geometry only, identical PBR materials and explicit rollback QA.
+  // Keep reverse seating/instance buckets and live scoreboard untouched.
+  const staticBatch=qaBatchStatic?createStadiumStaticBatcher(THREE):null;
+  if(staticBatch){
+    staticBatch.batch(group,'venue');
+    staticBatch.batch(polish.group,'decoration');
+  }
   return {group,polish,beginFinale,update,
+   get r180StaticBatch(){return staticBatch?.stats||{enabled:false}},
    get seatBanks(){return seatingEvidence()},
    mountAudience:prototypes=>audience.mount(prototypes),
    reactAudience:(type,side,seconds)=>audience.react(type,side,seconds),

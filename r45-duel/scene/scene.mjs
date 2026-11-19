@@ -13,11 +13,15 @@ import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-a
 import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
+import {createSkinnedIndexUnion} from './skinned-index-union.mjs';
+import {createCampusSchoolMagic} from './campus-school-magic.mjs';
+import {schoolGestureForCard} from './campus-spell-gesture.mjs';
+import {schoolHitReactionForCard} from './campus-spell-hit-reaction.mjs';
 import {contactStep} from './foot-contact.mjs';
 import {createDuelEffects} from './duel-effects.mjs';
 import {createComboDirector} from './combo-director.mjs';
 import {createComedySpectacle} from './comedy-spectacle.mjs';
-import {BY_ID} from '../engine.mjs';
+import {BY_ID,createGame,DECK_PRESETS} from '../engine.mjs';
 import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
 import {createSpellImpact} from './spell-impact.mjs';
 import {createMagicArsenal} from './magic-arsenal.mjs';
@@ -31,12 +35,328 @@ import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
-import {preloadSummonModels} from './summon-models.mjs';
+import {preloadSummonModels,UNIT_MODEL_IDS} from './summon-models.mjs';
 import {createLivingCastDirector} from './living-cast-director.mjs';
 import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// R178 art/performance lab: explicit QA-only complete first-use shader inventory.
+// The 14 actual summon identities are rendered in three visible on-stage waves
+// behind loading, then returned to the original pool. No lower-resolution proxy.
+const R178_PRIME_ALL=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+   (PARAMS.get('r178PrimeAll')??pp?.get('r178PrimeAll'))==='on';
+})();
+const R178_PRIME_HAND=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+   (PARAMS.get('r178PrimeHand')??pp?.get('r178PrimeHand'))==='on';
+})();
+let r178AllPrimeReceipt=null;
+let r178HandPrimeReceipt=null;
+// R179 research-only lower bound: initialize exactly TWO genuine model IDs,
+// never all 14. Only explicit QA query parameters can exercise this path.
+const R179_PRIME_TWO=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r179PrimeTwo')??pp?.get('r179PrimeTwo'))==='on';
+})();
+let r179TwoPrimeReceipt=null;
+const R179_PRIME_FROG=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r179PrimeFrog')??pp?.get('r179PrimeFrog'))==='on';
+})();
+let r179FrogGpuReceipt=null;
+// R181 QA-only identity-preserving hair index union. Default OFF.
+const R181_HAIR_BATCH=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r181HairBatch')??pp?.get('r181HairBatch'))==='on';
+})();
+let r181HairBatchReceipt=null;
+// R182 asset experiment: single selected actual Blender GLB only.
+// Deliberately refuse eager-loading all six on Android; past S21 LOW_MEMORY.
+const R182_HERO_ID=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||pp?.get('qa')==='1';
+ const id=(PARAMS.get('r182Hero')??pp?.get('r182Hero')??'').trim();
+ return qa&&
+  ['K06','Q05','P04','S04','P05','X05'].includes(id)?id:null;
+})();
+const R182_HERO_ASSET_PATH=Object.freeze({
+ K06:'K06_Volcano_Chili_Boba_Tea.glb',
+ Q05:'Q05_Chalk_Press_Conference.glb',
+ P04:'P04_Mega_Sports_Whistle.glb',
+ S04:'S04_Wrong_Answer_Generator.glb',
+ P05:'P05_Volleyball_Basketball_Hoop.glb',
+ X05:'X05_Homework_Paper_Galaxy.glb'
+});
+let r182HeroLoadReceipt=null;
+const R182_PRIME_SELECTED=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return R182_HERO_ID&&
+  (PARAMS.get('r182PrimeSelected')??pp?.get('r182PrimeSelected'))==='on';
+})();
+let r182SelectedPrewarm=null;
+// R183: one-at-a-time campus asset selection. Never co-load R182+R183
+// previews on the real S21 Android GPU; do not worsen prior LOW_MEMORY.
+const R183_HERO_ASSET_PATH=Object.freeze({
+ P03:'P03_Cardboard_Tyrannosaurus_Stomp.glb',
+ S08:'S08_Angry_Campus_Vending_Machine.glb',
+ X03:'X03_Rooftop_School_Patrol_Car.glb',
+ Q06:'Q06_Three_Click_Moonlight_Desk_Lamp.glb',
+ K02:'K02_Watermelon_Rubber_Eraser_Stew.glb',
+ K08:'K08_Chocolate_Armored_Banana_Knight.glb',
+ S03:'S03_Antigravity_School_Broom.glb',
+ Q01:'Q01_SelfWriting_Apology_Eraser.glb'
+});
+const R183_HERO_ID=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||pp?.get('qa')==='1';
+ const id=(PARAMS.get('r183Hero')??pp?.get('r183Hero')??'').trim();
+ return qa&&!R182_HERO_ID&&R183_HERO_ASSET_PATH[id]?id:null;
+})();
+const R183_PRIME_SELECTED=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return R183_HERO_ID&&
+  (PARAMS.get('r183PrimeSelected')??pp?.get('r183PrimeSelected'))==='on';
+})();
+let r183HeroLoadReceipt=null, r183SelectedPrewarm=null;
+// R184: one new heroic Blender asset per QA scene, zero eager loading.
+const R184_HERO_ASSET_PATH=Object.freeze({
+ E05:'E05_Giant_Cheer_Megaphone.glb',
+ G05:'G05_Repairing_Animated_School_Desk.glb',
+ T06:'T06_Broken_School_Announcement_System.glb',
+ K03:'K03_Corn_Grape_Cafeteria_Dance.glb',
+ K04:'K04_Chili_Mooncake_Catastrophe.glb',
+ Q02:'Q02_Origami_Beast_From_School_Notice.glb',
+ S01:'S01_Reversed_Forged_School_Alarm.glb',
+ S06:'S06_Quantum_Rubber_Band_Teacher_Hat.glb',
+ P07:'P07_Black_Swan_Ice_Rink.glb',
+ X02:'X02_School_Uniform_Passing_Wall.glb'
+});
+const R184_HERO_ID=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||pp?.get('qa')==='1';
+ const id=(PARAMS.get('r184Hero')??pp?.get('r184Hero')??'').trim();
+ return qa&&!R182_HERO_ID&&!R183_HERO_ID&&R184_HERO_ASSET_PATH[id]?id:null;
+})();
+const R184_PRIME_SELECTED=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return R184_HERO_ID&&
+  (PARAMS.get('r184PrimeSelected')??pp?.get('r184PrimeSelected'))==='on';
+})();
+let r184HeroLoadReceipt=null,r184SelectedPrewarm=null;
+// R185 isolated per-ID Blender original QA selector; no 10× eager loading.
+const R185_HERO_ASSET_PATH=Object.freeze({
+ G06:'G06_Second_Page_PopUp_School_Plan.glb',
+ T05:'T05_Heartwarming_Cafeteria_Chef_Soup.glb',
+ K05:'K05_Invisible_Air_Soup_Bowl.glb',
+ Q03:'Q03_Dreaming_School_Blackboard.glb',
+ Q04:'Q04_Embarrassing_Dormitory_Public_Play.glb',
+ Q07:'Q07_Second_Cardboard_Classroom_Moon.glb',
+ Q08:'Q08_Chalk_Draw_Prison.glb',
+ S02:'S02_One_Pencil_Tiny_Stationery_Case.glb',
+ S05:'S05_Confused_Homeroom_Class_Leader_Robot.glb',
+ S07:'S07_School_Bell_Time_Wormhole.glb'
+});
+const R185_HERO_ID=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||pp?.get('qa')==='1';
+ const id=(PARAMS.get('r185Hero')??pp?.get('r185Hero')??'').trim();
+ return qa&&!R182_HERO_ID&&!R183_HERO_ID&&!R184_HERO_ID&&
+   R185_HERO_ASSET_PATH[id]?id:null;
+})();
+const R185_PRIME_SELECTED=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return R185_HERO_ID&&
+  (PARAMS.get('r185PrimeSelected')??pp?.get('r185PrimeSelected'))==='on';
+})();
+let r185HeroLoadReceipt=null,r185SelectedPrewarm=null;
+// R186 single selected original Blender hero, ALL 46 source candidates built;
+// never simultaneously load 46 GLBs: mobile OOM risk and unapproved material.
+const R186_HERO_ASSET_PATH=Object.freeze({
+ P01:'P01_Gale_Hair_School_Hero.glb',
+ P02:'P02_Century_Without_Goal_Soccer.glb',
+ P06:'P06_Backwards_Run_Gym_Treadmill.glb',
+ P08:'P08_Sports_Medal_Meteor_Rain.glb',
+ X01:'X01_Reversing_School_Clock_Tower.glb',
+ X04:'X04_Lunchtime_Prophecy_Pillow.glb',
+ X06:'X06_Morning_Reading_Duplicator.glb',
+ X07:'X07_Vanishing_Last_Classroom_Lesson.glb',
+ X08:'X08_Campus_Gate_Time_Security_Guard.glb'
+});
+const R186_HERO_ID=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const qa=PARAMS.get('qa')==='1'||pp?.get('qa')==='1';
+ const id=(PARAMS.get('r186Hero')??pp?.get('r186Hero')??'').trim();
+ return qa&&!R182_HERO_ID&&!R183_HERO_ID&&!R184_HERO_ID&&!R185_HERO_ID&&
+  R186_HERO_ASSET_PATH[id]?id:null;
+})();
+const R186_PRIME_SELECTED=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return R186_HERO_ID&&
+  (PARAMS.get('r186PrimeSelected')??pp?.get('r186PrimeSelected'))==='on';
+})();
+let r186HeroLoadReceipt=null,r186SelectedPrewarm=null;
+// R187 performance test: use existing visible scene readiness frames as
+// first genuine hero/board GPU draws. No extra first-load render cycles.
+// QA only, no roll-out to player branch unless benchmark proves improvement.
+const R187_INTERLEAVE_MODE=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ const mode=(PARAMS.get('r187Interleave')??pp?.get('r187Interleave')??'off');
+ return R186_HERO_ID&&(PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  ['on','actors','hero','compile'].includes(mode)?mode:'off';
+})();
+const R187_INTERLEAVE=R187_INTERLEAVE_MODE!=='off';
+let r187InterleaveReceipt=null;
+// R189 isolated startup streaming. Stage only genuine opening-hand GLBs,
+// keep the 4 original host/duelist VRMs intact. Future cards cannot be played
+// before their real 3D GLB has arrived. Background id validation is strict.
+const R189_STREAM=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+   (PARAMS.get('r189Stream')??pp?.get('r189Stream'))==='on'&&
+   !['tutorial','guided'].includes(pp?.get('mode')??PARAMS.get('mode'));
+})();
+const r189Params=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+ catch{return PARAMS}})();
+const r189Seed=Number(r189Params.get('seed')??PARAMS.get('seed'));
+const r189Deck=(Object.hasOwn(DECK_PRESETS,r189Params.get('deck'))?
+ r189Params.get('deck'):'classic');
+if(R189_STREAM&&(!Number.isInteger(r189Seed)||r189Seed<=0||
+ r189Seed>2147483646))
+ throw Error('R189 requires real browser game seed to compute exact original opening hands');
+const r189Preview=R189_STREAM?
+ createGame(r189Seed,r189Deck):null;
+const r189InitialGLBs=r189Preview?[...new Set(
+ [...r189Preview.hand.player,...r189Preview.hand.ai].filter(id=>
+  BY_ID[id]?.kind==='unit'&&UNIT_MODEL_IDS.includes(id)))]:[];
+const r189TailGLBs=R189_STREAM?UNIT_MODEL_IDS.filter(id=>!r189InitialGLBs.includes(id)):[];
+const r189BgConcurrency=R189_STREAM?
+ Math.max(1,Math.min(4,Number(r189Params.get('r189BgConcurrency'))||4)):4;
+const r189BgDelayMs=R189_STREAM?
+ Math.max(0,Math.min(1500,Number(r189Params.get('r189BgDelay')??0)||0)):0;
+
+let r189TailPromise=null,r189TailStarted=false,r189TailError=null;
+let r189AllDone=!R189_STREAM;
+// R190: no unconditional tail loading. Fetch only verified real model IDs
+// specifically required by current cards/next deterministic AI action.
+// Does not pretend CPU-retained GLB is already GPU-resident.
+const R190_DEMAND=R189_STREAM&&
+ (PARAMS.get('r190Demand')??r189Params.get('r190Demand'))==='on';
+const r190Queue=[],r190Pending=new Set();
+const r190DemandHistory=[];
+let r190Active=0,r190Completed=0,r190Failed=0;
+const r190Limit=Math.max(1,Math.min(2,
+ Number(r189Params.get('r190DemandConcurrency'))||1));
+const r190FirstRequestAt=performance.now();
+
+const r189InitialReceipt={enabled:R189_STREAM,seed:r189Seed,
+ deck:r189Deck,initialRealGLBs:r189InitialGLBs,
+ deferredOriginalGLBs:r189TailGLBs,
+ initialCount:r189InitialGLBs.length,fullModelCount:12,
+ bgConcurrency:r189BgConcurrency,bgDelayMs:r189BgDelayMs,
+ demandOnly:R190_DEMAND,demandConcurrency:r190Limit,
+ expectedSourceIds:UNIT_MODEL_IDS,hasNoProxy:true};
+
+
+
+
+
+
+
+const R180_STADIUM_BATCH=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r180StadiumBatch')??pp?.get('r180StadiumBatch'))==='on';
+})();
+
+
+
+// R176 research: front-load authentic board model shader/mesh GPU setup
+// into the existing loading overlay, never a fake proxy or a resolution cut.
+const R176_PRIME_BOARD=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r176PrimeBoard')??pp?.get('r176PrimeBoard'))==='on';
+})();
+let r176PrimeBoardReceipt=null;
+const R175_HERO_E06=(()=>{
+ const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||parent?.get('qa')==='1')&&
+  (PARAMS.get('r175HeroE06')??parent?.get('r175HeroE06'))==='on';
+})();
+// R178 isolated hand-sculpted K01: no effect on R147 or unapproved assets.
+const R178_HERO_K01=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r178HeroK01')??pp?.get('r178HeroK01'))==='on';
+})();
+const R179_HERO_K07=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+  (PARAMS.get('r179HeroK07')??pp?.get('r179HeroK07'))==='on';
+})();
+// R169 QA-only all-spells replacement. Never silently overwrite R147.
+const R174_PREPARE_GPU=(()=>{
+ try{
+  const parent=new URLSearchParams(window.parent.location.search);
+  return (PARAMS.get('qa')==='1'||parent.get('qa')==='1')&&
+   (PARAMS.get('r174Prepare')??parent.get('r174Prepare'))==='async';
+ }catch{
+  return PARAMS.get('qa')==='1'&&PARAMS.get('r174Prepare')==='async';
+ }
+})();
+let r174ReadyPreparation=null;
+const R172_STATIC_BATCH=(()=>{
+ const own=PARAMS.get('qa')==='1'&&PARAMS.get('r172BatchStatic')==='on';
+ try{const pp=new URLSearchParams(window.parent.location.search);
+  return own||(pp.get('qa')==='1'&&pp.get('r172BatchStatic')==='on');}
+ catch{return own}
+})();
+const R174_CROWD_EXPERIMENT=(()=>{
+ try{const parent=new URLSearchParams(window.parent.location.search);
+  return PARAMS.get('r174Crowd')??parent.get('r174Crowd')??null;
+ }catch{return PARAMS.get('r174Crowd')}
+})();
+const R122_CROWD_USER_PARAM=(()=>{
+ try{const parent=new URLSearchParams(window.parent.location.search);
+  return PARAMS.get('r122Crowd')??parent.get('r122Crowd')??null;
+ }catch{return PARAMS.get('r122Crowd')}
+})();
+const R169_SCHOOL_MAGIC=(()=>{
+ const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+ catch{return null}})();
+ return (PARAMS.get('qa')==='1'||parent?.get('qa')==='1')&&
+  (PARAMS.get('r169SchoolMagic')??parent?.get('r169SchoolMagic'))==='on';
+})();
+
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -221,6 +541,17 @@ function keepArenaVisible(){
  lastOcclusionMode=mode;
  stadiumEvidence.group.traverse(obj=>{
   const n=obj.name||'';
+  const batchVisibility=obj.userData?.r180OcclusionClass;
+  if(batchVisibility){
+   if(batchVisibility==='front-120')obj.visible=at<120;
+   else if(batchVisibility==='front-sign-100')obj.visible=at<100;
+   else if(batchVisibility.startsWith('side-wall-')){
+    const wall=Number(batchVisibility.slice('side-wall-'.length));
+    obj.visible=at<58||wall!==side*11.5;
+   }
+   // 'always' retains the ordinary all-angle visibility.
+   return;
+  }
   if(n==='R49_Reverse_Grandstand'){
    obj.visible=at>=115;
    return;
@@ -264,6 +595,7 @@ let shownCards={player:[],ai:[]};
 let shownUnits={player:[],ai:[]};
 let pendingCombatEvents=null;
 let summonPresence=null;
+let schoolMagicStage=null;
 let summonModels=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -300,7 +632,8 @@ function makeScene(){
  const rim=new THREE.DirectionalLight('#a0c9fc',2.25);rim.position.set(5,6,-4);rim.layers.enable(1);scene.add(rim);
  const fill=new THREE.DirectionalLight('#f7d6b9',.8);fill.position.set(3,3,6);fill.layers.enable(1);scene.add(fill);
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
- stadiumEvidence=createStadium(THREE,scene,{detail:'medium',lifeWorld:arenaLife});
+ stadiumEvidence=createStadium(THREE,scene,{detail:'medium',lifeWorld:arenaLife,
+  qaBatchStatic:R180_STADIUM_BATCH});
  duelEffects=createDuelEffects(THREE,scene);
  // The R100 director uses only validated real engine.combo_effect payloads.
  // The 3D stadium, summoners, permanent VRMs and canonical rules stay intact.
@@ -315,6 +648,8 @@ function makeScene(){
  liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
  spellImpact=createSpellImpact(THREE,scene);
  magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
+ if(R169_SCHOOL_MAGIC)
+  schoolMagicStage=createCampusSchoolMagic(THREE,scene,{reducedMotion:reduced,mergeStatic:R172_STATIC_BATCH});
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
  spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
@@ -605,7 +940,11 @@ function updateDuelistHosts(seconds){
  const targetVector=new THREE.Vector3(),targetOut={R:[0,0,0],L:[0,0,0]};
  for(const host of duelistHosts){
   const side=host.side,gesture=hostAction[side],strike=hostHits[side];
+  const customGesture=R169_SCHOOL_MAGIC&&gesture.kind==='spell'?
+   schoolGestureForCard(gesture.id,seconds-gesture.started,side):null;
   const age=seconds-gesture.started,hitAge=seconds-strike.time;
+  const schoolHit=R169_SCHOOL_MAGIC&&strike.card?
+   schoolHitReactionForCard(strike.card,hitAge,side):null;
   const breath=Math.sin(seconds*1.18+(side==='player'?0:1.6));
   const glance=Math.sin(seconds*.52+(side==='player'?.4:2.1));
   const sign=side==='player'?1:-1;
@@ -645,15 +984,15 @@ function updateDuelistHosts(seconds){
   const winnerHop=victory*.19*Math.max(0,Math.sin(seconds*11.7+(side==='player'?.2:1.1)))*intensity;
   host.pivot.position.x=host.baseX+
     sign*(.13*doCast+.09*doFollow-.25*recoil)+
-    sign*.14*victory-sign*.13*defeat+
+    sign*.14*victory-sign*.13*defeat+(customGesture?.step||0)+
     .018*glance*(1-actionStrength)+sign*(act.step||0)*idleBlend*
       (footwork?.stance?.32:1)+(r134Idle?.shiftX||0);
-  host.pivot.position.y=.48+.012*breath+cardHop+winnerHop+
+  host.pivot.position.y=.48+.012*breath+cardHop+winnerHop+(customGesture?.hop||0)-(schoolHit?.crouch||0)+
     (footwork?0:(act.jump||0)*idleBlend*.6)+(r134Idle?.liftY||0);
   host.pivot.rotation.y=faceOpponentYaw(host.id,side)+sign*(.21*doDisplay+.29*doCast)+
     sign*(act.headYaw||0)*idleBlend*.30+
     sign*.16*victory-sign*.12*defeat+(r134Idle?.yaw||0);
-  host.pivot.rotation.z=sign*(-.12*doCast+.15*doFollow+.23*recoil-
+  host.pivot.rotation.z=(schoolHit?.lean||0)+sign*(customGesture?.torsoPitch||0)+sign*(-.12*doCast+.15*doFollow+.23*recoil-
     .095*victory+.24*defeat)+.011*glance+
     sign*(act.tilt||0)*idleBlend;
   // Facial blink and the source VRM blendshapes remain animated independently.
@@ -691,11 +1030,11 @@ function updateDuelistHosts(seconds){
   // participation without rotating a proxy body away from the opponent.
   const syllableNod=speaking?
    Math.sin((seconds-speaking.started)*13.1+(side==='ai'?.7:0))*.032:0;
-  setBone(host,'C_Head',-.030*inspectCard-.12*doDisplay-.13*doCast+
+  setBone(host,'C_Head',(schoolHit?.headPitch||0)+(customGesture?.headPitch||0)-.030*inspectCard-.12*doDisplay-.13*doCast+
    .27*recoil-.13*victory+.28*defeat+(act.headPitch||0)*idleBlend+
    syllableNod+(r134Idle?.headPitch||0),
    sign*(.065*glance+.13*doDisplay+(act.headYaw||0)*idleBlend)+(r134Idle?.headYaw||0),
-   sign*.02*glance+(r134Idle?.headRoll||0));
+   sign*.02*glance+(r134Idle?.headRoll||0)+(schoolHit?.headRoll||0));
   setBone(host,'L_UpperLeg',.026*glance-.10*doCast+.16*recoil+
    .20*victory-.27*defeat+(footwork?.swing==='L'?legSwing*2:0)+(r134Idle?.thighL||0),0,0);
   setBone(host,'R_UpperLeg',-.026*glance+.11*doCast-.12*recoil+
@@ -730,6 +1069,14 @@ function updateDuelistHosts(seconds){
     targetVector.x+=sign*.055*doFollow;
     targetVector.y-=.12*doFollow;
    }
+   if(customGesture){
+    const shift=hand==='R'?customGesture.right:customGesture.left;
+    targetVector.add(new THREE.Vector3(...shift));
+   }
+   if(schoolHit){
+    const shift=hand==='R'?schoolHit.right:schoolHit.left;
+    targetVector.add(new THREE.Vector3(...shift));
+   }
    targetOut[hand]=targetVector.toArray();
   }
   host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
@@ -749,7 +1096,10 @@ function updateDuelistHosts(seconds){
    if(chest)chest.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(
      new THREE.Vector3(0,0,1),sign*lean*.38*envelope));
   }
-  host.choreography={phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
+  host.choreography={schoolHitSignature:schoolHit?.signature??null,
+    schoolSignature:customGesture?.signature??null,
+    schoolStrength:+(customGesture?.strength||0).toFixed(3),
+    phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
     recoil>.1?'hit':doFollow>.22?'follow_through':doCast>.1?'cast':
     doDisplay>.1?'raise_card':doDraw>.1?'draw':idleBlend>.08?act.type:'idle',
     draw:+doDraw.toFixed(3),display:+doDisplay.toFixed(3),
@@ -816,8 +1166,11 @@ function loop(){
  absoluteSeconds+=delta;
  liveScoreboard?.update(performance.now());
  stadiumEvidence?.update?.(absoluteSeconds,{reduced});
- spellImpact?.update(absoluteSeconds);
- magicArsenal?.update(absoluteSeconds);
+ if(R169_SCHOOL_MAGIC)schoolMagicStage?.update(absoluteSeconds);
+ else{
+  spellImpact?.update(absoluteSeconds);
+  magicArsenal?.update(absoluteSeconds);
+ }
  elementalVfx?.update(absoluteSeconds);
  spellContactFX?.update(absoluteSeconds);
  spectatorChaosFX?.update(absoluteSeconds);
@@ -846,10 +1199,10 @@ function loop(){
    summonPresence?.spellWorldAnchors?.(d.victim,d.targetUids)||[]:[];
   if(d.unitDamage>0&&d.targetUids.length){
    summonPresence?.reactToSpell?.(d.victim,d.targetUids,absoluteSeconds,d.element);
-   for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
+   if(!R169_SCHOOL_MAGIC)for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
   }
   if(d.directDamage>0){
-   hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
+   hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element,card:d.id};
    arenaLife.observe('hit',{side:d.victim,at:absoluteSeconds});
    livingCast.signal(d.victim,'hurt',absoluteSeconds);
    stadiumEvidence?.reactAudience?.('hit',d.victim,absoluteSeconds);
@@ -857,16 +1210,17 @@ function loop(){
    const host=duelistHosts.find(h=>h.side===d.victim);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(!R169_SCHOOL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }else if(!d.damaging){
    // Healing and buffs are self-side effects, not pretend enemy damage.
    const host=duelistHosts.find(h=>h.side===d.caster);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(!R169_SCHOOL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }
+  if(R169_SCHOOL_MAGIC)schoolMagicStage?.contact(d,absoluteSeconds);
   r121ContactReceipts++;
   reply('ASDC_R121_SPELL_CONTACT',{serial:d.serial,card:d.id,
    caster:d.caster,victim:d.victim,element:d.element,
@@ -880,7 +1234,9 @@ function loop(){
    if(absoluteSeconds<pending.launchAt)continue;
    const anchor=stadiumEvidence?.spectatorAnchor?.(accident.spectatorIndex);
    if(!anchor){pendingCrowdAccidents.splice(i,1);continue}
-   pending.launched=spectatorChaosFX?.play(accident,anchor,absoluteSeconds)===true;
+   pending.launched=R169_SCHOOL_MAGIC&&R174_CROWD_EXPERIMENT!=='legacy'?
+    schoolMagicStage?.playCollateral(accident,anchor,absoluteSeconds)===true:
+    spectatorChaosFX?.play(accident,anchor,absoluteSeconds)===true;
    if(!pending.launched){pendingCrowdAccidents.splice(i,1);continue}
    pending.hitAt=absoluteSeconds+(reduced?.24:.49);
   }
@@ -889,7 +1245,7 @@ function loop(){
   const hit=stadiumEvidence?.reactSpectatorAccident?.(accident,absoluteSeconds);
   if(!hit)continue;
   const prop=bleacherProps?.play(accident,absoluteSeconds);
-  if(prop&&PARAMS.get('r123Closeup')!=='off'){
+  if(prop&&!R169_SCHOOL_MAGIC&&PARAMS.get('r123Closeup')!=='off'){
    crowdCloseup={anchor:{...hit},started:absoluteSeconds,scenario:accident.scenario,
     spectatorIndex:accident.spectatorIndex};
    r123ReactionCuts++;
@@ -1044,7 +1400,9 @@ function loop(){
   (talkingCandidates[0]?{side:talkingCandidates[0].side,
    age:talkingCandidates[0].age,voice:true}:null);
  heroLens.visible=false;
- if(focus&&!reduced&&!legacyCamera){
+ // Player explicitly rejected floating portrait occluding rival reactions.
+ // R169+ has no floating face inset; the physical stadium screen is separate.
+ if(focus&&!reduced&&!legacyCamera&&!R169_SCHOOL_MAGIC){
   const host=duelistHosts.find(x=>x.side===focus.side);
   if(host){
    if(!r124Legacy&&heroLayerSide!==focus.side){
@@ -1146,8 +1504,70 @@ function reply(type,other={}){
   previewArtApproved:false,...other
  },window.location.origin);
 }
+// R190 demand queue: validated original GLB identity, no duplicates,
+// one live decoder at a time by default, fail closed on broken source.
+function r190Pump(){
+ if(!R190_DEMAND||r189TailError)return;
+ while(r190Active<r190Limit&&r190Queue.length){
+  const id=r190Queue.shift();
+  if(summonModels.has(id)){r190Pending.delete(id);continue}
+  r190Active++;
+  const start=performance.now();
+  void preloadSummonModels(THREE,
+   new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
+    ids:[id],concurrency:1,
+    onTransfer:updateTransferProgress,
+    onLoaded:({id:sourceId})=>verifiedModelLoaded('GLB:'+sourceId),
+    onPrototype:(sourceId,template)=>{
+     if(id!==sourceId||!UNIT_MODEL_IDS.includes(sourceId)||
+        summonModels.has(sourceId)||template.meshes<1)
+      throw Error('R190 invalid or duplicate genuine GLB '+sourceId);
+     summonModels.set(sourceId,template);
+     r190Completed++;
+     reply('ASDC_R189_MODEL_READY',{id:sourceId,
+      realMeshCount:template.meshes,loadedOriginalGlbCount:summonModels.size});
+    }
+   }).then(()=>{
+    r190DemandHistory.push({id,verified:true,
+     durationMs:+(performance.now()-start).toFixed(1)});
+    if(summonModels.size===12){
+     if(loadedRealResources!==TOTAL_REAL_ASSETS)
+      throw Error('R190 all-12 original resource counter mismatch');
+     r189AllDone=true;
+     reply('ASDC_R189_ALL_READY',{count:12,hasNoProxy:true,
+      backgroundMs:+(performance.now()-r190FirstRequestAt).toFixed(1),
+      initialIds:r189InitialGLBs,completeIds:[...summonModels.keys()]});
+    }
+   }).catch(error=>{
+    r190Failed++;
+    r189TailError=String(error?.message||error).slice(0,200);
+    r190DemandHistory.push({id,verified:false,error:r189TailError});
+    console.error('R190_GENUINE_ASSET_FAILED',id,error);
+    reply('ASDC_R189_BACKGROUND_FAILED',{reason:r189TailError});
+   }).finally(()=>{
+    r190Pending.delete(id);r190Active--;r190Pump();
+   });
+ }
+}
+function r190RequestOriginals(ids){
+ if(!R190_DEMAND||!Array.isArray(ids)||ids.length>12||
+    ids.some(id=>!UNIT_MODEL_IDS.includes(id))||
+    new Set(ids).size!==ids.length)
+  return false;
+ for(const id of ids){
+  if(summonModels.has(id)||r190Pending.has(id))continue;
+  r190Pending.add(id);r190Queue.push(id);
+ }
+ r189TailStarted=true;
+ r190Pump();
+ return true;
+}
 function onMessage(ev){
  if(ev.source!==window.parent||ev.origin!==location.origin||!ready)return;
+ if(ev.data?.type==='ASDC_R190_REQUEST_ORIGINALS'){
+  r190RequestOriginals(ev.data.ids);
+  return;
+ }
  const msg=ev.data;
  if(msg?.type==='ASDC_R122_VOICE_START'){
   // The parent only emits this packet after an actual Audio element starts.
@@ -1261,19 +1681,21 @@ function onMessage(ev){
   // Only rule-emitted card identifiers and serials are permitted; this layer
   // displays the authoritative result but cannot mutate HP or winner.
   if(!Number.isInteger(msg.serial)||msg.serial<=0||spellSerials.has(msg.serial))return;
-  const accepted=spellImpact?.play(msg,absoluteSeconds);
+  const accepted=R169_SCHOOL_MAGIC?
+   schoolMagicStage?.play(msg,absoluteSeconds):
+   spellImpact?.play(msg,absoluteSeconds);
   if(!accepted)return;
-  magicArsenal?.play(msg,absoluteSeconds);
+  if(!R169_SCHOOL_MAGIC)magicArsenal?.play(msg,absoluteSeconds);
   spellSerials.add(msg.serial);
-  const accident=PARAMS.get('r122Crowd')==='off'?null:
-   chooseCrowdAccident(msg,{force:PARAMS.get('qa')==='1'&&
-    PARAMS.get('r122Crowd')==='force'});
+  const accident=R122_CROWD_USER_PARAM==='off'?null:
+   chooseCrowdAccident(msg,{force:R131_IS_QA()&&
+    R122_CROWD_USER_PARAM==='force'});
   if(accident){
    pendingCrowdAccidents.push({incident:accident,
     launchAt:absoluteSeconds+.28,launched:false,hitAt:Infinity});
    if(pendingCrowdAccidents.length>5)pendingCrowdAccidents.shift();
   }
-  if(['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
+  if(!R169_SCHOOL_MAGIC&&['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
    comedySpectacle?.trigger('spell_'+msg.effect,
     msg.side,msg.serial,absoluteSeconds,{reduced});
   if(spellSerials.size>500)spellSerials.clear();
@@ -1383,6 +1805,8 @@ function exposeQA(){
   get r121Retentions(){return summonPresence?.r121Retentions||null},
   get scoreboard(){return liveScoreboard?.stats||null},
   get drawCalls(){return renderer?.info?.render?.calls??null},
+  get r173ShaderPrograms(){return renderer?.info?.programs?.length??null},
+  get r173NoFloatingPortrait(){return R169_SCHOOL_MAGIC},
   get renderPerformance(){return {profile:r124Legacy?'legacy':r124Mobile()?'balanced-mobile':'balanced-desktop',
    pixelRatio:renderer?.getPixelRatio()??null,shadowAutoUpdate:renderer?.shadowMap?.autoUpdate,
    shadowPassRequests,shadowSize:r124Legacy?2048:r124Mobile()?1024:2048,
@@ -1396,6 +1820,20 @@ function exposeQA(){
   get r122AccidentReceipts(){return r122AccidentReceipts},
   get registeredSpellSerials(){return spellSerials.size},
   get pendingSpellContacts(){return pendingSpellContacts.length},
+  get r169SchoolMagic(){return schoolMagicStage?.stats||{enabled:false}},
+  get r179K07ActorMotion(){return schoolMagicStage?.r179K07ActorMotion||null},
+  get r174SpellCpuPhases(){return schoolMagicStage?.qaProfile||[]},
+  get r174RendererProgramCount(){return renderer?.info?.programs?.length??null},
+  get r174ReadyPreparation(){return r174ReadyPreparation},
+  get r176PrimeBoardReceipt(){return r176PrimeBoardReceipt},
+  get r178AllPrimeReceipt(){return r178AllPrimeReceipt},
+  get r178HandPrimeReceipt(){return r178HandPrimeReceipt},
+  get r179TwoPrimeReceipt(){return r179TwoPrimeReceipt},
+  get r179FrogGpuReceipt(){return r179FrogGpuReceipt},
+  get r174GlobalPerf(){return renderer?{
+   calls:renderer.info.render.calls,
+   triangles:renderer.info.render.triangles,
+   programs:renderer.info.programs?.length||0}:null},
   get pendingCrowdAccidents(){return pendingCrowdAccidents.length},
   get spectatorChaosFX(){return spectatorChaosFX?.stats||null},
   get bleacherProps(){return bleacherProps?.stats||null},
@@ -1448,6 +1886,225 @@ function exposeQA(){
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
   get drawCalls(){return drawCount},
+  get r180StadiumBatch(){return stadiumEvidence?.r180StaticBatch||{enabled:false}},
+  get r181HairBatch(){return r181HairBatchReceipt||{enabled:false}},
+  get r182HeroLoad(){return r182HeroLoadReceipt||{enabled:false}},
+  get r182ActorMotions(){return schoolMagicStage?.r182ActorMotions||[]},
+  get r182SelectedPrewarm(){return r182SelectedPrewarm},
+  get r183HeroLoad(){return r183HeroLoadReceipt||{enabled:false}},
+  get r183SelectedPrewarm(){return r183SelectedPrewarm},
+  get r183ActorMotions(){return schoolMagicStage?.r183ActorMotions||[]},
+  get r184HeroLoad(){return r184HeroLoadReceipt||{enabled:false}},
+  get r184SelectedPrewarm(){return r184SelectedPrewarm},
+  get r184ActorMotions(){return schoolMagicStage?.r184ActorMotions||[]},
+  get r185HeroLoad(){return r185HeroLoadReceipt||{enabled:false}},
+  get r185SelectedPrewarm(){return r185SelectedPrewarm},
+  get r185ActorMotions(){return schoolMagicStage?.r185ActorMotions||[]},
+  get r186HeroLoad(){return r186HeroLoadReceipt||{enabled:false}},
+  get r186SelectedPrewarm(){return r186SelectedPrewarm},
+  get r186ActorMotions(){return schoolMagicStage?.r186ActorMotions||[]},
+  get r187InterleaveReceipt(){return r187InterleaveReceipt||{enabled:false}},
+  get r189StreamReceipt(){return {...r189InitialReceipt,
+   loadedNow:summonModels?[...summonModels.keys()]:[],
+   backgroundStarted:r189TailStarted,allLoaded:r189AllDone,
+   backgroundError:r189TailError,loadedRealResources,
+   demandOnly:R190_DEMAND,demandQueued:r190Queue.length,
+   demandActive:r190Active,demandCompleted:r190Completed,
+   demandFailed:r190Failed,demandedIDs:r190DemandHistory.map(x=>x.id),
+   cpuHeapMB:Math.round((performance.memory?.usedJSHeapSize||0)/1048576),
+   gpuTextureObjects:renderer?.info?.memory?.textures??null,
+   gpuGeometryObjects:renderer?.info?.memory?.geometries??null
+  }},
+  // R181 no-write forensic survey: actual live source SkinnedMesh materials,
+  // skinning topology, bind matrices and morphs. Never guesses equivalence from
+  // UUID alone; does NOT rewrite VRM skeletal hierarchy or shader code.
+  get r181IndexUnionCandidates(){
+   return ['R74_PERMANENT_DUELIST_E01','R74_PERMANENT_DUELIST_G01'].map(name=>{
+    const actor=scene.getObjectByName(name),bins=new Map();
+    actor?.traverse(o=>{
+     if(!o.isSkinnedMesh)return;
+     const m=Array.isArray(o.material)?o.material[0]:o.material;
+     const key=m?.uuid||'none';
+     if(!bins.has(key))bins.set(key,[]);
+     bins.get(key).push(o);
+    });
+    const groups=[];
+    for(const meshes of bins.values()){
+     const source=meshes[0],a=source.geometry.attributes;
+     const firstInverse=source.skeleton?.boneInverses;
+     const identicalInv=o=>o.skeleton?.boneInverses?.length===firstInverse?.length&&
+      o.skeleton.boneInverses.every((b,i)=>b.equals(firstInverse[i]));
+     const identicalBones=o=>o.skeleton?.bones?.length===source.skeleton?.bones?.length&&
+      o.skeleton.bones.every((b,i)=>b===source.skeleton.bones[i]);
+     const sameAttributes=o=>{
+      const keys=Object.keys(a);
+      const ours=o.geometry?.attributes;
+      return keys.length===Object.keys(ours).length&&keys.every(k=>
+       ours[k]?.array===a[k]?.array &&
+       ours[k]?.itemSize===a[k]?.itemSize &&
+       ours[k]?.normalized===a[k]?.normalized &&
+       ours[k]?.count===a[k]?.count);
+     };
+     groups.push({
+      materialName:source.material?.name||'',materialUuid:source.material?.uuid,
+      materialType:source.material?.type,opacity:source.material?.opacity,
+      transparent:source.material?.transparent,alphaTest:source.material?.alphaTest,
+      blending:source.material?.blending,side:source.material?.side,
+      count:meshes.length,
+      identicalBoneReferences:meshes.filter(identicalBones).length,
+      identicalBoneInverseValues:meshes.filter(identicalInv).length,
+      identicalAttributeTypedArrays:meshes.filter(sameAttributes).length,
+      identicalMaterialReference:meshes.filter(m=>m.material===source.material).length,
+      identityBindMatrix:meshes.filter(m=>m.bindMatrix.equals(source.bindMatrix)).length,
+      identityBindMode:meshes.filter(m=>m.bindMode===source.bindMode).length,
+      identityLocalMatrix:meshes.filter(m=>m.matrix.equals(source.matrix)).length,
+      indexedMeshes:meshes.filter(m=>!!m.geometry.index).length,
+      groupingEntries:meshes.reduce((n,m)=>n+(m.geometry?.groups?.length||0),0),
+      morphMeshes:meshes.filter(m=>Object.keys(m.geometry.morphAttributes||{}).length>0).length,
+      drawRanges:meshes.slice(0,5).map(m=>[m.geometry.drawRange.start,m.geometry.drawRange.count]),
+      attributeKeys:Object.keys(a),
+      indexRange:meshes.slice(0,5).map(m=>({
+       vertexCount:m.geometry.attributes.position.count,
+       indexCount:m.geometry.index?.count||0,
+       indexMax:m.geometry.index?
+        Math.max(...m.geometry.index.array.subarray(0,Math.min(3000,m.geometry.index.count))):0
+      })),
+      sourceMeshExamples:meshes.slice(0,5).map(m=>m.name)
+     });
+    }
+    return{name,groups:groups.sort((a,b)=>b.count-a.count)};
+   });
+  },
+  get r181SkinForensics(){
+   const names=['R74_PERMANENT_DUELIST_E01','R74_PERMANENT_DUELIST_G01'];
+   const materialFingerprint=m=>{
+    if(!m)return 'missing';
+    const channels=[
+     m.type,m.name||'',m.color?.getHexString()||'',
+     m.emissive?.getHexString()||'',m.emissiveIntensity||0,
+     m.roughness,m.metalness,m.opacity,m.alphaTest,m.side,
+     m.transparent,m.depthTest,m.depthWrite,m.blending,
+     m.flatShading,m.vertexColors,m.skinning,m.toneMapped,
+     m.normalScale?.toArray()?.join(','),m.envMapIntensity,
+     m.map?.uuid,m.normalMap?.uuid,m.roughnessMap?.uuid,
+     m.metalnessMap?.uuid,m.emissiveMap?.uuid,m.alphaMap?.uuid,
+     m.aoMap?.uuid,m.roughnessMap?.uuid,
+     m.onBeforeCompile?.toString()?.slice(0,240),m.customProgramCacheKey?.()
+    ];
+    return JSON.stringify(channels);
+   };
+   return names.map(name=>{
+    const actor=scene.getObjectByName(name);
+    const skins=[],byMaterial=new Map(),bySkeleton=new Map(),
+     bySameBones=new Map(),byMaterialAppearance=new Map(),byGeometry=new Map();
+    actor?.traverse(o=>{
+     if(!o.isSkinnedMesh)return;
+     const s=o.skeleton,geo=o.geometry,m=Array.isArray(o.material)?o.material[0]:o.material;
+     const bonesKey=s?.bones?.map(b=>b.uuid).join('|')||'none';
+     const inverseKey=s?.boneInverses?.map(inv=>inv.elements.map(x=>x.toFixed(5)).join(',')).join('|')||'none';
+     const geomKey=JSON.stringify({
+      attrs:Object.fromEntries(Object.entries(geo.attributes||{}).map(([k,a])=>[k,[a.count,a.itemSize]])),
+      indexed:!!geo.index,morph:Object.keys(geo.morphAttributes||{}),
+      triangles:(geo.index?.count||geo.attributes.position.count)/3
+     });
+     const materialKey=materialFingerprint(m);
+     const increment=(map,key)=>map.set(key,(map.get(key)||0)+1);
+     increment(byMaterial,m?.uuid||'none');
+     increment(bySkeleton,s?.uuid||'none');
+     increment(bySameBones,bonesKey);
+     increment(byMaterialAppearance,materialKey);
+     increment(byGeometry,geomKey);
+     skins.push({
+      name:o.name,uuid:o.uuid,
+      materialName:m?.name,materialType:m?.type,
+      hasMap:!!m?.map,hasNormalMap:!!m?.normalMap,
+      transparent:!!m?.transparent,side:m?.side,
+      skeletonBones:s?.bones?.length||0,
+      firstBone:s?.bones?.[0]?.name||null,
+      identicalBoneKey:bonesKey,
+      inverseSignature:inverseKey,
+      bindMode:o.bindMode,bindMatrix:o.bindMatrix.elements.map(x=>+x.toFixed(5)),
+      meshWorldScale:o.scale.toArray(),
+      vertexCount:geo.attributes.position.count,
+      triangleCount:(geo.index?.count||geo.attributes.position.count)/3,
+      skinIndexWidth:geo.attributes.skinIndex?.itemSize,
+      morphNames:Object.keys(geo.morphAttributes||{}),
+      geometryKey:geomKey,materialKey
+     });
+    });
+    const summary=map=>({unique:map.size,repeatGroups:[...map.values()].filter(x=>x>1).length,
+     repeatMeshes:[...map.values()].reduce((a,n)=>a+Math.max(0,n-1),0),
+     highest:[...map.values()].sort((a,b)=>b-a).slice(0,8)});
+    return{name,count:skins.length,
+     material:summary(byMaterial),
+     skeleton:summary(bySkeleton),
+     sameBoneOrder:summary(bySameBones),
+     materialAppearance:summary(byMaterialAppearance),
+     geometryLayout:summary(byGeometry),
+     sample:skins.slice(0,8),
+     // Complete no-PII technical identifiers for any actual asset recook.
+     raw:skins};
+   });
+  },
+  get r180SkinAudit(){
+   const roles=['R74_PERMANENT_DUELIST_E01','R74_PERMANENT_DUELIST_G01'];
+   return roles.map(name=>{
+    const actor=scene.getObjectByName(name);
+    const groups=new Map(),skeletons=new Set();
+    let meshes=0,materials=0,morphTargets=0,triangles=0,shareableCandidates=0;
+    actor?.traverse(o=>{
+     if(!o.isSkinnedMesh)return;
+     meshes++;
+     const g=o.geometry||{},mats=Array.isArray(o.material)?o.material:[o.material];
+     materials+=mats.length;
+     if(Object.keys(g.morphAttributes||{}).length)morphTargets++;
+     const groupKey=(o.skeleton?.uuid||'noSkeleton')+'|'+
+      mats.map(m=>m?.uuid).join('/')+'|'+
+      (g.index?'indexed':'nonIndexed')+'|'+
+      Object.keys(g.attributes||{}).sort().join(',');
+     if(!groups.has(groupKey))groups.set(groupKey,{count:0,vertices:0,
+      materialNames:mats.map(m=>m?.name||m?.type),withMorph:0});
+     const grp=groups.get(groupKey);
+     grp.count++;
+     grp.vertices+=g.attributes?.position?.count||0;
+     grp.withMorph+=Object.keys(g.morphAttributes||{}).length?1:0;
+     skeletons.add(o.skeleton?.uuid||'none');
+     triangles+=(g.index?.count||g.attributes?.position?.count||0)/3;
+    });
+    const repeated=[...groups.values()].filter(g=>g.count>1);
+    shareableCandidates=repeated.reduce((n,x)=>n+x.count-1,0);
+    return {name,meshes,materials,morphTargets,skeletons:skeletons.size,
+     approxTriangles:Math.round(triangles),distinctMaterialSkinAttributeGroups:groups.size,
+     repeatedEquivalentSignatureGroups:repeated.length,
+     theoreticalSameSignatureMeshesToSave:shareableCandidates,
+     mostRepeated:repeated.sort((a,b)=>b.count-a.count).slice(0,8)};
+   });
+  },
+
+  get r179RenderInventory(){
+   const roots=[];
+   for(const child of scene.children){
+    let rendered=0,skinned=0,instances=0,groups=0,materials=0;
+    child.traverse(o=>{
+     // THREE.Object3D.traverse visits children even when an ancestor is
+     // hidden. Match the renderer's hierarchical visible flag.
+     for(let ancestor=o;ancestor&&ancestor!==scene;ancestor=ancestor.parent)
+      if(!ancestor.visible)return;
+     if(o.isSkinnedMesh)skinned++;
+     if(o.isInstancedMesh)instances++;
+     if(o.isMesh){
+      rendered++;
+      materials+=Array.isArray(o.material)?o.material.length:1;
+     }else if(o.isGroup)groups++;
+    });
+    if(rendered)roots.push({name:child.name||child.type,
+     meshCount:rendered,skinned,instanced:instances,materials,groups});
+   }
+   roots.sort((a,b)=>b.meshCount-a.meshCount);
+   return {drawCallsLastFrame:drawCount,estimatedMeshes:roots.reduce((a,r)=>a+r.meshCount,0),
+    roots:roots.slice(0,18)};
+  },
+
   get seconds(){return time},
   get mode(){return mode},
   get active(){return playing},
@@ -1531,7 +2188,8 @@ try{
    return actor;
   })),
   preloadSummonModels(THREE,new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
-   concurrency:glbConcurrency,
+   concurrency:R189_STREAM?Math.min(2,glbConcurrency):glbConcurrency,
+   ids:R189_STREAM?r189InitialGLBs:UNIT_MODEL_IDS,
    onLoaded:({id})=>verifiedModelLoaded('GLB:'+id),
    onTransfer:updateTransferProgress
   })
@@ -1543,13 +2201,136 @@ try{
   actors[1].source==='Fumiriya-original-CC0.vrm'&&actors[0].boneCount>=140&&actors[1].boneCount>=100;
  if(!source3DAssetsVerified)throw Error('R22 original VRM identity gate failed');
  makeDuelistHosts();
+ if(R181_HAIR_BATCH){
+  const union=createSkinnedIndexUnion(THREE);
+  for(const a of duelistHosts)union.process(a.pivot);
+  r181HairBatchReceipt=union.stats;
+ }
  handCards?.attach(duelistHosts);
- if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
+ if(R189_STREAM){
+  if(loadedRealResources!==4+r189InitialGLBs.length||
+    summonModels.size!==r189InitialGLBs.length||
+    r189InitialGLBs.some(id=>!summonModels.has(id)))
+   throw Error('R189 strictly validated initial real 3D hand mismatch');
+ }else if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
+ if(R175_HERO_E06&&R169_SCHOOL_MAGIC){
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/E06_Cinematic_Eraser.glb');
+  if(!schoolMagicStage.registerHeroAsset('E06',glb.scene))
+   throw Error('R177 E06 original Blender GLB registration failed');
+ }
+
+ if(R178_HERO_K01&&R169_SCHOOL_MAGIC){
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/K01_Sculpted_Wok_Eggplant_Banana.glb');
+  if(!schoolMagicStage.registerHeroAsset('K01',glb.scene))
+   throw Error('R178 K01 real Blender work unavailable');
+ }
+ if(R179_HERO_K07&&R169_SCHOOL_MAGIC){
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/K07_Sculpted_Frog_Pudding_Bell.glb');
+  if(!schoolMagicStage.registerHeroAsset('K07',glb.scene))
+   throw Error('R179 K07 original Blender GLB registration failed');
+ }
+ if(R182_HERO_ID&&R169_SCHOOL_MAGIC){
+  const start=performance.now();
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/'+R182_HERO_ASSET_PATH[R182_HERO_ID]);
+  if(!schoolMagicStage.registerHeroAsset(R182_HERO_ID,glb.scene))
+   throw Error('R182 original physical asset did not register: '+R182_HERO_ID);
+  const parts=[];
+  glb.scene.traverse(o=>{if(o.isMesh)parts.push(o)});
+  r182HeroLoadReceipt={enabled:true,id:R182_HERO_ID,
+   assetPath:R182_HERO_ASSET_PATH[R182_HERO_ID],meshCount:parts.length,
+   loadMs:+(performance.now()-start).toFixed(2),
+   onlyOneNewHeroLoaded:true,sourceFidelity:true};
+ }
+ if(R182_PRIME_SELECTED&&R169_SCHOOL_MAGIC){
+  // Deliberately one 3D hero at a time. Avoid the Android S21 LOW_MEMORY
+  // pathology caused by staging all new materials and models together.
+  r182SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
+   R182_HERO_ID,renderer,camera,scene);
+ }
+ if(R183_HERO_ID&&R169_SCHOOL_MAGIC){
+  const started=performance.now();
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/'+R183_HERO_ASSET_PATH[R183_HERO_ID]);
+  if(!schoolMagicStage.registerHeroAsset(R183_HERO_ID,glb.scene))
+   throw Error('R183 original Blender GLB registration failed '+R183_HERO_ID);
+  const parts=[];
+  glb.scene.traverse(o=>{if(o.isMesh)parts.push(o)});
+  r183HeroLoadReceipt={enabled:true,id:R183_HERO_ID,
+   assetPath:R183_HERO_ASSET_PATH[R183_HERO_ID],
+   meshCount:parts.length,loadMs:+(performance.now()-started).toFixed(2),
+   onlyOneNewHeroLoaded:true,sourceFidelity:true};
+ }
+ if(R183_PRIME_SELECTED&&R169_SCHOOL_MAGIC){
+  r183SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
+   R183_HERO_ID,renderer,camera,scene);
+ }
+ if(R184_HERO_ID&&R169_SCHOOL_MAGIC){
+  const started=performance.now();
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/'+R184_HERO_ASSET_PATH[R184_HERO_ID]);
+  if(!schoolMagicStage.registerHeroAsset(R184_HERO_ID,glb.scene))
+   throw Error('R184 original Blender GLB registration failed '+R184_HERO_ID);
+  const parts=[];
+  glb.scene.traverse(o=>{if(o.isMesh)parts.push(o)});
+  r184HeroLoadReceipt={enabled:true,id:R184_HERO_ID,
+   assetPath:R184_HERO_ASSET_PATH[R184_HERO_ID],
+   meshCount:parts.length,
+   loadMs:+(performance.now()-started).toFixed(2),
+   onlyOneNewHeroLoaded:true,originalUnmodified:true};
+ }
+ if(R184_PRIME_SELECTED&&R169_SCHOOL_MAGIC){
+  r184SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
+   R184_HERO_ID,renderer,camera,scene);
+ }
+ if(R185_HERO_ID&&R169_SCHOOL_MAGIC){
+  const started=performance.now();
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/'+R185_HERO_ASSET_PATH[R185_HERO_ID]);
+  if(!schoolMagicStage.registerHeroAsset(R185_HERO_ID,glb.scene))
+   throw Error('R185 original Blender GLB registration failed '+R185_HERO_ID);
+  const parts=[];glb.scene.traverse(o=>{if(o.isMesh)parts.push(o)});
+  r185HeroLoadReceipt={enabled:true,id:R185_HERO_ID,
+   assetPath:R185_HERO_ASSET_PATH[R185_HERO_ID],
+   meshCount:parts.length,
+   loadMs:+(performance.now()-started).toFixed(2),
+   onlyOneNewHeroLoaded:true,originalUnmodified:true};
+ }
+ if(R185_PRIME_SELECTED&&R169_SCHOOL_MAGIC){
+  r185SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
+   R185_HERO_ID,renderer,camera,scene);
+ }
+ if(R186_HERO_ID&&R169_SCHOOL_MAGIC){
+  const started=performance.now();
+  const glb=await new GLTFLoader().loadAsync(
+   '../art/hero-props/'+R186_HERO_ASSET_PATH[R186_HERO_ID]);
+  if(!schoolMagicStage.registerHeroAsset(R186_HERO_ID,glb.scene))
+   throw Error('R186 actual Blender GLB registration failed '+R186_HERO_ID);
+  const parts=[];glb.scene.traverse(o=>{if(o.isMesh)parts.push(o)});
+  r186HeroLoadReceipt={enabled:true,id:R186_HERO_ID,
+   assetPath:R186_HERO_ASSET_PATH[R186_HERO_ID],
+   meshCount:parts.length,
+   loadMs:+(performance.now()-started).toFixed(2),
+   onlyOneNewHeroLoaded:true,originalUnmodified:true};
+ }
+ if(R186_PRIME_SELECTED&&R169_SCHOOL_MAGIC){
+  r186SelectedPrewarm=await schoolMagicStage.prewarmRealAuthoredHero(
+   R186_HERO_ID,renderer,camera,scene);
+ }
+ if(R174_PREPARE_GPU&&R169_SCHOOL_MAGIC){
+  r174ReadyPreparation=await schoolMagicStage.prepareGpuMaterial(
+    'E06',renderer,camera,scene);
+ }
+
  bleacherProps?.mount?.([0,1,2,3].map(index=>stadiumEvidence?.spectatorAnchor?.(index)));
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,lifeWorld:arenaLife,
+  allowR189Partial:R189_STREAM,requiredR189Ids:r189InitialGLBs,
   onCombatImpact:(event)=>{
    // Only the accepted actual exchange sequence can emit this receipt.
    const type=event.type==='direct_hit'?'direct_hit':'actual_exchange';
@@ -1558,28 +2339,171 @@ try{
     effect:type,damage:event.damage});
   }
  });
+ if(R179_PRIME_FROG&&R169_SCHOOL_MAGIC){
+  r179FrogGpuReceipt=await schoolMagicStage.prewarmRealAuthoredHero(
+   'K07',renderer,camera,scene);
+ }
+ if(R179_PRIME_TWO&&R169_SCHOOL_MAGIC){
+  const parentParams=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+   catch{return PARAMS}})();
+  const all=['E01','G01',...summonModels.keys()];
+  const playerId=parentParams.get('r179PairP')||'T01';
+  const aiId=parentParams.get('r179PairA')||'E03';
+  if(!all.includes(playerId)||!all.includes(aiId)||playerId===aiId)
+   throw Error('R179 exact pair must be two distinct real source models');
+  const start=performance.now(),before=renderer.info.programs?.length||0;
+  summonPresence.sync({player:[{uid:'U17901',id:playerId,hp:9,attack:4,shield:0}],
+   ai:[{uid:'U17902',id:aiId,hp:8,attack:4,shield:0}]},{force:true});
+  for(let n=0;n<3;n++)await new Promise(resolve=>
+   requestAnimationFrame(()=>{renderer.render(scene,camera);resolve()}));
+  summonPresence.sync({player:[],ai:[]},{force:true});
+  r179TwoPrimeReceipt={mode:'exact-two-QA',allIds:[playerId,aiId],
+   renderFrames:3,models:2,ms:+(performance.now()-start).toFixed(2),
+   shaderDelta:(renderer.info.programs?.length||0)-before,
+   preservedOriginalCharacters:true};
+ }
+ if((R178_PRIME_ALL||R178_PRIME_HAND)&&R169_SCHOOL_MAGIC){
+  const t0=performance.now(),programsBefore=renderer.info.programs?.length||0;
+  const allIds=['E01','G01',...summonModels.keys()];
+  const parentParams=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+   catch{return null}})();
+  const hintSeed=Number(parentParams?.get('seed')??PARAMS.get('seed'));
+  const requestedDeck=parentParams?.get('deck');
+  const deckKey=Object.hasOwn(DECK_PRESETS,requestedDeck)?requestedDeck:'classic';
+  // Same deterministic initial-hand algorithm as the actual engine. No
+  // guessed/fabricated card identities and no modification to real game state.
+  const preview=(R178_PRIME_HAND&&Number.isInteger(hintSeed)&&hintSeed>0)?
+   createGame(hintSeed,deckKey):null;
+  const target=preview?
+   [...new Set([...preview.hand.player,...preview.hand.ai]
+    .filter(id=>BY_ID[id]?.kind==='unit'))].filter(id=>allIds.includes(id)):
+   allIds;
+  // Strictly render original source VRM + imported GLB in the real stage:
+  // 6 units/wave to cap shadow/skin and associated draw overhead.
+  const waves=[];
+  for(let start=0;start<target.length;start+=6){
+   const ids=target.slice(start,start+6);
+   const board={player:[],ai:[]};
+   ids.forEach((id,i)=>{
+    const side=i%2===0?'player':'ai';
+    board[side].push({uid:'U178'+String(start+i+1).padStart(3,'0'),
+     id,hp:8,attack:4,shield:0});
+   });
+   const begin=performance.now(),from=renderer.info.programs?.length||0;
+   summonPresence.sync(board,{force:true});
+   for(let n=0;n<2;n++)await new Promise(resolve=>
+    requestAnimationFrame(()=>{renderer.render(scene,camera);resolve()}));
+   summonPresence.sync({player:[],ai:[]},{force:true});
+   waves.push({ids,renderFrames:2,
+    ms:+(performance.now()-begin).toFixed(2),
+    shaderDelta:(renderer.info.programs?.length||0)-from});
+  }
+  const receipt={mode:R178_PRIME_HAND?'initial-hand':'all-14',allIds:target,waves,
+   models:target.length,seed:hintSeed,deck:deckKey,
+   totalMs:+(performance.now()-t0).toFixed(2),
+   shaderDelta:(renderer.info.programs?.length||0)-programsBefore,
+   preservedOriginalCharacters:true};
+  if(R178_PRIME_HAND)r178HandPrimeReceipt=receipt;
+  else r178AllPrimeReceipt=receipt;
+ }
+ if(R176_PRIME_BOARD&&R169_SCHOOL_MAGIC){
+  const start=performance.now();
+  const shaderStart=renderer.info.programs?.length||0;
+  // The exact same source models and material variants as the first real board;
+  // disposed status labels are regenerated normally and never used as evidence.
+  summonPresence.sync({player:[{uid:'U17601',id:'T01',hp:9,attack:4,shield:0}],
+   ai:[{uid:'U17602',id:'E03',hp:8,attack:4,shield:0}]},{force:true});
+  for(let i=0;i<3;i++)await new Promise(resolve=>
+   requestAnimationFrame(()=>{renderer.render(scene,camera);resolve()}));
+  summonPresence.sync({player:[],ai:[]},{force:true});
+  r176PrimeBoardReceipt={models:['T01','E03'],draws:3,
+   ms:+(performance.now()-start).toFixed(3),
+   shaderDelta:(renderer.info.programs?.length||0)-shaderStart,
+   sourceQualityPreserved:true};
+ }
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
- stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
+ stageText('idle',R189_STREAM?
+  '开局所需真实3D角色已载入 · 其他角色后台准备中':
+  '12 种三维召唤实体与体育馆已载入 · 待命');
  window.__ASDC_LOAD_METRICS.modelReadyMs=Math.round(performance.now()-loadingStartedAt);
  const download=$('load-download');
- if(download)download.textContent='所有角色已下载，正在完成三维场景渲染';
+ if(download)download.textContent=R189_STREAM?
+  '开局真实角色已载入，正在完成三维场景渲染':
+  '所有角色已下载，正在完成三维场景渲染';
  const paintStage=$('load-step');
  if(paintStage)paintStage.textContent='正在点亮正式比赛场地';
- $('load-explain').textContent='所有真实模型已验证，正在渲染首次完整比赛画面…';
+ $('load-explain').textContent=R189_STREAM?
+  '真实开局角色验证通过，其他角色将异步准备，不使用假模型。':
+  '所有真实模型已验证，正在渲染首次完整比赛画面…';
  exposeQA();
  const warmupStarted=performance.now();
  let warmupFrames=0;
- // Headless Vulkan's first visible compositor image can remain white for
- // ~400-600ms even though GL has rendered. Keep the in-scene loading cover
- // until the presentation surface has had time to acquire painted frames.
+ // New QA-only strategy moves first REAL shader submissions into the
+ // loading-cover interval Chrome ALREADY needs to present an actual frame.
+ // Do not add extra render frames or block on an additional 3-frame prewarm.
+ let r187Staged=null,r187ActorsStaged=false;
+ if(R187_INTERLEAVE&&schoolMagicStage&&summonPresence){
+  const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+    catch{return PARAMS}})();
+  const a=pp.get('r179PairP')||'T01',b=pp.get('r179PairA')||'E03';
+  if(a===b||!['E01','G01',...summonModels.keys()].includes(a)||
+    !['E01','G01',...summonModels.keys()].includes(b))
+   throw Error('R187 two real actors must be distinct source ids');
+  const before=renderer.info.programs?.length||0,started=performance.now();
+  if(!['actors','compile'].includes(R187_INTERLEAVE_MODE))
+   r187Staged=schoolMagicStage.stageOriginalHeroForExistingFrames(R186_HERO_ID);
+  if(R187_INTERLEAVE_MODE!=='hero'){
+   summonPresence.sync({player:[{uid:'U18701',id:a,hp:9,attack:4,shield:0}],
+    ai:[{uid:'U18702',id:b,hp:8,attack:4,shield:0}]},{force:true});
+   r187ActorsStaged=true;
+  }
+  r187InterleaveReceipt={enabled:true,mode:R187_INTERLEAVE_MODE,
+   ids:r187ActorsStaged?[a,b]:[],model:r187Staged?R186_HERO_ID:null,
+   realMeshes:r187Staged?.meshCount||0,
+   firstGpuDraws:0,beforePrograms:before,
+   startedAtMs:started,scheduledInExistingSceneWarmup:true};
+  if(R187_INTERLEAVE_MODE==='compile'){
+   const beforeCompile=performance.now();
+   // Distinguish asynchronously shader compilation from ACTUAL first
+   // geometry+material texture GPU upload; no extra rendered frames.
+   await renderer.compileAsync(scene,camera);
+   r187InterleaveReceipt.compileAsyncMs=
+    +(performance.now()-beforeCompile).toFixed(2);
+   r187InterleaveReceipt.shaderDelta=
+    (renderer.info.programs?.length||0)-before;
+   r187InterleaveReceipt.firstGpuDraws=0;
+   r187InterleaveReceipt.compileOnly=true;
+   summonPresence.sync({player:[],ai:[]},{force:true});
+   r187ActorsStaged=false;
+  }
+ }
  do {
   await new Promise(resolve=>requestAnimationFrame(()=>{
    renderer.render(scene,camera);
    resolve();
   }));
   warmupFrames++;
+  if(r187InterleaveReceipt&&warmupFrames===3){
+   if(r187Staged){r187Staged.stop();r187Staged=null}
+   if(r187ActorsStaged){
+    summonPresence.sync({player:[],ai:[]},{force:true});
+    r187ActorsStaged=false;
+   }
+   if(!r187InterleaveReceipt.compileOnly)
+    r187InterleaveReceipt.firstGpuDraws=3;
+   r187InterleaveReceipt.shaderDelta=
+    (renderer.info.programs?.length||0)-r187InterleaveReceipt.beforePrograms;
+   r187InterleaveReceipt.originalModelsPreserved=true;
+   r187InterleaveReceipt.elapsedMs=
+    +(performance.now()-r187InterleaveReceipt.startedAtMs).toFixed(2);
+  }
  } while((performance.now()-warmupStarted<(PARAMS.has('qa')||navigator.webdriver?850:320)||warmupFrames<7)&&warmupFrames<95);
+ if(r187Staged||r187ActorsStaged){
+  r187Staged?.stop();
+  if(r187ActorsStaged)summonPresence.sync({player:[],ai:[]},{force:true});
+  throw Error('R187 stage did not finish in original mandatory frames');
+ }
  window.__ASDC_LOAD_METRICS.firstFrameReadyMs=Math.round(performance.now()-loadingStartedAt);
  clearTimeout(slowLoadTimer);
  const slowHintOnReady=$('load-slow');
@@ -1587,7 +2511,50 @@ try{
  $('loading').hidden=true;
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,independentHostVRMRigs:hostSourceActors.length,
-  loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false});
+  loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false,
+  r189Stream:R189_STREAM?{enabled:true,initialIds:[...summonModels.keys()],
+   tailIds:r189TailGLBs,seed:r189Seed,deck:r189Deck,hasNoProxy:true}:null});
+ if(R189_STREAM&&!R190_DEMAND){
+  // Begin only AFTER the fully presented scene is already playable.
+  // Bound background parse to the QA-selected 1–4 workers. Only real source GLBs.
+  // No user input/turn may reference an unverified GLB (host guards that).
+  const launch=()=>{
+   if(r189TailStarted)return;
+   r189TailStarted=true;
+   const started=performance.now();
+   r189TailPromise=preloadSummonModels(THREE,
+    new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
+     ids:r189TailGLBs,concurrency:r189BgConcurrency,
+     onTransfer:updateTransferProgress,
+     onLoaded:({id})=>verifiedModelLoaded('GLB:'+id),
+     onPrototype:(id,template)=>{
+      if(!r189TailGLBs.includes(id)||summonModels.has(id))
+       throw Error('R189 background wrong or duplicate identity '+id);
+      summonModels.set(id,template);
+      reply('ASDC_R189_MODEL_READY',{id,realMeshCount:template.meshes,
+       loadedOriginalGlbCount:summonModels.size});
+     }
+    }).then(()=>{
+     if(summonModels.size!==12||loadedRealResources!==TOTAL_REAL_ASSETS||
+      UNIT_MODEL_IDS.some(id=>!summonModels.has(id)))
+      throw Error('R189 all-original final identity contract failed');
+     r189AllDone=true;
+     reply('ASDC_R189_ALL_READY',{count:12,hasNoProxy:true,
+      backgroundMs:+(performance.now()-started).toFixed(1),
+      initialIds:r189InitialGLBs,completeIds:[...summonModels.keys()]});
+    }).catch(error=>{
+     r189TailError=String(error?.message||error).slice(0,200);
+     console.error('R189_REAL_BACKGROUND_ASSET_FAILED',error);
+     reply('ASDC_R189_BACKGROUND_FAILED',{reason:r189TailError});
+    });
+  };
+  if(r189TailGLBs.length)window.setTimeout(launch,r189BgDelayMs);
+  else{r189AllDone=true;
+   reply('ASDC_R189_ALL_READY',{count:12,hasNoProxy:true,
+    backgroundMs:0,initialIds:r189InitialGLBs,
+    completeIds:[...summonModels.keys()]});
+  }
+ }
  broadcastCamera();
  requestAnimationFrame(loop);
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();

@@ -1,0 +1,20 @@
+{
+  "id": "X03",
+  "originalName": "教务车屋顶违停",
+  "source": "X03_Rooftop_School_Patrol_Car.blend",
+  "glb": "X03_Rooftop_School_Patrol_Car.glb",
+  "render": "X03_Rooftop_School_Patrol_Car.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 566094,
+  "glbBytes": 709976,
+  "triangles": 27380,
+  "meshes": 9,
+  "materials": 8,
+  "actorGroups": [
+    "X03_CAR_ACTOR",
+    "X03_ROOF_STATIC",
+    "X03_TICKET_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

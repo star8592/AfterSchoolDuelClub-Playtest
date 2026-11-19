@@ -1,0 +1,20 @@
+{
+  "id": "G06",
+  "originalName": "翻到第二页的方案",
+  "source": "G06_Second_Page_PopUp_School_Plan.blend",
+  "glb": "G06_Second_Page_PopUp_School_Plan.glb",
+  "render": "G06_Second_Page_PopUp_School_Plan.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 455492,
+  "glbBytes": 547288,
+  "triangles": 21768,
+  "meshes": 10,
+  "materials": 7,
+  "actorGroups": [
+    "G06_BOOK_ACTOR",
+    "G06_PAGE_TURN_ACTOR",
+    "G06_POPUP_SCENE_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

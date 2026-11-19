@@ -1,0 +1,22 @@
+{
+  "id": "P07",
+  "originalName": "黑天鹅溜冰",
+  "source": "P07_Black_Swan_Ice_Rink.blend",
+  "glb": "P07_Black_Swan_Ice_Rink.glb",
+  "render": "P07_Black_Swan_Ice_Rink.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 278599,
+  "glbBytes": 227468,
+  "triangles": 9352,
+  "meshes": 11,
+  "materials": 10,
+  "actorGroups": [
+    "P07_ICE_RINK_STATIC",
+    "P07_SKATES_ACTOR",
+    "P07_SWAN_BODY_ACTOR",
+    "P07_SWAN_NECK_ACTOR",
+    "P07_SWAN_WINGS_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

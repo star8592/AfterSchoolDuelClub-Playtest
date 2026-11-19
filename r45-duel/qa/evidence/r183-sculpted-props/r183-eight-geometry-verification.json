@@ -1,0 +1,136 @@
+{
+  "date": "2026-11-18",
+  "tool": "Blender5.2.3 native",
+  "items": {
+    "P03": {
+      "triangles": 31610,
+      "meshCount": 13,
+      "actorGroups": [
+        "P03_BOX_BODY_ACTOR",
+        "P03_DINO_HEAD_ACTOR",
+        "P03_DINO_LEGS_ACTOR",
+        "P03_DINO_TAIL_ACTOR"
+      ],
+      "materials": 7,
+      "realBlenderSourceBytes": 607328,
+      "realGLBBytes": 819144,
+      "actualEeveePreview": "art/hero-props/qa/P03_Cardboard_Tyrannosaurus_Stomp.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "S08": {
+      "triangles": 40552,
+      "meshCount": 14,
+      "actorGroups": [
+        "S08_FACE_ACTOR",
+        "S08_FLYING_CAN_ACTOR",
+        "S08_MACHINE_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 734642,
+      "realGLBBytes": 1022708,
+      "actualEeveePreview": "art/hero-props/qa/S08_Angry_Campus_Vending_Machine.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "X03": {
+      "triangles": 27380,
+      "meshCount": 9,
+      "actorGroups": [
+        "X03_CAR_ACTOR",
+        "X03_ROOF_STATIC",
+        "X03_TICKET_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 566094,
+      "realGLBBytes": 709976,
+      "actualEeveePreview": "art/hero-props/qa/X03_Rooftop_School_Patrol_Car.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "Q06": {
+      "triangles": 12804,
+      "meshCount": 10,
+      "actorGroups": [
+        "Q06_BASE_ACTOR",
+        "Q06_BUTTONS_ACTOR",
+        "Q06_SHADE_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 326840,
+      "realGLBBytes": 322132,
+      "actualEeveePreview": "art/hero-props/qa/Q06_Three_Click_Moonlight_Desk_Lamp.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "K02": {
+      "triangles": 58748,
+      "meshCount": 8,
+      "actorGroups": [
+        "K02_ERASER_ACTOR",
+        "K02_MELON_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 1051644,
+      "realGLBBytes": 1467836,
+      "actualEeveePreview": "art/hero-props/qa/K02_Watermelon_Rubber_Eraser_Stew.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "K08": {
+      "triangles": 8916,
+      "meshCount": 10,
+      "actorGroups": [
+        "K08_ARMOR_ACTOR",
+        "K08_BANANA_ACTOR",
+        "K08_HELMET_ACTOR",
+        "K08_SHIELD_ACTOR"
+      ],
+      "materials": 7,
+      "realBlenderSourceBytes": 262762,
+      "realGLBBytes": 218604,
+      "actualEeveePreview": "art/hero-props/qa/K08_Chocolate_Armored_Banana_Knight.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "S03": {
+      "triangles": 6704,
+      "meshCount": 7,
+      "actorGroups": [
+        "S03_BROOM_ACTOR",
+        "S03_REVERSED_DUST_ACTOR"
+      ],
+      "materials": 7,
+      "realBlenderSourceBytes": 249756,
+      "realGLBBytes": 176808,
+      "actualEeveePreview": "art/hero-props/qa/S03_Antigravity_School_Broom.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "Q01": {
+      "triangles": 22144,
+      "meshCount": 10,
+      "actorGroups": [
+        "Q01_APOLOGY_PAPER_ACTOR",
+        "Q01_AUTOWRITING_PENCIL_ACTOR",
+        "Q01_ERASER_ACTOR"
+      ],
+      "materials": 10,
+      "realBlenderSourceBytes": 517071,
+      "realGLBBytes": 558412,
+      "actualEeveePreview": "art/hero-props/qa/Q01_SelfWriting_Apology_Eraser.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    }
+  },
+  "release": "NO_GO",
+  "allVisualAccepted": false
+}

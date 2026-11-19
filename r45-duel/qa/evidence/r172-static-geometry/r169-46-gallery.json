@@ -1,0 +1,887 @@
+{
+  "runAt": "2026-11-18T03:39:59.987Z",
+  "view": "1280x760 real Chrome Vulkan",
+  "cards": [
+    {
+      "id": "E05",
+      "name": "超速呐喊",
+      "prop": "megaphone",
+      "family": "体育呐喊",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "ConeGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "全校注意！加速冲啊！"
+    },
+    {
+      "id": "E06",
+      "name": "飞来的巨大黑板擦",
+      "prop": "eraser",
+      "family": "教具投掷",
+      "meshCount": 8,
+      "drawCalls": 9,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BufferGeometry",
+        "PlaneGeometry",
+        "BufferGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "黑板擦，请精准降落！"
+    },
+    {
+      "id": "G05",
+      "name": "课桌紧急修补",
+      "prop": "desk",
+      "family": "校舍维修",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "BoxGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "报告校工！桌腿抢修！"
+    },
+    {
+      "id": "G06",
+      "name": "翻到第二页的方案",
+      "prop": "flipbook",
+      "family": "作业文具",
+      "meshCount": 6,
+      "drawCalls": 7,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "第二页！才是真正的计划！"
+    },
+    {
+      "id": "T05",
+      "name": "食堂暖心加餐",
+      "prop": "soup",
+      "family": "食堂灾难",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "CylinderGeometry",
+        "CylinderGeometry",
+        "CylinderGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "来，先喝口热汤！"
+    },
+    {
+      "id": "T06",
+      "name": "误播的放学广播",
+      "prop": "speaker",
+      "family": "广播事故",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "BoxGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "放学啦……不对，重播！"
+    },
+    {
+      "id": "K01",
+      "name": "茄子炒香蕉",
+      "prop": "eggplant-banana",
+      "family": "黑暗食堂",
+      "meshCount": 9,
+      "drawCalls": 10,
+      "types": [
+        "CylinderGeometry",
+        "CylinderGeometry",
+        "SphereGeometry",
+        "ConeGeometry",
+        "CylinderGeometry",
+        "TorusGeometry",
+        "BufferGeometry",
+        "PlaneGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "茄子炒香蕉！今日特供！"
+    },
+    {
+      "id": "K02",
+      "name": "西瓜炖橡皮",
+      "prop": "watermelon-eraser",
+      "family": "黑暗食堂",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "SphereGeometry",
+        "SphereGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "橡皮炖西瓜，弹性十足！"
+    },
+    {
+      "id": "K03",
+      "name": "玉米炒葡萄",
+      "prop": "corn-grapes",
+      "family": "黑暗食堂",
+      "meshCount": 8,
+      "drawCalls": 9,
+      "types": [
+        "CylinderGeometry",
+        "CylinderGeometry",
+        "SphereGeometry",
+        "SphereGeometry",
+        "SphereGeometry",
+        "SphereGeometry",
+        "SphereGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "玉米炒葡萄，数学满分！"
+    },
+    {
+      "id": "K04",
+      "name": "辣椒炒月饼",
+      "prop": "pepper-mooncake",
+      "family": "黑暗食堂",
+      "meshCount": 9,
+      "drawCalls": 10,
+      "types": [
+        "CylinderGeometry",
+        "CylinderGeometry",
+        "SphereGeometry",
+        "SphereGeometry",
+        "SphereGeometry",
+        "SphereGeometry",
+        "SphereGeometry",
+        "ConeGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "剩月饼配辣椒，开火！"
+    },
+    {
+      "id": "K05",
+      "name": "校长秘制空气汤",
+      "prop": "invisible-soup",
+      "family": "黑暗食堂",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "CylinderGeometry",
+        "CylinderGeometry",
+        "CylinderGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "空气汤，今天免费续碗！"
+    },
+    {
+      "id": "K06",
+      "name": "火山辣椒奶茶",
+      "prop": "volcano-tea",
+      "family": "黑暗食堂",
+      "meshCount": 9,
+      "drawCalls": 10,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "ConeGeometry",
+        "BufferGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "火山辣椒奶茶！热的！"
+    },
+    {
+      "id": "K07",
+      "name": "蛤蟆布丁警报",
+      "prop": "frog-pudding",
+      "family": "黑暗食堂",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "SphereGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "布丁别叫！全校听到了！"
+    },
+    {
+      "id": "K08",
+      "name": "披甲巧克力香蕉",
+      "prop": "armored-banana",
+      "family": "黑暗食堂",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "SphereGeometry",
+        "PlaneGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "香蕉战甲，启动！"
+    },
+    {
+      "id": "Q01",
+      "name": "会写检讨的橡皮",
+      "prop": "essay-eraser",
+      "family": "教室怪谈",
+      "meshCount": 7,
+      "drawCalls": 8,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "检讨我来写，字别太多！"
+    },
+    {
+      "id": "Q02",
+      "name": "神兽返校通知书",
+      "prop": "beast-notice",
+      "family": "教室怪谈",
+      "meshCount": 5,
+      "drawCalls": 6,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "ConeGeometry",
+        "SphereGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "神兽们！统统返校！"
+    },
+    {
+      "id": "Q03",
+      "name": "会做梦的黑板",
+      "prop": "dream-board",
+      "family": "教室怪谈",
+      "meshCount": 10,
+      "drawCalls": 11,
+      "types": [
+        "BoxGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "黑板做梦，答案全会！"
+    },
+    {
+      "id": "Q04",
+      "name": "全寝室公开播放",
+      "prop": "loud-phone",
+      "family": "教室怪谈",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "全寝室公开播放！"
+    },
+    {
+      "id": "Q05",
+      "name": "粉笔开记者会",
+      "prop": "press-chalk",
+      "family": "教室怪谈",
+      "meshCount": 11,
+      "drawCalls": 12,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BufferGeometry",
+        "BufferGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "下面由粉笔回答提问！"
+    },
+    {
+      "id": "Q06",
+      "name": "要按三次才亮的台灯",
+      "prop": "three-click-lamp",
+      "family": "教室怪谈",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "CylinderGeometry",
+        "ConeGeometry",
+        "PlaneGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "一！二！三！你倒是亮啊！"
+    },
+    {
+      "id": "Q07",
+      "name": "教室里的第二个月亮",
+      "prop": "second-moon",
+      "family": "教室怪谈",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "SphereGeometry",
+        "SphereGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "今天加一节月球地理！"
+    },
+    {
+      "id": "Q08",
+      "name": "粉笔画地为牢",
+      "prop": "chalk-prison",
+      "family": "教室怪谈",
+      "meshCount": 10,
+      "drawCalls": 11,
+      "types": [
+        "BoxGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "不许出圈！这是课堂纪律！"
+    },
+    {
+      "id": "S01",
+      "name": "时间倒流的闹钟",
+      "prop": "reverse-alarm",
+      "family": "社团实验",
+      "meshCount": 6,
+      "drawCalls": 7,
+      "types": [
+        "SphereGeometry",
+        "CylinderGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "CylinderGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "倒回一分钟！再迟到一次！"
+    },
+    {
+      "id": "S02",
+      "name": "只能装一根笔的文具盒",
+      "prop": "pencil-case",
+      "family": "社团实验",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "BoxGeometry",
+        "CylinderGeometry",
+        "ConeGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "文具盒，给我一根就好！"
+    },
+    {
+      "id": "S03",
+      "name": "反重力大扫把",
+      "prop": "anti-grav-broom",
+      "family": "社团实验",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "CylinderGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "走廊！给我飞起来！"
+    },
+    {
+      "id": "S04",
+      "name": "错误答案发电机",
+      "prop": "wrong-answer-generator",
+      "family": "社团实验",
+      "meshCount": 5,
+      "drawCalls": 6,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "PlaneGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "错得越离谱，电越多！"
+    },
+    {
+      "id": "S05",
+      "name": "乌龙机器人班长",
+      "prop": "robot-monitor",
+      "family": "社团实验",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "BoxGeometry",
+        "SphereGeometry",
+        "PlaneGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "编号001，全班集合！"
+    },
+    {
+      "id": "S06",
+      "name": "量子橡皮筋",
+      "prop": "quantum-band",
+      "family": "社团实验",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "TorusGeometry",
+        "PlaneGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "橡皮筋，别弹老师啊！"
+    },
+    {
+      "id": "S07",
+      "name": "放学铃声虫洞",
+      "prop": "bell-wormhole",
+      "family": "社团实验",
+      "meshCount": 7,
+      "drawCalls": 8,
+      "types": [
+        "SphereGeometry",
+        "CylinderGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "CylinderGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "放学铃响了！又是星期一！"
+    },
+    {
+      "id": "S08",
+      "name": "会生气的自动售货机",
+      "prop": "angry-vending",
+      "family": "社团实验",
+      "meshCount": 5,
+      "drawCalls": 6,
+      "types": [
+        "CylinderGeometry",
+        "CylinderGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "别生气！我这就投币！"
+    },
+    {
+      "id": "P01",
+      "name": "狂风炸毛超人",
+      "prop": "wind-hair",
+      "family": "体育荒诞",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "SphereGeometry",
+        "BoxGeometry",
+        "PlaneGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "头发集合！跑起来！"
+    },
+    {
+      "id": "P02",
+      "name": "一百年没进球的墙球赛",
+      "prop": "lost-ball",
+      "family": "体育荒诞",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "BoxGeometry",
+        "BufferGeometry",
+        "SphereGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "这球一百年也该进了吧！"
+    },
+    {
+      "id": "P03",
+      "name": "纸箱恐龙运动员",
+      "prop": "box-dinosaur",
+      "family": "体育荒诞",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "BoxGeometry",
+        "ConeGeometry",
+        "PlaneGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "纸箱霸王龙！冲刺！"
+    },
+    {
+      "id": "P04",
+      "name": "体育老师超级口哨",
+      "prop": "mega-whistle",
+      "family": "体育荒诞",
+      "meshCount": 7,
+      "drawCalls": 8,
+      "types": [
+        "BoxGeometry",
+        "SphereGeometry",
+        "TorusGeometry",
+        "TorusGeometry",
+        "BufferGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "全体集合！哨响即停！"
+    },
+    {
+      "id": "P05",
+      "name": "排球误入篮筐",
+      "prop": "volleyball-hoop",
+      "family": "体育荒诞",
+      "meshCount": 8,
+      "drawCalls": 9,
+      "types": [
+        "SphereGeometry",
+        "BufferGeometry",
+        "CylinderGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "TorusGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "这是排球！别进篮筐啊！"
+    },
+    {
+      "id": "P06",
+      "name": "反向跑步机",
+      "prop": "reverse-treadmill",
+      "family": "体育荒诞",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "BoxGeometry",
+        "PlaneGeometry",
+        "BufferGeometry"
+      ],
+      "voiceScript": "我跑十圈，操场别跑！"
+    },
+    {
+      "id": "P07",
+      "name": "黑天鹅冰面慢动作",
+      "prop": "black-swan",
+      "family": "体育荒诞",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "ConeGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "天鹅选手，请表演慢动作！"
+    },
+    {
+      "id": "P08",
+      "name": "运动会掉下的流星",
+      "prop": "sports-meteor",
+      "family": "体育荒诞",
+      "meshCount": 5,
+      "drawCalls": 6,
+      "types": [
+        "CylinderGeometry",
+        "CylinderGeometry",
+        "BoxGeometry",
+        "SphereGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "第一名！从天而降！"
+    },
+    {
+      "id": "X01",
+      "name": "倒退一小时的校钟",
+      "prop": "rewind-clock",
+      "family": "时空校园",
+      "meshCount": 8,
+      "drawCalls": 9,
+      "types": [
+        "SphereGeometry",
+        "CylinderGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "CylinderGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "周一倒回星期天！"
+    },
+    {
+      "id": "X02",
+      "name": "能穿墙的校服",
+      "prop": "wall-uniform",
+      "family": "时空校园",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "BoxGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "校服先去教室占座！"
+    },
+    {
+      "id": "X03",
+      "name": "屋顶违停的教务车",
+      "prop": "roof-car",
+      "family": "时空校园",
+      "meshCount": 4,
+      "drawCalls": 5,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "教务车，屋顶有停车位！"
+    },
+    {
+      "id": "X04",
+      "name": "会预言的午休枕头",
+      "prop": "prophecy-pillow",
+      "family": "时空校园",
+      "meshCount": 3,
+      "drawCalls": 4,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "枕头，提前告诉我提问！"
+    },
+    {
+      "id": "X05",
+      "name": "作业本宇宙大战",
+      "prop": "homework-cosmos",
+      "family": "时空校园",
+      "meshCount": 25,
+      "drawCalls": 26,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "全宇宙的作业！起飞！"
+    },
+    {
+      "id": "X06",
+      "name": "早读时间复制器",
+      "prop": "reading-cloner",
+      "family": "时空校园",
+      "meshCount": 9,
+      "drawCalls": 10,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "早读一次，复制四遍！"
+    },
+    {
+      "id": "X07",
+      "name": "消失的最后一节课",
+      "prop": "vanishing-period",
+      "family": "时空校园",
+      "meshCount": 6,
+      "drawCalls": 7,
+      "types": [
+        "BoxGeometry",
+        "BoxGeometry",
+        "BufferGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "最后一节课消失啦！"
+    },
+    {
+      "id": "X08",
+      "name": "校门口时空保安",
+      "prop": "time-guard",
+      "family": "时空校园",
+      "meshCount": 5,
+      "drawCalls": 6,
+      "types": [
+        "BoxGeometry",
+        "CylinderGeometry",
+        "BoxGeometry",
+        "BoxGeometry",
+        "PlaneGeometry"
+      ],
+      "voiceScript": "迟到了？送你回昨天！"
+    }
+  ],
+  "errors": [],
+  "snapshots": [
+    "E06",
+    "K01",
+    "K02",
+    "K06",
+    "K07",
+    "Q02",
+    "Q05",
+    "Q07",
+    "S04",
+    "P04",
+    "P05",
+    "P07",
+    "X03",
+    "X05",
+    "X07",
+    "X08"
+  ],
+  "inventory": {
+    "cards": [
+      "E05",
+      "E06",
+      "G05",
+      "G06",
+      "T05",
+      "T06",
+      "K01",
+      "K02",
+      "K03",
+      "K04",
+      "K05",
+      "K06",
+      "K07",
+      "K08",
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08",
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08",
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "X01",
+      "X02",
+      "X03",
+      "X04",
+      "X05",
+      "X06",
+      "X07",
+      "X08"
+    ],
+    "identCount": 46,
+    "families": 11,
+    "foleyCount": 46,
+    "foleyInvalid": []
+  },
+  "end": {
+    "enabled": true,
+    "totalIdentities": 46,
+    "played": 47,
+    "expired": 46,
+    "rejected": 0,
+    "active": 1,
+    "peakObjects": 25,
+    "peakDraws": 25,
+    "uniqueRenderedProps": 46,
+    "shaderPointLights": 0,
+    "cacheGeometries": 144,
+    "cacheMaterials": 139,
+    "staticBatch": {
+      "enabled": true,
+      "mergedSets": 44,
+      "sourceMeshes": 167,
+      "drawsSaved": 123,
+      "failures": 0,
+      "cacheEntries": 44,
+      "totalMergedTriangles": 13704
+    },
+    "decalTextures": 46,
+    "hitAnimations": 0,
+    "lastBySide": {
+      "player": null,
+      "ai": "X08"
+    },
+    "activeIds": [
+      "X08"
+    ]
+  },
+  "passed": true
+}

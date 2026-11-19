@@ -1,0 +1,54 @@
+{
+  "prior": {
+    "models": 16,
+    "authored": [
+      "E06",
+      "K01"
+    ]
+  },
+  "after": {
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "authoredHighDetailAssets": [
+        "E06",
+        "K01"
+      ],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 1,
+      "expired": 0,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 14,
+      "peakDraws": 14,
+      "uniqueRenderedProps": 1,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": true,
+        "mergedSets": 0,
+        "sourceMeshes": 0,
+        "drawsSaved": 0,
+        "failures": 0,
+        "cacheEntries": 0,
+        "totalMergedTriangles": 0
+      },
+      "decalTextures": 0,
+      "hitAnimations": 1,
+      "lastBySide": {
+        "player": "K01",
+        "ai": null
+      },
+      "activeIds": [
+        "K01"
+      ]
+    },
+    "drawCalls": 746,
+    "programs": 46
+  },
+  "errors": [],
+  "pass": true
+}

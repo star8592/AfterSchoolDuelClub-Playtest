@@ -1,0 +1,501 @@
+{
+  "revision": "R189",
+  "date": "2026-11-19",
+  "qaOnly": true,
+  "release": "NO_GO",
+  "gameSourceOriginal": true,
+  "mainUnchanged": true,
+  "originalPlayers": 16,
+  "originalCardCount": 60,
+  "originalSpellCount": 46,
+  "trueBrowserRuns": 14,
+  "trueSpellEvents": 1302,
+  "desktop": {
+    "full16BeforePlay": {
+      "runs": 2,
+      "firstReadyMs": [
+        3716,
+        3985
+      ],
+      "medianFirstReadyMs": 3850.5,
+      "firstCastMaxRafMs": [
+        50,
+        49.9
+      ],
+      "firstCastMaxLongTaskMs": [
+        0,
+        0
+      ],
+      "bgCompleteMs": [],
+      "bgObservedLongTaskMaxMs": 0
+    },
+    "priorityHandThenBackground4": {
+      "runs": 3,
+      "firstReadyMs": [
+        2958,
+        2955,
+        3309
+      ],
+      "medianFirstReadyMs": 2958,
+      "firstCastMaxRafMs": [
+        33.3,
+        50.1,
+        33.4
+      ],
+      "firstCastMaxLongTaskMs": [
+        0,
+        0,
+        0
+      ],
+      "bgCompleteMs": [
+        875.4,
+        904.7,
+        2743.9
+      ],
+      "bgObservedLongTaskMaxMs": 0
+    },
+    "medianFirstReadyImprovementMs": 892.5
+  },
+  "mobileViewport": {
+    "full16BeforePlay": {
+      "runs": 2,
+      "firstReadyMs": [
+        7536,
+        7475
+      ],
+      "medianFirstReadyMs": 7505.5,
+      "firstCastMaxRafMs": [
+        83.3,
+        66.7
+      ],
+      "firstCastMaxLongTaskMs": [
+        0,
+        0
+      ],
+      "bgCompleteMs": [],
+      "bgObservedLongTaskMaxMs": 0
+    },
+    "priorityHandThenBackground4": {
+      "runs": 2,
+      "firstReadyMs": [
+        5854,
+        5574
+      ],
+      "medianFirstReadyMs": 5714.0,
+      "firstCastMaxRafMs": [
+        83.4,
+        66.6
+      ],
+      "firstCastMaxLongTaskMs": [
+        0,
+        0
+      ],
+      "bgCompleteMs": [
+        1884.7,
+        5070.5
+      ],
+      "bgObservedLongTaskMaxMs": 0
+    },
+    "medianFirstReadyImprovementMs": 1791.5
+  },
+  "backgroundAlternatives": {
+    "bounded2": {
+      "runs": 2,
+      "firstReadyMs": [
+        2887,
+        3254
+      ],
+      "medianFirstReadyMs": 3070.5,
+      "firstCastMaxRafMs": [
+        33.3,
+        50
+      ],
+      "firstCastMaxLongTaskMs": [
+        0,
+        0
+      ],
+      "bgCompleteMs": [
+        6795.4,
+        7464.2
+      ],
+      "bgObservedLongTaskMaxMs": 52
+    },
+    "bounded3": {
+      "runs": 2,
+      "firstReadyMs": [
+        2993,
+        3338
+      ],
+      "medianFirstReadyMs": 3165.5,
+      "firstCastMaxRafMs": [
+        33.3,
+        66.8
+      ],
+      "firstCastMaxLongTaskMs": [
+        0,
+        0
+      ],
+      "bgCompleteMs": [
+        5392.6,
+        5082.5
+      ],
+      "bgObservedLongTaskMaxMs": 0
+    }
+  },
+  "realBrowserSafetyCases": [
+    {
+      "seed": 173,
+      "deck": "classic",
+      "initialRealModelCount": 10,
+      "initialSafeTurn": true,
+      "deferredNextAIMissing": [],
+      "realEarlyAiTurnPlayed": true,
+      "proof": "qa/evidence/r189-startup-stream/r189-safe-early-game-classic-173.json"
+    },
+    {
+      "seed": 2,
+      "deck": "classic",
+      "initialRealModelCount": 7,
+      "initialSafeTurn": false,
+      "deferredNextAIMissing": [
+        "E02"
+      ],
+      "realEarlyAiTurnPlayed": false,
+      "proof": "qa/evidence/r189-startup-stream/r189-safe-early-game-classic-2.json"
+    },
+    {
+      "seed": 6,
+      "deck": "classroom",
+      "initialRealModelCount": 8,
+      "initialSafeTurn": false,
+      "deferredNextAIMissing": [
+        "T01"
+      ],
+      "realEarlyAiTurnPlayed": false,
+      "proof": "qa/evidence/r189-startup-stream/r189-safe-early-game-classroom-6.json"
+    },
+    {
+      "seed": 2,
+      "deck": "kitchen",
+      "initialRealModelCount": 6,
+      "initialSafeTurn": false,
+      "deferredNextAIMissing": [
+        "E02"
+      ],
+      "realEarlyAiTurnPlayed": false,
+      "proof": "qa/evidence/r189-startup-stream/r189-safe-early-game-kitchen-2.json"
+    },
+    {
+      "seed": 2,
+      "deck": "sports",
+      "initialRealModelCount": 6,
+      "initialSafeTurn": false,
+      "deferredNextAIMissing": [
+        "E02"
+      ],
+      "realEarlyAiTurnPlayed": false,
+      "proof": "qa/evidence/r189-startup-stream/r189-safe-early-game-sports-2.json"
+    }
+  ],
+  "realBrowserFailedDeferredAsset": {
+    "case": "R189 deferred T03 original GLB missing",
+    "failedAsset": "T03-Rain-Landing-R97.glb",
+    "realChrome": true,
+    "pass": true,
+    "initial": {
+      "verifiedAtFirstReady": 10,
+      "initiallyLoaded": [
+        "T04",
+        "T01",
+        "E02",
+        "E04",
+        "M01",
+        "G03"
+      ],
+      "earlyReady": true,
+      "backgroundNotYetComplete": true
+    },
+    "failure": {
+      "error": "Failed to fetch",
+      "sceneError": true,
+      "stillSceneReady": true,
+      "stillAllReady": false,
+      "endDisabled": true,
+      "playDisabled": true,
+      "noBadPrototype": true
+    },
+    "intercepted": 1
+  },
+  "pureDeterministicFutureAiGuard": {
+    "seeds": 600,
+    "deckPresets": 6,
+    "unitSummonsMatchedActual": 517,
+    "gameplayStateUnchanged": true
+  },
+  "firstHandNeverFakeGLB": true,
+  "onlyVerifiedSourceIdsReachArena": true,
+  "aiTurnGuardUsesOriginalRuleEngineClone": true,
+  "limitations": [
+    "Z890 desktop Nvidia Vulkan, not an Android device",
+    "CPU2x desktop or CPU4x mobile viewport; viewport emulation is not true GPU/memory/OOM",
+    "nonrandomized small samples with OS browser cache variation",
+    "full 12 GLBs eventually resident; peak device VRAM is NOT reduced by this architectural change",
+    "background 4x concurrency varied 0.9–5.1 seconds; user actions may require the exact missing GLB",
+    "production default is 16/16 until Android memory and total-play QA accepted",
+    "no background GPU texture upload guaranteed; model parse may still produce CPU stalls"
+  ],
+  "tests": [
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189off-bg1-delay0-runearly_1795059617483588807-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": false,
+      "bgConcurrency": null,
+      "startupMs": 3716,
+      "firstCastMaxRafMs": 50,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 16,
+      "bgCompleteAfterReadyMs": 0,
+      "bgMaxObservedLongTaskMs": null,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189off-bg1-delay0-runearly_1795059617483588807-herooff-desktop.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189off-bg1-delay0-runearly_1795059675467095218-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": false,
+      "bgConcurrency": null,
+      "startupMs": 3985,
+      "firstCastMaxRafMs": 49.9,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 16,
+      "bgCompleteAfterReadyMs": 0,
+      "bgMaxObservedLongTaskMs": null,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189off-bg1-delay0-runearly_1795059675467095218-herooff-desktop.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189off-bg1-delay0-runmobile_1795059761001080981-herooff-mobile",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "staged": false,
+      "bgConcurrency": null,
+      "startupMs": 7536,
+      "firstCastMaxRafMs": 83.3,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 16,
+      "bgCompleteAfterReadyMs": 0,
+      "bgMaxObservedLongTaskMs": null,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189off-bg1-delay0-runmobile_1795059761001080981-herooff-mobile.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189off-bg1-delay0-runmobile_1795059835714478353-herooff-mobile",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "staged": false,
+      "bgConcurrency": null,
+      "startupMs": 7475,
+      "firstCastMaxRafMs": 66.7,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 16,
+      "bgCompleteAfterReadyMs": 0,
+      "bgMaxObservedLongTaskMs": null,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189off-bg1-delay0-runmobile_1795059835714478353-herooff-mobile.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg2-delay0-run0-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": true,
+      "bgConcurrency": 2,
+      "startupMs": 2887,
+      "firstCastMaxRafMs": 33.3,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 14,
+      "bgCompleteAfterReadyMs": 6795.4,
+      "bgMaxObservedLongTaskMs": 0,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg2-delay0-run0-herooff-desktop.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg2-delay0-runearly_1795059656042699703-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": true,
+      "bgConcurrency": 2,
+      "startupMs": 3254,
+      "firstCastMaxRafMs": 50,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 13,
+      "bgCompleteAfterReadyMs": 7464.2,
+      "bgMaxObservedLongTaskMs": 52,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg2-delay0-runearly_1795059656042699703-herooff-desktop.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg3-delay0-run0-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": true,
+      "bgConcurrency": 3,
+      "startupMs": 2993,
+      "firstCastMaxRafMs": 33.3,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 15,
+      "bgCompleteAfterReadyMs": 5392.6,
+      "bgMaxObservedLongTaskMs": 0,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg3-delay0-run0-herooff-desktop.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg3-delay0-runearly_1795059716442733442-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": true,
+      "bgConcurrency": 3,
+      "startupMs": 3338,
+      "firstCastMaxRafMs": 66.8,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 15,
+      "bgCompleteAfterReadyMs": 5082.5,
+      "bgMaxObservedLongTaskMs": 0,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg3-delay0-runearly_1795059716442733442-herooff-desktop.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-run0-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": true,
+      "bgConcurrency": 4,
+      "startupMs": 2958,
+      "firstCastMaxRafMs": 33.3,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 15,
+      "bgCompleteAfterReadyMs": 875.4,
+      "bgMaxObservedLongTaskMs": 0,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-run0-herooff-desktop.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-runearly_1795059637207114352-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": true,
+      "bgConcurrency": 4,
+      "startupMs": 2955,
+      "firstCastMaxRafMs": 50.1,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 15,
+      "bgCompleteAfterReadyMs": 904.7,
+      "bgMaxObservedLongTaskMs": 0,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-runearly_1795059637207114352-herooff-desktop.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-runearly_1795059696426949771-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": true,
+      "bgConcurrency": 4,
+      "startupMs": 3309,
+      "firstCastMaxRafMs": 33.4,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 15,
+      "bgCompleteAfterReadyMs": 2743.9,
+      "bgMaxObservedLongTaskMs": 0,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-runearly_1795059696426949771-herooff-desktop.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-runmobile_1795059799676674190-herooff-mobile",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "staged": true,
+      "bgConcurrency": 4,
+      "startupMs": 5854,
+      "firstCastMaxRafMs": 83.4,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 15,
+      "bgCompleteAfterReadyMs": 1884.7,
+      "bgMaxObservedLongTaskMs": 0,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-runmobile_1795059799676674190-herooff-mobile.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-runmobile_1795059874097244943-herooff-mobile",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "staged": true,
+      "bgConcurrency": 4,
+      "startupMs": 5574,
+      "firstCastMaxRafMs": 66.6,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 15,
+      "bgCompleteAfterReadyMs": 5070.5,
+      "bgMaxObservedLongTaskMs": 0,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-bg4-delay0-runmobile_1795059874097244943-herooff-mobile.json"
+    },
+    {
+      "case": "E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-run0-herooff-desktop",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "staged": true,
+      "bgConcurrency": null,
+      "startupMs": 2955,
+      "firstCastMaxRafMs": 33.4,
+      "firstCastLongTaskMaxMs": 0,
+      "all46SpellsCast": true,
+      "spellEvents": 93,
+      "errorCount": 0,
+      "initialModelsAtObservedStart": 10,
+      "bgCompleteAfterReadyMs": 9161,
+      "bgMaxObservedLongTaskMs": null,
+      "verified16BeforeFullBattle": true,
+      "record": "qa/evidence/r189-startup-stream/raw-browser/E01-G01-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-r189on-run0-herooff-desktop.json"
+    }
+  ]
+}

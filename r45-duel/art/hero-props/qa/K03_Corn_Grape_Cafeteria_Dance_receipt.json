@@ -1,0 +1,21 @@
+{
+  "id": "K03",
+  "originalName": "玉米炒葡萄",
+  "source": "K03_Corn_Grape_Cafeteria_Dance.blend",
+  "glb": "K03_Corn_Grape_Cafeteria_Dance.glb",
+  "render": "K03_Corn_Grape_Cafeteria_Dance.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 2568677,
+  "glbBytes": 5636200,
+  "triangles": 197816,
+  "meshes": 10,
+  "materials": 9,
+  "actorGroups": [
+    "K03_CORN_ACTOR",
+    "K03_GRAPES_ACTOR",
+    "K03_PAN_ACTOR",
+    "K03_SPATULA_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

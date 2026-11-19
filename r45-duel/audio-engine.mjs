@@ -4,7 +4,56 @@
  * Completely presentation-only: cannot mutate the rules engine/HP.
  */
 import {GUIDED_LINES} from './guided-tutorial.mjs';
+import {SCHOOL_MAGIC_IDENTITIES} from './scene/campus-magic-bible.mjs';
 const SOUNDS=Object.freeze({
+ // R186 nine final separate school object originally synthesized Foley.
+ r186_p01:'r186_p01.ogg',
+ r186_p02:'r186_p02.ogg',
+ r186_p06:'r186_p06.ogg',
+ r186_p08:'r186_p08.ogg',
+ r186_x01:'r186_x01.ogg',
+ r186_x04:'r186_x04.ogg',
+ r186_x06:'r186_x06.ogg',
+ r186_x07:'r186_x07.ogg',
+ r186_x08:'r186_x08.ogg',
+ // R185 ten additional original object-material digital school Foley.
+ r185_g06:'r185_g06.ogg',
+ r185_t05:'r185_t05.ogg',
+ r185_k05:'r185_k05.ogg',
+ r185_q03:'r185_q03.ogg',
+ r185_q04:'r185_q04.ogg',
+ r185_q07:'r185_q07.ogg',
+ r185_q08:'r185_q08.ogg',
+ r185_s02:'r185_s02.ogg',
+ r185_s05:'r185_s05.ogg',
+ r185_s07:'r185_s07.ogg',
+ // R184 genuine new original digital school-material foley synthesis;
+ // these are not recorded VO nor stock/original movie clips.
+ r184_e05:'r184_e05.ogg',
+ r184_g05:'r184_g05.ogg',
+ r184_t06:'r184_t06.ogg',
+ r184_k03:'r184_k03.ogg',
+ r184_k04:'r184_k04.ogg',
+ r184_q02:'r184_q02.ogg',
+ r184_s01:'r184_s01.ogg',
+ r184_s06:'r184_s06.ogg',
+ r184_p07:'r184_p07.ogg',
+ r184_x02:'r184_x02.ogg',
+ // R171 original authored school-prop Foley, all files have SHA256 manifest.
+ r171_eraser_thud:'r171_eraser_thud.ogg',
+ r171_chalk_dust:'r171_chalk_dust.ogg',
+ r171_wok_clang:'r171_wok_clang.ogg',
+ r171_food_sizzle:'r171_food_sizzle.ogg',
+ r171_milk_tea_bubble:'r171_milk_tea_bubble.ogg',
+ r171_press_camera:'r171_press_camera.ogg',
+ r171_whistle_rip:'r171_whistle_rip.ogg',
+ r171_ball_bounce:'r171_ball_bounce.ogg',
+ r171_basket_rim:'r171_basket_rim.ogg',
+ r171_paper_whirl:'r171_paper_whirl.ogg',
+ r171_clock_reverse:'r171_clock_reverse.ogg',
+ r171_stamp_thud:'r171_stamp_thud.ogg',
+ r171_pencil_scribble:'r171_pencil_scribble.ogg',
+ r171_foot_shuffle:'r171_foot_shuffle.ogg',
  select:'select.ogg',cast:'cast.ogg',enemy_cast:'enemy_cast.ogg',
  turn:'turn.ogg',attack:'attack.ogg',hit:'hit.ogg',
  heal:'heal.ogg',win:'win.ogg',lose:'lose.ogg',
@@ -81,7 +130,68 @@ export const COMIC_BEATS=Object.freeze({
  'combo_poster_draw':[['r102_paper_flap',0,1,.51],['r102_magic_tingle',.14,1.04,.48]],
  'direct_hit':[['r102_score_trumpet',0,.93,.48],['r102_crowd_gasp',.19,1.08,.32]],
  'actual_exchange':[['r102_school_steps',0,1.13,.38],['r102_rubber_squeak',.15,.88,.30]],
- 'game_finish':[['r102_score_trumpet',0,1,.54],['r102_confetti_pop',.25,1,.51]]
+ 'game_finish':[['r102_score_trumpet',0,1,.54],['r102_confetti_pop',.25,1,.51]],
+ ...Object.fromEntries(Object.values(SCHOOL_MAGIC_IDENTITIES).map((s,i)=>[
+  'school_'+s.id,[
+   [s.foley[0],0,.83+(i%6)*.045,.60],
+   [s.foley[1],.17+(i%4)*.035,.95+(i%5)*.03,.56]
+  ]
+ ])),
+ // Cinematic, characteristic material Foley. NO generic whoosh + boom.
+ ...Object.fromEntries(Object.entries({
+  E06:[['r171_foot_shuffle',0,.95,.45],['r171_eraser_thud',.24,.82,.78],['r171_chalk_dust',.31,1.05,.44]],
+  K01:[['r171_wok_clang',0,.94,.68],['r171_food_sizzle',.10,.92,.50],['r171_milk_tea_bubble',.38,1.10,.28]],
+  K06:[['r171_milk_tea_bubble',0,.8,.65],['r171_food_sizzle',.22,1.10,.51],['r171_wok_clang',.46,1.22,.28]],
+  Q05:[['r171_pencil_scribble',0,1.04,.52],['r171_press_camera',.22,.94,.69],['r171_chalk_dust',.40,.91,.38]],
+  P04:[['r171_foot_shuffle',0,1.1,.40],['r171_whistle_rip',.19,.99,.83]],
+  P05:[['r171_ball_bounce',0,.91,.68],['r171_basket_rim',.31,1.08,.75],['r102_crowd_gasp',.43,1.1,.32]],
+  X05:[['r171_paper_whirl',0,.93,.65],['r171_pencil_scribble',.20,1.11,.38],['r171_chalk_dust',.40,.86,.31]],
+  X01:[['r171_clock_reverse',0,.91,.55],['r102_school_bell',.22,.92,.36]],
+  Q01:[['r171_pencil_scribble',0,1.15,.56],['r171_chalk_dust',.24,1.02,.33]],
+  Q06:[['r171_stamp_thud',0,.91,.53],['r171_stamp_thud',.18,1.02,.48],['r102_magic_tingle',.34,1.23,.42]],
+  S04:[['r171_pencil_scribble',0,.96,.52],['r102_radio_glitch',.19,.77,.55],['r171_press_camera',.32,1.03,.48]],
+  S07:[['r102_school_bell',0,.86,.52],['r171_clock_reverse',.24,1.16,.53]],
+  X03:[['r171_foot_shuffle',0,1.02,.47],['r171_stamp_thud',.36,.80,.69],['r102_crowd_gasp',.49,.91,.34]],
+  T06:[['r102_radio_tune',0,1.08,.59],['r171_whistle_rip',.22,.75,.31],['r102_radio_glitch',.41,.93,.52]]
+ }).map(([id,arr])=>['school_'+id,arr])),
+ // Ten genuinely new original digital sound sources and per-ID 3-event mix.
+ ...Object.fromEntries(Object.entries({
+  E05:[ ['r184_e05',0,0.95,0.68], ['r102_score_trumpet',0.18,1.05,0.3], ['r102_crowd_gasp',0.41,0.97,0.26] ],
+  G05:[ ['r184_g05',0,0.98,0.72], ['r102_shield_chime',0.34,1.04,0.32], ['r171_foot_shuffle',0.52,0.96,0.22] ],
+  T06:[ ['r184_t06',0,0.97,0.68], ['r102_radio_glitch',0.34,0.91,0.33], ['r102_school_bell',0.59,0.98,0.25] ],
+  K03:[ ['r184_k03',0,0.98,0.7], ['r171_food_sizzle',0.18,1.01,0.33], ['r171_wok_clang',0.6,0.96,0.27] ],
+  K04:[ ['r184_k04',0,0.96,0.71], ['r102_crowd_gasp',0.32,1.06,0.3], ['r102_stamp_pop',0.63,1.06,0.24] ],
+  Q02:[ ['r184_q02',0,0.95,0.69], ['r171_paper_whirl',0.11,0.92,0.27], ['r102_crowd_gasp',0.44,1.06,0.24] ],
+  S01:[ ['r184_s01',0,0.97,0.72], ['r171_clock_reverse',0.29,1.02,0.29], ['r102_school_bell',0.58,1.07,0.25] ],
+  S06:[ ['r184_s06',0,0.98,0.69], ['r102_spring_boing',0.44,1.04,0.36], ['r102_crowd_gasp',0.64,0.92,0.25] ],
+  P07:[ ['r184_p07',0,0.96,0.69], ['r102_music_gliss',0.28,1.05,0.25], ['r102_crowd_gasp',0.57,0.94,0.24] ],
+  X02:[ ['r184_x02',0,0.98,0.68], ['r102_poster_unfurl',0.24,1.06,0.33], ['r102_stamp_pop',0.59,0.97,0.24] ]
+ }).map(([id,arr])=>['school_'+id,arr])),
+ // R185 ten non-reused original material sound sources, unique timelines.
+ ...Object.fromEntries(Object.entries({
+  G06:[ ['r185_g06',0,0.98,0.69], ['r171_paper_whirl',0.16,1.06,0.29], ['r102_stamp_pop',0.42,0.98,0.25] ],
+  T05:[ ['r185_t05',0,0.97,0.7], ['r171_food_sizzle',0.17,1.12,0.24], ['r102_hearts_pulse',0.48,0.91,0.29] ],
+  K05:[ ['r185_k05',0,1.01,0.73], ['r102_music_gliss',0.22,0.81,0.22], ['r102_crowd_gasp',0.58,0.93,0.23] ],
+  Q03:[ ['r185_q03',0,0.94,0.72], ['r171_pencil_scribble',0.18,1.07,0.3], ['r102_magic_tingle',0.61,1.13,0.2] ],
+  Q04:[ ['r185_q04',0,1.02,0.71], ['r102_radio_glitch',0.22,0.93,0.29], ['r102_crowd_gasp',0.63,1.03,0.23] ],
+  Q07:[ ['r185_q07',0,0.95,0.68], ['r171_paper_whirl',0.31,1.06,0.29], ['r102_music_gliss',0.61,0.95,0.2] ],
+  Q08:[ ['r185_q08',0,0.97,0.72], ['r171_chalk_dust',0.16,1.1,0.3], ['r102_shield_chime',0.69,1.01,0.27] ],
+  S02:[ ['r185_s02',0,0.99,0.73], ['r171_pencil_scribble',0.36,1.13,0.27], ['r102_rubber_squeak',0.69,0.99,0.2] ],
+  S05:[ ['r185_s05',0,0.94,0.72], ['r102_radio_tune',0.23,1.06,0.27], ['r102_stamp_pop',0.66,0.91,0.24] ],
+  S07:[ ['r185_s07',0,0.98,0.74], ['r171_clock_reverse',0.29,1.12,0.33], ['r102_school_bell',0.58,0.93,0.27] ]
+ }).map(([id,arr])=>['school_'+id,arr])),
+ // Nine final new physical material sound samples, independently timed.
+ ...Object.fromEntries(Object.entries({
+  P01:[ ['r186_p01',0,1.01,0.72], ['r171_foot_shuffle',0.2,0.98,0.25], ['r102_crowd_gasp',0.6,1.02,0.22] ],
+  P02:[ ['r186_p02',0,1.03,0.71], ['r102_spring_boing',0.29,0.93,0.3], ['r102_crowd_gasp',0.72,0.93,0.22] ],
+  P06:[ ['r186_p06',0,0.99,0.72], ['r171_foot_shuffle',0.23,1.14,0.31], ['r102_rubber_squeak',0.61,0.87,0.22] ],
+  P08:[ ['r186_p08',0,1.0,0.7], ['r102_shield_chime',0.3,1.1,0.28], ['r102_music_gliss',0.63,1.06,0.23] ],
+  X01:[ ['r186_x01',0,1.01,0.7], ['r171_clock_reverse',0.27,1.09,0.29], ['r102_school_bell',0.7,0.91,0.24] ],
+  X04:[ ['r186_x04',0,0.99,0.68], ['r171_paper_whirl',0.32,1.03,0.28], ['r102_magic_tingle',0.61,0.98,0.23] ],
+  X06:[ ['r186_x06',0,1.0,0.74], ['r171_pencil_scribble',0.36,1.05,0.24], ['r102_radio_glitch',0.67,1.1,0.24] ],
+  X07:[ ['r186_x07',0,0.95,0.69], ['r171_paper_whirl',0.25,0.92,0.3], ['r102_school_bell',0.77,0.79,0.21] ],
+  X08:[ ['r186_x08',0,1.04,0.71], ['r102_stamp_pop',0.19,1.12,0.26], ['r102_radio_tune',0.66,0.94,0.22] ]
+ }).map(([id,arr])=>['school_'+id,arr]))
 });
 const VOICE_MODEL='Qwen3-TTS';
 export const MUSIC_TRACKS=Object.freeze([

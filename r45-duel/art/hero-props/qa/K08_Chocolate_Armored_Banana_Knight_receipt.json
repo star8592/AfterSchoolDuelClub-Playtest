@@ -1,0 +1,21 @@
+{
+  "id": "K08",
+  "originalName": "巧克力装甲香蕉",
+  "source": "K08_Chocolate_Armored_Banana_Knight.blend",
+  "glb": "K08_Chocolate_Armored_Banana_Knight.glb",
+  "render": "K08_Chocolate_Armored_Banana_Knight.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 262762,
+  "glbBytes": 218604,
+  "triangles": 8916,
+  "meshes": 10,
+  "materials": 7,
+  "actorGroups": [
+    "K08_ARMOR_ACTOR",
+    "K08_BANANA_ACTOR",
+    "K08_HELMET_ACTOR",
+    "K08_SHIELD_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

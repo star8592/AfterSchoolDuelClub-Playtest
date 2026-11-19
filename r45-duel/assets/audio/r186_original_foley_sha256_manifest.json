@@ -1,0 +1,89 @@
+{
+  "round": "R186",
+  "total": 9,
+  "recordedCharacterVoices": 0,
+  "status": "QA only; hearing/creative signoff not done",
+  "assets": {
+    "P01": {
+      "file": "r186_p01.ogg",
+      "bytes": 14156,
+      "sha256": "ed53ba628d85df550f357878245fa636cdea1641b37fd1280ba02d92a07490a1",
+      "durationSeconds": 1.13,
+      "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+      "mono": true,
+      "encoder": "ffmpeg libvorbis"
+    },
+    "P02": {
+      "file": "r186_p02.ogg",
+      "bytes": 12651,
+      "sha256": "49ec9432c39c9b3c977480247f3a1b7d59d683c46f2bf8678787b102b4247c93",
+      "durationSeconds": 1.13,
+      "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+      "mono": true,
+      "encoder": "ffmpeg libvorbis"
+    },
+    "P06": {
+      "file": "r186_p06.ogg",
+      "bytes": 14035,
+      "sha256": "61b1824b131e144dec9f36dde2d4fd1d3c519eca50b0da8e3ed593dea3e15a05",
+      "durationSeconds": 1.13,
+      "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+      "mono": true,
+      "encoder": "ffmpeg libvorbis"
+    },
+    "P08": {
+      "file": "r186_p08.ogg",
+      "bytes": 13475,
+      "sha256": "72d24fb5394a70823c28a1df9ed4936f9b35b8a15868e36c67210cf4a806a32a",
+      "durationSeconds": 1.13,
+      "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+      "mono": true,
+      "encoder": "ffmpeg libvorbis"
+    },
+    "X01": {
+      "file": "r186_x01.ogg",
+      "bytes": 12848,
+      "sha256": "391059223bdabe95439c76cecda8e072ce931a2c669ef309023ec8b6d9c0cf88",
+      "durationSeconds": 1.13,
+      "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+      "mono": true,
+      "encoder": "ffmpeg libvorbis"
+    },
+    "X04": {
+      "file": "r186_x04.ogg",
+      "bytes": 14262,
+      "sha256": "0b6dc34c94d739a3acf3a73ce894ce26e995bdac5c7283b177e0cbf8b9f1c33c",
+      "durationSeconds": 1.13,
+      "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+      "mono": true,
+      "encoder": "ffmpeg libvorbis"
+    },
+    "X06": {
+      "file": "r186_x06.ogg",
+      "bytes": 13442,
+      "sha256": "2b7b0cdab20925569d385696da87e2790178ad3bcdbacb9e924e06a5aeb0b27a",
+      "durationSeconds": 1.13,
+      "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+      "mono": true,
+      "encoder": "ffmpeg libvorbis"
+    },
+    "X07": {
+      "file": "r186_x07.ogg",
+      "bytes": 13787,
+      "sha256": "f4ef0a094c6a0bbc7959e2af7507dd215689fbdbf1fabb0ff68a3acc14e97548",
+      "durationSeconds": 1.13,
+      "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+      "mono": true,
+      "encoder": "ffmpeg libvorbis"
+    },
+    "X08": {
+      "file": "r186_x08.ogg",
+      "bytes": 11985,
+      "sha256": "3312afd562a921b438a927a1a6660ac47c588a3ba135fca36ccc6d234858b59d",
+      "durationSeconds": 1.13,
+      "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+      "mono": true,
+      "encoder": "ffmpeg libvorbis"
+    }
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "date": "2026-11-18",
+  "tool": "Blender5.2.3 native",
+  "items": {
+    "E05": {
+      "triangles": 36436,
+      "meshCount": 8,
+      "actorGroups": [
+        "E05_BANNER_ACTOR",
+        "E05_HORN_ACTOR"
+      ],
+      "materials": 7,
+      "realBlenderSourceBytes": 613318,
+      "realGLBBytes": 892916,
+      "actualEeveePreview": "art/hero-props/qa/E05_Giant_Cheer_Megaphone.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "G05": {
+      "triangles": 30764,
+      "meshCount": 9,
+      "actorGroups": [
+        "G05_LEGS_ACTOR",
+        "G05_REPAIR_TOOL_ACTOR",
+        "G05_TABLETOP_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 600866,
+      "realGLBBytes": 774424,
+      "actualEeveePreview": "art/hero-props/qa/G05_Repairing_Animated_School_Desk.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "T06": {
+      "triangles": 34698,
+      "meshCount": 11,
+      "actorGroups": [
+        "T06_CONTROL_CONSOLE_ACTOR",
+        "T06_LOUDSPEAKER_ACTOR",
+        "T06_MICROPHONE_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 657828,
+      "realGLBBytes": 876836,
+      "actualEeveePreview": "art/hero-props/qa/T06_Broken_School_Announcement_System.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "K03": {
+      "triangles": 197816,
+      "meshCount": 10,
+      "actorGroups": [
+        "K03_CORN_ACTOR",
+        "K03_GRAPES_ACTOR",
+        "K03_PAN_ACTOR",
+        "K03_SPATULA_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 2568677,
+      "realGLBBytes": 5636200,
+      "actualEeveePreview": "art/hero-props/qa/K03_Corn_Grape_Cafeteria_Dance.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "K04": {
+      "triangles": 66994,
+      "meshCount": 9,
+      "actorGroups": [
+        "K04_CHILI_ACTOR",
+        "K04_MOONCAKE_ACTOR",
+        "K04_TRAY_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 966641,
+      "realGLBBytes": 1625980,
+      "actualEeveePreview": "art/hero-props/qa/K04_Chili_Mooncake_Catastrophe.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "Q02": {
+      "triangles": 23215,
+      "meshCount": 10,
+      "actorGroups": [
+        "Q02_BEAST_HEAD_ACTOR",
+        "Q02_NOTICE_ACTOR",
+        "Q02_PAPER_LEGS_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 516971,
+      "realGLBBytes": 588684,
+      "actualEeveePreview": "art/hero-props/qa/Q02_Origami_Beast_From_School_Notice.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "S01": {
+      "triangles": 19604,
+      "meshCount": 11,
+      "actorGroups": [
+        "S01_BELLS_ACTOR",
+        "S01_CLOCK_CASE_ACTOR",
+        "S01_HANDS_ACTOR"
+      ],
+      "materials": 7,
+      "realBlenderSourceBytes": 449408,
+      "realGLBBytes": 480240,
+      "actualEeveePreview": "art/hero-props/qa/S01_Reversed_Forged_School_Alarm.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "S06": {
+      "triangles": 7156,
+      "meshCount": 9,
+      "actorGroups": [
+        "S06_BAND_ACTOR",
+        "S06_RIG_ACTOR",
+        "S06_TEACHER_HAT_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 219855,
+      "realGLBBytes": 145728,
+      "actualEeveePreview": "art/hero-props/qa/S06_Quantum_Rubber_Band_Teacher_Hat.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "P07": {
+      "triangles": 9352,
+      "meshCount": 11,
+      "actorGroups": [
+        "P07_ICE_RINK_STATIC",
+        "P07_SKATES_ACTOR",
+        "P07_SWAN_BODY_ACTOR",
+        "P07_SWAN_NECK_ACTOR",
+        "P07_SWAN_WINGS_ACTOR"
+      ],
+      "materials": 10,
+      "realBlenderSourceBytes": 278599,
+      "realGLBBytes": 227468,
+      "actualEeveePreview": "art/hero-props/qa/P07_Black_Swan_Ice_Rink.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "X02": {
+      "triangles": 42474,
+      "meshCount": 10,
+      "actorGroups": [
+        "X02_UNIFORM_ACTOR",
+        "X02_WALL_STATIC"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 787572,
+      "realGLBBytes": 1071176,
+      "actualEeveePreview": "art/hero-props/qa/X02_School_Uniform_Passing_Wall.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    }
+  },
+  "release": "NO_GO",
+  "allVisualAccepted": false
+}

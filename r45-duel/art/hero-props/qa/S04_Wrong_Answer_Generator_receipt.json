@@ -1,0 +1,20 @@
+{
+  "id": "S04",
+  "originalName": "错题发电机",
+  "source": "S04_Wrong_Answer_Generator.blend",
+  "glb": "S04_Wrong_Answer_Generator.glb",
+  "render": "S04_Wrong_Answer_Generator.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 795910,
+  "glbBytes": 1075828,
+  "triangles": 43966,
+  "meshes": 11,
+  "materials": 9,
+  "actorGroups": [
+    "S04_CRANK_ACTOR",
+    "S04_MACHINE_STATIC",
+    "S04_TEST_PAPER_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

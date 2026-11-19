@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-18",
+  "hardware": "Z890 Chrome Vulkan CPU x2",
+  "qaOnly": true,
+  "release": "NO_GO",
+  "cases": {
+    "batchOFF": {
+      "pass": true,
+      "coldMaxRafMs": 50,
+      "coldP99Ms": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDelta": 4,
+      "firstFrameReadyMs": 6047,
+      "originalModels": 16,
+      "originalModelBytes": 75569762,
+      "events": 93,
+      "allUniqueProps": 46,
+      "originalMaterialModels": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "errors": []
+    },
+    "batchON": {
+      "pass": true,
+      "coldMaxRafMs": 33.4,
+      "coldP99Ms": 33.4,
+      "longTaskMaxMs": 0,
+      "shaderDelta": 4,
+      "firstFrameReadyMs": 5757,
+      "originalModels": 16,
+      "originalModelBytes": 75569762,
+      "events": 93,
+      "allUniqueProps": 46,
+      "originalMaterialModels": [
+        "E06",
+        "K01",
+        "K07"
+      ],
+      "errors": []
+    }
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "total": 10,
+  "assets": {
+    "G06": {
+      "id": "G06",
+      "originalName": "翻到第二页的方案",
+      "source": "G06_Second_Page_PopUp_School_Plan.blend",
+      "glb": "G06_Second_Page_PopUp_School_Plan.glb",
+      "render": "G06_Second_Page_PopUp_School_Plan.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 455492,
+      "glbBytes": 547288,
+      "triangles": 21768,
+      "meshes": 10,
+      "materials": 7,
+      "actorGroups": [
+        "G06_BOOK_ACTOR",
+        "G06_PAGE_TURN_ACTOR",
+        "G06_POPUP_SCENE_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "T05": {
+      "id": "T05",
+      "originalName": "食堂暖心加餐",
+      "source": "T05_Heartwarming_Cafeteria_Chef_Soup.blend",
+      "glb": "T05_Heartwarming_Cafeteria_Chef_Soup.glb",
+      "render": "T05_Heartwarming_Cafeteria_Chef_Soup.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 210125,
+      "glbBytes": 244420,
+      "triangles": 11752,
+      "meshes": 9,
+      "materials": 9,
+      "actorGroups": [
+        "T05_SOUP_BOWL_ACTOR",
+        "T05_SPOON_ACTOR",
+        "T05_STEAM_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "K05": {
+      "id": "K05",
+      "originalName": "校长秘制空气汤",
+      "source": "K05_Invisible_Air_Soup_Bowl.blend",
+      "glb": "K05_Invisible_Air_Soup_Bowl.glb",
+      "render": "K05_Invisible_Air_Soup_Bowl.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 1069017,
+      "glbBytes": 1443396,
+      "triangles": 58648,
+      "meshes": 10,
+      "materials": 9,
+      "actorGroups": [
+        "K05_AIR_CURRENT_ACTOR",
+        "K05_EMPTY_BOWL_ACTOR",
+        "K05_EMPTY_MENU_ACTOR",
+        "K05_SPOON_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "Q03": {
+      "id": "Q03",
+      "originalName": "会做梦的黑板",
+      "source": "Q03_Dreaming_School_Blackboard.blend",
+      "glb": "Q03_Dreaming_School_Blackboard.glb",
+      "render": "Q03_Dreaming_School_Blackboard.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 344881,
+      "glbBytes": 351612,
+      "triangles": 13620,
+      "meshes": 9,
+      "materials": 7,
+      "actorGroups": [
+        "Q03_BOARD_STATIC",
+        "Q03_CHALK_HAND_ACTOR",
+        "Q03_EYES_ACTOR",
+        "Q03_WRITING_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "Q04": {
+      "id": "Q04",
+      "originalName": "全寝室公开播放",
+      "source": "Q04_Embarrassing_Dormitory_Public_Play.blend",
+      "glb": "Q04_Embarrassing_Dormitory_Public_Play.glb",
+      "render": "Q04_Embarrassing_Dormitory_Public_Play.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 556082,
+      "glbBytes": 643844,
+      "triangles": 25616,
+      "meshes": 10,
+      "materials": 9,
+      "actorGroups": [
+        "Q04_GLASS_ACTOR",
+        "Q04_PHONE_ACTOR",
+        "Q04_SPEAKER_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "Q07": {
+      "id": "Q07",
+      "originalName": "教室里的第二个月亮",
+      "source": "Q07_Second_Cardboard_Classroom_Moon.blend",
+      "glb": "Q07_Second_Cardboard_Classroom_Moon.glb",
+      "render": "Q07_Second_Cardboard_Classroom_Moon.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 950443,
+      "glbBytes": 1554656,
+      "triangles": 61844,
+      "meshes": 9,
+      "materials": 8,
+      "actorGroups": [
+        "Q07_BACKGROUND_STATIC",
+        "Q07_CARDBOARD_MOON_ACTOR",
+        "Q07_REAL_MOON_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "Q08": {
+      "id": "Q08",
+      "originalName": "粉笔画地为牢",
+      "source": "Q08_Chalk_Draw_Prison.blend",
+      "glb": "Q08_Chalk_Draw_Prison.glb",
+      "render": "Q08_Chalk_Draw_Prison.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 762772,
+      "glbBytes": 1055168,
+      "triangles": 42516,
+      "meshes": 7,
+      "materials": 6,
+      "actorGroups": [
+        "Q08_CHALK_PRISON_ACTOR",
+        "Q08_CHALK_STICK_ACTOR",
+        "Q08_FLOOR_STATIC",
+        "Q08_LOCK_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "S02": {
+      "id": "S02",
+      "originalName": "只能装一根笔的文具盒",
+      "source": "S02_One_Pencil_Tiny_Stationery_Case.blend",
+      "glb": "S02_One_Pencil_Tiny_Stationery_Case.glb",
+      "render": "S02_One_Pencil_Tiny_Stationery_Case.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 456419,
+      "glbBytes": 435832,
+      "triangles": 16824,
+      "meshes": 12,
+      "materials": 10,
+      "actorGroups": [
+        "S02_CASE_BODY_ACTOR",
+        "S02_LID_ACTOR",
+        "S02_ONLY_PENCIL_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "S05": {
+      "id": "S05",
+      "originalName": "乌龙机器人班长",
+      "source": "S05_Confused_Homeroom_Class_Leader_Robot.blend",
+      "glb": "S05_Confused_Homeroom_Class_Leader_Robot.glb",
+      "render": "S05_Confused_Homeroom_Class_Leader_Robot.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 721412,
+      "glbBytes": 869844,
+      "triangles": 33212,
+      "meshes": 14,
+      "materials": 9,
+      "actorGroups": [
+        "S05_ATTENDANCE_LIST_ACTOR",
+        "S05_ROBOT_ARMS_ACTOR",
+        "S05_ROBOT_BODY_ACTOR",
+        "S05_ROBOT_HEAD_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "S07": {
+      "id": "S07",
+      "originalName": "放学铃声虫洞",
+      "source": "S07_School_Bell_Time_Wormhole.blend",
+      "glb": "S07_School_Bell_Time_Wormhole.glb",
+      "render": "S07_School_Bell_Time_Wormhole.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 533252,
+      "glbBytes": 546684,
+      "triangles": 21868,
+      "meshes": 10,
+      "materials": 8,
+      "actorGroups": [
+        "S07_BELL_ACTOR",
+        "S07_CLAPPER_ACTOR",
+        "S07_CORRIDOR_DOORS_ACTOR",
+        "S07_TIMETABLE_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    }
+  },
+  "visualAccepted": 0,
+  "androidAccepted": false,
+  "release": "NO_GO"
+}

@@ -1,0 +1,170 @@
+{
+  "date": "2026-11-19",
+  "tool": "Blender5.2.3 native",
+  "items": {
+    "P01": {
+      "triangles": 32508,
+      "meshCount": 13,
+      "actorGroups": [
+        "P01_ARMS_ACTOR",
+        "P01_BODY_ACTOR",
+        "P01_CAPE_ACTOR",
+        "P01_HAIR_ACTOR",
+        "P01_HEAD_ACTOR",
+        "P01_LEGS_ACTOR"
+      ],
+      "materials": 10,
+      "realBlenderSourceBytes": 598157,
+      "realGLBBytes": 786824,
+      "actualEeveePreview": "art/hero-props/qa/P01_Gale_Hair_School_Hero.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "P02": {
+      "triangles": 33484,
+      "meshCount": 8,
+      "actorGroups": [
+        "P02_BALL_ACTOR",
+        "P02_GOAL_STATIC",
+        "P02_NET_ACTOR",
+        "P02_SCOREBOARD_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 588376,
+      "realGLBBytes": 829532,
+      "actualEeveePreview": "art/hero-props/qa/P02_Century_Without_Goal_Soccer.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "P06": {
+      "triangles": 21886,
+      "meshCount": 13,
+      "actorGroups": [
+        "P06_BELT_ACTOR",
+        "P06_FRAME_STATIC",
+        "P06_HANDLE_STATIC",
+        "P06_ROLLER_ACTOR",
+        "P06_SHOES_ACTOR",
+        "P06_TERMINAL_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 472758,
+      "realGLBBytes": 554916,
+      "actualEeveePreview": "art/hero-props/qa/P06_Backwards_Run_Gym_Treadmill.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "P08": {
+      "triangles": 56990,
+      "meshCount": 13,
+      "actorGroups": [
+        "P08_CRATER_STATIC",
+        "P08_MEDALS_ACTOR",
+        "P08_METEOR_ACTOR",
+        "P08_RIBBONS_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 822133,
+      "realGLBBytes": 1421020,
+      "actualEeveePreview": "art/hero-props/qa/P08_Sports_Medal_Meteor_Rain.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "X01": {
+      "triangles": 33424,
+      "meshCount": 13,
+      "actorGroups": [
+        "X01_CLOCK_DIAL_ACTOR",
+        "X01_GEARS_ACTOR",
+        "X01_REVERSE_HANDS_ACTOR",
+        "X01_TOWER_STATIC"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 595203,
+      "realGLBBytes": 849368,
+      "actualEeveePreview": "art/hero-props/qa/X01_Reversing_School_Clock_Tower.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "X04": {
+      "triangles": 27824,
+      "meshCount": 8,
+      "actorGroups": [
+        "X04_BED_STATIC",
+        "X04_PILLOW_ACTOR",
+        "X04_PROPHECY_NOTE_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 525781,
+      "realGLBBytes": 663788,
+      "actualEeveePreview": "art/hero-props/qa/X04_Lunchtime_Prophecy_Pillow.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "X06": {
+      "triangles": 33830,
+      "meshCount": 13,
+      "actorGroups": [
+        "X06_BOOK_ACTOR",
+        "X06_COPIES_ACTOR",
+        "X06_LCD_ACTOR",
+        "X06_PRINTER_STATIC",
+        "X06_SCANNER_LID_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 665342,
+      "realGLBBytes": 858564,
+      "actualEeveePreview": "art/hero-props/qa/X06_Morning_Reading_Duplicator.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "X07": {
+      "triangles": 29840,
+      "meshCount": 12,
+      "actorGroups": [
+        "X07_BOARD_STATIC",
+        "X07_CHAIR_ACTOR",
+        "X07_DESK_ACTOR",
+        "X07_DISAPPEARING_TEXT_ACTOR",
+        "X07_PAGES_ACTOR",
+        "X07_TEXTBOOK_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 627098,
+      "realGLBBytes": 757168,
+      "actualEeveePreview": "art/hero-props/qa/X07_Vanishing_Last_Classroom_Lesson.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "X08": {
+      "triangles": 43100,
+      "meshCount": 16,
+      "actorGroups": [
+        "X08_CAMPUS_GATE_STATIC",
+        "X08_CARD_SCANNER_ACTOR",
+        "X08_GUARD_ARMS_ACTOR",
+        "X08_GUARD_BODY_ACTOR",
+        "X08_GUARD_HEAD_ACTOR",
+        "X08_TIME_PASS_ACTOR",
+        "X08_TURNSTILE_ACTOR"
+      ],
+      "materials": 11,
+      "realBlenderSourceBytes": 850093,
+      "realGLBBytes": 1097116,
+      "actualEeveePreview": "art/hero-props/qa/X08_Campus_Gate_Time_Security_Guard.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    }
+  },
+  "release": "NO_GO",
+  "allVisualAccepted": false
+}

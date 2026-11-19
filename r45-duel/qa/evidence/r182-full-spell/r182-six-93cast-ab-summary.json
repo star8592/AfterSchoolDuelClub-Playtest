@@ -1,0 +1,677 @@
+{
+  "project": "AfterSchoolDuelClub",
+  "round": "R182",
+  "date": "2026-11-18",
+  "release": "NO_GO",
+  "real3DCandidatesBefore": 3,
+  "newReal3DCandidates": 6,
+  "real3DCandidatesAfter": 9,
+  "proceduralPlaceholdersRemain": 37,
+  "artistApproved": 0,
+  "mobileGpuApproved": false,
+  "original16SourceModelBytes": 75569762,
+  "sourceCards": 60,
+  "testedFullSpellEvents": 1116,
+  "testedUniqueSchoolSpellsEachRun": 46,
+  "oneNewGLBPerQaScene": true,
+  "fullBattleTestWithOldThreeHeroGlbs": true,
+  "gpuEnvironment": "Z890 RTX 5070Ti Chrome Vulkan CPUx2",
+  "notes": "Frame interval and LongTask sampled independently; never treat low RAF as proof of absence of JS stall. On-demand hero prewarming uses actual THREE.renderer.render, not compile-only. Not production default, not true Android.",
+  "assets": {
+    "K06": {
+      "geometry": {
+        "triangles": 19270,
+        "meshCount": 11,
+        "actorGroups": [
+          "K06_CHILI_ACTOR",
+          "K06_CUP_ACTOR",
+          "K06_STRAW_ACTOR"
+        ],
+        "materials": 10,
+        "realBlenderSourceBytes": 285016,
+        "realGLBBytes": 423612,
+        "actualEeveePreview": "art/hero-props/qa/K06_Volcano_Chili_Boba_Tea.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueStadium3D": true,
+      "movingGroups": [
+        "K06_CHILI_ACTOR",
+        "K06_CUP_ACTOR",
+        "K06_STRAW_ACTOR"
+      ],
+      "originalModels": 16,
+      "stadiumScreenshot": "evidence/r182-sculpted-props/K06/K06-in-stadium.png",
+      "gameDrawCalls": 437,
+      "casts": {
+        "cold": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 4690,
+          "firstCastMaxRafMs": 50,
+          "firstCastLongTaskMaxMs": 336,
+          "shaderDelta": 3,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "K06"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "K06",
+            "assetPath": "K06_Volcano_Chili_Boba_Tea.glb",
+            "meshCount": 11,
+            "loadMs": 16.4,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": null,
+          "twoSummonsGpuPrewarm": null,
+          "rawEvidence": "evidence/r182-full-spell/K06-cold-93-casts.json"
+        },
+        "warm": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 5327,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDelta": 2,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "K06"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "K06",
+            "assetPath": "K06_Volcano_Chili_Boba_Tea.glb",
+            "meshCount": 11,
+            "loadMs": 6,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": {
+            "id": "K06",
+            "renderFrames": 3,
+            "realMeshes": 11,
+            "batch": {
+              "id": "K06",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1007.5,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "twoSummonsGpuPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 416,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "rawEvidence": "evidence/r182-full-spell/K06-warm-93-casts.json"
+        }
+      },
+      "finalArtApproved": false,
+      "mobileAccepted": false
+    },
+    "Q05": {
+      "geometry": {
+        "triangles": 41432,
+        "meshCount": 12,
+        "actorGroups": [
+          "Q05_CHALK_ACTOR",
+          "Q05_DUST_ACTOR",
+          "Q05_MICROPHONE_ACTOR",
+          "Q05_PODIUM_STATIC"
+        ],
+        "materials": 10,
+        "realBlenderSourceBytes": 761883,
+        "realGLBBytes": 1029136,
+        "actualEeveePreview": "art/hero-props/qa/Q05_Chalk_Press_Conference.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueStadium3D": true,
+      "movingGroups": [
+        "Q05_CHALK_ACTOR",
+        "Q05_DUST_ACTOR",
+        "Q05_MICROPHONE_ACTOR"
+      ],
+      "originalModels": 16,
+      "stadiumScreenshot": "evidence/r182-sculpted-props/Q05/Q05-in-stadium.png",
+      "gameDrawCalls": 439,
+      "casts": {
+        "cold": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 5060,
+          "firstCastMaxRafMs": 66.7,
+          "firstCastLongTaskMaxMs": 353,
+          "shaderDelta": 3,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "Q05"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "Q05",
+            "assetPath": "Q05_Chalk_Press_Conference.glb",
+            "meshCount": 12,
+            "loadMs": 14.9,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": null,
+          "twoSummonsGpuPrewarm": null,
+          "rawEvidence": "evidence/r182-full-spell/Q05-cold-93-casts.json"
+        },
+        "warm": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 5283,
+          "firstCastMaxRafMs": 33.3,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDelta": 2,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "Q05"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "Q05",
+            "assetPath": "Q05_Chalk_Press_Conference.glb",
+            "meshCount": 12,
+            "loadMs": 12.3,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": {
+            "id": "Q05",
+            "renderFrames": 3,
+            "realMeshes": 12,
+            "batch": {
+              "id": "Q05",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 993.6,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "twoSummonsGpuPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 389.4,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "rawEvidence": "evidence/r182-full-spell/Q05-warm-93-casts.json"
+        }
+      },
+      "finalArtApproved": false,
+      "mobileAccepted": false
+    },
+    "P04": {
+      "geometry": {
+        "triangles": 10250,
+        "meshCount": 7,
+        "actorGroups": [
+          "P04_PENNANT_ACTOR",
+          "P04_WHISTLE_ACTOR"
+        ],
+        "materials": 6,
+        "realBlenderSourceBytes": 269536,
+        "realGLBBytes": 249524,
+        "actualEeveePreview": "art/hero-props/qa/P04_Mega_Sports_Whistle.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueStadium3D": true,
+      "movingGroups": [
+        "P04_PENNANT_ACTOR",
+        "P04_WHISTLE_ACTOR"
+      ],
+      "originalModels": 16,
+      "stadiumScreenshot": "evidence/r182-sculpted-props/P04/P04-in-stadium.png",
+      "gameDrawCalls": 422,
+      "casts": {
+        "cold": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 4664,
+          "firstCastMaxRafMs": 400,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDelta": 6,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "P04"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "P04",
+            "assetPath": "P04_Mega_Sports_Whistle.glb",
+            "meshCount": 7,
+            "loadMs": 6.9,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": null,
+          "twoSummonsGpuPrewarm": null,
+          "rawEvidence": "evidence/r182-full-spell/P04-cold-93-casts.json"
+        },
+        "warm": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 5284,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDelta": 2,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "P04"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "P04",
+            "assetPath": "P04_Mega_Sports_Whistle.glb",
+            "meshCount": 7,
+            "loadMs": 4.5,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": {
+            "id": "P04",
+            "renderFrames": 3,
+            "realMeshes": 7,
+            "batch": {
+              "id": "P04",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 982.9,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "twoSummonsGpuPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 405.3,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "rawEvidence": "evidence/r182-full-spell/P04-warm-93-casts.json"
+        }
+      },
+      "finalArtApproved": false,
+      "mobileAccepted": false
+    },
+    "S04": {
+      "geometry": {
+        "triangles": 43966,
+        "meshCount": 11,
+        "actorGroups": [
+          "S04_CRANK_ACTOR",
+          "S04_MACHINE_STATIC",
+          "S04_TEST_PAPER_ACTOR"
+        ],
+        "materials": 9,
+        "realBlenderSourceBytes": 795910,
+        "realGLBBytes": 1075828,
+        "actualEeveePreview": "art/hero-props/qa/S04_Wrong_Answer_Generator.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueStadium3D": true,
+      "movingGroups": [
+        "S04_CRANK_ACTOR",
+        "S04_TEST_PAPER_ACTOR"
+      ],
+      "originalModels": 16,
+      "stadiumScreenshot": "evidence/r182-sculpted-props/S04/S04-in-stadium.png",
+      "gameDrawCalls": 437,
+      "casts": {
+        "cold": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 4784,
+          "firstCastMaxRafMs": 66.6,
+          "firstCastLongTaskMaxMs": 358,
+          "shaderDelta": 3,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "S04"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "S04",
+            "assetPath": "S04_Wrong_Answer_Generator.glb",
+            "meshCount": 11,
+            "loadMs": 18.1,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": null,
+          "twoSummonsGpuPrewarm": null,
+          "rawEvidence": "evidence/r182-full-spell/S04-cold-93-casts.json"
+        },
+        "warm": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 5334,
+          "firstCastMaxRafMs": 33.3,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDelta": 2,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "S04"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "S04",
+            "assetPath": "S04_Wrong_Answer_Generator.glb",
+            "meshCount": 11,
+            "loadMs": 14.6,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": {
+            "id": "S04",
+            "renderFrames": 3,
+            "realMeshes": 11,
+            "batch": {
+              "id": "S04",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1019.7,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "twoSummonsGpuPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 407.3,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "rawEvidence": "evidence/r182-full-spell/S04-warm-93-casts.json"
+        }
+      },
+      "finalArtApproved": false,
+      "mobileAccepted": false
+    },
+    "P05": {
+      "geometry": {
+        "triangles": 18662,
+        "meshCount": 10,
+        "actorGroups": [
+          "P05_HOOP_ACTOR",
+          "P05_VOLLEYBALL_ACTOR"
+        ],
+        "materials": 9,
+        "realBlenderSourceBytes": 362115,
+        "realGLBBytes": 383556,
+        "actualEeveePreview": "art/hero-props/qa/P05_Volleyball_Basketball_Hoop.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueStadium3D": true,
+      "movingGroups": [
+        "P05_VOLLEYBALL_ACTOR"
+      ],
+      "originalModels": 16,
+      "stadiumScreenshot": "evidence/r182-sculpted-props/P05/P05-in-stadium.png",
+      "gameDrawCalls": 425,
+      "casts": {
+        "cold": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 4996,
+          "firstCastMaxRafMs": 50,
+          "firstCastLongTaskMaxMs": 335,
+          "shaderDelta": 3,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "P05"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "P05",
+            "assetPath": "P05_Volleyball_Basketball_Hoop.glb",
+            "meshCount": 10,
+            "loadMs": 5.6,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": null,
+          "twoSummonsGpuPrewarm": null,
+          "rawEvidence": "evidence/r182-full-spell/P05-cold-93-casts.json"
+        },
+        "warm": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 5672,
+          "firstCastMaxRafMs": 33.3,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDelta": 4,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "P05"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "P05",
+            "assetPath": "P05_Volleyball_Basketball_Hoop.glb",
+            "meshCount": 10,
+            "loadMs": 6.4,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": {
+            "id": "P05",
+            "renderFrames": 3,
+            "realMeshes": 10,
+            "batch": {
+              "id": "P05",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 966,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "twoSummonsGpuPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 403.1,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "rawEvidence": "evidence/r182-full-spell/P05-warm-93-casts.json"
+        }
+      },
+      "finalArtApproved": false,
+      "mobileAccepted": false
+    },
+    "X05": {
+      "geometry": {
+        "triangles": 15596,
+        "meshCount": 12,
+        "actorGroups": [
+          "X05_BOOK_ACTOR",
+          "X05_PAPER_GALAXY_ACTOR",
+          "X05_PENCIL_ACTOR"
+        ],
+        "materials": 8,
+        "realBlenderSourceBytes": 304564,
+        "realGLBBytes": 357352,
+        "actualEeveePreview": "art/hero-props/qa/X05_Homework_Paper_Galaxy.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueStadium3D": true,
+      "movingGroups": [
+        "X05_BOOK_ACTOR",
+        "X05_PAPER_GALAXY_ACTOR",
+        "X05_PENCIL_ACTOR"
+      ],
+      "originalModels": 16,
+      "stadiumScreenshot": "evidence/r182-sculpted-props/X05/X05-in-stadium.png",
+      "gameDrawCalls": 427,
+      "casts": {
+        "cold": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 4662,
+          "firstCastMaxRafMs": 50,
+          "firstCastLongTaskMaxMs": 325,
+          "shaderDelta": 3,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "X05"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "X05",
+            "assetPath": "X05_Homework_Paper_Galaxy.glb",
+            "meshCount": 12,
+            "loadMs": 6.3,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": null,
+          "twoSummonsGpuPrewarm": null,
+          "rawEvidence": "evidence/r182-full-spell/X05-cold-93-casts.json"
+        },
+        "warm": {
+          "passed": true,
+          "events": 93,
+          "identities": 46,
+          "firstFrameReadyMs": 5370,
+          "firstCastMaxRafMs": 33.3,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDelta": 2,
+          "authoredGLBs": [
+            "E06",
+            "K01",
+            "K07",
+            "X05"
+          ],
+          "selectedModel": {
+            "enabled": true,
+            "id": "X05",
+            "assetPath": "X05_Homework_Paper_Galaxy.glb",
+            "meshCount": 12,
+            "loadMs": 5.9,
+            "onlyOneNewHeroLoaded": true,
+            "sourceFidelity": true
+          },
+          "selectedGpuPrewarm": {
+            "id": "X05",
+            "renderFrames": 3,
+            "realMeshes": 12,
+            "batch": {
+              "id": "X05",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 983.4,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "twoSummonsGpuPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 392.2,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "rawEvidence": "evidence/r182-full-spell/X05-warm-93-casts.json"
+        }
+      },
+      "finalArtApproved": false,
+      "mobileAccepted": false
+    }
+  }
+}

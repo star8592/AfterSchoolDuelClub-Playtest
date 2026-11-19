@@ -1,0 +1,20 @@
+{
+  "id": "Q07",
+  "originalName": "教室里的第二个月亮",
+  "source": "Q07_Second_Cardboard_Classroom_Moon.blend",
+  "glb": "Q07_Second_Cardboard_Classroom_Moon.glb",
+  "render": "Q07_Second_Cardboard_Classroom_Moon.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 950443,
+  "glbBytes": 1554656,
+  "triangles": 61844,
+  "meshes": 9,
+  "materials": 8,
+  "actorGroups": [
+    "Q07_BACKGROUND_STATIC",
+    "Q07_CARDBOARD_MOON_ACTOR",
+    "Q07_REAL_MOON_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

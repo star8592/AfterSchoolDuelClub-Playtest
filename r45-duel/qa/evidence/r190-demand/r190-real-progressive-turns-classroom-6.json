@@ -1,0 +1,425 @@
+{
+  "test": "R190 real progressive cards and AI",
+  "seed": 6,
+  "deck": "classroom",
+  "rounds": [
+    {
+      "turn": 1,
+      "round": 2,
+      "actualAICards": [
+        "Q03",
+        "T01"
+      ],
+      "loadedGlbs": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "T01",
+        "G02"
+      ],
+      "requestedIDs": [
+        "T01",
+        "G02"
+      ],
+      "requestedCount": 2,
+      "canEndSafely": true,
+      "errors": null
+    },
+    {
+      "turn": 2,
+      "round": 3,
+      "actualAICards": [
+        "Q05"
+      ],
+      "loadedGlbs": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "requestedIDs": [
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "requestedCount": 3,
+      "canEndSafely": true,
+      "errors": null
+    },
+    {
+      "turn": 3,
+      "round": 4,
+      "actualAICards": [
+        "E03"
+      ],
+      "loadedGlbs": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "requestedIDs": [
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "requestedCount": 3,
+      "canEndSafely": true,
+      "errors": null
+    },
+    {
+      "turn": 4,
+      "round": 5,
+      "actualAICards": [
+        "Q08",
+        "E02",
+        "Q06"
+      ],
+      "loadedGlbs": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "requestedIDs": [
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "requestedCount": 3,
+      "canEndSafely": true,
+      "errors": null
+    },
+    {
+      "turn": 5,
+      "round": 6,
+      "actualAICards": [
+        "M02",
+        "Q01",
+        "T02"
+      ],
+      "loadedGlbs": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "requestedIDs": [
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "requestedCount": 3,
+      "canEndSafely": true,
+      "errors": null
+    }
+  ],
+  "errors": [],
+  "pass": true,
+  "initial": {
+    "round": 1,
+    "hand": [
+      "E01",
+      "E02",
+      "M02",
+      "T02",
+      "E03"
+    ],
+    "phase": "playing",
+    "board": {
+      "player": [
+        []
+      ],
+      "ai": [
+        []
+      ]
+    },
+    "stream": {
+      "enabled": true,
+      "readyIds": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "E01",
+        "G01"
+      ],
+      "allReady": false,
+      "backgroundMs": null,
+      "backgroundError": null,
+      "nextAiMissing": [
+        "T01"
+      ],
+      "canSafelyEndTurn": false,
+      "restrictedCardCount": 0
+    },
+    "demand": {
+      "enabled": true,
+      "requestedIDs": [
+        "T01"
+      ],
+      "requestsSent": 1,
+      "readyOriginals": [
+        "E02",
+        "M02",
+        "T02",
+        "E03"
+      ],
+      "allOriginalsLoaded": false,
+      "canSafelyEndTurn": false
+    },
+    "scene": {
+      "enabled": true,
+      "seed": 6,
+      "deck": "classroom",
+      "initialRealGLBs": [
+        "E02",
+        "M02",
+        "T02",
+        "E03"
+      ],
+      "deferredOriginalGLBs": [
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "T01",
+        "T03",
+        "T04"
+      ],
+      "initialCount": 4,
+      "fullModelCount": 12,
+      "bgConcurrency": 4,
+      "bgDelayMs": 0,
+      "demandOnly": true,
+      "demandConcurrency": 1,
+      "expectedSourceIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "hasNoProxy": true,
+      "loadedNow": [
+        "E02",
+        "M02",
+        "T02",
+        "E03"
+      ],
+      "backgroundStarted": true,
+      "allLoaded": false,
+      "backgroundError": null,
+      "loadedRealResources": 8,
+      "demandQueued": 0,
+      "demandActive": 1,
+      "demandCompleted": 0,
+      "demandFailed": 0,
+      "demandedIDs": [],
+      "cpuHeapMB": 156,
+      "gpuTextureObjects": 341,
+      "gpuGeometryObjects": 500
+    }
+  },
+  "final": {
+    "round": 6,
+    "hand": [
+      "E01",
+      "E02",
+      "M02",
+      "T02",
+      "E03",
+      "G02",
+      "Q06",
+      "E04"
+    ],
+    "phase": "playing",
+    "board": {
+      "player": [
+        []
+      ],
+      "ai": [
+        [
+          {
+            "uid": "U4",
+            "id": "T01",
+            "style": "tide",
+            "attack": 2,
+            "hp": 4,
+            "buff": 0,
+            "shield": 5,
+            "summonedAt": 1
+          },
+          {
+            "uid": "U11",
+            "id": "E03",
+            "style": "ember",
+            "attack": 3,
+            "hp": 5,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 3
+          },
+          {
+            "uid": "U16",
+            "id": "E02",
+            "style": "ember",
+            "attack": 2,
+            "hp": 4,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 4
+          },
+          {
+            "uid": "U24",
+            "id": "M02",
+            "style": "tide",
+            "attack": 3,
+            "hp": 6,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 5
+          },
+          {
+            "uid": "U28",
+            "id": "T02",
+            "style": "tide",
+            "attack": 2,
+            "hp": 3,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 5
+          }
+        ]
+      ]
+    },
+    "stream": {
+      "enabled": true,
+      "readyIds": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "E01",
+        "G01",
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "allReady": false,
+      "backgroundMs": null,
+      "backgroundError": null,
+      "nextAiMissing": [],
+      "canSafelyEndTurn": true,
+      "restrictedCardCount": 0
+    },
+    "demand": {
+      "enabled": true,
+      "requestedIDs": [
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "requestsSent": 3,
+      "readyOriginals": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "allOriginalsLoaded": false,
+      "canSafelyEndTurn": true
+    },
+    "scene": {
+      "enabled": true,
+      "seed": 6,
+      "deck": "classroom",
+      "initialRealGLBs": [
+        "E02",
+        "M02",
+        "T02",
+        "E03"
+      ],
+      "deferredOriginalGLBs": [
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "T01",
+        "T03",
+        "T04"
+      ],
+      "initialCount": 4,
+      "fullModelCount": 12,
+      "bgConcurrency": 4,
+      "bgDelayMs": 0,
+      "demandOnly": true,
+      "demandConcurrency": 1,
+      "expectedSourceIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "hasNoProxy": true,
+      "loadedNow": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "backgroundStarted": true,
+      "allLoaded": false,
+      "backgroundError": null,
+      "loadedRealResources": 11,
+      "demandQueued": 0,
+      "demandActive": 0,
+      "demandCompleted": 3,
+      "demandFailed": 0,
+      "demandedIDs": [
+        "T01",
+        "G02",
+        "E04"
+      ],
+      "cpuHeapMB": 179,
+      "gpuTextureObjects": 356,
+      "gpuGeometryObjects": 651
+    }
+  }
+}

@@ -1,0 +1,752 @@
+{
+  "revision": "R188",
+  "qaOnly": true,
+  "release": "NO_GO",
+  "originalSourceUnchanged": true,
+  "originalOwlOriginalBytes": 12317072,
+  "selectedCandidate": "barn",
+  "chosenReason": "92KB native skinned single mesh + 4 authored clips, mobile synthetic GPU frame stress improvement. Radio 1.6MB/no textures another option.",
+  "alternativeTotalAssetReductionBytes": 12225288,
+  "fullChromeGameRuns": 16,
+  "castEvents": 1488,
+  "requiresTrueAndroid": true,
+  "mainUnchanged": true,
+  "evidence": {
+    "desktop": {
+      "original": {
+        "runs": 2,
+        "startupMs": [
+          3995,
+          4075
+        ],
+        "maxRafMs": [
+          33.4,
+          33.4
+        ],
+        "maxLongTaskMs": [
+          318,
+          0
+        ],
+        "medianStartupMs": 4035,
+        "maxObservedRafMs": 33.4,
+        "maxObservedLongTaskMs": 318
+      },
+      "texture512": {
+        "runs": 2,
+        "startupMs": [
+          3736,
+          3679
+        ],
+        "maxRafMs": [
+          33.3,
+          33.4
+        ],
+        "maxLongTaskMs": [
+          0,
+          0
+        ],
+        "medianStartupMs": 3708,
+        "maxObservedRafMs": 33.4,
+        "maxObservedLongTaskMs": 0
+      },
+      "radio": {
+        "runs": 2,
+        "startupMs": [
+          3678,
+          3664
+        ],
+        "maxRafMs": [
+          33.3,
+          33.4
+        ],
+        "maxLongTaskMs": [
+          0,
+          0
+        ],
+        "medianStartupMs": 3671,
+        "maxObservedRafMs": 33.4,
+        "maxObservedLongTaskMs": 0
+      },
+      "barn": {
+        "runs": 2,
+        "startupMs": [
+          3749,
+          3748
+        ],
+        "maxRafMs": [
+          33.3,
+          33.4
+        ],
+        "maxLongTaskMs": [
+          0,
+          0
+        ],
+        "medianStartupMs": 3748,
+        "maxObservedRafMs": 33.4,
+        "maxObservedLongTaskMs": 0
+      }
+    },
+    "mobile": {
+      "original": {
+        "runs": 2,
+        "startupMs": [
+          7766,
+          7773
+        ],
+        "maxRafMs": [
+          616.6,
+          66.7
+        ],
+        "maxLongTaskMs": [
+          0,
+          604
+        ],
+        "medianStartupMs": 7770,
+        "maxObservedRafMs": 616.6,
+        "maxObservedLongTaskMs": 604
+      },
+      "texture512": {
+        "runs": 2,
+        "startupMs": [
+          7115,
+          7226
+        ],
+        "maxRafMs": [
+          150,
+          66.7
+        ],
+        "maxLongTaskMs": [
+          0,
+          104
+        ],
+        "medianStartupMs": 7170,
+        "maxObservedRafMs": 150,
+        "maxObservedLongTaskMs": 104
+      },
+      "radio": {
+        "runs": 2,
+        "startupMs": [
+          7385,
+          7166
+        ],
+        "maxRafMs": [
+          100,
+          66.7
+        ],
+        "maxLongTaskMs": [
+          0,
+          72
+        ],
+        "medianStartupMs": 7276,
+        "maxObservedRafMs": 100,
+        "maxObservedLongTaskMs": 72
+      },
+      "barn": {
+        "runs": 2,
+        "startupMs": [
+          7172,
+          7148
+        ],
+        "maxRafMs": [
+          83.3,
+          66.6
+        ],
+        "maxLongTaskMs": [
+          0,
+          57
+        ],
+        "medianStartupMs": 7160,
+        "maxObservedRafMs": 83.3,
+        "maxObservedLongTaskMs": 57
+      }
+    },
+    "original": {
+      "file": "T01-Owl-Innerscene-R84.glb",
+      "bytes": 12317072,
+      "meshCount": 129,
+      "materials": 12,
+      "images": 12,
+      "animations": 0,
+      "sha256": "96dc576cdc56bd14b030826818b7bbd7d3c26e074145304898ffc17f91520872"
+    },
+    "texture512": {
+      "file": "T01-Owl-Innerscene-R187-512.glb",
+      "bytes": 2528604,
+      "meshCount": 129,
+      "materials": 12,
+      "images": 12,
+      "animations": 0,
+      "sha256": "c865fa500d59b75fde8687bd26b31f9f4dadcbc85b5da2226c5bb85639a13315"
+    },
+    "radio": {
+      "file": "T01-BroadcastOwl-PolyforkRadio-R73.glb",
+      "bytes": 1610700,
+      "meshCount": 16,
+      "materials": 6,
+      "images": 0,
+      "animations": 4,
+      "sha256": "decb055cf33ef44a70ed41a40b92662e466100fa2e68f49c67319170f3634e1c"
+    },
+    "barn": {
+      "file": "T01-BroadcastOwl-BarnOwl.glb",
+      "bytes": 91784,
+      "meshCount": 1,
+      "materials": 1,
+      "images": 1,
+      "animations": 4,
+      "sha256": "6219f98a1582cba03bcfa45cdd9971c8e740a56eb2d4c7f873a8a10f28796fdb"
+    }
+  },
+  "runs": [
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owl512-altoff-herooff-desktop",
+      "variant": "texture512",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "startupMs": 3736,
+      "firstMaxRafMs": 33.3,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 66342900,
+      "source": "T01-Owl-Innerscene-R187-512.glb",
+      "rigPlayback": null,
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owl512-altoff-herooff-desktop.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owl512-altoff-herooff-mobile",
+      "variant": "texture512",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "startupMs": 7115,
+      "firstMaxRafMs": 150,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 66342900,
+      "source": "T01-Owl-Innerscene-R187-512.glb",
+      "rigPlayback": null,
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owl512-altoff-herooff-mobile.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owl512-altoff-runfinal2-herooff-desktop",
+      "variant": "texture512",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "startupMs": 3679,
+      "firstMaxRafMs": 33.4,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 66342900,
+      "source": "T01-Owl-Innerscene-R187-512.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 129,
+        "actualClips": 0,
+        "playingClips": [],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "realSourceFeatherRig": {
+          "enabled": true,
+          "sourceGeometry": true,
+          "sourceMeshes": 129,
+          "wingMeshCounts": [
+            29,
+            29
+          ],
+          "eyeMeshCounts": [
+            3,
+            3
+          ],
+          "tuftMeshCounts": [
+            3,
+            3
+          ],
+          "tailMeshCount": 8,
+          "active": "idle",
+          "frames": 1,
+          "movingFrames": 0,
+          "peakWingAngle": 0.059,
+          "peakTipVertexTravel": 0.0081,
+          "peakEyeMovement": 0.00132,
+          "sourceWingGroups": [
+            "R127_RealSourceWing_0",
+            "R127_RealSourceWing_1"
+          ],
+          "reduced": false
+        }
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owl512-altoff-runfinal2-herooff-desktop.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owl512-altoff-runfinal2-herooff-mobile",
+      "variant": "texture512",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "startupMs": 7226,
+      "firstMaxRafMs": 66.7,
+      "longTaskMaxMs": 104,
+      "originalAssetsCount": 16,
+      "loadedBytes": 66342900,
+      "source": "T01-Owl-Innerscene-R187-512.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 129,
+        "actualClips": 0,
+        "playingClips": [],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.27,
+          -0.01
+        ],
+        "realSourceFeatherRig": {
+          "enabled": true,
+          "sourceGeometry": true,
+          "sourceMeshes": 129,
+          "wingMeshCounts": [
+            29,
+            29
+          ],
+          "eyeMeshCounts": [
+            3,
+            3
+          ],
+          "tuftMeshCounts": [
+            3,
+            3
+          ],
+          "tailMeshCount": 8,
+          "active": "idle",
+          "frames": 0,
+          "movingFrames": 0,
+          "peakWingAngle": 0,
+          "peakTipVertexTravel": 0,
+          "peakEyeMovement": 0,
+          "sourceWingGroups": [
+            "R127_RealSourceWing_0",
+            "R127_RealSourceWing_1"
+          ],
+          "reduced": false
+        }
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owl512-altoff-runfinal2-herooff-mobile.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-herooff-desktop",
+      "variant": "barn",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "startupMs": 3749,
+      "firstMaxRafMs": 33.3,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 63906080,
+      "source": "T01-BroadcastOwl-BarnOwl.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 1,
+        "actualClips": 4,
+        "playingClips": [
+          "idle"
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "realSourceFeatherRig": null
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-herooff-desktop.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-herooff-mobile",
+      "variant": "barn",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "startupMs": 7172,
+      "firstMaxRafMs": 83.3,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 63906080,
+      "source": "T01-BroadcastOwl-BarnOwl.glb",
+      "rigPlayback": null,
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-herooff-mobile.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-runfinal2-herooff-desktop",
+      "variant": "barn",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "startupMs": 3748,
+      "firstMaxRafMs": 33.4,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 63906080,
+      "source": "T01-BroadcastOwl-BarnOwl.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 1,
+        "actualClips": 4,
+        "playingClips": [
+          "idle"
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "realSourceFeatherRig": null
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-runfinal2-herooff-desktop.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-runfinal2-herooff-mobile",
+      "variant": "barn",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "startupMs": 7148,
+      "firstMaxRafMs": 66.6,
+      "longTaskMaxMs": 57,
+      "originalAssetsCount": 16,
+      "loadedBytes": 63906080,
+      "source": "T01-BroadcastOwl-BarnOwl.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 1,
+        "actualClips": 4,
+        "playingClips": [
+          "idle"
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.27,
+          -0.01
+        ],
+        "realSourceFeatherRig": null
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altbarn-runfinal2-herooff-mobile.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altoff-herooff-desktop",
+      "variant": "original",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "startupMs": 3995,
+      "firstMaxRafMs": 33.4,
+      "longTaskMaxMs": 318,
+      "originalAssetsCount": 16,
+      "loadedBytes": 75569762,
+      "source": "T01-Owl-Innerscene-R84.glb",
+      "rigPlayback": null,
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altoff-herooff-desktop.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altoff-herooff-mobile",
+      "variant": "original",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "startupMs": 7766,
+      "firstMaxRafMs": 616.6,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 75569762,
+      "source": "T01-Owl-Innerscene-R84.glb",
+      "rigPlayback": null,
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altoff-herooff-mobile.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altoff-runfinal2-herooff-desktop",
+      "variant": "original",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "startupMs": 4075,
+      "firstMaxRafMs": 33.4,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 75569762,
+      "source": "T01-Owl-Innerscene-R84.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 129,
+        "actualClips": 0,
+        "playingClips": [],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "realSourceFeatherRig": {
+          "enabled": true,
+          "sourceGeometry": true,
+          "sourceMeshes": 129,
+          "wingMeshCounts": [
+            29,
+            29
+          ],
+          "eyeMeshCounts": [
+            3,
+            3
+          ],
+          "tuftMeshCounts": [
+            3,
+            3
+          ],
+          "tailMeshCount": 8,
+          "active": "idle",
+          "frames": 1,
+          "movingFrames": 0,
+          "peakWingAngle": 0.0588,
+          "peakTipVertexTravel": 0.0081,
+          "peakEyeMovement": 0.0013,
+          "sourceWingGroups": [
+            "R127_RealSourceWing_0",
+            "R127_RealSourceWing_1"
+          ],
+          "reduced": false
+        }
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altoff-runfinal2-herooff-desktop.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altoff-runfinal2-herooff-mobile",
+      "variant": "original",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "startupMs": 7773,
+      "firstMaxRafMs": 66.7,
+      "longTaskMaxMs": 604,
+      "originalAssetsCount": 16,
+      "loadedBytes": 75569762,
+      "source": "T01-Owl-Innerscene-R84.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 129,
+        "actualClips": 0,
+        "playingClips": [],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.27,
+          -0.01
+        ],
+        "realSourceFeatherRig": {
+          "enabled": true,
+          "sourceGeometry": true,
+          "sourceMeshes": 129,
+          "wingMeshCounts": [
+            29,
+            29
+          ],
+          "eyeMeshCounts": [
+            3,
+            3
+          ],
+          "tuftMeshCounts": [
+            3,
+            3
+          ],
+          "tailMeshCount": 8,
+          "active": "idle",
+          "frames": 0,
+          "movingFrames": 0,
+          "peakWingAngle": 0,
+          "peakTipVertexTravel": 0,
+          "peakEyeMovement": 0,
+          "sourceWingGroups": [
+            "R127_RealSourceWing_0",
+            "R127_RealSourceWing_1"
+          ],
+          "reduced": false
+        }
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altoff-runfinal2-herooff-mobile.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altradio-herooff-desktop",
+      "variant": "radio",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "startupMs": 3678,
+      "firstMaxRafMs": 33.3,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 65424996,
+      "source": "T01-BroadcastOwl-PolyforkRadio-R73.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 16,
+        "actualClips": 4,
+        "playingClips": [
+          "Idle"
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "realSourceFeatherRig": null
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altradio-herooff-desktop.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altradio-herooff-mobile",
+      "variant": "radio",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "startupMs": 7385,
+      "firstMaxRafMs": 100,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 65424996,
+      "source": "T01-BroadcastOwl-PolyforkRadio-R73.glb",
+      "rigPlayback": null,
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altradio-herooff-mobile.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altradio-runfinal2-herooff-desktop",
+      "variant": "radio",
+      "view": "desktop",
+      "cpuThrottle": 2,
+      "startupMs": 3664,
+      "firstMaxRafMs": 33.4,
+      "longTaskMaxMs": 0,
+      "originalAssetsCount": 16,
+      "loadedBytes": 65424996,
+      "source": "T01-BroadcastOwl-PolyforkRadio-R73.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 16,
+        "actualClips": 4,
+        "playingClips": [
+          "Idle"
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "realSourceFeatherRig": null
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altradio-runfinal2-herooff-desktop.json"
+    },
+    {
+      "case": "T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altradio-runfinal2-herooff-mobile",
+      "variant": "radio",
+      "view": "mobile",
+      "cpuThrottle": 4,
+      "startupMs": 7166,
+      "firstMaxRafMs": 66.7,
+      "longTaskMaxMs": 72,
+      "originalAssetsCount": 16,
+      "loadedBytes": 65424996,
+      "source": "T01-BroadcastOwl-PolyforkRadio-R73.glb",
+      "rigPlayback": {
+        "loaded": true,
+        "visible": true,
+        "actualMeshes": 16,
+        "actualClips": 4,
+        "playingClips": [
+          "Idle"
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "screen": [
+          -0.27,
+          -0.01
+        ],
+        "realSourceFeatherRig": null
+      },
+      "eventCount": 93,
+      "pass": true,
+      "receipt": "qa/evidence/r188-light-owl/real-browser-runs/T01-E03-hairON-off-P01-selectedcold-interleaveoff-owloff-altradio-runfinal2-herooff-mobile.json"
+    }
+  ],
+  "ignoredFailedExperiments": [],
+  "caveats": [
+    "Nonrandomized repeated Chrome runs, not independent devices",
+    "rAF timing and PerformanceObserver LongTask represent different measurements",
+    "430×900 Android-like viewport uses desktop RTX5070Ti with CPU×4, not Android GPU",
+    "Original art 129-mesh owl R127 geometry-dependent feather motion is replaced by native four-clip skeletal animation in alternatives",
+    "Visible actor in normal stadium view; no high-zoom visual signoff",
+    "Still loads all 16 original characters and most assets before playable",
+    "QA only, old original and old R147 player build unaffected"
+  ]
+}

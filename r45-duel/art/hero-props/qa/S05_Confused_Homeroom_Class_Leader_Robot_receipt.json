@@ -1,0 +1,21 @@
+{
+  "id": "S05",
+  "originalName": "乌龙机器人班长",
+  "source": "S05_Confused_Homeroom_Class_Leader_Robot.blend",
+  "glb": "S05_Confused_Homeroom_Class_Leader_Robot.glb",
+  "render": "S05_Confused_Homeroom_Class_Leader_Robot.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 721412,
+  "glbBytes": 869844,
+  "triangles": 33212,
+  "meshes": 14,
+  "materials": 9,
+  "actorGroups": [
+    "S05_ATTENDANCE_LIST_ACTOR",
+    "S05_ROBOT_ARMS_ACTOR",
+    "S05_ROBOT_BODY_ACTOR",
+    "S05_ROBOT_HEAD_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

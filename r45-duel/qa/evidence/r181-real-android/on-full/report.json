@@ -1,0 +1,12 @@
+{
+  "batch": "on",
+  "full": true,
+  "device": "Samsung SM-G9910 Android 15 Chrome 157 genuine GPU",
+  "remoteDebug": "ADB USB CDP, no simulator",
+  "errors": [
+    "Error: page.waitForFunction: Target crashed "
+  ],
+  "pass": false,
+  "testUrl": "http://127.0.0.1:18681/r45-duel/?qa=1&seed=173&r180StadiumBatch=on&r181HairBatch=on&r122Crowd=off&r169SchoolMagic=on&r175HeroE06=on&r178HeroK01=on&r179HeroK07=on&r172BatchStatic=on",
+  "failure": "Error: page.waitForFunction: Target crashed "
+}

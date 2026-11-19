@@ -1,0 +1,65 @@
+{
+  "mode": "off",
+  "view": "desktop",
+  "run": 1,
+  "errors": [],
+  "batch": {
+    "enabled": false
+  },
+  "render": {
+    "drawCallsLastFrame": 734,
+    "estimatedMeshes": 758,
+    "roots": [
+      {
+        "name": "R45_Real_3D_Stadium",
+        "meshCount": 473,
+        "skinned": 10,
+        "instanced": 14,
+        "materials": 473,
+        "groups": 81
+      },
+      {
+        "name": "R74_PERMANENT_DUELIST_G01",
+        "meshCount": 131,
+        "skinned": 131,
+        "instanced": 0,
+        "materials": 131,
+        "groups": 6
+      },
+      {
+        "name": "R74_PERMANENT_DUELIST_E01",
+        "meshCount": 124,
+        "skinned": 124,
+        "instanced": 0,
+        "materials": 124,
+        "groups": 6
+      },
+      {
+        "name": "R123_Persistent_Real_Spectator_Props",
+        "meshCount": 27,
+        "skinned": 0,
+        "instanced": 4,
+        "materials": 27,
+        "groups": 9
+      },
+      {
+        "name": "R81_Real_Time_Stadium_Jumbotron",
+        "meshCount": 3,
+        "skinned": 0,
+        "instanced": 0,
+        "materials": 3,
+        "groups": 1
+      }
+    ]
+  },
+  "sourceModels": 16,
+  "sourceBytes": 75569762,
+  "readyMs": 4370,
+  "art": [
+    "E06",
+    "K01",
+    "K07"
+  ],
+  "noFloatingPortrait": true,
+  "pass": true
+}

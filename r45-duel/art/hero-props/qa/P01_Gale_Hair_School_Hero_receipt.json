@@ -1,0 +1,23 @@
+{
+  "id": "P01",
+  "originalName": "狂风炸毛超人",
+  "source": "P01_Gale_Hair_School_Hero.blend",
+  "glb": "P01_Gale_Hair_School_Hero.glb",
+  "render": "P01_Gale_Hair_School_Hero.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 598157,
+  "glbBytes": 786824,
+  "triangles": 32508,
+  "meshes": 13,
+  "materials": 10,
+  "actorGroups": [
+    "P01_ARMS_ACTOR",
+    "P01_BODY_ACTOR",
+    "P01_CAPE_ACTOR",
+    "P01_HAIR_ACTOR",
+    "P01_HEAD_ACTOR",
+    "P01_LEGS_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

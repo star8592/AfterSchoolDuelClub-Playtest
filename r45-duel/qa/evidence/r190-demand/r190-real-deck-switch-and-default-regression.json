@@ -1,0 +1,33 @@
+{
+  "case": "R190 deck-switch and unflagged original source QA",
+  "pass": true,
+  "errors": [],
+  "next": {
+    "deck": "kitchen",
+    "actualModelIDs": [
+      "T01",
+      "E02",
+      "E04",
+      "M01",
+      "G03"
+    ],
+    "expectedModelIDs": [
+      "T01",
+      "E02",
+      "E04",
+      "M01",
+      "G03"
+    ],
+    "sourceModelCount": 5,
+    "authenticSameSeed": true,
+    "demandOnly": true,
+    "sceneReady": true,
+    "modelIdentityCorrect": true
+  },
+  "default": {
+    "sceneReady": true,
+    "r190": false,
+    "glbs": 12,
+    "all16": 16
+  }
+}

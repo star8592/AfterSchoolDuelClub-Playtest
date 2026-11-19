@@ -1,0 +1,23 @@
+{
+  "id": "X07",
+  "originalName": "消失的最后一节课",
+  "source": "X07_Vanishing_Last_Classroom_Lesson.blend",
+  "glb": "X07_Vanishing_Last_Classroom_Lesson.glb",
+  "render": "X07_Vanishing_Last_Classroom_Lesson.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 627098,
+  "glbBytes": 757168,
+  "triangles": 29840,
+  "meshes": 12,
+  "materials": 8,
+  "actorGroups": [
+    "X07_BOARD_STATIC",
+    "X07_CHAIR_ACTOR",
+    "X07_DESK_ACTOR",
+    "X07_DISAPPEARING_TEXT_ACTOR",
+    "X07_PAGES_ACTOR",
+    "X07_TEXTBOOK_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

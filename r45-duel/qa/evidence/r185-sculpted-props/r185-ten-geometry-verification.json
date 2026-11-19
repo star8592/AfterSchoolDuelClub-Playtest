@@ -1,0 +1,173 @@
+{
+  "date": "2026-11-19",
+  "tool": "Blender5.2.3 native",
+  "items": {
+    "G06": {
+      "triangles": 21768,
+      "meshCount": 10,
+      "actorGroups": [
+        "G06_BOOK_ACTOR",
+        "G06_PAGE_TURN_ACTOR",
+        "G06_POPUP_SCENE_ACTOR"
+      ],
+      "materials": 7,
+      "realBlenderSourceBytes": 455492,
+      "realGLBBytes": 547288,
+      "actualEeveePreview": "art/hero-props/qa/G06_Second_Page_PopUp_School_Plan.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "T05": {
+      "triangles": 11752,
+      "meshCount": 9,
+      "actorGroups": [
+        "T05_SOUP_BOWL_ACTOR",
+        "T05_SPOON_ACTOR",
+        "T05_STEAM_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 210125,
+      "realGLBBytes": 244420,
+      "actualEeveePreview": "art/hero-props/qa/T05_Heartwarming_Cafeteria_Chef_Soup.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "K05": {
+      "triangles": 58648,
+      "meshCount": 10,
+      "actorGroups": [
+        "K05_AIR_CURRENT_ACTOR",
+        "K05_EMPTY_BOWL_ACTOR",
+        "K05_EMPTY_MENU_ACTOR",
+        "K05_SPOON_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 1069017,
+      "realGLBBytes": 1443396,
+      "actualEeveePreview": "art/hero-props/qa/K05_Invisible_Air_Soup_Bowl.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "Q03": {
+      "triangles": 13620,
+      "meshCount": 9,
+      "actorGroups": [
+        "Q03_BOARD_STATIC",
+        "Q03_CHALK_HAND_ACTOR",
+        "Q03_EYES_ACTOR",
+        "Q03_WRITING_ACTOR"
+      ],
+      "materials": 7,
+      "realBlenderSourceBytes": 344881,
+      "realGLBBytes": 351612,
+      "actualEeveePreview": "art/hero-props/qa/Q03_Dreaming_School_Blackboard.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "Q04": {
+      "triangles": 25616,
+      "meshCount": 10,
+      "actorGroups": [
+        "Q04_GLASS_ACTOR",
+        "Q04_PHONE_ACTOR",
+        "Q04_SPEAKER_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 556082,
+      "realGLBBytes": 643844,
+      "actualEeveePreview": "art/hero-props/qa/Q04_Embarrassing_Dormitory_Public_Play.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "Q07": {
+      "triangles": 61844,
+      "meshCount": 9,
+      "actorGroups": [
+        "Q07_BACKGROUND_STATIC",
+        "Q07_CARDBOARD_MOON_ACTOR",
+        "Q07_REAL_MOON_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 950443,
+      "realGLBBytes": 1554656,
+      "actualEeveePreview": "art/hero-props/qa/Q07_Second_Cardboard_Classroom_Moon.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "Q08": {
+      "triangles": 42516,
+      "meshCount": 7,
+      "actorGroups": [
+        "Q08_CHALK_PRISON_ACTOR",
+        "Q08_CHALK_STICK_ACTOR",
+        "Q08_FLOOR_STATIC",
+        "Q08_LOCK_ACTOR"
+      ],
+      "materials": 6,
+      "realBlenderSourceBytes": 762772,
+      "realGLBBytes": 1055168,
+      "actualEeveePreview": "art/hero-props/qa/Q08_Chalk_Draw_Prison.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "S02": {
+      "triangles": 16824,
+      "meshCount": 12,
+      "actorGroups": [
+        "S02_CASE_BODY_ACTOR",
+        "S02_LID_ACTOR",
+        "S02_ONLY_PENCIL_ACTOR"
+      ],
+      "materials": 10,
+      "realBlenderSourceBytes": 456419,
+      "realGLBBytes": 435832,
+      "actualEeveePreview": "art/hero-props/qa/S02_One_Pencil_Tiny_Stationery_Case.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "S05": {
+      "triangles": 33212,
+      "meshCount": 14,
+      "actorGroups": [
+        "S05_ATTENDANCE_LIST_ACTOR",
+        "S05_ROBOT_ARMS_ACTOR",
+        "S05_ROBOT_BODY_ACTOR",
+        "S05_ROBOT_HEAD_ACTOR"
+      ],
+      "materials": 9,
+      "realBlenderSourceBytes": 721412,
+      "realGLBBytes": 869844,
+      "actualEeveePreview": "art/hero-props/qa/S05_Confused_Homeroom_Class_Leader_Robot.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    },
+    "S07": {
+      "triangles": 21868,
+      "meshCount": 10,
+      "actorGroups": [
+        "S07_BELL_ACTOR",
+        "S07_CLAPPER_ACTOR",
+        "S07_CORRIDOR_DOORS_ACTOR",
+        "S07_TIMETABLE_ACTOR"
+      ],
+      "materials": 8,
+      "realBlenderSourceBytes": 533252,
+      "realGLBBytes": 546684,
+      "actualEeveePreview": "art/hero-props/qa/S07_School_Bell_Time_Wormhole.png",
+      "technicalSourceVerified": true,
+      "gameRuntimeTested": false,
+      "visualAccepted": false
+    }
+  },
+  "release": "NO_GO",
+  "allVisualAccepted": false
+}

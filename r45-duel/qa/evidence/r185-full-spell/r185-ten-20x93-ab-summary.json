@@ -1,0 +1,970 @@
+{
+  "round": "R185",
+  "date": "2026-11-19",
+  "release": "NO_GO",
+  "newTrueEditableBlenderCandidates": 10,
+  "priorTrueEditableBlenderCandidates": 27,
+  "totalTrueEditableBlenderCandidates": 37,
+  "remainingProceduralPlaceholders": 9,
+  "totalUniqueMagicCards": 46,
+  "all46FinalVisualApproved": 0,
+  "fullDesktopGameABRuns": 20,
+  "allSpellEvents": 1860,
+  "all46IdentitiesPerRun": true,
+  "all46AudioPatternsPerRun": true,
+  "newOriginalSynthFoley": 10,
+  "newHumanRecordedFoley": 0,
+  "newCharacterVoiceRecords": 0,
+  "realAndroidTested": false,
+  "onlyOneNewGLBPerQA": true,
+  "hardware": "Z890 RTX5070Ti Chrome Vulkan WebGL2 CPU x2; not Android",
+  "limits": "20 single-run samples, no randomization. rAF interval differs from LongTask. GPU priming raises first-scene startup time; not default. All 37 artworks remain candidates, none visual accepted.",
+  "items": {
+    "G06": {
+      "realBlenderTopology": {
+        "triangles": 21768,
+        "meshCount": 10,
+        "actorGroups": [
+          "G06_BOOK_ACTOR",
+          "G06_PAGE_TURN_ACTOR",
+          "G06_POPUP_SCENE_ACTOR"
+        ],
+        "materials": 7,
+        "realBlenderSourceBytes": 455492,
+        "realGLBBytes": 547288,
+        "actualEeveePreview": "art/hero-props/qa/G06_Second_Page_PopUp_School_Plan.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "G06_BOOK_ACTOR",
+        "G06_PAGE_TURN_ACTOR",
+        "G06_POPUP_SCENE_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/G06/G06-in-stadium.png",
+      "drawCalls": 425,
+      "foleyAsset": {
+        "file": "r185_g06.ogg",
+        "bytes": 14261,
+        "sha256": "dd3e295d42b7bedf53c107a16fe9c8c8cc8e12b1787df5c040c0769cf43291db",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4301,
+          "firstCastMaxRafMs": 350,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 6,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/G06-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5553,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 2,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 426.1,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "G06",
+            "renderFrames": 3,
+            "realMeshes": 10,
+            "batch": {
+              "id": "G06",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1079,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/G06-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "T05": {
+      "realBlenderTopology": {
+        "triangles": 11752,
+        "meshCount": 9,
+        "actorGroups": [
+          "T05_SOUP_BOWL_ACTOR",
+          "T05_SPOON_ACTOR",
+          "T05_STEAM_ACTOR"
+        ],
+        "materials": 9,
+        "realBlenderSourceBytes": 210125,
+        "realGLBBytes": 244420,
+        "actualEeveePreview": "art/hero-props/qa/T05_Heartwarming_Cafeteria_Chef_Soup.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "T05_SOUP_BOWL_ACTOR",
+        "T05_SPOON_ACTOR",
+        "T05_STEAM_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/T05/T05-in-stadium.png",
+      "drawCalls": 424,
+      "foleyAsset": {
+        "file": "r185_t05.ogg",
+        "bytes": 14378,
+        "sha256": "eebdf0dc8d7e07583dc43f1c9dcac38b64a9ad50bdc61b96f14260b490a61a7c",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4405,
+          "firstCastMaxRafMs": 50,
+          "firstCastLongTaskMaxMs": 336,
+          "firstCastShaderDelta": 3,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/T05-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5601,
+          "firstCastMaxRafMs": 33.3,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 4,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 437.5,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "T05",
+            "renderFrames": 3,
+            "realMeshes": 9,
+            "batch": {
+              "id": "T05",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1104.5,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/T05-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "K05": {
+      "realBlenderTopology": {
+        "triangles": 58648,
+        "meshCount": 10,
+        "actorGroups": [
+          "K05_AIR_CURRENT_ACTOR",
+          "K05_EMPTY_BOWL_ACTOR",
+          "K05_EMPTY_MENU_ACTOR",
+          "K05_SPOON_ACTOR"
+        ],
+        "materials": 9,
+        "realBlenderSourceBytes": 1069017,
+        "realGLBBytes": 1443396,
+        "actualEeveePreview": "art/hero-props/qa/K05_Invisible_Air_Soup_Bowl.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "K05_AIR_CURRENT_ACTOR",
+        "K05_EMPTY_BOWL_ACTOR",
+        "K05_EMPTY_MENU_ACTOR",
+        "K05_SPOON_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/K05/K05-in-stadium.png",
+      "drawCalls": 425,
+      "foleyAsset": {
+        "file": "r185_k05.ogg",
+        "bytes": 11448,
+        "sha256": "1a2ef203701d887f896ddaa371bab7a29c294feb3d1a3bccc9d9b65bb8404900",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4332,
+          "firstCastMaxRafMs": 366.7,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 6,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/K05-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5484,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 2,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 413.3,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "K05",
+            "renderFrames": 3,
+            "realMeshes": 10,
+            "batch": {
+              "id": "K05",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1098.7,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/K05-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "Q03": {
+      "realBlenderTopology": {
+        "triangles": 13620,
+        "meshCount": 9,
+        "actorGroups": [
+          "Q03_BOARD_STATIC",
+          "Q03_CHALK_HAND_ACTOR",
+          "Q03_EYES_ACTOR",
+          "Q03_WRITING_ACTOR"
+        ],
+        "materials": 7,
+        "realBlenderSourceBytes": 344881,
+        "realGLBBytes": 351612,
+        "actualEeveePreview": "art/hero-props/qa/Q03_Dreaming_School_Blackboard.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "Q03_CHALK_HAND_ACTOR",
+        "Q03_EYES_ACTOR",
+        "Q03_WRITING_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/Q03/Q03-in-stadium.png",
+      "drawCalls": 424,
+      "foleyAsset": {
+        "file": "r185_q03.ogg",
+        "bytes": 12844,
+        "sha256": "6c635f2872a65396b8480b56f4c00dec345d9b8dca90a86c98dc58679c8ee3ee",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4329,
+          "firstCastMaxRafMs": 50.1,
+          "firstCastLongTaskMaxMs": 341,
+          "firstCastShaderDelta": 3,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/Q03-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5578,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 2,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 426.6,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "Q03",
+            "renderFrames": 3,
+            "realMeshes": 9,
+            "batch": {
+              "id": "Q03",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1138,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/Q03-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "Q04": {
+      "realBlenderTopology": {
+        "triangles": 25616,
+        "meshCount": 10,
+        "actorGroups": [
+          "Q04_GLASS_ACTOR",
+          "Q04_PHONE_ACTOR",
+          "Q04_SPEAKER_ACTOR"
+        ],
+        "materials": 9,
+        "realBlenderSourceBytes": 556082,
+        "realGLBBytes": 643844,
+        "actualEeveePreview": "art/hero-props/qa/Q04_Embarrassing_Dormitory_Public_Play.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "Q04_GLASS_ACTOR",
+        "Q04_PHONE_ACTOR",
+        "Q04_SPEAKER_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/Q04/Q04-in-stadium.png",
+      "drawCalls": 425,
+      "foleyAsset": {
+        "file": "r185_q04.ogg",
+        "bytes": 10830,
+        "sha256": "21276a5d6359aa9dfe686102533fdaca49a99a2410dc9a8f9c1c9e516786fc71",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4097,
+          "firstCastMaxRafMs": 50,
+          "firstCastLongTaskMaxMs": 327,
+          "firstCastShaderDelta": 3,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/Q04-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5280,
+          "firstCastMaxRafMs": 33.3,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 2,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 409.5,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "Q04",
+            "renderFrames": 3,
+            "realMeshes": 10,
+            "batch": {
+              "id": "Q04",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 979,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/Q04-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "Q07": {
+      "realBlenderTopology": {
+        "triangles": 61844,
+        "meshCount": 9,
+        "actorGroups": [
+          "Q07_BACKGROUND_STATIC",
+          "Q07_CARDBOARD_MOON_ACTOR",
+          "Q07_REAL_MOON_ACTOR"
+        ],
+        "materials": 8,
+        "realBlenderSourceBytes": 950443,
+        "realGLBBytes": 1554656,
+        "actualEeveePreview": "art/hero-props/qa/Q07_Second_Cardboard_Classroom_Moon.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "Q07_CARDBOARD_MOON_ACTOR",
+        "Q07_REAL_MOON_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/Q07/Q07-in-stadium.png",
+      "drawCalls": 424,
+      "foleyAsset": {
+        "file": "r185_q07.ogg",
+        "bytes": 13789,
+        "sha256": "ae01c4c511db271ca67fcf37ce092d51eff9999f8969452cc7e359a0d4c80ea1",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4053,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 333,
+          "firstCastShaderDelta": 3,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/Q07-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5273,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 2,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 395.9,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "Q07",
+            "renderFrames": 3,
+            "realMeshes": 9,
+            "batch": {
+              "id": "Q07",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 973.8,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/Q07-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "Q08": {
+      "realBlenderTopology": {
+        "triangles": 42516,
+        "meshCount": 7,
+        "actorGroups": [
+          "Q08_CHALK_PRISON_ACTOR",
+          "Q08_CHALK_STICK_ACTOR",
+          "Q08_FLOOR_STATIC",
+          "Q08_LOCK_ACTOR"
+        ],
+        "materials": 6,
+        "realBlenderSourceBytes": 762772,
+        "realGLBBytes": 1055168,
+        "actualEeveePreview": "art/hero-props/qa/Q08_Chalk_Draw_Prison.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "Q08_CHALK_PRISON_ACTOR",
+        "Q08_CHALK_STICK_ACTOR",
+        "Q08_LOCK_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/Q08/Q08-in-stadium.png",
+      "drawCalls": 422,
+      "foleyAsset": {
+        "file": "r185_q08.ogg",
+        "bytes": 12852,
+        "sha256": "4c108c3d44c31451b29ab673109dcc835c154501b026490aae77fbec73d9b015",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4362,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 377,
+          "firstCastShaderDelta": 3,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/Q08-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5227,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 4,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 394.8,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "Q08",
+            "renderFrames": 3,
+            "realMeshes": 7,
+            "batch": {
+              "id": "Q08",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 973.4,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/Q08-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "S02": {
+      "realBlenderTopology": {
+        "triangles": 16824,
+        "meshCount": 12,
+        "actorGroups": [
+          "S02_CASE_BODY_ACTOR",
+          "S02_LID_ACTOR",
+          "S02_ONLY_PENCIL_ACTOR"
+        ],
+        "materials": 10,
+        "realBlenderSourceBytes": 456419,
+        "realGLBBytes": 435832,
+        "actualEeveePreview": "art/hero-props/qa/S02_One_Pencil_Tiny_Stationery_Case.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "S02_CASE_BODY_ACTOR",
+        "S02_LID_ACTOR",
+        "S02_ONLY_PENCIL_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/S02/S02-in-stadium.png",
+      "drawCalls": 427,
+      "foleyAsset": {
+        "file": "r185_s02.ogg",
+        "bytes": 11864,
+        "sha256": "437949c0f1f3688c17d24f66796167e894de24ca9a41a8013cd502cd11e7c671",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4082,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 318,
+          "firstCastShaderDelta": 3,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/S02-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5290,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 2,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 398,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "S02",
+            "renderFrames": 3,
+            "realMeshes": 12,
+            "batch": {
+              "id": "S02",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1000,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/S02-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "S05": {
+      "realBlenderTopology": {
+        "triangles": 33212,
+        "meshCount": 14,
+        "actorGroups": [
+          "S05_ATTENDANCE_LIST_ACTOR",
+          "S05_ROBOT_ARMS_ACTOR",
+          "S05_ROBOT_BODY_ACTOR",
+          "S05_ROBOT_HEAD_ACTOR"
+        ],
+        "materials": 9,
+        "realBlenderSourceBytes": 721412,
+        "realGLBBytes": 869844,
+        "actualEeveePreview": "art/hero-props/qa/S05_Confused_Homeroom_Class_Leader_Robot.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "S05_ATTENDANCE_LIST_ACTOR",
+        "S05_ROBOT_ARMS_ACTOR",
+        "S05_ROBOT_HEAD_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/S05/S05-in-stadium.png",
+      "drawCalls": 429,
+      "foleyAsset": {
+        "file": "r185_s05.ogg",
+        "bytes": 12178,
+        "sha256": "bcee41feb9bd211c29fde9d918de00e85df202f53e7a0e822ec67385a0692eef",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4079,
+          "firstCastMaxRafMs": 33.3,
+          "firstCastLongTaskMaxMs": 317,
+          "firstCastShaderDelta": 3,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/S05-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5301,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 2,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 406.2,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "S05",
+            "renderFrames": 3,
+            "realMeshes": 14,
+            "batch": {
+              "id": "S05",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 995,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/S05-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "S07": {
+      "realBlenderTopology": {
+        "triangles": 21868,
+        "meshCount": 10,
+        "actorGroups": [
+          "S07_BELL_ACTOR",
+          "S07_CLAPPER_ACTOR",
+          "S07_CORRIDOR_DOORS_ACTOR",
+          "S07_TIMETABLE_ACTOR"
+        ],
+        "materials": 8,
+        "realBlenderSourceBytes": 533252,
+        "realGLBBytes": 546684,
+        "actualEeveePreview": "art/hero-props/qa/S07_School_Bell_Time_Wormhole.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "trueChromeStadium": true,
+      "originalPhysicalActorGroupsMoved": [
+        "S07_BELL_ACTOR",
+        "S07_CLAPPER_ACTOR",
+        "S07_CORRIDOR_DOORS_ACTOR",
+        "S07_TIMETABLE_ACTOR"
+      ],
+      "screenshotPath": "evidence/r185-sculpted-props/S07/S07-in-stadium.png",
+      "drawCalls": 435,
+      "foleyAsset": {
+        "file": "r185_s07.ogg",
+        "bytes": 14396,
+        "sha256": "1fd29429b6be9472fc13856cb11c13b09708374f3689e3d0777de1f895aa2548",
+        "durationSeconds": 1.13,
+        "authorship": "Original reproducible digital synthesis (no source recording, not voice)",
+        "mono": true,
+        "encoder": "ffmpeg libvorbis"
+      },
+      "full93SpellTests": {
+        "cold": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 4114,
+          "firstCastMaxRafMs": 50.1,
+          "firstCastLongTaskMaxMs": 341,
+          "firstCastShaderDelta": 3,
+          "exactTwoActorPrewarm": null,
+          "oneHeroGpuPrewarm": null,
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/S07-cold-93casts.json"
+        },
+        "warm": {
+          "functionalPass": true,
+          "events": 93,
+          "uniqueMagic": 46,
+          "all46SoundPatterns": true,
+          "newR185FoleyPatterns": 10,
+          "startupReadyMs": 5273,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "firstCastShaderDelta": 2,
+          "exactTwoActorPrewarm": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 403,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "oneHeroGpuPrewarm": {
+            "id": "S07",
+            "renderFrames": 3,
+            "realMeshes": 10,
+            "batch": {
+              "id": "S07",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 989.4,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "original16Characters": 16,
+          "sourceReceipt": "evidence/r185-full-spell/S07-warm-93casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    }
+  }
+}

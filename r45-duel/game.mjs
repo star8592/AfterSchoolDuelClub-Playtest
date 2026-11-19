@@ -6,6 +6,7 @@
 import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
+import {schoolSpellIdentity} from './scene/campus-magic-bible.mjs';
 import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
 import {chooseCrowdAccident} from './scene/spectator-chaos-contract.mjs';
 import {resolveSpectatorProp} from './scene/bleacher-prop-comedy.mjs';
@@ -16,6 +17,28 @@ import {GUIDED_LINES,createGuidedGame,guidedStatus,guidedCanPlay,guidedPlayCard,
 
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
+// Only QA visitors can opt into original rules + all-new comic spell staging.
+const R169_SCHOOL_MAGIC=params.get('qa')==='1'&&params.get('r169SchoolMagic')==='on';
+// R189 strict startup streaming: rules never put an unverified model on the
+// field. This flag never modifies the default player build.
+const R189_STREAM=params.get('qa')==='1'&&params.get('r189Stream')==='on'&&
+ !['tutorial','guided'].includes(params.get('mode'));
+let r189ReadyIds=null,r189AllReady=!R189_STREAM;
+let r189BackgroundError=null,r189BackgroundMs=null;
+const R190_DEMAND=R189_STREAM&&params.get('r190Demand')==='on';
+const r190RequestedIDs=new Set();
+let r190RequestsSent=0;
+
+
+const r169SpellAside=(id,serial,side)=>{
+ const item=schoolSpellIdentity(id);
+ if(!item)return null;
+ return {key:'r169_'+id,serial,side,
+  text:item.lines.cast,
+  speaker:(side==='player'?'我方':'对方')+'校园法术 · 原创台词脚本（未配音）',
+  spoken:false};
+};
+
 // R101: ordinary new sessions should not always receive the SAME seed-1
 // starting hand. A shared ?seed=N remains exactly reproducible for challenges
 // and QA. Show the real random seed in the URL without reloading the scene.
@@ -204,9 +227,40 @@ function cardSound(c){
   insight:'select',updraft:'spell_charge',reroute:'card_flip',boomerang:'spell_charge',
   eclipse:'sonic_wave',trick:'spell_charge'})[c.effect]||'turn';
 }
+// R189: shadow-simulate the next AI reply with an unmodified clone of the
+// deterministic canonical engine. If all actually summoned ids are already
+// verified we may safely end NOW; no artificial "all 16" turn barrier.
+// It must never mutate the real game, spend a card or invent a 3D model.
+function r189NextAIMissing(){
+ if(!R189_STREAM||r189AllReady)return [];
+ if(!r189ReadyIds||r189BackgroundError)return ['R189_RESOURCE_NOT_READY'];
+ try{
+  const probe=structuredClone(g),oldSerial=probe.serial;
+  if(probe.phase!=='playing'||probe.active!=='player')return [];
+  endTurn(probe);
+  if(probe.phase==='playing'&&probe.active==='ai')aiTurn(probe);
+  return [...new Set(probe.events.filter(e=>
+   e.serial>oldSerial&&e.type==='card_play'&&e.side==='ai'&&
+   BY_ID[e.card]?.kind==='unit'&&
+   !['E01','G01'].includes(e.card)&&!r189ReadyIds.has(e.card)
+  ).map(e=>e.card))];
+ }catch(error){
+  console.error('R189_DETERMINISTIC_AI_GUARD_FAILED',error);
+  return ['R189_PREDICTION_FAILED'];
+ }
+}
+function r189CanEndNow(){
+ return !R189_STREAM||r189AllReady||r189NextAIMissing().length===0;
+}
 function gameReady(){return sceneReady&&!sceneError&&g.phase==='playing'&&g.active==='player'&&
   (!guidedMode||(guidedStarted&&!guidedBusy));}
 function cardCanPlay(index){
+ if(R189_STREAM&&r189ReadyIds){
+  const id=g.hand.player[index];
+  if(BY_ID[id]?.kind==='unit'&&
+    !['E01','G01'].includes(id)&&!r189ReadyIds.has(id))
+   return false; // A missing GLB is NEVER replaced with a fake silhouette.
+ }
  return gameReady()&&tutorialCanPlay(g,index)&&(!guidedMode||guidedCanPlay(g,index))&&
   legalMoves(g).some(m=>m.index===index&&m.lane===0);
 }
@@ -275,6 +329,9 @@ function renderHand(){
   card.dataset.art=cardArtStatus(id);
   card.title=(artURL?'点击选择；可在图鉴放大查看插画：':'原创插画尚未完成：')+
     c.name+' · '+describeCard(c);
+  if(R189_STREAM&&c.kind==='unit'&&!['E01','G01'].includes(id)&&
+    !r189ReadyIds?.has(id))
+   card.title='正在准备该角色的真实3D模型，完成后才能出牌';
   card.append(head,$make('strong','card-name',c.name),art,
     $make('div','card-desc',c.line),
     $make('div','card-stats',c.kind==='unit'?'⚔ '+c.attack+'　♥ '+c.hp:'✦ '+describeCard(c)));
@@ -389,9 +446,14 @@ function renderActions(){
  $('selected-info').textContent=ended?'点击「再来一局」重新抽牌，开启新决斗':
   sceneError?'三维资源加载失败。请在场景中点击「重新加载三维场景」，完成后再出牌。':
   !sceneReady?'三维体育馆和角色模型正在加载，载入后即可出牌。':
+  R189_STREAM&&card?.kind==='unit'&&
+    !['E01','G01'].includes(card.id)&&!r189ReadyIds?.has(card.id)?
+     '该角色真正的3D模型还在准备，可先使用其他手牌':
   card?describeCard(card):'点击手牌选择，无需选择教室、走廊或其他部署位置';
- endBtn.disabled=!ended&&!gameReady();
- endBtn.textContent=ended?'↻ 再来一局':'结束回合 → AI 出牌';
+ endBtn.disabled=!ended&&(!gameReady()||!r189CanEndNow());
+ endBtn.textContent=ended?'↻ 再来一局':
+  R189_STREAM&&!r189CanEndNow()?'正在准备对手的真实3D角色…':
+  '结束回合 → AI 出牌';
 }
 function renderLesson(){
  const launch=$('tutorial-start'),panel=$('lesson-panel');
@@ -528,6 +590,30 @@ function renderGuide(){
   g.active==='player'?'① 选择手牌　② 点击「出牌」　③ 按「结束回合」让 AI 回应':
   'AI 正在出牌 · 请看中央竞技场与对局提示';
 }
+function r190RequestNeededOriginals(){
+ if(!R190_DEMAND||!sceneReady||sceneError||!r189ReadyIds)return;
+ // Authoritative current cards only, never load all 12 by default.
+ const cards=[
+  ...g.hand.player,...g.hand.ai,
+  ...g.board.player[0].map(x=>x.id),
+  ...g.board.ai[0].map(x=>x.id),
+  ...r189NextAIMissing()
+ ];
+ // Once a round has actually advanced, prefetch the next real deck draw.
+ // The source engine draws with pop(), not shift().
+ if(g.round>1){
+  if(g.deck.player.length)cards.push(g.deck.player.at(-1));
+  if(g.deck.ai.length)cards.push(g.deck.ai.at(-1));
+ }
+ const ids=[...new Set(cards.filter(id=>BY_ID[id]?.kind==='unit'&&
+   !['E01','G01'].includes(id)&&!r189ReadyIds.has(id)&&
+   !r190RequestedIDs.has(id)))];
+ if(!ids.length)return;
+ if(sendScene({type:'ASDC_R190_REQUEST_ORIGINALS',ids})){
+  ids.forEach(id=>r190RequestedIDs.add(id));
+  r190RequestsSent++;
+ }
+}
 function render(){
  if(g.phase==='ended'&&!guidedMode)scheduleResult();
  renderHUD();
@@ -537,6 +623,7 @@ function render(){
  renderLesson();
  renderGuide();
  sendScene(scoreboardSnapshot());
+ r190RequestNeededOriginals();
 }
 function boardSnapshot(){
  const units=side=>g.board[side][0].map(x=>({uid:x.uid,id:x.id,hp:x.hp,attack:x.attack+x.buff,shield:x.shield||0}));
@@ -807,18 +894,19 @@ $('play').addEventListener('click',()=>{
  render();syncScene();
  showComedyAside(c.kind==='unit'?
   comedyScript.forCard(id,played.serial,'player'):
-  comedyScript.forSpell(id,played.serial,'player'));
+  (R169_SCHOOL_MAGIC?r169SpellAside(id,played.serial,'player'):
+   comedyScript.forSpell(id,played.serial,'player')));
  presentRealCombos(previousSerial);
  audio.playCue(cardSound(c),'player');
  projectPlayedCard(id,'player',played.serial);
  audio.playComicBeat(c.kind==='unit'?'summon_'+c.style:
-  'spell_'+c.effect,'player',played.serial);
+  R169_SCHOOL_MAGIC?'school_'+id:'spell_'+c.effect,'player',played.serial);
  audio.playCue('card_flip','player');
  // The host announces once per turn, then the freshly summoned unit gets a
  // distinct entrance sentence. Previously host cast cut off every unit voice.
  sayHostOnce('player');
  if(c.kind==='unit')summonSpeaksAfterGesture(id,played.serial);
- if(c.kind==='spell'){
+ if(c.kind==='spell'&&!R169_SCHOOL_MAGIC){
   const sound={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
     repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
     stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
@@ -848,6 +936,12 @@ $('play').addEventListener('click',()=>{
 $('end').addEventListener('click',()=>{
  if(g.phase==='ended'){startRematch();return;}
  if(tutorialMode||!gameReady())return;
+ if(R189_STREAM&&!r189CanEndNow()){
+  announce(r189BackgroundError?
+   '后续真实角色加载失败，请重新载入竞技场。':
+   '对手这一回合要召唤的真实3D模型还在准备中，请稍后。','warning');
+  return;
+ }
  if(guidedMode&&guidedStatus(g).target!==null)return;
  const guidedRound=guidedMode?guidedStatus(g).round:null;
  if(guidedMode)guidedBusy=true;
@@ -886,15 +980,17 @@ $('end').addEventListener('click',()=>{
   audio.playCue(enemyCard?.kind==='unit'?'enemy_cast':cardSound(enemyCard),'ai');
   projectPlayedCard(event.card,'ai',event.serial);
   if(enemyCard)audio.playComicBeat(enemyCard.kind==='unit'?
-   'summon_'+enemyCard.style:'spell_'+enemyCard.effect,'ai',event.serial);
+   'summon_'+enemyCard.style:R169_SCHOOL_MAGIC?
+   'school_'+enemyCard.id:'spell_'+enemyCard.effect,'ai',event.serial);
   showComedyAside(enemyCard?.kind==='unit'?
     comedyScript.forCard(event.card,event.serial,'ai'):
-    comedyScript.forSpell(event.card,event.serial,'ai'));
+    (R169_SCHOOL_MAGIC?r169SpellAside(event.card,event.serial,'ai'):
+      comedyScript.forSpell(event.card,event.serial,'ai')));
   if(!guidedMode){
    sayHostOnce('ai');
    if(enemyCard?.kind==='unit')summonSpeaksAfterGesture(event.card,event.serial);
   }
-  if(enemyCard?.kind==='spell') {
+  if(enemyCard?.kind==='spell'&&!R169_SCHOOL_MAGIC) {
    const fx={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
      repair:'ice_shatter',draw:'card_flip',heal:'shield_block',
      stew:'heal',shield:'shield_block',splash:'sonic_wave',chaos:'sonic_wave',
@@ -1004,6 +1100,18 @@ window.addEventListener('message',event=>{
   r121SpokenContacts.add(d.serial);
   if(r121SpokenContacts.size>500)r121SpokenContacts.clear();
   const hasHit=d.directDamage>0||d.unitDamage>0;
+  if(R169_SCHOOL_MAGIC){
+   const identity=schoolSpellIdentity(d.card);
+   if(identity){
+    showComedyAside({key:'r169_contact_'+d.card,serial:d.serial,
+     side:hasHit?d.victim:d.caster,
+     text:hasHit?(d.serial%2?identity.lines.hit:identity.lines.audience):
+       identity.lines.audience,
+     speaker:hasHit?'对手与看台现场 · 原创反应文本（未配音）':
+      '校园现场 · 原创反应文本（未配音）',
+     spoken:false});
+   }
+  }
   if(hasHit){
    audio.playCue(ELEMENTS[d.element]?.sound||'hit',d.victim,{gainScale:.80});
    if(!guidedMode){
@@ -1019,7 +1127,51 @@ window.addEventListener('message',event=>{
   }
   return;
  }
+ if(event.data?.type==='ASDC_R189_MODEL_READY'){
+  if(!R189_STREAM||!r189ReadyIds)return;
+  const {id,realMeshCount}=event.data;
+  if(!BY_ID[id]||BY_ID[id].kind!=='unit'||!Number.isInteger(realMeshCount)||realMeshCount<1)return;
+  r189ReadyIds.add(id);
+  render();return;
+ }
+ if(event.data?.type==='ASDC_R189_ALL_READY'){
+  if(!R189_STREAM||event.data.count!==12||!event.data.hasNoProxy||
+     !Array.isArray(event.data.completeIds)||event.data.completeIds.length!==12)
+   return;
+  r189ReadyIds=new Set(event.data.completeIds);
+  r189AllReady=true;
+  r189BackgroundMs=event.data.backgroundMs;
+  if(typeof deckSelector!=='undefined')
+   deckSelector.disabled=false;
+  render();return;
+ }
+ if(event.data?.type==='ASDC_R189_BACKGROUND_FAILED'){
+  if(!R189_STREAM)return;
+  r189BackgroundError=String(event.data.reason||'background model error').slice(0,150);
+  sceneError=true;
+  render();
+  announce('后台真实人物模型没有全部加载成功，已暂停出牌以避免空模型；请重新载入。','error');
+  return;
+ }
  if(event.data?.type==='ASDC_R45_SCENE_READY'){
+  if(R189_STREAM){
+   const r=event.data.r189Stream;
+   // Independently verify the iframe's seed+deck identity against the ACTUAL
+   // rules-owned opening hands, never trust a guessed/previous match hand.
+   const required=[...new Set([...g.hand.player,...g.hand.ai]
+    .filter(id=>BY_ID[id]?.kind==='unit'&&!['E01','G01'].includes(id)))];
+   if(!r?.enabled||!r.hasNoProxy||!Array.isArray(r.initialIds)||
+      new Set(r.initialIds).size!==required.length||
+      required.some(id=>!r.initialIds.includes(id))||
+      r.seed!==seed||r.deck!==g.deckPreset){
+    sceneError=true;sceneReady=false;
+    render();
+    announce('开局3D人物与真实手牌身份不一致，已暂停出牌以避免错误。请重新载入。','error');
+    return;
+   }
+   r189ReadyIds=new Set([...r.initialIds,'E01','G01']);
+   r189AllReady=false;
+  }
   sceneReady=true;sceneError=false;
   syncScene();
   sendScene({type:'ASDC_R53_HP_MODE',mode:hpViewModes[hpViewIndex]});
@@ -1106,13 +1258,21 @@ window.addEventListener('keydown',event=>{
 // deck. This resets the actual deterministic engine and clears stale effects.
 const deckSelector=$('deck-select');
 deckSelector.value=activeDeck;
-deckSelector.disabled=tutorialMode||guidedMode;
+deckSelector.disabled=tutorialMode||guidedMode||(R189_STREAM&&!R190_DEMAND&&!r189AllReady);
 deckSelector.title=guidedMode?'先完成三回合入门实战，再选择自由对战卡组':
  tutorialMode?'连携试炼使用基础卡组':'切换会重新开局，三维模型无需再次下载';
 deckSelector.addEventListener('change',()=>{
  if(tutorialMode||guidedMode)return;
  const next=deckSelector.value;
  if(!Object.hasOwn(DECK_PRESETS,next))return;
+ if(R190_DEMAND){
+  // A new deck changes opening hands. Reload actual source identities,
+  // rather than reusing stale 3D after swapping deterministic card origins.
+  const u=new URL(location.href);
+  if(next==='classic')u.searchParams.delete('deck');
+  else u.searchParams.set('deck',next);
+  location.assign(u.href);return;
+ }
  g=createGame(seed,next);
  audio.resetMatch();
  resultScheduled=false;
@@ -1250,6 +1410,20 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get phase(){return g.phase},
   get sceneReady(){return sceneReady},
   get sceneError(){return sceneError},
+  get r190Demand(){return {enabled:R190_DEMAND,
+   requestedIDs:[...r190RequestedIDs],requestsSent:r190RequestsSent,
+   readyOriginals:r189ReadyIds?[...r189ReadyIds].filter(id=>
+    !['E01','G01'].includes(id)):[],
+   allOriginalsLoaded:r189AllReady,
+   canSafelyEndTurn:r189CanEndNow()}},
+  get r189Stream(){return {
+   enabled:R189_STREAM,readyIds:r189ReadyIds?[...r189ReadyIds]:null,
+   allReady:r189AllReady,backgroundMs:r189BackgroundMs,
+   backgroundError:r189BackgroundError,
+   nextAiMissing:r189NextAIMissing(),canSafelyEndTurn:r189CanEndNow(),
+   restrictedCardCount:!R189_STREAM?0:
+    g.hand.player.filter(id=>BY_ID[id]?.kind==='unit'&&
+      !['E01','G01'].includes(id)&&!r189ReadyIds?.has(id)).length}},
   get cardCount(){return Object.keys(BY_ID).length},
   get deckPreset(){return g.deckPreset},
   get deckTotal(){return g.deck.player.length+g.hand.player.length+g.discard.player.length+g.board.player[0].length},

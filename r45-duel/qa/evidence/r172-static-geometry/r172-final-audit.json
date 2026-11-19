@@ -1,0 +1,395 @@
+{
+  "date": "2026-11-18",
+  "features": "R172 QA-only zero-loss opaque static sibling merge",
+  "fullSpellGallery": 46,
+  "liveBattleCases": 3,
+  "originalModels": 16,
+  "originalCards": 60,
+  "realModelBytes": 75569762,
+  "newPointLights": 0,
+  "newShaderVariantFromInstancing": false,
+  "oldMagicOverlap": 0,
+  "drawsSavedTotalSingleCastGallery": 123,
+  "drawCallsMaxBefore": 48,
+  "drawCallsMaxAfter": 26,
+  "drawCallsMeanBefore": 9.522,
+  "drawCallsMeanAfter": 6.848,
+  "positiveReductions": 24,
+  "zeroRegressions": true,
+  "detailedHeroImages": [
+    {
+      "id": "E06",
+      "meanAbsoluteRGBdifferencePerChannel": 0.0,
+      "sameDimensions": true,
+      "exactImageEquality": false,
+      "drawsSaved": 20
+    },
+    {
+      "id": "K01",
+      "meanAbsoluteRGBdifferencePerChannel": 0.0268,
+      "sameDimensions": true,
+      "exactImageEquality": false,
+      "drawsSaved": 5
+    },
+    {
+      "id": "K06",
+      "meanAbsoluteRGBdifferencePerChannel": 0.0,
+      "sameDimensions": true,
+      "exactImageEquality": false,
+      "drawsSaved": 19
+    },
+    {
+      "id": "Q05",
+      "meanAbsoluteRGBdifferencePerChannel": 0.0,
+      "sameDimensions": true,
+      "exactImageEquality": false,
+      "drawsSaved": 9
+    },
+    {
+      "id": "P04",
+      "meanAbsoluteRGBdifferencePerChannel": 0.0,
+      "sameDimensions": true,
+      "exactImageEquality": true,
+      "drawsSaved": 4
+    },
+    {
+      "id": "P05",
+      "meanAbsoluteRGBdifferencePerChannel": 0.0,
+      "sameDimensions": true,
+      "exactImageEquality": true,
+      "drawsSaved": 9
+    },
+    {
+      "id": "X05",
+      "meanAbsoluteRGBdifferencePerChannel": 0.16119,
+      "sameDimensions": true,
+      "exactImageEquality": false,
+      "drawsSaved": 22
+    }
+  ],
+  "perSpell": [
+    {
+      "id": "E05",
+      "name": "超速呐喊",
+      "beforeDraws": 4,
+      "afterDraws": 4,
+      "drawsSaved": 0
+    },
+    {
+      "id": "E06",
+      "name": "飞来的巨大黑板擦",
+      "beforeDraws": 29,
+      "afterDraws": 9,
+      "drawsSaved": 20
+    },
+    {
+      "id": "G05",
+      "name": "课桌紧急修补",
+      "beforeDraws": 7,
+      "afterDraws": 4,
+      "drawsSaved": 3
+    },
+    {
+      "id": "G06",
+      "name": "翻到第二页的方案",
+      "beforeDraws": 7,
+      "afterDraws": 7,
+      "drawsSaved": 0
+    },
+    {
+      "id": "T05",
+      "name": "食堂暖心加餐",
+      "beforeDraws": 5,
+      "afterDraws": 5,
+      "drawsSaved": 0
+    },
+    {
+      "id": "T06",
+      "name": "误播的放学广播",
+      "beforeDraws": 5,
+      "afterDraws": 4,
+      "drawsSaved": 1
+    },
+    {
+      "id": "K01",
+      "name": "茄子炒香蕉",
+      "beforeDraws": 15,
+      "afterDraws": 10,
+      "drawsSaved": 5
+    },
+    {
+      "id": "K02",
+      "name": "西瓜炖橡皮",
+      "beforeDraws": 5,
+      "afterDraws": 5,
+      "drawsSaved": 0
+    },
+    {
+      "id": "K03",
+      "name": "玉米炒葡萄",
+      "beforeDraws": 9,
+      "afterDraws": 9,
+      "drawsSaved": 0
+    },
+    {
+      "id": "K04",
+      "name": "辣椒炒月饼",
+      "beforeDraws": 10,
+      "afterDraws": 10,
+      "drawsSaved": 0
+    },
+    {
+      "id": "K05",
+      "name": "校长秘制空气汤",
+      "beforeDraws": 5,
+      "afterDraws": 5,
+      "drawsSaved": 0
+    },
+    {
+      "id": "K06",
+      "name": "火山辣椒奶茶",
+      "beforeDraws": 29,
+      "afterDraws": 10,
+      "drawsSaved": 19
+    },
+    {
+      "id": "K07",
+      "name": "蛤蟆布丁警报",
+      "beforeDraws": 6,
+      "afterDraws": 5,
+      "drawsSaved": 1
+    },
+    {
+      "id": "K08",
+      "name": "披甲巧克力香蕉",
+      "beforeDraws": 6,
+      "afterDraws": 4,
+      "drawsSaved": 2
+    },
+    {
+      "id": "Q01",
+      "name": "会写检讨的橡皮",
+      "beforeDraws": 8,
+      "afterDraws": 8,
+      "drawsSaved": 0
+    },
+    {
+      "id": "Q02",
+      "name": "神兽返校通知书",
+      "beforeDraws": 6,
+      "afterDraws": 6,
+      "drawsSaved": 0
+    },
+    {
+      "id": "Q03",
+      "name": "会做梦的黑板",
+      "beforeDraws": 11,
+      "afterDraws": 11,
+      "drawsSaved": 0
+    },
+    {
+      "id": "Q04",
+      "name": "全寝室公开播放",
+      "beforeDraws": 6,
+      "afterDraws": 5,
+      "drawsSaved": 1
+    },
+    {
+      "id": "Q05",
+      "name": "粉笔开记者会",
+      "beforeDraws": 21,
+      "afterDraws": 12,
+      "drawsSaved": 9
+    },
+    {
+      "id": "Q06",
+      "name": "要按三次才亮的台灯",
+      "beforeDraws": 7,
+      "afterDraws": 5,
+      "drawsSaved": 2
+    },
+    {
+      "id": "Q07",
+      "name": "教室里的第二个月亮",
+      "beforeDraws": 4,
+      "afterDraws": 4,
+      "drawsSaved": 0
+    },
+    {
+      "id": "Q08",
+      "name": "粉笔画地为牢",
+      "beforeDraws": 11,
+      "afterDraws": 11,
+      "drawsSaved": 0
+    },
+    {
+      "id": "S01",
+      "name": "时间倒流的闹钟",
+      "beforeDraws": 7,
+      "afterDraws": 7,
+      "drawsSaved": 0
+    },
+    {
+      "id": "S02",
+      "name": "只能装一根笔的文具盒",
+      "beforeDraws": 5,
+      "afterDraws": 5,
+      "drawsSaved": 0
+    },
+    {
+      "id": "S03",
+      "name": "反重力大扫把",
+      "beforeDraws": 4,
+      "afterDraws": 4,
+      "drawsSaved": 0
+    },
+    {
+      "id": "S04",
+      "name": "错误答案发电机",
+      "beforeDraws": 8,
+      "afterDraws": 6,
+      "drawsSaved": 2
+    },
+    {
+      "id": "S05",
+      "name": "乌龙机器人班长",
+      "beforeDraws": 6,
+      "afterDraws": 5,
+      "drawsSaved": 1
+    },
+    {
+      "id": "S06",
+      "name": "量子橡皮筋",
+      "beforeDraws": 5,
+      "afterDraws": 4,
+      "drawsSaved": 1
+    },
+    {
+      "id": "S07",
+      "name": "放学铃声虫洞",
+      "beforeDraws": 8,
+      "afterDraws": 8,
+      "drawsSaved": 0
+    },
+    {
+      "id": "S08",
+      "name": "会生气的自动售货机",
+      "beforeDraws": 6,
+      "afterDraws": 6,
+      "drawsSaved": 0
+    },
+    {
+      "id": "P01",
+      "name": "狂风炸毛超人",
+      "beforeDraws": 12,
+      "afterDraws": 5,
+      "drawsSaved": 7
+    },
+    {
+      "id": "P02",
+      "name": "一百年没进球的墙球赛",
+      "beforeDraws": 8,
+      "afterDraws": 5,
+      "drawsSaved": 3
+    },
+    {
+      "id": "P03",
+      "name": "纸箱恐龙运动员",
+      "beforeDraws": 6,
+      "afterDraws": 5,
+      "drawsSaved": 1
+    },
+    {
+      "id": "P04",
+      "name": "体育老师超级口哨",
+      "beforeDraws": 12,
+      "afterDraws": 8,
+      "drawsSaved": 4
+    },
+    {
+      "id": "P05",
+      "name": "排球误入篮筐",
+      "beforeDraws": 18,
+      "afterDraws": 9,
+      "drawsSaved": 9
+    },
+    {
+      "id": "P06",
+      "name": "反向跑步机",
+      "beforeDraws": 6,
+      "afterDraws": 4,
+      "drawsSaved": 2
+    },
+    {
+      "id": "P07",
+      "name": "黑天鹅冰面慢动作",
+      "beforeDraws": 5,
+      "afterDraws": 4,
+      "drawsSaved": 1
+    },
+    {
+      "id": "P08",
+      "name": "运动会掉下的流星",
+      "beforeDraws": 6,
+      "afterDraws": 6,
+      "drawsSaved": 0
+    },
+    {
+      "id": "X01",
+      "name": "倒退一小时的校钟",
+      "beforeDraws": 9,
+      "afterDraws": 9,
+      "drawsSaved": 0
+    },
+    {
+      "id": "X02",
+      "name": "能穿墙的校服",
+      "beforeDraws": 6,
+      "afterDraws": 4,
+      "drawsSaved": 2
+    },
+    {
+      "id": "X03",
+      "name": "屋顶违停的教务车",
+      "beforeDraws": 8,
+      "afterDraws": 5,
+      "drawsSaved": 3
+    },
+    {
+      "id": "X04",
+      "name": "会预言的午休枕头",
+      "beforeDraws": 4,
+      "afterDraws": 4,
+      "drawsSaved": 0
+    },
+    {
+      "id": "X05",
+      "name": "作业本宇宙大战",
+      "beforeDraws": 48,
+      "afterDraws": 26,
+      "drawsSaved": 22
+    },
+    {
+      "id": "X06",
+      "name": "早读时间复制器",
+      "beforeDraws": 10,
+      "afterDraws": 10,
+      "drawsSaved": 0
+    },
+    {
+      "id": "X07",
+      "name": "消失的最后一节课",
+      "beforeDraws": 9,
+      "afterDraws": 7,
+      "drawsSaved": 2
+    },
+    {
+      "id": "X08",
+      "name": "校门口时空保安",
+      "beforeDraws": 6,
+      "afterDraws": 6,
+      "drawsSaved": 0
+    }
+  ],
+  "releaseDecision": "QA_PASS_ONLY / DRAFT_NO_GO pending first-use CPU/GPU trace, true Android p95/p99 and finished voice/acting"
+}

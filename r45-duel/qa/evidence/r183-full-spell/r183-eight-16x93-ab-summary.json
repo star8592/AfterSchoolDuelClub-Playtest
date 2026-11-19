@@ -1,0 +1,653 @@
+{
+  "round": "R183",
+  "date": "2026-11-18",
+  "release": "NO_GO",
+  "previousOriginalBlenderCandidates": 9,
+  "newOriginalBlenderCandidates": 8,
+  "trueEditableBlenderCandidates": 17,
+  "proceduralPlaceholdersRemain": 29,
+  "visuallyAccepted": 0,
+  "recordedNewVoices": 0,
+  "desktopFullBattleRuns": 16,
+  "eventCount": 1488,
+  "uniqueSchoolSpellsPerRun": 46,
+  "sourceOriginalModels": 16,
+  "sourceActorBytes": 75569762,
+  "oneNew3DHeroAssetPerQA": true,
+  "realAndroidVerified": false,
+  "qaHardware": "Z890 RTX 5070 Ti Chrome WebGL2 Vulkan CPU x2 desktop, not Android",
+  "strictLimit": "Do not claim browser LongTask is identical to RAF; single runs not randomized, startup time increased for real priming, no overall FPS claims. Never publish without full visual and Android OOM clearance.",
+  "items": {
+    "P03": {
+      "trueSource": {
+        "triangles": 31610,
+        "meshCount": 13,
+        "actorGroups": [
+          "P03_BOX_BODY_ACTOR",
+          "P03_DINO_HEAD_ACTOR",
+          "P03_DINO_LEGS_ACTOR",
+          "P03_DINO_TAIL_ACTOR"
+        ],
+        "materials": 7,
+        "realBlenderSourceBytes": 607328,
+        "realGLBBytes": 819144,
+        "actualEeveePreview": "art/hero-props/qa/P03_Cardboard_Tyrannosaurus_Stomp.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "stadiumScreenshot": "evidence/r183-sculpted-props/P03/P03-in-stadium.png",
+      "independentActorsMoved": [
+        "P03_BOX_BODY_ACTOR",
+        "P03_DINO_HEAD_ACTOR",
+        "P03_DINO_LEGS_ACTOR",
+        "P03_DINO_TAIL_ACTOR"
+      ],
+      "newAssetDrawCallsInScene": 428,
+      "sourceOriginalModels": 16,
+      "fullBattle": {
+        "cold": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 4110,
+          "firstCastMaxRafMs": 50,
+          "firstCastLongTaskMaxMs": 346,
+          "shaderDeltaAtCast": 3,
+          "exactTwoUnitGpuPriming": null,
+          "single3DHeroGpuPriming": null,
+          "sourceJSON": "evidence/r183-full-spell/P03-cold-93-casts.json"
+        },
+        "warm": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 5280,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 2,
+          "exactTwoUnitGpuPriming": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 391.5,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "single3DHeroGpuPriming": {
+            "id": "P03",
+            "renderFrames": 3,
+            "realMeshes": 13,
+            "batch": {
+              "id": "P03",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1008.3,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "sourceJSON": "evidence/r183-full-spell/P03-warm-93-casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "S08": {
+      "trueSource": {
+        "triangles": 40552,
+        "meshCount": 14,
+        "actorGroups": [
+          "S08_FACE_ACTOR",
+          "S08_FLYING_CAN_ACTOR",
+          "S08_MACHINE_ACTOR"
+        ],
+        "materials": 9,
+        "realBlenderSourceBytes": 734642,
+        "realGLBBytes": 1022708,
+        "actualEeveePreview": "art/hero-props/qa/S08_Angry_Campus_Vending_Machine.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "stadiumScreenshot": "evidence/r183-sculpted-props/S08/S08-in-stadium.png",
+      "independentActorsMoved": [
+        "S08_FACE_ACTOR",
+        "S08_FLYING_CAN_ACTOR",
+        "S08_MACHINE_ACTOR"
+      ],
+      "newAssetDrawCallsInScene": 443,
+      "sourceOriginalModels": 16,
+      "fullBattle": {
+        "cold": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 4337,
+          "firstCastMaxRafMs": 50,
+          "firstCastLongTaskMaxMs": 343,
+          "shaderDeltaAtCast": 3,
+          "exactTwoUnitGpuPriming": null,
+          "single3DHeroGpuPriming": null,
+          "sourceJSON": "evidence/r183-full-spell/S08-cold-93-casts.json"
+        },
+        "warm": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 5657,
+          "firstCastMaxRafMs": 50,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 4,
+          "exactTwoUnitGpuPriming": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 426.6,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "single3DHeroGpuPriming": {
+            "id": "S08",
+            "renderFrames": 3,
+            "realMeshes": 14,
+            "batch": {
+              "id": "S08",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1101.1,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "sourceJSON": "evidence/r183-full-spell/S08-warm-93-casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "X03": {
+      "trueSource": {
+        "triangles": 27380,
+        "meshCount": 9,
+        "actorGroups": [
+          "X03_CAR_ACTOR",
+          "X03_ROOF_STATIC",
+          "X03_TICKET_ACTOR"
+        ],
+        "materials": 8,
+        "realBlenderSourceBytes": 566094,
+        "realGLBBytes": 709976,
+        "actualEeveePreview": "art/hero-props/qa/X03_Rooftop_School_Patrol_Car.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "stadiumScreenshot": "evidence/r183-sculpted-props/X03/X03-in-stadium.png",
+      "independentActorsMoved": [
+        "X03_CAR_ACTOR",
+        "X03_TICKET_ACTOR"
+      ],
+      "newAssetDrawCallsInScene": 433,
+      "sourceOriginalModels": 16,
+      "fullBattle": {
+        "cold": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 4446,
+          "firstCastMaxRafMs": 66.6,
+          "firstCastLongTaskMaxMs": 342,
+          "shaderDeltaAtCast": 3,
+          "exactTwoUnitGpuPriming": null,
+          "single3DHeroGpuPriming": null,
+          "sourceJSON": "evidence/r183-full-spell/X03-cold-93-casts.json"
+        },
+        "warm": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 6150,
+          "firstCastMaxRafMs": 50.1,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 2,
+          "exactTwoUnitGpuPriming": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 524.7,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "single3DHeroGpuPriming": {
+            "id": "X03",
+            "renderFrames": 3,
+            "realMeshes": 9,
+            "batch": {
+              "id": "X03",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1393.8,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "sourceJSON": "evidence/r183-full-spell/X03-warm-93-casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "Q06": {
+      "trueSource": {
+        "triangles": 12804,
+        "meshCount": 10,
+        "actorGroups": [
+          "Q06_BASE_ACTOR",
+          "Q06_BUTTONS_ACTOR",
+          "Q06_SHADE_ACTOR"
+        ],
+        "materials": 8,
+        "realBlenderSourceBytes": 326840,
+        "realGLBBytes": 322132,
+        "actualEeveePreview": "art/hero-props/qa/Q06_Three_Click_Moonlight_Desk_Lamp.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "stadiumScreenshot": "evidence/r183-sculpted-props/Q06/Q06-in-stadium.png",
+      "independentActorsMoved": [
+        "Q06_BASE_ACTOR",
+        "Q06_BUTTONS_ACTOR",
+        "Q06_SHADE_ACTOR"
+      ],
+      "newAssetDrawCallsInScene": 425,
+      "sourceOriginalModels": 16,
+      "fullBattle": {
+        "cold": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 4926,
+          "firstCastMaxRafMs": 66.7,
+          "firstCastLongTaskMaxMs": 402,
+          "shaderDeltaAtCast": 3,
+          "exactTwoUnitGpuPriming": null,
+          "single3DHeroGpuPriming": null,
+          "sourceJSON": "evidence/r183-full-spell/Q06-cold-93-casts.json"
+        },
+        "warm": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 5679,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 2,
+          "exactTwoUnitGpuPriming": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 421.5,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "single3DHeroGpuPriming": {
+            "id": "Q06",
+            "renderFrames": 3,
+            "realMeshes": 10,
+            "batch": {
+              "id": "Q06",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1137.5,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "sourceJSON": "evidence/r183-full-spell/Q06-warm-93-casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "K02": {
+      "trueSource": {
+        "triangles": 58748,
+        "meshCount": 8,
+        "actorGroups": [
+          "K02_ERASER_ACTOR",
+          "K02_MELON_ACTOR"
+        ],
+        "materials": 8,
+        "realBlenderSourceBytes": 1051644,
+        "realGLBBytes": 1467836,
+        "actualEeveePreview": "art/hero-props/qa/K02_Watermelon_Rubber_Eraser_Stew.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "stadiumScreenshot": "evidence/r183-sculpted-props/K02/K02-in-stadium.png",
+      "independentActorsMoved": [
+        "K02_ERASER_ACTOR",
+        "K02_MELON_ACTOR"
+      ],
+      "newAssetDrawCallsInScene": 423,
+      "sourceOriginalModels": 16,
+      "fullBattle": {
+        "cold": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 4086,
+          "firstCastMaxRafMs": 350,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 6,
+          "exactTwoUnitGpuPriming": null,
+          "single3DHeroGpuPriming": null,
+          "sourceJSON": "evidence/r183-full-spell/K02-cold-93-casts.json"
+        },
+        "warm": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 5239,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 2,
+          "exactTwoUnitGpuPriming": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 382.7,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "single3DHeroGpuPriming": {
+            "id": "K02",
+            "renderFrames": 3,
+            "realMeshes": 8,
+            "batch": {
+              "id": "K02",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 962.2,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "sourceJSON": "evidence/r183-full-spell/K02-warm-93-casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "K08": {
+      "trueSource": {
+        "triangles": 8916,
+        "meshCount": 10,
+        "actorGroups": [
+          "K08_ARMOR_ACTOR",
+          "K08_BANANA_ACTOR",
+          "K08_HELMET_ACTOR",
+          "K08_SHIELD_ACTOR"
+        ],
+        "materials": 7,
+        "realBlenderSourceBytes": 262762,
+        "realGLBBytes": 218604,
+        "actualEeveePreview": "art/hero-props/qa/K08_Chocolate_Armored_Banana_Knight.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "stadiumScreenshot": "evidence/r183-sculpted-props/K08/K08-in-stadium.png",
+      "independentActorsMoved": [
+        "K08_ARMOR_ACTOR",
+        "K08_BANANA_ACTOR",
+        "K08_HELMET_ACTOR",
+        "K08_SHIELD_ACTOR"
+      ],
+      "newAssetDrawCallsInScene": 425,
+      "sourceOriginalModels": 16,
+      "fullBattle": {
+        "cold": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 4412,
+          "firstCastMaxRafMs": 33.3,
+          "firstCastLongTaskMaxMs": 349,
+          "shaderDeltaAtCast": 3,
+          "exactTwoUnitGpuPriming": null,
+          "single3DHeroGpuPriming": null,
+          "sourceJSON": "evidence/r183-full-spell/K08-cold-93-casts.json"
+        },
+        "warm": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 5297,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 2,
+          "exactTwoUnitGpuPriming": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 417.5,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "single3DHeroGpuPriming": {
+            "id": "K08",
+            "renderFrames": 3,
+            "realMeshes": 10,
+            "batch": {
+              "id": "K08",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1007.1,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "sourceJSON": "evidence/r183-full-spell/K08-warm-93-casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "S03": {
+      "trueSource": {
+        "triangles": 6704,
+        "meshCount": 7,
+        "actorGroups": [
+          "S03_BROOM_ACTOR",
+          "S03_REVERSED_DUST_ACTOR"
+        ],
+        "materials": 7,
+        "realBlenderSourceBytes": 249756,
+        "realGLBBytes": 176808,
+        "actualEeveePreview": "art/hero-props/qa/S03_Antigravity_School_Broom.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "stadiumScreenshot": "evidence/r183-sculpted-props/S03/S03-in-stadium.png",
+      "independentActorsMoved": [
+        "S03_BROOM_ACTOR",
+        "S03_REVERSED_DUST_ACTOR"
+      ],
+      "newAssetDrawCallsInScene": 422,
+      "sourceOriginalModels": 16,
+      "fullBattle": {
+        "cold": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 4231,
+          "firstCastMaxRafMs": 333.4,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 6,
+          "exactTwoUnitGpuPriming": null,
+          "single3DHeroGpuPriming": null,
+          "sourceJSON": "evidence/r183-full-spell/S03-cold-93-casts.json"
+        },
+        "warm": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 5336,
+          "firstCastMaxRafMs": 33.3,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 2,
+          "exactTwoUnitGpuPriming": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 410.9,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "single3DHeroGpuPriming": {
+            "id": "S03",
+            "renderFrames": 3,
+            "realMeshes": 7,
+            "batch": {
+              "id": "S03",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1027.2,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "sourceJSON": "evidence/r183-full-spell/S03-warm-93-casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    },
+    "Q01": {
+      "trueSource": {
+        "triangles": 22144,
+        "meshCount": 10,
+        "actorGroups": [
+          "Q01_APOLOGY_PAPER_ACTOR",
+          "Q01_AUTOWRITING_PENCIL_ACTOR",
+          "Q01_ERASER_ACTOR"
+        ],
+        "materials": 10,
+        "realBlenderSourceBytes": 517071,
+        "realGLBBytes": 558412,
+        "actualEeveePreview": "art/hero-props/qa/Q01_SelfWriting_Apology_Eraser.png",
+        "technicalSourceVerified": true,
+        "gameRuntimeTested": false,
+        "visualAccepted": false
+      },
+      "stadiumScreenshot": "evidence/r183-sculpted-props/Q01/Q01-in-stadium.png",
+      "independentActorsMoved": [
+        "Q01_APOLOGY_PAPER_ACTOR",
+        "Q01_AUTOWRITING_PENCIL_ACTOR",
+        "Q01_ERASER_ACTOR"
+      ],
+      "newAssetDrawCallsInScene": 425,
+      "sourceOriginalModels": 16,
+      "fullBattle": {
+        "cold": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 4322,
+          "firstCastMaxRafMs": 50,
+          "firstCastLongTaskMaxMs": 352,
+          "shaderDeltaAtCast": 3,
+          "exactTwoUnitGpuPriming": null,
+          "single3DHeroGpuPriming": null,
+          "sourceJSON": "evidence/r183-full-spell/Q01-cold-93-casts.json"
+        },
+        "warm": {
+          "pass": true,
+          "stagePlayed": 93,
+          "uniqueMagic": 46,
+          "firstReadyMs": 5586,
+          "firstCastMaxRafMs": 33.4,
+          "firstCastLongTaskMaxMs": 0,
+          "shaderDeltaAtCast": 2,
+          "exactTwoUnitGpuPriming": {
+            "mode": "exact-two-QA",
+            "allIds": [
+              "T01",
+              "E03"
+            ],
+            "renderFrames": 3,
+            "models": 2,
+            "ms": 438.2,
+            "shaderDelta": 3,
+            "preservedOriginalCharacters": true
+          },
+          "single3DHeroGpuPriming": {
+            "id": "Q01",
+            "renderFrames": 3,
+            "realMeshes": 10,
+            "batch": {
+              "id": "Q01",
+              "batchGroups": 0,
+              "sourceMeshes": 0,
+              "savedDraws": 0,
+              "failures": 0
+            },
+            "ms": 1087.9,
+            "shaderDelta": 41,
+            "sourceFidelity": true
+          },
+          "sourceJSON": "evidence/r183-full-spell/Q01-warm-93-casts.json"
+        }
+      },
+      "visualAccepted": false,
+      "androidAccepted": false
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "S08",
+  "originalName": "暴怒售货机",
+  "source": "S08_Angry_Campus_Vending_Machine.blend",
+  "glb": "S08_Angry_Campus_Vending_Machine.glb",
+  "render": "S08_Angry_Campus_Vending_Machine.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 734642,
+  "glbBytes": 1022708,
+  "triangles": 40552,
+  "meshes": 14,
+  "materials": 9,
+  "actorGroups": [
+    "S08_FACE_ACTOR",
+    "S08_FLYING_CAN_ACTOR",
+    "S08_MACHINE_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

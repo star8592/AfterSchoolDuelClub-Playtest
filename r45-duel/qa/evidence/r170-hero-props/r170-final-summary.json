@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-18",
+  "mode": "R170 QA-only atop R169",
+  "addedHeroPropDetailedMeshes": [
+    "E06",
+    "K01",
+    "K06",
+    "Q05",
+    "P04",
+    "P05",
+    "X05"
+  ],
+  "allSpellsRendered": 46,
+  "realBattleCases": 3,
+  "realCharacters": 16,
+  "realCards": 60,
+  "modelBytes": 75569762,
+  "cameraSafe": true,
+  "legacyOverlaysOnNewMode": 0,
+  "shaderPointLightsAdded": 0,
+  "singleSpellMaxDrawCallsObserved": 48,
+  "visualGrade": "prototype-detail-pass only; no formal high-fidelity visual review",
+  "needed": "authored skeletal cast gestures, actual cloth/food/chalk shader art, 46 real Qwen voices, true mobile GPU p99; GPU draw calls need consolidation before release",
+  "decision": "NO-GO Draft"
+}
