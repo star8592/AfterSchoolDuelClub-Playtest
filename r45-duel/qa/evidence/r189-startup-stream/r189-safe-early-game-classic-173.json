@@ -1,0 +1,114 @@
+{
+  "seed": 173,
+  "deck": "classic",
+  "errors": [],
+  "pass": true,
+  "start": {
+    "exactlyStarterIds": true,
+    "firstReadyMs": 1926,
+    "actualVerified": 10,
+    "expectedStarterCount": 10,
+    "endDisabled": false,
+    "endShouldBeDisabled": false,
+    "initialState": {
+      "enabled": true,
+      "readyIds": [
+        "T04",
+        "T01",
+        "E02",
+        "E04",
+        "M01",
+        "G03",
+        "E01",
+        "G01"
+      ],
+      "allReady": false,
+      "backgroundMs": null,
+      "backgroundError": null,
+      "nextAiMissing": [],
+      "canSafelyEndTurn": true,
+      "restrictedCardCount": 0
+    },
+    "realReadyIds": [
+      "T04",
+      "T01",
+      "E02",
+      "E04",
+      "M01",
+      "G03"
+    ]
+  },
+  "playedE01": {
+    "actualRuleBoard": {
+      "player": [
+        [
+          {
+            "uid": "U2",
+            "id": "E01",
+            "style": "ember",
+            "attack": 1,
+            "hp": 2,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 1
+          }
+        ]
+      ],
+      "ai": [
+        []
+      ]
+    },
+    "sceneUnitIds": [
+      "E01"
+    ],
+    "engineEvents": [
+      "E01"
+    ]
+  },
+  "earlyTurn": {
+    "disabled": false,
+    "possible": true,
+    "prediction": [],
+    "backgroundFull": false
+  },
+  "actualEarlyTurn": {
+    "aiCards": [
+      {
+        "serial": 4,
+        "type": "card_play",
+        "side": "ai",
+        "card": "E02",
+        "lane": 0
+      }
+    ],
+    "playerHand": [
+      "T04",
+      "T01",
+      "E02",
+      "T05",
+      "T06"
+    ],
+    "round": 2
+  },
+  "complete": {
+    "modelsVerified": 16,
+    "glbs": [
+      "T04",
+      "T01",
+      "E02",
+      "E04",
+      "M01",
+      "G03",
+      "E03",
+      "G04",
+      "M02",
+      "T02",
+      "G02",
+      "T03"
+    ],
+    "backgroundMs": 422.4,
+    "canEnd": true,
+    "endDisabled": false,
+    "deckSwitchDisabled": false
+  }
+}

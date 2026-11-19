@@ -35,7 +35,7 @@ import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
-import {preloadSummonModels} from './summon-models.mjs';
+import {preloadSummonModels,UNIT_MODEL_IDS} from './summon-models.mjs';
 import {createLivingCastDirector} from './living-cast-director.mjs';
 import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
@@ -229,6 +229,44 @@ const R187_INTERLEAVE_MODE=(()=>{
 })();
 const R187_INTERLEAVE=R187_INTERLEAVE_MODE!=='off';
 let r187InterleaveReceipt=null;
+// R189 isolated startup streaming. Stage only genuine opening-hand GLBs,
+// keep the 4 original host/duelist VRMs intact. Future cards cannot be played
+// before their real 3D GLB has arrived. Background id validation is strict.
+const R189_STREAM=(()=>{
+ const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+  catch{return null}})();
+ return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
+   (PARAMS.get('r189Stream')??pp?.get('r189Stream'))==='on'&&
+   !['tutorial','guided'].includes(pp?.get('mode')??PARAMS.get('mode'));
+})();
+const r189Params=(()=>{try{return new URLSearchParams(window.parent.location.search)}
+ catch{return PARAMS}})();
+const r189Seed=Number(r189Params.get('seed')??PARAMS.get('seed'));
+const r189Deck=(Object.hasOwn(DECK_PRESETS,r189Params.get('deck'))?
+ r189Params.get('deck'):'classic');
+if(R189_STREAM&&(!Number.isInteger(r189Seed)||r189Seed<=0||
+ r189Seed>2147483646))
+ throw Error('R189 requires real browser game seed to compute exact original opening hands');
+const r189Preview=R189_STREAM?
+ createGame(r189Seed,r189Deck):null;
+const r189InitialGLBs=r189Preview?[...new Set(
+ [...r189Preview.hand.player,...r189Preview.hand.ai].filter(id=>
+  BY_ID[id]?.kind==='unit'&&UNIT_MODEL_IDS.includes(id)))]:[];
+const r189TailGLBs=R189_STREAM?UNIT_MODEL_IDS.filter(id=>!r189InitialGLBs.includes(id)):[];
+const r189BgConcurrency=R189_STREAM?
+ Math.max(1,Math.min(4,Number(r189Params.get('r189BgConcurrency'))||4)):4;
+const r189BgDelayMs=R189_STREAM?
+ Math.max(0,Math.min(1500,Number(r189Params.get('r189BgDelay')??0)||0)):0;
+
+let r189TailPromise=null,r189TailStarted=false,r189TailError=null;
+let r189AllDone=!R189_STREAM;
+const r189InitialReceipt={enabled:R189_STREAM,seed:r189Seed,
+ deck:r189Deck,initialRealGLBs:r189InitialGLBs,
+ deferredOriginalGLBs:r189TailGLBs,
+ initialCount:r189InitialGLBs.length,fullModelCount:12,
+ bgConcurrency:r189BgConcurrency,bgDelayMs:r189BgDelayMs,
+ expectedSourceIds:UNIT_MODEL_IDS,hasNoProxy:true};
+
 
 
 
@@ -1791,6 +1829,11 @@ function exposeQA(){
   get r186SelectedPrewarm(){return r186SelectedPrewarm},
   get r186ActorMotions(){return schoolMagicStage?.r186ActorMotions||[]},
   get r187InterleaveReceipt(){return r187InterleaveReceipt||{enabled:false}},
+  get r189StreamReceipt(){return {...r189InitialReceipt,
+   loadedNow:summonModels?[...summonModels.keys()]:[],
+   backgroundStarted:r189TailStarted,allLoaded:r189AllDone,
+   backgroundError:r189TailError,
+   loadedRealResources}},
   // R181 no-write forensic survey: actual live source SkinnedMesh materials,
   // skinning topology, bind matrices and morphs. Never guesses equivalence from
   // UUID alone; does NOT rewrite VRM skeletal hierarchy or shader code.
@@ -2064,7 +2107,8 @@ try{
    return actor;
   })),
   preloadSummonModels(THREE,new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
-   concurrency:glbConcurrency,
+   concurrency:R189_STREAM?Math.min(2,glbConcurrency):glbConcurrency,
+   ids:R189_STREAM?r189InitialGLBs:UNIT_MODEL_IDS,
    onLoaded:({id})=>verifiedModelLoaded('GLB:'+id),
    onTransfer:updateTransferProgress
   })
@@ -2082,7 +2126,12 @@ try{
   r181HairBatchReceipt=union.stats;
  }
  handCards?.attach(duelistHosts);
- if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
+ if(R189_STREAM){
+  if(loadedRealResources!==4+r189InitialGLBs.length||
+    summonModels.size!==r189InitialGLBs.length||
+    r189InitialGLBs.some(id=>!summonModels.has(id)))
+   throw Error('R189 strictly validated initial real 3D hand mismatch');
+ }else if(loadedRealResources!==TOTAL_REAL_ASSETS||summonModels.size!==12)
   throw Error('R101 genuine asset readiness gate: '+loadedRealResources+'/'+TOTAL_REAL_ASSETS);
  stadiumEvidence?.mountAudience?.(summonModels);
  if(R175_HERO_E06&&R169_SCHOOL_MAGIC){
@@ -2200,6 +2249,7 @@ try{
  bleacherProps?.mount?.([0,1,2,3].map(index=>stadiumEvidence?.spectatorAnchor?.(index)));
  summonPresence=createSummonPresence(THREE,scene,{
   actors,prototypes:summonModels,lifeWorld:arenaLife,
+  allowR189Partial:R189_STREAM,requiredR189Ids:r189InitialGLBs,
   onCombatImpact:(event)=>{
    // Only the accepted actual exchange sequence can emit this receipt.
    const type=event.type==='direct_hit'?'direct_hit':'actual_exchange';
@@ -2292,13 +2342,19 @@ try{
  }
  // Do not signal scene readiness before Chrome actually paints the first
  // GL frame. The old timing leaked an all-white first-frame compositor image.
- stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
+ stageText('idle',R189_STREAM?
+  '开局所需真实3D角色已载入 · 其他角色后台准备中':
+  '12 种三维召唤实体与体育馆已载入 · 待命');
  window.__ASDC_LOAD_METRICS.modelReadyMs=Math.round(performance.now()-loadingStartedAt);
  const download=$('load-download');
- if(download)download.textContent='所有角色已下载，正在完成三维场景渲染';
+ if(download)download.textContent=R189_STREAM?
+  '开局真实角色已载入，正在完成三维场景渲染':
+  '所有角色已下载，正在完成三维场景渲染';
  const paintStage=$('load-step');
  if(paintStage)paintStage.textContent='正在点亮正式比赛场地';
- $('load-explain').textContent='所有真实模型已验证，正在渲染首次完整比赛画面…';
+ $('load-explain').textContent=R189_STREAM?
+  '真实开局角色验证通过，其他角色将异步准备，不使用假模型。':
+  '所有真实模型已验证，正在渲染首次完整比赛画面…';
  exposeQA();
  const warmupStarted=performance.now();
  let warmupFrames=0;
@@ -2374,7 +2430,50 @@ try{
  $('loading').hidden=true;
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,independentHostVRMRigs:hostSourceActors.length,
-  loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false});
+  loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false,
+  r189Stream:R189_STREAM?{enabled:true,initialIds:[...summonModels.keys()],
+   tailIds:r189TailGLBs,seed:r189Seed,deck:r189Deck,hasNoProxy:true}:null});
+ if(R189_STREAM){
+  // Begin only AFTER the fully presented scene is already playable.
+  // Bound background parse to the QA-selected 1–4 workers. Only real source GLBs.
+  // No user input/turn may reference an unverified GLB (host guards that).
+  const launch=()=>{
+   if(r189TailStarted)return;
+   r189TailStarted=true;
+   const started=performance.now();
+   r189TailPromise=preloadSummonModels(THREE,
+    new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
+     ids:r189TailGLBs,concurrency:r189BgConcurrency,
+     onTransfer:updateTransferProgress,
+     onLoaded:({id})=>verifiedModelLoaded('GLB:'+id),
+     onPrototype:(id,template)=>{
+      if(!r189TailGLBs.includes(id)||summonModels.has(id))
+       throw Error('R189 background wrong or duplicate identity '+id);
+      summonModels.set(id,template);
+      reply('ASDC_R189_MODEL_READY',{id,realMeshCount:template.meshes,
+       loadedOriginalGlbCount:summonModels.size});
+     }
+    }).then(()=>{
+     if(summonModels.size!==12||loadedRealResources!==TOTAL_REAL_ASSETS||
+      UNIT_MODEL_IDS.some(id=>!summonModels.has(id)))
+      throw Error('R189 all-original final identity contract failed');
+     r189AllDone=true;
+     reply('ASDC_R189_ALL_READY',{count:12,hasNoProxy:true,
+      backgroundMs:+(performance.now()-started).toFixed(1),
+      initialIds:r189InitialGLBs,completeIds:[...summonModels.keys()]});
+    }).catch(error=>{
+     r189TailError=String(error?.message||error).slice(0,200);
+     console.error('R189_REAL_BACKGROUND_ASSET_FAILED',error);
+     reply('ASDC_R189_BACKGROUND_FAILED',{reason:r189TailError});
+    });
+  };
+  if(r189TailGLBs.length)window.setTimeout(launch,r189BgDelayMs);
+  else{r189AllDone=true;
+   reply('ASDC_R189_ALL_READY',{count:12,hasNoProxy:true,
+    backgroundMs:0,initialIds:r189InitialGLBs,
+    completeIds:[...summonModels.keys()]});
+  }
+ }
  broadcastCamera();
  requestAnimationFrame(loop);
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();

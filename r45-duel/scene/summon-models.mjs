@@ -317,7 +317,15 @@ function r124PackedDisabled(){
  return forced;
 }
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
-export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,concurrency=4}={}){
+export async function preloadSummonModels(THREE,loader,{
+ onLoaded,onTransfer,onPrototype,concurrency=4,ids=UNIT_MODEL_IDS
+}={}){
+ // R189: verified identity subset. Never construct fake GLBs, never silently
+ // ignore an unknown unit id, and retain the strict full-12 default path.
+ if(!Array.isArray(ids)||new Set(ids).size!==ids.length||
+    ids.some(id=>!UNIT_MODEL_IDS.includes(id)))
+  throw Error('R189 invalid original GLB identity subset');
+
  // Bound GLB requests and parser work instead of firing 12 large models at once.
  // Keep the original full 12/12 readiness and per-model validation contract.
  const limit=Math.max(1,Math.min(12,Math.floor(Number(concurrency))||4));
@@ -369,7 +377,7 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
    return await loader.loadAsync(url,event=>onTransfer?.(url,event));
   }finally{active--;pending.shift()?.();}
  }
- const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
+ const loaded=await Promise.all(ids.map(async id=>{
   const baseSpec=UNIT_MODEL_SPECS[id];
   const spec=id==='T02'&&isT02DuoStudy?
    {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:
@@ -435,13 +443,18 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   const scale=Math.min(spec.targetHeight/size.y,
    spec.maxWidth?spec.maxWidth/size.x:Infinity,
    spec.maxDepth?spec.maxDepth/size.z:Infinity);
-  return[id,{id,spec,selectedFile,source,clips:gltf.animations,scale,
+  const template={id,spec,selectedFile,source,clips:gltf.animations,scale,
    measured:{width:size.x,height:size.y,depth:size.z,
     scaledHeight:size.y*scale,scaledWidth:size.x*scale,scaledDepth:size.z*scale},
-   center:new THREE.Vector3(center.x,bounds.min.y,center.z),meshes,url:url.pathname}];
+   center:new THREE.Vector3(center.x,bounds.min.y,center.z),meshes,url:url.pathname};
+  // R189: only a fully decoded, geometry-validated, identity-labelled real GLB
+  // is published. Never publish half a buffer, proxy or wrong-card skeleton.
+  onPrototype?.(id,template);
+  return[id,template];
  }));
  const models=new Map(loaded);
- if(models.size!==12)throw Error('R61 expected exactly 12 independently sourced summoned GLBs');
+ if(models.size!==ids.length||ids.some(id=>!models.has(id)))
+  throw Error('R189 genuine source GLB count/identity mismatch');
  return models;
 }
 // R86: locally authored bone tracks on Blender Studio's actual Jay deform rig.

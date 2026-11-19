@@ -1,0 +1,95 @@
+{
+  "seed": 6,
+  "deck": "classroom",
+  "errors": [],
+  "pass": true,
+  "start": {
+    "exactlyStarterIds": true,
+    "firstReadyMs": 1857,
+    "actualVerified": 8,
+    "expectedStarterCount": 8,
+    "endDisabled": true,
+    "endShouldBeDisabled": true,
+    "initialState": {
+      "enabled": true,
+      "readyIds": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "E01",
+        "G01"
+      ],
+      "allReady": false,
+      "backgroundMs": null,
+      "backgroundError": null,
+      "nextAiMissing": [
+        "T01"
+      ],
+      "canSafelyEndTurn": false,
+      "restrictedCardCount": 0
+    },
+    "realReadyIds": [
+      "E02",
+      "M02",
+      "T02",
+      "E03"
+    ]
+  },
+  "playedE01": {
+    "actualRuleBoard": {
+      "player": [
+        [
+          {
+            "uid": "U2",
+            "id": "E01",
+            "style": "ember",
+            "attack": 1,
+            "hp": 2,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 1
+          }
+        ]
+      ],
+      "ai": [
+        []
+      ]
+    },
+    "sceneUnitIds": [
+      "E01"
+    ],
+    "engineEvents": [
+      "E01"
+    ]
+  },
+  "earlyTurn": {
+    "disabled": true,
+    "possible": false,
+    "prediction": [
+      "T01"
+    ],
+    "backgroundFull": false
+  },
+  "complete": {
+    "modelsVerified": 16,
+    "glbs": [
+      "E02",
+      "M02",
+      "T02",
+      "E03",
+      "G03",
+      "E04",
+      "G04",
+      "M01",
+      "T04",
+      "T01",
+      "G02",
+      "T03"
+    ],
+    "backgroundMs": 448.9,
+    "canEnd": true,
+    "endDisabled": false,
+    "deckSwitchDisabled": false
+  }
+}

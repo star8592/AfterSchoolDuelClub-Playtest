@@ -1,0 +1,29 @@
+{
+  "case": "R189 deferred T03 original GLB missing",
+  "failedAsset": "T03-Rain-Landing-R97.glb",
+  "realChrome": true,
+  "pass": true,
+  "initial": {
+    "verifiedAtFirstReady": 10,
+    "initiallyLoaded": [
+      "T04",
+      "T01",
+      "E02",
+      "E04",
+      "M01",
+      "G03"
+    ],
+    "earlyReady": true,
+    "backgroundNotYetComplete": true
+  },
+  "failure": {
+    "error": "Failed to fetch",
+    "sceneError": true,
+    "stillSceneReady": true,
+    "stillAllReady": false,
+    "endDisabled": true,
+    "playDisabled": true,
+    "noBadPrototype": true
+  },
+  "intercepted": 1
+}
