@@ -1,0 +1,242 @@
+{
+  "test": "R195 real mid-match GPU context-loss, engine-memory preservation and 3D-only regeneration",
+  "environment": "Chrome Vulkan Z890 RTX 5070 Ti; mobile viewport is emulated; no Android GPU",
+  "scope": "QA only; not main or R147; no actual production half precision toggle",
+  "scenarios": [
+    {
+      "scenario": "classroom-seed6-desktop-rounds2-actual16to32-loss3",
+      "deck": "classroom",
+      "view": "desktop",
+      "passed": true,
+      "gpuLossAtRound": 3,
+      "gpuBeforeUploadMiB": 30.472,
+      "gpuAfterUploadMiB": 65.617,
+      "beforeFingerprint": {
+        "serial": 9,
+        "round": 3,
+        "seed": 6,
+        "deck": "classroom",
+        "length": 1885,
+        "digest": "c0d1f23b"
+      },
+      "afterFingerprint": {
+        "serial": 9,
+        "round": 3,
+        "seed": 6,
+        "deck": "classroom",
+        "length": 1885,
+        "digest": "c0d1f23b"
+      },
+      "sameFullState": true,
+      "requiredOriginals": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "G02",
+        "T01"
+      ],
+      "loadedAfter": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "G02",
+        "T01",
+        "E04"
+      ],
+      "continuedToRound": 4,
+      "secondRecoveryPass": true,
+      "thirdFailureMode": "failed",
+      "errors": []
+    },
+    {
+      "scenario": "classroom-seed6-desktop-rounds2-actual16to32",
+      "deck": "classroom",
+      "view": "desktop",
+      "passed": true,
+      "gpuLossAtRound": 3,
+      "gpuBeforeUploadMiB": 30.472,
+      "gpuAfterUploadMiB": 65.617,
+      "beforeFingerprint": {
+        "serial": 9,
+        "round": 3,
+        "seed": 6,
+        "deck": "classroom",
+        "length": 1885,
+        "digest": "c0d1f23b"
+      },
+      "afterFingerprint": {
+        "serial": 9,
+        "round": 3,
+        "seed": 6,
+        "deck": "classroom",
+        "length": 1885,
+        "digest": "c0d1f23b"
+      },
+      "sameFullState": true,
+      "requiredOriginals": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "G02",
+        "T01"
+      ],
+      "loadedAfter": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "G02",
+        "T01",
+        "E04"
+      ],
+      "continuedToRound": 4,
+      "secondRecoveryPass": false,
+      "thirdFailureMode": null,
+      "errors": []
+    },
+    {
+      "scenario": "classroom-seed6-desktop-rounds2",
+      "deck": "classroom",
+      "view": "desktop",
+      "passed": true,
+      "gpuLossAtRound": 3,
+      "gpuBeforeUploadMiB": null,
+      "gpuAfterUploadMiB": null,
+      "beforeFingerprint": {
+        "serial": 9,
+        "round": 3,
+        "seed": 6,
+        "deck": "classroom",
+        "length": 1885,
+        "digest": "c0d1f23b"
+      },
+      "afterFingerprint": {
+        "serial": 9,
+        "round": 3,
+        "seed": 6,
+        "deck": "classroom",
+        "length": 1885,
+        "digest": "c0d1f23b"
+      },
+      "sameFullState": true,
+      "requiredOriginals": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "G02",
+        "T01"
+      ],
+      "loadedAfter": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "G02",
+        "T01",
+        "E04"
+      ],
+      "continuedToRound": 4,
+      "secondRecoveryPass": false,
+      "thirdFailureMode": null,
+      "errors": []
+    },
+    {
+      "scenario": "classroom-seed6-mobile-rounds2-actual16to32",
+      "deck": "classroom",
+      "view": "mobile",
+      "passed": true,
+      "gpuLossAtRound": 3,
+      "gpuBeforeUploadMiB": 30.472,
+      "gpuAfterUploadMiB": 65.617,
+      "beforeFingerprint": {
+        "serial": 9,
+        "round": 3,
+        "seed": 6,
+        "deck": "classroom",
+        "length": 1885,
+        "digest": "c0d1f23b"
+      },
+      "afterFingerprint": {
+        "serial": 9,
+        "round": 3,
+        "seed": 6,
+        "deck": "classroom",
+        "length": 1885,
+        "digest": "c0d1f23b"
+      },
+      "sameFullState": true,
+      "requiredOriginals": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "G02",
+        "T01"
+      ],
+      "loadedAfter": [
+        "E02",
+        "M02",
+        "T02",
+        "E03",
+        "G02",
+        "T01"
+      ],
+      "continuedToRound": 4,
+      "secondRecoveryPass": false,
+      "thirdFailureMode": null,
+      "errors": []
+    },
+    {
+      "scenario": "kitchen-seed2-desktop-rounds2-actual16to32",
+      "deck": "kitchen",
+      "view": "desktop",
+      "passed": true,
+      "gpuLossAtRound": 3,
+      "gpuBeforeUploadMiB": 46.987,
+      "gpuAfterUploadMiB": 93.975,
+      "beforeFingerprint": {
+        "serial": 12,
+        "round": 3,
+        "seed": 2,
+        "deck": "kitchen",
+        "length": 2265,
+        "digest": "58517b00"
+      },
+      "afterFingerprint": {
+        "serial": 12,
+        "round": 3,
+        "seed": 2,
+        "deck": "kitchen",
+        "length": 2265,
+        "digest": "58517b00"
+      },
+      "sameFullState": true,
+      "requiredOriginals": [
+        "E04",
+        "G04",
+        "E02"
+      ],
+      "loadedAfter": [
+        "E04",
+        "G04",
+        "E02"
+      ],
+      "continuedToRound": 4,
+      "secondRecoveryPass": false,
+      "thirdFailureMode": null,
+      "errors": []
+    }
+  ],
+  "passes": 5,
+  "total": 5,
+  "limitations": [
+    "parent page/browser process loss is not covered",
+    "in production, half float is not yet enabled; vendor overlay belongs solely to QA",
+    "third consecutive loss fails closed preserving engine state; no infinite retry",
+    "no actual Android GPU testing"
+  ]
+}

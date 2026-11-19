@@ -10,6 +10,7 @@ import {schoolSpellIdentity} from './scene/campus-magic-bible.mjs';
 import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
 import {chooseCrowdAccident} from './scene/spectator-chaos-contract.mjs';
 import {resolveSpectatorProp} from './scene/bleacher-prop-comedy.mjs';
+import {r195NeededRealGlbs,r195Fingerprint} from './r195-recovery-contract.mjs';
 import {makeComedyScript,COMIC_ASIDE_LINES} from './comedy-script.mjs';
 import {normalizeRealCombo} from './scene/combo-contract.mjs';
 import {LESSONS,createTutorialGame,tutorialStatus,tutorialCanPlay,playTutorialCard} from './tutorial.mjs';
@@ -26,6 +27,11 @@ const R189_STREAM=params.get('qa')==='1'&&params.get('r189Stream')==='on'&&
 let r189ReadyIds=null,r189AllReady=!R189_STREAM;
 let r189BackgroundError=null,r189BackgroundMs=null;
 const R190_DEMAND=R189_STREAM&&params.get('r190Demand')==='on';
+// Only under explicit QA. Real game uses its original 32-bit render path.
+// After a real WebGL context loss, preserve the authoritative parent engine
+// and rebuild ONLY the 3D iframe. No player-facing release toggle.
+const R195_SCENE_RECOVERY=R190_DEMAND&&params.get('qa')==='1'&&
+ params.get('r195SceneRecovery')==='on';
 const r190RequestedIDs=new Set();
 let r190RequestsSent=0;
 
@@ -64,6 +70,41 @@ const initialLevel=tutorialMode&&Number.isInteger(requestedLevel)&&requestedLeve
 const requestedDeck=params.get('deck');
 const activeDeck=(!tutorialMode&&Object.hasOwn(DECK_PRESETS,requestedDeck))?requestedDeck:'classic';
 let g=guidedMode?createGuidedGame(seed):tutorialMode?createTutorialGame(initialLevel,seed):createGame(seed,activeDeck);
+let r195ExactStateBefore=null;
+const r195Recovery={enabled:R195_SCENE_RECOVERY,state:'idle',
+ attempts:0,losses:0,before:null,after:null,expectedGlbs:[],failure:null};
+function r195CurrentRequiredGlbs(){return r195NeededRealGlbs(g,BY_ID)}
+function r195Fail(message){
+ r195Recovery.state='failed';r195Recovery.failure=message;
+ sceneReady=false;sceneError=true;
+ console.error('R195_QA_RECOVERY_FAILED',message);
+ render();announce('3D恢复验证失败，已暂停对局，规则数据仍保留。','error');
+}
+function r195RebuildSceneFromContextLoss(){
+ if(!R195_SCENE_RECOVERY||!['idle','restored'].includes(r195Recovery.state)||!sceneReady)return false;
+ if(r195Recovery.attempts>=2){
+  r195Fail('Repeated GPU context loss after two controlled 3D iframe recoveries');
+  return false;
+ }
+ try{
+  r195Recovery.attempts++;
+  r195Recovery.before=r195Fingerprint(g);
+  r195ExactStateBefore=JSON.stringify(g);
+  r195Recovery.expectedGlbs=r195CurrentRequiredGlbs();
+  r195Recovery.state='reloading';
+  // Disable card interactions during a fresh original source model reload.
+  sceneReady=false;sceneError=false;
+  r189ReadyIds=null;r189AllReady=false;
+  r189BackgroundError=null;
+  r190RequestedIDs.clear();
+  const u=new URL(scene.src,location.href);
+  u.searchParams.set('r195Recover','1');
+  u.searchParams.set('r195Force32f','on');
+  u.searchParams.set('r195Sequence',String(r195Recovery.attempts));
+  scene.src=u.href;render();
+  return true;
+ }catch(error){r195Fail(String(error));return false}
+}
 const scene=$('stadium');
 const comedyScript=makeComedyScript(seed);
 let lastQwenSubtitle=null,spokenSubtitleCount=0,asideSeq=0,speechSeq=0;
@@ -1051,6 +1092,13 @@ const r121SpokenContacts=new Set();
 const r122PlayedCrowdAccidents=new Set();
 window.addEventListener('message',event=>{
  if(event.origin!==location.origin||event.source!==scene.contentWindow)return;
+ if(event.data?.type==='ASDC_R195_CONTEXT_LOST'){
+  if(!R195_SCENE_RECOVERY||event.data.fromRealCanvas!==true||
+     event.data.seed!==seed||event.data.deck!==g.deckPreset)return;
+  r195Recovery.losses++;
+  r195RebuildSceneFromContextLoss();
+  return;
+ }
  if(event.data?.type==='ASDC_R122_CROWD_ACCIDENT'){
   const d=event.data;
   const match=g.events.find(e=>e.type==='card_play'&&e.serial===d.serial&&
@@ -1158,8 +1206,10 @@ window.addEventListener('message',event=>{
    const r=event.data.r189Stream;
    // Independently verify the iframe's seed+deck identity against the ACTUAL
    // rules-owned opening hands, never trust a guessed/previous match hand.
-   const required=[...new Set([...g.hand.player,...g.hand.ai]
-    .filter(id=>BY_ID[id]?.kind==='unit'&&!['E01','G01'].includes(id)))];
+   const required=r195Recovery.state==='reloading'&&R195_SCENE_RECOVERY?
+    r195CurrentRequiredGlbs():
+    [...new Set([...g.hand.player,...g.hand.ai]
+     .filter(id=>BY_ID[id]?.kind==='unit'&&!['E01','G01'].includes(id)))];
    if(!r?.enabled||!r.hasNoProxy||!Array.isArray(r.initialIds)||
       new Set(r.initialIds).size!==required.length||
       required.some(id=>!r.initialIds.includes(id))||
@@ -1171,6 +1221,23 @@ window.addEventListener('message',event=>{
    }
    r189ReadyIds=new Set([...r.initialIds,'E01','G01']);
    r189AllReady=false;
+  }
+  if(r195Recovery.state==='reloading'&&R195_SCENE_RECOVERY){
+   const now=r195Fingerprint(g),before=r195Recovery.before;
+   if(!before||JSON.stringify(g)!==r195ExactStateBefore||
+      now.digest!==before.digest||now.length!==before.length||
+      now.serial!==before.serial||now.round!==before.round){
+    r195Fail('Rule engine was mutated while rebuilding original 3D scene');
+    return;
+   }
+   const latest=r195CurrentRequiredGlbs();
+   if(latest.length!==r195Recovery.expectedGlbs.length||
+      latest.some(id=>!r195Recovery.expectedGlbs.includes(id))){
+    r195Fail('Original GLB identities changed during context recovery');return;
+   }
+   r195Recovery.state='restored';
+   r195Recovery.after=now;
+   r195ExactStateBefore=null;
   }
   sceneReady=true;sceneError=false;
   syncScene();
@@ -1410,6 +1477,15 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get phase(){return g.phase},
   get sceneReady(){return sceneReady},
   get sceneError(){return sceneError},
+  get r195RequiredGLBs(){return R195_SCENE_RECOVERY?r195CurrentRequiredGlbs():[]},
+  get r195Recovery(){return {...r195Recovery,expectedGlbs:[...r195Recovery.expectedGlbs],
+    current:r195Fingerprint(g),sceneReady,sceneError}},
+  r195SimulateLoss(){if(!R195_SCENE_RECOVERY||!sceneReady)return false;
+   const canvas=scene.contentWindow?.document?.getElementById('battle-canvas');
+   const ext=canvas?.getContext('webgl2')?.getExtension('WEBGL_lose_context');
+   if(!ext)return false;
+   ext.loseContext();return true;
+  },
   get r190Demand(){return {enabled:R190_DEMAND,
    requestedIDs:[...r190RequestedIDs],requestsSent:r190RequestsSent,
    readyOriginals:r189ReadyIds?[...r189ReadyIds].filter(id=>

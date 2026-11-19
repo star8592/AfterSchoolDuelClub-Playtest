@@ -16,6 +16,7 @@ import {createStadium} from './stadium.mjs';
 import {auditTextures} from './texture-gpu-audit.mjs';
 import {installTextureLifecycleTrace} from './texture-gpu-lifecycle.mjs';
 import {inspectMorphTextureBudget} from './morph-texture-budget.mjs';
+import {R195_SOURCE_IDS} from '../r195-recovery-contract.mjs';
 import {auditMorphHalfError} from './morph-half-error-audit.mjs';
 import {createSkinnedIndexUnion} from './skinned-index-union.mjs';
 import {createCampusSchoolMagic} from './campus-school-magic.mjs';
@@ -252,11 +253,26 @@ const r189Deck=(Object.hasOwn(DECK_PRESETS,r189Params.get('deck'))?
 if(R189_STREAM&&(!Number.isInteger(r189Seed)||r189Seed<=0||
  r189Seed>2147483646))
  throw Error('R189 requires real browser game seed to compute exact original opening hands');
+// R195: only on explicit QA recovery iframe navigation, source identities
+// come from the live parent engine (current hand AND both current boards).
+// Never reuse the original opening hand while reconstructing a later round.
+const R195_RESUME=R189_STREAM&&r189Params.get('qa')==='1'&&
+ r189Params.get('r195SceneRecovery')==='on'&&PARAMS.get('r195Recover')==='1';
+const r195CurrentSources=(()=>{
+ if(!R195_RESUME)return null;
+ const parent=window.parent?.__r45QA;
+ const ids=parent?.r195RequiredGLBs;
+ if(!Array.isArray(ids)||new Set(ids).size!==ids.length||
+    ids.some(id=>!R195_SOURCE_IDS.includes(id)))
+  throw Error('R195 resume requires genuine current engine GLB identities');
+ return ids;
+})();
 const r189Preview=R189_STREAM?
  createGame(r189Seed,r189Deck):null;
-const r189InitialGLBs=r189Preview?[...new Set(
+const r189InitialGLBs=r195CurrentSources||(
+ r189Preview?[...new Set(
  [...r189Preview.hand.player,...r189Preview.hand.ai].filter(id=>
-  BY_ID[id]?.kind==='unit'&&UNIT_MODEL_IDS.includes(id)))]:[];
+  BY_ID[id]?.kind==='unit'&&UNIT_MODEL_IDS.includes(id)))]:[]);
 const r189TailGLBs=R189_STREAM?UNIT_MODEL_IDS.filter(id=>!r189InitialGLBs.includes(id)):[];
 const r189BgConcurrency=R189_STREAM?
  Math.max(1,Math.min(4,Number(r189Params.get('r189BgConcurrency'))||4)):4;
@@ -627,6 +643,15 @@ function makeScene(){
  scene=new THREE.Scene();scene.background=new THREE.Color('#192b42');scene.fog=new THREE.Fog('#192b42',17,49);
  if(R192_TRACE_GPU)r192GpuTrace=installTextureLifecycleTrace($('battle-canvas'));
  renderer=new THREE.WebGLRenderer({canvas:$('battle-canvas'),alpha:false,antialias:true,powerPreference:'high-performance'});
+ // QA-only: actual WebGL context loss is reported to the unchanged
+ // rules-engine parent, which may reconstruct THIS iframe, not the match.
+ if(R189_STREAM&&r189Params.get('qa')==='1'&&
+    r189Params.get('r195SceneRecovery')==='on'){
+  $('battle-canvas').addEventListener('webglcontextlost',()=>{
+    reply('ASDC_R195_CONTEXT_LOST',{seed:r189Seed,deck:r189Deck,
+      recoverAttempt:R195_RESUME,fromRealCanvas:true});
+  },{once:true});
+ }
  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
  renderer.toneMappingExposure=1.15;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
  // R124: cache the last directional shadow between scheduled updates; the
