@@ -1,0 +1,56 @@
+{
+  "version": "R192",
+  "status": "Draft NO-GO",
+  "platform": "Z890 RTX Chrome Vulkan WebGL2",
+  "mobileCaveat": "viewport simulation only",
+  "scenes": [
+    {
+      "deck": "classic",
+      "seed": 173,
+      "view": "desktop",
+      "pass": true,
+      "gpu": 153,
+      "sceneTextures": 84,
+      "outsideScene": 69,
+      "arrayAlloc3D": 69,
+      "floatUploadMiB": 64.537,
+      "exactDuplicateGroups": 0
+    },
+    {
+      "deck": "classic",
+      "seed": 173,
+      "view": "mobile",
+      "pass": true,
+      "gpu": 153,
+      "sceneTextures": 84,
+      "outsideScene": 69,
+      "arrayAlloc3D": 69,
+      "floatUploadMiB": 64.537,
+      "exactDuplicateGroups": 0
+    },
+    {
+      "deck": "kitchen",
+      "seed": 2,
+      "view": "desktop",
+      "pass": true,
+      "gpu": 141,
+      "sceneTextures": 72,
+      "outsideScene": 69,
+      "arrayAlloc3D": null,
+      "floatUploadMiB": null,
+      "exactDuplicateGroups": 0
+    },
+    {
+      "deck": "kitchen",
+      "seed": 2,
+      "view": "mobile",
+      "pass": true,
+      "gpu": 141,
+      "sceneTextures": 72,
+      "outsideScene": 69,
+      "arrayAlloc3D": 69,
+      "floatUploadMiB": 66.233,
+      "exactDuplicateGroups": 0
+    }
+  ]
+}
