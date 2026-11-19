@@ -1,0 +1,87 @@
+{
+  "version": "R193",
+  "release": "Draft NO-GO",
+  "source": "Z890 Chrome Vulkan WebGL2",
+  "mobileIsRealAndroid": false,
+  "method": "QA-only HTTP route rewrites vendored Three.js only in the test browser; repository vendor bytes unchanged",
+  "screens": [
+    {
+      "runId": "classic-desktop-rgba16f",
+      "pass": true,
+      "models": 6,
+      "gpuTextureObjects": 153,
+      "morph3DArrays": 69,
+      "webglUploadMiB": 32.268,
+      "morphPositionMaxError": 0.000488,
+      "morphPositionRmse": 0.000006,
+      "morphNormalMaxError": 0.000976,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "classic-desktop-rgba32f",
+      "pass": true,
+      "models": 6,
+      "gpuTextureObjects": 153,
+      "morph3DArrays": 69,
+      "webglUploadMiB": 64.537,
+      "morphPositionMaxError": 0.000488,
+      "morphPositionRmse": 0.000006,
+      "morphNormalMaxError": 0.000976,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "classic-mobile-rgba16f",
+      "pass": true,
+      "models": 6,
+      "gpuTextureObjects": 153,
+      "morph3DArrays": 69,
+      "webglUploadMiB": 32.268,
+      "morphPositionMaxError": 0.000488,
+      "morphPositionRmse": 0.000006,
+      "morphNormalMaxError": 0.000976,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "classic-mobile-rgba32f",
+      "pass": true,
+      "models": 6,
+      "gpuTextureObjects": 153,
+      "morph3DArrays": 69,
+      "webglUploadMiB": 64.537,
+      "morphPositionMaxError": 0.000488,
+      "morphPositionRmse": 0.000006,
+      "morphNormalMaxError": 0.000976,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "kitchen-desktop-rgba16f",
+      "pass": true,
+      "models": 3,
+      "gpuTextureObjects": 141,
+      "morph3DArrays": 69,
+      "webglUploadMiB": 33.116,
+      "morphPositionMaxError": 0.000488,
+      "morphPositionRmse": 0.000007,
+      "morphNormalMaxError": 0.000976,
+      "overflow": 0,
+      "errors": []
+    },
+    {
+      "runId": "kitchen-desktop-rgba32f",
+      "pass": true,
+      "models": 3,
+      "gpuTextureObjects": 141,
+      "morph3DArrays": 69,
+      "webglUploadMiB": 66.233,
+      "morphPositionMaxError": 0.000488,
+      "morphPositionRmse": 0.000007,
+      "morphNormalMaxError": 0.000976,
+      "overflow": 0,
+      "errors": []
+    }
+  ]
+}

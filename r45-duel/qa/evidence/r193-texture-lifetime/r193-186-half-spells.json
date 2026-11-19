@@ -1,0 +1,33 @@
+{
+  "version": "R193",
+  "qaHalfFloat": true,
+  "pair": "T01 vs E04",
+  "spells": [
+    {
+      "view": "mobile",
+      "pass": true,
+      "casts": 93,
+      "identities": 46,
+      "decalTexturesCached": 42,
+      "rgba16fAlloc": 69,
+      "halfUploadMiB": 32.268,
+      "firstReadyMs": 5928,
+      "firstCastP99": 50,
+      "firstCastMax": 66.7,
+      "errors": []
+    },
+    {
+      "view": "desktop",
+      "pass": true,
+      "casts": 93,
+      "identities": 46,
+      "decalTexturesCached": 42,
+      "rgba16fAlloc": 69,
+      "halfUploadMiB": 32.268,
+      "firstReadyMs": 3179,
+      "firstCastP99": 33.3,
+      "firstCastMax": 50,
+      "errors": []
+    }
+  ]
+}
