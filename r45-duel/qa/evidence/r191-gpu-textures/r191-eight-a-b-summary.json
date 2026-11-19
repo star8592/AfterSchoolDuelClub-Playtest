@@ -1,0 +1,135 @@
+{
+  "hardware": "Z890 RTX5070Ti Chrome Vulkan WebGL2",
+  "mobileCaveat": "Mobile viewport emulation on RTX GPU, not native Android",
+  "loadedAssetType": "R190 original authentic units, no proxies",
+  "strictMode": "qa=1&r189Stream=on&r190Demand=on",
+  "condition": "Only r181HairBatch switch differs between each A/B pair",
+  "boneMemoryCaveat": "Float RGBA 16 byte/texel proxy, excludes driver allocation and other textures. Not actual GPU VRAM.",
+  "unattributedCaveat": "69 GPU textures remain outside inspected scene graph; not classified as leaks without stronger evidence",
+  "cases": [
+    {
+      "deck": "classic",
+      "seed": 173,
+      "view": "desktop",
+      "off": {
+        "textureObjects": 372,
+        "drawCalls": 491,
+        "allocatedReferenced": 303,
+        "boneTextures": 265,
+        "estimatedBoneTexelMiB": 1.911,
+        "unattributed": 69,
+        "skeletonMeshes": 689,
+        "shaderPrograms": 39,
+        "passed": true,
+        "loadedOriginalGLBs": 6
+      },
+      "on": {
+        "textureObjects": 153,
+        "drawCalls": 272,
+        "allocatedReferenced": 84,
+        "boneTextures": 46,
+        "estimatedBoneTexelMiB": 0.29,
+        "unattributed": 69,
+        "skeletonMeshes": 470,
+        "shaderPrograms": 39,
+        "passed": true,
+        "loadedOriginalGLBs": 6
+      },
+      "textureObjectReduction": 219,
+      "drawCallReduction": 219
+    },
+    {
+      "deck": "classic",
+      "seed": 173,
+      "view": "mobile",
+      "off": {
+        "textureObjects": 372,
+        "drawCalls": 493,
+        "allocatedReferenced": 303,
+        "boneTextures": 265,
+        "estimatedBoneTexelMiB": 1.911,
+        "unattributed": 69,
+        "skeletonMeshes": 689,
+        "shaderPrograms": 40,
+        "passed": true,
+        "loadedOriginalGLBs": 6
+      },
+      "on": {
+        "textureObjects": 153,
+        "drawCalls": 274,
+        "allocatedReferenced": 84,
+        "boneTextures": 46,
+        "estimatedBoneTexelMiB": 0.29,
+        "unattributed": 69,
+        "skeletonMeshes": 470,
+        "shaderPrograms": 40,
+        "passed": true,
+        "loadedOriginalGLBs": 6
+      },
+      "textureObjectReduction": 219,
+      "drawCallReduction": 219
+    },
+    {
+      "deck": "kitchen",
+      "seed": 2,
+      "view": "desktop",
+      "off": {
+        "textureObjects": 360,
+        "drawCalls": 414,
+        "allocatedReferenced": 291,
+        "boneTextures": 255,
+        "estimatedBoneTexelMiB": 1.889,
+        "unattributed": 69,
+        "skeletonMeshes": 679,
+        "shaderPrograms": 35,
+        "passed": true,
+        "loadedOriginalGLBs": 3
+      },
+      "on": {
+        "textureObjects": 141,
+        "drawCalls": 195,
+        "allocatedReferenced": 72,
+        "boneTextures": 36,
+        "estimatedBoneTexelMiB": 0.268,
+        "unattributed": 69,
+        "skeletonMeshes": 460,
+        "shaderPrograms": 35,
+        "passed": true,
+        "loadedOriginalGLBs": 3
+      },
+      "textureObjectReduction": 219,
+      "drawCallReduction": 219
+    },
+    {
+      "deck": "kitchen",
+      "seed": 2,
+      "view": "mobile",
+      "off": {
+        "textureObjects": 360,
+        "drawCalls": 416,
+        "allocatedReferenced": 291,
+        "boneTextures": 255,
+        "estimatedBoneTexelMiB": 1.889,
+        "unattributed": 69,
+        "skeletonMeshes": 679,
+        "shaderPrograms": 36,
+        "passed": true,
+        "loadedOriginalGLBs": 3
+      },
+      "on": {
+        "textureObjects": 141,
+        "drawCalls": 197,
+        "allocatedReferenced": 72,
+        "boneTextures": 36,
+        "estimatedBoneTexelMiB": 0.268,
+        "unattributed": 69,
+        "skeletonMeshes": 460,
+        "shaderPrograms": 36,
+        "passed": true,
+        "loadedOriginalGLBs": 3
+      },
+      "textureObjectReduction": 219,
+      "drawCallReduction": 219
+    }
+  ]
+}

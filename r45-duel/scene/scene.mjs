@@ -13,6 +13,7 @@ import {extractVrm0Expressions,createVrmCharacterActing} from './vrm-character-a
 import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
+import {auditTextures} from './texture-gpu-audit.mjs';
 import {createSkinnedIndexUnion} from './skinned-index-union.mjs';
 import {createCampusSchoolMagic} from './campus-school-magic.mjs';
 import {schoolGestureForCard} from './campus-spell-gesture.mjs';
@@ -79,7 +80,8 @@ const R181_HAIR_BATCH=(()=>{
  const pp=(()=>{try{return new URLSearchParams(window.parent.location.search)}
   catch{return null}})();
  return (PARAMS.get('qa')==='1'||pp?.get('qa')==='1')&&
-  (PARAMS.get('r181HairBatch')??pp?.get('r181HairBatch'))==='on';
+  ((PARAMS.get('r181HairBatch')??pp?.get('r181HairBatch'))==='on'||
+   (PARAMS.get('r191GpuBudget')??pp?.get('r191GpuBudget'))==='on');
 })();
 let r181HairBatchReceipt=null;
 // R182 asset experiment: single selected actual Blender GLB only.
@@ -1904,6 +1906,8 @@ function exposeQA(){
   get r186SelectedPrewarm(){return r186SelectedPrewarm},
   get r186ActorMotions(){return schoolMagicStage?.r186ActorMotions||[]},
   get r187InterleaveReceipt(){return r187InterleaveReceipt||{enabled:false}},
+  get r191TextureAudit(){return R189_STREAM&&(PARAMS.get('r191TextureAudit')??r189Params.get('r191TextureAudit'))==='on'
+    ?auditTextures(scene,renderer):{enabled:false}},
   get r189StreamReceipt(){return {...r189InitialReceipt,
    loadedNow:summonModels?[...summonModels.keys()]:[],
    backgroundStarted:r189TailStarted,allLoaded:r189AllDone,
