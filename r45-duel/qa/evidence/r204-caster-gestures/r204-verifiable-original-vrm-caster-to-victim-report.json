@@ -1,0 +1,129 @@
+{
+  "release": "R204 Draft NO-GO",
+  "prodMainModified": false,
+  "originalVRM": [
+    "Host-HairSample_Female-CC0.vrm",
+    "Host-HairSample_Male-CC0.vrm"
+  ],
+  "r204Flag": "r204Caster=on",
+  "automaticCloseups": 0,
+  "originalRealHandCard": {
+    "heldDuringOriginalGLBSlowDownload": true,
+    "originalVRMFingerJoints": 15,
+    "realReleaseSyncedToOriginalBlenderModel": true,
+    "exactFingerRestorationVerified": true,
+    "oldR117CardWhenFlagOffUnchanged": true
+  },
+  "truePlayerPC": {
+    "pass": true,
+    "sameOriginalVRMSource": true,
+    "testedRuleCard": "S08",
+    "canonicalDamage": 2,
+    "slowRealGLBRequestInsertedMs": 2100,
+    "actualReleaseToOpponentBodyHitS": 1.172,
+    "originalWristTravelMeters": 0.785,
+    "stages": [
+      "windup",
+      "hold-aim",
+      "throw-snap",
+      "follow-through",
+      "recover",
+      "hit-celebration",
+      "settled"
+    ],
+    "liveQwenOriginalVictimVoice": "HOST_AI-r203_S08.ogg",
+    "ikArmSolveMaxErrorMeters": 0.018,
+    "noBrokenBoneStretch": true
+  },
+  "maleCasterRealChromePreview": {
+    "pass": true,
+    "differentOriginalVRM": true,
+    "sourceWristMoveMeters": 0.342,
+    "stages": [
+      "hold-aim",
+      "throw-snap",
+      "follow-through",
+      "recover",
+      "hit-celebration",
+      "settled"
+    ],
+    "canonicalHPUnchanged": true,
+    "femaleVictimAudio": "HOST_PLAYER-r203_S08.ogg"
+  },
+  "10IndividuallyAuthoredStyles": {
+    "pass": true,
+    "count": 10,
+    "uniqueStyles": 10,
+    "sourceIDs": [
+      "E06",
+      "Q05",
+      "K01",
+      "K07",
+      "P07",
+      "K04",
+      "S08",
+      "P03",
+      "X05",
+      "Q07"
+    ],
+    "originalSkeletonIKSuccess": true,
+    "all10RealGLBLoaded": true,
+    "noneCreatesFalseRulesDamage": true
+  },
+  "46OriginalSpellCompatibility": {
+    "pass": true,
+    "identityCount": 46,
+    "casts": 47,
+    "cacheLimit": 8,
+    "safeEvictions": 40
+  },
+  "allCardsBasicGestureSchema": {
+    "coveredSpellIds": 46,
+    "uniqueMotionFamilies": 18,
+    "bespokeVisualAcceptance": 10,
+    "remainingToIndividuallyDesign": 36
+  },
+  "genuinePCVideo": {
+    "file": "qa/evidence/r204-caster-gestures/r204-real-female-and-male-casters-silent.mp4",
+    "durationS": 16.0,
+    "originalChromeWideScreensOnly": true,
+    "containsAudioTrack": false,
+    "originalGameHasLiveRecordedQwenVO": true
+  },
+  "limitations": [
+    "Human visual reaction acceptance pending",
+    "R204 depends on R203/R202/R201/R200/R199 Draft branches; not in main",
+    "Only ten of 46 get bespoke named personalities; other 36 use eight family variants",
+    "No quantified FPS/cold-start improvement claimed",
+    "No actual Android acceptance required for this PC-first project",
+    "XPS 15 full cold-cache-off PC startup measured 57.994 seconds; this is NOT an acceptable PC cold-loading result and remains a separate performance blocker."
+  ],
+  "independentIntelUHD630PC": {
+    "pass": true,
+    "model": "XPS15 Intel UHD630 Chrome155 Linux",
+    "cacheDisabledOnlyForThisDebugSession": true,
+    "actualSourceModel": "Host-HairSample_Female-CC0.vrm",
+    "fullGPUModelCount": 16,
+    "actualS08SourceMeshes": 14,
+    "sameVRMOriginalHandFingerBones": 15,
+    "sourceArmReachErrors": {
+      "R": 0,
+      "L": 0
+    },
+    "authenticCardKeptUntilOriginalSourceReady": true,
+    "actualCardFingersReleasedAfterProp": true,
+    "theSixRealCasterPhases": [
+      "windup",
+      "hold-aim",
+      "throw-snap",
+      "follow-through",
+      "recover",
+      "hit-celebration"
+    ],
+    "realPhysicalBodyContacts": 1,
+    "oldPointLightArsenal": 0,
+    "cacheDisabledStartupMs": 57994,
+    "coldStartUsabilityStatus": "UNACCEPTABLY SLOW IN THIS INTENTIONAL CACHE-DISABLED TEST, NOT PERFORMANCE APPROVED",
+    "errors": []
+  }
+}

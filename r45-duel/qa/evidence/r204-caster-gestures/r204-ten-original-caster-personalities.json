@@ -1,0 +1,169 @@
+{
+  "pass": true,
+  "ids": [
+    "E06",
+    "Q05",
+    "K01",
+    "K07",
+    "P07",
+    "K04",
+    "S08",
+    "P03",
+    "X05",
+    "Q07"
+  ],
+  "events": [
+    {
+      "id": "E06",
+      "style": "high-overhand-eraser",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-01-E06-original-vrm-card-throw.png"
+    },
+    {
+      "id": "Q05",
+      "style": "chalk-conductor",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-02-Q05-original-vrm-card-throw.png"
+    },
+    {
+      "id": "K01",
+      "style": "chef-pan-flip",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-03-K01-original-vrm-card-throw.png"
+    },
+    {
+      "id": "K07",
+      "style": "frog-summoner",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-04-K07-original-vrm-card-throw.png"
+    },
+    {
+      "id": "P07",
+      "style": "ice-skater-launch",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-05-P07-original-vrm-card-throw.png"
+    },
+    {
+      "id": "K04",
+      "style": "chili-chef-toss",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-06-K04-original-vrm-card-throw.png"
+    },
+    {
+      "id": "S08",
+      "style": "angry-vending-launch",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-07-S08-original-vrm-card-throw.png"
+    },
+    {
+      "id": "P03",
+      "style": "cardboard-dinosaur-roar",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-08-P03-original-vrm-card-throw.png"
+    },
+    {
+      "id": "X05",
+      "style": "homework-paper-storm",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-09-X05-original-vrm-card-throw.png"
+    },
+    {
+      "id": "Q07",
+      "style": "second-moon-bowling",
+      "phases": [
+        "hold-aim",
+        "throw-snap",
+        "follow-through",
+        "recover",
+        "hit-celebration"
+      ],
+      "sourceSkinCount": 124,
+      "originalMeshLoaded": true,
+      "ruleUnchanged": true,
+      "scenePhoto": "r204-10-Q07-original-vrm-card-throw.png"
+    }
+  ],
+  "errors": [],
+  "source": "real Chrome/Vulkan WebGL2 RTX5070Ti"
+}
