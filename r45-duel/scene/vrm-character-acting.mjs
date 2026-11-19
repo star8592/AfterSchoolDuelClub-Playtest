@@ -94,14 +94,20 @@ export function createVrmCharacterActing(THREE,object,{id,expressions,sourceRest
   faceMood='idle',faceMoodAmount=0,lastViseme='closed',visemeAmount=0,
   visemeFrames=0,activeSpeechSerial=null;
  function update(seconds,{cinematic=false,combat=null,preview=false,previewAmount=null,previewEntrance=false,suppressEntrance=false,suppressGesture=false,seed=0,
-   emotion=null,emotionAmount=0,speech=null}={}){
+   lively=false,emotion=null,emotionAmount=0,speech=null}={}){
   if(bornAt===null)bornAt=seconds;
   const age=Math.max(0,seconds-bornAt);
   const phase=(seconds+cfg.offset+seed*.71)%cfg.period;
   entranceAmount=cinematic||combat||suppressEntrance?0:previewEntrance?1:ease((age-.1)/.42)*(1-ease((age-1.6)/.75));
   const raw=Number.isFinite(previewAmount)?Math.max(0,Math.min(1,previewAmount)):
    preview?1:suppressGesture?0:ease((phase-1.6)/.4)*(1-ease((phase-3.05)/.7));
-  amount=(cinematic||combat)?0:raw;
+  // R205 opt-in for REAL skinned E01/G01 board summons ONLY.
+  // Replace long lifeless pauses with smaller, unsynchronized source-wrist
+  // gestures; R204 podium duelists and standard public R198 stay unchanged.
+  const living=lively&&!preview&&!Number.isFinite(previewAmount)&&
+   !suppressGesture&&!cinematic&&!combat?
+   .16+.39*Math.pow(Math.sin((seconds+cfg.offset*.44+seed*.4)*1.02),2):0;
+  amount=(cinematic||combat)?0:Math.max(raw,living);
   lastMode=combat||cinematic?'combat':entranceAmount>.08?'entrance':amount>.02?'gesture':'idle';
   const blinkPhase=(seconds+seed*1.13+(id==='E01'?1:2.4))%5.1;
   blink=(cinematic||combat)?0:ease((blinkPhase-.15)/.08)*(1-ease((blinkPhase-.29)/.10));

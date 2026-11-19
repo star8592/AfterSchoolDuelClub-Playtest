@@ -1,0 +1,1433 @@
+{
+  "pass": true,
+  "enabled": false,
+  "errors": [],
+  "ids": [
+    "E01",
+    "G01"
+  ],
+  "frames": [
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.591,
+            "height": 2.124,
+            "depth": 0.625,
+            "minY": 0.016,
+            "maxY": 2.139,
+            "coverageWidth": 0.047,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.259,
+              "right": -0.164,
+              "top": 0.216,
+              "bottom": -0.251
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.63,
+                  "spread": 0.777,
+                  "wristToShoulder": 0.301
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.925,
+                  "spread": 0.38,
+                  "wristToShoulder": 0.482
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.38,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.06
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.499,
+            "height": 2.12,
+            "depth": 0.589,
+            "minY": -0.003,
+            "maxY": 2.117,
+            "coverageWidth": 0.041,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.176,
+              "right": 0.259,
+              "top": 0.212,
+              "bottom": -0.251
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.665,
+                  "spread": 0.747,
+                  "wristToShoulder": 0.253
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.936,
+                  "spread": 0.353,
+                  "wristToShoulder": 0.504
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.36,
+            0
+          ],
+          "position": [
+            1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.621,
+            "height": 2.12,
+            "depth": 0.627,
+            "minY": 0,
+            "maxY": 2.12,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.259,
+              "right": -0.16,
+              "top": 0.212,
+              "bottom": -0.255
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.851,
+                  "spread": 0.525,
+                  "wristToShoulder": 0.497
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.333,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.36,
+            0
+          ],
+          "position": [
+            -1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.499,
+            "height": 2.12,
+            "depth": 0.589,
+            "minY": -0.015,
+            "maxY": 2.105,
+            "coverageWidth": 0.041,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.176,
+              "right": 0.259,
+              "top": 0.209,
+              "bottom": -0.254
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.667,
+                  "spread": 0.745,
+                  "wristToShoulder": 0.252
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.936,
+                  "spread": 0.352,
+                  "wristToShoulder": 0.504
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.622,
+            "height": 2.12,
+            "depth": 0.627,
+            "minY": -0.015,
+            "maxY": 2.105,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.258,
+              "right": -0.16,
+              "top": 0.209,
+              "bottom": -0.258
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.852,
+                  "spread": 0.523,
+                  "wristToShoulder": 0.497
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.332,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            -1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.499,
+            "height": 2.12,
+            "depth": 0.589,
+            "minY": 0.001,
+            "maxY": 2.121,
+            "coverageWidth": 0.041,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.176,
+              "right": 0.259,
+              "top": 0.213,
+              "bottom": -0.251
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.666,
+                  "spread": 0.746,
+                  "wristToShoulder": 0.252
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.936,
+                  "spread": 0.352,
+                  "wristToShoulder": 0.504
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.36,
+            0
+          ],
+          "position": [
+            1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.623,
+            "height": 2.12,
+            "depth": 0.627,
+            "minY": -0.011,
+            "maxY": 2.11,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.258,
+              "right": -0.16,
+              "top": 0.21,
+              "bottom": -0.257
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.853,
+                  "spread": 0.522,
+                  "wristToShoulder": 0.497
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.332,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            -1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.499,
+            "height": 2.12,
+            "depth": 0.589,
+            "minY": 0.015,
+            "maxY": 2.135,
+            "coverageWidth": 0.041,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.176,
+              "right": 0.259,
+              "top": 0.216,
+              "bottom": -0.248
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.665,
+                  "spread": 0.747,
+                  "wristToShoulder": 0.253
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.936,
+                  "spread": 0.353,
+                  "wristToShoulder": 0.504
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.38,
+            0
+          ],
+          "position": [
+            1.75,
+            0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.06
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.623,
+            "height": 2.12,
+            "depth": 0.627,
+            "minY": 0.008,
+            "maxY": 2.128,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.259,
+              "right": -0.16,
+              "top": 0.214,
+              "bottom": -0.253
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.852,
+                  "spread": 0.523,
+                  "wristToShoulder": 0.497
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.332,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.37,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.499,
+            "height": 2.12,
+            "depth": 0.59,
+            "minY": 0.01,
+            "maxY": 2.13,
+            "coverageWidth": 0.041,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.176,
+              "right": 0.259,
+              "top": 0.214,
+              "bottom": -0.249
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.663,
+                  "spread": 0.748,
+                  "wristToShoulder": 0.254
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.936,
+                  "spread": 0.353,
+                  "wristToShoulder": 0.504
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.37,
+            0
+          ],
+          "position": [
+            1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.621,
+            "height": 2.12,
+            "depth": 0.627,
+            "minY": 0.013,
+            "maxY": 2.133,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.259,
+              "right": -0.16,
+              "top": 0.215,
+              "bottom": -0.252
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.851,
+                  "spread": 0.526,
+                  "wristToShoulder": 0.497
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.333,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.37,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.06
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.499,
+            "height": 2.12,
+            "depth": 0.589,
+            "minY": -0.014,
+            "maxY": 2.106,
+            "coverageWidth": 0.041,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.176,
+              "right": 0.259,
+              "top": 0.21,
+              "bottom": -0.254
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.664,
+                  "spread": 0.748,
+                  "wristToShoulder": 0.254
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.936,
+                  "spread": 0.353,
+                  "wristToShoulder": 0.504
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.621,
+            "height": 2.12,
+            "depth": 0.627,
+            "minY": -0.004,
+            "maxY": 2.116,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.258,
+              "right": -0.16,
+              "top": 0.211,
+              "bottom": -0.255
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.85,
+                  "spread": 0.526,
+                  "wristToShoulder": 0.497
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.334,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.36,
+            0
+          ],
+          "position": [
+            -1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.499,
+            "height": 2.12,
+            "depth": 0.589,
+            "minY": -0.013,
+            "maxY": 2.107,
+            "coverageWidth": 0.041,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.176,
+              "right": 0.259,
+              "top": 0.21,
+              "bottom": -0.253
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.666,
+                  "spread": 0.746,
+                  "wristToShoulder": 0.253
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.936,
+                  "spread": 0.352,
+                  "wristToShoulder": 0.504
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.622,
+            "height": 2.12,
+            "depth": 0.627,
+            "minY": -0.016,
+            "maxY": 2.104,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.258,
+              "right": -0.16,
+              "top": 0.209,
+              "bottom": -0.258
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.851,
+                  "spread": 0.525,
+                  "wristToShoulder": 0.497
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.333,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.34,
+            0
+          ],
+          "position": [
+            -1.75,
+            -0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.565,
+            "height": 2.118,
+            "depth": 0.716,
+            "minY": 0.005,
+            "maxY": 2.123,
+            "coverageWidth": 0.046,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.166,
+              "right": 0.259,
+              "top": 0.218,
+              "bottom": -0.25
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.592,
+                  "spread": 0.806,
+                  "wristToShoulder": 0.197
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.878,
+                  "spread": 0.478,
+                  "wristToShoulder": 0.452
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.36,
+            0
+          ],
+          "position": [
+            1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.623,
+            "height": 2.12,
+            "depth": 0.627,
+            "minY": -0.007,
+            "maxY": 2.113,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.258,
+              "right": -0.16,
+              "top": 0.211,
+              "bottom": -0.256
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.852,
+                  "spread": 0.523,
+                  "wristToShoulder": 0.497
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.332,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "idle"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            -1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.565,
+            "height": 2.118,
+            "depth": 0.716,
+            "minY": 0.016,
+            "maxY": 2.134,
+            "coverageWidth": 0.046,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.166,
+              "right": 0.259,
+              "top": 0.22,
+              "bottom": -0.248
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.592,
+                  "spread": 0.806,
+                  "wristToShoulder": 0.197
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.878,
+                  "spread": 0.478,
+                  "wristToShoulder": 0.452
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.38,
+            0
+          ],
+          "position": [
+            1.75,
+            0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.06
+          ],
+          "r205TrueVRMSource": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    }
+  ]
+}
