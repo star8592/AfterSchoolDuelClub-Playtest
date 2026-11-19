@@ -1,0 +1,60 @@
+{
+  "version": "R192",
+  "pass": true,
+  "actualRounds": 6,
+  "maxTurns": 12,
+  "initial": {
+    "gpu": 122,
+    "models": 5
+  },
+  "final": {
+    "gpu": 162,
+    "models": 9,
+    "phase": "ended"
+  },
+  "rounds": [
+    {
+      "turn": 1,
+      "gpu": 128,
+      "outsideScene": 50,
+      "array3D": 50,
+      "originalModels": 6
+    },
+    {
+      "turn": 2,
+      "gpu": 130,
+      "outsideScene": 50,
+      "array3D": 50,
+      "originalModels": 7
+    },
+    {
+      "turn": 3,
+      "gpu": 130,
+      "outsideScene": 50,
+      "array3D": 50,
+      "originalModels": 7
+    },
+    {
+      "turn": 4,
+      "gpu": 134,
+      "outsideScene": 51,
+      "array3D": 50,
+      "originalModels": 7
+    },
+    {
+      "turn": 5,
+      "gpu": 142,
+      "outsideScene": 54,
+      "array3D": 52,
+      "originalModels": 7
+    },
+    {
+      "turn": 6,
+      "gpu": 162,
+      "outsideScene": 56,
+      "array3D": 52,
+      "originalModels": 9
+    }
+  ],
+  "errors": []
+}

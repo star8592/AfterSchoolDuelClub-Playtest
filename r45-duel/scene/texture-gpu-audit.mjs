@@ -1,5 +1,5 @@
 /** R191 read-only QA: live Three.js texture owner and GPU-allocation audit. */
-export function auditTextures(scene, renderer) {
+export function auditTextures(scene, renderer, trace=null) {
   if (!scene || !renderer) return {enabled:true,ready:false};
   const textures=new Map(),roots=new Map(),sources=new Map();
   let renderableNodes=0,materialReferences=0,skinnedMeshes=0;
@@ -13,6 +13,7 @@ export function auditTextures(scene, renderer) {
       const allocated=!!renderer.properties.get(t)?.__webglTexture;
       x={uuid:t.uuid,name:t.name||'',source:t.source?.uuid||'',width,height,faces,layers,
         allocated,compressed:!!t.isCompressedTexture,mips:!!t.generateMipmaps,
+        traceId:trace?.idFor(renderer.properties.get(t)?.__webglTexture)??null,
         dataTexture:!!t.isDataTexture,type:t.type,format:t.format,
         proxyBytes:width*height*faces*layers*4,owners:new Set(),slots:new Set(),roots:new Set()};
       textures.set(t.uuid,x);
@@ -60,7 +61,7 @@ export function auditTextures(scene, renderer) {
   const round=n=>Math.round(n*100)/100;
   const emit=x=>({name:x.name,uuid:x.uuid,source:x.source,width:x.width,height:x.height,
     faces:x.faces,layers:x.layers,allocated:x.allocated,compressed:x.compressed,mips:x.mips,
-    dataTexture:x.dataTexture,type:x.type,format:x.format,
+    dataTexture:x.dataTexture,type:x.type,format:x.format,traceId:x.traceId,
     proxyMiB:round(x.proxyBytes/1048576),owners:[...x.owners].slice(0,5),
     slots:[...x.slots],roots:[...x.roots]});
   return {enabled:true,ready:true,
@@ -68,6 +69,7 @@ export function auditTextures(scene, renderer) {
     gpuGeometryObjects:renderer.info.memory.geometries,
     programs:renderer.info.programs?.length||0,drawCalls:renderer.info.render.calls,
     renderableNodes,materialReferences,skinnedMeshes,uniqueReferenced:all.length,
+    traceIDs:trace?allocated.map(x=>x.traceId).filter(x=>x!=null):[],
     allocatedReferenced:allocated.length,
     countGap:renderer.info.memory.textures-allocated.length,
     rgba8AllocatedProxyMiB:round(allocated.reduce((s,x)=>s+x.proxyBytes,0)/1048576),

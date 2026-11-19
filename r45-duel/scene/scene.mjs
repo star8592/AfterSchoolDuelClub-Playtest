@@ -14,6 +14,8 @@ import {r134HostIdleBeat} from './r134-host-idle-stage.mjs';
 import {createVrmTwoBonePose,VRM_HERO_POSES} from './vrm-hero-pose-ik.mjs';
 import {createStadium} from './stadium.mjs';
 import {auditTextures} from './texture-gpu-audit.mjs';
+import {installTextureLifecycleTrace} from './texture-gpu-lifecycle.mjs';
+import {inspectMorphTextureBudget} from './morph-texture-budget.mjs';
 import {createSkinnedIndexUnion} from './skinned-index-union.mjs';
 import {createCampusSchoolMagic} from './campus-school-magic.mjs';
 import {schoolGestureForCard} from './campus-spell-gesture.mjs';
@@ -389,6 +391,13 @@ const PHASES={idle:'人物就位',approach:'双方接近',windup:'蓄力',strike
  counter:'对方反击',retreat:'双方回位',settled:'本次交锋完成'};
 const DURATION=6.45;
 let renderer,scene,camera,clock,actors=[],time=0,playing=false,mode='demo';
+let r192GpuTrace=null;
+const R192_TRACE_GPU=(()=>{
+ const parent=(()=>{try{return new URLSearchParams(window.parent.location.search)}catch{return null}})();
+ return (PARAMS.get('qa')==='1'||parent?.get('qa')==='1')&&
+  (PARAMS.get('r192TraceGpu')??parent?.get('r192TraceGpu'))==='on';
+})();
+
 // Separate, continuously visible native VRM duelists; the E01/G01 summon
 // bodies remain independently owned by SummonPresence in the arena.
 let duelistHosts=[],hostSourceActors=[];
@@ -615,6 +624,7 @@ function checkIncoming(payload){
 }
 function makeScene(){
  scene=new THREE.Scene();scene.background=new THREE.Color('#192b42');scene.fog=new THREE.Fog('#192b42',17,49);
+ if(R192_TRACE_GPU)r192GpuTrace=installTextureLifecycleTrace($('battle-canvas'));
  renderer=new THREE.WebGLRenderer({canvas:$('battle-canvas'),alpha:false,antialias:true,powerPreference:'high-performance'});
  renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;
  renderer.toneMappingExposure=1.15;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
@@ -1906,6 +1916,9 @@ function exposeQA(){
   get r186SelectedPrewarm(){return r186SelectedPrewarm},
   get r186ActorMotions(){return schoolMagicStage?.r186ActorMotions||[]},
   get r187InterleaveReceipt(){return r187InterleaveReceipt||{enabled:false}},
+  get r192MorphBudget(){return R192_TRACE_GPU?inspectMorphTextureBudget(scene,renderer):{enabled:false}},
+  get r192Lifecycle(){return R192_TRACE_GPU&&r192GpuTrace?
+     r192GpuTrace.snapshot(renderer,auditTextures(scene,renderer,r192GpuTrace).traceIDs):{enabled:false}},
   get r191TextureAudit(){return R189_STREAM&&(PARAMS.get('r191TextureAudit')??r189Params.get('r191TextureAudit'))==='on'
     ?auditTextures(scene,renderer):{enabled:false}},
   get r189StreamReceipt(){return {...r189InitialReceipt,
