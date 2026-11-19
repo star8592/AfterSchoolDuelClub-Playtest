@@ -1,0 +1,298 @@
+{
+  "deck": "kitchen",
+  "seed": 2,
+  "wanted": "K05",
+  "pass": true,
+  "errors": [],
+  "before": {
+    "qRound": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 2
+      }
+    ],
+    "rulesHp": {
+      "player": 20,
+      "ai": 20
+    },
+    "hand": [
+      "E01",
+      "E01",
+      "E04",
+      "G04",
+      "K05"
+    ],
+    "school": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "loadedRealAssets": 0,
+      "loadedIds": [],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0
+      },
+      "casts": 0,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "authoredHighDetailAssets": [],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 0,
+        "expired": 0,
+        "rejected": 0,
+        "active": 0,
+        "peakObjects": 0,
+        "peakDraws": 0,
+        "uniqueRenderedProps": 0,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": null,
+          "ai": null
+        },
+        "activeIds": []
+      },
+      "loadedReceipts": [],
+      "loadedAssetDetails": []
+    },
+    "magicArsenal": {
+      "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+      "playableSpellCoverage": 46,
+      "motifCount": 32,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "activeMotifs": [],
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "maxActive": 4,
+      "peakMeshes": 0,
+      "totalMeshes": 0,
+      "ruleMutations": 0
+    },
+    "spellImpact": {
+      "played": 0,
+      "hits": 0,
+      "noHit": 0,
+      "expired": 0,
+      "active": 0,
+      "activeKinds": [],
+      "ruleMutations": 0
+    },
+    "originalSources": 12,
+    "autoCamera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.32,
+        11.35
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "portrait": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    }
+  },
+  "after": {
+    "qRound": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 2
+      },
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "K05",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "heal",
+          "directDamage": 0,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    ],
+    "rulesHp": {
+      "player": 20,
+      "ai": 20
+    },
+    "hand": [
+      "E01",
+      "E01",
+      "E04",
+      "G04"
+    ],
+    "school": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "loadedRealAssets": 1,
+      "loadedIds": [
+        "K05"
+      ],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0
+      },
+      "casts": 1,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "authoredHighDetailAssets": [
+          "K05"
+        ],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "peakObjects": 10,
+        "peakDraws": 10,
+        "uniqueRenderedProps": 1,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": "K05",
+          "ai": null
+        },
+        "activeIds": [
+          "K05"
+        ]
+      },
+      "loadedReceipts": [
+        {
+          "id": "K05",
+          "source": "real-blender-glb",
+          "file": "K05_Invisible_Air_Soup_Bowl.glb",
+          "meshes": 10,
+          "triangles": 58648,
+          "readyMs": 86.9
+        }
+      ],
+      "loadedAssetDetails": [
+        {
+          "id": "K05",
+          "source": "real-blender-glb",
+          "file": "K05_Invisible_Air_Soup_Bowl.glb",
+          "meshes": 10,
+          "triangles": 58648,
+          "readyMs": 86.9
+        }
+      ]
+    },
+    "magicArsenal": {
+      "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+      "playableSpellCoverage": 46,
+      "motifCount": 32,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "activeMotifs": [],
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "maxActive": 4,
+      "peakMeshes": 0,
+      "totalMeshes": 0,
+      "ruleMutations": 0
+    },
+    "spellImpact": {
+      "played": 0,
+      "hits": 0,
+      "noHit": 0,
+      "expired": 0,
+      "active": 0,
+      "activeKinds": [],
+      "ruleMutations": 0
+    },
+    "originalSources": 12,
+    "autoCamera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.32,
+        11.35
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "portrait": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    }
+  }
+}

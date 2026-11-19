@@ -1,0 +1,483 @@
+{
+  "version": "R199",
+  "release": "Draft NO-GO",
+  "gameMode": "PC first, no Android gate",
+  "publicDefaultUnchanged": true,
+  "previewOnlyWhenQuery": "r199PhysicalMagic=on",
+  "physicalAuthoredGlbCount": 46,
+  "totalGlbCompressedBytes": 38447592,
+  "glbMeshes": 491,
+  "glbMaterials": 398,
+  "glbImageTextures": 0,
+  "glbInternalAnimationTracks": 0,
+  "runtimeMotion": "per-id distinct authored procedural transforms and actor motions; not native glb keyframes",
+  "46IdentityCastPass": true,
+  "realPreviewCasts": 47,
+  "lastRepeatId": "E05",
+  "lastRepeatPass": true,
+  "modelCacheCapacity": 8,
+  "modelsStillInGPUCache": 8,
+  "gpuEvictions": 40,
+  "oldGenericPointLights": 0,
+  "noRuleMutation": true,
+  "errors": [],
+  "realRuleCasts": [
+    {
+      "deck": "kitchen",
+      "id": "K05",
+      "meshCount": 10,
+      "gpuTriangles": 58648,
+      "oldMagicArsenalPlayed": 0,
+      "oldSpellImpactPlayed": 0,
+      "passTest": true
+    },
+    {
+      "deck": "classroom",
+      "id": "Q05",
+      "meshCount": 12,
+      "gpuTriangles": 41432,
+      "oldMagicArsenalPlayed": 0,
+      "oldSpellImpactPlayed": 0,
+      "passTest": true
+    },
+    {
+      "deck": "science",
+      "id": "S05",
+      "meshCount": 14,
+      "gpuTriangles": 33212,
+      "oldMagicArsenalPlayed": 0,
+      "oldSpellImpactPlayed": 0,
+      "passTest": true
+    }
+  ],
+  "independentXPS": {
+    "readyMs": 27480,
+    "testPass": true,
+    "card": "K05",
+    "realOriginalMesh": 10,
+    "oldArsenalCasts": 0,
+    "errors": []
+  },
+  "limitations": [
+    "The 46 GLBs have PBR materials but zero embedded image textures and no glTF animation tracks; not final premium film-grade art",
+    "Preview list casts are noncanonical presentation-only; three separate cards verify actual engine spell outcomes",
+    "Existing PC startup bottleneck remains; XPS Linux Chrome is not Windows Edge",
+    "No user approval yet for replacing default magic in public stable game"
+  ],
+  "models": [
+    {
+      "file": "E05_Giant_Cheer_Megaphone.glb",
+      "bytes": 892916,
+      "meshes": 8,
+      "materials": 7,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "E06_Cinematic_Eraser.glb",
+      "bytes": 541512,
+      "meshes": 8,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "G05_Repairing_Animated_School_Desk.glb",
+      "bytes": 774424,
+      "meshes": 9,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "G06_Second_Page_PopUp_School_Plan.glb",
+      "bytes": 547288,
+      "meshes": 10,
+      "materials": 7,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "K01_Sculpted_Wok_Eggplant_Banana.glb",
+      "bytes": 558656,
+      "meshes": 14,
+      "materials": 14,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "K02_Watermelon_Rubber_Eraser_Stew.glb",
+      "bytes": 1467836,
+      "meshes": 8,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "K03_Corn_Grape_Cafeteria_Dance.glb",
+      "bytes": 5636200,
+      "meshes": 10,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "K04_Chili_Mooncake_Catastrophe.glb",
+      "bytes": 1625980,
+      "meshes": 9,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "K05_Invisible_Air_Soup_Bowl.glb",
+      "bytes": 1443396,
+      "meshes": 10,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "K06_Volcano_Chili_Boba_Tea.glb",
+      "bytes": 423612,
+      "meshes": 11,
+      "materials": 10,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "K07_Sculpted_Frog_Pudding_Bell.glb",
+      "bytes": 702104,
+      "meshes": 18,
+      "materials": 16,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "K08_Chocolate_Armored_Banana_Knight.glb",
+      "bytes": 218604,
+      "meshes": 10,
+      "materials": 7,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "P01_Gale_Hair_School_Hero.glb",
+      "bytes": 786824,
+      "meshes": 13,
+      "materials": 10,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "P02_Century_Without_Goal_Soccer.glb",
+      "bytes": 829532,
+      "meshes": 8,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "P03_Cardboard_Tyrannosaurus_Stomp.glb",
+      "bytes": 819144,
+      "meshes": 13,
+      "materials": 7,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "P04_Mega_Sports_Whistle.glb",
+      "bytes": 249524,
+      "meshes": 7,
+      "materials": 6,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "P05_Volleyball_Basketball_Hoop.glb",
+      "bytes": 383556,
+      "meshes": 10,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "P06_Backwards_Run_Gym_Treadmill.glb",
+      "bytes": 554916,
+      "meshes": 13,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "P07_Black_Swan_Ice_Rink.glb",
+      "bytes": 227468,
+      "meshes": 11,
+      "materials": 10,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "P08_Sports_Medal_Meteor_Rain.glb",
+      "bytes": 1421020,
+      "meshes": 13,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "Q01_SelfWriting_Apology_Eraser.glb",
+      "bytes": 558412,
+      "meshes": 10,
+      "materials": 10,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "Q02_Origami_Beast_From_School_Notice.glb",
+      "bytes": 588684,
+      "meshes": 10,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "Q03_Dreaming_School_Blackboard.glb",
+      "bytes": 351612,
+      "meshes": 9,
+      "materials": 7,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "Q04_Embarrassing_Dormitory_Public_Play.glb",
+      "bytes": 643844,
+      "meshes": 10,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "Q05_Chalk_Press_Conference.glb",
+      "bytes": 1029136,
+      "meshes": 12,
+      "materials": 10,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "Q06_Three_Click_Moonlight_Desk_Lamp.glb",
+      "bytes": 322132,
+      "meshes": 10,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "Q07_Second_Cardboard_Classroom_Moon.glb",
+      "bytes": 1554656,
+      "meshes": 9,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "Q08_Chalk_Draw_Prison.glb",
+      "bytes": 1055168,
+      "meshes": 7,
+      "materials": 6,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "S01_Reversed_Forged_School_Alarm.glb",
+      "bytes": 480240,
+      "meshes": 11,
+      "materials": 7,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "S02_One_Pencil_Tiny_Stationery_Case.glb",
+      "bytes": 435832,
+      "meshes": 12,
+      "materials": 10,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "S03_Antigravity_School_Broom.glb",
+      "bytes": 176808,
+      "meshes": 7,
+      "materials": 7,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "S04_Wrong_Answer_Generator.glb",
+      "bytes": 1075828,
+      "meshes": 11,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "S05_Confused_Homeroom_Class_Leader_Robot.glb",
+      "bytes": 869844,
+      "meshes": 14,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "S06_Quantum_Rubber_Band_Teacher_Hat.glb",
+      "bytes": 145728,
+      "meshes": 9,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "S07_School_Bell_Time_Wormhole.glb",
+      "bytes": 546684,
+      "meshes": 10,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "S08_Angry_Campus_Vending_Machine.glb",
+      "bytes": 1022708,
+      "meshes": 14,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "T05_Heartwarming_Cafeteria_Chef_Soup.glb",
+      "bytes": 244420,
+      "meshes": 9,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "T06_Broken_School_Announcement_System.glb",
+      "bytes": 876836,
+      "meshes": 11,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "X01_Reversing_School_Clock_Tower.glb",
+      "bytes": 849368,
+      "meshes": 13,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "X02_School_Uniform_Passing_Wall.glb",
+      "bytes": 1071176,
+      "meshes": 10,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "X03_Rooftop_School_Patrol_Car.glb",
+      "bytes": 709976,
+      "meshes": 9,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "X04_Lunchtime_Prophecy_Pillow.glb",
+      "bytes": 663788,
+      "meshes": 8,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "X05_Homework_Paper_Galaxy.glb",
+      "bytes": 357352,
+      "meshes": 12,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "X06_Morning_Reading_Duplicator.glb",
+      "bytes": 858564,
+      "meshes": 13,
+      "materials": 9,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "X07_Vanishing_Last_Classroom_Lesson.glb",
+      "bytes": 757168,
+      "meshes": 12,
+      "materials": 8,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    },
+    {
+      "file": "X08_Campus_Gate_Time_Security_Guard.glb",
+      "bytes": 1097116,
+      "meshes": 16,
+      "materials": 11,
+      "textures": 0,
+      "animations": 0,
+      "hasNormals": true
+    }
+  ]
+}

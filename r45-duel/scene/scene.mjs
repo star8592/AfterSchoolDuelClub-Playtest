@@ -37,6 +37,23 @@ import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
 const PARAMS=new URLSearchParams(location.search);
+// R199 distinct, authored Blender school spells: opt-in visual QA on PC.
+// Never route a normal stable player through an unfinished magic build.
+const R199_PHYSICAL_MAGIC=(()=>{
+ try{
+  return (PARAMS.get('r199PhysicalMagic')||
+   (window.parent!==window?new URLSearchParams(window.parent.location.search)
+    .get('r199PhysicalMagic'):null))==='on';
+ }catch{return false}
+})();
+const R199_SHOWCASE=R199_PHYSICAL_MAGIC&&(()=>{
+ try{return PARAMS.get('r199Showcase')==='on'||
+  (window.parent!==window&&new URLSearchParams(window.parent.location.search)
+   .get('r199Showcase')==='on')}
+ catch{return false}
+})();
+let r199Magic=null,r199MagicModule=null;
+
 const R134_HOST_IDLE_ENABLED=(()=>{
  const local=PARAMS.get('r134Hosts');
  if(local==='off'||local==='on')return local==='on';
@@ -311,6 +328,14 @@ function makeScene(){
  liveScoreboard=createLiveStadiumScoreboard(THREE,scene);
  spellImpact=createSpellImpact(THREE,scene);
  magicArsenal=createMagicArsenal(THREE,scene,{reducedMotion:reduced});
+ if(R199_PHYSICAL_MAGIC){
+  if(!r199MagicModule)throw Error('R199 magic module not available');
+  r199Magic=r199MagicModule.createR199RealCampusMagic(THREE,scene,{
+   loader:new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),reducedMotion:reduced,
+   now:()=>absoluteSeconds,
+   onEvent:(event,detail)=>reply('ASDC_R199_MAGIC_EVENT',{event,...detail})
+  });
+ }
  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
  spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
@@ -812,10 +837,12 @@ function loop(){
  absoluteSeconds+=delta;
  liveScoreboard?.update(performance.now());
  stadiumEvidence?.update?.(absoluteSeconds,{reduced});
- spellImpact?.update(absoluteSeconds);
- magicArsenal?.update(absoluteSeconds);
+ if(!R199_PHYSICAL_MAGIC)spellImpact?.update(absoluteSeconds);
+ if(!R199_PHYSICAL_MAGIC)magicArsenal?.update(absoluteSeconds);
+ r199Magic?.update(absoluteSeconds);
+ // Original unit-summoning effects remain unaffected by spell replacement.
  elementalVfx?.update(absoluteSeconds);
- spellContactFX?.update(absoluteSeconds);
+ if(!R199_PHYSICAL_MAGIC)spellContactFX?.update(absoluteSeconds);
  spectatorChaosFX?.update(absoluteSeconds);
  bleacherProps?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
@@ -842,7 +869,7 @@ function loop(){
    summonPresence?.spellWorldAnchors?.(d.victim,d.targetUids)||[]:[];
   if(d.unitDamage>0&&d.targetUids.length){
    summonPresence?.reactToSpell?.(d.victim,d.targetUids,absoluteSeconds,d.element);
-   for(const t of targets)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
+   for(const t of targets)if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
   }
   if(d.directDamage>0){
    hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
@@ -853,16 +880,17 @@ function loop(){
    const host=duelistHosts.find(h=>h.side===d.victim);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }else if(!d.damaging){
    // Healing and buffs are self-side effects, not pretend enemy damage.
    const host=duelistHosts.find(h=>h.side===d.caster);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }
+  if(R199_PHYSICAL_MAGIC)r199Magic?.contact(d);
   r121ContactReceipts++;
   reply('ASDC_R121_SPELL_CONTACT',{serial:d.serial,card:d.id,
    caster:d.caster,victim:d.victim,element:d.element,
@@ -978,6 +1006,16 @@ function reply(type,other={}){
 function onMessage(ev){
  if(ev.source!==window.parent||ev.origin!==location.origin||!ready)return;
  const msg=ev.data;
+ if(R199_PHYSICAL_MAGIC&&msg?.type==='ASDC_R199_MAGIC_PREFETCH'){
+  r199Magic?.prefetch(msg.ids);return;
+ }
+ if(R199_SHOWCASE&&msg?.type==='ASDC_R199_MAGIC_PREVIEW'){
+  if(!/^[A-Z][0-9]{2}$/.test(String(msg.id||'')))return;
+  void r199Magic?.preview(msg.id,msg.side==='ai'?'ai':'player')
+   .catch(e=>reply('ASDC_R199_MAGIC_EVENT',{event:'previewFailed',
+    id:msg.id,message:String(e)}));
+  return;
+ }
  if(msg?.type==='ASDC_R122_VOICE_START'){
   // The parent only emits this packet after an actual Audio element starts.
   // Never accept QA text-only "voice" as speech, and never mutate game rules.
@@ -1090,9 +1128,13 @@ function onMessage(ev){
   // Only rule-emitted card identifiers and serials are permitted; this layer
   // displays the authoritative result but cannot mutate HP or winner.
   if(!Number.isInteger(msg.serial)||msg.serial<=0||spellSerials.has(msg.serial))return;
-  const accepted=spellImpact?.play(msg,absoluteSeconds);
+  const physical=R199_PHYSICAL_MAGIC&&BY_ID[msg.card]?.kind==='spell';
+  const accepted=physical?!!r199Magic:spellImpact?.play(msg,absoluteSeconds);
   if(!accepted)return;
-  magicArsenal?.play(msg,absoluteSeconds);
+  if(physical)void r199Magic.play(msg).catch(e=>
+   reply('ASDC_R199_MAGIC_EVENT',{event:'castFailed',
+    id:msg.card,message:String(e)}));
+  else magicArsenal?.play(msg,absoluteSeconds);
   spellSerials.add(msg.serial);
   const accident=PARAMS.get('r122Crowd')==='off'?null:
    chooseCrowdAccident(msg,{force:PARAMS.get('qa')==='1'&&
@@ -1102,7 +1144,7 @@ function onMessage(ev){
     launchAt:absoluteSeconds+.28,launched:false,hitAt:Infinity});
    if(pendingCrowdAccidents.length>5)pendingCrowdAccidents.shift();
   }
-  if(['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
+  if(!R199_PHYSICAL_MAGIC&&['buff','blast','repair','draw','heal','confuse'].includes(msg.effect))
    comedySpectacle?.trigger('spell_'+msg.effect,
     msg.side,msg.serial,absoluteSeconds,{reduced});
   if(spellSerials.size>500)spellSerials.clear();
@@ -1219,6 +1261,7 @@ function exposeQA(){
    totalDrawCalls:drawCount};},
   get spellImpact(){return spellImpact?.stats||null},
   get magicArsenal(){return magicArsenal?.stats||null},
+  get r199RealMagic(){return r199Magic?.stats||{enabled:false}},
   get elementalVfx(){return elementalVfx?.stats||null},
   get spellContactFX(){return spellContactFX?.stats||null},
   get r121ContactReceipts(){return r121ContactReceipts},
@@ -1341,6 +1384,8 @@ function verifiedModelLoaded(id){
  }
 }
 try{
+ if(R199_PHYSICAL_MAGIC)
+  r199MagicModule=await import('./campus-real-magic-runtime.mjs');
  makeScene();
  // Run the four priority VRMs alongside a bounded GLB pipeline. The old
  // sequence waited for VRM group A, then VRM group B, then all 12 summons.

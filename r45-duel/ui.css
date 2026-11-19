@@ -822,3 +822,22 @@ html,body{width:100%;height:100%;overflow:hidden}
 @media(max-height:640px) and (max-width:650px){
  .guided-narration{top:270px}
 }
+/* R199 manual 46-spell inspector: not an automatic close-up or overlay. */
+.r199-launch{position:fixed;right:14px;bottom:14px;z-index:31;padding:11px 15px;
+ background:#f3d39b;color:#25344c;border:1px solid #997950;border-radius:13px;
+ font:750 13px system-ui,sans-serif;box-shadow:0 6px 22px #0006;cursor:pointer}
+.r199-panel[hidden]{display:none!important}
+.r199-panel{position:fixed;right:14px;bottom:64px;z-index:32;width:min(360px,calc(100vw - 28px));
+ max-height:min(74vh,670px);overflow:auto;padding:14px;border-radius:14px;
+ background:#182b40f4;color:#f8ede0;border:1px solid #a9b6c2;
+ box-shadow:0 13px 50px #000a;font:14px/1.45 system-ui,sans-serif}
+.r199-panel h3{font-size:18px;margin:0 0 8px}
+.r199-panel p{margin:6px 0 11px;color:#e6e7e2}
+.r199-panel select,.r199-panel input{box-sizing:border-box;width:100%;min-height:34px;
+ padding:7px 9px;margin:3px 0;color:#17263a;background:#fffdf5;border:0;border-radius:7px}
+.r199-panel button{cursor:pointer;min-height:32px}
+.r199-spells{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:9px 0}
+.r199-spells button{font-size:12px;text-align:left;white-space:normal;padding:7px 8px;
+ border-radius:8px;border:1px solid #778a98;background:#243f54;color:#f6efd9}
+.r199-spells button:hover,.r199-spells button:focus-visible{background:#315f70;outline:2px solid #e8c37e}
+.r199-status{font-size:12px}
