@@ -468,7 +468,18 @@ const r145ActionCameraEnabled=(()=>{
 let r145LastShot=null;
 let lastSourceIds=[],source3DAssetsVerified=false;
 let horizontalFov=0;
-let orbitYaw=0, orbitTargetYaw=0, orbitZoom=1, orbitBaseDistance=12;
+// R196: initialize the replacement camera BEFORE its first render frame.
+// Read from explicit, same-origin QA recovery iframe URL; original game camera
+// does not change, and the former close-up mode never reactivates.
+const r196RecoveryYaw=(()=>{
+ if(!R195_RESUME)return 0;
+ const raw=PARAMS.get('r196CameraYaw');
+ const value=Number(raw);
+ if(raw===null||!Number.isFinite(value)||Math.abs(value)>180)
+  throw Error('R196 invalid persisted view yaw for 3D scene recovery');
+ return value;
+})();
+let orbitYaw=r196RecoveryYaw,orbitTargetYaw=r196RecoveryYaw,orbitZoom=1,orbitBaseDistance=12;
 // R131 source-art review: a separate QA-only 3/4 close camera, never a
 // change to the released duel camera or normal player orbit.
 let r131QaCloseup=null,r131QaAngle=Math.PI*.32;
@@ -620,6 +631,10 @@ let absoluteSeconds=0;
 let renderFrameTiming=0;
 let choreographyQA={stride:0,guard:0,cameraOrbit:0,maxStride:0,maxOrbit:0};
 let shownCards={player:[],ai:[]};
+// A newly rebuilt real battlefield is HYDRATION, not a new summon or attack.
+// Skip only artificial board-change pulses on the first authoritative sync.
+let r196InitialHydrate=R195_RESUME;
+let r196HydratedBoards=0,r196SuppressedBoardPulses=0;
 let shownUnits={player:[],ai:[]};
 let pendingCombatEvents=null;
 let summonPresence=null;
@@ -1790,10 +1805,13 @@ function onMessage(ev){
   };
   shownUnits={player:unitsFor('player'),ai:unitsFor('ai')};
   for(const side of ['player','ai']){
-   if(shownCards[side].some((id,i)=>id!==wasShown[side][i]))
-    duelEffects?.pulse(side,absoluteSeconds);
+   if(shownCards[side].some((id,i)=>id!==wasShown[side][i])){
+    if(r196InitialHydrate)r196SuppressedBoardPulses++;
+    else duelEffects?.pulse(side,absoluteSeconds);
+   }
   }
   summonPresence?.sync(shownUnits,{cinematic:playing});
+  if(r196InitialHydrate){r196InitialHydrate=false;r196HydratedBoards++}
   return;
  }
  if(!checkIncoming(msg))return;
@@ -1827,6 +1845,14 @@ function exposeQA(){
   get studyCloseup(){return r131QaCloseup},
   get ready(){return ready},
   get shownCards(){return structuredClone(shownCards)},
+  get r196RecoveryView(){return {resuming:R195_RESUME,
+   initialCameraYaw:r196RecoveryYaw,currentCameraYaw:+orbitYaw.toFixed(3),
+   targetCameraYaw:orbitTargetYaw,hydratedBoards:r196HydratedBoards,
+   suppressedBoardPulses:r196SuppressedBoardPulses,
+   pendingSpells:pendingSpellContacts.length,pendingCrowd:pendingCrowdAccidents.length,
+   hostHitDamage:{player:hostHits.player.damage,ai:hostHits.ai.damage},
+   liveSpellSerials:spellSerials.size}},
+
   get summonPresence(){return summonPresence?.inspect(camera)||null},
   get summonModels(){return summonModels?[...summonModels.values()].map(x=>({id:x.id,file:x.selectedFile||x.spec.file,baselineFile:x.spec.file,meshes:x.meshes,clips:x.clips.length,scale:x.scale,measured:x.measured})):[];},
   get combatEvents(){return summonPresence?.sequenceStats()||null},

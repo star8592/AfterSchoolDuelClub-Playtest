@@ -70,6 +70,8 @@ const initialLevel=tutorialMode&&Number.isInteger(requestedLevel)&&requestedLeve
 const requestedDeck=params.get('deck');
 const activeDeck=(!tutorialMode&&Object.hasOwn(DECK_PRESETS,requestedDeck))?requestedDeck:'classic';
 let g=guidedMode?createGuidedGame(seed):tutorialMode?createTutorialGame(initialLevel,seed):createGame(seed,activeDeck);
+// R196 QA-only: view state belongs to live parent; 3D frame is disposable.
+let r196CameraDegrees=0;
 let r195ExactStateBefore=null;
 const r195Recovery={enabled:R195_SCENE_RECOVERY,state:'idle',
  attempts:0,losses:0,before:null,after:null,expectedGlbs:[],failure:null};
@@ -91,6 +93,14 @@ function r195RebuildSceneFromContextLoss(){
   r195Recovery.before=r195Fingerprint(g);
   r195ExactStateBefore=JSON.stringify(g);
   r195Recovery.expectedGlbs=r195CurrentRequiredGlbs();
+  r195Recovery.r196ViewBefore={cameraDegrees:r196CameraDegrees,
+    musicKind:audio.status().musicKind,
+    musicHistory:[...audio.status().musicHistory],
+    requested:audio.status().requested,
+    musicStarts:audio.status().counters.musicStart};
+  r195Recovery.r196ViewAfter=null;
+  r195Recovery.r196StartedAt=performance.now();
+  r195Recovery.r196ElapsedMs=null;
   r195Recovery.state='reloading';
   // Disable card interactions during a fresh original source model reload.
   sceneReady=false;sceneError=false;
@@ -101,6 +111,7 @@ function r195RebuildSceneFromContextLoss(){
   u.searchParams.set('r195Recover','1');
   u.searchParams.set('r195Force32f','on');
   u.searchParams.set('r195Sequence',String(r195Recovery.attempts));
+  u.searchParams.set('r196CameraYaw',String(r195Recovery.r196ViewBefore.cameraDegrees));
   scene.src=u.href;render();
   return true;
  }catch(error){r195Fail(String(error));return false}
@@ -693,6 +704,8 @@ function presentRealCombos(sinceSerial){
 }
 
 function updateCameraAngle(angle){
+ if(!Number.isFinite(angle)||Math.abs(angle)>180)return;
+ r196CameraDegrees=angle;
  const node=$('camera-angle');
  if(node)node.textContent=Math.round(angle)+'°';
 }
@@ -1236,6 +1249,19 @@ window.addEventListener('message',event=>{
     r195Fail('Original GLB identities changed during context recovery');return;
    }
    r195Recovery.state='restored';
+   const currentMusic=audio.status(),a=r195Recovery.r196ViewBefore;
+   // Browser audio permission/stream timing is independent of 3D context.
+   // Record any differences as diagnostics, never lock an intact card game
+   // solely because browser autoplay changed while loading the new frame.
+   r195Recovery.r196ViewAfter={cameraDegrees:r196CameraDegrees,
+    musicKind:currentMusic.musicKind,musicHistory:[...currentMusic.musicHistory],
+    requested:currentMusic.requested,musicStarts:currentMusic.counters.musicStart};
+   r195Recovery.r196AudioContinuity={
+    sameMusicKind:currentMusic.musicKind===a.musicKind,
+    sameMusicHistory:JSON.stringify(currentMusic.musicHistory)===JSON.stringify(a.musicHistory),
+    sameRequested:currentMusic.requested===a.requested,
+    sameStartCount:currentMusic.counters.musicStart===a.musicStarts};
+   r195Recovery.r196ElapsedMs=+(performance.now()-r195Recovery.r196StartedAt).toFixed(1);
    r195Recovery.after=now;
    r195ExactStateBefore=null;
   }
@@ -1245,7 +1271,7 @@ window.addEventListener('message',event=>{
   render(); // enable legal cards only after authentic GLB/VRM readiness
   // One locally recorded PA opening if the browser permitted auto-audio.
   // If restricted, no browser TTS substitute or extra setup prompt.
-  if(!guidedMode)setTimeout(()=>{
+  if(!guidedMode&&!(R195_SCENE_RECOVERY&&r195Recovery.state==='restored'))setTimeout(()=>{
    if(!openingPASpoken)openingPASpoken=audio.playPA('start');
   },750);
   return;
@@ -1477,6 +1503,12 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get phase(){return g.phase},
   get sceneReady(){return sceneReady},
   get sceneError(){return sceneError},
+  get r196View(){return {cameraDegrees:r196CameraDegrees,
+    musicKind:audio.status().musicKind,
+    musicHistory:[...audio.status().musicHistory],
+    requested:audio.status().requested,
+    musicStarts:audio.status().counters.musicStart}},
+
   get r195RequiredGLBs(){return R195_SCENE_RECOVERY?r195CurrentRequiredGlbs():[]},
   get r195Recovery(){return {...r195Recovery,expectedGlbs:[...r195Recovery.expectedGlbs],
     current:r195Fingerprint(g),sceneReady,sceneError}},
