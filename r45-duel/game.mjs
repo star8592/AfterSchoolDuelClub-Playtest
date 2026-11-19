@@ -16,6 +16,16 @@ import {GUIDED_LINES,createGuidedGame,guidedStatus,guidedCanPlay,guidedPlayCard,
 
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
+// R199 experimental PC-only replacement, explicit in player URL.
+// The stable game keeps its original approved behavior until visual QA.
+const R199_REAL_MAGIC=params.get('r199PhysicalMagic')==='on';
+const R199_SHOWCASE=R199_REAL_MAGIC&&params.get('r199Showcase')==='on';
+let r199Gallery=null,r199MagicBible=null;
+if(R199_REAL_MAGIC)
+ void import('./scene/campus-magic-bible.mjs').then(m=>{
+  r199MagicBible=m.SCHOOL_MAGIC_IDENTITIES;
+ }).catch(e=>console.error('R199_MAGIC_BIBLE_UNAVAILABLE',e));
+
 // R101: ordinary new sessions should not always receive the SAME seed-1
 // starting hand. A shared ?seed=N remains exactly reproducible for challenges
 // and QA. Show the real random seed in the URL without reloading the scene.
@@ -859,6 +869,7 @@ $('end').addEventListener('click',()=>{
   }
  }
  const summary=stateSummary(fresh);
+  if(R199_REAL_MAGIC)setTimeout(r199PrefetchVisible,1000);
  for(const event of fresh.filter(e=>e.type==='card_play'&&e.side==='ai').slice(-3)){
   const enemyCard=BY_ID[event.card];
   audio.playCue(enemyCard?.kind==='unit'?'enemy_cast':cardSound(enemyCard),'ai');
@@ -929,6 +940,13 @@ $('end').addEventListener('click',()=>{
   void guidedSequence(sequence);
  }
 });
+// Load ONLY the current real spell cards after the unchanged high-detail
+// stadium is ready. No expensive 46-GLB preload or low-poly substitutions.
+function r199PrefetchVisible(){
+ if(!R199_REAL_MAGIC||!sceneReady)return;
+ sendScene({type:'ASDC_R199_MAGIC_PREFETCH',ids:[...new Set(
+  [...g.hand.player,...g.hand.ai].filter(id=>BY_ID[id]?.kind==='spell'))]});
+}
 const r121SpokenContacts=new Set();
 const r122PlayedCrowdAccidents=new Set();
 window.addEventListener('message',event=>{
@@ -997,11 +1015,26 @@ window.addEventListener('message',event=>{
   }
   return;
  }
+ if(event.data?.type==='ASDC_R199_MAGIC_EVENT'&&R199_REAL_MAGIC){
+  const d=event.data;
+  r199Gallery?.onEvent(d);
+  if(d.event==='cast'&&r199MagicBible?.[d.id]){
+   const magic=r199MagicBible[d.id];
+   audio.playCue(magic.foley[0],d.side,{gainScale:.73});
+   audio.playCue(magic.foley[1],d.side,{gainScale:.75,delay:.34});
+   showComedyAside({text:magic.lines.cast,
+    side:d.side,speaker:'校园荒诞魔法 · '+BY_ID[d.id].name});
+  }
+  if(d.event==='loadError'||d.event==='castFailed')
+   console.warn('R199_AUTHORED_GLB_FAILED',d.id,d.message);
+  return;
+ }
  if(event.data?.type==='ASDC_R45_SCENE_READY'){
   sceneReady=true;sceneError=false;
   syncScene();
   sendScene({type:'ASDC_R53_HP_MODE',mode:hpViewModes[hpViewIndex]});
   render(); // enable legal cards only after authentic GLB/VRM readiness
+  if(R199_REAL_MAGIC)setTimeout(r199PrefetchVisible,1550);
   // One locally recorded PA opening if the browser permitted auto-audio.
   // If restricted, no browser TTS substitute or extra setup prompt.
   if(!guidedMode)setTimeout(()=>{
@@ -1214,6 +1247,11 @@ window.addEventListener('keydown',e=>{
  if(e.key==='Escape'&&!library.hidden){library.hidden=true;e.preventDefault();}
 });
 render();
+if(R199_SHOWCASE)void import('./r199-magic-gallery.mjs')
+ .then(m=>{r199Gallery=m.installR199MagicGallery({
+  sendScene,sceneReady:()=>sceneReady
+ });})
+ .catch(e=>console.error('R199_SHOWCASE_FAILED',e));
 announce(guidedMode?'三回合真实练习赛：点击上方「开始声画教学」，女玩家教你出牌，男玩家演示回应。':
  '开始决斗：你在左，对手在右；选牌并按「出牌」，召唤物会进入同一个三维体育馆。');
 if(new URLSearchParams(location.search).get('qa')==='1'){
