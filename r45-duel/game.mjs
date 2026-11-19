@@ -25,6 +25,10 @@ const R189_STREAM=params.get('qa')==='1'&&params.get('r189Stream')==='on'&&
  !['tutorial','guided'].includes(params.get('mode'));
 let r189ReadyIds=null,r189AllReady=!R189_STREAM;
 let r189BackgroundError=null,r189BackgroundMs=null;
+const R190_DEMAND=R189_STREAM&&params.get('r190Demand')==='on';
+const r190RequestedIDs=new Set();
+let r190RequestsSent=0;
+
 
 const r169SpellAside=(id,serial,side)=>{
  const item=schoolSpellIdentity(id);
@@ -586,6 +590,30 @@ function renderGuide(){
   g.active==='player'?'① 选择手牌　② 点击「出牌」　③ 按「结束回合」让 AI 回应':
   'AI 正在出牌 · 请看中央竞技场与对局提示';
 }
+function r190RequestNeededOriginals(){
+ if(!R190_DEMAND||!sceneReady||sceneError||!r189ReadyIds)return;
+ // Authoritative current cards only, never load all 12 by default.
+ const cards=[
+  ...g.hand.player,...g.hand.ai,
+  ...g.board.player[0].map(x=>x.id),
+  ...g.board.ai[0].map(x=>x.id),
+  ...r189NextAIMissing()
+ ];
+ // Once a round has actually advanced, prefetch the next real deck draw.
+ // The source engine draws with pop(), not shift().
+ if(g.round>1){
+  if(g.deck.player.length)cards.push(g.deck.player.at(-1));
+  if(g.deck.ai.length)cards.push(g.deck.ai.at(-1));
+ }
+ const ids=[...new Set(cards.filter(id=>BY_ID[id]?.kind==='unit'&&
+   !['E01','G01'].includes(id)&&!r189ReadyIds.has(id)&&
+   !r190RequestedIDs.has(id)))];
+ if(!ids.length)return;
+ if(sendScene({type:'ASDC_R190_REQUEST_ORIGINALS',ids})){
+  ids.forEach(id=>r190RequestedIDs.add(id));
+  r190RequestsSent++;
+ }
+}
 function render(){
  if(g.phase==='ended'&&!guidedMode)scheduleResult();
  renderHUD();
@@ -595,6 +623,7 @@ function render(){
  renderLesson();
  renderGuide();
  sendScene(scoreboardSnapshot());
+ r190RequestNeededOriginals();
 }
 function boardSnapshot(){
  const units=side=>g.board[side][0].map(x=>({uid:x.uid,id:x.id,hp:x.hp,attack:x.attack+x.buff,shield:x.shield||0}));
@@ -1229,13 +1258,21 @@ window.addEventListener('keydown',event=>{
 // deck. This resets the actual deterministic engine and clears stale effects.
 const deckSelector=$('deck-select');
 deckSelector.value=activeDeck;
-deckSelector.disabled=tutorialMode||guidedMode||(R189_STREAM&&!r189AllReady);
+deckSelector.disabled=tutorialMode||guidedMode||(R189_STREAM&&!R190_DEMAND&&!r189AllReady);
 deckSelector.title=guidedMode?'先完成三回合入门实战，再选择自由对战卡组':
  tutorialMode?'连携试炼使用基础卡组':'切换会重新开局，三维模型无需再次下载';
 deckSelector.addEventListener('change',()=>{
  if(tutorialMode||guidedMode)return;
  const next=deckSelector.value;
  if(!Object.hasOwn(DECK_PRESETS,next))return;
+ if(R190_DEMAND){
+  // A new deck changes opening hands. Reload actual source identities,
+  // rather than reusing stale 3D after swapping deterministic card origins.
+  const u=new URL(location.href);
+  if(next==='classic')u.searchParams.delete('deck');
+  else u.searchParams.set('deck',next);
+  location.assign(u.href);return;
+ }
  g=createGame(seed,next);
  audio.resetMatch();
  resultScheduled=false;
@@ -1373,6 +1410,12 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get phase(){return g.phase},
   get sceneReady(){return sceneReady},
   get sceneError(){return sceneError},
+  get r190Demand(){return {enabled:R190_DEMAND,
+   requestedIDs:[...r190RequestedIDs],requestsSent:r190RequestsSent,
+   readyOriginals:r189ReadyIds?[...r189ReadyIds].filter(id=>
+    !['E01','G01'].includes(id)):[],
+   allOriginalsLoaded:r189AllReady,
+   canSafelyEndTurn:r189CanEndNow()}},
   get r189Stream(){return {
    enabled:R189_STREAM,readyIds:r189ReadyIds?[...r189ReadyIds]:null,
    allReady:r189AllReady,backgroundMs:r189BackgroundMs,

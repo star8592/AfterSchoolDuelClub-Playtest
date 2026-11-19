@@ -1,0 +1,198 @@
+{
+  "revision": "R190",
+  "date": "2026-11-19",
+  "release": "NO_GO",
+  "isolatedQAFlag": "qa=1&r189Stream=on&r190Demand=on",
+  "productionDefaultAndMainUnchanged": true,
+  "liveOriginal16IdentitiesAnd60CardsMaintained": true,
+  "full92PlusFirstRealSpellEvents": false,
+  "originalMagicSpellIdentities": 46,
+  "controlledActualBrowserABCases": 8,
+  "fullRealChromeSpellRuns": 4,
+  "fullRealChromeSpellEvents": 372,
+  "realProgressiveTurns": 5,
+  "realDemandedNewModels": 3,
+  "realNetworkFailureFailClosed": true,
+  "jsHeapMiBPerABCase": [
+    {
+      "view": "desktop",
+      "deck": "classic",
+      "seed": 173,
+      "baseline": {
+        "startupMs": 3188,
+        "modelCountAfter3s": 12,
+        "jsHeapAfter3sMiB": 218,
+        "gpuTextureObjectCount": 372,
+        "gpuGeometryObjectCount": 480,
+        "initialRealModels": 6,
+        "realAIUnitSourceVerified": true,
+        "fullReceipt": "qa/evidence/r190-demand/default-classic-173-desktop-primary.json",
+        "trueScreenshot": "qa/evidence/r190-demand/default-classic-173-desktop-primary.png"
+      },
+      "demand": {
+        "startupMs": 3196,
+        "modelCountAfter3s": 6,
+        "jsHeapAfter3sMiB": 138,
+        "gpuTextureObjectCount": 372,
+        "gpuGeometryObjectCount": 480,
+        "initialRealModels": 6,
+        "realAIUnitSourceVerified": true,
+        "fullReceipt": "qa/evidence/r190-demand/demand-classic-173-desktop-primary.json",
+        "trueScreenshot": "qa/evidence/r190-demand/demand-classic-173-desktop-primary.png"
+      },
+      "reducedOriginalModels": 6,
+      "jsHeapSavedInThisSingleSampleMiB": 80,
+      "firstReadyDifferenceMs": 8
+    },
+    {
+      "view": "desktop",
+      "deck": "kitchen",
+      "seed": 2,
+      "baseline": {
+        "startupMs": 2805,
+        "modelCountAfter3s": 12,
+        "jsHeapAfter3sMiB": 300,
+        "gpuTextureObjectCount": 360,
+        "gpuGeometryObjectCount": 399,
+        "initialRealModels": 2,
+        "realAIUnitSourceVerified": true,
+        "fullReceipt": "qa/evidence/r190-demand/default-kitchen-2-desktop-primary.json",
+        "trueScreenshot": "qa/evidence/r190-demand/default-kitchen-2-desktop-primary.png"
+      },
+      "demand": {
+        "startupMs": 2791,
+        "modelCountAfter3s": 3,
+        "jsHeapAfter3sMiB": 119,
+        "gpuTextureObjectCount": 360,
+        "gpuGeometryObjectCount": 399,
+        "initialRealModels": 2,
+        "realAIUnitSourceVerified": true,
+        "fullReceipt": "qa/evidence/r190-demand/demand-kitchen-2-desktop-primary.json",
+        "trueScreenshot": "qa/evidence/r190-demand/demand-kitchen-2-desktop-primary.png"
+      },
+      "reducedOriginalModels": 9,
+      "jsHeapSavedInThisSingleSampleMiB": 181,
+      "firstReadyDifferenceMs": -14
+    },
+    {
+      "view": "mobile",
+      "deck": "classic",
+      "seed": 173,
+      "baseline": {
+        "startupMs": 6258,
+        "modelCountAfter3s": 12,
+        "jsHeapAfter3sMiB": 226,
+        "gpuTextureObjectCount": 372,
+        "gpuGeometryObjectCount": 482,
+        "initialRealModels": 6,
+        "realAIUnitSourceVerified": true,
+        "fullReceipt": "qa/evidence/r190-demand/default-classic-173-mobile-primary.json",
+        "trueScreenshot": "qa/evidence/r190-demand/default-classic-173-mobile-primary.png"
+      },
+      "demand": {
+        "startupMs": 6157,
+        "modelCountAfter3s": 6,
+        "jsHeapAfter3sMiB": 124,
+        "gpuTextureObjectCount": 372,
+        "gpuGeometryObjectCount": 482,
+        "initialRealModels": 6,
+        "realAIUnitSourceVerified": true,
+        "fullReceipt": "qa/evidence/r190-demand/demand-classic-173-mobile-primary.json",
+        "trueScreenshot": "qa/evidence/r190-demand/demand-classic-173-mobile-primary.png"
+      },
+      "reducedOriginalModels": 6,
+      "jsHeapSavedInThisSingleSampleMiB": 102,
+      "firstReadyDifferenceMs": -101
+    },
+    {
+      "view": "mobile",
+      "deck": "kitchen",
+      "seed": 2,
+      "baseline": {
+        "startupMs": 5359,
+        "modelCountAfter3s": 12,
+        "jsHeapAfter3sMiB": 193,
+        "gpuTextureObjectCount": 360,
+        "gpuGeometryObjectCount": 401,
+        "initialRealModels": 2,
+        "realAIUnitSourceVerified": true,
+        "fullReceipt": "qa/evidence/r190-demand/default-kitchen-2-mobile-primary.json",
+        "trueScreenshot": "qa/evidence/r190-demand/default-kitchen-2-mobile-primary.png"
+      },
+      "demand": {
+        "startupMs": 5389,
+        "modelCountAfter3s": 3,
+        "jsHeapAfter3sMiB": 119,
+        "gpuTextureObjectCount": 360,
+        "gpuGeometryObjectCount": 401,
+        "initialRealModels": 2,
+        "realAIUnitSourceVerified": true,
+        "fullReceipt": "qa/evidence/r190-demand/demand-kitchen-2-mobile-primary.json",
+        "trueScreenshot": "qa/evidence/r190-demand/demand-kitchen-2-mobile-primary.png"
+      },
+      "reducedOriginalModels": 9,
+      "jsHeapSavedInThisSingleSampleMiB": 74,
+      "firstReadyDifferenceMs": 30
+    }
+  ],
+  "fullSpellRuns": [
+    {
+      "id": "P01",
+      "view": "desktop",
+      "realCastEvents": 93,
+      "trueUniqueSpellIdentities": 46,
+      "firstCastMaxRafMs": 50,
+      "firstCastLongestObservedLongtaskMs": 0,
+      "realModelsBefore": 6,
+      "realModelsAfter": 6,
+      "fullReceipt": "qa/evidence/r190-demand-93/r190-real-93-P01-desktop.json",
+      "actualChromeScreenshot": "qa/evidence/r190-demand-93/r190-real-93-P01-desktop.png"
+    },
+    {
+      "id": "P01",
+      "view": "mobile",
+      "realCastEvents": 93,
+      "trueUniqueSpellIdentities": 46,
+      "firstCastMaxRafMs": 49.9,
+      "firstCastLongestObservedLongtaskMs": 0,
+      "realModelsBefore": 6,
+      "realModelsAfter": 6,
+      "fullReceipt": "qa/evidence/r190-demand-93/r190-real-93-P01-mobile.json",
+      "actualChromeScreenshot": "qa/evidence/r190-demand-93/r190-real-93-P01-mobile.png"
+    },
+    {
+      "id": "X08",
+      "view": "desktop",
+      "realCastEvents": 93,
+      "trueUniqueSpellIdentities": 46,
+      "firstCastMaxRafMs": 50,
+      "firstCastLongestObservedLongtaskMs": 0,
+      "realModelsBefore": 6,
+      "realModelsAfter": 6,
+      "fullReceipt": "qa/evidence/r190-demand-93/r190-real-93-X08-desktop.json",
+      "actualChromeScreenshot": "qa/evidence/r190-demand-93/r190-real-93-X08-desktop.png"
+    },
+    {
+      "id": "X08",
+      "view": "mobile",
+      "realCastEvents": 93,
+      "trueUniqueSpellIdentities": 46,
+      "firstCastMaxRafMs": 33.4,
+      "firstCastLongestObservedLongtaskMs": 0,
+      "realModelsBefore": 6,
+      "realModelsAfter": 6,
+      "fullReceipt": "qa/evidence/r190-demand-93/r190-real-93-X08-mobile.json",
+      "actualChromeScreenshot": "qa/evidence/r190-demand-93/r190-real-93-X08-mobile.png"
+    }
+  ],
+  "importantCaveats": [
+    "One fresh Chrome run per A/B pair, browser GC/JS memory is variable; numbers are observations, not guarantees",
+    "JS heap allocation is NOT physical GPU VRAM; WebGL texture object count is unchanged in matched scenes",
+    "Only currently needed original GLBs loaded, not a hard resident-memory cap; a long game could eventually use all 12",
+    "Selected initial-hand actor data still loads before play, including four authentic VRMs",
+    "True Android GPU is still offline (S22); mobile viewport on desktop GPU is not device certification",
+    "GPU driver memory bytes and OOM/context-lost thresholds not directly measured",
+    "No change to production build, original animation, sound, source mesh, 60 cards or 46 spell types",
+    "QA-only separate from R189 background-all mode; not released"
+  ]
+}

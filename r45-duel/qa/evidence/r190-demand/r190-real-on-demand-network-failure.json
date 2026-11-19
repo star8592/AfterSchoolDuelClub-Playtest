@@ -1,0 +1,22 @@
+{
+  "test": "R190 genuine on-demand E02 GLB fail-closed",
+  "pass": true,
+  "receipt": {
+    "originalInitial": [
+      "E04",
+      "G04"
+    ],
+    "originalLoaded": [
+      "E04",
+      "G04"
+    ],
+    "error": "Failed to fetch",
+    "sceneError": true,
+    "allReady": false,
+    "playDisabled": true,
+    "endDisabled": true,
+    "demandFailed": 1,
+    "noFakeSource": true
+  },
+  "blockedRequests": 1
+}

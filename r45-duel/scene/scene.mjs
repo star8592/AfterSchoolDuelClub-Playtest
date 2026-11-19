@@ -260,11 +260,24 @@ const r189BgDelayMs=R189_STREAM?
 
 let r189TailPromise=null,r189TailStarted=false,r189TailError=null;
 let r189AllDone=!R189_STREAM;
+// R190: no unconditional tail loading. Fetch only verified real model IDs
+// specifically required by current cards/next deterministic AI action.
+// Does not pretend CPU-retained GLB is already GPU-resident.
+const R190_DEMAND=R189_STREAM&&
+ (PARAMS.get('r190Demand')??r189Params.get('r190Demand'))==='on';
+const r190Queue=[],r190Pending=new Set();
+const r190DemandHistory=[];
+let r190Active=0,r190Completed=0,r190Failed=0;
+const r190Limit=Math.max(1,Math.min(2,
+ Number(r189Params.get('r190DemandConcurrency'))||1));
+const r190FirstRequestAt=performance.now();
+
 const r189InitialReceipt={enabled:R189_STREAM,seed:r189Seed,
  deck:r189Deck,initialRealGLBs:r189InitialGLBs,
  deferredOriginalGLBs:r189TailGLBs,
  initialCount:r189InitialGLBs.length,fullModelCount:12,
  bgConcurrency:r189BgConcurrency,bgDelayMs:r189BgDelayMs,
+ demandOnly:R190_DEMAND,demandConcurrency:r190Limit,
  expectedSourceIds:UNIT_MODEL_IDS,hasNoProxy:true};
 
 
@@ -1491,8 +1504,70 @@ function reply(type,other={}){
   previewArtApproved:false,...other
  },window.location.origin);
 }
+// R190 demand queue: validated original GLB identity, no duplicates,
+// one live decoder at a time by default, fail closed on broken source.
+function r190Pump(){
+ if(!R190_DEMAND||r189TailError)return;
+ while(r190Active<r190Limit&&r190Queue.length){
+  const id=r190Queue.shift();
+  if(summonModels.has(id)){r190Pending.delete(id);continue}
+  r190Active++;
+  const start=performance.now();
+  void preloadSummonModels(THREE,
+   new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
+    ids:[id],concurrency:1,
+    onTransfer:updateTransferProgress,
+    onLoaded:({id:sourceId})=>verifiedModelLoaded('GLB:'+sourceId),
+    onPrototype:(sourceId,template)=>{
+     if(id!==sourceId||!UNIT_MODEL_IDS.includes(sourceId)||
+        summonModels.has(sourceId)||template.meshes<1)
+      throw Error('R190 invalid or duplicate genuine GLB '+sourceId);
+     summonModels.set(sourceId,template);
+     r190Completed++;
+     reply('ASDC_R189_MODEL_READY',{id:sourceId,
+      realMeshCount:template.meshes,loadedOriginalGlbCount:summonModels.size});
+    }
+   }).then(()=>{
+    r190DemandHistory.push({id,verified:true,
+     durationMs:+(performance.now()-start).toFixed(1)});
+    if(summonModels.size===12){
+     if(loadedRealResources!==TOTAL_REAL_ASSETS)
+      throw Error('R190 all-12 original resource counter mismatch');
+     r189AllDone=true;
+     reply('ASDC_R189_ALL_READY',{count:12,hasNoProxy:true,
+      backgroundMs:+(performance.now()-r190FirstRequestAt).toFixed(1),
+      initialIds:r189InitialGLBs,completeIds:[...summonModels.keys()]});
+    }
+   }).catch(error=>{
+    r190Failed++;
+    r189TailError=String(error?.message||error).slice(0,200);
+    r190DemandHistory.push({id,verified:false,error:r189TailError});
+    console.error('R190_GENUINE_ASSET_FAILED',id,error);
+    reply('ASDC_R189_BACKGROUND_FAILED',{reason:r189TailError});
+   }).finally(()=>{
+    r190Pending.delete(id);r190Active--;r190Pump();
+   });
+ }
+}
+function r190RequestOriginals(ids){
+ if(!R190_DEMAND||!Array.isArray(ids)||ids.length>12||
+    ids.some(id=>!UNIT_MODEL_IDS.includes(id))||
+    new Set(ids).size!==ids.length)
+  return false;
+ for(const id of ids){
+  if(summonModels.has(id)||r190Pending.has(id))continue;
+  r190Pending.add(id);r190Queue.push(id);
+ }
+ r189TailStarted=true;
+ r190Pump();
+ return true;
+}
 function onMessage(ev){
  if(ev.source!==window.parent||ev.origin!==location.origin||!ready)return;
+ if(ev.data?.type==='ASDC_R190_REQUEST_ORIGINALS'){
+  r190RequestOriginals(ev.data.ids);
+  return;
+ }
  const msg=ev.data;
  if(msg?.type==='ASDC_R122_VOICE_START'){
   // The parent only emits this packet after an actual Audio element starts.
@@ -1832,8 +1907,14 @@ function exposeQA(){
   get r189StreamReceipt(){return {...r189InitialReceipt,
    loadedNow:summonModels?[...summonModels.keys()]:[],
    backgroundStarted:r189TailStarted,allLoaded:r189AllDone,
-   backgroundError:r189TailError,
-   loadedRealResources}},
+   backgroundError:r189TailError,loadedRealResources,
+   demandOnly:R190_DEMAND,demandQueued:r190Queue.length,
+   demandActive:r190Active,demandCompleted:r190Completed,
+   demandFailed:r190Failed,demandedIDs:r190DemandHistory.map(x=>x.id),
+   cpuHeapMB:Math.round((performance.memory?.usedJSHeapSize||0)/1048576),
+   gpuTextureObjects:renderer?.info?.memory?.textures??null,
+   gpuGeometryObjects:renderer?.info?.memory?.geometries??null
+  }},
   // R181 no-write forensic survey: actual live source SkinnedMesh materials,
   // skinning topology, bind matrices and morphs. Never guesses equivalence from
   // UUID alone; does NOT rewrite VRM skeletal hierarchy or shader code.
@@ -2433,7 +2514,7 @@ try{
   loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false,
   r189Stream:R189_STREAM?{enabled:true,initialIds:[...summonModels.keys()],
    tailIds:r189TailGLBs,seed:r189Seed,deck:r189Deck,hasNoProxy:true}:null});
- if(R189_STREAM){
+ if(R189_STREAM&&!R190_DEMAND){
   // Begin only AFTER the fully presented scene is already playable.
   // Bound background parse to the QA-selected 1–4 workers. Only real source GLBs.
   // No user input/turn may reference an unverified GLB (host guards that).
