@@ -1,0 +1,303 @@
+{
+  "release": "R205 (DRAFT / NO-GO)",
+  "production": {
+    "mainModified": false,
+    "r205LivingSummonsDefaultOff": true,
+    "r204CasterUntouched": true,
+    "r198DefaultWideCameraUntouched": true
+  },
+  "realPCSource": "Z890 Ubuntu Chrome WebGL2 via Vulkan RTX5070Ti",
+  "rootCause": {
+    "sevenR97OriginalGLBsHaveUnusedSkinJointStructure": true,
+    "visibleOriginalBodyMeshesSkinBound": false,
+    "allSevenOriginalBodyClipNames": [
+      "Idle",
+      "Attack",
+      "Hit"
+    ],
+    "allSevenOriginalMorphTargets": [
+      "Step",
+      "Strike",
+      "Brace",
+      "Land",
+      "Recoil",
+      "Retreat"
+    ],
+    "fix": "Animate the ACTUAL original visible morphTargetInfluences, never the unused invisible armature; preserve source mixer/geometry/materials"
+  },
+  "sevenAnimatedOriginalHighDetailR97": [
+    {
+      "id": "E03",
+      "sourceAsset": "E03-Ellie-Landing-R97.glb",
+      "sourceMorphMeshes": 30,
+      "signature": "bounce-cheer",
+      "observedPhases": [
+        "glance",
+        "stride",
+        "show",
+        "recover",
+        "breathing",
+        "glance",
+        "stride",
+        "show"
+      ],
+      "measuredSourceMorphWeightRanges": {
+        "Step": 0.598,
+        "Strike": 0.5684,
+        "Brace": 0.311,
+        "Land": 0.374,
+        "Recoil": 0.1767,
+        "Retreat": 0.1264
+      },
+      "originalArtChanged": false,
+      "extraDrawCalls": 0
+    },
+    {
+      "id": "E04",
+      "sourceAsset": "E04-Phil-Landing-R97.glb",
+      "sourceMorphMeshes": 16,
+      "signature": "quick-pan-fidget",
+      "observedPhases": [
+        "glance",
+        "stride",
+        "show",
+        "recover",
+        "breathing",
+        "glance",
+        "stride",
+        "show"
+      ],
+      "measuredSourceMorphWeightRanges": {
+        "Step": 0.3657,
+        "Strike": 0.6138,
+        "Brace": 0,
+        "Land": 0.3206,
+        "Recoil": 0.192,
+        "Retreat": 0.084
+      },
+      "originalArtChanged": false,
+      "extraDrawCalls": 0
+    },
+    {
+      "id": "G02",
+      "sourceAsset": "G02-Snow-Landing-R97.glb",
+      "sourceMorphMeshes": 20,
+      "signature": "shy-glance-recoil",
+      "observedPhases": [
+        "stride",
+        "show",
+        "recover",
+        "breathing",
+        "glance",
+        "stride"
+      ],
+      "measuredSourceMorphWeightRanges": {
+        "Step": 0.3128,
+        "Strike": 0.3441,
+        "Brace": 0.4212,
+        "Land": 0.2048,
+        "Recoil": 0.248,
+        "Retreat": 0.28
+      },
+      "originalArtChanged": false,
+      "extraDrawCalls": 0
+    },
+    {
+      "id": "G03",
+      "sourceAsset": "G03-Jay-Landing-R97.glb",
+      "sourceMorphMeshes": 17,
+      "signature": "excited-science-count",
+      "observedPhases": [
+        "show",
+        "recover",
+        "breathing",
+        "glance",
+        "stride",
+        "show",
+        "recover",
+        "breathing"
+      ],
+      "measuredSourceMorphWeightRanges": {
+        "Step": 0.4393,
+        "Strike": 0.5208,
+        "Brace": 0.3315,
+        "Land": 0.2805,
+        "Recoil": 0.1999,
+        "Retreat": 0.21
+      },
+      "originalArtChanged": false,
+      "extraDrawCalls": 0
+    },
+    {
+      "id": "G04",
+      "sourceAsset": "G04-Victoria-Landing-R97.glb",
+      "sourceMorphMeshes": 33,
+      "signature": "proud-decree",
+      "observedPhases": [
+        "stride",
+        "show",
+        "recover",
+        "breathing",
+        "glance",
+        "stride",
+        "show"
+      ],
+      "measuredSourceMorphWeightRanges": {
+        "Step": 0.0422,
+        "Strike": 0,
+        "Brace": 0.2909,
+        "Land": 0.1682,
+        "Recoil": 0,
+        "Retreat": 0.189
+      },
+      "originalArtChanged": false,
+      "extraDrawCalls": 0
+    },
+    {
+      "id": "T03",
+      "sourceAsset": "T03-Rain-Landing-R97.glb",
+      "sourceMorphMeshes": 8,
+      "signature": "fast-reaction-switch",
+      "observedPhases": [
+        "recover",
+        "breathing",
+        "glance",
+        "stride",
+        "show",
+        "recover",
+        "breathing",
+        "glance",
+        "stride"
+      ],
+      "measuredSourceMorphWeightRanges": {
+        "Step": 0.5612,
+        "Strike": 0.5208,
+        "Brace": 0.3686,
+        "Land": 0.391,
+        "Recoil": 0.256,
+        "Retreat": 0.273
+      },
+      "originalArtChanged": false,
+      "extraDrawCalls": 0
+    },
+    {
+      "id": "T04",
+      "sourceAsset": "T04-Rex-Landing-R97.glb",
+      "sourceMorphMeshes": 16,
+      "signature": "heavy-stop-guard",
+      "observedPhases": [
+        "recover",
+        "breathing",
+        "glance",
+        "stride",
+        "show",
+        "recover"
+      ],
+      "measuredSourceMorphWeightRanges": {
+        "Step": 0.3987,
+        "Strike": 0.5418,
+        "Brace": 0.4335,
+        "Land": 0.307,
+        "Recoil": 0.1971,
+        "Retreat": 0.287
+      },
+      "originalArtChanged": false,
+      "extraDrawCalls": 0
+    }
+  ],
+  "twoAlreadyGenuinelySkinnedVRMUpgrades": [
+    {
+      "id": "E01",
+      "source": "original skinned VRM, two-bone IK",
+      "min": 0.16,
+      "max": 0.544,
+      "variation": 0.384,
+      "originalRealVisibleSource": true
+    },
+    {
+      "id": "G01",
+      "source": "original skinned VRM, two-bone IK",
+      "min": 0.191,
+      "max": 1,
+      "variation": 0.809,
+      "originalRealVisibleSource": true
+    }
+  ],
+  "fourteenOriginalSummonsAudited": {
+    "passed": true,
+    "all14UnmodifiedOriginalIdentities": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "G02",
+      "G01",
+      "G03",
+      "G04",
+      "M01",
+      "M02",
+      "T01",
+      "T02",
+      "T03",
+      "T04"
+    ],
+    "newOriginalMorphActors": 7,
+    "livelierSkinnedVRMActors": 2,
+    "originalNativeGltfClipActors": [
+      "M01",
+      "M02",
+      "T02"
+    ],
+    "existingOriginal129FeatherMeshOwl": "T01",
+    "originalMorphingPaperPlane": "E02",
+    "noLowPolyReplacement": true,
+    "noRuleMutation": true
+  },
+  "realCardFromActualHand": {
+    "id": "G02",
+    "cardCost": 2,
+    "pass": true,
+    "model": "G02-Snow-Landing-R97.glb",
+    "originalVisibleBodyMorphMeshes": 20,
+    "authoredActionPhases": [
+      "stride",
+      "show",
+      "recover",
+      "breathing",
+      "glance"
+    ],
+    "cardGameHpAndRoundUnchanged": true,
+    "sourceCharacterActuallyJoinedVisibleArena": true,
+    "noCloseups": true
+  },
+  "PCDrawCalls": {
+    "sameSevenSourceCharacters": true,
+    "r205EnabledMedian": 989,
+    "r205DisabledMedian": 989,
+    "additionalRenderPasses": 0,
+    "fpsImprovementMeasured": false,
+    "coldLoadImprovementMeasured": false
+  },
+  "actualBrowserVideo": {
+    "file": "qa/evidence/r205-original-summons/r205-seven-original-source-characters-actually-animate-silent.mp4",
+    "seconds": 11.111,
+    "silentPlaywrightRecordedGame": true,
+    "newAnimationNotSynthetic": true,
+    "requiresGameAudioPlaybackForVoice": true
+  },
+  "screenshots": {
+    "perSourceCharacterThreeMoments": "qa/evidence/r205-original-summons/r205-seven-genuine-3d-characters-three-motion-moments.jpg",
+    "all14Group1": "qa/evidence/r205-original-summons/r205-all-real-summon-actors-batch-1.png",
+    "all14Group2": "qa/evidence/r205-original-summons/r205-all-real-summon-actors-batch-2.png",
+    "realHandBefore": "qa/evidence/r205-original-summons/r205-real-card-G02-original-source-entrance.png",
+    "realHandAfter": "qa/evidence/r205-original-summons/r205-real-card-G02-after-living-motion.png"
+  },
+  "limitations": [
+    "Original R97 models have NO skin binding to the visible mesh. They now have stronger original Blender vertex-morph acting but NOT arbitrary full skeletal animation.",
+    "The morph set can never substitute professionally retargeted humanoid source animation in maximum visual fidelity.",
+    "Seven authentic original R97 students and two VRMs were deliberately improved; M01 M02 T01 T02 E02 retain existing original action implementations.",
+    "All 14 units were staged in two QA board groups; only G02 was verified with a genuine actual hand/energy/rule card play in this R205.",
+    "Human visual-art review outstanding; isolated Draft cannot merge straight to main.",
+    "XPS PC cold-cache original 58s from R204 still unresolved. FPS, frametime, cold loading NOT improved/measured in this R205."
+  ]
+}

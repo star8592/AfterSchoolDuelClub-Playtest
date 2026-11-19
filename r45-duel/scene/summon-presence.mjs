@@ -19,6 +19,8 @@ import {createR133SourceShoeContact} from './r133-source-shoe-contact.mjs';
 import {createR136OriginalFootContact} from './r136-source-foot-contact.mjs';
 import {createVisibleLifeActing} from './visible-life-acting.mjs';
 import {createPropLifeActing} from './prop-life-acting.mjs';
+import {R205_ORIGINAL_R97_MORPH_IDS,createR205VisibleSummonPerformance} from './campus-r205-visible-summon-performance.mjs';
+import {UNIT_MODEL_SPECS} from './summon-models.mjs';
 
 const UNIT_IDS=Object.freeze(Object.keys(BY_ID).filter(id=>BY_ID[id].kind==='unit'));
 const VRM_IDS=new Set(['E01','G01']);
@@ -30,6 +32,16 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
  const root=new THREE.Group();
  root.name='R50_Board_Units_Only';
  scene.add(root);
+ // R205 isolated art review only; public/main remains R198 original models.
+ // Read either this iframe's own query or its same-origin parent query.
+ const R205_LIVING_SUMMONS=(()=>{
+  const local=new URLSearchParams(location.search);
+  let parent=null;
+  try{if(window.parent!==window)
+   parent=new URLSearchParams(window.parent.location.search);}catch{}
+  const read=key=>local.has(key)?local.get(key):parent?.get(key);
+  return read('r205LivingSummons')==='on';
+ })();
  const R133_SHOE_QA=(()=>{
   const local=new URLSearchParams(location.search);
   const parent=(()=>{try{return window.parent!==window?
@@ -281,6 +293,13 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
      }
      state={key,id,uid,side,index,kind,object,created:performance.now(),
       r117Rig:kind==='gltf-instance'?createVisibleLifeActing(THREE,object,id):null,
+      // Only seven UNBOUND R97 visible meshes. Their phantom joints are
+      // never rotated. Experimental R119+ skins and approved R198 public
+      // defaults are entirely excluded from this R205 switch.
+      r205Life:R205_LIVING_SUMMONS&&kind==='gltf-instance'&&
+       R205_ORIGINAL_R97_MORPH_IDS.includes(id)&&
+       prototypes.get(id)?.selectedFile===UNIT_MODEL_SPECS[id]?.file?
+       createR205VisibleSummonPerformance(object,id,{uid,side}):null,
       r117Props:kind==='gltf-instance'?createPropLifeActing(THREE,object,id):null,
       r136Contact:R136_CAST_STAGES.has(id)&&kind==='gltf-instance'?
        createR136OriginalFootContact(THREE,object,id):null,
@@ -557,8 +576,11 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    if(r61?.update)r61.update(dt);else r61?.mixer?.update(dt);
    const realLife=lifeWorld?.read('unit:'+state.key,seconds);
    const lifeBusy=!!sequence||!!state.comic||!!celebration||cinematic;
-   state.r117Rig?.apply(seconds,realLife,{reduced:!!celebration?.reduced,
-     busy:lifeBusy,mixerDriven:!!r61?.r119Skin});
+   if(!state.r205Life)state.r117Rig?.apply(seconds,realLife,{
+    reduced:!!celebration?.reduced,
+    busy:lifeBusy,mixerDriven:!!r61?.r119Skin});
+   state.r205Life?.update(seconds,realLife,{
+    busy:lifeBusy,reduced:!!celebration?.reduced});
    state.r117Props?.update(seconds,realLife,{reduced:!!celebration?.reduced,
      busy:lifeBusy});
    // Board VRMs must not be left in their bind T/A pose. During the
@@ -566,7 +588,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    // cinematic controller, so never double-write that same skeleton.
    if(state.acting&&!(cinematic&&state.kind==='original-vrm')){
     state.acting.update(seconds,{seed:state.side==='player'?.4:2.1,
-     suppressEntrance:true});
+     suppressEntrance:true,lively:R205_LIVING_SUMMONS&&!lifeBusy});
    }
    if(state.comic&&!sequence){
     const c=state.comic,m=c.motion,elapsed=seconds-c.started;
@@ -1106,6 +1128,13 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
     meshes:s.kind==='gltf-instance'?s.object.userData.r61?.meshCount:undefined,
     clips:s.kind==='gltf-instance'?s.object.userData.r61?.animationCount:undefined,
     playingClips:s.kind==='gltf-instance'?s.object.userData.r61?.getPlayingClips?.():undefined,
+    r205TrueVRMSource:s.acting&&R205_LIVING_SUMMONS?{
+     originalRealSkin:true,
+     ...(()=>{const a=s.acting.inspect();return{mode:a.mode,
+      gestureAmount:a.amount,originalTwoBoneIK:a.heroPose,
+      originalFaceExpression:a.actualExpression,
+      sourceVisemePreserved:!!a.mouthBindings}})()
+    }:null,
     r126TeacherMotion:s.id==='M01'?s.object.userData.r61?.getR126TeacherMotion?.():undefined,
     r127OwlMotion:s.id==='T01'?s.object.userData.r61?.getR127OwlMotion?.():undefined,
     r128FullBody:s.id==='E04'?s.object.userData.r61?.getR128FullBody?.():undefined,
@@ -1141,6 +1170,13 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
    r117CharacterMotion:[...entries.values()].map(x=>({
     id:x.id,uid:x.uid,side:x.side,
     ...(x.r117Rig?.inspect()||{enabled:false,frames:0})})),
+   r205VisibleBodyLife:{
+    enabled:R205_LIVING_SUMMONS,
+    candidates:[...R205_ORIGINAL_R97_MORPH_IDS],
+    actors:[...entries.values()].filter(x=>x.r205Life).map(x=>x.r205Life.inspect()),
+    neverReplaceSourceGeometry:true,neverTouchUnboundBones:true,
+    renderPassesAdded:0
+   },
    r116LifeStates:[...entries.values()].map(x=>({
     uid:x.uid,id:x.id,side:x.side,
     life:lifeWorld?.read('unit:'+x.key,lastUpdateSeconds||0)||null,

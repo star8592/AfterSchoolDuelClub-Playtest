@@ -1,0 +1,176 @@
+{
+  "pass": true,
+  "original14": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "M01",
+    "M02",
+    "T01",
+    "T02",
+    "T03",
+    "T04"
+  ],
+  "errors": [],
+  "batches": [
+    {
+      "ids": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G01",
+        "G03",
+        "G04",
+        "M01",
+        "M02"
+      ],
+      "models": [
+        {
+          "id": "E01",
+          "kind": "original-vrm",
+          "sourceAnimation": [],
+          "realMorphSource": false,
+          "realVRM": true
+        },
+        {
+          "id": "E02",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle_Glide"
+          ],
+          "realMorphSource": false,
+          "realVRM": false
+        },
+        {
+          "id": "E03",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle"
+          ],
+          "realMorphSource": true,
+          "realVRM": false
+        },
+        {
+          "id": "E04",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle"
+          ],
+          "realMorphSource": true,
+          "realVRM": false
+        },
+        {
+          "id": "G02",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle"
+          ],
+          "realMorphSource": true,
+          "realVRM": false
+        },
+        {
+          "id": "G01",
+          "kind": "original-vrm",
+          "sourceAnimation": [],
+          "realMorphSource": false,
+          "realVRM": true
+        },
+        {
+          "id": "G03",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle"
+          ],
+          "realMorphSource": true,
+          "realVRM": false
+        },
+        {
+          "id": "G04",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle"
+          ],
+          "realMorphSource": true,
+          "realVRM": false
+        },
+        {
+          "id": "M01",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle",
+            "R126_M01_Conduct"
+          ],
+          "realMorphSource": false,
+          "realVRM": false
+        },
+        {
+          "id": "M02",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle"
+          ],
+          "realMorphSource": false,
+          "realVRM": false
+        }
+      ],
+      "visibleAll": true,
+      "sourceCount": 10,
+      "drawCalls": 1172
+    },
+    {
+      "ids": [
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "models": [
+        {
+          "id": "T01",
+          "kind": "gltf-instance",
+          "sourceAnimation": [],
+          "realMorphSource": false,
+          "realVRM": false
+        },
+        {
+          "id": "T02",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle_Menu_Breath"
+          ],
+          "realMorphSource": false,
+          "realVRM": false
+        },
+        {
+          "id": "T03",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle"
+          ],
+          "realMorphSource": true,
+          "realVRM": false
+        },
+        {
+          "id": "T04",
+          "kind": "gltf-instance",
+          "sourceAnimation": [
+            "Idle"
+          ],
+          "realMorphSource": true,
+          "realVRM": false
+        }
+      ],
+      "visibleAll": true,
+      "sourceCount": 4,
+      "drawCalls": 969
+    }
+  ],
+  "source": "Real Chrome Vulkan WebGL2 no stand-ins"
+}

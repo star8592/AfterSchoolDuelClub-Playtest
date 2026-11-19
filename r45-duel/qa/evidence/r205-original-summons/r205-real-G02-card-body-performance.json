@@ -1,0 +1,2023 @@
+{
+  "pass": true,
+  "errors": [],
+  "rule": "actual player hand G02 from classic seed5",
+  "before": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 5
+      }
+    ],
+    "game": {
+      "player": [
+        []
+      ],
+      "ai": [
+        []
+      ]
+    },
+    "summoned": {
+      "revision": 1,
+      "r102Comedy": {
+        "gestures": 0,
+        "summons": 0,
+        "comboReactions": 0,
+        "boneFrames": 0,
+        "active": [],
+        "lastComic": null
+      },
+      "r117PropLife": [],
+      "r119TrueSkinVertices": [],
+      "r117CharacterMotion": [],
+      "r205VisibleBodyLife": {
+        "enabled": true,
+        "candidates": [
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "T03",
+          "T04"
+        ],
+        "actors": [],
+        "neverReplaceSourceGeometry": true,
+        "neverTouchUnboundBones": true,
+        "renderPassesAdded": 0
+      },
+      "r116LifeStates": [],
+      "r114FootContacts": [],
+      "r120CharacterTheatre": [],
+      "r113DanceStages": [],
+      "r112Victory": null,
+      "hpDisplayMode": "auto",
+      "activeHpStyle": "full",
+      "visibleHpTags": 0,
+      "total": 0,
+      "models": 0,
+      "pendingArt": 0,
+      "prototypeArt": 0,
+      "loadedPrototypeIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": []
+    },
+    "model": {
+      "id": "G02",
+      "file": "G02-Snow-Landing-R97.glb",
+      "baselineFile": "G02-Snow-Landing-R97.glb",
+      "meshes": 22,
+      "clips": 3,
+      "scale": 1.1601123857160573,
+      "measured": {
+        "width": 1.819528877735138,
+        "height": 2.137723922729492,
+        "depth": 0.5725657716393471,
+        "scaledHeight": 2.48,
+        "scaledWidth": 2.110857987228571,
+        "scaledDepth": 0.6642406433158782
+      }
+    },
+    "camera": false,
+    "inset": 0,
+    "light": 0,
+    "drawCalls": 732
+  },
+  "entrance": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 5
+      },
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "G02",
+        "lane": 0
+      }
+    ],
+    "game": {
+      "player": [
+        [
+          {
+            "uid": "U2",
+            "id": "G02",
+            "style": "grove",
+            "attack": 2,
+            "hp": 3,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 1
+          }
+        ]
+      ],
+      "ai": [
+        []
+      ]
+    },
+    "summoned": {
+      "revision": 2,
+      "r102Comedy": {
+        "gestures": 1,
+        "summons": 1,
+        "comboReactions": 0,
+        "boneFrames": 0,
+        "active": [
+          {
+            "id": "G02",
+            "uid": "U2",
+            "type": "salute",
+            "serial": 2,
+            "shoulderBoneCount": 0
+          }
+        ],
+        "lastComic": {
+          "type": "salute",
+          "id": "G02",
+          "side": "player",
+          "serial": 2,
+          "signature": "黑板密码解码",
+          "realBones": 0
+        }
+      },
+      "r117PropLife": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "parts": [],
+          "frames": 0,
+          "expressiveFrames": 0,
+          "maxMovement": 0
+        }
+      ],
+      "r119TrueSkinVertices": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "valid": false,
+          "reason": "not_r119_study"
+        }
+      ],
+      "r117CharacterMotion": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 0,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {}
+        }
+      ],
+      "r205VisibleBodyLife": {
+        "enabled": true,
+        "candidates": [
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "T03",
+          "T04"
+        ],
+        "actors": [
+          {
+            "id": "G02",
+            "uid": "U2",
+            "side": "player",
+            "enabled": true,
+            "signature": "shy-glance-recoil",
+            "originalVisibleR97Unskinned": true,
+            "originalMorphMeshes": 20,
+            "originalSourceChannels": 6,
+            "sourceAvailableChannels": [
+              "Step",
+              "Strike",
+              "Brace",
+              "Land",
+              "Recoil",
+              "Retreat"
+            ],
+            "frames": 44,
+            "activeFrames": 0,
+            "actualSourceMorphWrites": 252,
+            "sourceOriginalGeometryReplaced": false,
+            "clipMixerPreserved": true,
+            "observedPhases": [
+              "stride",
+              "show"
+            ],
+            "maxAuthoredMorphWeight": 0.04083337611964466,
+            "currentBlend": 0,
+            "lastPose": {
+              "Step": 0.04026,
+              "Strike": 0.35705,
+              "Brace": 0.12171,
+              "Land": 0.0086,
+              "Recoil": 0.009,
+              "Retreat": 0.008,
+              "phase": "show",
+              "signature": "shy-glance-recoil",
+              "sourceCharacter": "黑板密码专家",
+              "intensity": 0.357,
+              "variance": 1.1768,
+              "synchronized": false,
+              "sourceMorphChannels": 6,
+              "busy": true
+            },
+            "sampleMeshes": [
+              {
+                "name": "R97_GEO-snow-body",
+                "actualAuthoredMorphs": {
+                  "Step": 0,
+                  "Strike": 0.4858,
+                  "Brace": 0,
+                  "Land": 0.7333,
+                  "Recoil": 0,
+                  "Retreat": 0
+                }
+              },
+              {
+                "name": "R97_GEO-snow-eye_dots",
+                "actualAuthoredMorphs": {
+                  "Step": 0,
+                  "Brace": 0,
+                  "Land": 0.7333,
+                  "Retreat": 0
+                }
+              },
+              {
+                "name": "R97_GEO-snow-eyebrows",
+                "actualAuthoredMorphs": {
+                  "Step": 0,
+                  "Brace": 0,
+                  "Land": 0.7333,
+                  "Retreat": 0
+                }
+              },
+              {
+                "name": "R97_GEO-snow-gums_lower",
+                "actualAuthoredMorphs": {
+                  "Step": 0,
+                  "Brace": 0,
+                  "Land": 0.7333,
+                  "Retreat": 0
+                }
+              }
+            ]
+          }
+        ],
+        "neverReplaceSourceGeometry": true,
+        "neverTouchUnboundBones": true,
+        "renderPassesAdded": 0
+      },
+      "r116LifeStates": [
+        {
+          "uid": "U2",
+          "id": "G02",
+          "side": "player",
+          "life": {
+            "id": "G02",
+            "side": "player",
+            "role": "summon",
+            "emotion": "expectant",
+            "confidence": 0.568,
+            "tension": 0.133,
+            "attention": "opponent",
+            "intent": "focus",
+            "weight": 0.999,
+            "yaw": 0,
+            "tilt": 0,
+            "head": -0.08989724877820102,
+            "lastAction": {
+              "intent": "focus",
+              "reason": "observed_card",
+              "at": 0.25
+            },
+            "latestEvent": {
+              "type": "card",
+              "side": "player",
+              "kind": "unit",
+              "at": 0.25130000000447034
+            }
+          },
+          "livingClip": null
+        }
+      ],
+      "r114FootContacts": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "frames": 0
+        }
+      ],
+      "r120CharacterTheatre": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "identity": "chalkboard_spell",
+          "performance": {
+            "mode": "chalkboard_spell",
+            "phase": "spotlight",
+            "at": 0.25130000000447034,
+            "clip": "attack",
+            "actualSourceModel": true
+          },
+          "spellHitStrength": 0,
+          "victoryClip": null,
+          "realRig": false,
+          "playingClips": [
+            "Attack"
+          ]
+        }
+      ],
+      "r113DanceStages": [
+        {
+          "id": "G02",
+          "side": "player",
+          "stage": null
+        }
+      ],
+      "r112Victory": null,
+      "hpDisplayMode": "auto",
+      "activeHpStyle": "full",
+      "visibleHpTags": 1,
+      "total": 1,
+      "models": 1,
+      "pendingArt": 0,
+      "prototypeArt": 1,
+      "loadedPrototypeIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U2",
+          "id": "G02",
+          "kind": "gltf-instance",
+          "visible": true,
+          "trueWorldYaw": 1.6202,
+          "metrics": {
+            "width": 0.588,
+            "height": 2.191,
+            "depth": 1.319,
+            "minY": -0.021,
+            "maxY": 2.17,
+            "coverageWidth": 0.052,
+            "coverageHeight": 0.259,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.254,
+              "right": -0.15,
+              "top": 0.239,
+              "bottom": -0.279
+            },
+            "frontDot": 0.9988
+          },
+          "wingMorph": null,
+          "hp": 3,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.73,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            -0.03
+          ],
+          "skins": 19,
+          "meshes": 22,
+          "clips": 3,
+          "playingClips": [
+            "Attack"
+          ],
+          "r205TrueVRMSource": null,
+          "r130FullBody": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "r90Pose": {
+            "lean": 0.16318480819183562,
+            "upperTwist": -0.05267335054581607,
+            "lift": 0
+          },
+          "r90ClipRate": 1,
+          "artApproved": false
+        }
+      ]
+    },
+    "model": {
+      "id": "G02",
+      "file": "G02-Snow-Landing-R97.glb",
+      "baselineFile": "G02-Snow-Landing-R97.glb",
+      "meshes": 22,
+      "clips": 3,
+      "scale": 1.1601123857160573,
+      "measured": {
+        "width": 1.819528877735138,
+        "height": 2.137723922729492,
+        "depth": 0.5725657716393471,
+        "scaledHeight": 2.48,
+        "scaledWidth": 2.110857987228571,
+        "scaledDepth": 0.6642406433158782
+      }
+    },
+    "camera": false,
+    "inset": 0,
+    "light": 0,
+    "drawCalls": 813
+  },
+  "visibleAfter": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 5
+      },
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "G02",
+        "lane": 0
+      }
+    ],
+    "game": {
+      "player": [
+        [
+          {
+            "uid": "U2",
+            "id": "G02",
+            "style": "grove",
+            "attack": 2,
+            "hp": 3,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 1
+          }
+        ]
+      ],
+      "ai": [
+        []
+      ]
+    },
+    "summoned": {
+      "revision": 2,
+      "r102Comedy": {
+        "gestures": 1,
+        "summons": 1,
+        "comboReactions": 0,
+        "boneFrames": 0,
+        "active": [],
+        "lastComic": {
+          "type": "salute",
+          "id": "G02",
+          "side": "player",
+          "serial": 2,
+          "signature": "黑板密码解码",
+          "realBones": 0
+        }
+      },
+      "r117PropLife": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "parts": [],
+          "frames": 0,
+          "expressiveFrames": 0,
+          "maxMovement": 0
+        }
+      ],
+      "r119TrueSkinVertices": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "valid": false,
+          "reason": "not_r119_study"
+        }
+      ],
+      "r117CharacterMotion": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 0,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {}
+        }
+      ],
+      "r205VisibleBodyLife": {
+        "enabled": true,
+        "candidates": [
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "T03",
+          "T04"
+        ],
+        "actors": [
+          {
+            "id": "G02",
+            "uid": "U2",
+            "side": "player",
+            "enabled": true,
+            "signature": "shy-glance-recoil",
+            "originalVisibleR97Unskinned": true,
+            "originalMorphMeshes": 20,
+            "originalSourceChannels": 6,
+            "sourceAvailableChannels": [
+              "Step",
+              "Strike",
+              "Brace",
+              "Land",
+              "Recoil",
+              "Retreat"
+            ],
+            "frames": 114,
+            "activeFrames": 22,
+            "actualSourceMorphWrites": 2604,
+            "sourceOriginalGeometryReplaced": false,
+            "clipMixerPreserved": true,
+            "observedPhases": [
+              "stride",
+              "show"
+            ],
+            "maxAuthoredMorphWeight": 0.35705,
+            "currentBlend": 1,
+            "lastPose": {
+              "Step": 0.0272,
+              "Strike": 0.35473,
+              "Brace": 0.1803,
+              "Land": 0.01901,
+              "Recoil": 0.01359,
+              "Retreat": 0.02585,
+              "phase": "show",
+              "signature": "shy-glance-recoil",
+              "sourceCharacter": "黑板密码专家",
+              "intensity": 0.3547,
+              "variance": 1.2375,
+              "synchronized": false,
+              "sourceMorphChannels": 6,
+              "busy": false
+            },
+            "sampleMeshes": [
+              {
+                "name": "R97_GEO-snow-body",
+                "actualAuthoredMorphs": {
+                  "Step": 0.0272,
+                  "Strike": 0.3547,
+                  "Brace": 0.1803,
+                  "Land": 0.019,
+                  "Recoil": 0.0136,
+                  "Retreat": 0.0259
+                }
+              },
+              {
+                "name": "R97_GEO-snow-eye_dots",
+                "actualAuthoredMorphs": {
+                  "Step": 0.0382,
+                  "Brace": 0.1803,
+                  "Land": 0.019,
+                  "Retreat": 0.0259
+                }
+              },
+              {
+                "name": "R97_GEO-snow-eyebrows",
+                "actualAuthoredMorphs": {
+                  "Step": 0.0382,
+                  "Brace": 0.1803,
+                  "Land": 0.019,
+                  "Retreat": 0.0259
+                }
+              },
+              {
+                "name": "R97_GEO-snow-gums_lower",
+                "actualAuthoredMorphs": {
+                  "Step": 0.0382,
+                  "Brace": 0.1803,
+                  "Land": 0.019,
+                  "Retreat": 0.0259
+                }
+              }
+            ]
+          }
+        ],
+        "neverReplaceSourceGeometry": true,
+        "neverTouchUnboundBones": true,
+        "renderPassesAdded": 0
+      },
+      "r116LifeStates": [
+        {
+          "uid": "U2",
+          "id": "G02",
+          "side": "player",
+          "life": {
+            "id": "G02",
+            "side": "player",
+            "role": "summon",
+            "emotion": "expectant",
+            "confidence": 0.568,
+            "tension": 0.126,
+            "attention": "opponent",
+            "intent": "idle",
+            "weight": 0,
+            "yaw": 0,
+            "tilt": 0,
+            "head": 0,
+            "lastAction": {
+              "intent": "focus",
+              "reason": "observed_card",
+              "at": 0.25
+            },
+            "latestEvent": {
+              "type": "card",
+              "side": "player",
+              "kind": "unit",
+              "at": 0.25130000000447034
+            }
+          },
+          "livingClip": null
+        }
+      ],
+      "r114FootContacts": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "frames": 0
+        }
+      ],
+      "r120CharacterTheatre": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "identity": "chalkboard_spell",
+          "performance": {
+            "mode": "chalkboard_spell",
+            "phase": "settled",
+            "at": 0.25130000000447034,
+            "clip": "attack",
+            "actualSourceModel": true
+          },
+          "spellHitStrength": 0,
+          "victoryClip": null,
+          "realRig": false,
+          "playingClips": [
+            "Idle"
+          ]
+        }
+      ],
+      "r113DanceStages": [
+        {
+          "id": "G02",
+          "side": "player",
+          "stage": null
+        }
+      ],
+      "r112Victory": null,
+      "hpDisplayMode": "auto",
+      "activeHpStyle": "full",
+      "visibleHpTags": 1,
+      "total": 1,
+      "models": 1,
+      "pendingArt": 0,
+      "prototypeArt": 1,
+      "loadedPrototypeIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U2",
+          "id": "G02",
+          "kind": "gltf-instance",
+          "visible": true,
+          "trueWorldYaw": 1.570796,
+          "metrics": {
+            "width": 0.415,
+            "height": 2.16,
+            "depth": 0.9,
+            "minY": -0.001,
+            "maxY": 2.159,
+            "coverageWidth": 0.04,
+            "coverageHeight": 0.246,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.267,
+              "right": -0.188,
+              "top": 0.224,
+              "bottom": -0.269
+            },
+            "frontDot": 1
+          },
+          "wingMorph": null,
+          "hp": 3,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.72,
+            0
+          ],
+          "position": [
+            -1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            -0.03
+          ],
+          "skins": 19,
+          "meshes": 22,
+          "clips": 3,
+          "playingClips": [
+            "Idle"
+          ],
+          "r205TrueVRMSource": null,
+          "r130FullBody": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "r90Pose": null,
+          "r90ClipRate": 1,
+          "artApproved": false
+        }
+      ]
+    },
+    "model": {
+      "id": "G02",
+      "file": "G02-Snow-Landing-R97.glb",
+      "baselineFile": "G02-Snow-Landing-R97.glb",
+      "meshes": 22,
+      "clips": 3,
+      "scale": 1.1601123857160573,
+      "measured": {
+        "width": 1.819528877735138,
+        "height": 2.137723922729492,
+        "depth": 0.5725657716393471,
+        "scaledHeight": 2.48,
+        "scaledWidth": 2.110857987228571,
+        "scaledDepth": 0.6642406433158782
+      }
+    },
+    "camera": false,
+    "inset": 0,
+    "light": 0,
+    "drawCalls": 762
+  },
+  "living": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 5
+      },
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "G02",
+        "lane": 0
+      }
+    ],
+    "game": {
+      "player": [
+        [
+          {
+            "uid": "U2",
+            "id": "G02",
+            "style": "grove",
+            "attack": 2,
+            "hp": 3,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 1
+          }
+        ]
+      ],
+      "ai": [
+        []
+      ]
+    },
+    "summoned": {
+      "revision": 2,
+      "r102Comedy": {
+        "gestures": 1,
+        "summons": 1,
+        "comboReactions": 0,
+        "boneFrames": 0,
+        "active": [],
+        "lastComic": {
+          "type": "salute",
+          "id": "G02",
+          "side": "player",
+          "serial": 2,
+          "signature": "黑板密码解码",
+          "realBones": 0
+        }
+      },
+      "r117PropLife": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "parts": [],
+          "frames": 0,
+          "expressiveFrames": 0,
+          "maxMovement": 0
+        }
+      ],
+      "r119TrueSkinVertices": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "valid": false,
+          "reason": "not_r119_study"
+        }
+      ],
+      "r117CharacterMotion": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 0,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {}
+        }
+      ],
+      "r205VisibleBodyLife": {
+        "enabled": true,
+        "candidates": [
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "T03",
+          "T04"
+        ],
+        "actors": [
+          {
+            "id": "G02",
+            "uid": "U2",
+            "side": "player",
+            "enabled": true,
+            "signature": "shy-glance-recoil",
+            "originalVisibleR97Unskinned": true,
+            "originalMorphMeshes": 20,
+            "originalSourceChannels": 6,
+            "sourceAvailableChannels": [
+              "Step",
+              "Strike",
+              "Brace",
+              "Land",
+              "Recoil",
+              "Retreat"
+            ],
+            "frames": 272,
+            "activeFrames": 166,
+            "actualSourceMorphWrites": 15876,
+            "sourceOriginalGeometryReplaced": false,
+            "clipMixerPreserved": true,
+            "observedPhases": [
+              "stride",
+              "show",
+              "recover",
+              "breathing"
+            ],
+            "maxAuthoredMorphWeight": 0.35705,
+            "currentBlend": 1,
+            "lastPose": {
+              "Step": 0.0272,
+              "Strike": 0.01295,
+              "Brace": 0.10569,
+              "Land": 0.006,
+              "Recoil": 0.009,
+              "Retreat": 0.008,
+              "phase": "breathing",
+              "signature": "shy-glance-recoil",
+              "sourceCharacter": "黑板密码专家",
+              "intensity": 0.1057,
+              "variance": 0.1459,
+              "synchronized": false,
+              "sourceMorphChannels": 6,
+              "busy": false
+            },
+            "sampleMeshes": [
+              {
+                "name": "R97_GEO-snow-body",
+                "actualAuthoredMorphs": {
+                  "Step": 0.0272,
+                  "Strike": 0.0851,
+                  "Brace": 0.1057,
+                  "Land": 0.006,
+                  "Recoil": 0.009,
+                  "Retreat": 0.008
+                }
+              },
+              {
+                "name": "R97_GEO-snow-eye_dots",
+                "actualAuthoredMorphs": {
+                  "Step": 0.0382,
+                  "Brace": 0.352,
+                  "Land": 0.21,
+                  "Retreat": 0.288
+                }
+              },
+              {
+                "name": "R97_GEO-snow-eyebrows",
+                "actualAuthoredMorphs": {
+                  "Step": 0.0382,
+                  "Brace": 0.352,
+                  "Land": 0.21,
+                  "Retreat": 0.288
+                }
+              },
+              {
+                "name": "R97_GEO-snow-gums_lower",
+                "actualAuthoredMorphs": {
+                  "Step": 0.0382,
+                  "Brace": 0.352,
+                  "Land": 0.21,
+                  "Retreat": 0.288
+                }
+              }
+            ]
+          }
+        ],
+        "neverReplaceSourceGeometry": true,
+        "neverTouchUnboundBones": true,
+        "renderPassesAdded": 0
+      },
+      "r116LifeStates": [
+        {
+          "uid": "U2",
+          "id": "G02",
+          "side": "player",
+          "life": {
+            "id": "G02",
+            "side": "player",
+            "role": "summon",
+            "emotion": "expectant",
+            "confidence": 0.567,
+            "tension": 0.11,
+            "attention": "opponent",
+            "intent": "shift",
+            "weight": 0.827,
+            "yaw": 0,
+            "tilt": 0.0206730482058997,
+            "head": 0,
+            "lastAction": {
+              "intent": "shift",
+              "reason": "life_ambient",
+              "at": 3.85
+            },
+            "latestEvent": {
+              "type": "reply",
+              "side": "ai",
+              "kind": "whisper",
+              "at": 4.567600000001495
+            }
+          },
+          "livingClip": null
+        }
+      ],
+      "r114FootContacts": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "frames": 0
+        }
+      ],
+      "r120CharacterTheatre": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "identity": "chalkboard_spell",
+          "performance": {
+            "mode": "chalkboard_spell",
+            "phase": "settled",
+            "at": 0.25130000000447034,
+            "clip": "attack",
+            "actualSourceModel": true
+          },
+          "spellHitStrength": 0,
+          "victoryClip": null,
+          "realRig": false,
+          "playingClips": [
+            "Idle"
+          ]
+        }
+      ],
+      "r113DanceStages": [
+        {
+          "id": "G02",
+          "side": "player",
+          "stage": null
+        }
+      ],
+      "r112Victory": null,
+      "hpDisplayMode": "auto",
+      "activeHpStyle": "full",
+      "visibleHpTags": 1,
+      "total": 1,
+      "models": 1,
+      "pendingArt": 0,
+      "prototypeArt": 1,
+      "loadedPrototypeIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U2",
+          "id": "G02",
+          "kind": "gltf-instance",
+          "visible": true,
+          "trueWorldYaw": 1.570796,
+          "metrics": {
+            "width": 0.394,
+            "height": 2.163,
+            "depth": 0.718,
+            "minY": 0.004,
+            "maxY": 2.167,
+            "coverageWidth": 0.036,
+            "coverageHeight": 0.24,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.261,
+              "right": -0.188,
+              "top": 0.225,
+              "bottom": -0.255
+            },
+            "frontDot": 1
+          },
+          "wingMorph": null,
+          "hp": 3,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.73,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            -0.03
+          ],
+          "skins": 19,
+          "meshes": 22,
+          "clips": 3,
+          "playingClips": [
+            "Idle"
+          ],
+          "r205TrueVRMSource": null,
+          "r130FullBody": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "r90Pose": null,
+          "r90ClipRate": 1,
+          "artApproved": false
+        }
+      ]
+    },
+    "model": {
+      "id": "G02",
+      "file": "G02-Snow-Landing-R97.glb",
+      "baselineFile": "G02-Snow-Landing-R97.glb",
+      "meshes": 22,
+      "clips": 3,
+      "scale": 1.1601123857160573,
+      "measured": {
+        "width": 1.819528877735138,
+        "height": 2.137723922729492,
+        "depth": 0.5725657716393471,
+        "scaledHeight": 2.48,
+        "scaledWidth": 2.110857987228571,
+        "scaledDepth": 0.6642406433158782
+      }
+    },
+    "camera": false,
+    "inset": 0,
+    "light": 0,
+    "drawCalls": 755
+  },
+  "later": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 5
+      },
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "G02",
+        "lane": 0
+      }
+    ],
+    "game": {
+      "player": [
+        [
+          {
+            "uid": "U2",
+            "id": "G02",
+            "style": "grove",
+            "attack": 2,
+            "hp": 3,
+            "buff": 0,
+            "shield": 0,
+            "summonedAt": 1
+          }
+        ]
+      ],
+      "ai": [
+        []
+      ]
+    },
+    "summoned": {
+      "revision": 2,
+      "r102Comedy": {
+        "gestures": 1,
+        "summons": 1,
+        "comboReactions": 0,
+        "boneFrames": 0,
+        "active": [],
+        "lastComic": {
+          "type": "salute",
+          "id": "G02",
+          "side": "player",
+          "serial": 2,
+          "signature": "黑板密码解码",
+          "realBones": 0
+        }
+      },
+      "r117PropLife": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "parts": [],
+          "frames": 0,
+          "expressiveFrames": 0,
+          "maxMovement": 0
+        }
+      ],
+      "r119TrueSkinVertices": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "valid": false,
+          "reason": "not_r119_study"
+        }
+      ],
+      "r117CharacterMotion": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "mode": "authored-morph-deformation",
+          "morphMeshes": 2,
+          "riggedJoints": [],
+          "frames": 0,
+          "expressiveFrames": 0,
+          "boneFrameWrites": 0,
+          "morphFrameWrites": 0,
+          "maxMorphDelta": 0,
+          "maxAngle": 0,
+          "lastIntent": "idle",
+          "lastEmotion": "focused",
+          "lastAttention": "opponent",
+          "candidateInfo": [
+            {
+              "key": "head",
+              "name": "FK-Head",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "neck",
+              "name": "FK-Neck",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "chest",
+              "name": "FK-Chest",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "spine",
+              "name": "FK-Spine",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "left",
+              "name": "FK-UpperArm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "right",
+              "name": "FK-UpperArm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "leftElbow",
+              "name": "FK-Forearm.L",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            },
+            {
+              "key": "rightElbow",
+              "name": "FK-Forearm.R",
+              "found": false,
+              "isBone": false,
+              "inSkeleton": false,
+              "copies": 0
+            }
+          ],
+          "skinBones": 0,
+          "currentAngles": {}
+        }
+      ],
+      "r205VisibleBodyLife": {
+        "enabled": true,
+        "candidates": [
+          "E03",
+          "E04",
+          "G02",
+          "G03",
+          "G04",
+          "T03",
+          "T04"
+        ],
+        "actors": [
+          {
+            "id": "G02",
+            "uid": "U2",
+            "side": "player",
+            "enabled": true,
+            "signature": "shy-glance-recoil",
+            "originalVisibleR97Unskinned": true,
+            "originalMorphMeshes": 20,
+            "originalSourceChannels": 6,
+            "sourceAvailableChannels": [
+              "Step",
+              "Strike",
+              "Brace",
+              "Land",
+              "Recoil",
+              "Retreat"
+            ],
+            "frames": 421,
+            "activeFrames": 288,
+            "actualSourceMorphWrites": 28392,
+            "sourceOriginalGeometryReplaced": false,
+            "clipMixerPreserved": true,
+            "observedPhases": [
+              "stride",
+              "show",
+              "recover",
+              "breathing",
+              "glance"
+            ],
+            "maxAuthoredMorphWeight": 0.57649,
+            "currentBlend": 1,
+            "lastPose": {
+              "Step": 0.16081,
+              "Strike": 0.01053,
+              "Brace": 0.54213,
+              "Land": 0.01741,
+              "Recoil": 0.20602,
+              "Retreat": 0.1031,
+              "phase": "glance",
+              "signature": "shy-glance-recoil",
+              "sourceCharacter": "黑板密码专家",
+              "intensity": 0.5421,
+              "variance": 1.1819,
+              "synchronized": false,
+              "sourceMorphChannels": 6,
+              "busy": false
+            },
+            "sampleMeshes": [
+              {
+                "name": "R97_GEO-snow-body",
+                "actualAuthoredMorphs": {
+                  "Step": 0.1608,
+                  "Strike": 0.0644,
+                  "Brace": 0.5421,
+                  "Land": 0.0174,
+                  "Recoil": 0.206,
+                  "Retreat": 0.1031
+                }
+              },
+              {
+                "name": "R97_GEO-snow-eye_dots",
+                "actualAuthoredMorphs": {
+                  "Step": 0.1608,
+                  "Brace": 0.5765,
+                  "Land": 0.21,
+                  "Retreat": 0.288
+                }
+              },
+              {
+                "name": "R97_GEO-snow-eyebrows",
+                "actualAuthoredMorphs": {
+                  "Step": 0.1608,
+                  "Brace": 0.5765,
+                  "Land": 0.21,
+                  "Retreat": 0.288
+                }
+              },
+              {
+                "name": "R97_GEO-snow-gums_lower",
+                "actualAuthoredMorphs": {
+                  "Step": 0.1608,
+                  "Brace": 0.5765,
+                  "Land": 0.21,
+                  "Retreat": 0.288
+                }
+              }
+            ]
+          }
+        ],
+        "neverReplaceSourceGeometry": true,
+        "neverTouchUnboundBones": true,
+        "renderPassesAdded": 0
+      },
+      "r116LifeStates": [
+        {
+          "uid": "U2",
+          "id": "G02",
+          "side": "player",
+          "life": {
+            "id": "G02",
+            "side": "player",
+            "role": "summon",
+            "emotion": "expectant",
+            "confidence": 0.566,
+            "tension": 0.096,
+            "attention": "opponent",
+            "intent": "idle",
+            "weight": 0,
+            "yaw": 0,
+            "tilt": 0,
+            "head": 0,
+            "lastAction": {
+              "intent": "shift",
+              "reason": "life_ambient",
+              "at": 3.85
+            },
+            "latestEvent": {
+              "type": "reply",
+              "side": "ai",
+              "kind": "whisper",
+              "at": 4.567600000001495
+            }
+          },
+          "livingClip": null
+        }
+      ],
+      "r114FootContacts": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "enabled": false,
+          "frames": 0
+        }
+      ],
+      "r120CharacterTheatre": [
+        {
+          "id": "G02",
+          "uid": "U2",
+          "side": "player",
+          "identity": "chalkboard_spell",
+          "performance": {
+            "mode": "chalkboard_spell",
+            "phase": "settled",
+            "at": 0.25130000000447034,
+            "clip": "attack",
+            "actualSourceModel": true
+          },
+          "spellHitStrength": 0,
+          "victoryClip": null,
+          "realRig": false,
+          "playingClips": [
+            "Idle"
+          ]
+        }
+      ],
+      "r113DanceStages": [
+        {
+          "id": "G02",
+          "side": "player",
+          "stage": null
+        }
+      ],
+      "r112Victory": null,
+      "hpDisplayMode": "auto",
+      "activeHpStyle": "full",
+      "visibleHpTags": 1,
+      "total": 1,
+      "models": 1,
+      "pendingArt": 0,
+      "prototypeArt": 1,
+      "loadedPrototypeIds": [
+        "E02",
+        "E03",
+        "E04",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "cardIds": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "M01",
+        "M02",
+        "T01",
+        "T02",
+        "T03",
+        "T04"
+      ],
+      "entries": [
+        {
+          "side": "player",
+          "uid": "U2",
+          "id": "G02",
+          "kind": "gltf-instance",
+          "visible": true,
+          "trueWorldYaw": 1.570796,
+          "metrics": {
+            "width": 0.399,
+            "height": 2.161,
+            "depth": 1.162,
+            "minY": -0.008,
+            "maxY": 2.152,
+            "coverageWidth": 0.041,
+            "coverageHeight": 0.254,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.268,
+              "right": -0.186,
+              "top": 0.227,
+              "bottom": -0.282
+            },
+            "frontDot": 1
+          },
+          "wingMorph": null,
+          "hp": 3,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.71,
+            0
+          ],
+          "position": [
+            -1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            -0.03
+          ],
+          "skins": 19,
+          "meshes": 22,
+          "clips": 3,
+          "playingClips": [
+            "Idle"
+          ],
+          "r205TrueVRMSource": null,
+          "r130FullBody": null,
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "r90Pose": null,
+          "r90ClipRate": 1,
+          "artApproved": false
+        }
+      ]
+    },
+    "model": {
+      "id": "G02",
+      "file": "G02-Snow-Landing-R97.glb",
+      "baselineFile": "G02-Snow-Landing-R97.glb",
+      "meshes": 22,
+      "clips": 3,
+      "scale": 1.1601123857160573,
+      "measured": {
+        "width": 1.819528877735138,
+        "height": 2.137723922729492,
+        "depth": 0.5725657716393471,
+        "scaledHeight": 2.48,
+        "scaledWidth": 2.110857987228571,
+        "scaledDepth": 0.6642406433158782
+      }
+    },
+    "camera": false,
+    "inset": 0,
+    "light": 0,
+    "drawCalls": 755
+  },
+  "summary": {
+    "originalGLB": "G02-Snow-Landing-R97.glb",
+    "trueCardUsedFromHand": true,
+    "originalVisibleMorphMeshes": 20,
+    "originalSourceAnimatedChannels": [
+      "Step",
+      "Strike",
+      "Brace",
+      "Land",
+      "Recoil",
+      "Retreat"
+    ],
+    "variedBodyPhases": [
+      "stride",
+      "show",
+      "recover",
+      "breathing",
+      "glance"
+    ],
+    "originalMeshNoReplacements": true,
+    "cameraWide": true,
+    "hpUnchanged": true,
+    "drawCalls": 755,
+    "errors": []
+  }
+}

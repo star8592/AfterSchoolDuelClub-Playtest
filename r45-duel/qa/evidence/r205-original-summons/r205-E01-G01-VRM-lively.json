@@ -1,0 +1,2045 @@
+{
+  "pass": true,
+  "enabled": true,
+  "errors": [],
+  "ids": [
+    "E01",
+    "G01"
+  ],
+  "frames": [
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.591,
+            "height": 2.124,
+            "depth": 0.625,
+            "minY": 0.016,
+            "maxY": 2.139,
+            "coverageWidth": 0.047,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.259,
+              "right": -0.164,
+              "top": 0.216,
+              "bottom": -0.251
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.656,
+                  "spread": 0.755,
+                  "wristToShoulder": 0.309
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.927,
+                  "spread": 0.375,
+                  "wristToShoulder": 0.483
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.38,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.06
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.532,
+            "originalTwoBoneIK": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.086,
+                  "reach": 0.309,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.475,
+                    1.35,
+                    0.114
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.06,
+                  "reach": 0.483,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.546,
+                    1.1,
+                    -0.114
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.223,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.505,
+            "height": 2.12,
+            "depth": 0.614,
+            "minY": -0.003,
+            "maxY": 2.116,
+            "coverageWidth": 0.042,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.175,
+              "right": 0.259,
+              "top": 0.213,
+              "bottom": -0.252
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.643,
+                  "spread": 0.766,
+                  "wristToShoulder": 0.232
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.334,
+                  "wristToShoulder": 0.503
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.36,
+            0
+          ],
+          "position": [
+            1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.2,
+            "originalTwoBoneIK": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.165,
+                  "reach": 0.232,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.519,
+                    1.744,
+                    -0.06
+                  ]
+                },
+                "L": {
+                  "error": 0.0203,
+                  "elbowOut": 0.03,
+                  "reach": 0.523,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.623,
+                    1.206,
+                    0.203
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.062,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.619,
+            "height": 2.121,
+            "depth": 0.625,
+            "minY": 0,
+            "maxY": 2.121,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.259,
+              "right": -0.161,
+              "top": 0.212,
+              "bottom": -0.255
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.88,
+                  "spread": 0.475,
+                  "wristToShoulder": 0.447
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.945,
+                  "spread": 0.328,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.36,
+            0
+          ],
+          "position": [
+            -1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.161,
+            "originalTwoBoneIK": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.119,
+                  "reach": 0.447,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.45,
+                    1.205,
+                    -0.018
+                  ]
+                },
+                "L": {
+                  "error": 0.0133,
+                  "elbowOut": 0.045,
+                  "reach": 0.509,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.591,
+                    1.054,
+                    -0.155
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.068,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.523,
+            "height": 2.119,
+            "depth": 0.674,
+            "minY": -0.015,
+            "maxY": 2.105,
+            "coverageWidth": 0.043,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.172,
+              "right": 0.259,
+              "top": 0.213,
+              "bottom": -0.254
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.606,
+                  "spread": 0.796,
+                  "wristToShoulder": 0.204
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.92,
+                  "spread": 0.392,
+                  "wristToShoulder": 0.486
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.538,
+            "originalTwoBoneIK": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.122,
+                  "reach": 0.204,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.527,
+                    1.733,
+                    -0.119
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.046,
+                  "reach": 0.486,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.573,
+                    1.221,
+                    0.166
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.167,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.607,
+            "height": 2.123,
+            "depth": 0.625,
+            "minY": -0.015,
+            "maxY": 2.107,
+            "coverageWidth": 0.048,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.258,
+              "right": -0.162,
+              "top": 0.209,
+              "bottom": -0.258
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.828,
+                  "spread": 0.56,
+                  "wristToShoulder": 0.385
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.945,
+                  "spread": 0.327,
+                  "wristToShoulder": 0.496
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.34,
+            0
+          ],
+          "position": [
+            -1.75,
+            -0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.312,
+            "originalTwoBoneIK": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.106,
+                  "reach": 0.385,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.459,
+                    1.242,
+                    0.036
+                  ]
+                },
+                "L": {
+                  "error": 0.0019,
+                  "elbowOut": 0.053,
+                  "reach": 0.498,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.57,
+                    1.046,
+                    -0.138
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.131,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.517,
+            "height": 2.12,
+            "depth": 0.658,
+            "minY": 0.001,
+            "maxY": 2.121,
+            "coverageWidth": 0.043,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.173,
+              "right": 0.259,
+              "top": 0.215,
+              "bottom": -0.251
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.615,
+                  "spread": 0.788,
+                  "wristToShoulder": 0.21
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.935,
+                  "spread": 0.355,
+                  "wristToShoulder": 0.496
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.36,
+            0
+          ],
+          "position": [
+            1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.44,
+            "originalTwoBoneIK": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.138,
+                  "reach": 0.21,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.525,
+                    1.749,
+                    -0.102
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.044,
+                  "reach": 0.496,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.586,
+                    1.223,
+                    0.176
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.136,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.592,
+            "height": 2.124,
+            "depth": 0.625,
+            "minY": -0.01,
+            "maxY": 2.114,
+            "coverageWidth": 0.047,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.258,
+              "right": -0.164,
+              "top": 0.211,
+              "bottom": -0.257
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.651,
+                  "spread": 0.759,
+                  "wristToShoulder": 0.305
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.927,
+                  "spread": 0.375,
+                  "wristToShoulder": 0.482
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            -1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.539,
+            "originalTwoBoneIK": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.083,
+                  "reach": 0.305,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.473,
+                    1.326,
+                    0.116
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.059,
+                  "reach": 0.482,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.544,
+                    1.075,
+                    -0.113
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.226,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.504,
+            "height": 2.12,
+            "depth": 0.612,
+            "minY": 0.015,
+            "maxY": 2.135,
+            "coverageWidth": 0.042,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.175,
+              "right": 0.259,
+              "top": 0.217,
+              "bottom": -0.248
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.644,
+                  "spread": 0.765,
+                  "wristToShoulder": 0.233
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.942,
+                  "spread": 0.334,
+                  "wristToShoulder": 0.503
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.38,
+            0
+          ],
+          "position": [
+            1.75,
+            0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.06
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.191,
+            "originalTwoBoneIK": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.166,
+                  "reach": 0.233,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.519,
+                    1.763,
+                    -0.058
+                  ]
+                },
+                "L": {
+                  "error": 0.0214,
+                  "elbowOut": 0.03,
+                  "reach": 0.524,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.625,
+                    1.224,
+                    0.204
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.059,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.596,
+            "height": 2.123,
+            "depth": 0.625,
+            "minY": 0.008,
+            "maxY": 2.131,
+            "coverageWidth": 0.048,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.259,
+              "right": -0.163,
+              "top": 0.214,
+              "bottom": -0.253
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.738,
+                  "spread": 0.675,
+                  "wristToShoulder": 0.337
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.935,
+                  "spread": 0.355,
+                  "wristToShoulder": 0.489
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.37,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.442,
+            "originalTwoBoneIK": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.094,
+                  "reach": 0.337,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.467,
+                    1.311,
+                    0.082
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.057,
+                  "reach": 0.489,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.555,
+                    1.082,
+                    -0.124
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.186,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.506,
+            "height": 2.12,
+            "depth": 0.62,
+            "minY": 0.01,
+            "maxY": 2.129,
+            "coverageWidth": 0.042,
+            "coverageHeight": 0.232,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.175,
+              "right": 0.259,
+              "top": 0.216,
+              "bottom": -0.249
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.639,
+                  "spread": 0.77,
+                  "wristToShoulder": 0.23
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.943,
+                  "spread": 0.332,
+                  "wristToShoulder": 0.503
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.37,
+            0
+          ],
+          "position": [
+            1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.23,
+            "originalTwoBoneIK": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.163,
+                  "reach": 0.23,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.52,
+                    1.757,
+                    -0.065
+                  ]
+                },
+                "L": {
+                  "error": 0.017,
+                  "elbowOut": 0.033,
+                  "reach": 0.52,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.619,
+                    1.219,
+                    0.199
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.071,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.619,
+            "height": 2.121,
+            "depth": 0.625,
+            "minY": 0.013,
+            "maxY": 2.134,
+            "coverageWidth": 0.049,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.259,
+              "right": -0.161,
+              "top": 0.215,
+              "bottom": -0.252
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.879,
+                  "spread": 0.476,
+                  "wristToShoulder": 0.447
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.944,
+                  "spread": 0.329,
+                  "wristToShoulder": 0.497
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.37,
+            0
+          ],
+          "position": [
+            -1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.06
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.16,
+            "originalTwoBoneIK": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.119,
+                  "reach": 0.447,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.45,
+                    1.217,
+                    -0.018
+                  ]
+                },
+                "L": {
+                  "error": 0.0135,
+                  "elbowOut": 0.045,
+                  "reach": 0.51,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.591,
+                    1.067,
+                    -0.155
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.067,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.523,
+            "height": 2.119,
+            "depth": 0.674,
+            "minY": -0.014,
+            "maxY": 2.105,
+            "coverageWidth": 0.043,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.172,
+              "right": 0.259,
+              "top": 0.213,
+              "bottom": -0.254
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.604,
+                  "spread": 0.797,
+                  "wristToShoulder": 0.205
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.919,
+                  "spread": 0.393,
+                  "wristToShoulder": 0.486
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.545,
+            "originalTwoBoneIK": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.122,
+                  "reach": 0.205,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.528,
+                    1.734,
+                    -0.12
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.047,
+                  "reach": 0.486,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.573,
+                    1.222,
+                    0.166
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.169,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.604,
+            "height": 2.122,
+            "depth": 0.625,
+            "minY": -0.004,
+            "maxY": 2.118,
+            "coverageWidth": 0.048,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.259,
+              "right": -0.162,
+              "top": 0.212,
+              "bottom": -0.255
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.816,
+                  "spread": 0.578,
+                  "wristToShoulder": 0.379
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.944,
+                  "spread": 0.331,
+                  "wristToShoulder": 0.496
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.36,
+            0
+          ],
+          "position": [
+            -1.75,
+            0,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.33,
+            "originalTwoBoneIK": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.106,
+                  "reach": 0.379,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.461,
+                    1.26,
+                    0.042
+                  ]
+                },
+                "L": {
+                  "error": 0.0009,
+                  "elbowOut": 0.056,
+                  "reach": 0.497,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.569,
+                    1.058,
+                    -0.136
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.139,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.516,
+            "height": 2.12,
+            "depth": 0.655,
+            "minY": -0.012,
+            "maxY": 2.107,
+            "coverageWidth": 0.043,
+            "coverageHeight": 0.233,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.173,
+              "right": 0.259,
+              "top": 0.212,
+              "bottom": -0.253
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.617,
+                  "spread": 0.787,
+                  "wristToShoulder": 0.212
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.938,
+                  "spread": 0.348,
+                  "wristToShoulder": 0.498
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.423,
+            "originalTwoBoneIK": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.14,
+                  "reach": 0.212,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.524,
+                    1.735,
+                    -0.099
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.043,
+                  "reach": 0.498,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.589,
+                    1.207,
+                    0.178
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.131,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.591,
+            "height": 2.124,
+            "depth": 0.625,
+            "minY": -0.016,
+            "maxY": 2.108,
+            "coverageWidth": 0.047,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.258,
+              "right": -0.164,
+              "top": 0.209,
+              "bottom": -0.258
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.645,
+                  "spread": 0.764,
+                  "wristToShoulder": 0.305
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.926,
+                  "spread": 0.377,
+                  "wristToShoulder": 0.482
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.34,
+            0
+          ],
+          "position": [
+            -1.75,
+            -0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.544,
+            "originalTwoBoneIK": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.083,
+                  "reach": 0.305,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.475,
+                    1.323,
+                    0.118
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.06,
+                  "reach": 0.482,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.545,
+                    1.07,
+                    -0.113
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.229,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.565,
+            "height": 2.118,
+            "depth": 0.716,
+            "minY": 0.005,
+            "maxY": 2.123,
+            "coverageWidth": 0.046,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.166,
+              "right": 0.259,
+              "top": 0.218,
+              "bottom": -0.25
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.592,
+                  "spread": 0.806,
+                  "wristToShoulder": 0.197
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.878,
+                  "spread": 0.478,
+                  "wristToShoulder": 0.452
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.37,
+            0
+          ],
+          "position": [
+            1.75,
+            0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 1,
+            "originalTwoBoneIK": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.038,
+                  "reach": 0.197,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.538,
+                    1.753,
+                    -0.2
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.069,
+                  "reach": 0.452,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.513,
+                    1.303,
+                    0.12
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.31,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    },
+    {
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "events": 1,
+      "round": 1,
+      "camera": false,
+      "inset": 0,
+      "models": [
+        {
+          "side": "player",
+          "uid": "U2051",
+          "id": "E01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -1.570796,
+          "metrics": {
+            "width": 0.598,
+            "height": 2.123,
+            "depth": 0.625,
+            "minY": -0.007,
+            "maxY": 2.116,
+            "coverageWidth": 0.048,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": -0.258,
+              "right": -0.163,
+              "top": 0.211,
+              "bottom": -0.256
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.755,
+                  "spread": 0.656,
+                  "wristToShoulder": 0.344
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.937,
+                  "spread": 0.35,
+                  "wristToShoulder": 0.49
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            -1.75,
+            2.35,
+            0
+          ],
+          "position": [
+            -1.75,
+            -0.01,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            -0.22,
+            0.05
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 0.421,
+            "originalTwoBoneIK": {
+              "name": "护住邮差包·俏皮挥手",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.096,
+                  "reach": 0.344,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.466,
+                    1.289,
+                    0.075
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.056,
+                  "reach": 0.49,
+                  "segmentLength": 0.511,
+                  "hand": [
+                    -1.557,
+                    1.065,
+                    -0.126
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.177,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        },
+        {
+          "side": "ai",
+          "uid": "U2052",
+          "id": "G01",
+          "kind": "original-vrm",
+          "visible": true,
+          "trueWorldYaw": -4.712389,
+          "metrics": {
+            "width": 0.565,
+            "height": 2.118,
+            "depth": 0.716,
+            "minY": 0.016,
+            "maxY": 2.134,
+            "coverageWidth": 0.046,
+            "coverageHeight": 0.234,
+            "withinFrame": true,
+            "ndcBounds": {
+              "left": 0.166,
+              "right": 0.259,
+              "top": 0.22,
+              "bottom": -0.248
+            },
+            "frontDot": 1,
+            "pose": {
+              "arms": {
+                "R": {
+                  "valid": true,
+                  "drop": -0.592,
+                  "spread": 0.806,
+                  "wristToShoulder": 0.197
+                },
+                "L": {
+                  "valid": true,
+                  "drop": -0.878,
+                  "spread": 0.478,
+                  "wristToShoulder": 0.452
+                }
+              },
+              "animation": "gesture"
+            }
+          },
+          "wingMorph": null,
+          "hp": 4,
+          "attack": 2,
+          "shield": 0,
+          "hpTag": true,
+          "hpTagPosition": [
+            1.75,
+            2.38,
+            0
+          ],
+          "position": [
+            1.75,
+            0.02,
+            0
+          ],
+          "inView": true,
+          "screen": [
+            0.22,
+            0.06
+          ],
+          "r205TrueVRMSource": {
+            "originalRealSkin": true,
+            "mode": "gesture",
+            "gestureAmount": 1,
+            "originalTwoBoneIK": {
+              "name": "托腮思考·一手叉腰",
+              "arms": {
+                "R": {
+                  "error": 0,
+                  "elbowOut": 0.038,
+                  "reach": 0.197,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.539,
+                    1.764,
+                    -0.2
+                  ]
+                },
+                "L": {
+                  "error": 0,
+                  "elbowOut": 0.069,
+                  "reach": 0.452,
+                  "segmentLength": 0.517,
+                  "hand": [
+                    1.514,
+                    1.314,
+                    0.12
+                  ]
+                }
+              }
+            },
+            "originalFaceExpression": 0.31,
+            "sourceVisemePreserved": true
+          },
+          "r131Arms": null,
+          "r143SourceTrunk": null,
+          "r144OriginalPelvis": null,
+          "r133ShoeContact": null,
+          "r134JayStage": null,
+          "r135PairStage": null,
+          "r136CastStage": null,
+          "r136OriginalFoot": null,
+          "r140OriginalFace": null,
+          "artApproved": false
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "id": "E01",
+      "source": "original skinned VRM, two-bone IK",
+      "min": 0.16,
+      "max": 0.544,
+      "variation": 0.384,
+      "originalRealVisibleSource": true
+    },
+    {
+      "id": "G01",
+      "source": "original skinned VRM, two-bone IK",
+      "min": 0.191,
+      "max": 1,
+      "variation": 0.809,
+      "originalRealVisibleSource": true
+    }
+  ]
+}
