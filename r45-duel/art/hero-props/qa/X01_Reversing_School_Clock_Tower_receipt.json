@@ -1,0 +1,21 @@
+{
+  "id": "X01",
+  "originalName": "倒退一小时的校钟",
+  "source": "X01_Reversing_School_Clock_Tower.blend",
+  "glb": "X01_Reversing_School_Clock_Tower.glb",
+  "render": "X01_Reversing_School_Clock_Tower.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 595203,
+  "glbBytes": 849368,
+  "triangles": 33424,
+  "meshes": 13,
+  "materials": 8,
+  "actorGroups": [
+    "X01_CLOCK_DIAL_ACTOR",
+    "X01_GEARS_ACTOR",
+    "X01_REVERSE_HANDS_ACTOR",
+    "X01_TOWER_STATIC"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

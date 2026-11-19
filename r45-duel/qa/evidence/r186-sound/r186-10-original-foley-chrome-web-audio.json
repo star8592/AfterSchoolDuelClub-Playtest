@@ -1,0 +1,101 @@
+{
+  "round": "R186",
+  "sourceFormat": "Ogg Vorbis",
+  "backend": "real Chrome WebAudio decodeAudioData",
+  "originalSynthFoley": 9,
+  "recordedVoiceAssets": 0,
+  "pass": true,
+  "clips": [
+    {
+      "id": "P01",
+      "file": "r186_p01.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.57618,
+      "rms": 0.11161,
+      "browserCanHear": true
+    },
+    {
+      "id": "P02",
+      "file": "r186_p02.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.5758,
+      "rms": 0.10881,
+      "browserCanHear": true
+    },
+    {
+      "id": "P06",
+      "file": "r186_p06.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.55091,
+      "rms": 0.13649,
+      "browserCanHear": true
+    },
+    {
+      "id": "P08",
+      "file": "r186_p08.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.56249,
+      "rms": 0.13567,
+      "browserCanHear": true
+    },
+    {
+      "id": "X01",
+      "file": "r186_x01.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.5919,
+      "rms": 0.15505,
+      "browserCanHear": true
+    },
+    {
+      "id": "X04",
+      "file": "r186_x04.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.55433,
+      "rms": 0.11475,
+      "browserCanHear": true
+    },
+    {
+      "id": "X06",
+      "file": "r186_x06.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.58025,
+      "rms": 0.16696,
+      "browserCanHear": true
+    },
+    {
+      "id": "X07",
+      "file": "r186_x07.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.53928,
+      "rms": 0.11541,
+      "browserCanHear": true
+    },
+    {
+      "id": "X08",
+      "file": "r186_x08.ogg",
+      "durationSeconds": 1.13,
+      "decodedRate": 32000,
+      "channels": 1,
+      "peak": 0.60407,
+      "rms": 0.11032,
+      "browserCanHear": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,24 @@
+{
+  "id": "X08",
+  "originalName": "校门口时空保安",
+  "source": "X08_Campus_Gate_Time_Security_Guard.blend",
+  "glb": "X08_Campus_Gate_Time_Security_Guard.glb",
+  "render": "X08_Campus_Gate_Time_Security_Guard.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 850093,
+  "glbBytes": 1097116,
+  "triangles": 43100,
+  "meshes": 16,
+  "materials": 11,
+  "actorGroups": [
+    "X08_CAMPUS_GATE_STATIC",
+    "X08_CARD_SCANNER_ACTOR",
+    "X08_GUARD_ARMS_ACTOR",
+    "X08_GUARD_BODY_ACTOR",
+    "X08_GUARD_HEAD_ACTOR",
+    "X08_TIME_PASS_ACTOR",
+    "X08_TURNSTILE_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

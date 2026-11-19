@@ -1,0 +1,22 @@
+{
+  "id": "X06",
+  "originalName": "早读复制器",
+  "source": "X06_Morning_Reading_Duplicator.blend",
+  "glb": "X06_Morning_Reading_Duplicator.glb",
+  "render": "X06_Morning_Reading_Duplicator.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 665342,
+  "glbBytes": 858564,
+  "triangles": 33830,
+  "meshes": 13,
+  "materials": 9,
+  "actorGroups": [
+    "X06_BOOK_ACTOR",
+    "X06_COPIES_ACTOR",
+    "X06_LCD_ACTOR",
+    "X06_PRINTER_STATIC",
+    "X06_SCANNER_LID_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}

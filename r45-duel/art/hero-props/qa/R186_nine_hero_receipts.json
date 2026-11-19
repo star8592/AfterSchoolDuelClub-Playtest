@@ -1,0 +1,206 @@
+{
+  "total": 9,
+  "assets": {
+    "P01": {
+      "id": "P01",
+      "originalName": "狂风炸毛超人",
+      "source": "P01_Gale_Hair_School_Hero.blend",
+      "glb": "P01_Gale_Hair_School_Hero.glb",
+      "render": "P01_Gale_Hair_School_Hero.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 598157,
+      "glbBytes": 786824,
+      "triangles": 32508,
+      "meshes": 13,
+      "materials": 10,
+      "actorGroups": [
+        "P01_ARMS_ACTOR",
+        "P01_BODY_ACTOR",
+        "P01_CAPE_ACTOR",
+        "P01_HAIR_ACTOR",
+        "P01_HEAD_ACTOR",
+        "P01_LEGS_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "P02": {
+      "id": "P02",
+      "originalName": "百年没有进球的足球",
+      "source": "P02_Century_Without_Goal_Soccer.blend",
+      "glb": "P02_Century_Without_Goal_Soccer.glb",
+      "render": "P02_Century_Without_Goal_Soccer.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 588376,
+      "glbBytes": 829532,
+      "triangles": 33484,
+      "meshes": 8,
+      "materials": 8,
+      "actorGroups": [
+        "P02_BALL_ACTOR",
+        "P02_GOAL_STATIC",
+        "P02_NET_ACTOR",
+        "P02_SCOREBOARD_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "P06": {
+      "id": "P06",
+      "originalName": "体育馆倒跑机",
+      "source": "P06_Backwards_Run_Gym_Treadmill.blend",
+      "glb": "P06_Backwards_Run_Gym_Treadmill.glb",
+      "render": "P06_Backwards_Run_Gym_Treadmill.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 472758,
+      "glbBytes": 554916,
+      "triangles": 21886,
+      "meshes": 13,
+      "materials": 8,
+      "actorGroups": [
+        "P06_BELT_ACTOR",
+        "P06_FRAME_STATIC",
+        "P06_HANDLE_STATIC",
+        "P06_ROLLER_ACTOR",
+        "P06_SHOES_ACTOR",
+        "P06_TERMINAL_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "P08": {
+      "id": "P08",
+      "originalName": "运动会流星奖牌",
+      "source": "P08_Sports_Medal_Meteor_Rain.blend",
+      "glb": "P08_Sports_Medal_Meteor_Rain.glb",
+      "render": "P08_Sports_Medal_Meteor_Rain.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 822133,
+      "glbBytes": 1421020,
+      "triangles": 56990,
+      "meshes": 13,
+      "materials": 9,
+      "actorGroups": [
+        "P08_CRATER_STATIC",
+        "P08_MEDALS_ACTOR",
+        "P08_METEOR_ACTOR",
+        "P08_RIBBONS_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "X01": {
+      "id": "X01",
+      "originalName": "倒退一小时的校钟",
+      "source": "X01_Reversing_School_Clock_Tower.blend",
+      "glb": "X01_Reversing_School_Clock_Tower.glb",
+      "render": "X01_Reversing_School_Clock_Tower.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 595203,
+      "glbBytes": 849368,
+      "triangles": 33424,
+      "meshes": 13,
+      "materials": 8,
+      "actorGroups": [
+        "X01_CLOCK_DIAL_ACTOR",
+        "X01_GEARS_ACTOR",
+        "X01_REVERSE_HANDS_ACTOR",
+        "X01_TOWER_STATIC"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "X04": {
+      "id": "X04",
+      "originalName": "午休预言枕头",
+      "source": "X04_Lunchtime_Prophecy_Pillow.blend",
+      "glb": "X04_Lunchtime_Prophecy_Pillow.glb",
+      "render": "X04_Lunchtime_Prophecy_Pillow.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 525781,
+      "glbBytes": 663788,
+      "triangles": 27824,
+      "meshes": 8,
+      "materials": 8,
+      "actorGroups": [
+        "X04_BED_STATIC",
+        "X04_PILLOW_ACTOR",
+        "X04_PROPHECY_NOTE_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "X06": {
+      "id": "X06",
+      "originalName": "早读复制器",
+      "source": "X06_Morning_Reading_Duplicator.blend",
+      "glb": "X06_Morning_Reading_Duplicator.glb",
+      "render": "X06_Morning_Reading_Duplicator.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 665342,
+      "glbBytes": 858564,
+      "triangles": 33830,
+      "meshes": 13,
+      "materials": 9,
+      "actorGroups": [
+        "X06_BOOK_ACTOR",
+        "X06_COPIES_ACTOR",
+        "X06_LCD_ACTOR",
+        "X06_PRINTER_STATIC",
+        "X06_SCANNER_LID_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "X07": {
+      "id": "X07",
+      "originalName": "消失的最后一节课",
+      "source": "X07_Vanishing_Last_Classroom_Lesson.blend",
+      "glb": "X07_Vanishing_Last_Classroom_Lesson.glb",
+      "render": "X07_Vanishing_Last_Classroom_Lesson.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 627098,
+      "glbBytes": 757168,
+      "triangles": 29840,
+      "meshes": 12,
+      "materials": 8,
+      "actorGroups": [
+        "X07_BOARD_STATIC",
+        "X07_CHAIR_ACTOR",
+        "X07_DESK_ACTOR",
+        "X07_DISAPPEARING_TEXT_ACTOR",
+        "X07_PAGES_ACTOR",
+        "X07_TEXTBOOK_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    },
+    "X08": {
+      "id": "X08",
+      "originalName": "校门口时空保安",
+      "source": "X08_Campus_Gate_Time_Security_Guard.blend",
+      "glb": "X08_Campus_Gate_Time_Security_Guard.glb",
+      "render": "X08_Campus_Gate_Time_Security_Guard.png",
+      "verticesAndIndicesFromRealBlender": true,
+      "sourceBytes": 850093,
+      "glbBytes": 1097116,
+      "triangles": 43100,
+      "meshes": 16,
+      "materials": 11,
+      "actorGroups": [
+        "X08_CAMPUS_GATE_STATIC",
+        "X08_CARD_SCANNER_ACTOR",
+        "X08_GUARD_ARMS_ACTOR",
+        "X08_GUARD_BODY_ACTOR",
+        "X08_GUARD_HEAD_ACTOR",
+        "X08_TIME_PASS_ACTOR",
+        "X08_TURNSTILE_ACTOR"
+      ],
+      "visualAccepted": false,
+      "mobilePerformanceAccepted": false
+    }
+  },
+  "visualAccepted": 0,
+  "androidAccepted": false,
+  "release": "NO_GO"
+}

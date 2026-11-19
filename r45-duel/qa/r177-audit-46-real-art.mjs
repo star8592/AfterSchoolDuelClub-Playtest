@@ -225,6 +225,60 @@ const candidateIds=new Map([
   runtime:'art/hero-props/S07_School_Bell_Time_Wormhole.glb',
   image:'art/hero-props/qa/S07_School_Bell_Time_Wormhole.png',
   reproducible:'art/hero-props/build_r185_ten_school_comedy.py'
+ }],
+ ['P01',{
+  source:'art/hero-props/P01_Gale_Hair_School_Hero.blend',
+  runtime:'art/hero-props/P01_Gale_Hair_School_Hero.glb',
+  image:'art/hero-props/qa/P01_Gale_Hair_School_Hero.png',
+  reproducible:'art/hero-props/build_r186_last_nine_signature.py'
+ }],
+ ['P02',{
+  source:'art/hero-props/P02_Century_Without_Goal_Soccer.blend',
+  runtime:'art/hero-props/P02_Century_Without_Goal_Soccer.glb',
+  image:'art/hero-props/qa/P02_Century_Without_Goal_Soccer.png',
+  reproducible:'art/hero-props/build_r186_last_nine_signature.py'
+ }],
+ ['P06',{
+  source:'art/hero-props/P06_Backwards_Run_Gym_Treadmill.blend',
+  runtime:'art/hero-props/P06_Backwards_Run_Gym_Treadmill.glb',
+  image:'art/hero-props/qa/P06_Backwards_Run_Gym_Treadmill.png',
+  reproducible:'art/hero-props/build_r186_last_nine_signature.py'
+ }],
+ ['P08',{
+  source:'art/hero-props/P08_Sports_Medal_Meteor_Rain.blend',
+  runtime:'art/hero-props/P08_Sports_Medal_Meteor_Rain.glb',
+  image:'art/hero-props/qa/P08_Sports_Medal_Meteor_Rain.png',
+  reproducible:'art/hero-props/build_r186_last_nine_signature.py'
+ }],
+ ['X01',{
+  source:'art/hero-props/X01_Reversing_School_Clock_Tower.blend',
+  runtime:'art/hero-props/X01_Reversing_School_Clock_Tower.glb',
+  image:'art/hero-props/qa/X01_Reversing_School_Clock_Tower.png',
+  reproducible:'art/hero-props/build_r186_last_nine_signature.py'
+ }],
+ ['X04',{
+  source:'art/hero-props/X04_Lunchtime_Prophecy_Pillow.blend',
+  runtime:'art/hero-props/X04_Lunchtime_Prophecy_Pillow.glb',
+  image:'art/hero-props/qa/X04_Lunchtime_Prophecy_Pillow.png',
+  reproducible:'art/hero-props/build_r186_last_nine_signature.py'
+ }],
+ ['X06',{
+  source:'art/hero-props/X06_Morning_Reading_Duplicator.blend',
+  runtime:'art/hero-props/X06_Morning_Reading_Duplicator.glb',
+  image:'art/hero-props/qa/X06_Morning_Reading_Duplicator.png',
+  reproducible:'art/hero-props/build_r186_last_nine_signature.py'
+ }],
+ ['X07',{
+  source:'art/hero-props/X07_Vanishing_Last_Classroom_Lesson.blend',
+  runtime:'art/hero-props/X07_Vanishing_Last_Classroom_Lesson.glb',
+  image:'art/hero-props/qa/X07_Vanishing_Last_Classroom_Lesson.png',
+  reproducible:'art/hero-props/build_r186_last_nine_signature.py'
+ }],
+ ['X08',{
+  source:'art/hero-props/X08_Campus_Gate_Time_Security_Guard.blend',
+  runtime:'art/hero-props/X08_Campus_Gate_Time_Security_Guard.glb',
+  image:'art/hero-props/qa/X08_Campus_Gate_Time_Security_Guard.png',
+  reproducible:'art/hero-props/build_r186_last_nine_signature.py'
  }]
 ]);
 const records=Object.values(SCHOOL_MAGIC_IDENTITIES).map(e=>{
@@ -245,11 +299,11 @@ const summary={cardCount:SCHOOL_MAGIC_COUNT,true3dCandidateCount:true3d,
   proceduralPlaceholderCount:records.length-true3d,visuallyAccepted:0,
   releaseReady:accepted,release:'NO_GO',
   note:'Scans true physical authored model and referenced source files. Does not automatically validate beauty or mobile performance; manual visual signoff required.',records};
-const dest=resolve(root,'qa/evidence/r185-sculpted-props/r185-46-prop-art-status.json');
+const dest=resolve(root,'qa/evidence/r186-sculpted-props/r186-46-prop-art-status.json');
 mkdirSync(dirname(dest),{recursive:true});
 writeFileSync(dest,JSON.stringify(summary,null,2));
-console.log('R185_REAL_ART_AUDIT',JSON.stringify({
+console.log('R186_REAL_ART_AUDIT',JSON.stringify({
  all:summary.cardCount,sculptedCandidates:true3d,placeholders:records.length-true3d,
  visuallyAccepted:0,release:'NO_GO',report:dest}));
-if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==37)process.exitCode=3;
+if(SCHOOL_MAGIC_COUNT!==46||records.length!==46||true3d!==46)process.exitCode=3;
 if(process.argv.includes('--release')&&accepted!==46)process.exitCode=2;

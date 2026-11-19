@@ -18,6 +18,7 @@ import {R182_HERO_IDS,r182AnimateActor} from './campus-r182-actor-motions.mjs';
 import {R183_HERO_IDS,r183AnimateActor} from './campus-r183-actor-motions.mjs';
 import {R184_HERO_IDS,r184AnimateActor} from './campus-r184-actor-motions.mjs';
 import {R185_HERO_IDS,r185AnimateActor} from './campus-r185-actor-motions.mjs';
+import {R186_HERO_IDS,r186AnimateActor} from './campus-r186-actor-motions.mjs';
 
 const clip=(x)=>Math.max(0,Math.min(1,x));
 const smooth=x=>{const y=clip(x);return y*y*(3-2*y)};
@@ -27,7 +28,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
  const gcache=new Map(),mcache=new Map(),labels=new Map(),labelMaterials=new Map();
  const heroAssets=new Map();
  function registerHeroAsset(id,model){
-  if(!['E06','K01','K07',...R182_HERO_IDS,...R183_HERO_IDS,...R184_HERO_IDS,...R185_HERO_IDS].includes(id)||!model?.isObject3D)return false;
+  if(!['E06','K01','K07',...R182_HERO_IDS,...R183_HERO_IDS,...R184_HERO_IDS,...R185_HERO_IDS,...R186_HERO_IDS].includes(id)||!model?.isObject3D)return false;
   heroAssets.set(id,model);return true;
  }
 
@@ -271,7 +272,10 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
     G06:[1.21,-.43],T05:[1.19,-.35],K05:[1.23,-.37],
     Q03:[1.22,-.47],Q04:[1.26,-.49],Q07:[1.22,-.47],
     Q08:[1.16,-.47],S02:[1.19,-.40],S05:[1.20,-.52],
-    S07:[1.25,-.48]};
+    S07:[1.25,-.48],
+    P01:[1.11,-.56],P02:[1.17,-.40],P06:[1.16,-.48],
+    P08:[1.24,-.40],X01:[1.18,-.62],X04:[1.20,-.43],
+    X06:[1.20,-.45],X07:[1.24,-.47],X08:[1.13,-.52]};
    if(r182StageSizing[id]){
     real.scale.setScalar(r182StageSizing[id][0]);
     real.position.y=r182StageSizing[id][1];
@@ -497,6 +501,7 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
     if(r183AnimateActor(a.id,o,t,a.serial))return;
     if(r184AnimateActor(a.id,o,t,a.serial))return;
     if(r185AnimateActor(a.id,o,t,a.serial))return;
+    if(r186AnimateActor(a.id,o,t,a.serial))return;
     if(a.id==='K07'&&o.isObject3D&&!o.isMesh){
      const frog=o.name.includes('K07_JELLY_FROG_ACTOR');
      const bell=o.name.includes('K07_SCHOOL_BELL_ACTOR');
@@ -601,6 +606,19 @@ export function createCampusSchoolMagic(THREE,scene,{reducedMotion=false,mergeSt
   },
   get r185ActorMotions(){
    return active.filter(a=>R185_HERO_IDS.includes(a.id)).map(a=>{
+    const groups=[];
+    a.props.traverse(o=>{
+     if(o.isObject3D&&!o.isMesh&&o.name.startsWith(a.id+'_')&&o.name.endsWith('_ACTOR'))
+      groups.push({name:o.name,
+       pos:o.position.toArray().map(v=>+v.toFixed(4)),
+       rot:o.rotation.toArray().slice(0,3).map(v=>+v.toFixed(4)),
+       scl:o.scale.toArray().map(v=>+v.toFixed(4))});
+    });
+    return{id:a.id,serial:a.serial,groups};
+   });
+  },
+  get r186ActorMotions(){
+   return active.filter(a=>R186_HERO_IDS.includes(a.id)).map(a=>{
     const groups=[];
     a.props.traverse(o=>{
      if(o.isObject3D&&!o.isMesh&&o.name.startsWith(a.id+'_')&&o.name.endsWith('_ACTOR'))

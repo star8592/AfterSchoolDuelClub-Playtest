@@ -1,0 +1,23 @@
+{
+  "id": "P06",
+  "originalName": "体育馆倒跑机",
+  "source": "P06_Backwards_Run_Gym_Treadmill.blend",
+  "glb": "P06_Backwards_Run_Gym_Treadmill.glb",
+  "render": "P06_Backwards_Run_Gym_Treadmill.png",
+  "verticesAndIndicesFromRealBlender": true,
+  "sourceBytes": 472758,
+  "glbBytes": 554916,
+  "triangles": 21886,
+  "meshes": 13,
+  "materials": 8,
+  "actorGroups": [
+    "P06_BELT_ACTOR",
+    "P06_FRAME_STATIC",
+    "P06_HANDLE_STATIC",
+    "P06_ROLLER_ACTOR",
+    "P06_SHOES_ACTOR",
+    "P06_TERMINAL_ACTOR"
+  ],
+  "visualAccepted": false,
+  "mobilePerformanceAccepted": false
+}
