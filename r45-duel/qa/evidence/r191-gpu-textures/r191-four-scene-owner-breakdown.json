@@ -1,0 +1,945 @@
+{
+  "source": "R191 real Chrome WebGL scene traversal, materials, skeleton boneTextures and shadow maps",
+  "sampled": [
+    {
+      "deck": "classic",
+      "seed": 173,
+      "hairBatch": "off",
+      "textureObjects": 372,
+      "uniqueReferenced": 343,
+      "allocatedReferenced": 303,
+      "unattributed": 69,
+      "boneTextures": 265,
+      "roots": [
+        {
+          "root": "R74_PERMANENT_DUELIST_G01",
+          "meshNodes": 131,
+          "textures": 145,
+          "allocatedTextures": 145
+        },
+        {
+          "root": "R74_PERMANENT_DUELIST_E01",
+          "meshNodes": 124,
+          "textures": 138,
+          "allocatedTextures": 138
+        },
+        {
+          "root": "R45_Real_3D_Stadium",
+          "meshNodes": 232,
+          "textures": 17,
+          "allocatedTextures": 16
+        },
+        {
+          "root": "Group#19",
+          "meshNodes": 124,
+          "textures": 14,
+          "allocatedTextures": 14
+        },
+        {
+          "root": "Group#20",
+          "meshNodes": 131,
+          "textures": 14,
+          "allocatedTextures": 14
+        },
+        {
+          "root": "R123_Persistent_Real_Spectator_Props",
+          "meshNodes": 27,
+          "textures": 2,
+          "allocatedTextures": 2
+        },
+        {
+          "root": "R81_Real_Time_Stadium_Jumbotron",
+          "meshNodes": 3,
+          "textures": 1,
+          "allocatedTextures": 1
+        },
+        {
+          "root": "(shadows)",
+          "meshNodes": 0,
+          "textures": 1,
+          "allocatedTextures": 1
+        },
+        {
+          "root": "R100_REAL_COMBO_CINEMATICS",
+          "meshNodes": 73,
+          "textures": 2,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "Group#17",
+          "meshNodes": 73,
+          "textures": 17,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "Group#18",
+          "meshNodes": 108,
+          "textures": 17,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R117_LiveCard_Held_By_player",
+          "meshNodes": 2,
+          "textures": 1,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R117_LiveCard_Held_By_ai",
+          "meshNodes": 2,
+          "textures": 1,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R50_Board_Units_Only",
+          "meshNodes": 4,
+          "textures": 1,
+          "allocatedTextures": 0
+        }
+      ],
+      "largestTextures": [
+        {
+          "name": ".shadowMap",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "(shadows)"
+          ],
+          "slots": [
+            "shadowMap"
+          ]
+        },
+        {
+          "name": "F00_002_02_Body_00",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_002_01_Tops_01",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_001_00_Body_00",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_006_01_Tops_01",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "normalMap"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "roughnessMap"
+          ]
+        },
+        {
+          "name": "F00_000_00_Face_00",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_000_00_Face_00",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_001_01_Bottoms_01",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_000_00_EyeWhite_00",
+          "width": 1024,
+          "height": 512,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        }
+      ]
+    },
+    {
+      "deck": "classic",
+      "seed": 173,
+      "hairBatch": "on",
+      "textureObjects": 153,
+      "uniqueReferenced": 124,
+      "allocatedReferenced": 84,
+      "unattributed": 69,
+      "boneTextures": 46,
+      "roots": [
+        {
+          "root": "R74_PERMANENT_DUELIST_E01",
+          "meshNodes": 18,
+          "textures": 32,
+          "allocatedTextures": 32
+        },
+        {
+          "root": "R74_PERMANENT_DUELIST_G01",
+          "meshNodes": 18,
+          "textures": 32,
+          "allocatedTextures": 32
+        },
+        {
+          "root": "R45_Real_3D_Stadium",
+          "meshNodes": 232,
+          "textures": 17,
+          "allocatedTextures": 16
+        },
+        {
+          "root": "Group#19",
+          "meshNodes": 131,
+          "textures": 14,
+          "allocatedTextures": 14
+        },
+        {
+          "root": "Group#20",
+          "meshNodes": 124,
+          "textures": 14,
+          "allocatedTextures": 14
+        },
+        {
+          "root": "R123_Persistent_Real_Spectator_Props",
+          "meshNodes": 27,
+          "textures": 2,
+          "allocatedTextures": 2
+        },
+        {
+          "root": "R81_Real_Time_Stadium_Jumbotron",
+          "meshNodes": 3,
+          "textures": 1,
+          "allocatedTextures": 1
+        },
+        {
+          "root": "(shadows)",
+          "meshNodes": 0,
+          "textures": 1,
+          "allocatedTextures": 1
+        },
+        {
+          "root": "R100_REAL_COMBO_CINEMATICS",
+          "meshNodes": 73,
+          "textures": 2,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "Group#17",
+          "meshNodes": 73,
+          "textures": 17,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "Group#18",
+          "meshNodes": 108,
+          "textures": 17,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R117_LiveCard_Held_By_player",
+          "meshNodes": 2,
+          "textures": 1,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R117_LiveCard_Held_By_ai",
+          "meshNodes": 2,
+          "textures": 1,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R50_Board_Units_Only",
+          "meshNodes": 4,
+          "textures": 1,
+          "allocatedTextures": 0
+        }
+      ],
+      "largestTextures": [
+        {
+          "name": ".shadowMap",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "(shadows)"
+          ],
+          "slots": [
+            "shadowMap"
+          ]
+        },
+        {
+          "name": "M00_001_00_Body_00",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_006_01_Tops_01",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_002_02_Body_00",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_002_01_Tops_01",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "normalMap"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "roughnessMap"
+          ]
+        },
+        {
+          "name": "M00_000_00_Face_00",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_001_01_Bottoms_01",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_000_00_Face_00",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_000_00_EyeIris_00",
+          "width": 1024,
+          "height": 512,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        }
+      ]
+    },
+    {
+      "deck": "kitchen",
+      "seed": 2,
+      "hairBatch": "off",
+      "textureObjects": 360,
+      "uniqueReferenced": 331,
+      "allocatedReferenced": 291,
+      "unattributed": 69,
+      "boneTextures": 255,
+      "roots": [
+        {
+          "root": "R74_PERMANENT_DUELIST_G01",
+          "meshNodes": 131,
+          "textures": 145,
+          "allocatedTextures": 145
+        },
+        {
+          "root": "R74_PERMANENT_DUELIST_E01",
+          "meshNodes": 124,
+          "textures": 138,
+          "allocatedTextures": 138
+        },
+        {
+          "root": "Group#19",
+          "meshNodes": 131,
+          "textures": 14,
+          "allocatedTextures": 14
+        },
+        {
+          "root": "Group#20",
+          "meshNodes": 124,
+          "textures": 14,
+          "allocatedTextures": 14
+        },
+        {
+          "root": "R45_Real_3D_Stadium",
+          "meshNodes": 178,
+          "textures": 7,
+          "allocatedTextures": 6
+        },
+        {
+          "root": "R81_Real_Time_Stadium_Jumbotron",
+          "meshNodes": 3,
+          "textures": 1,
+          "allocatedTextures": 1
+        },
+        {
+          "root": "(shadows)",
+          "meshNodes": 0,
+          "textures": 1,
+          "allocatedTextures": 1
+        },
+        {
+          "root": "R100_REAL_COMBO_CINEMATICS",
+          "meshNodes": 73,
+          "textures": 2,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "Group#17",
+          "meshNodes": 73,
+          "textures": 17,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "Group#18",
+          "meshNodes": 108,
+          "textures": 17,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R117_LiveCard_Held_By_player",
+          "meshNodes": 2,
+          "textures": 1,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R117_LiveCard_Held_By_ai",
+          "meshNodes": 2,
+          "textures": 1,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R50_Board_Units_Only",
+          "meshNodes": 4,
+          "textures": 1,
+          "allocatedTextures": 0
+        }
+      ],
+      "largestTextures": [
+        {
+          "name": ".shadowMap",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "(shadows)"
+          ],
+          "slots": [
+            "shadowMap"
+          ]
+        },
+        {
+          "name": "M00_001_00_Body_00",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_006_01_Tops_01",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_002_02_Body_00",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_002_01_Tops_01",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "normalMap"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "roughnessMap"
+          ]
+        },
+        {
+          "name": "M00_000_00_Face_00",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_001_01_Bottoms_01",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_000_00_Face_00",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_000_00_EyeIris_00",
+          "width": 1024,
+          "height": 512,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        }
+      ]
+    },
+    {
+      "deck": "kitchen",
+      "seed": 2,
+      "hairBatch": "on",
+      "textureObjects": 141,
+      "uniqueReferenced": 112,
+      "allocatedReferenced": 72,
+      "unattributed": 69,
+      "boneTextures": 36,
+      "roots": [
+        {
+          "root": "R74_PERMANENT_DUELIST_E01",
+          "meshNodes": 18,
+          "textures": 32,
+          "allocatedTextures": 32
+        },
+        {
+          "root": "R74_PERMANENT_DUELIST_G01",
+          "meshNodes": 18,
+          "textures": 32,
+          "allocatedTextures": 32
+        },
+        {
+          "root": "Group#19",
+          "meshNodes": 131,
+          "textures": 14,
+          "allocatedTextures": 14
+        },
+        {
+          "root": "Group#20",
+          "meshNodes": 124,
+          "textures": 14,
+          "allocatedTextures": 14
+        },
+        {
+          "root": "R45_Real_3D_Stadium",
+          "meshNodes": 178,
+          "textures": 7,
+          "allocatedTextures": 6
+        },
+        {
+          "root": "R81_Real_Time_Stadium_Jumbotron",
+          "meshNodes": 3,
+          "textures": 1,
+          "allocatedTextures": 1
+        },
+        {
+          "root": "(shadows)",
+          "meshNodes": 0,
+          "textures": 1,
+          "allocatedTextures": 1
+        },
+        {
+          "root": "R100_REAL_COMBO_CINEMATICS",
+          "meshNodes": 73,
+          "textures": 2,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "Group#17",
+          "meshNodes": 73,
+          "textures": 17,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "Group#18",
+          "meshNodes": 108,
+          "textures": 17,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R117_LiveCard_Held_By_player",
+          "meshNodes": 2,
+          "textures": 1,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R117_LiveCard_Held_By_ai",
+          "meshNodes": 2,
+          "textures": 1,
+          "allocatedTextures": 0
+        },
+        {
+          "root": "R50_Board_Units_Only",
+          "meshNodes": 4,
+          "textures": 1,
+          "allocatedTextures": 0
+        }
+      ],
+      "largestTextures": [
+        {
+          "name": ".shadowMap",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "(shadows)"
+          ],
+          "slots": [
+            "shadowMap"
+          ]
+        },
+        {
+          "name": "M00_001_00_Body_00",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_006_01_Tops_01",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_002_02_Body_00",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_002_01_Tops_01",
+          "width": 2048,
+          "height": 2048,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "normalMap"
+          ]
+        },
+        {
+          "name": "",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "R45_Real_3D_Stadium"
+          ],
+          "slots": [
+            "roughnessMap"
+          ]
+        },
+        {
+          "name": "M00_000_00_Face_00",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_001_01_Bottoms_01",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "F00_000_00_Face_00",
+          "width": 1024,
+          "height": 1024,
+          "roots": [
+            "Group#20",
+            "R74_PERMANENT_DUELIST_E01"
+          ],
+          "slots": [
+            "map"
+          ]
+        },
+        {
+          "name": "M00_000_00_EyeIris_00",
+          "width": 1024,
+          "height": 512,
+          "roots": [
+            "Group#19",
+            "R74_PERMANENT_DUELIST_G01"
+          ],
+          "slots": [
+            "map"
+          ]
+        }
+      ]
+    }
+  ]
+}

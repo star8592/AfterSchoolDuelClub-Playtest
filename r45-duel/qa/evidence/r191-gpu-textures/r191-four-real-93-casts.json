@@ -1,0 +1,102 @@
+{
+  "sourceTest": "qa/browser-r190-demand-93-spells.mjs",
+  "pair": "T01/E04, both in actual R190 seed173 initial original hand",
+  "r190Demand": true,
+  "r181HairBatch": true,
+  "runs": [
+    {
+      "view": "desktop",
+      "hero": "P01",
+      "pass": true,
+      "actualCastCount": 93,
+      "uniqueSpells": 46,
+      "initialModelCount": 10,
+      "originalGlbIDs": [
+        "T04",
+        "T01",
+        "E02",
+        "E04",
+        "M01",
+        "G03"
+      ],
+      "cold": {
+        "p95": 16.8,
+        "p99": 33.4,
+        "max": 33.4,
+        "longTaskMax": 0
+      },
+      "errors": []
+    },
+    {
+      "view": "desktop",
+      "hero": "X08",
+      "pass": true,
+      "actualCastCount": 93,
+      "uniqueSpells": 46,
+      "initialModelCount": 10,
+      "originalGlbIDs": [
+        "T04",
+        "T01",
+        "E02",
+        "E04",
+        "M01",
+        "G03"
+      ],
+      "cold": {
+        "p95": 16.8,
+        "p99": 33.3,
+        "max": 33.4,
+        "longTaskMax": 0
+      },
+      "errors": []
+    },
+    {
+      "view": "mobile",
+      "hero": "P01",
+      "pass": true,
+      "actualCastCount": 93,
+      "uniqueSpells": 46,
+      "initialModelCount": 10,
+      "originalGlbIDs": [
+        "T04",
+        "T01",
+        "E02",
+        "E04",
+        "M01",
+        "G03"
+      ],
+      "cold": {
+        "p95": 33.4,
+        "p99": 50,
+        "max": 83.3,
+        "longTaskMax": 0
+      },
+      "errors": []
+    },
+    {
+      "view": "mobile",
+      "hero": "X08",
+      "pass": true,
+      "actualCastCount": 93,
+      "uniqueSpells": 46,
+      "initialModelCount": 10,
+      "originalGlbIDs": [
+        "T04",
+        "T01",
+        "E02",
+        "E04",
+        "M01",
+        "G03"
+      ],
+      "cold": {
+        "p95": 33.4,
+        "p99": 50,
+        "max": 83.3,
+        "longTaskMax": 0
+      },
+      "errors": []
+    }
+  ],
+  "allPassed": true,
+  "scope": "Real Chrome NVIDIA GPU; mobile viewport is simulation, not Android GPU"
+}
