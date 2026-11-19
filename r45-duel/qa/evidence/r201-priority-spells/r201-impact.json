@@ -1,0 +1,692 @@
+{
+  "which": "impact",
+  "pass": true,
+  "networkRequests": [
+    {
+      "name": "Q05_Chalk_Press_Conference_R200.glb",
+      "atMs": 3098.2
+    },
+    {
+      "name": "Q07_Second_Cardboard_Classroom_Moon.glb",
+      "atMs": 4732.6
+    },
+    {
+      "name": "Q02_Origami_Beast_From_School_Notice.glb",
+      "atMs": 4785.5
+    },
+    {
+      "name": "Q06_Three_Click_Moonlight_Desk_Lamp.glb",
+      "atMs": 4811.1
+    }
+  ],
+  "feedbackEvents": [],
+  "errors": [],
+  "screens": [
+    "r201-real-Q05-impact-sound.png"
+  ],
+  "startupMs": 2606,
+  "before": {
+    "ready": true,
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 2
+      }
+    ],
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "queue": {
+      "running": 0,
+      "pending": 0,
+      "urgentWaiting": [],
+      "backgroundWaiting": [],
+      "promotions": 0,
+      "completed": 0,
+      "failed": 0
+    },
+    "casts": 0,
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "gracefulRetirements": 0,
+      "authoredHighDetailAssets": [],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "peakObjects": 0,
+      "peakDraws": 0,
+      "uniqueRenderedProps": 0,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "activeIds": []
+    },
+    "loaded": [],
+    "originals": [],
+    "oldArsenal": {
+      "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+      "playableSpellCoverage": 46,
+      "motifCount": 32,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "activeMotifs": [],
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "maxActive": 4,
+      "peakMeshes": 0,
+      "totalMeshes": 0,
+      "ruleMutations": 0
+    },
+    "oldImpact": {
+      "played": 0,
+      "hits": 0,
+      "noHit": 0,
+      "expired": 0,
+      "active": 0,
+      "activeKinds": [],
+      "ruleMutations": 0
+    },
+    "camera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.4311,
+        11.7468
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "hero": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "hostHits": {
+      "player": {
+        "time": -100,
+        "damage": 0
+      },
+      "ai": {
+        "time": -100,
+        "damage": 0
+      }
+    },
+    "receiptCount": 0,
+    "audio": {
+      "cue": 0,
+      "voice": 0,
+      "voiceMissing": 0,
+      "voiceDropped": 0,
+      "voiceInterrupted": 0,
+      "unlock": 0,
+      "musicStart": 0,
+      "errors": 0
+    },
+    "magicEvents": [],
+    "canonicalReceipts": []
+  },
+  "duringDownload": {
+    "ready": true,
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 2
+      },
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "Q05",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "blast",
+          "directDamage": 2,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    ],
+    "hp": {
+      "player": 20,
+      "ai": 18
+    },
+    "queue": {
+      "running": 1,
+      "pending": 0,
+      "urgentWaiting": [],
+      "backgroundWaiting": [],
+      "promotions": 0,
+      "completed": 0,
+      "failed": 0
+    },
+    "casts": 0,
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "gracefulRetirements": 0,
+      "authoredHighDetailAssets": [],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "peakObjects": 0,
+      "peakDraws": 0,
+      "uniqueRenderedProps": 0,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "activeIds": []
+    },
+    "loaded": [],
+    "originals": [],
+    "oldArsenal": {
+      "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+      "playableSpellCoverage": 46,
+      "motifCount": 32,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "activeMotifs": [],
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "maxActive": 4,
+      "peakMeshes": 0,
+      "totalMeshes": 0,
+      "ruleMutations": 0
+    },
+    "oldImpact": {
+      "played": 0,
+      "hits": 0,
+      "noHit": 0,
+      "expired": 0,
+      "active": 0,
+      "activeKinds": [],
+      "ruleMutations": 0
+    },
+    "camera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.4311,
+        11.7468
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "hero": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "hostHits": {
+      "player": {
+        "time": -100,
+        "damage": 0
+      },
+      "ai": {
+        "time": -100,
+        "damage": 0
+      }
+    },
+    "receiptCount": 0,
+    "audio": {
+      "cue": 3,
+      "voice": 1,
+      "voiceMissing": 0,
+      "voiceDropped": 0,
+      "voiceInterrupted": 1,
+      "unlock": 1,
+      "musicStart": 1,
+      "errors": 0
+    },
+    "magicEvents": [],
+    "canonicalReceipts": []
+  },
+  "after": {
+    "ready": true,
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 2
+      },
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "Q05",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "blast",
+          "directDamage": 2,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    ],
+    "hp": {
+      "player": 20,
+      "ai": 18
+    },
+    "queue": {
+      "running": 0,
+      "pending": 0,
+      "urgentWaiting": [],
+      "backgroundWaiting": [],
+      "promotions": 0,
+      "completed": 4,
+      "failed": 0
+    },
+    "casts": 1,
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "gracefulRetirements": 0,
+      "authoredHighDetailAssets": [
+        "Q05",
+        "Q07",
+        "Q02",
+        "Q06"
+      ],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 1,
+      "expired": 0,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 12,
+      "peakDraws": 12,
+      "uniqueRenderedProps": 1,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 1,
+      "lastBySide": {
+        "player": "Q05",
+        "ai": null
+      },
+      "activeIds": [
+        "Q05"
+      ]
+    },
+    "loaded": [
+      "Q05",
+      "Q07",
+      "Q02",
+      "Q06"
+    ],
+    "originals": [
+      {
+        "id": "Q05",
+        "source": "real-blender-glb",
+        "file": "Q05_Chalk_Press_Conference_R200.glb",
+        "meshes": 12,
+        "triangles": 41432,
+        "texturedVariant": true,
+        "priority": "urgent",
+        "readyMs": 1634.2
+      },
+      {
+        "id": "Q07",
+        "source": "real-blender-glb",
+        "file": "Q07_Second_Cardboard_Classroom_Moon.glb",
+        "meshes": 9,
+        "triangles": 61844,
+        "texturedVariant": false,
+        "priority": "background",
+        "readyMs": 52.7
+      },
+      {
+        "id": "Q02",
+        "source": "real-blender-glb",
+        "file": "Q02_Origami_Beast_From_School_Notice.glb",
+        "meshes": 10,
+        "triangles": 23215,
+        "texturedVariant": false,
+        "priority": "background",
+        "readyMs": 25.3
+      },
+      {
+        "id": "Q06",
+        "source": "real-blender-glb",
+        "file": "Q06_Three_Click_Moonlight_Desk_Lamp.glb",
+        "meshes": 10,
+        "triangles": 12804,
+        "texturedVariant": false,
+        "priority": "background",
+        "readyMs": 5.7
+      }
+    ],
+    "oldArsenal": {
+      "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+      "playableSpellCoverage": 46,
+      "motifCount": 32,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "activeMotifs": [],
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "maxActive": 4,
+      "peakMeshes": 0,
+      "totalMeshes": 0,
+      "ruleMutations": 0
+    },
+    "oldImpact": {
+      "played": 0,
+      "hits": 0,
+      "noHit": 0,
+      "expired": 0,
+      "active": 0,
+      "activeKinds": [],
+      "ruleMutations": 0
+    },
+    "camera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.4311,
+        11.7468
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "hero": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "hostHits": {
+      "player": {
+        "time": -100,
+        "damage": 0
+      },
+      "ai": {
+        "time": 2.8511000000014945,
+        "damage": 2,
+        "element": "wind"
+      }
+    },
+    "receiptCount": 1,
+    "audio": {
+      "cue": 8,
+      "voice": 1,
+      "voiceMissing": 0,
+      "voiceDropped": 0,
+      "voiceInterrupted": 2,
+      "unlock": 1,
+      "musicStart": 1,
+      "errors": 0
+    },
+    "magicEvents": [
+      {
+        "t": 4445.30000000447,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "assetReady",
+        "id": "Q05",
+        "source": "real-blender-glb",
+        "file": "Q05_Chalk_Press_Conference_R200.glb",
+        "meshes": 12,
+        "triangles": 41432,
+        "texturedVariant": true,
+        "priority": "urgent",
+        "readyMs": 1634.2
+      },
+      {
+        "t": 4445.5,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "cast",
+        "id": "Q05",
+        "side": "player",
+        "serial": 2,
+        "preview": false,
+        "model": "Q05_Chalk_Press_Conference_R200.glb",
+        "meshes": 12
+      },
+      {
+        "t": 4511.89999999851,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "assetReady",
+        "id": "Q07",
+        "source": "real-blender-glb",
+        "file": "Q07_Second_Cardboard_Classroom_Moon.glb",
+        "meshes": 9,
+        "triangles": 61844,
+        "texturedVariant": false,
+        "priority": "background",
+        "readyMs": 52.7
+      },
+      {
+        "t": 4523.5,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "assetReady",
+        "id": "Q02",
+        "source": "real-blender-glb",
+        "file": "Q02_Origami_Beast_From_School_Notice.glb",
+        "meshes": 10,
+        "triangles": 23215,
+        "texturedVariant": false,
+        "priority": "background",
+        "readyMs": 25.3
+      },
+      {
+        "t": 4528.89999999851,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "assetReady",
+        "id": "Q06",
+        "source": "real-blender-glb",
+        "file": "Q06_Three_Click_Moonlight_Desk_Lamp.glb",
+        "meshes": 10,
+        "triangles": 12804,
+        "texturedVariant": false,
+        "priority": "background",
+        "readyMs": 5.7
+      },
+      {
+        "t": 5610.39999999851,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "contact",
+        "id": "Q05",
+        "side": "player",
+        "victim": "ai",
+        "serial": 2,
+        "directDamage": 2,
+        "unitDamage": 0
+      }
+    ],
+    "canonicalReceipts": [
+      {
+        "t": 5610.20000000298,
+        "type": "ASDC_R121_SPELL_CONTACT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "serial": 2,
+        "card": "Q05",
+        "caster": "player",
+        "victim": "ai",
+        "element": "wind",
+        "directDamage": 2,
+        "unitDamage": 0,
+        "targetIds": [],
+        "contactCount": 1
+      }
+    ]
+  },
+  "impact": {
+    "serial": 2,
+    "realRuleDamage": 2,
+    "castToContactMs": 1164.9,
+    "originalModel": "Q05_Chalk_Press_Conference_R200.glb"
+  }
+}

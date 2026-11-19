@@ -1,0 +1,446 @@
+{
+  "which": "priority",
+  "pass": true,
+  "networkRequests": [
+    {
+      "name": "S08_Angry_Campus_Vending_Machine.glb",
+      "atMs": 2962
+    },
+    {
+      "name": "X01_Reversing_School_Clock_Tower.glb",
+      "atMs": 4581.6
+    },
+    {
+      "name": "K01_Sculpted_Wok_Eggplant_Banana_R200.glb",
+      "atMs": 4597.8
+    },
+    {
+      "name": "Q05_Chalk_Press_Conference_R200.glb",
+      "atMs": 4664
+    },
+    {
+      "name": "T05_Heartwarming_Cafeteria_Chef_Soup.glb",
+      "atMs": 4696.9
+    },
+    {
+      "name": "E05_Giant_Cheer_Megaphone.glb",
+      "atMs": 4711.3
+    }
+  ],
+  "feedbackEvents": [],
+  "errors": [],
+  "screens": [
+    "r201-priority-real-3d-magic.png"
+  ],
+  "startupMs": 2625,
+  "before": {
+    "ready": true,
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 173
+      }
+    ],
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "queue": {
+      "running": 0,
+      "pending": 0,
+      "urgentWaiting": [],
+      "backgroundWaiting": [],
+      "promotions": 0,
+      "completed": 0,
+      "failed": 0
+    },
+    "casts": 0,
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "gracefulRetirements": 0,
+      "authoredHighDetailAssets": [],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "peakObjects": 0,
+      "peakDraws": 0,
+      "uniqueRenderedProps": 0,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "activeIds": []
+    },
+    "loaded": [],
+    "originals": [],
+    "oldArsenal": {
+      "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+      "playableSpellCoverage": 46,
+      "motifCount": 32,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "activeMotifs": [],
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "maxActive": 4,
+      "peakMeshes": 0,
+      "totalMeshes": 0,
+      "ruleMutations": 0
+    },
+    "oldImpact": {
+      "played": 0,
+      "hits": 0,
+      "noHit": 0,
+      "expired": 0,
+      "active": 0,
+      "activeKinds": [],
+      "ruleMutations": 0
+    },
+    "camera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.4311,
+        11.7468
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "hero": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "hostHits": {
+      "player": {
+        "time": -100,
+        "damage": 0
+      },
+      "ai": {
+        "time": -100,
+        "damage": 0
+      }
+    },
+    "receiptCount": 0,
+    "audio": {
+      "cue": 0,
+      "voice": 0,
+      "voiceMissing": 0,
+      "voiceDropped": 0,
+      "voiceInterrupted": 0,
+      "unlock": 0,
+      "musicStart": 0,
+      "errors": 0
+    },
+    "magicEvents": [],
+    "canonicalReceipts": []
+  },
+  "after": {
+    "ready": true,
+    "round": 1,
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 173
+      }
+    ],
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "queue": {
+      "running": 1,
+      "pending": 3,
+      "urgentWaiting": [],
+      "backgroundWaiting": [
+        "Q05",
+        "T05",
+        "E05"
+      ],
+      "promotions": 1,
+      "completed": 2,
+      "failed": 0
+    },
+    "casts": 1,
+    "stage": {
+      "enabled": true,
+      "totalIdentities": 46,
+      "r200Readable": true,
+      "gracefulRetirements": 0,
+      "authoredHighDetailAssets": [
+        "S08",
+        "X01"
+      ],
+      "collateralLaunched": 0,
+      "collateralExpired": 0,
+      "collateralActive": 0,
+      "played": 1,
+      "expired": 0,
+      "rejected": 0,
+      "active": 1,
+      "peakObjects": 13,
+      "peakDraws": 13,
+      "uniqueRenderedProps": 1,
+      "shaderPointLights": 0,
+      "cacheGeometries": 0,
+      "cacheMaterials": 0,
+      "staticBatch": {
+        "enabled": false
+      },
+      "decalTextures": 0,
+      "hitAnimations": 0,
+      "lastBySide": {
+        "player": "X01",
+        "ai": null
+      },
+      "activeIds": [
+        "X01"
+      ]
+    },
+    "loaded": [
+      "S08",
+      "X01"
+    ],
+    "originals": [
+      {
+        "id": "S08",
+        "source": "real-blender-glb",
+        "file": "S08_Angry_Campus_Vending_Machine.glb",
+        "meshes": 14,
+        "triangles": 40552,
+        "texturedVariant": false,
+        "priority": "background",
+        "readyMs": 1619.4
+      },
+      {
+        "id": "X01",
+        "source": "real-blender-glb",
+        "file": "X01_Reversing_School_Clock_Tower.glb",
+        "meshes": 13,
+        "triangles": 33424,
+        "texturedVariant": false,
+        "priority": "urgent",
+        "readyMs": 15.8
+      }
+    ],
+    "oldArsenal": {
+      "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+      "playableSpellCoverage": 46,
+      "motifCount": 32,
+      "played": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "activeMotifs": [],
+      "lastBySide": {
+        "player": null,
+        "ai": null
+      },
+      "maxActive": 4,
+      "peakMeshes": 0,
+      "totalMeshes": 0,
+      "ruleMutations": 0
+    },
+    "oldImpact": {
+      "played": 0,
+      "hits": 0,
+      "noHit": 0,
+      "expired": 0,
+      "active": 0,
+      "activeKinds": [],
+      "ruleMutations": 0
+    },
+    "camera": {
+      "enabled": false,
+      "frames": 0,
+      "cuts": 0,
+      "peakWeight": 0,
+      "frameWeight": 0,
+      "current": null,
+      "phase": 0,
+      "realTarget": null,
+      "lastSerial": null,
+      "minimumFrameDistance": null,
+      "maximumFrameDistance": 0,
+      "active": null,
+      "sourceFocus": null,
+      "cameraPosition": [
+        0,
+        4.4311,
+        11.7468
+      ],
+      "cameraFov": 42,
+      "orbitDegrees": 0,
+      "crowdShotWeight": 0
+    },
+    "hero": {
+      "side": null,
+      "phase": "idle",
+      "frames": 0,
+      "visible": false,
+      "inset": null,
+      "faceNdc": null,
+      "lastDrawCalls": 0
+    },
+    "hostHits": {
+      "player": {
+        "time": -100,
+        "damage": 0
+      },
+      "ai": {
+        "time": -100,
+        "damage": 0
+      }
+    },
+    "receiptCount": 0,
+    "audio": {
+      "cue": 2,
+      "voice": 1,
+      "voiceMissing": 0,
+      "voiceDropped": 0,
+      "voiceInterrupted": 0,
+      "unlock": 1,
+      "musicStart": 1,
+      "errors": 0
+    },
+    "magicEvents": [
+      {
+        "t": 2814.7999999970198,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "loadPromoted",
+        "id": "X01",
+        "queue": {
+          "running": "S08",
+          "urgentWaiting": [
+            "X01"
+          ],
+          "backgroundWaiting": [
+            "K01",
+            "Q05"
+          ],
+          "outstanding": 4,
+          "promotions": 1,
+          "completed": 0,
+          "failed": 0,
+          "backgroundFinished": 0,
+          "urgentFinished": 0,
+          "stopped": false
+        }
+      },
+      {
+        "t": 4287.5,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "assetReady",
+        "id": "S08",
+        "source": "real-blender-glb",
+        "file": "S08_Angry_Campus_Vending_Machine.glb",
+        "meshes": 14,
+        "triangles": 40552,
+        "texturedVariant": false,
+        "priority": "background",
+        "readyMs": 1619.4
+      },
+      {
+        "t": 4304.19999999553,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "assetReady",
+        "id": "X01",
+        "source": "real-blender-glb",
+        "file": "X01_Reversing_School_Clock_Tower.glb",
+        "meshes": 13,
+        "triangles": 33424,
+        "texturedVariant": false,
+        "priority": "urgent",
+        "readyMs": 15.8
+      },
+      {
+        "t": 4304.69999999553,
+        "type": "ASDC_R199_MAGIC_EVENT",
+        "roles": [
+          "E01",
+          "G01"
+        ],
+        "roleAssets": [
+          "Shino-original-CC0.vrm",
+          "Fumiriya-original-CC0.vrm"
+        ],
+        "previewArtApproved": false,
+        "event": "cast",
+        "id": "X01",
+        "side": "player",
+        "serial": 40000001,
+        "preview": true,
+        "model": "X01_Reversing_School_Clock_Tower.glb",
+        "meshes": 13
+      }
+    ],
+    "canonicalReceipts": []
+  }
+}
