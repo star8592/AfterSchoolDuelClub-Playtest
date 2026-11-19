@@ -1,0 +1,657 @@
+{
+  "source": "independent XPS 15 Intel UHD630 Linux Chrome 155",
+  "url": "http://10.10.10.138:18689/r45-duel/?qa=1&seed=1&deck=science&r199PhysicalMagic=on&r200Pbr=on&r200Readable=on&r202BodyHit=on&r203BodyHit=on&r204Caster=on&r204RigCacheQA=1",
+  "pass": true,
+  "errors": [],
+  "tests": [
+    "16 genuine source models and physical spell stage ready",
+    "Real hand S08 spell authored GLB with physical staging; no old lights/closeup"
+  ],
+  "initial": {
+    "ready": true,
+    "models": 16,
+    "magic": true,
+    "turn": 1
+  },
+  "readyMs": 57994,
+  "after": {
+    "spell": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "r202BodyHit": true,
+      "r203BodyHit": true,
+      "signatureBodies": [
+        "E06",
+        "Q05",
+        "K01",
+        "K07",
+        "P07",
+        "K04",
+        "S08",
+        "P03",
+        "X05",
+        "Q07"
+      ],
+      "loadedRealAssets": 2,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [
+        "S08",
+        "S02"
+      ],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0,
+        "urgentWaiting": [],
+        "backgroundWaiting": [],
+        "promotions": 0,
+        "completed": 2,
+        "failed": 0
+      },
+      "pendingUnrenderedContacts": 0,
+      "synchronisedContacts": 1,
+      "casts": 1,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "r202BodyImpact": true,
+        "r203BodyImpact": true,
+        "gracefulRetirements": 0,
+        "signatureImpactIds": [
+          "E06",
+          "Q05",
+          "K01",
+          "K07",
+          "P07",
+          "K04",
+          "S08",
+          "P03",
+          "X05",
+          "Q07"
+        ],
+        "originalDetachedProjectiles": [
+          {
+            "id": "S08",
+            "names": [
+              "S08_FLYING_CAN_ACTOR"
+            ],
+            "meshCount": 4,
+            "originalMeshSource": true
+          }
+        ],
+        "physicalFlights": 1,
+        "actualBodyContacts": 1,
+        "previewBodyContacts": 0,
+        "physicalConsequences": {
+          "spawned": 1,
+          "expired": 0,
+          "active": 1,
+          "peak": 1,
+          "physicalKinds": [
+            "soda"
+          ],
+          "oneMeshDrawPerPhysicalMaterial": true,
+          "addedPointLights": 0,
+          "addedGlowRings": 0,
+          "addedSprites": 0
+        },
+        "activeBodyFlights": [
+          {
+            "id": "S08",
+            "serial": 2,
+            "preview": false,
+            "enemy": true,
+            "propWorld": [
+              -2.8,
+              0.18,
+              -0.44
+            ],
+            "bodyHitWorld": [
+              5.331,
+              2.147,
+              0.944
+            ],
+            "originalVisibleMeshCenter": [
+              5.311,
+              2.144,
+              0.945
+            ],
+            "actualMeshToBodyMeters": 0.021
+          }
+        ],
+        "authoredHighDetailAssets": [
+          "S08",
+          "S02"
+        ],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "peakObjects": 14,
+        "peakDraws": 14,
+        "uniqueRenderedProps": 1,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 1,
+        "lastBySide": {
+          "player": "S08",
+          "ai": null
+        },
+        "activeIds": [
+          "S08"
+        ]
+      },
+      "loadedReceipts": [
+        {
+          "id": "S08",
+          "source": "real-blender-glb",
+          "file": "S08_Angry_Campus_Vending_Machine.glb",
+          "meshes": 14,
+          "triangles": 40552,
+          "texturedVariant": false,
+          "priority": "urgent",
+          "readyMs": 166
+        },
+        {
+          "id": "S02",
+          "source": "real-blender-glb",
+          "file": "S02_One_Pencil_Tiny_Stationery_Case.glb",
+          "meshes": 12,
+          "triangles": 16824,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 53.5
+        }
+      ],
+      "loadedAssetDetails": [
+        {
+          "id": "S08",
+          "source": "real-blender-glb",
+          "file": "S08_Angry_Campus_Vending_Machine.glb",
+          "meshes": 14,
+          "triangles": 40552,
+          "texturedVariant": false,
+          "priority": "urgent",
+          "readyMs": 166
+        },
+        {
+          "id": "S02",
+          "source": "real-blender-glb",
+          "file": "S02_One_Pencil_Tiny_Stationery_Case.glb",
+          "meshes": 12,
+          "triangles": 16824,
+          "texturedVariant": false,
+          "priority": "background",
+          "readyMs": 53.5
+        }
+      ]
+    },
+    "caster": {
+      "enabled": true,
+      "actions": {
+        "player": {
+          "started": 0.7924000005722046,
+          "id": "S08",
+          "serial": 2,
+          "preview": false,
+          "releaseAt": null,
+          "hitAt": 2.076800000190735,
+          "phases": [
+            "windup",
+            "hold-aim",
+            "throw-snap",
+            "follow-through",
+            "recover",
+            "hit-celebration"
+          ],
+          "releasedAt": 0.9222000002861024
+        },
+        "ai": null
+      }
+    },
+    "duelistHosts": [
+      {
+        "id": "E01",
+        "side": "player",
+        "visible": true,
+        "x": -5.487,
+        "y": 0.488,
+        "z": 0.6,
+        "bones": 119,
+        "skins": 124,
+        "modelSource": "Host-HairSample_Female-CC0.vrm",
+        "hostAvatar": "HOST_FEMALE",
+        "trueWorldYaw": -1.564664,
+        "independentFromSummons": true,
+        "posture": {
+          "phase": "idle",
+          "draw": 0,
+          "display": 0,
+          "cast": 0,
+          "follow": 0,
+          "victory": 0,
+          "defeat": 0,
+          "hop": 0,
+          "recoil": 0,
+          "r202Hit": null,
+          "r202Intensity": 0,
+          "r204Caster": {
+            "phase": "hit-celebration",
+            "style": "angry-vending-launch",
+            "id": "S08",
+            "serial": 2,
+            "preview": false,
+            "weight": 0.03407,
+            "thrust": 1,
+            "anticipation": 0,
+            "celebration": 0,
+            "actualModelLaunched": true,
+            "handTargets": {
+              "R": [
+                0.119,
+                0.108,
+                -0.103
+              ],
+              "L": [
+                -0.151,
+                -0.244,
+                -0.064
+              ]
+            }
+          },
+          "speaking": false,
+          "speechSerial": null,
+          "inspected": 0,
+          "livingBeat": "idle",
+          "r134Idle": {
+            "story": "check_hand",
+            "strength": 0.933,
+            "phase": 2.0768,
+            "headYaw": 0.2333,
+            "thighL": 0.0788,
+            "thighR": -0.0788,
+            "inspect": 0.933,
+            "challenge": 0
+          },
+          "footContact": null,
+          "livingStrength": 0,
+          "arms": {
+            "R": {
+              "drop": -0.464,
+              "spread": 0.137,
+              "worldHand": [
+                -5.308,
+                2.006,
+                0.707
+              ],
+              "wristToShoulder": 0.189
+            },
+            "L": {
+              "drop": -0.907,
+              "spread": 0.008,
+              "worldHand": [
+                -5.348,
+                1.653,
+                0.438
+              ],
+              "wristToShoulder": 0.485
+            }
+          },
+          "ik": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.038,
+              "reach": 0.189,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.308,
+                2.006,
+                0.707
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.002,
+              "reach": 0.485,
+              "segmentLength": 0.551,
+              "hand": [
+                -5.348,
+                1.653,
+                0.438
+              ]
+            }
+          },
+          "face": "idle"
+        },
+        "expression": {
+          "role": "铃声追不上",
+          "beat": "发现要迟到，慌忙挥手",
+          "mode": "idle",
+          "amount": 0,
+          "blink": 0,
+          "expression": "joy",
+          "faceAmount": 0,
+          "emotion": "idle",
+          "emotionAmount": 0,
+          "viseme": "closed",
+          "visemeAmount": 0,
+          "actualViseme": 0,
+          "visemeFrames": 0,
+          "activeSpeechSerial": null,
+          "mouthBindings": {
+            "a": 10,
+            "i": 10,
+            "u": 10,
+            "e": 10,
+            "o": 10
+          },
+          "actualMood": 0,
+          "emotionBindings": {
+            "joy": 10,
+            "fun": 10,
+            "angry": 10,
+            "sorrow": 10,
+            "surprised": 10
+          },
+          "actualBlink": 0,
+          "actualExpression": 0,
+          "heroPose": {
+            "name": "护住邮差包·俏皮挥手",
+            "arms": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.12,
+                "reach": 0.526,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.178,
+                  1.748,
+                  0.513
+                ]
+              },
+              "L": {
+                "error": 0,
+                "elbowOut": 0.028,
+                "reach": 0.53,
+                "segmentLength": 0.551,
+                "hand": [
+                  -5.344,
+                  1.623,
+                  0.419
+                ]
+              }
+            }
+          },
+          "entranceAmount": 0,
+          "faceMeshes": 10,
+          "blinkBindings": 10,
+          "expressionBindings": 10,
+          "frames": 73
+        }
+      },
+      {
+        "id": "G01",
+        "side": "ai",
+        "visible": true,
+        "x": 5.573,
+        "y": 0.471,
+        "z": 0.6,
+        "bones": 91,
+        "skins": 131,
+        "modelSource": "Host-HairSample_Male-CC0.vrm",
+        "hostAvatar": "HOST_MALE",
+        "trueWorldYaw": -4.712389,
+        "independentFromSummons": true,
+        "posture": {
+          "phase": "idle",
+          "draw": 0,
+          "display": 0,
+          "cast": 0,
+          "follow": 0,
+          "victory": 0,
+          "defeat": 0,
+          "hop": 0,
+          "recoil": 0,
+          "r202Hit": null,
+          "r202Intensity": 0,
+          "r204Caster": null,
+          "speaking": false,
+          "speechSerial": null,
+          "inspected": 0,
+          "livingBeat": "idle",
+          "r134Idle": {
+            "story": "ready",
+            "strength": 1,
+            "phase": 4.4268,
+            "headYaw": 0,
+            "thighL": 0.0486,
+            "thighR": -0.0486,
+            "inspect": 0,
+            "challenge": 0
+          },
+          "footContact": null,
+          "livingStrength": 0,
+          "arms": {
+            "R": {
+              "drop": -0.934,
+              "spread": 0.226,
+              "worldHand": [
+                5.401,
+                2.022,
+                0.552
+              ],
+              "wristToShoulder": 0.243
+            },
+            "L": {
+              "drop": -0.845,
+              "spread": 0.008,
+              "worldHand": [
+                5.511,
+                1.658,
+                0.767
+              ],
+              "wristToShoulder": 0.478
+            }
+          },
+          "ik": {
+            "R": {
+              "error": 0,
+              "elbowOut": 0.058,
+              "reach": 0.243,
+              "segmentLength": 0.55,
+              "hand": [
+                5.401,
+                2.022,
+                0.552
+              ]
+            },
+            "L": {
+              "error": 0,
+              "elbowOut": 0.002,
+              "reach": 0.478,
+              "segmentLength": 0.55,
+              "hand": [
+                5.511,
+                1.658,
+                0.767
+              ]
+            }
+          },
+          "face": "idle"
+        },
+        "expression": {
+          "role": "橡皮筋建筑师",
+          "beat": "认真扶眼镜，突然灵机一动",
+          "mode": "idle",
+          "amount": 0,
+          "blink": 0,
+          "expression": "fun",
+          "faceAmount": 0,
+          "emotion": "idle",
+          "emotionAmount": 0,
+          "viseme": "closed",
+          "visemeAmount": 0,
+          "actualViseme": 0,
+          "visemeFrames": 0,
+          "activeSpeechSerial": null,
+          "mouthBindings": {
+            "a": 10,
+            "i": 10,
+            "u": 10,
+            "e": 10,
+            "o": 10
+          },
+          "actualMood": 0,
+          "emotionBindings": {
+            "joy": 10,
+            "fun": 10,
+            "angry": 10,
+            "sorrow": 10,
+            "surprised": 10
+          },
+          "actualBlink": 0,
+          "actualExpression": 0,
+          "heroPose": {
+            "name": "托腮思考·一手叉腰",
+            "arms": {
+              "R": {
+                "error": 0,
+                "elbowOut": 0.175,
+                "reach": 0.259,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.376,
+                  2.151,
+                  0.572
+                ]
+              },
+              "L": {
+                "error": 0.0289,
+                "elbowOut": 0.017,
+                "reach": 0.565,
+                "segmentLength": 0.55,
+                "hand": [
+                  5.511,
+                  1.594,
+                  0.82
+                ]
+              }
+            }
+          },
+          "entranceAmount": 0,
+          "faceMeshes": 10,
+          "blinkBindings": 10,
+          "expressionBindings": 10,
+          "frames": 73
+        }
+      }
+    ],
+    "physicalCard": {
+      "actors": [
+        {
+          "side": "player",
+          "id": "S08",
+          "shown": 1,
+          "visible": true,
+          "wristTracked": true,
+          "r204Synced": true,
+          "r204Released": true,
+          "r204ReleasedAge": 1.155,
+          "wristGap": 0.0969,
+          "phase": "actual_prop_release",
+          "size": 1.02,
+          "grip": 0,
+          "gripMode": "open",
+          "gripFrames": 14,
+          "realFingerBones": 15,
+          "thumbOpposition": 0,
+          "realBend": 0,
+          "restError": 0,
+          "maxTipTravel": 0.81639,
+          "actualFingerJointNames": [
+            "J_Bip_R_Thumb1",
+            "J_Bip_R_Thumb2",
+            "J_Bip_R_Thumb3",
+            "J_Bip_R_Index1",
+            "J_Bip_R_Index2",
+            "J_Bip_R_Index3",
+            "J_Bip_R_Middle1",
+            "J_Bip_R_Middle2",
+            "J_Bip_R_Middle3",
+            "J_Bip_R_Ring1",
+            "J_Bip_R_Ring2",
+            "J_Bip_R_Ring3",
+            "J_Bip_R_Little1",
+            "J_Bip_R_Little2",
+            "J_Bip_R_Little3"
+          ],
+          "painted": true,
+          "lastPainted": "S08"
+        },
+        {
+          "side": "ai",
+          "id": null,
+          "shown": 0,
+          "visible": false,
+          "wristTracked": true,
+          "r204Synced": false,
+          "r204Released": false,
+          "r204ReleasedAge": null,
+          "wristGap": 0,
+          "phase": "idle",
+          "size": 1,
+          "grip": 0,
+          "gripMode": "open",
+          "gripFrames": 0,
+          "realFingerBones": 15,
+          "thumbOpposition": 0,
+          "realBend": 0,
+          "restError": 0,
+          "maxTipTravel": 0,
+          "actualFingerJointNames": [
+            "J_Bip_R_Thumb1",
+            "J_Bip_R_Thumb2",
+            "J_Bip_R_Thumb3",
+            "J_Bip_R_Index1",
+            "J_Bip_R_Index2",
+            "J_Bip_R_Index3",
+            "J_Bip_R_Middle1",
+            "J_Bip_R_Middle2",
+            "J_Bip_R_Middle3",
+            "J_Bip_R_Ring1",
+            "J_Bip_R_Ring2",
+            "J_Bip_R_Ring3",
+            "J_Bip_R_Little1",
+            "J_Bip_R_Little2",
+            "J_Bip_R_Little3"
+          ],
+          "painted": false,
+          "lastPainted": null
+        }
+      ],
+      "painted": 1,
+      "frames": 43
+    },
+    "legacy": 0,
+    "oldImpact": 0,
+    "events": [
+      "S08"
+    ],
+    "camera": false,
+    "heroInset": 0
+  }
+}

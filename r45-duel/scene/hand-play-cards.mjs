@@ -7,7 +7,7 @@ import {BY_ID,DECK_PRESETS} from '../engine.mjs';
 import {cardArtURL} from '../card-art.mjs';
 const sides=['player','ai'];
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
-export function createHandPlayCards(THREE,scene){
+export function createHandPlayCards(THREE,scene,{getCasterAction=null}={}){
  const instances=new Map(),cache=new Map();
  const offset=new THREE.Vector3(0,.070,.067),wristPos=new THREE.Vector3();
  const fingerDefinitions=Object.freeze({
@@ -121,7 +121,20 @@ export function createHandPlayCards(THREE,scene){
  }
  function update(seconds,camera){
   for(const state of instances.values()){
-   const age=seconds-state.start,visible=age>=0&&age<2.63;
+   const age=seconds-state.start;
+   const action=typeof getCasterAction==='function'?
+    getCasterAction(state.host.side):null;
+   const r204=action?.serial===state.serial&&action?.id===state.id;
+   const launched=r204&&Number.isFinite(action.releasedAt);
+   const releasedAge=launched?seconds-action.releasedAt:-1;
+   // Keep the ORIGINAL illustrated card actually in the original VRM
+   // five-finger grip while the heavy Blender object loads. A fixed old
+   // 1.84 second grip released the card BEFORE it could create the prop.
+   const visible=r204?age>=0&&age<10.5&&
+    (!launched||releasedAge<1.16):age>=0&&age<2.63;
+   state.r204Synced=!!r204;
+   state.r204Released=!!launched;
+   state.r204ReleasedAge=launched?releasedAge:null;
    state.group.visible=visible;
    if(!visible){
     if(state.gripMode!=='open'){
@@ -133,7 +146,9 @@ export function createHandPlayCards(THREE,scene){
    // Fingers close on the real painted card during its reveal; a right
    // thumb opposes the index and middle fingers. At the instant of release
    // they OPEN instead of forming a permanent clenched fist.
-   const catchGrip=clamp(age/.17),throwRelease=clamp((age-1.84)/.24);
+   const catchGrip=clamp(age/.17);
+   const throwRelease=r204?(launched?clamp((releasedAge-.15)/.17):0):
+    clamp((age-1.84)/.24);
    const grip=catchGrip*(1-throwRelease);
    const poseStrength=state.host.side==='player'?1:.92;
    state.grip=grip;state.gripMode=grip>.2?(throwRelease>.3?'release':'grasp'):'open';
@@ -159,9 +174,15 @@ export function createHandPlayCards(THREE,scene){
    // R120: read as a physical, illustrated card: snap up, proudly reveal
    // the artwork to the opponent and the viewer, then whip the *wrist-bound*
    // card into the arena. The hand never lets go early or creates a clone.
-   const rise=clamp((age-.22)/.35)*(1-clamp((age-1.35)/.35));
-   const throwPulse=clamp((age-1.28)/.18)*(1-clamp((age-1.9)/.24));
-   const arrival=clamp(age/.18),depart=1-clamp((age-2.24)/.36);
+   const rise=r204?clamp((age-.18)/.29)*
+    (launched?1-clamp((releasedAge-.23)/.30):1):
+    clamp((age-.22)/.35)*(1-clamp((age-1.35)/.35));
+   const throwPulse=r204?(launched?
+    clamp((releasedAge-.13)/.14)*(1-clamp((releasedAge-.58)/.18)):0):
+    clamp((age-1.28)/.18)*(1-clamp((age-1.9)/.24));
+   const arrival=clamp(age/.18),
+    depart=r204?(launched?1-clamp((releasedAge-.60)/.40):1):
+      1-clamp((age-2.24)/.36);
    state.group.position.copy(wristPos).add(offset);
    state.group.quaternion.copy(camera.quaternion);
    state.group.rotateZ((state.host.side==='player'?-1:1)*
@@ -169,7 +190,9 @@ export function createHandPlayCards(THREE,scene){
    state.group.rotateY((state.host.side==='player'?-1:1)*.20*throwPulse);
    state.group.scale.setScalar(.86+.16*arrival+.22*rise+.09*throwPulse);
    state.group.children[0].material.emissiveIntensity=.23+.65*rise+.8*throwPulse;
-   state.phase=rise>.55?'high_reveal':throwPulse>.32?'throw':age<.35?'draw':'recover';
+   state.phase=r204?(throwPulse>.32?'actual_prop_throw':
+    launched?'actual_prop_release':'original_vrm_windup_hold'):
+    rise>.55?'high_reveal':throwPulse>.32?'throw':age<.35?'draw':'recover';
    state.group.children[0].material.opacity=arrival*depart;
    state.group.children[0].material.transparent=true;
    state.image.material.opacity=arrival*depart;
@@ -181,6 +204,9 @@ export function createHandPlayCards(THREE,scene){
  return {attach,show,update,get stats(){
   return {actors:[...instances.values()].map(x=>({side:x.host.side,id:x.id,
    shown:x.events,visible:x.group.visible,wristTracked:!!x.wrist,
+   r204Synced:!!x.r204Synced,r204Released:!!x.r204Released,
+   r204ReleasedAge:x.r204ReleasedAge===null?null:
+    +(x.r204ReleasedAge||0).toFixed(3),
    wristGap:+x.wristGap.toFixed(4),phase:x.phase||'idle',
    size:+x.group.scale.x.toFixed(3),grip:+x.grip.toFixed(4),
    gripMode:x.gripMode,gripFrames:x.gripFrames,realFingerBones:x.gripEntries,

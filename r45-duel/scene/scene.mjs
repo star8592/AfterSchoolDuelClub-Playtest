@@ -33,6 +33,7 @@ import {createSummonPresence} from './summon-presence.mjs';
 import {faceOpponentYaw} from './summon-orientation.mjs';
 import {preloadSummonModels} from './summon-models.mjs';
 import {createLivingCastDirector} from './living-cast-director.mjs';
+import {r204Sample,r204Style} from './campus-r204-caster-choreography.mjs';
 import {createArenaLifeWorld} from './arena-life-world.mjs';
 import {createR145RealSourceActionCamera} from './r145-source-action-camera.mjs';
 const $=id=>document.getElementById(id);
@@ -61,6 +62,7 @@ const R200_PBR=R199_PHYSICAL_MAGIC&&r200Flag('r200Pbr');
 const R200_READABLE=R199_PHYSICAL_MAGIC&&r200Flag('r200Readable');
 const R202_BODY_HIT=R199_PHYSICAL_MAGIC&&r200Flag('r202BodyHit');
 const R203_BODY_HIT=R202_BODY_HIT&&r200Flag('r203BodyHit');
+const R204_CASTER=R199_PHYSICAL_MAGIC&&r200Flag('r204Caster');
 const R203_NEW_IDS=Object.freeze(['K04','S08','P03','X05','Q07']);
 let r199Magic=null,r199MagicModule=null;
 
@@ -100,6 +102,15 @@ let duelistHosts=[],hostSourceActors=[];
 const arenaLife=createArenaLifeWorld(Number(PARAMS.get('seed'))||20261113);
 const livingCast=createLivingCastDirector(Number(PARAMS.get('seed'))||20261113,arenaLife);
 const hostAction={player:{started:-100,kind:'idle'},ai:{started:-100,kind:'idle'}};
+const r204CasterAction={player:null,ai:null};
+// Reuse Three.js scratch vectors: no per-frame solver allocation spikes.
+const r204ReachTemp={
+ inv:new THREE.Quaternion(),chest:new THREE.Vector3(),
+ upper:new THREE.Vector3(),elbow:new THREE.Vector3(),
+ wrist:new THREE.Vector3(),shoulder:new THREE.Vector3(),
+ goal:new THREE.Vector3()
+};
+
 // R122: REAL Qwen voice playback only (not subtitles) drives real VRM
 // mouth morphs. Each side independently owns its own original face mesh.
 const hostSpeech={player:null,ai:null};
@@ -409,6 +420,30 @@ function makeScene(){
    },
    now:()=>absoluteSeconds,
    onEvent:(event,detail)=>{
+    if(R204_CASTER&&event==='cast'&&
+       ['player','ai'].includes(detail.side)&&r204Style(detail.id)){
+     // The original GLB was JUST accepted by the real Three.js stage.
+     // Sync the throwing motion to its physical launch, not a guessed
+     // fixed delay after a click while GLB may still be decoding.
+     const old=r204CasterAction[detail.side];
+     const same=old?.serial===detail.serial&&old.id===detail.id&&
+       absoluteSeconds-old.started<24;
+     const next=same?old:{id:detail.id,serial:detail.serial,
+      preview:!!detail.preview,started:absoluteSeconds-.19,hitAt:null,
+      releaseAt:null,phases:[]};
+     next.releasedAt=absoluteSeconds;
+     r204CasterAction[detail.side]=next;
+     if(detail.preview)
+      // The spectator gallery is a visual QA performance, NOT a rule card
+      // play. Attach the illustrated card to the same real VRM wrist.
+      handCards?.show(detail.side,detail.id,detail.serial,absoluteSeconds);
+    }
+    if(R204_CASTER&&(event==='previewImpact'||event==='contact')){
+     const caster=detail.side;
+     const a=r204CasterAction[caster];
+     if(a?.id===detail.id&&a.serial===detail.serial&&
+        a.hitAt===null)a.hitAt=absoluteSeconds;
+    }
     if(event==='previewImpact'&&R202_BODY_HIT&&R199_SHOWCASE){
      // Pure visual preview: show the real opponent flinching without
      // writing HP, claiming an engine hit or emitting an R121 contact.
@@ -436,7 +471,9 @@ function makeScene(){
  spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
  bleacherProps=createBleacherPropComedy(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
- handCards=createHandPlayCards(THREE,scene);
+ handCards=createHandPlayCards(THREE,scene,{
+  getCasterAction:R204_CASTER?side=>r204CasterAction[side]:null
+ });
   clock=new THREE.Clock();
  onResize();window.addEventListener('resize',onResize);
  installOrbitControls();
@@ -713,7 +750,8 @@ function updateDuelistHosts(seconds){
  const ageOf=side=>seconds-hostAction[side].started;
  const hitAgeOf=side=>seconds-hostHits[side].time;
  const busy=side=>(ageOf(side)>=0&&ageOf(side)<2.6)||
-  (hitAgeOf(side)>=0&&hitAgeOf(side)<.9);
+  (hitAgeOf(side)>=0&&hitAgeOf(side)<.9)||
+  (R204_CASTER&&(r204Sample(r204CasterAction[side],seconds)?.weight||0)>.03);
  const ambientActs=livingCast.update(seconds,{
   busyPlayer:busy('player'),busyAi:busy('ai'),reduced});
  for(const line of livingCast.drainDialogue())
@@ -722,6 +760,14 @@ function updateDuelistHosts(seconds){
  for(const host of duelistHosts){
   const side=host.side,gesture=hostAction[side],strike=hostHits[side];
   const age=seconds-gesture.started,hitAge=seconds-strike.time;
+  const r204Action=R204_CASTER?r204CasterAction[side]:null;
+  const r204Cue=R204_CASTER?r204Sample(r204Action,seconds,{reducedMotion:reduced}):null;
+  if(r204Action&&r204Cue&&r204Action.phases.at(-1)!==r204Cue.phase){
+   r204Action.phases.push(r204Cue.phase);
+   if(r204Action.phases.length>16)r204Action.phases.shift();
+  }
+  const r204Owns=!!r204Cue&&(
+   r204Cue.phase!=='settled'||seconds-r204Action.started<3.1);
   const breath=Math.sin(seconds*1.18+(side==='player'?0:1.6));
   const glance=Math.sin(seconds*.52+(side==='player'?.4:2.1));
   const sign=side==='player'?1:-1;
@@ -737,10 +783,11 @@ function updateDuelistHosts(seconds){
   const victory=act.type==='dance'?Math.max(0,strength):0;
   const defeat=act.type==='defeat'?Math.max(0,strength):0;
   const ceremony=Math.max(victory,defeat);
-  const cardWeight=ceremony>.005?0:1;
+  const cardWeight=ceremony>.005||r204Owns?0:1;
   const doDraw=draw*cardWeight,doDisplay=display*cardWeight,
    doCast=cast*cardWeight,doFollow=follow*cardWeight;
-  const actionStrength=Math.max(doDraw,doDisplay,doCast,doFollow,recoil,ceremony);
+  const actionStrength=Math.max(doDraw,doDisplay,doCast,doFollow,
+   recoil,ceremony,r204Cue?.weight||0);
   const r134Idle=R134_HOST_IDLE_ENABLED?
    r134HostIdleBeat(host.id,seconds,{busy:actionStrength,reduced}):null;
   // R120 campus-comedy exaggeration. Irregular unique individual beats,
@@ -772,6 +819,15 @@ function updateDuelistHosts(seconds){
   host.pivot.rotation.z=sign*(-.12*doCast+.15*doFollow+.23*recoil-
     .095*victory+.24*defeat)+.011*glance+
     sign*(act.tilt||0)*idleBlend;
+  if(r204Cue&&r204Cue.weight>.005){
+   // Push the ENTIRE original high-definition source VRM into a readable
+   // full-body gesture. Real 2-bone IK below keeps elbows/wrists viable.
+   const genderAct=side==='player'?1:1.12;
+   host.pivot.position.x+=sign*.17*r204Cue.thrust*r204Cue.weight;
+   host.pivot.position.y+=r204Cue.hop*genderAct;
+   host.pivot.rotation.y+=sign*r204Cue.yaw*genderAct;
+   host.pivot.rotation.z+=sign*(-r204Cue.lean*genderAct);
+  }
   // Facial blink and the source VRM blendshapes remain animated independently.
   const lifeMood=arenaLife.read('host:'+side,seconds);
   // Winner/loser and attack states deform the actual original face mesh.
@@ -874,6 +930,59 @@ function updateDuelistHosts(seconds){
     targetOut[hand]=current.toArray();
    }
   }
+  if(r204Cue&&r204Cue.weight>.005){
+   // R204 replaces passive card show with expressive, card-specific
+   // WRIST positions solved on the actual original VRM skeleton.
+   for(const hand of ['R','L']){
+    const goal=new THREE.Vector3(...r204Cue.hands[hand]);
+    if(side==='ai'){
+     // Original male VRM: bigger right-arm snap, head still faces target.
+     goal.x+=hand==='R'?.065:-.035;
+     goal.y+=hand==='R'?.050:-.025;
+     goal.z-=hand==='R'?.055:.012;
+    }
+    const pose=new THREE.Vector3(...targetOut[hand]);
+    targetOut[hand]=pose.lerp(goal,Math.min(.96,r204Cue.weight)).toArray();
+   }
+   const head=host.bones.get('J_Bip_C_Head');
+   if(head)head.quaternion.multiply(
+    new THREE.Quaternion().setFromEuler(new THREE.Euler(
+      r204Cue.headPitch*.60,0,sign*r204Cue.yaw*.22)));
+   const chest=host.bones.get('J_Bip_C_Chest');
+   if(chest)chest.quaternion.multiply(
+    new THREE.Quaternion().setFromEuler(new THREE.Euler(
+      -r204Cue.lean*.28,0,-sign*r204Cue.lean*.25)));
+  }
+  if(r204Cue&&r204Cue.weight>.005){
+   // Real SOURCE VRM upper and lower arm bones supply the exact maximum
+   // geometric reach. A cinematic wrist target beyond this reach causes
+   // dislocated elbows and unnatural twists. Clamp to 88% of actual bone
+   // length in current shoulder-local space; keep the torso turn and hop
+   // for comedy instead of faking the last few centimeters of hand travel.
+   const scratch=r204ReachTemp,chest=host.bones.get('J_Bip_C_Chest');
+   host.pivot.updateWorldMatrix(true,true);
+   host.pivot.getWorldQuaternion(scratch.inv).invert();
+   chest.getWorldPosition(scratch.chest);
+   for(const hand of ['R','L']){
+    const pre='J_Bip_'+hand+'_';
+    const upper=host.bones.get(pre+'UpperArm');
+    const lower=host.bones.get(pre+'LowerArm');
+    const wrist=host.bones.get(pre+'Hand');
+    upper.getWorldPosition(scratch.upper);
+    lower.getWorldPosition(scratch.elbow);
+    wrist.getWorldPosition(scratch.wrist);
+    const length=scratch.upper.distanceTo(scratch.elbow)+
+     scratch.elbow.distanceTo(scratch.wrist);
+    scratch.shoulder.copy(scratch.upper).sub(scratch.chest)
+     .applyQuaternion(scratch.inv);
+    scratch.goal.fromArray(targetOut[hand]).sub(scratch.shoulder);
+    const limit=Math.max(.20,length*.88);
+    if(scratch.goal.lengthSq()>limit*limit){
+     scratch.goal.setLength(limit);
+     targetOut[hand]=scratch.goal.add(scratch.shoulder).toArray();
+    }
+   }
+  }
   host.pose.applyTargets(targetOut,VRM_HERO_POSES[host.id].pole);
   // Apply element-specific recoil only after the existing R120 body, face
   // and wrist choreography has solved. No changed camera or card timeline.
@@ -914,7 +1023,8 @@ function updateDuelistHosts(seconds){
    }
    // Physics-like slip keeps the original feet, original face morphs and IK.
   }
-  host.choreography={phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
+  host.choreography={phase:r204Cue&&r204Cue.weight>.04?
+    'r204-'+r204Cue.phase:victory>.1?'victory_jump':defeat>.1?'loss_despair':
     recoil>.1?'hit':doFollow>.22?'follow_through':doCast>.1?'cast':
     doDisplay>.1?'raise_card':doDraw>.1?'draw':idleBlend>.08?act.type:'idle',
     draw:+doDraw.toFixed(3),display:+doDisplay.toFixed(3),
@@ -923,6 +1033,13 @@ function updateDuelistHosts(seconds){
     hop:+(cardHop+winnerHop).toFixed(3),
     recoil:+recoil.toFixed(3),
     r202Hit:r202Kind,r202Intensity:+r202React.toFixed(3),
+    r204Caster:r204Cue?{phase:r204Cue.phase,style:r204Cue.kind,
+      id:r204Cue.styleId,serial:r204Cue.serial,preview:r204Cue.preview,
+      weight:r204Cue.weight,thrust:r204Cue.thrust,
+      anticipation:r204Cue.anticipation,celebration:r204Cue.celebration,
+      actualModelLaunched:r204Cue.actualModelLaunched,
+      handTargets:{R:targetOut.R.map(v=>+v.toFixed(3)),
+       L:targetOut.L.map(v=>+v.toFixed(3))}}:null,
     speaking:!!speaking,speechSerial:speaking?.serial??null,
     inspected:+inspectCard.toFixed(3),livingBeat:act.type,
     r134Idle:r134Idle?{story:r134Idle.story,
@@ -1215,6 +1332,7 @@ function onMessage(ev){
   hostHits.player={time:-100,damage:0};
   hostHits.ai={time:-100,damage:0};
   r202HostHit.player=null;r202HostHit.ai=null;
+  r204CasterAction.player=null;r204CasterAction.ai=null;
   return;
  }
  if(msg?.type==='ASDC_R100_REAL_COMBO'){
@@ -1303,6 +1421,10 @@ function onMessage(ev){
     card?.kind===msg.kind&&Number.isInteger(msg.serial)&&msg.serial>0;
   if(authorized){
    hostAction[msg.side]={started:absoluteSeconds,kind:msg.kind,id:msg.id};
+   if(R204_CASTER&&msg.kind==='spell'&&r204Style(msg.id)){
+    r204CasterAction[msg.side]={started:absoluteSeconds,id:msg.id,
+     serial:msg.serial,preview:false,releaseAt:null,hitAt:null,phases:[]};
+   }
    handCards?.show(msg.side,msg.id,msg.serial,absoluteSeconds);
    arenaLife.observe('card',{side:msg.side,at:absoluteSeconds,kind:msg.kind});
    livingCast.signal(msg.side,'card',absoluteSeconds);
@@ -1418,6 +1540,8 @@ function exposeQA(){
     independentFromSummons:!actors.some(unit=>unit.source===a.sourceRig),
     posture:inspectDuelistPosture(a),expression:a.face.inspect()}))},
   get duelistAction(){return structuredClone(hostAction)},
+  get r204Caster(){return {enabled:R204_CASTER,
+   actions:structuredClone(r204CasterAction)}},
   get realVoiceActing(){return {
    speakers:Object.fromEntries(Object.entries(hostSpeech).map(([side,speech])=>
     [side,speech?{id:speech.kind,serial:speech.serial,duration:speech.duration,
