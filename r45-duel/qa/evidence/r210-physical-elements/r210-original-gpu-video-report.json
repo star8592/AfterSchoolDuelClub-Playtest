@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "kind": "original real Chrome GPU video",
+  "silent": true,
+  "previewIsPresentationOnly": true,
+  "errors": [],
+  "groups": [
+    [
+      "E06",
+      "T05",
+      "K06"
+    ],
+    [
+      "S04",
+      "P07",
+      "Q05"
+    ],
+    [
+      "K03",
+      "G05",
+      "E05"
+    ],
+    [
+      "Q07",
+      "Q03",
+      "Q04"
+    ],
+    [
+      "S01",
+      "S07",
+      "K01"
+    ]
+  ],
+  "skipSeconds": 3.375,
+  "realS08": true,
+  "video": {
+    "path": "r45-duel/qa/evidence/r210-physical-elements/r210-15-elements-original-chrome-gpu-and-real-S08-silent.mp4",
+    "durationSeconds": 11.76,
+    "bytes": 720888
+  }
+}
