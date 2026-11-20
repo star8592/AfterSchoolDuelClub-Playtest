@@ -1,0 +1,286 @@
+{
+  "platform": "XPS 15 7590 Intel UHD630 / Chrome155 native CDP",
+  "cases": [
+    {
+      "name": "R214-c2",
+      "coldSceneReadySec": 59.77,
+      "renderer": "ANGLE (Intel, Mesa Intel(R) UHD Graphics 630 (CFL GT2), OpenGL ES 3.2)",
+      "vendor": "Google Inc. (Intel)",
+      "drawCallsBefore": 733,
+      "r214LoadProfile": {
+        "enabled": true,
+        "startedAt": 689.7999997138977,
+        "vrms": [
+          {
+            "id": "E01",
+            "file": "Shino-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 24844.1,
+            "validatedMs": 25034.5,
+            "bones": 148,
+            "skins": 67,
+            "vertices": 93633
+          },
+          {
+            "id": "G01",
+            "file": "Host-HairSample_Male-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 25059,
+            "validatedMs": 25287.1,
+            "bones": 91,
+            "skins": 131,
+            "vertices": 74574
+          },
+          {
+            "id": "E01",
+            "file": "Host-HairSample_Female-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 30999.9,
+            "validatedMs": 31255,
+            "bones": 119,
+            "skins": 124,
+            "vertices": 81204
+          },
+          {
+            "id": "G01",
+            "file": "Fumiriya-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 33806.5,
+            "validatedMs": 34281.5,
+            "bones": 107,
+            "skins": 102,
+            "vertices": 118644
+          }
+        ],
+        "summons": [
+          {
+            "id": "E02",
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+            "meshes": 17,
+            "totalMs": 11929
+          },
+          {
+            "id": "E04",
+            "file": "E04-Phil-Landing-R97.glb",
+            "meshes": 29,
+            "totalMs": 24574
+          },
+          {
+            "id": "E03",
+            "file": "E03-Ellie-Landing-R97.glb",
+            "meshes": 64,
+            "totalMs": 24643
+          },
+          {
+            "id": "G03",
+            "file": "G03-Jay-Landing-R97.glb",
+            "meshes": 40,
+            "totalMs": 33791
+          },
+          {
+            "id": "G04",
+            "file": "G04-Victoria-Landing-R97.glb",
+            "meshes": 34,
+            "totalMs": 42270
+          },
+          {
+            "id": "M01",
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+            "meshes": 10,
+            "totalMs": 42403
+          },
+          {
+            "id": "G02",
+            "file": "G02-Snow-Landing-R97.glb",
+            "meshes": 22,
+            "totalMs": 42415
+          },
+          {
+            "id": "M02",
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+            "meshes": 13,
+            "totalMs": 42597
+          },
+          {
+            "id": "T02",
+            "file": "T02-LivingMenu-R59.glb",
+            "meshes": 43,
+            "totalMs": 51817
+          },
+          {
+            "id": "T01",
+            "file": "T01-Owl-Innerscene-R84.glb",
+            "meshes": 129,
+            "totalMs": 53205
+          },
+          {
+            "id": "T03",
+            "file": "T03-Rain-Landing-R97.glb",
+            "meshes": 23,
+            "totalMs": 53272
+          },
+          {
+            "id": "T04",
+            "file": "T04-Rex-Landing-R97.glb",
+            "meshes": 38,
+            "totalMs": 53331
+          }
+        ],
+        "glbConcurrency": 2,
+        "finalAssets": 16,
+        "fullReadyMs": 53970,
+        "firstPaintMs": 58227
+      },
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 40.97,
+      "p95FrameIntervalMs": 50.1,
+      "p99FrameIntervalMs": 50.1,
+      "frameCount": 24,
+      "drawCallsAtEnd": 743,
+      "activeR210AtEnd": 0,
+      "activeR211AtEnd": 2,
+      "screenshot": "/tmp/asdc-xps-native-r214-c2.jpg"
+    },
+    {
+      "name": "R214-c4",
+      "coldSceneReadySec": 50.62,
+      "renderer": "ANGLE (Intel, Mesa Intel(R) UHD Graphics 630 (CFL GT2), OpenGL ES 3.2)",
+      "vendor": "Google Inc. (Intel)",
+      "drawCallsBefore": 733,
+      "r214LoadProfile": {
+        "enabled": true,
+        "startedAt": 2118.199999809265,
+        "vrms": [
+          {
+            "id": "G01",
+            "file": "Host-HairSample_Male-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 16973.3,
+            "validatedMs": 17177.2,
+            "bones": 91,
+            "skins": 131,
+            "vertices": 74574
+          },
+          {
+            "id": "E01",
+            "file": "Shino-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 17239.5,
+            "validatedMs": 17407.1,
+            "bones": 148,
+            "skins": 67,
+            "vertices": 93633
+          },
+          {
+            "id": "G01",
+            "file": "Fumiriya-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 17660.7,
+            "validatedMs": 18128.4,
+            "bones": 107,
+            "skins": 102,
+            "vertices": 118644
+          },
+          {
+            "id": "E01",
+            "file": "Host-HairSample_Female-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 18230.1,
+            "validatedMs": 18537,
+            "bones": 119,
+            "skins": 124,
+            "vertices": 81204
+          }
+        ],
+        "summons": [
+          {
+            "id": "E02",
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+            "meshes": 17,
+            "totalMs": 4170
+          },
+          {
+            "id": "E03",
+            "file": "E03-Ellie-Landing-R97.glb",
+            "meshes": 64,
+            "totalMs": 13040
+          },
+          {
+            "id": "E04",
+            "file": "E04-Phil-Landing-R97.glb",
+            "meshes": 29,
+            "totalMs": 16716
+          },
+          {
+            "id": "G03",
+            "file": "G03-Jay-Landing-R97.glb",
+            "meshes": 40,
+            "totalMs": 16919
+          },
+          {
+            "id": "M01",
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+            "meshes": 10,
+            "totalMs": 17418
+          },
+          {
+            "id": "G04",
+            "file": "G04-Victoria-Landing-R97.glb",
+            "meshes": 34,
+            "totalMs": 17459
+          },
+          {
+            "id": "M02",
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+            "meshes": 13,
+            "totalMs": 22984
+          },
+          {
+            "id": "T02",
+            "file": "T02-LivingMenu-R59.glb",
+            "meshes": 43,
+            "totalMs": 27400
+          },
+          {
+            "id": "G02",
+            "file": "G02-Snow-Landing-R97.glb",
+            "meshes": 22,
+            "totalMs": 34647
+          },
+          {
+            "id": "T04",
+            "file": "T04-Rex-Landing-R97.glb",
+            "meshes": 38,
+            "totalMs": 41825
+          },
+          {
+            "id": "T03",
+            "file": "T03-Rain-Landing-R97.glb",
+            "meshes": 23,
+            "totalMs": 41945
+          },
+          {
+            "id": "T01",
+            "file": "T01-Owl-Innerscene-R84.glb",
+            "meshes": 129,
+            "totalMs": 42424
+          }
+        ],
+        "glbConcurrency": 4,
+        "finalAssets": 16,
+        "fullReadyMs": 42906,
+        "firstPaintMs": 47602
+      },
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 47.22,
+      "p95FrameIntervalMs": 50.1,
+      "p99FrameIntervalMs": 50.1,
+      "frameCount": 24,
+      "drawCallsAtEnd": 743,
+      "activeR210AtEnd": 0,
+      "activeR211AtEnd": 2,
+      "screenshot": "/tmp/asdc-xps-native-r214-c4.jpg"
+    }
+  ],
+  "note": "One fresh XPS headless Chrome; 24-frame active FX sampling, --use-angle=gl --enable-unsafe-swiftshader, may use software fallback. Not certified GTX1650 frame time."
+}

@@ -349,6 +349,7 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   }finally{active--;pending.shift()?.();}
  }
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
+  const r214StartedAt=performance.now();
   const baseSpec=UNIT_MODEL_SPECS[id];
   const spec=id==='T02'&&isT02DuoStudy?
    {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:
@@ -405,7 +406,8 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   if(!meshes)throw Error('Empty GLB meshes for '+id);
   // Report only real, validated completed GLB loads. Never fabricate percent
   // based on elapsed time or relax the 12/12 identity readiness gate.
-  if(typeof onLoaded==='function')onLoaded({id,file:selectedFile,meshes});
+  if(typeof onLoaded==='function')onLoaded({id,file:selectedFile,meshes,
+    r214TotalMs:Math.round(performance.now()-r214StartedAt)});
   const scale=Math.min(spec.targetHeight/size.y,
    spec.maxWidth?spec.maxWidth/size.x:Infinity,
    spec.maxDepth?spec.maxDepth/size.z:Infinity);

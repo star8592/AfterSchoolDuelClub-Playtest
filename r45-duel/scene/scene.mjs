@@ -99,6 +99,22 @@ const HOST_MODEL_SPECS=[
   minBones:80,minSkins:2,host:true}
 ];
 const TOTAL_REAL_ASSETS=16;
+// R214: QA-only per-model load timings and bounded experiment concurrency.
+// Never changes original model quality, identity gate, or production default.
+const R214_QA_LOAD=R131_IS_QA();
+const r214LoadProfile={enabled:R214_QA_LOAD,
+ startedAt:performance.now(),vrms:[],summons:[],glbConcurrency:0,
+ finalAssets:0,fullReadyMs:null,firstPaintMs:null};
+function r214QaGlbConcurrency(){
+ if(!R214_QA_LOAD)return null;
+ let raw=PARAMS.get('r214Concurrency');
+ if(!raw)try{if(window.parent!==window)
+  raw=new URLSearchParams(window.parent.location.search).get('r214Concurrency')}
+ catch{}
+ const n=Number(raw);
+ return [1,2,3,4,5,6].includes(n)?n:null;
+}
+
 const loadingStartedAt=performance.now();
 window.__ASDC_LOAD_METRICS={modelsVerified:0,modelReadyMs:null,firstFrameReadyMs:null,downloadedBytes:0,knownTotalBytes:0};
 const PHASES={idle:'人物就位',approach:'双方接近',windup:'蓄力',strike:'我方攻击',
@@ -678,8 +694,10 @@ function styleHostAvatar(source,id){
 }
 async function loadActor(spec,idx,onTransfer){
  const url=r125VersionedAssetURL(new URL('../assets/model/'+spec.source,location.href)).href;
+ const r214LoadStarted=performance.now();
  const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(
   url,event=>onTransfer?.(url,event));
+ const r214SourceLoaded=performance.now();
  const original=gltf.scene;
  const faceExpressions=extractVrm0Expressions(gltf);
  const {m,skins,bones,vertices}=indexBones(original);
@@ -701,6 +719,12 @@ async function loadActor(spec,idx,onTransfer){
  const actor={id:spec.id,name:spec.name,source:spec.source,model:original,
   pivot,character,bones:m,base,skins,boneCount:bones,triangles:Math.round(vertices/3),style,
   restX:idx===0?-1.75:1.75,side:idx===0?'left':'right',faceExpressions};
+ if(R214_QA_LOAD)r214LoadProfile.vrms.push({
+  id:spec.id,file:spec.source,host:!!spec.host,
+  fetchDecodeMs:+(r214SourceLoaded-r214LoadStarted).toFixed(1),
+  validatedMs:+(performance.now()-r214LoadStarted).toFixed(1),
+  bones,skins,vertices
+ });
  return actor;
 }
 function stageText(phase,details){
@@ -1667,6 +1691,7 @@ function exposeQA(){
   get frameCount(){return frames},
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
+  get r214LoadProfile(){return R214_QA_LOAD?{...r214LoadProfile}:null},
   get r212StadiumBatch(){return {
    enabled:R212_STATIC_BATCH,
    stats:r212StadiumBatch?.report||null
@@ -1790,7 +1815,9 @@ try{
  // Full readiness is still gated on every actual model, not a synthetic %.
  const connection=navigator.connection;
  const slowNetwork=connection?.saveData||/2g/.test(connection?.effectiveType||'');
- const glbConcurrency=slowNetwork?2:matchMedia('(pointer:coarse)').matches?3:4;
+ const glbConcurrency=r214QaGlbConcurrency()??
+  (slowNetwork?2:matchMedia('(pointer:coarse)').matches?3:4);
+ r214LoadProfile.glbConcurrency=glbConcurrency;
  const [loadedActors,loadedHosts,loadedSummons]=await Promise.all([
   Promise.all(MODEL_SPECS.map(async(spec,idx)=>{
    const actor=await loadActor(spec,idx,updateTransferProgress);
@@ -1804,7 +1831,11 @@ try{
   })),
   preloadSummonModels(THREE,new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),{
    concurrency:glbConcurrency,
-   onLoaded:({id})=>verifiedModelLoaded('GLB:'+id),
+   onLoaded:({id,file,meshes,r214TotalMs})=>{
+    if(R214_QA_LOAD)r214LoadProfile.summons.push({id,file,meshes,
+      totalMs:r214TotalMs});
+    verifiedModelLoaded('GLB:'+id);
+   },
    onTransfer:updateTransferProgress
   })
  ]);
@@ -1834,6 +1865,8 @@ try{
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
  window.__ASDC_LOAD_METRICS.modelReadyMs=Math.round(performance.now()-loadingStartedAt);
+ r214LoadProfile.fullReadyMs=Math.round(performance.now()-r214LoadProfile.startedAt);
+ r214LoadProfile.finalAssets=loadedRealResources;
  const download=$('load-download');
  if(download)download.textContent='所有角色已下载，正在完成三维场景渲染';
  const paintStage=$('load-step');
@@ -1853,6 +1886,7 @@ try{
   warmupFrames++;
  } while((performance.now()-warmupStarted<(PARAMS.has('qa')||navigator.webdriver?850:320)||warmupFrames<7)&&warmupFrames<95);
  window.__ASDC_LOAD_METRICS.firstFrameReadyMs=Math.round(performance.now()-loadingStartedAt);
+ r214LoadProfile.firstPaintMs=Math.round(performance.now()-r214LoadProfile.startedAt);
  clearTimeout(slowLoadTimer);
  const slowHintOnReady=$('load-slow');
  if(slowHintOnReady)slowHintOnReady.hidden=true;
