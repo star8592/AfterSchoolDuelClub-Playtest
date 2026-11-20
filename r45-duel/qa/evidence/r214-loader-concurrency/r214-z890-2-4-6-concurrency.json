@@ -1,0 +1,671 @@
+{
+  "ok": true,
+  "device": "Z890 RTX5070Ti / Chrome",
+  "note": "Each case new incognito context within same browser; small one-run samples are not enough to choose production default",
+  "cases": [
+    {
+      "limit": 2,
+      "sceneReadyWallMs": 2816,
+      "profile": {
+        "enabled": true,
+        "startedAt": 246.90000000596046,
+        "vrms": [
+          {
+            "id": "E01",
+            "file": "Shino-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 430.1,
+            "validatedMs": 485,
+            "bones": 148,
+            "skins": 67,
+            "vertices": 93633
+          },
+          {
+            "id": "G01",
+            "file": "Fumiriya-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 590.5,
+            "validatedMs": 705.5,
+            "bones": 107,
+            "skins": 102,
+            "vertices": 118644
+          },
+          {
+            "id": "G01",
+            "file": "Host-HairSample_Male-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 722.4,
+            "validatedMs": 788,
+            "bones": 91,
+            "skins": 131,
+            "vertices": 74574
+          },
+          {
+            "id": "E01",
+            "file": "Host-HairSample_Female-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 796.8,
+            "validatedMs": 873.3,
+            "bones": 119,
+            "skins": 124,
+            "vertices": 81204
+          }
+        ],
+        "summons": [
+          {
+            "id": "E03",
+            "file": "E03-Ellie-Landing-R97.glb",
+            "meshes": 64,
+            "totalMs": 273
+          },
+          {
+            "id": "E04",
+            "file": "E04-Phil-Landing-R97.glb",
+            "meshes": 29,
+            "totalMs": 310
+          },
+          {
+            "id": "E02",
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+            "meshes": 17,
+            "totalMs": 330
+          },
+          {
+            "id": "G03",
+            "file": "G03-Jay-Landing-R97.glb",
+            "meshes": 40,
+            "totalMs": 893
+          },
+          {
+            "id": "G04",
+            "file": "G04-Victoria-Landing-R97.glb",
+            "meshes": 34,
+            "totalMs": 953
+          },
+          {
+            "id": "M01",
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+            "meshes": 10,
+            "totalMs": 975
+          },
+          {
+            "id": "G02",
+            "file": "G02-Snow-Landing-R97.glb",
+            "meshes": 22,
+            "totalMs": 993
+          },
+          {
+            "id": "M02",
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+            "meshes": 13,
+            "totalMs": 1102
+          },
+          {
+            "id": "T02",
+            "file": "T02-LivingMenu-R59.glb",
+            "meshes": 43,
+            "totalMs": 1173
+          },
+          {
+            "id": "T01",
+            "file": "T01-Owl-Innerscene-R84.glb",
+            "meshes": 129,
+            "totalMs": 1288
+          },
+          {
+            "id": "T04",
+            "file": "T04-Rex-Landing-R97.glb",
+            "meshes": 38,
+            "totalMs": 1341
+          },
+          {
+            "id": "T03",
+            "file": "T03-Rain-Landing-R97.glb",
+            "meshes": 23,
+            "totalMs": 1384
+          }
+        ],
+        "glbConcurrency": 2,
+        "finalAssets": 16,
+        "fullReadyMs": 1517,
+        "firstPaintMs": 2525
+      },
+      "load": {
+        "modelsVerified": 16,
+        "modelReadyMs": 1517,
+        "firstFrameReadyMs": 2525,
+        "downloadedBytes": 75569762,
+        "knownTotalBytes": 75569762
+      },
+      "drawCalls": 649,
+      "roles": [
+        "E01",
+        "G01"
+      ],
+      "audience": 8,
+      "slowestNetwork": [
+        {
+          "name": "G03-Jay-Landing-R97.glb.gz",
+          "durationMs": 187,
+          "transferSize": 2974549
+        },
+        {
+          "name": "Fumiriya-original-CC0.vrm",
+          "durationMs": 129,
+          "transferSize": 8469428
+        },
+        {
+          "name": "Host-HairSample_Male-CC0.vrm",
+          "durationMs": 106,
+          "transferSize": 7919184
+        },
+        {
+          "name": "G02-Snow-Landing-R97.glb.gz",
+          "durationMs": 95,
+          "transferSize": 7426596
+        },
+        {
+          "name": "Host-HairSample_Female-CC0.vrm",
+          "durationMs": 85,
+          "transferSize": 7666136
+        },
+        {
+          "name": "Shino-original-CC0.vrm",
+          "durationMs": 68,
+          "transferSize": 6613312
+        },
+        {
+          "name": "E03-Ellie-Landing-R97.glb.gz",
+          "durationMs": 48,
+          "transferSize": 3934580
+        },
+        {
+          "name": "T01-Owl-Innerscene-R84.glb.gz",
+          "durationMs": 42,
+          "transferSize": 11755766
+        }
+      ],
+      "slowestModelLoads": [
+        {
+          "id": "T03",
+          "file": "T03-Rain-Landing-R97.glb",
+          "meshes": 23,
+          "totalMs": 1384
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-Landing-R97.glb",
+          "meshes": 38,
+          "totalMs": 1341
+        },
+        {
+          "id": "T01",
+          "file": "T01-Owl-Innerscene-R84.glb",
+          "meshes": 129,
+          "totalMs": 1288
+        },
+        {
+          "id": "T02",
+          "file": "T02-LivingMenu-R59.glb",
+          "meshes": 43,
+          "totalMs": 1173
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "totalMs": 1102
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-Landing-R97.glb",
+          "meshes": 22,
+          "totalMs": 993
+        }
+      ]
+    },
+    {
+      "limit": 4,
+      "sceneReadyWallMs": 2429,
+      "profile": {
+        "enabled": true,
+        "startedAt": 83.70000000298023,
+        "vrms": [
+          {
+            "id": "E01",
+            "file": "Host-HairSample_Female-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 610.7,
+            "validatedMs": 686.9,
+            "bones": 119,
+            "skins": 124,
+            "vertices": 81204
+          },
+          {
+            "id": "G01",
+            "file": "Fumiriya-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 696.1,
+            "validatedMs": 816.8,
+            "bones": 107,
+            "skins": 102,
+            "vertices": 118644
+          },
+          {
+            "id": "G01",
+            "file": "Host-HairSample_Male-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 833.8,
+            "validatedMs": 901.4,
+            "bones": 91,
+            "skins": 131,
+            "vertices": 74574
+          },
+          {
+            "id": "E01",
+            "file": "Shino-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 933.4,
+            "validatedMs": 987.1,
+            "bones": 148,
+            "skins": 67,
+            "vertices": 93633
+          }
+        ],
+        "summons": [
+          {
+            "id": "E04",
+            "file": "E04-Phil-Landing-R97.glb",
+            "meshes": 29,
+            "totalMs": 184
+          },
+          {
+            "id": "E03",
+            "file": "E03-Ellie-Landing-R97.glb",
+            "meshes": 64,
+            "totalMs": 208
+          },
+          {
+            "id": "G03",
+            "file": "G03-Jay-Landing-R97.glb",
+            "meshes": 40,
+            "totalMs": 449
+          },
+          {
+            "id": "G04",
+            "file": "G04-Victoria-Landing-R97.glb",
+            "meshes": 34,
+            "totalMs": 470
+          },
+          {
+            "id": "E02",
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+            "meshes": 17,
+            "totalMs": 496
+          },
+          {
+            "id": "M01",
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+            "meshes": 10,
+            "totalMs": 528
+          },
+          {
+            "id": "G02",
+            "file": "G02-Snow-Landing-R97.glb",
+            "meshes": 22,
+            "totalMs": 1076
+          },
+          {
+            "id": "M02",
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+            "meshes": 13,
+            "totalMs": 1141
+          },
+          {
+            "id": "T02",
+            "file": "T02-LivingMenu-R59.glb",
+            "meshes": 43,
+            "totalMs": 1196
+          },
+          {
+            "id": "T04",
+            "file": "T04-Rex-Landing-R97.glb",
+            "meshes": 38,
+            "totalMs": 1222
+          },
+          {
+            "id": "T01",
+            "file": "T01-Owl-Innerscene-R84.glb",
+            "meshes": 129,
+            "totalMs": 1324
+          },
+          {
+            "id": "T03",
+            "file": "T03-Rain-Landing-R97.glb",
+            "meshes": 23,
+            "totalMs": 1354
+          }
+        ],
+        "glbConcurrency": 4,
+        "finalAssets": 16,
+        "fullReadyMs": 1448,
+        "firstPaintMs": 2303
+      },
+      "load": {
+        "modelsVerified": 16,
+        "modelReadyMs": 1448,
+        "firstFrameReadyMs": 2303,
+        "downloadedBytes": 75569762,
+        "knownTotalBytes": 75569762
+      },
+      "drawCalls": 649,
+      "roles": [
+        "E01",
+        "G01"
+      ],
+      "audience": 8,
+      "slowestNetwork": [
+        {
+          "name": "T01-Owl-Innerscene-R84.glb.gz",
+          "durationMs": 533,
+          "transferSize": 11755766
+        },
+        {
+          "name": "G02-Snow-Landing-R97.glb.gz",
+          "durationMs": 325,
+          "transferSize": 7426596
+        },
+        {
+          "name": "Shino-original-CC0.vrm",
+          "durationMs": 212,
+          "transferSize": 6613312
+        },
+        {
+          "name": "G04-Victoria-Landing-R97.glb.gz",
+          "durationMs": 170,
+          "transferSize": 4242548
+        },
+        {
+          "name": "G03-Jay-Landing-R97.glb.gz",
+          "durationMs": 169,
+          "transferSize": 2974549
+        },
+        {
+          "name": "Host-HairSample_Male-CC0.vrm",
+          "durationMs": 141,
+          "transferSize": 7919184
+        },
+        {
+          "name": "Fumiriya-original-CC0.vrm",
+          "durationMs": 116,
+          "transferSize": 8469428
+        },
+        {
+          "name": "Host-HairSample_Female-CC0.vrm",
+          "durationMs": 92,
+          "transferSize": 7666136
+        }
+      ],
+      "slowestModelLoads": [
+        {
+          "id": "T03",
+          "file": "T03-Rain-Landing-R97.glb",
+          "meshes": 23,
+          "totalMs": 1354
+        },
+        {
+          "id": "T01",
+          "file": "T01-Owl-Innerscene-R84.glb",
+          "meshes": 129,
+          "totalMs": 1324
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-Landing-R97.glb",
+          "meshes": 38,
+          "totalMs": 1222
+        },
+        {
+          "id": "T02",
+          "file": "T02-LivingMenu-R59.glb",
+          "meshes": 43,
+          "totalMs": 1196
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "totalMs": 1141
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-Landing-R97.glb",
+          "meshes": 22,
+          "totalMs": 1076
+        }
+      ]
+    },
+    {
+      "limit": 6,
+      "sceneReadyWallMs": 2420,
+      "profile": {
+        "enabled": true,
+        "startedAt": 84.5,
+        "vrms": [
+          {
+            "id": "E01",
+            "file": "Host-HairSample_Female-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 625.6,
+            "validatedMs": 701.1,
+            "bones": 119,
+            "skins": 124,
+            "vertices": 81204
+          },
+          {
+            "id": "G01",
+            "file": "Fumiriya-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 817.6,
+            "validatedMs": 936.1,
+            "bones": 107,
+            "skins": 102,
+            "vertices": 118644
+          },
+          {
+            "id": "G01",
+            "file": "Host-HairSample_Male-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 945,
+            "validatedMs": 1010.7,
+            "bones": 91,
+            "skins": 131,
+            "vertices": 74574
+          },
+          {
+            "id": "E01",
+            "file": "Shino-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 1105,
+            "validatedMs": 1157.6,
+            "bones": 148,
+            "skins": 67,
+            "vertices": 93633
+          }
+        ],
+        "summons": [
+          {
+            "id": "E04",
+            "file": "E04-Phil-Landing-R97.glb",
+            "meshes": 29,
+            "totalMs": 187
+          },
+          {
+            "id": "E03",
+            "file": "E03-Ellie-Landing-R97.glb",
+            "meshes": 64,
+            "totalMs": 210
+          },
+          {
+            "id": "G03",
+            "file": "G03-Jay-Landing-R97.glb",
+            "meshes": 40,
+            "totalMs": 464
+          },
+          {
+            "id": "M01",
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+            "meshes": 10,
+            "totalMs": 471
+          },
+          {
+            "id": "G04",
+            "file": "G04-Victoria-Landing-R97.glb",
+            "meshes": 34,
+            "totalMs": 504
+          },
+          {
+            "id": "E02",
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+            "meshes": 17,
+            "totalMs": 541
+          },
+          {
+            "id": "T04",
+            "file": "T04-Rex-Landing-R97.glb",
+            "meshes": 38,
+            "totalMs": 1185
+          },
+          {
+            "id": "M02",
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+            "meshes": 13,
+            "totalMs": 1198
+          },
+          {
+            "id": "T02",
+            "file": "T02-LivingMenu-R59.glb",
+            "meshes": 43,
+            "totalMs": 1207
+          },
+          {
+            "id": "G02",
+            "file": "G02-Snow-Landing-R97.glb",
+            "meshes": 22,
+            "totalMs": 1259
+          },
+          {
+            "id": "T03",
+            "file": "T03-Rain-Landing-R97.glb",
+            "meshes": 23,
+            "totalMs": 1296
+          },
+          {
+            "id": "T01",
+            "file": "T01-Owl-Innerscene-R84.glb",
+            "meshes": 129,
+            "totalMs": 1329
+          }
+        ],
+        "glbConcurrency": 6,
+        "finalAssets": 16,
+        "fullReadyMs": 1424,
+        "firstPaintMs": 2288
+      },
+      "load": {
+        "modelsVerified": 16,
+        "modelReadyMs": 1424,
+        "firstFrameReadyMs": 2288,
+        "downloadedBytes": 75569762,
+        "knownTotalBytes": 75569762
+      },
+      "drawCalls": 649,
+      "roles": [
+        "E01",
+        "G01"
+      ],
+      "audience": 8,
+      "slowestNetwork": [
+        {
+          "name": "G02-Snow-Landing-R97.glb.gz",
+          "durationMs": 351,
+          "transferSize": 7426596
+        },
+        {
+          "name": "G04-Victoria-Landing-R97.glb.gz",
+          "durationMs": 340,
+          "transferSize": 4242548
+        },
+        {
+          "name": "G03-Jay-Landing-R97.glb.gz",
+          "durationMs": 302,
+          "transferSize": 2974549
+        },
+        {
+          "name": "T04-Rex-Landing-R97.glb.gz",
+          "durationMs": 240,
+          "transferSize": 3543011
+        },
+        {
+          "name": "Shino-original-CC0.vrm",
+          "durationMs": 214,
+          "transferSize": 6613312
+        },
+        {
+          "name": "Host-HairSample_Male-CC0.vrm",
+          "durationMs": 144,
+          "transferSize": 7919184
+        },
+        {
+          "name": "T01-Owl-Innerscene-R84.glb.gz",
+          "durationMs": 112,
+          "transferSize": 11755766
+        },
+        {
+          "name": "Fumiriya-original-CC0.vrm",
+          "durationMs": 110,
+          "transferSize": 8469428
+        }
+      ],
+      "slowestModelLoads": [
+        {
+          "id": "T01",
+          "file": "T01-Owl-Innerscene-R84.glb",
+          "meshes": 129,
+          "totalMs": 1329
+        },
+        {
+          "id": "T03",
+          "file": "T03-Rain-Landing-R97.glb",
+          "meshes": 23,
+          "totalMs": 1296
+        },
+        {
+          "id": "G02",
+          "file": "G02-Snow-Landing-R97.glb",
+          "meshes": 22,
+          "totalMs": 1259
+        },
+        {
+          "id": "T02",
+          "file": "T02-LivingMenu-R59.glb",
+          "meshes": 43,
+          "totalMs": 1207
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "totalMs": 1198
+        },
+        {
+          "id": "T04",
+          "file": "T04-Rex-Landing-R97.glb",
+          "meshes": 38,
+          "totalMs": 1185
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
