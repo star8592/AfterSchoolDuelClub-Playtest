@@ -1,0 +1,118 @@
+diff --git a/r45-duel/scene/scene.mjs b/r45-duel/scene/scene.mjs
+index 53e3f8e..c015828 100644
+--- a/r45-duel/scene/scene.mjs
++++ b/r45-duel/scene/scene.mjs
+@@ -103,6 +103,11 @@ const TOTAL_REAL_ASSETS=16;
+ // R214: QA-only per-model load timings and bounded experiment concurrency.
+ // Never changes original model quality, identity gate, or production default.
+ const R214_QA_LOAD=R131_IS_QA();
++// R217 memory-risky 6-download speculative pipeline is QA desktop only.
++// Strictly opt-in, automatically off for production and small memory devices.
++const R217_PREFETCH=R131_IS_QA()&&r200Flag('r217Prefetch')&&
++ !matchMedia('(pointer:coarse)').matches;
++
+ const r214LoadProfile={enabled:R214_QA_LOAD,
+  startedAt:performance.now(),vrms:[],summons:[],glbConcurrency:0,
+  finalAssets:0,fullReadyMs:null,firstPaintMs:null};
+@@ -1706,6 +1711,10 @@ function exposeQA(){
+    }))
+   }},
+   get r214LoadProfile(){return R214_QA_LOAD?{...r214LoadProfile}:null},
++  get r217Prefetch(){return {
++   enabled:R217_PREFETCH,fetchConcurrency:R217_PREFETCH?6:0,
++   productionDefault:false
++  }},
+   get r216LoadStages(){return r216Trace.enabled?{
+    ...r216Trace,network:performance.getEntriesByType('resource')
+     .filter(e=>/\/assets\/(model|summons)\//.test(e.name))
+@@ -1862,7 +1871,8 @@ try{
+     verifiedModelLoaded('GLB:'+id);
+    },
+    onTransfer:updateTransferProgress,
+-   onStage:r216Trace.enabled?stage=>r216Trace.summons.push(stage):undefined
++   onStage:r216Trace.enabled?stage=>r216Trace.summons.push(stage):undefined,
++   prefetchConcurrency:R217_PREFETCH?6:0
+   })
+  ]);
+  actors=loadedActors;
+diff --git a/r45-duel/scene/summon-models.mjs b/r45-duel/scene/summon-models.mjs
+index b8723da..60e2a11 100644
+--- a/r45-duel/scene/summon-models.mjs
++++ b/r45-duel/scene/summon-models.mjs
+@@ -296,13 +296,18 @@ function r124PackedDisabled(){
+  return forced;
+ }
+ export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
+-export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,onStage,concurrency=4}={}){
++export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,onStage,concurrency=4,prefetchConcurrency=0}={}){
+  // Bound GLB requests and parser work instead of firing 12 large models at once.
+  // Keep the original full 12/12 readiness and per-model validation contract.
+  const limit=Math.max(1,Math.min(12,Math.floor(Number(concurrency))||4));
+  let active=0;
+  const pending=[];
+- async function loadPacked(url,trace){
++ // R217 opt-in: overlap bounded compressed-network fetch with the existing
++ // four-slot GLTF parse queue. Never default-on or used on non-QA players.
++ const fetchLimit=Math.max(0,Math.min(6,Math.floor(prefetchConcurrency)||0));
++ let fetchActive=0;
++ const fetchPending=[];
++ async function fetchAndInflate(url,trace){
+   // Put .gz before the version query, never after ?v=<digest>.
+   const candidate=new URL(url);
+   candidate.pathname += '.gz';
+@@ -346,12 +351,29 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,onSt
+   }
+   if(new DataView(buffer).getUint32(0,false)!==0x676c5446)
+    throw Error('R124 packed file did not decode to a genuine glTF binary '+packedUrl);
++  return buffer;
++ }
++ async function prefetchGzip(url,trace){
++  const queued=performance.now();
++  if(fetchActive>=fetchLimit)await new Promise(resolve=>fetchPending.push(resolve));
++  fetchActive++;
++  if(trace)trace.prefetchQueueMs=+(performance.now()-queued).toFixed(1);
++  try{return await fetchAndInflate(url,trace)}
++  finally{fetchActive--;fetchPending.shift()?.();}
++ }
++ async function loadPacked(url,trace,early){
++  let buffer;
++  if(early){
++   const result=await early;
++   if(result.error)throw result.error;
++   buffer=result.buffer;
++  }else buffer=await fetchAndInflate(url,trace);
+   const parseStart=performance.now();
+   const gltf=await loader.parseAsync(buffer,new URL('.',url).href);
+   if(trace)trace.gltfParseMs=+(performance.now()-parseStart).toFixed(1);
+   return gltf;
+  }
+- async function loadBounded(url,selectedFile,trace){
++ async function loadBounded(url,selectedFile,trace,early){
+   const waitStart=performance.now();
+   if(active>=limit)await new Promise(resolve=>pending.push(resolve));
+   if(trace)trace.queueWaitMs=+(performance.now()-waitStart).toFixed(1);
+@@ -361,7 +383,7 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,onSt
+    if(R124_PACKED_SET.has(selectedFile)&&typeof DecompressionStream==='function'&&
+       !r124PackedDisabled()){
+     if(trace)trace.mode='gzip+GLTFLoader.parseAsync';
+-    return await loadPacked(url,trace);
++    return await loadPacked(url,trace,early);
+    }
+    if(trace)trace.mode='raw+GLTFLoader.loadAsync';
+    const gltf=await loader.loadAsync(url,event=>onTransfer?.(url,event));
+@@ -419,7 +441,14 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,onSt
+    id==='G03'&&isG03R86Study?'G03-Jay-Skinned-R86.glb':spec.file;
+   const url=new URL('../assets/summons/'+selectedFile,import.meta.url);
+   const r216Trace=typeof onStage==='function'?{id,file:selectedFile}:null;
+-  const gltf=await loadBounded(url.href,selectedFile,r216Trace);
++  // Resolve every source before waiting for the parse queue. Fetches start
++  // with bounded concurrency; completed buffers are private to each request.
++  // Rejections are turned into results immediately to avoid unhandled promises
++  // while the ordered parse queue is still processing earlier models.
++  const early=fetchLimit&&R124_PACKED_SET.has(selectedFile)&&
++   typeof DecompressionStream==='function'&&!r124PackedDisabled()?
++   prefetchGzip(url.href,r216Trace).then(buffer=>({buffer}),error=>({error})):null;
++  const gltf=await loadBounded(url.href,selectedFile,r216Trace,early);
+   const r216ParsedAt=performance.now();
+   const source=gltf.scene;
+   source.updateMatrixWorld(true);
