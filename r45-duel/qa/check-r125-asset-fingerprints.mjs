@@ -15,7 +15,7 @@ for(const [path,sha] of rows){
  if(!path.startsWith('model/')&&!path.endsWith('.glb.gz'))failed.push('unrecognized manifest path '+path);
  total+=bytes.length;
 }
-const result={passed:failed.length===0&&rows.length===16,assets:rows.length,
+const result={passed:failed.length===0&&rows.length===20,assets:rows.length,
  modelCount:rows.filter(([k])=>k.startsWith('model/')).length,
  packCount:rows.filter(([k])=>k.startsWith('summons/')).length,
  byteCount:total,MiB:+(total/1048576).toFixed(2),errors:failed};

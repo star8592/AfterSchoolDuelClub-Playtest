@@ -1,0 +1,108 @@
+{
+  "platform": "XPS 15 7590 Intel UHD630 / Chrome155 native CDP",
+  "cases": [
+    {
+      "name": "R213-original",
+      "coldSceneReadySec": 66.12,
+      "renderer": "ANGLE (Intel, Mesa Intel(R) UHD Graphics 630 (CFL GT2), OpenGL ES 3.2)",
+      "vendor": "Google Inc. (Intel)",
+      "drawCallsBefore": 733,
+      "r213ThumbLite": {
+        "enabled": false,
+        "loadedModels": 4,
+        "verifiedSources": [
+          {
+            "id": "E01",
+            "original": "Shino-original-CC0.vrm",
+            "transport": "Shino-original-CC0.vrm",
+            "bones": 148,
+            "skins": 67
+          },
+          {
+            "id": "G01",
+            "original": "Fumiriya-original-CC0.vrm",
+            "transport": "Fumiriya-original-CC0.vrm",
+            "bones": 107,
+            "skins": 102
+          },
+          {
+            "id": "E01",
+            "original": "Host-HairSample_Female-CC0.vrm",
+            "transport": "Host-HairSample_Female-CC0.vrm",
+            "bones": 119,
+            "skins": 124
+          },
+          {
+            "id": "G01",
+            "original": "Host-HairSample_Male-CC0.vrm",
+            "transport": "Host-HairSample_Male-CC0.vrm",
+            "bones": 91,
+            "skins": 131
+          }
+        ]
+      },
+      "assetTransferBytes": 75569762,
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 48.61,
+      "p95FrameIntervalMs": 50.1,
+      "p99FrameIntervalMs": 66.7,
+      "frameCount": 24,
+      "drawCallsAtEnd": 743,
+      "activeR210AtEnd": 0,
+      "activeR211AtEnd": 2,
+      "screenshot": "/tmp/asdc-xps-native-r213-original.jpg"
+    },
+    {
+      "name": "R213-thumb",
+      "coldSceneReadySec": 53.84,
+      "renderer": "ANGLE (Intel, Mesa Intel(R) UHD Graphics 630 (CFL GT2), OpenGL ES 3.2)",
+      "vendor": "Google Inc. (Intel)",
+      "drawCallsBefore": 733,
+      "r213ThumbLite": {
+        "enabled": true,
+        "loadedModels": 4,
+        "verifiedSources": [
+          {
+            "id": "E01",
+            "original": "Shino-original-CC0.vrm",
+            "transport": "Shino-original-CC0-R213-ThumbLite.vrm",
+            "bones": 148,
+            "skins": 67
+          },
+          {
+            "id": "G01",
+            "original": "Fumiriya-original-CC0.vrm",
+            "transport": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+            "bones": 107,
+            "skins": 102
+          },
+          {
+            "id": "E01",
+            "original": "Host-HairSample_Female-CC0.vrm",
+            "transport": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+            "bones": 119,
+            "skins": 124
+          },
+          {
+            "id": "G01",
+            "original": "Host-HairSample_Male-CC0.vrm",
+            "transport": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+            "bones": 91,
+            "skins": 131
+          }
+        ]
+      },
+      "assetTransferBytes": 70447094,
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 48.61,
+      "p95FrameIntervalMs": 50.1,
+      "p99FrameIntervalMs": 66.6,
+      "frameCount": 24,
+      "drawCallsAtEnd": 743,
+      "activeR210AtEnd": 0,
+      "activeR211AtEnd": 2,
+      "screenshot": "/tmp/asdc-xps-native-r213-thumb.jpg"
+    }
+  ],
+  "note": "One fresh XPS headless Chrome; 24-frame active FX sampling, --use-angle=gl --enable-unsafe-swiftshader, may use software fallback. Not certified GTX1650 frame time."
+}

@@ -69,6 +69,7 @@ const R204_CASTER=R199_PHYSICAL_MAGIC&&r200Flag('r204Caster');
 // Opt-in R210: the R199 original source-GLB stage stays; its physical
 // impact gains 15 real-material signatures instead of stacked halo systems.
 const R210_PHYSICAL_ELEMENTS=R199_PHYSICAL_MAGIC&&r200Flag('r210Elements');
+const R213_THUMBLITE=r200Flag('r213ThumbLite'); // isolated original-VRM metadata-only trial
 const R212_STATIC_BATCH=R210_PHYSICAL_ELEMENTS&&r200Flag('r212StadiumBatch');
 // Isolated visual experiment: replace just 3 high-quality contact effects.
 const R211_CINEMATIC_VFX=R210_PHYSICAL_ELEMENTS&&r200Flag('r211CinematicVfx');
@@ -677,7 +678,9 @@ function styleHostAvatar(source,id){
  return{recolored,accessories:0,palette};
 }
 async function loadActor(spec,idx,onTransfer){
- const url=r125VersionedAssetURL(new URL('../assets/model/'+spec.source,location.href)).href;
+ const transportFile=R213_THUMBLITE?
+  spec.source.replace(/\.vrm$/,'-R213-ThumbLite.vrm'):spec.source;
+ const url=r125VersionedAssetURL(new URL('../assets/model/'+transportFile,location.href)).href;
  const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(
   url,event=>onTransfer?.(url,event));
  const original=gltf.scene;
@@ -700,7 +703,7 @@ async function loadActor(spec,idx,onTransfer){
  // and mesh identity; do not replace character geometry with generic proxy.
  const actor={id:spec.id,name:spec.name,source:spec.source,model:original,
   pivot,character,bones:m,base,skins,boneCount:bones,triangles:Math.round(vertices/3),style,
-  restX:idx===0?-1.75:1.75,side:idx===0?'left':'right',faceExpressions};
+  transportFile,restX:idx===0?-1.75:1.75,side:idx===0?'left':'right',faceExpressions};
  return actor;
 }
 function stageText(phase,details){
@@ -1667,6 +1670,14 @@ function exposeQA(){
   get frameCount(){return frames},
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
+  get r213ThumbLite(){return{
+   enabled:R213_THUMBLITE,
+   loadedModels:actors.length+hostSourceActors.length,
+   verifiedSources:[...actors,...hostSourceActors].map(a=>({
+    id:a.id,original:a.source,transport:a.transportFile,
+    bones:a.boneCount,skins:a.skins
+   }))
+  }},
   get r212StadiumBatch(){return {
    enabled:R212_STATIC_BATCH,
    stats:r212StadiumBatch?.report||null
