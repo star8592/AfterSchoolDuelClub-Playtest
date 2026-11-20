@@ -1,0 +1,1242 @@
+{
+  "platform": "XPS 15 7590 Intel UHD630 / Chrome155 native CDP",
+  "cases": [
+    {
+      "name": "R219-GL-baseline",
+      "coldSceneReadySec": 57.69,
+      "renderer": "ANGLE (NVIDIA Corporation, NVIDIA GeForce GTX 1650/PCIe/SSE2, OpenGL ES 3.2)",
+      "vendor": "Google Inc. (NVIDIA Corporation)",
+      "drawCallsBefore": 649,
+      "medianFrameIntervalMs": 16.7,
+      "framesUnder20ms": 236,
+      "framesOver50ms": 1,
+      "r213ThumbLite": {
+        "enabled": true,
+        "loadedModels": 4,
+        "verifiedSources": [
+          {
+            "id": "E01",
+            "original": "Shino-original-CC0.vrm",
+            "transport": "Shino-original-CC0-R213-ThumbLite.vrm",
+            "bones": 148,
+            "skins": 67
+          },
+          {
+            "id": "G01",
+            "original": "Fumiriya-original-CC0.vrm",
+            "transport": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+            "bones": 107,
+            "skins": 102
+          },
+          {
+            "id": "E01",
+            "original": "Host-HairSample_Female-CC0.vrm",
+            "transport": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+            "bones": 119,
+            "skins": 124
+          },
+          {
+            "id": "G01",
+            "original": "Host-HairSample_Male-CC0.vrm",
+            "transport": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+            "bones": 91,
+            "skins": 131
+          }
+        ]
+      },
+      "assetTransferBytes": 70447094,
+      "r214LoadProfile": {
+        "enabled": true,
+        "startedAt": 688.1999998092651,
+        "vrms": [
+          {
+            "id": "G01",
+            "file": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+            "originalFile": "Fumiriya-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 23464,
+            "validatedMs": 23966.5,
+            "bones": 107,
+            "skins": 102,
+            "vertices": 118644
+          },
+          {
+            "id": "E01",
+            "file": "Shino-original-CC0-R213-ThumbLite.vrm",
+            "originalFile": "Shino-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 23982.4,
+            "validatedMs": 24212.5,
+            "bones": 148,
+            "skins": 67,
+            "vertices": 93633
+          },
+          {
+            "id": "E01",
+            "file": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+            "originalFile": "Host-HairSample_Female-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 24329.2,
+            "validatedMs": 24655.4,
+            "bones": 119,
+            "skins": 124,
+            "vertices": 81204
+          },
+          {
+            "id": "G01",
+            "file": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+            "originalFile": "Host-HairSample_Male-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 40344,
+            "validatedMs": 40633.5,
+            "bones": 91,
+            "skins": 131,
+            "vertices": 74574
+          }
+        ],
+        "summons": [
+          {
+            "id": "E02",
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+            "meshes": 17,
+            "totalMs": 14583
+          },
+          {
+            "id": "E04",
+            "file": "E04-Phil-Landing-R97.glb",
+            "meshes": 29,
+            "totalMs": 22904
+          },
+          {
+            "id": "E03",
+            "file": "E03-Ellie-Landing-R97.glb",
+            "meshes": 64,
+            "totalMs": 23060
+          },
+          {
+            "id": "M01",
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+            "meshes": 10,
+            "totalMs": 37908
+          },
+          {
+            "id": "G03",
+            "file": "G03-Jay-Landing-R97.glb",
+            "meshes": 40,
+            "totalMs": 40010
+          },
+          {
+            "id": "G04",
+            "file": "G04-Victoria-Landing-R97.glb",
+            "meshes": 34,
+            "totalMs": 40084
+          },
+          {
+            "id": "M02",
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+            "meshes": 13,
+            "totalMs": 40212
+          },
+          {
+            "id": "G02",
+            "file": "G02-Snow-Landing-R97.glb",
+            "meshes": 22,
+            "totalMs": 40299
+          },
+          {
+            "id": "T02",
+            "file": "T02-LivingMenu-R59.glb",
+            "meshes": 43,
+            "totalMs": 40816
+          },
+          {
+            "id": "T01",
+            "file": "T01-Owl-Innerscene-R84.glb",
+            "meshes": 129,
+            "totalMs": 41110
+          },
+          {
+            "id": "T04",
+            "file": "T04-Rex-Landing-R97.glb",
+            "meshes": 38,
+            "totalMs": 51803
+          },
+          {
+            "id": "T03",
+            "file": "T03-Rain-Landing-R97.glb",
+            "meshes": 23,
+            "totalMs": 51815
+          }
+        ],
+        "glbConcurrency": 4,
+        "finalAssets": 16,
+        "fullReadyMs": 52461,
+        "firstPaintMs": 56085
+      },
+      "r212StadiumBatch": {
+        "enabled": true,
+        "stats": {
+          "enabled": true,
+          "batches": 11,
+          "sourceMeshes": 122,
+          "theoreticalCallsSaved": 111,
+          "byGroup": [
+            {
+              "name": "gym",
+              "sourceMeshes": 74,
+              "batches": 5,
+              "callsSaved": 69
+            },
+            {
+              "name": "polish",
+              "sourceMeshes": 48,
+              "batches": 6,
+              "callsSaved": 42
+            }
+          ],
+          "errors": [],
+          "preservedDynamic": true,
+          "cpuBatchMs": 7.3
+        }
+      },
+      "r216LoadStages": {
+        "enabled": true,
+        "summons": [
+          {
+            "id": "E02",
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+            "queueWaitMs": 0,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 267.6,
+            "firstChunkMs": 267.9,
+            "wireBytes": 848499,
+            "decodedBytes": 1116092,
+            "transferPlusInflateMs": 14545,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 36.7,
+            "activeMs": 14581.9,
+            "validateMs": 0.9,
+            "totalMs": 14583.2
+          },
+          {
+            "id": "E04",
+            "file": "E04-Phil-Landing-R97.glb",
+            "queueWaitMs": 0,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 15476.3,
+            "firstChunkMs": 15476.4,
+            "wireBytes": 1623043,
+            "decodedBytes": 2706072,
+            "transferPlusInflateMs": 22835.5,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 68.1,
+            "activeMs": 22903.7,
+            "validateMs": 0.3,
+            "totalMs": 22904.3
+          },
+          {
+            "id": "E03",
+            "file": "E03-Ellie-Landing-R97.glb",
+            "queueWaitMs": 0,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 176.4,
+            "firstChunkMs": 184.3,
+            "wireBytes": 3934280,
+            "decodedBytes": 6307700,
+            "transferPlusInflateMs": 22984.5,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 74.4,
+            "activeMs": 23058.9,
+            "validateMs": 0.5,
+            "totalMs": 23059.6
+          },
+          {
+            "id": "M01",
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+            "queueWaitMs": 23058.5,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 11000.3,
+            "firstChunkMs": 11000.4,
+            "wireBytes": 152870,
+            "decodedBytes": 423112,
+            "transferPlusInflateMs": 14823.1,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 15.4,
+            "activeMs": 14838.7,
+            "validateMs": 10.9,
+            "totalMs": 37908.4
+          },
+          {
+            "id": "G03",
+            "file": "G03-Jay-Landing-R97.glb",
+            "queueWaitMs": 14580.4,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 8351.8,
+            "firstChunkMs": 8532,
+            "wireBytes": 2974249,
+            "decodedBytes": 4573352,
+            "transferPlusInflateMs": 25357.8,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 70.9,
+            "activeMs": 25428.8,
+            "validateMs": 0.4,
+            "totalMs": 40010
+          },
+          {
+            "id": "G04",
+            "file": "G04-Victoria-Landing-R97.glb",
+            "queueWaitMs": 22903.4,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 260.5,
+            "firstChunkMs": 266.3,
+            "wireBytes": 4242248,
+            "decodedBytes": 6541032,
+            "transferPlusInflateMs": 17108.5,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 71.1,
+            "activeMs": 17179.7,
+            "validateMs": 9.7,
+            "totalMs": 40093.2
+          },
+          {
+            "id": "M02",
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+            "queueWaitMs": 37897.2,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 1572.5,
+            "firstChunkMs": 1572.6,
+            "wireBytes": 1845155,
+            "decodedBytes": 2329612,
+            "transferPlusInflateMs": 1919.8,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 373.5,
+            "activeMs": 2293.5,
+            "validateMs": 21.2,
+            "totalMs": 40212.3
+          },
+          {
+            "id": "G02",
+            "file": "G02-Snow-Landing-R97.glb",
+            "queueWaitMs": 0,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 22922.2,
+            "firstChunkMs": 22982.6,
+            "wireBytes": 7426296,
+            "decodedBytes": 8435660,
+            "transferPlusInflateMs": 39849.3,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 449.1,
+            "activeMs": 40298.5,
+            "validateMs": 0.1,
+            "totalMs": 40299
+          },
+          {
+            "id": "T02",
+            "file": "T02-LivingMenu-R59.glb",
+            "queueWaitMs": 40083.1,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 145.2,
+            "firstChunkMs": 225.6,
+            "wireBytes": 1184305,
+            "decodedBytes": 1751256,
+            "transferPlusInflateMs": 579.2,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 153.1,
+            "activeMs": 732.5,
+            "validateMs": 0.2,
+            "totalMs": 40815.9
+          },
+          {
+            "id": "T01",
+            "file": "T01-Owl-Innerscene-R84.glb",
+            "queueWaitMs": 40009.2,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 91.5,
+            "firstChunkMs": 97.7,
+            "wireBytes": 11755466,
+            "decodedBytes": 12317072,
+            "transferPlusInflateMs": 693.1,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 406.9,
+            "activeMs": 1100.1,
+            "validateMs": 0.4,
+            "totalMs": 41109.7
+          },
+          {
+            "id": "T04",
+            "file": "T04-Rex-Landing-R97.glb",
+            "queueWaitMs": 40298.4,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 356.2,
+            "firstChunkMs": 382.8,
+            "wireBytes": 3542711,
+            "decodedBytes": 5236624,
+            "transferPlusInflateMs": 11436.4,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 67.4,
+            "activeMs": 11503.9,
+            "validateMs": 0.3,
+            "totalMs": 51802.7
+          },
+          {
+            "id": "T03",
+            "file": "T03-Rain-Landing-R97.glb",
+            "queueWaitMs": 40190.7,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 442.2,
+            "firstChunkMs": 465.7,
+            "wireBytes": 5373780,
+            "decodedBytes": 7306420,
+            "transferPlusInflateMs": 11352.3,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 271,
+            "activeMs": 11623.6,
+            "validateMs": 0.2,
+            "totalMs": 51814.5
+          }
+        ],
+        "warmupRenderCpuMs": [
+          3480.4,
+          18.5,
+          21.8,
+          19.5,
+          16,
+          16.6,
+          15.3
+        ],
+        "warmupStartedMs": 52462,
+        "modelReadyAtMs": 52461,
+        "network": [
+          {
+            "file": "Shino-original-CC0-R213-ThumbLite.vrm",
+            "startMs": 1190.5,
+            "responseStartMs": 1308.8,
+            "responseEndMs": 24091.7,
+            "durationMs": 22901.2,
+            "responseTransferMs": 22782.9,
+            "encodedBytes": 5343812,
+            "transferBytes": 5344112,
+            "decodedBytes": 5343812,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+            "startMs": 1190.6,
+            "responseStartMs": 1458.4,
+            "responseEndMs": 24063.6,
+            "durationMs": 22873,
+            "responseTransferMs": 22605.2,
+            "encodedBytes": 7074648,
+            "transferBytes": 7074948,
+            "decodedBytes": 7074648,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+            "startMs": 1190.9,
+            "responseStartMs": 1458.8,
+            "responseEndMs": 24105.3,
+            "durationMs": 22914.4,
+            "responseTransferMs": 22646.5,
+            "encodedBytes": 6421300,
+            "transferBytes": 6421600,
+            "decodedBytes": 6421300,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+            "startMs": 1191,
+            "responseStartMs": 1458.6,
+            "responseEndMs": 40857.7,
+            "durationMs": 39666.7,
+            "responseTransferMs": 39399.1,
+            "encodedBytes": 6704432,
+            "transferBytes": 6704732,
+            "decodedBytes": 6704432,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb.gz",
+            "startMs": 1192.5,
+            "responseStartMs": 1458.7,
+            "responseEndMs": 15735.4,
+            "durationMs": 14542.9,
+            "responseTransferMs": 14276.7,
+            "encodedBytes": 848499,
+            "transferBytes": 848799,
+            "decodedBytes": 848499,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "E03-Ellie-Landing-R97.glb.gz",
+            "startMs": 1192.7,
+            "responseStartMs": 1368.4,
+            "responseEndMs": 24090.3,
+            "durationMs": 22897.6,
+            "responseTransferMs": 22721.9,
+            "encodedBytes": 3934280,
+            "transferBytes": 3934580,
+            "decodedBytes": 3934280,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "E04-Phil-Landing-R97.glb.gz",
+            "startMs": 1192.9,
+            "responseStartMs": 16668.5,
+            "responseEndMs": 24023.7,
+            "durationMs": 22830.8,
+            "responseTransferMs": 7355.2,
+            "encodedBytes": 1623043,
+            "transferBytes": 1623343,
+            "decodedBytes": 1623043,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "G02-Snow-Landing-R97.glb.gz",
+            "startMs": 1192.9,
+            "responseStartMs": 24089.5,
+            "responseEndMs": 40885.8,
+            "durationMs": 39692.9,
+            "responseTransferMs": 16796.3,
+            "encodedBytes": 7426296,
+            "transferBytes": 7426596,
+            "decodedBytes": 7426296,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "G03-Jay-Landing-R97.glb.gz",
+            "startMs": 15773.6,
+            "responseStartMs": 24104.3,
+            "responseEndMs": 40898.4,
+            "durationMs": 25124.8,
+            "responseTransferMs": 16794.1,
+            "encodedBytes": 2974249,
+            "transferBytes": 2974549,
+            "decodedBytes": 2974249,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "G04-Victoria-Landing-R97.glb.gz",
+            "startMs": 24096.6,
+            "responseStartMs": 24205.2,
+            "responseEndMs": 40937.8,
+            "durationMs": 16841.2,
+            "responseTransferMs": 16732.6,
+            "encodedBytes": 4242248,
+            "transferBytes": 4242548,
+            "decodedBytes": 4242248,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb.gz",
+            "startMs": 24251.7,
+            "responseStartMs": 35251.1,
+            "responseEndMs": 39073.8,
+            "durationMs": 14822.1,
+            "responseTransferMs": 3822.7,
+            "encodedBytes": 152870,
+            "transferBytes": 153170,
+            "decodedBytes": 152870,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb.gz",
+            "startMs": 39090.4,
+            "responseStartMs": 40662.3,
+            "responseEndMs": 40883.4,
+            "durationMs": 1793,
+            "responseTransferMs": 221.1,
+            "encodedBytes": 1845155,
+            "transferBytes": 1845455,
+            "decodedBytes": 1845155,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "T01-Owl-Innerscene-R84.glb.gz",
+            "startMs": 41202.4,
+            "responseStartMs": 41247.1,
+            "responseEndMs": 41881.2,
+            "durationMs": 678.8,
+            "responseTransferMs": 634.1,
+            "encodedBytes": 11755466,
+            "transferBytes": 11755766,
+            "decodedBytes": 11755466,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "T02-LivingMenu-R59.glb.gz",
+            "startMs": 41276.5,
+            "responseStartMs": 41338.5,
+            "responseEndMs": 41486.8,
+            "durationMs": 210.3,
+            "responseTransferMs": 148.3,
+            "encodedBytes": 1184305,
+            "transferBytes": 1184605,
+            "decodedBytes": 1184305,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "T03-Rain-Landing-R97.glb.gz",
+            "startMs": 41384.1,
+            "responseStartMs": 41454.6,
+            "responseEndMs": 52727.1,
+            "durationMs": 11343,
+            "responseTransferMs": 11272.5,
+            "encodedBytes": 5373780,
+            "transferBytes": 5374080,
+            "decodedBytes": 5373780,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "T04-Rex-Landing-R97.glb.gz",
+            "startMs": 41491.7,
+            "responseStartMs": 41540.2,
+            "responseEndMs": 52920.6,
+            "durationMs": 11428.9,
+            "responseTransferMs": 11380.4,
+            "encodedBytes": 3542711,
+            "transferBytes": 3543011,
+            "decodedBytes": 3542711,
+            "initiatorType": "fetch"
+          }
+        ]
+      },
+      "r219ShaderPrewarm": {
+        "enabled": false,
+        "attempted": false,
+        "supported": false,
+        "success": false,
+        "cpuWallMs": null,
+        "error": null
+      },
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 17.29,
+      "p95FrameIntervalMs": 16.8,
+      "p99FrameIntervalMs": 33.3,
+      "frameCount": 240,
+      "drawCallsAtEnd": 649,
+      "activeR210AtEnd": 0,
+      "activeR211AtEnd": 0,
+      "screenshot": "/tmp/asdc-xps-native-r219-gl-baseline.jpg"
+    },
+    {
+      "name": "R219-GL-prewarm",
+      "coldSceneReadySec": 67.96,
+      "renderer": "ANGLE (NVIDIA Corporation, NVIDIA GeForce GTX 1650/PCIe/SSE2, OpenGL ES 3.2)",
+      "vendor": "Google Inc. (NVIDIA Corporation)",
+      "drawCallsBefore": 649,
+      "medianFrameIntervalMs": 16.7,
+      "framesUnder20ms": 238,
+      "framesOver50ms": 1,
+      "r213ThumbLite": {
+        "enabled": true,
+        "loadedModels": 4,
+        "verifiedSources": [
+          {
+            "id": "E01",
+            "original": "Shino-original-CC0.vrm",
+            "transport": "Shino-original-CC0-R213-ThumbLite.vrm",
+            "bones": 148,
+            "skins": 67
+          },
+          {
+            "id": "G01",
+            "original": "Fumiriya-original-CC0.vrm",
+            "transport": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+            "bones": 107,
+            "skins": 102
+          },
+          {
+            "id": "E01",
+            "original": "Host-HairSample_Female-CC0.vrm",
+            "transport": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+            "bones": 119,
+            "skins": 124
+          },
+          {
+            "id": "G01",
+            "original": "Host-HairSample_Male-CC0.vrm",
+            "transport": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+            "bones": 91,
+            "skins": 131
+          }
+        ]
+      },
+      "assetTransferBytes": 70447094,
+      "r214LoadProfile": {
+        "enabled": true,
+        "startedAt": 798.3000001907349,
+        "vrms": [
+          {
+            "id": "G01",
+            "file": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+            "originalFile": "Fumiriya-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 40367.3,
+            "validatedMs": 40890.7,
+            "bones": 107,
+            "skins": 102,
+            "vertices": 118644
+          },
+          {
+            "id": "G01",
+            "file": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+            "originalFile": "Host-HairSample_Male-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 41732.1,
+            "validatedMs": 42016.2,
+            "bones": 91,
+            "skins": 131,
+            "vertices": 74574
+          },
+          {
+            "id": "E01",
+            "file": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+            "originalFile": "Host-HairSample_Female-CC0.vrm",
+            "host": true,
+            "fetchDecodeMs": 42212.6,
+            "validatedMs": 42559.8,
+            "bones": 119,
+            "skins": 124,
+            "vertices": 81204
+          },
+          {
+            "id": "E01",
+            "file": "Shino-original-CC0-R213-ThumbLite.vrm",
+            "originalFile": "Shino-original-CC0.vrm",
+            "host": false,
+            "fetchDecodeMs": 49659.3,
+            "validatedMs": 49891,
+            "bones": 148,
+            "skins": 67,
+            "vertices": 93633
+          }
+        ],
+        "summons": [
+          {
+            "id": "E02",
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+            "meshes": 17,
+            "totalMs": 8020
+          },
+          {
+            "id": "E04",
+            "file": "E04-Phil-Landing-R97.glb",
+            "meshes": 29,
+            "totalMs": 24402
+          },
+          {
+            "id": "E03",
+            "file": "E03-Ellie-Landing-R97.glb",
+            "meshes": 64,
+            "totalMs": 25097
+          },
+          {
+            "id": "M01",
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+            "meshes": 10,
+            "totalMs": 44080
+          },
+          {
+            "id": "G03",
+            "file": "G03-Jay-Landing-R97.glb",
+            "meshes": 40,
+            "totalMs": 58118
+          },
+          {
+            "id": "G04",
+            "file": "G04-Victoria-Landing-R97.glb",
+            "meshes": 34,
+            "totalMs": 58265
+          },
+          {
+            "id": "M02",
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+            "meshes": 13,
+            "totalMs": 58587
+          },
+          {
+            "id": "T02",
+            "file": "T02-LivingMenu-R59.glb",
+            "meshes": 43,
+            "totalMs": 58819
+          },
+          {
+            "id": "G02",
+            "file": "G02-Snow-Landing-R97.glb",
+            "meshes": 22,
+            "totalMs": 58832
+          },
+          {
+            "id": "T01",
+            "file": "T01-Owl-Innerscene-R84.glb",
+            "meshes": 129,
+            "totalMs": 58973
+          },
+          {
+            "id": "T03",
+            "file": "T03-Rain-Landing-R97.glb",
+            "meshes": 23,
+            "totalMs": 61467
+          },
+          {
+            "id": "T04",
+            "file": "T04-Rex-Landing-R97.glb",
+            "meshes": 38,
+            "totalMs": 61553
+          }
+        ],
+        "glbConcurrency": 4,
+        "finalAssets": 16,
+        "fullReadyMs": 62492,
+        "firstPaintMs": 66146
+      },
+      "r212StadiumBatch": {
+        "enabled": true,
+        "stats": {
+          "enabled": true,
+          "batches": 11,
+          "sourceMeshes": 122,
+          "theoreticalCallsSaved": 111,
+          "byGroup": [
+            {
+              "name": "gym",
+              "sourceMeshes": 74,
+              "batches": 5,
+              "callsSaved": 69
+            },
+            {
+              "name": "polish",
+              "sourceMeshes": 48,
+              "batches": 6,
+              "callsSaved": 42
+            }
+          ],
+          "errors": [],
+          "preservedDynamic": true,
+          "cpuBatchMs": 12
+        }
+      },
+      "r216LoadStages": {
+        "enabled": true,
+        "summons": [
+          {
+            "id": "E02",
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+            "queueWaitMs": 0,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 25.5,
+            "firstChunkMs": 27.4,
+            "wireBytes": 848499,
+            "decodedBytes": 1116092,
+            "transferPlusInflateMs": 7982.9,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 35.7,
+            "activeMs": 8019,
+            "validateMs": 0.8,
+            "totalMs": 8020.4
+          },
+          {
+            "id": "E04",
+            "file": "E04-Phil-Landing-R97.glb",
+            "queueWaitMs": 0,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 8627,
+            "firstChunkMs": 8633.3,
+            "wireBytes": 1623043,
+            "decodedBytes": 2706072,
+            "transferPlusInflateMs": 24335,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 66.6,
+            "activeMs": 24401.7,
+            "validateMs": 0.3,
+            "totalMs": 24402.5
+          },
+          {
+            "id": "E03",
+            "file": "E03-Ellie-Landing-R97.glb",
+            "queueWaitMs": 0,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 25.3,
+            "firstChunkMs": 27.7,
+            "wireBytes": 3934280,
+            "decodedBytes": 6307700,
+            "transferPlusInflateMs": 25030.3,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 66.3,
+            "activeMs": 25096.8,
+            "validateMs": 0.3,
+            "totalMs": 25097.4
+          },
+          {
+            "id": "M01",
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+            "queueWaitMs": 25096.1,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 16923.2,
+            "firstChunkMs": 16928.7,
+            "wireBytes": 152870,
+            "decodedBytes": 423112,
+            "transferPlusInflateMs": 18971.9,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 6.1,
+            "activeMs": 18978.2,
+            "validateMs": 5,
+            "totalMs": 44079.6
+          },
+          {
+            "id": "G03",
+            "file": "G03-Jay-Landing-R97.glb",
+            "queueWaitMs": 8017,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 17724.8,
+            "firstChunkMs": 17733.5,
+            "wireBytes": 2974249,
+            "decodedBytes": 4573352,
+            "transferPlusInflateMs": 50036,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 64.1,
+            "activeMs": 50100.4,
+            "validateMs": 0.2,
+            "totalMs": 58117.8
+          },
+          {
+            "id": "G04",
+            "file": "G04-Victoria-Landing-R97.glb",
+            "queueWaitMs": 24401.4,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 16576.8,
+            "firstChunkMs": 16576.9,
+            "wireBytes": 4242248,
+            "decodedBytes": 6541032,
+            "transferPlusInflateMs": 33793,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 69.4,
+            "activeMs": 33862.7,
+            "validateMs": 0.3,
+            "totalMs": 58264.7
+          },
+          {
+            "id": "M02",
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+            "queueWaitMs": 44074.3,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 905.2,
+            "firstChunkMs": 905.2,
+            "wireBytes": 1845155,
+            "decodedBytes": 2329612,
+            "transferPlusInflateMs": 14091.3,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 397.4,
+            "activeMs": 14488.8,
+            "validateMs": 23.2,
+            "totalMs": 58586.7
+          },
+          {
+            "id": "T02",
+            "file": "T02-LivingMenu-R59.glb",
+            "queueWaitMs": 58264.1,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 191.6,
+            "firstChunkMs": 206,
+            "wireBytes": 1184305,
+            "decodedBytes": 1751256,
+            "transferPlusInflateMs": 271.3,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 281.8,
+            "activeMs": 553.3,
+            "validateMs": 0.4,
+            "totalMs": 58819
+          },
+          {
+            "id": "G02",
+            "file": "G02-Snow-Landing-R97.glb",
+            "queueWaitMs": 0,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 24417.4,
+            "firstChunkMs": 24419.1,
+            "wireBytes": 7426296,
+            "decodedBytes": 8435660,
+            "transferPlusInflateMs": 58348.3,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 484,
+            "activeMs": 58832.3,
+            "validateMs": 0.2,
+            "totalMs": 58832.5
+          },
+          {
+            "id": "T01",
+            "file": "T01-Owl-Innerscene-R84.glb",
+            "queueWaitMs": 58117.4,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 46.5,
+            "firstChunkMs": 153.1,
+            "wireBytes": 11755466,
+            "decodedBytes": 12317072,
+            "transferPlusInflateMs": 360.2,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 494.9,
+            "activeMs": 855.3,
+            "validateMs": 0.5,
+            "totalMs": 58973.2
+          },
+          {
+            "id": "T03",
+            "file": "T03-Rain-Landing-R97.glb",
+            "queueWaitMs": 58563,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 32.1,
+            "firstChunkMs": 33.9,
+            "wireBytes": 5373780,
+            "decodedBytes": 7306420,
+            "transferPlusInflateMs": 2717.5,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 185.9,
+            "activeMs": 2903.6,
+            "validateMs": 0.1,
+            "totalMs": 61466.8
+          },
+          {
+            "id": "T04",
+            "file": "T04-Rex-Landing-R97.glb",
+            "queueWaitMs": 58817.3,
+            "mode": "gzip+GLTFLoader.parseAsync",
+            "fetchHeadersMs": 118.3,
+            "firstChunkMs": 120.3,
+            "wireBytes": 3542711,
+            "decodedBytes": 5236624,
+            "transferPlusInflateMs": 2678.2,
+            "contentEncodedByBrowser": false,
+            "gltfParseMs": 56.9,
+            "activeMs": 2735.9,
+            "validateMs": 0.1,
+            "totalMs": 61553.3
+          }
+        ],
+        "warmupRenderCpuMs": [
+          1944.1,
+          21.3,
+          20.9,
+          19.2,
+          15,
+          16.6,
+          14.4
+        ],
+        "warmupStartedMs": 64085,
+        "modelReadyAtMs": 62492,
+        "network": [
+          {
+            "file": "Shino-original-CC0-R213-ThumbLite.vrm",
+            "startMs": 1598.9,
+            "responseStartMs": 1621.4,
+            "responseEndMs": 51103.3,
+            "durationMs": 49504.4,
+            "responseTransferMs": 49481.9,
+            "encodedBytes": 5343812,
+            "transferBytes": 5344112,
+            "decodedBytes": 5343812,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+            "startMs": 1599.2,
+            "responseStartMs": 1623.8,
+            "responseEndMs": 41795.6,
+            "durationMs": 40196.4,
+            "responseTransferMs": 40171.8,
+            "encodedBytes": 7074648,
+            "transferBytes": 7074948,
+            "decodedBytes": 7074648,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+            "startMs": 1600.2,
+            "responseStartMs": 1619.8,
+            "responseEndMs": 43620.8,
+            "durationMs": 42020.6,
+            "responseTransferMs": 42001,
+            "encodedBytes": 6421300,
+            "transferBytes": 6421600,
+            "decodedBytes": 6421300,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+            "startMs": 1600.5,
+            "responseStartMs": 1624.1,
+            "responseEndMs": 43162.2,
+            "durationMs": 41561.7,
+            "responseTransferMs": 41538.1,
+            "encodedBytes": 6704432,
+            "transferBytes": 6704732,
+            "decodedBytes": 6704432,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb.gz",
+            "startMs": 1602.6,
+            "responseStartMs": 1616.9,
+            "responseEndMs": 9583.4,
+            "durationMs": 7980.8,
+            "responseTransferMs": 7966.5,
+            "encodedBytes": 848499,
+            "transferBytes": 848799,
+            "decodedBytes": 848499,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "E03-Ellie-Landing-R97.glb.gz",
+            "startMs": 1602.9,
+            "responseStartMs": 1620.1,
+            "responseEndMs": 26626.5,
+            "durationMs": 25023.6,
+            "responseTransferMs": 25006.4,
+            "encodedBytes": 3934280,
+            "transferBytes": 3934580,
+            "decodedBytes": 3934280,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "E04-Phil-Landing-R97.glb.gz",
+            "startMs": 1603.1,
+            "responseStartMs": 10229.5,
+            "responseEndMs": 25933.8,
+            "durationMs": 24330.7,
+            "responseTransferMs": 15704.3,
+            "encodedBytes": 1623043,
+            "transferBytes": 1623343,
+            "decodedBytes": 1623043,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "G02-Snow-Landing-R97.glb.gz",
+            "startMs": 1603.2,
+            "responseStartMs": 25980.6,
+            "responseEndMs": 59825.5,
+            "durationMs": 58222.3,
+            "responseTransferMs": 33844.9,
+            "encodedBytes": 7426296,
+            "transferBytes": 7426596,
+            "decodedBytes": 7426296,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "G03-Jay-Landing-R97.glb.gz",
+            "startMs": 9620.6,
+            "responseStartMs": 27345,
+            "responseEndMs": 59649.5,
+            "durationMs": 50028.9,
+            "responseTransferMs": 32304.5,
+            "encodedBytes": 2974249,
+            "transferBytes": 2974549,
+            "decodedBytes": 2974249,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "G04-Victoria-Landing-R97.glb.gz",
+            "startMs": 26005.1,
+            "responseStartMs": 42581.3,
+            "responseEndMs": 59735.7,
+            "durationMs": 33730.6,
+            "responseTransferMs": 17154.4,
+            "encodedBytes": 4242248,
+            "transferBytes": 4242548,
+            "decodedBytes": 4242248,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb.gz",
+            "startMs": 26699.7,
+            "responseStartMs": 43609.6,
+            "responseEndMs": 45670.6,
+            "durationMs": 18970.9,
+            "responseTransferMs": 2061,
+            "encodedBytes": 152870,
+            "transferBytes": 153170,
+            "decodedBytes": 152870,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb.gz",
+            "startMs": 45677.8,
+            "responseStartMs": 46582.3,
+            "responseEndMs": 59717.4,
+            "durationMs": 14039.6,
+            "responseTransferMs": 13135.1,
+            "encodedBytes": 1845155,
+            "transferBytes": 1845455,
+            "decodedBytes": 1845155,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "T01-Owl-Innerscene-R84.glb.gz",
+            "startMs": 59720.9,
+            "responseStartMs": 59749.2,
+            "responseEndMs": 60050.2,
+            "durationMs": 329.3,
+            "responseTransferMs": 301,
+            "encodedBytes": 11755466,
+            "transferBytes": 11755766,
+            "decodedBytes": 11755466,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "T02-LivingMenu-R59.glb.gz",
+            "startMs": 59867.7,
+            "responseStartMs": 59956.4,
+            "responseEndMs": 60068.1,
+            "durationMs": 200.4,
+            "responseTransferMs": 111.7,
+            "encodedBytes": 1184305,
+            "transferBytes": 1184605,
+            "decodedBytes": 1184305,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "T03-Rain-Landing-R97.glb.gz",
+            "startMs": 60166.8,
+            "responseStartMs": 60188.9,
+            "responseEndMs": 62876.4,
+            "durationMs": 2709.6,
+            "responseTransferMs": 2687.5,
+            "encodedBytes": 5373780,
+            "transferBytes": 5374080,
+            "decodedBytes": 5373780,
+            "initiatorType": "fetch"
+          },
+          {
+            "file": "T04-Rex-Landing-R97.glb.gz",
+            "startMs": 60421.8,
+            "responseStartMs": 60479.5,
+            "responseEndMs": 63093.6,
+            "durationMs": 2671.8,
+            "responseTransferMs": 2614.1,
+            "encodedBytes": 3542711,
+            "transferBytes": 3543011,
+            "decodedBytes": 3542711,
+            "initiatorType": "fetch"
+          }
+        ]
+      },
+      "r219ShaderPrewarm": {
+        "enabled": true,
+        "attempted": true,
+        "supported": true,
+        "success": true,
+        "cpuWallMs": 1593.3,
+        "error": null
+      },
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 16.94,
+      "p95FrameIntervalMs": 16.7,
+      "p99FrameIntervalMs": 16.8,
+      "frameCount": 240,
+      "drawCallsAtEnd": 649,
+      "activeR210AtEnd": 0,
+      "activeR211AtEnd": 0,
+      "screenshot": "/tmp/asdc-xps-native-r219-gl-prewarm.jpg"
+    }
+  ],
+  "note": "One fresh XPS headless Chrome; 24-frame active FX sampling, --use-angle=gl --enable-unsafe-swiftshader, may use software fallback. Not certified GTX1650 frame time."
+}

@@ -116,6 +116,9 @@ function r214QaGlbConcurrency(){
  return [1,2,3,4,5,6].includes(n)?n:null;
 }
 
+// R216 exposes download/parse/validation and GPU warmup CPU wall timing to QA only.
+const r216Trace={enabled:R131_IS_QA(),summons:[],warmupRenderCpuMs:[],
+ warmupStartedMs:null,modelReadyAtMs:null};
 const loadingStartedAt=performance.now();
 window.__ASDC_LOAD_METRICS={modelsVerified:0,modelReadyMs:null,firstFrameReadyMs:null,downloadedBytes:0,knownTotalBytes:0};
 const PHASES={idle:'人物就位',approach:'双方接近',windup:'蓄力',strike:'我方攻击',
@@ -1703,6 +1706,17 @@ function exposeQA(){
    }))
   }},
   get r214LoadProfile(){return R214_QA_LOAD?{...r214LoadProfile}:null},
+  get r216LoadStages(){return r216Trace.enabled?{
+   ...r216Trace,network:performance.getEntriesByType('resource')
+    .filter(e=>/\/assets\/(model|summons)\//.test(e.name))
+    .map(e=>({file:new URL(e.name).pathname.split('/').pop(),
+      startMs:+e.startTime.toFixed(1),responseStartMs:+e.responseStart.toFixed(1),
+      responseEndMs:+e.responseEnd.toFixed(1),
+      durationMs:+e.duration.toFixed(1),
+      responseTransferMs:+(e.responseEnd-e.responseStart).toFixed(1),
+      encodedBytes:e.encodedBodySize,transferBytes:e.transferSize,
+      decodedBytes:e.decodedBodySize,initiatorType:e.initiatorType}))
+  }:null},
   get r212StadiumBatch(){return {
    enabled:R212_STATIC_BATCH,
    stats:r212StadiumBatch?.report||null
@@ -1847,7 +1861,8 @@ try{
       totalMs:r214TotalMs});
     verifiedModelLoaded('GLB:'+id);
    },
-   onTransfer:updateTransferProgress
+   onTransfer:updateTransferProgress,
+   onStage:r216Trace.enabled?stage=>r216Trace.summons.push(stage):undefined
   })
  ]);
  actors=loadedActors;
@@ -1876,6 +1891,7 @@ try{
  // GL frame. The old timing leaked an all-white first-frame compositor image.
  stageText('idle','12 种三维召唤实体与体育馆已载入 · 待命');
  window.__ASDC_LOAD_METRICS.modelReadyMs=Math.round(performance.now()-loadingStartedAt);
+ if(r216Trace.enabled)r216Trace.modelReadyAtMs=Math.round(performance.now()-loadingStartedAt);
  r214LoadProfile.fullReadyMs=Math.round(performance.now()-r214LoadProfile.startedAt);
  r214LoadProfile.finalAssets=loadedRealResources;
  const download=$('load-download');
@@ -1885,13 +1901,17 @@ try{
  $('load-explain').textContent='所有真实模型已验证，正在渲染首次完整比赛画面…';
  exposeQA();
  const warmupStarted=performance.now();
+ if(r216Trace.enabled)r216Trace.warmupStartedMs=Math.round(warmupStarted-loadingStartedAt);
  let warmupFrames=0;
  // Headless Vulkan's first visible compositor image can remain white for
  // ~400-600ms even though GL has rendered. Keep the in-scene loading cover
  // until the presentation surface has had time to acquire painted frames.
  do {
   await new Promise(resolve=>requestAnimationFrame(()=>{
+   const renderStarted=r216Trace.enabled?performance.now():0;
    renderer.render(scene,camera);
+   if(r216Trace.enabled&&r216Trace.warmupRenderCpuMs.length<95)
+    r216Trace.warmupRenderCpuMs.push(+(performance.now()-renderStarted).toFixed(2));
    resolve();
   }));
   warmupFrames++;

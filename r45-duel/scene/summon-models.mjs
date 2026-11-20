@@ -296,24 +296,27 @@ function r124PackedDisabled(){
  return forced;
 }
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
-export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,concurrency=4}={}){
+export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,onStage,concurrency=4}={}){
  // Bound GLB requests and parser work instead of firing 12 large models at once.
  // Keep the original full 12/12 readiness and per-model validation contract.
  const limit=Math.max(1,Math.min(12,Math.floor(Number(concurrency))||4));
  let active=0;
  const pending=[];
- async function loadPacked(url){
+ async function loadPacked(url,trace){
   // Put .gz before the version query, never after ?v=<digest>.
   const candidate=new URL(url);
   candidate.pathname += '.gz';
   const packedUrl=r125VersionedAssetURL(candidate).href;
+  const fetchedAt=performance.now();
   const response=await fetch(packedUrl);
+  if(trace)trace.fetchHeadersMs=+(performance.now()-fetchedAt).toFixed(1);
   if(!response.ok)throw Error('R124 missing verified lossless GLB pack '+packedUrl+' HTTP '+response.status);
   const reader=response.body?.getReader();
   if(!reader)throw Error('R124 packed GLB requires a readable stream');
   const first=await reader.read();
   if(first.done||!first.value||first.value.byteLength<2)
    throw Error('R124 missing compressed glTF bytes '+packedUrl);
+  if(trace)trace.firstChunkMs=+(performance.now()-fetchedAt).toFixed(1);
   let received=0;
   const total=Number(response.headers.get('content-length'))||0;
   const track=chunk=>{
@@ -335,18 +338,38 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   const hasGzipMagic=first.value[0]===0x1f&&first.value[1]===0x8b;
   const buffer=await new Response(hasGzipMagic?
    body.pipeThrough(new DecompressionStream('gzip')):body).arrayBuffer();
+  if(trace){
+   trace.wireBytes=received;
+   trace.decodedBytes=buffer.byteLength;
+   trace.transferPlusInflateMs=+(performance.now()-fetchedAt).toFixed(1);
+   trace.contentEncodedByBrowser=!hasGzipMagic;
+  }
   if(new DataView(buffer).getUint32(0,false)!==0x676c5446)
    throw Error('R124 packed file did not decode to a genuine glTF binary '+packedUrl);
-  return loader.parseAsync(buffer,new URL('.',url).href);
+  const parseStart=performance.now();
+  const gltf=await loader.parseAsync(buffer,new URL('.',url).href);
+  if(trace)trace.gltfParseMs=+(performance.now()-parseStart).toFixed(1);
+  return gltf;
  }
- async function loadBounded(url,selectedFile){
+ async function loadBounded(url,selectedFile,trace){
+  const waitStart=performance.now();
   if(active>=limit)await new Promise(resolve=>pending.push(resolve));
+  if(trace)trace.queueWaitMs=+(performance.now()-waitStart).toFixed(1);
   active++;
+  const activeStart=performance.now();
   try{
    if(R124_PACKED_SET.has(selectedFile)&&typeof DecompressionStream==='function'&&
-      !r124PackedDisabled())return await loadPacked(url);
-   return await loader.loadAsync(url,event=>onTransfer?.(url,event));
-  }finally{active--;pending.shift()?.();}
+      !r124PackedDisabled()){
+    if(trace)trace.mode='gzip+GLTFLoader.parseAsync';
+    return await loadPacked(url,trace);
+   }
+   if(trace)trace.mode='raw+GLTFLoader.loadAsync';
+   const gltf=await loader.loadAsync(url,event=>onTransfer?.(url,event));
+   return gltf;
+  }finally{
+   if(trace)trace.activeMs=+(performance.now()-activeStart).toFixed(1);
+   active--;pending.shift()?.();
+  }
  }
  const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
   const r214StartedAt=performance.now();
@@ -395,7 +418,9 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
    'E02-R60-PhotoPaper-WingFlex-STUDY.glb':
    id==='G03'&&isG03R86Study?'G03-Jay-Skinned-R86.glb':spec.file;
   const url=new URL('../assets/summons/'+selectedFile,import.meta.url);
-  const gltf=await loadBounded(url.href,selectedFile);
+  const r216Trace=typeof onStage==='function'?{id,file:selectedFile}:null;
+  const gltf=await loadBounded(url.href,selectedFile,r216Trace);
+  const r216ParsedAt=performance.now();
   const source=gltf.scene;
   source.updateMatrixWorld(true);
   const bounds=new THREE.Box3().setFromObject(source);
@@ -408,6 +433,11 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
   // based on elapsed time or relax the 12/12 identity readiness gate.
   if(typeof onLoaded==='function')onLoaded({id,file:selectedFile,meshes,
     r214TotalMs:Math.round(performance.now()-r214StartedAt)});
+  if(r216Trace){
+   r216Trace.validateMs=+(performance.now()-r216ParsedAt).toFixed(1);
+   r216Trace.totalMs=+(performance.now()-r214StartedAt).toFixed(1);
+   onStage(r216Trace);
+  }
   const scale=Math.min(spec.targetHeight/size.y,
    spec.maxWidth?spec.maxWidth/size.x:Infinity,
    spec.maxDepth?spec.maxDepth/size.z:Infinity);

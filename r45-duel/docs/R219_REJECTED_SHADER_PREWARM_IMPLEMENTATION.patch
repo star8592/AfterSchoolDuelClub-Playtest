@@ -1,0 +1,42 @@
+diff --git a/r45-duel/scene/scene.mjs b/r45-duel/scene/scene.mjs
+index 53e3f8e..70124bc 100644
+--- a/r45-duel/scene/scene.mjs
++++ b/r45-duel/scene/scene.mjs
+@@ -119,6 +119,10 @@ function r214QaGlbConcurrency(){
+ // R216 exposes download/parse/validation and GPU warmup CPU wall timing to QA only.
+ const r216Trace={enabled:R131_IS_QA(),summons:[],warmupRenderCpuMs:[],
+  warmupStartedMs:null,modelReadyAtMs:null};
++// R219 QA-only: test Three.js async shader precompile before first full draw.
++const R219_SHADER_PREWARM=R131_IS_QA()&&r200Flag('r219ShaderPrewarm');
++const r219Prewarm={enabled:R219_SHADER_PREWARM,attempted:false,
++ supported:false,success:false,cpuWallMs:null,error:null};
+ const loadingStartedAt=performance.now();
+ window.__ASDC_LOAD_METRICS={modelsVerified:0,modelReadyMs:null,firstFrameReadyMs:null,downloadedBytes:0,knownTotalBytes:0};
+ const PHASES={idle:'人物就位',approach:'双方接近',windup:'蓄力',strike:'我方攻击',
+@@ -1706,6 +1710,7 @@ function exposeQA(){
+    }))
+   }},
+   get r214LoadProfile(){return R214_QA_LOAD?{...r214LoadProfile}:null},
++  get r219ShaderPrewarm(){return R131_IS_QA()?{...r219Prewarm}:null},
+   get r216LoadStages(){return r216Trace.enabled?{
+    ...r216Trace,network:performance.getEntriesByType('resource')
+     .filter(e=>/\/assets\/(model|summons)\//.test(e.name))
+@@ -1900,6 +1905,18 @@ try{
+  if(paintStage)paintStage.textContent='正在点亮正式比赛场地';
+  $('load-explain').textContent='所有真实模型已验证，正在渲染首次完整比赛画面…';
+  exposeQA();
++ if(R219_SHADER_PREWARM){
++  const started=performance.now();
++  r219Prewarm.attempted=true;
++  r219Prewarm.supported=typeof renderer.compileAsync==='function';
++  if(r219Prewarm.supported){
++   try{
++    await renderer.compileAsync(scene,camera);
++    r219Prewarm.success=true;
++   }catch(e){r219Prewarm.error=String(e).slice(0,200);}
++  }else r219Prewarm.error='compileAsync unavailable';
++  r219Prewarm.cpuWallMs=+(performance.now()-started).toFixed(1);
++ }
+  const warmupStarted=performance.now();
+  if(r216Trace.enabled)r216Trace.warmupStartedMs=Math.round(warmupStarted-loadingStartedAt);
+  let warmupFrames=0;
