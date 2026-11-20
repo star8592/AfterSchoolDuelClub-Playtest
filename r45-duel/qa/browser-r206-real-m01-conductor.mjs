@@ -90,6 +90,15 @@ try{
   }
  }
  const after=await snap();
+ if(enabled){
+  const smooth=after.teacher.r206Conductor;
+  assert(smooth.modeTransitions>=3,
+   'idle -> attack -> hit -> idle must preserve three original-skeleton state transitions');
+  assert(smooth.poseBlendFrames>50,
+   'continuous conductor pose blending must advance through real browser frames');
+  assert(smooth.maxSmoothedDirectionStep>0&&smooth.maxSmoothedDirectionStep<.78,
+   'no original arm correction may teleport through a full turn in one update');
+ }
  assert.deepEqual(after.hp,init.hp);assert.equal(after.events,init.events);
  assert.equal(after.round,init.round);
  assert.deepEqual(report.errors,[]);

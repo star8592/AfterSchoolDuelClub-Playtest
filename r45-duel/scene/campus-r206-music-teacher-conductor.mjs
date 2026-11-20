@@ -60,6 +60,30 @@ export function createR206RealConductorPose(THREE,source,sourceBones,{
  const initialRightWrist=new THREE.Vector3();
  let wristReferenceCaptured=false;
  const stages=[],snapshots=[];
+ // Preserve the last corrected model-space directions between mixer frames.
+ // A new native action must never teleport either elbow or wrist.
+ const smoothedDirections=new Map(),priorDirection=new THREE.Vector3();
+ let modeTransitions=0,maxSmoothedDirectionStep=0,poseBlendFrames=0;
+ let lastMode=null;
+ function smoothDirection(key,desired,dt,rate){
+  let previous=smoothedDirections.get(key);
+  if(!previous){
+   previous=desired.clone();
+   smoothedDirections.set(key,previous);
+   return previous;
+  }
+  const angle=previous.angleTo(desired);
+  if(angle<1e-6)return previous;
+  const frame=Math.max(0,Math.min(.07,dt));
+  const alpha=1-Math.exp(-frame*rate);
+  // Limit direction travel per simulation frame, even after an FPS hitch.
+  const t=Math.min(alpha,frame*11/angle);
+  priorDirection.copy(previous);
+  previous.lerp(desired,t).normalize();
+  maxSmoothedDirectionStep=Math.max(maxSmoothedDirectionStep,priorDirection.angleTo(previous));
+  poseBlendFrames++;
+  return previous;
+ }
  function direction(side,elbow,down,front){
   const result=destLocal.copy(sides[side].outward).multiplyScalar(elbow)
    .addScaledVector(up,down).addScaledVector(forward,front);
@@ -97,6 +121,8 @@ export function createR206RealConductorPose(THREE,source,sourceBones,{
   const kindKey=mode.startsWith('R126_')?
     mode.includes('Order')?'attack':mode.includes('Shocked')?'hit':
     mode.includes('Cheer')?'celebrate':'idle':mode;
+  if(lastMode!==null&&lastMode!==kindKey)modeTransitions++;
+  lastMode=kindKey;
   const tick=time*(reducedMotion?.83:1);
   const lead=.5+.5*Math.sin(tick*2.35);
   const snap=.5+.5*Math.sin(tick*4.70+.35);
@@ -140,17 +166,24 @@ export function createR206RealConductorPose(THREE,source,sourceBones,{
    phase='walking';
   }
   const blend=visibleEnvelope;
+  // Attack/hit respond quickly; recovery and idle settle gently, rather
+  // than switching from conducting to guarding in a single render frame.
+  const responseRate=kindKey==='hit'?19:kindKey==='attack'?16:9;
   // Correct the source upper arm first, then recompute original elbow
   // transformation BEFORE posing its original lower arm.
   let angle=0;
   angle=Math.max(angle,rotateSourceBone(sides.Right.upper,sides.Right.lower,
-   direction('Right',rightUp,rightDown,rightFront),blend));
+   smoothDirection('RightUpper',direction('Right',rightUp,rightDown,rightFront),
+    dt,responseRate),blend));
   angle=Math.max(angle,rotateSourceBone(sides.Right.lower,sides.Right.hand,
-   direction('Right',rightForearmOut,rightForearmDown,rightForearmFront),blend));
+   smoothDirection('RightLower',direction('Right',rightForearmOut,rightForearmDown,rightForearmFront),
+    dt,responseRate),blend));
   angle=Math.max(angle,rotateSourceBone(sides.Left.upper,sides.Left.lower,
-   direction('Left',leftUp,leftDown,leftFront),blend));
+   smoothDirection('LeftUpper',direction('Left',leftUp,leftDown,leftFront),
+    dt,responseRate),blend));
   angle=Math.max(angle,rotateSourceBone(sides.Left.lower,sides.Left.hand,
-   direction('Left',leftForearmOut,leftForearmDown,leftForearmFront),blend));
+   smoothDirection('LeftLower',direction('Left',leftForearmOut,leftForearmDown,leftForearmFront),
+    dt,responseRate),blend));
   maxSourceJointAngle=Math.max(maxSourceJointAngle,angle);
   armFrames++;totalCorrected+=4;
   source.updateWorldMatrix(true,true);
@@ -186,6 +219,8 @@ export function createR206RealConductorPose(THREE,source,sourceBones,{
    originalSourceBones:sourceBones.size,
    armFrames,totalCorrected,maxAppliedSourceJointAngle:+maxSourceJointAngle.toFixed(4),
    peakWristMotion:+peakWristMotion.toFixed(4),
+   modeTransitions,poseBlendFrames,
+   maxSmoothedDirectionStep:+maxSmoothedDirectionStep.toFixed(4),
    sourceGeometryReplaced:false,sourceMaterialReplaced:false,
    externalAssets:0,newRenderPasses:0,
    arms:armObservations};
