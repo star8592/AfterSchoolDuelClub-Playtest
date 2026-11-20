@@ -1,0 +1,1094 @@
+{
+  "ok": true,
+  "realChrome": true,
+  "url": "http://10.10.10.138:18693/r45-duel/",
+  "errors": [],
+  "observations": [],
+  "readyMs": 3710,
+  "renderTree": {
+    "stadiumBranches": [
+      {
+        "name": "R114_RealStudentGallery",
+        "meshes": 260,
+        "hidden": 3,
+        "instanced": 0
+      },
+      {
+        "name": "R46_Competition_Art_Direction",
+        "meshes": 82,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Court_Structure",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "R49_North_Court_Apron",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "R49_South_Court_Apron",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Instanced_Oak_Floor_Planks",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Center_Court_Stripe_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Center_Court_Stripe_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Center_Court_Stripe_2",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Single_Battle_Ring",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Court_Center_Mark",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Back_Tier_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Riser_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Back_Tier_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Riser_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Back_Tier_2",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Riser_2",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Back_Tier_3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Riser_3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Back_Tier_4",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Riser_4",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Back_Tier_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Grandstand_Riser_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Bleacher_-1_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Riser_-1_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Bleacher_-1_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Riser_-1_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Bleacher_-1_2",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Riser_-1_2",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Bleacher_-1_3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Riser_-1_3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Bleacher_1_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Riser_1_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Bleacher_1_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Riser_1_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Bleacher_1_2",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Riser_1_2",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Bleacher_1_3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Side_Riser_1_3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Cushion_Color_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Backrest_Color_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Cushion_Color_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Backrest_Color_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Cushion_Color_2",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Backrest_Color_2",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Steel_Pedestals",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Armrests",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Cushion_Underframes",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Aisle_Treads",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Aisle_Tread_Edges",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Aisle_Anti_Slip",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Stadium_Seats_Instanced_Aisle_Handrail_Posts",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 1
+      },
+      {
+        "name": "Gym_Back_Wall",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Gym_Side_Wall_-11.5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Gym_Side_Wall_11.5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Structural_Pilaster_-10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "High_Window_-10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Structural_Pilaster_-5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "High_Window_-5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Structural_Pilaster_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "High_Window_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Structural_Pilaster_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "High_Window_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Structural_Pilaster_10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "High_Window_10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Longitudinal_-12",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Shadow_-12",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Longitudinal_-9",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Shadow_-9",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Longitudinal_-6",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Shadow_-6",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Longitudinal_-3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Shadow_-3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Longitudinal_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Shadow_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Longitudinal_3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Shadow_3",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Longitudinal_6",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Shadow_6",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Longitudinal_9",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Shadow_9",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Longitudinal_12",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Truss_Shadow_12",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Crossbar_-10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-8_-10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-4_-10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_0_-10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_4_-10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_8_-10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Crossbar_-5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-8_-5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-4_-5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_0_-5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_4_-5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_8_-5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Crossbar_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-8_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-4_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_0_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_4_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_8_0",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Crossbar_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-8_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-4_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_0_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_4_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_8_5",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Roof_Crossbar_10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-8_10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_-4_10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_0_10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_4_10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Ceiling_Lamp_8_10",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Gym_Scoreboard_Body",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Gym_Scoreboard_Display",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Gym_Scoreboard_Team_Rail_-2.08",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Gym_Scoreboard_Team_Rail_2.08",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Gym_Sponsor_Rail",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Duelist_Platform_PLAYER",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Duelist_Platform_Inlay_PLAYER",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Duelist_Station_Rail_PLAYER",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Duel_Card_Console_PLAYER",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Duel_Console_Stand_-1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Duelist_Platform_AI",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Duelist_Platform_Inlay_AI",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Duelist_Station_Rail_AI",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Duel_Card_Console_AI",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "3D_Duel_Console_Stand_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Court_Floodlight_Mast_-1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Court_Floodlight_Head_-1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Court_Floodlight_Mast_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Court_Floodlight_Head_1",
+        "meshes": 1,
+        "hidden": 0,
+        "instanced": 0
+      },
+      {
+        "name": "Conjuration_Aura_Ring",
+        "meshes": 0,
+        "hidden": 1,
+        "instanced": 0
+      },
+      {
+        "name": "R49_Reverse_Grandstand",
+        "meshes": 0,
+        "hidden": 28,
+        "instanced": 0
+      }
+    ],
+    "drawCalls": 733,
+    "visibleMeshes": 757,
+    "visibleInstancedMeshes": 18,
+    "trianglePotential": 662690,
+    "groups": [
+      {
+        "name": "R45_Real_3D_Stadium",
+        "visibleMeshes": 472,
+        "hiddenMeshes": 32,
+        "drawCandidates": 472,
+        "instancedMeshes": 14,
+        "triangles": 606820
+      },
+      {
+        "name": "R74_PERMANENT_DUELIST_G01",
+        "visibleMeshes": 131,
+        "hiddenMeshes": 0,
+        "drawCandidates": 131,
+        "instancedMeshes": 0,
+        "triangles": 24858
+      },
+      {
+        "name": "R74_PERMANENT_DUELIST_E01",
+        "visibleMeshes": 124,
+        "hiddenMeshes": 0,
+        "drawCandidates": 124,
+        "instancedMeshes": 0,
+        "triangles": 27068
+      },
+      {
+        "name": "R123_Persistent_Real_Spectator_Props",
+        "visibleMeshes": 27,
+        "hiddenMeshes": 0,
+        "drawCandidates": 27,
+        "instancedMeshes": 4,
+        "triangles": 3918
+      },
+      {
+        "name": "R81_Real_Time_Stadium_Jumbotron",
+        "visibleMeshes": 3,
+        "hiddenMeshes": 0,
+        "drawCandidates": 3,
+        "instancedMeshes": 0,
+        "triangles": 26
+      },
+      {
+        "name": "R46_Duel_Magic_Presentation",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 15,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      },
+      {
+        "name": "R100_REAL_COMBO_CINEMATICS",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 73,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      },
+      {
+        "name": "R110_Illustrated_Podium_Card_Projection",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 6,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      },
+      {
+        "name": "Group",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 124,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      },
+      {
+        "name": "Group",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 73,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      },
+      {
+        "name": "Group",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 131,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      },
+      {
+        "name": "Group",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 108,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      },
+      {
+        "name": "R117_LiveCard_Held_By_player",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 2,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      },
+      {
+        "name": "R117_LiveCard_Held_By_ai",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 2,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      },
+      {
+        "name": "R50_Board_Units_Only",
+        "visibleMeshes": 0,
+        "hiddenMeshes": 3,
+        "drawCandidates": 0,
+        "instancedMeshes": 0,
+        "triangles": 0
+      }
+    ]
+  },
+  "load": {
+    "modelsVerified": 16,
+    "modelReadyMs": 1462,
+    "firstFrameReadyMs": 2639,
+    "downloadedBytes": 75569762,
+    "knownTotalBytes": 75569762
+  },
+  "r210": {
+    "enabled": true,
+    "profiles": 15,
+    "material": {
+      "enabled": true,
+      "spawned": 0,
+      "expired": 0,
+      "rejected": 0,
+      "qaPreviews": 0,
+      "active": 0,
+      "peak": 0,
+      "maxActiveInstances": 0,
+      "instancesPerEffect": 29,
+      "maximumSimultaneousEffects": 3,
+      "maxDrawCalls": 6,
+      "observedElements": {},
+      "last": null,
+      "addedGenericHalos": 0,
+      "addedPointLights": 0,
+      "addedCustomShaders": 0,
+      "sharedGeometries": 21,
+      "realSourceContactOnly": true,
+      "gameplayMutations": 0
+    },
+    "oldDuelCircleLayerVisible": false,
+    "oldSummonCircleLayerPresent": false,
+    "oldComicHaloFree": true,
+    "comboGenericHalosSuppressed": 8,
+    "originalR199PropsEnabled": true
+  },
+  "r211": {
+    "enabled": true,
+    "heroCards": [
+      "E06",
+      "T05",
+      "S08"
+    ],
+    "material": {
+      "enabled": true,
+      "spawned": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "peak": 0,
+      "qaPreviews": 0,
+      "textureReady": {
+        "fire": true,
+        "water": true
+      },
+      "observedCards": {},
+      "maximumSimultaneous": 3,
+      "maxDrawCallsPerEvent": 3,
+      "originalR199ContactOnly": true,
+      "gameplayMutations": 0,
+      "addedGlobalLights": 0,
+      "addedScreenPasses": 0,
+      "addedGenericHalos": 0
+    },
+    "actualDamageUnmodified": true
+  },
+  "frameCount": 46,
+  "resourceCount": 85,
+  "slowestResources": [
+    {
+      "name": "r102_shield_chime.ogg",
+      "duration": 18,
+      "size": 5562
+    },
+    {
+      "name": "r102_score_trumpet.ogg",
+      "duration": 18,
+      "size": 5795
+    },
+    {
+      "name": "r102_crowd_gasp.ogg",
+      "duration": 18,
+      "size": 4215
+    },
+    {
+      "name": "r102_magic_tingle.ogg",
+      "duration": 17,
+      "size": 5602
+    },
+    {
+      "name": "r102_music_gliss.ogg",
+      "duration": 17,
+      "size": 4427
+    },
+    {
+      "name": "r102_confetti_pop.ogg",
+      "duration": 17,
+      "size": 4512
+    },
+    {
+      "name": "r102_school_steps.ogg",
+      "duration": 17,
+      "size": 2029
+    },
+    {
+      "name": "r102_erase_scribble.ogg",
+      "duration": 17,
+      "size": 2866
+    },
+    {
+      "name": "r102_rubber_squeak.ogg",
+      "duration": 17,
+      "size": 2926
+    },
+    {
+      "name": "r102_radio_tune.ogg",
+      "duration": 16,
+      "size": 4013
+    },
+    {
+      "name": "r102_stamp_pop.ogg",
+      "duration": 16,
+      "size": 2360
+    },
+    {
+      "name": "r102_spring_boing.ogg",
+      "duration": 16,
+      "size": 3288
+    },
+    {
+      "name": "r102_radio_glitch.ogg",
+      "duration": 16,
+      "size": 2977
+    },
+    {
+      "name": "r102_comedy_whistle.ogg",
+      "duration": 16,
+      "size": 3890
+    },
+    {
+      "name": "r102_hearts_pulse.ogg",
+      "duration": 16,
+      "size": 4726
+    },
+    {
+      "name": "r102_paper_flap.ogg",
+      "duration": 15,
+      "size": 3255
+    }
+  ],
+  "screenshot": "r45-duel/qa/evidence/r212-perf-audit/r212-before-original-gpu.png"
+}

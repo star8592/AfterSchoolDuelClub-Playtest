@@ -28,6 +28,7 @@ import {createSpectatorChaosFX} from './spectator-chaos-fx.mjs';
 import {createBleacherPropComedy,resolveSpectatorProp} from './bleacher-prop-comedy.mjs';
 import {createElementalVfx} from './elemental-vfx.mjs';
 import {createR210PhysicalElements,R210_ELEMENT_PROFILES} from './campus-r210-material-elements.mjs';
+import {createR212StadiumStaticBatch} from './r212-stadium-static-batch.mjs';
 import {createR211CinematicVfx,R211_HERO_CARDS} from './campus-r211-cinematic-vfx.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
@@ -68,6 +69,7 @@ const R204_CASTER=R199_PHYSICAL_MAGIC&&r200Flag('r204Caster');
 // Opt-in R210: the R199 original source-GLB stage stays; its physical
 // impact gains 15 real-material signatures instead of stacked halo systems.
 const R210_PHYSICAL_ELEMENTS=R199_PHYSICAL_MAGIC&&r200Flag('r210Elements');
+const R212_STATIC_BATCH=R210_PHYSICAL_ELEMENTS&&r200Flag('r212StadiumBatch');
 // Isolated visual experiment: replace just 3 high-quality contact effects.
 const R211_CINEMATIC_VFX=R210_PHYSICAL_ELEMENTS&&r200Flag('r211CinematicVfx');
 const R203_NEW_IDS=Object.freeze(['K04','S08','P03','X05','Q07']);
@@ -285,6 +287,7 @@ function keepArenaVisible(){
  });
 }
 let stadiumEvidence=null;
+let r212StadiumBatch=null;
 let duelEffects=null;
 let comboDirector=null;
 let comedySpectacle=null;
@@ -405,6 +408,11 @@ function makeScene(){
  const fill=new THREE.DirectionalLight('#f7d6b9',.8);fill.position.set(3,3,6);fill.layers.enable(1);scene.add(fill);
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
  stadiumEvidence=createStadium(THREE,scene,{detail:'medium',lifeWorld:arenaLife});
+ if(R212_STATIC_BATCH){
+  const started=performance.now();
+  r212StadiumBatch=createR212StadiumStaticBatch(THREE,stadiumEvidence);
+  r212StadiumBatch.report.cpuBatchMs=+(performance.now()-started).toFixed(2);
+ }
  duelEffects=createDuelEffects(THREE,scene);
  if(R210_PHYSICAL_ELEMENTS)
   // Source of the permanent blue/gold circles on every visible actor.
@@ -1659,6 +1667,56 @@ function exposeQA(){
   get frameCount(){return frames},
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
+  get r212StadiumBatch(){return {
+   enabled:R212_STATIC_BATCH,
+   stats:r212StadiumBatch?.report||null
+  }},
+  auditRenderTree(){
+   // QA-only, read-only snapshot. Counts visible meshes and material groups.
+   // CPU geometry counts are NOT equivalent to WebGL draw calls/shadow passes.
+   if(!R131_IS_QA()||!scene)return null;
+   const groups=[];
+   let totalVisible=0,totalTriangles=0,totalInstanced=0;
+   for(const child of scene.children){
+    let visible=0,drawCandidates=0,instanced=0,triangles=0,visibleHiddenByParent=0;
+    child.traverse(o=>{
+     if(!(o.isMesh||o.isSkinnedMesh||o.isInstancedMesh))return;
+     let v=true;
+     for(let p=o;p;p=p.parent)if(!p.visible){v=false;break}
+     if(!v){visibleHiddenByParent++;return}
+     visible++;
+     const geo=o.geometry;
+     const count=geo?.index?.count??geo?.attributes?.position?.count??0;
+     const tris=Math.round(count/3)*(o.isInstancedMesh?(o.count||1):1);
+     triangles+=tris;
+     if(o.isInstancedMesh)instanced++;
+     // Reference conservative draw potential; frustum culling may reduce it.
+     drawCandidates+=Array.isArray(o.material)?o.material.length:1;
+    });
+    if(!visible&&!visibleHiddenByParent)continue;
+    groups.push({name:child.name||child.type,
+      visibleMeshes:visible,hiddenMeshes:visibleHiddenByParent,
+      drawCandidates,instancedMeshes:instanced,triangles});
+    totalVisible+=visible;totalTriangles+=triangles;totalInstanced+=instanced;
+   }
+   groups.sort((a,b)=>b.drawCandidates-a.drawCandidates);
+   const stadiumBranches=[];
+   for(const node of stadiumEvidence?.group?.children||[]){
+    let meshes=0,hidden=0,instanced=0;
+    node.traverse(o=>{
+     if(!o.isMesh)return;
+     let v=true;for(let n=o;n;n=n.parent)if(!n.visible){v=false;break}
+     if(!v){hidden++;return}
+     meshes++;if(o.isInstancedMesh)instanced++;
+    });
+    if(meshes||hidden)stadiumBranches.push({name:node.name||node.type,
+      meshes,hidden,instanced});
+   }
+   stadiumBranches.sort((a,b)=>b.meshes-a.meshes);
+   return {stadiumBranches,drawCalls:drawCount,visibleMeshes:totalVisible,
+    visibleInstancedMeshes:totalInstanced,trianglePotential:totalTriangles,
+    groups};
+  },
   get drawCalls(){return drawCount},
   get seconds(){return time},
   get mode(){return mode},
