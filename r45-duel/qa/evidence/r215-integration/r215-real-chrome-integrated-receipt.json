@@ -1,0 +1,261 @@
+{
+  "ok": true,
+  "realChromeGPU": true,
+  "flags": "R211+R212+R213+R214",
+  "errors": [],
+  "readyMs": 3042,
+  "sources": {
+    "enabled": true,
+    "loadedModels": 4,
+    "verifiedSources": [
+      {
+        "id": "E01",
+        "original": "Shino-original-CC0.vrm",
+        "transport": "Shino-original-CC0-R213-ThumbLite.vrm",
+        "bones": 148,
+        "skins": 67
+      },
+      {
+        "id": "G01",
+        "original": "Fumiriya-original-CC0.vrm",
+        "transport": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+        "bones": 107,
+        "skins": 102
+      },
+      {
+        "id": "E01",
+        "original": "Host-HairSample_Female-CC0.vrm",
+        "transport": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+        "bones": 119,
+        "skins": 124
+      },
+      {
+        "id": "G01",
+        "original": "Host-HairSample_Male-CC0.vrm",
+        "transport": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+        "bones": 91,
+        "skins": 131
+      }
+    ]
+  },
+  "profiler": {
+    "enabled": true,
+    "startedAt": 268.79999999701977,
+    "vrms": [
+      {
+        "id": "E01",
+        "file": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+        "originalFile": "Host-HairSample_Female-CC0.vrm",
+        "host": true,
+        "fetchDecodeMs": 569.1,
+        "validatedMs": 646,
+        "bones": 119,
+        "skins": 124,
+        "vertices": 81204
+      },
+      {
+        "id": "G01",
+        "file": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+        "originalFile": "Host-HairSample_Male-CC0.vrm",
+        "host": true,
+        "fetchDecodeMs": 656.1,
+        "validatedMs": 719.4,
+        "bones": 91,
+        "skins": 131,
+        "vertices": 74574
+      },
+      {
+        "id": "E01",
+        "file": "Shino-original-CC0-R213-ThumbLite.vrm",
+        "originalFile": "Shino-original-CC0.vrm",
+        "host": false,
+        "fetchDecodeMs": 760.2,
+        "validatedMs": 814.2,
+        "bones": 148,
+        "skins": 67,
+        "vertices": 93633
+      },
+      {
+        "id": "G01",
+        "file": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+        "originalFile": "Fumiriya-original-CC0.vrm",
+        "host": false,
+        "fetchDecodeMs": 828.9,
+        "validatedMs": 954,
+        "bones": 107,
+        "skins": 102,
+        "vertices": 118644
+      }
+    ],
+    "summons": [
+      {
+        "id": "E04",
+        "file": "E04-Phil-Landing-R97.glb",
+        "meshes": 29,
+        "totalMs": 155
+      },
+      {
+        "id": "E03",
+        "file": "E03-Ellie-Landing-R97.glb",
+        "meshes": 64,
+        "totalMs": 179
+      },
+      {
+        "id": "G03",
+        "file": "G03-Jay-Landing-R97.glb",
+        "meshes": 40,
+        "totalMs": 415
+      },
+      {
+        "id": "G04",
+        "file": "G04-Victoria-Landing-R97.glb",
+        "meshes": 34,
+        "totalMs": 437
+      },
+      {
+        "id": "E02",
+        "file": "E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+        "meshes": 17,
+        "totalMs": 472
+      },
+      {
+        "id": "M01",
+        "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+        "meshes": 10,
+        "totalMs": 506
+      },
+      {
+        "id": "G02",
+        "file": "G02-Snow-Landing-R97.glb",
+        "meshes": 22,
+        "totalMs": 1045
+      },
+      {
+        "id": "M02",
+        "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+        "meshes": 13,
+        "totalMs": 1110
+      },
+      {
+        "id": "T02",
+        "file": "T02-LivingMenu-R59.glb",
+        "meshes": 43,
+        "totalMs": 1162
+      },
+      {
+        "id": "T04",
+        "file": "T04-Rex-Landing-R97.glb",
+        "meshes": 38,
+        "totalMs": 1186
+      },
+      {
+        "id": "T01",
+        "file": "T01-Owl-Innerscene-R84.glb",
+        "meshes": 129,
+        "totalMs": 1290
+      },
+      {
+        "id": "T03",
+        "file": "T03-Rain-Landing-R97.glb",
+        "meshes": 23,
+        "totalMs": 1310
+      }
+    ],
+    "glbConcurrency": 4,
+    "finalAssets": 16,
+    "fullReadyMs": 1437,
+    "firstPaintMs": 2387
+  },
+  "batch": {
+    "enabled": true,
+    "stats": {
+      "enabled": true,
+      "batches": 11,
+      "sourceMeshes": 122,
+      "theoreticalCallsSaved": 111,
+      "byGroup": [
+        {
+          "name": "gym",
+          "sourceMeshes": 74,
+          "batches": 5,
+          "callsSaved": 69
+        },
+        {
+          "name": "polish",
+          "sourceMeshes": 48,
+          "batches": 6,
+          "callsSaved": 42
+        }
+      ],
+      "errors": [],
+      "preservedDynamic": true,
+      "cpuBatchMs": 4.1
+    }
+  },
+  "fire": {
+    "enabled": true,
+    "heroCards": [
+      "E06",
+      "T05",
+      "S08"
+    ],
+    "material": {
+      "enabled": true,
+      "spawned": 0,
+      "expired": 0,
+      "rejected": 0,
+      "active": 0,
+      "peak": 0,
+      "qaPreviews": 0,
+      "textureReady": {
+        "fire": true,
+        "water": true
+      },
+      "observedCards": {},
+      "maximumSimultaneous": 3,
+      "maxDrawCallsPerEvent": 3,
+      "originalR199ContactOnly": true,
+      "gameplayMutations": 0,
+      "addedGlobalLights": 0,
+      "addedScreenPasses": 0,
+      "addedGenericHalos": 0
+    },
+    "actualDamageUnmodified": true
+  },
+  "drawCalls": 649,
+  "loading": {
+    "modelsVerified": 16,
+    "modelReadyMs": 1437,
+    "firstFrameReadyMs": 2387,
+    "downloadedBytes": 70447094,
+    "knownTotalBytes": 70447094
+  },
+  "roles": [
+    {
+      "id": "E01",
+      "name": "铃声追不上",
+      "asset": "Shino-original-CC0.vrm",
+      "bones": 148,
+      "skinnedMeshes": 67,
+      "triangles": 31211,
+      "recoloredMeshes": 53,
+      "accessories": 6
+    },
+    {
+      "id": "G01",
+      "name": "橡皮筋建筑师",
+      "asset": "Fumiriya-original-CC0.vrm",
+      "bones": 107,
+      "skinnedMeshes": 102,
+      "triangles": 39548,
+      "recoloredMeshes": 88,
+      "accessories": 6
+    }
+  ],
+  "spectators": 8,
+  "withFX": {
+    "drawCalls": 664,
+    "newFxSpawned": 3,
+    "oldFxSpawned": 0
+  }
+}
