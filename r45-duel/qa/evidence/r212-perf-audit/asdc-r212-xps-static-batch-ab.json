@@ -1,0 +1,38 @@
+{
+  "platform": "XPS 15 7590 GTX1650 4GB / Chrome155 native CDP",
+  "cases": [
+    {
+      "name": "R211-unbatched",
+      "coldSceneReadySec": 65.4,
+      "renderer": "ANGLE (Intel, Mesa Intel(R) UHD Graphics 630 (CFL GT2), OpenGL ES 3.2)",
+      "vendor": "Google Inc. (Intel)",
+      "drawCallsBefore": 733,
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 44.44,
+      "p95FrameIntervalMs": 50,
+      "p99FrameIntervalMs": 50.1,
+      "frameCount": 24,
+      "drawCallsAtEnd": 743,
+      "activeR210AtEnd": 0,
+      "activeR211AtEnd": 2,
+      "screenshot": "/tmp/asdc-xps-native-r211-unbatched.jpg"
+    },
+    {
+      "name": "R212-batched",
+      "coldSceneReadySec": 84.05,
+      "renderer": "ANGLE (Intel, Mesa Intel(R) UHD Graphics 630 (CFL GT2), OpenGL ES 3.2)",
+      "vendor": "Google Inc. (Intel)",
+      "drawCallsBefore": 649,
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 43.05,
+      "p95FrameIntervalMs": 50,
+      "p99FrameIntervalMs": 50.1,
+      "frameCount": 24,
+      "drawCallsAtEnd": 659,
+      "activeR210AtEnd": 0,
+      "activeR211AtEnd": 2,
+      "screenshot": "/tmp/asdc-xps-native-r212-batched.jpg"
+    }
+  ],
+  "note": "One fresh XPS headless Chrome; 24-frame active FX sampling, --use-angle=gl --enable-unsafe-swiftshader, may use software fallback. Not certified GTX1650 frame time."
+}

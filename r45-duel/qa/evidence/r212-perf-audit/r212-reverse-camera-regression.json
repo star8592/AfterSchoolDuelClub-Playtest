@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "cases": [
+    {
+      "name": "baseline",
+      "yaw": 179.99927453027394,
+      "drawCalls": 675,
+      "banks": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": false
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": true
+        }
+      },
+      "audience": 8,
+      "meshes": 736,
+      "batch": {
+        "enabled": false,
+        "stats": null
+      }
+    },
+    {
+      "name": "batched",
+      "yaw": 179.9992015183992,
+      "drawCalls": 608,
+      "banks": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": false
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": true
+        }
+      },
+      "audience": 8,
+      "meshes": 625,
+      "batch": {
+        "enabled": true,
+        "stats": {
+          "enabled": true,
+          "batches": 11,
+          "sourceMeshes": 122,
+          "theoreticalCallsSaved": 111,
+          "byGroup": [
+            {
+              "name": "gym",
+              "sourceMeshes": 74,
+              "batches": 5,
+              "callsSaved": 69
+            },
+            {
+              "name": "polish",
+              "sourceMeshes": 48,
+              "batches": 6,
+              "callsSaved": 42
+            }
+          ],
+          "errors": [],
+          "preservedDynamic": true
+        }
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,73 @@
+{
+  "ok": true,
+  "realRulesOnly": true,
+  "cases": [
+    {
+      "id": "E06",
+      "element": "fire",
+      "realTurn": 2,
+      "serial": 5,
+      "spellOutcome": {
+        "effect": "blast",
+        "directDamage": 3,
+        "unitDamage": 0,
+        "targetUids": [],
+        "healed": 0,
+        "allyHeal": 0,
+        "cardDraw": 0
+      },
+      "energyBefore": 3,
+      "energyAfter": 0,
+      "oldR210Replacement": true,
+      "originalGLB": true,
+      "fullWideView": true,
+      "drawCalls": 711,
+      "image": "r45-duel/qa/evidence/r212-perf-audit/r212-real-E06-fire-actual-gameplay.png"
+    },
+    {
+      "id": "T05",
+      "element": "water",
+      "realTurn": 1,
+      "serial": 2,
+      "spellOutcome": {
+        "effect": "heal",
+        "directDamage": 0,
+        "unitDamage": 0,
+        "targetUids": [],
+        "healed": 0,
+        "allyHeal": 0,
+        "cardDraw": 0
+      },
+      "energyBefore": 2,
+      "energyAfter": 1,
+      "oldR210Replacement": true,
+      "originalGLB": true,
+      "fullWideView": true,
+      "drawCalls": 668,
+      "image": "r45-duel/qa/evidence/r212-perf-audit/r212-real-T05-water-actual-gameplay.png"
+    },
+    {
+      "id": "S08",
+      "element": "electric",
+      "realTurn": 1,
+      "serial": 2,
+      "spellOutcome": {
+        "effect": "blast",
+        "directDamage": 2,
+        "unitDamage": 0,
+        "targetUids": [],
+        "healed": 0,
+        "allyHeal": 0,
+        "cardDraw": 0
+      },
+      "energyBefore": 2,
+      "energyAfter": 0,
+      "oldR210Replacement": true,
+      "originalGLB": true,
+      "fullWideView": true,
+      "drawCalls": 679,
+      "image": "r45-duel/qa/evidence/r212-perf-audit/r212-real-S08-electric-actual-gameplay.png"
+    }
+  ],
+  "errors": []
+}

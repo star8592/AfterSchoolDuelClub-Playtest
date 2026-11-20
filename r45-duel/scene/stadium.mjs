@@ -233,20 +233,27 @@ export function createStadium(THREE, scene, {detail='medium',lifeWorld=null}={})
   // School-gym architecture, with actual volume: walls, beams and truss roof.
   box([24,10,.46],[0,4.7,-11.85],navy,'Gym_Back_Wall');
   for(const x of [-11.5,11.5])box([.5,11.8,24],[x,4.7,-.6],navy,'Gym_Side_Wall_'+x);
+  // R212: repeated windows must reuse one physically identical PBR material.
+  // This also lets the opt-in static batch combine them without changing color.
+  const windowGlass=mat('#53718b',.35,.22);
+  windowGlass.emissive=new THREE.Color('#152e43');
+  windowGlass.emissiveIntensity=.7;
   for(const x of [-10,-5,0,5,10]){
     box([.24,9.9,.58],[x,4.7,-11.50],beam,'Structural_Pilaster_'+x);
-    const window=box([2.5,2.4,.055],[x+2.15,6.8,-11.48],mat('#53718b',.35,.22),'High_Window_'+x);
-    window.material.emissive=new THREE.Color('#152e43');window.material.emissiveIntensity=.7;
+    box([2.5,2.4,.055],[x+2.15,6.8,-11.48],windowGlass,'High_Window_'+x);
   }
   for(let x=-12;x<=12;x+=3){
     box([.15,.21,24],[x,9.3,-.1],beam,'Roof_Truss_Longitudinal_'+x);
     box([.12,.31,24],[x,9.55,-.1],dark,'Roof_Truss_Shadow_'+x);
   }
+  // R212: 25 ceiling lamps use identical emissive material; create it once.
+  const ceilingLampMaterial=mat('#fff4d4',.04,.35);
+  ceilingLampMaterial.emissive=new THREE.Color('#ffdba2');
+  ceilingLampMaterial.emissiveIntensity=.65;
   for(const z of [-10,-5,0,5,10]){
     box([24,.22,.18],[0,9.2,z],beam,'Roof_Crossbar_'+z);
     for(const x of [-8,-4,0,4,8]){
-      const light=box([.9,.10,.45],[x,8.92,z],mat('#fff4d4',.04,.35),'3D_Ceiling_Lamp_'+x+'_'+z);
-      light.material.emissive=new THREE.Color('#ffdba2');light.material.emissiveIntensity=.65;
+      box([.9,.10,.45],[x,8.92,z],ceilingLampMaterial,'3D_Ceiling_Lamp_'+x+'_'+z);
       stats.lights++;
     }
   }

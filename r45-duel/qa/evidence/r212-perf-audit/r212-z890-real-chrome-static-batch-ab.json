@@ -1,0 +1,99 @@
+{
+  "ok": true,
+  "type": "actual Z890 Chrome GPU controlled sequential A/B",
+  "errors": [],
+  "cases": [
+    {
+      "name": "baseline",
+      "loadMs": 4861,
+      "drawCalls": 733,
+      "visibleMeshes": 757,
+      "stadiumMeshes": 472,
+      "permanentHostMeshes": [
+        131,
+        124
+      ],
+      "auditorium": 260,
+      "realAudience": 8,
+      "seatBanks": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      },
+      "r212Batch": {
+        "enabled": false,
+        "stats": null
+      },
+      "frameSamples": 79,
+      "meanIntervalMs": 16.67,
+      "p95IntervalMs": 16.8,
+      "p99IntervalMs": 16.8
+    },
+    {
+      "name": "batched",
+      "loadMs": 4270,
+      "drawCalls": 649,
+      "visibleMeshes": 646,
+      "stadiumMeshes": 361,
+      "permanentHostMeshes": [
+        131,
+        124
+      ],
+      "auditorium": 260,
+      "realAudience": 8,
+      "seatBanks": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      },
+      "r212Batch": {
+        "enabled": true,
+        "stats": {
+          "enabled": true,
+          "batches": 11,
+          "sourceMeshes": 122,
+          "theoreticalCallsSaved": 111,
+          "byGroup": [
+            {
+              "name": "gym",
+              "sourceMeshes": 74,
+              "batches": 5,
+              "callsSaved": 69
+            },
+            {
+              "name": "polish",
+              "sourceMeshes": 48,
+              "batches": 6,
+              "callsSaved": 42
+            }
+          ],
+          "errors": [],
+          "preservedDynamic": true,
+          "cpuBatchMs": 3.3
+        }
+      },
+      "frameSamples": 79,
+      "meanIntervalMs": 16.67,
+      "p95IntervalMs": 16.7,
+      "p99IntervalMs": 16.8
+    }
+  ]
+}
