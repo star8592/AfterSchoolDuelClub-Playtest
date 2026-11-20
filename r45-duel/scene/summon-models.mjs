@@ -6,6 +6,7 @@
 import {clone as cloneSkeleton} from 'three/addons/utils/SkeletonUtils.js';
 import {r125VersionedAssetURL} from '../r125-asset-urls.mjs';
 import {createR126MusicTeacherClips,R126_TEACHER_ACTION_NAMES} from './r126-music-teacher-native-acting.mjs';
+import {createR206RealConductorPose} from './campus-r206-music-teacher-conductor.mjs';
 import {createR127OwlSourceFeathers} from './r127-owl-source-feather-motion.mjs';
 import {createR128PhilSourceFullBody,repairR128PhilSourceHierarchy} from './r128-source-lower-body.mjs';
 import {createR130SpecialFullBody,prepareR130SourceLegs} from './r130-special-source-legs.mjs';
@@ -681,6 +682,15 @@ export function instantiateSummon(THREE,template){
  const sourceBodyClips=r130Special?r130Special.clips:r128Phil?r128Phil.clips:source119Clips;
  const r119Clips=r144Pelvis?r144Pelvis.buildClips(sourceBodyClips):sourceBodyClips;
  const r126Teacher=template.id==='M01'&&!isM01AdultTeacherStudy?createR126MusicTeacherClips(THREE,instance):null;
+ const r206MusicTeacherEnabled=(()=>{
+  if(!r126Teacher||template.id!=='M01')return false;
+  const own=new URLSearchParams(location.search);
+  let parent=null;
+  try{if(window.parent!==window)
+   parent=new URLSearchParams(window.parent.location.search);}catch{}
+  return own.has('r206MusicTeacher')?
+   own.get('r206MusicTeacher')==='on':parent?.get('r206MusicTeacher')==='on';
+ })();
  const r127OwlDisabled=(()=>{
   const q=new URLSearchParams(location.search);
   if(q.get('r127Owl')==='off')return true;
@@ -865,8 +875,12 @@ export function instantiateSummon(THREE,template){
   sourceBones:r126Teacher?.sourceBones||0,trackedJoints:0,boneFrames:0,maxRealJointAngle:0,
   current:null};
  const teacherRest=r126Teacher?new Map([...r126Teacher.tracked].map(([name,b])=>[name,b.quaternion.clone()])):null;
+ const r206Conductor=r206MusicTeacherEnabled?
+  createR206RealConductorPose(THREE,instance,r126Teacher.tracked,{
+   reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches}):null;
  const teacherUpdate=dt=>{
   mixer.update(dt);
+  r206Conductor?.update(dt,teacherPerformance.current||'idle');
   teacherPerformance.boneFrames++;
   let active=0;
   for(const [name,bone] of r126Teacher.tracked){
@@ -1002,6 +1016,7 @@ export function instantiateSummon(THREE,template){
   }):null,instance,meshCount:template.meshes,animationCount:template.clips.length,runtimeBoneClips:r86Clips.length+r119Clips.length+(r126Teacher?.clips.length||0),r119Skin,
   getPlayingClips:()=>mixer?mixer._actions.filter(a=>a.isRunning()).map(a=>a.getClip().name):[],
   getR126TeacherMotion:()=>({...teacherPerformance}),
+  getR206TeacherConductor:()=>r206Conductor?.inspect()||{enabled:false},
   getR127OwlMotion:()=>r127Owl?.inspect()||null,
   getR128FullBody:()=>template.id==='E04'&&r128Phil?
    {...r128Phil.inspect(),hierarchy:r128Hierarchy}:null,

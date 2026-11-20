@@ -1136,6 +1136,7 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
       sourceVisemePreserved:!!a.mouthBindings}})()
     }:null,
     r126TeacherMotion:s.id==='M01'?s.object.userData.r61?.getR126TeacherMotion?.():undefined,
+    r206Conductor:s.id==='M01'?s.object.userData.r61?.getR206TeacherConductor?.():undefined,
     r127OwlMotion:s.id==='T01'?s.object.userData.r61?.getR127OwlMotion?.():undefined,
     r128FullBody:s.id==='E04'?s.object.userData.r61?.getR128FullBody?.():undefined,
     r129FullBody:['E03','G03','G04','T04'].includes(s.id)?s.object.userData.r61?.getR129FullBody?.():undefined,
@@ -1251,7 +1252,10 @@ export function createSummonPresence(THREE,scene,{actors,prototypes,onCombatImpa
  }
  function playSourceStudyAction(id,kind){
   if(!['idle','attack','hit','walk','celebrate'].includes(kind))return false;
-  const actor=[...entries.values()].find(s=>s.id===id&&s.object.userData.r61?.r119Skin);
+  const actor=[...entries.values()].find(s=>s.id===id&&(
+   s.object.userData.r61?.r119Skin||
+   (id==='M01'&&s.object.userData.r61?.getR206TeacherConductor?.()?.enabled)
+  ));
   if(!actor)return false;
   return actor.object.userData.r61.play(kind)===true;
  }

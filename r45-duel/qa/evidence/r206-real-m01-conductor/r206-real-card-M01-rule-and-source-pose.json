@@ -1,0 +1,957 @@
+{
+  "pass": true,
+  "errors": [],
+  "source": "real Chrome duel actual M01 from player hand",
+  "steps": [
+    {
+      "type": "initial",
+      "round": 1,
+      "energy": {
+        "player": 2,
+        "ai": 0
+      },
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "hand": [
+        "E01",
+        "E01",
+        "T04",
+        "M01",
+        "G04"
+      ],
+      "events": [
+        {
+          "serial": 1,
+          "type": "start",
+          "side": "player",
+          "seed": 3
+        }
+      ],
+      "board": {
+        "player": [
+          []
+        ],
+        "ai": [
+          []
+        ]
+      },
+      "originalSource": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 732
+    },
+    {
+      "type": "energy-after-real-turn",
+      "round": 2,
+      "energy": {
+        "player": 3,
+        "ai": 0
+      },
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "hand": [
+        "E01",
+        "E01",
+        "T04",
+        "M01",
+        "G04",
+        "E02"
+      ],
+      "events": [
+        {
+          "serial": 1,
+          "type": "start",
+          "side": "player",
+          "seed": 3
+        },
+        {
+          "serial": 2,
+          "type": "turn_start",
+          "side": "ai",
+          "round": 1
+        },
+        {
+          "serial": 3,
+          "type": "card_play",
+          "side": "ai",
+          "card": "T02",
+          "lane": 0
+        },
+        {
+          "serial": 4,
+          "type": "turn_start",
+          "side": "player",
+          "round": 2
+        }
+      ],
+      "board": {
+        "player": [
+          []
+        ],
+        "ai": [
+          [
+            {
+              "uid": "U3",
+              "id": "T02",
+              "style": "tide",
+              "attack": 2,
+              "hp": 3,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 1
+            }
+          ]
+        ]
+      },
+      "originalSource": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 834
+    },
+    {
+      "type": "real-card-played",
+      "round": 2,
+      "energy": {
+        "player": 0,
+        "ai": 0
+      },
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "hand": [
+        "E01",
+        "E01",
+        "T04",
+        "G04",
+        "E02"
+      ],
+      "events": [
+        {
+          "serial": 1,
+          "type": "start",
+          "side": "player",
+          "seed": 3
+        },
+        {
+          "serial": 2,
+          "type": "turn_start",
+          "side": "ai",
+          "round": 1
+        },
+        {
+          "serial": 3,
+          "type": "card_play",
+          "side": "ai",
+          "card": "T02",
+          "lane": 0
+        },
+        {
+          "serial": 4,
+          "type": "turn_start",
+          "side": "player",
+          "round": 2
+        },
+        {
+          "serial": 5,
+          "type": "card_play",
+          "side": "player",
+          "card": "M01",
+          "lane": 0
+        }
+      ],
+      "board": {
+        "player": [
+          [
+            {
+              "uid": "U5",
+              "id": "M01",
+              "style": "tide",
+              "attack": 2,
+              "hp": 5,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 2
+            }
+          ]
+        ],
+        "ai": [
+          [
+            {
+              "uid": "U3",
+              "id": "T02",
+              "style": "tide",
+              "attack": 2,
+              "hp": 3,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 1
+            }
+          ]
+        ]
+      },
+      "m01": {
+        "side": "player",
+        "uid": "U5",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.472391,
+        "metrics": {
+          "width": 1.32,
+          "height": 2.118,
+          "depth": 0.876,
+          "minY": -0.085,
+          "maxY": 2.033,
+          "coverageWidth": 0.095,
+          "coverageHeight": 0.242,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.296,
+            "right": -0.106,
+            "top": 0.196,
+            "bottom": -0.287
+          },
+          "frontDot": 0.9952
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 2,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.33,
+          0
+        ],
+        "position": [
+          -1.75,
+          0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Order"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 41,
+          "maxRealJointAngle": 1.3548341937471409,
+          "current": "attack"
+        },
+        "r206Conductor": {
+          "enabled": true,
+          "mode": "attack",
+          "phase": "fortissimo-strike",
+          "time": 0.722,
+          "observedStages": [
+            "conducting",
+            "conductor-windup",
+            "fortissimo-strike"
+          ],
+          "originalSkinnedMeshes": 10,
+          "sourceMeshesStillBound": 10,
+          "originalSourceBones": 31,
+          "armFrames": 41,
+          "totalCorrected": 164,
+          "maxAppliedSourceJointAngle": 1.36,
+          "peakWristMotion": 0.3135,
+          "sourceGeometryReplaced": false,
+          "sourceMaterialReplaced": false,
+          "externalAssets": 0,
+          "newRenderPasses": 0,
+          "arms": {
+            "Left": {
+              "upperLength": 0.3097,
+              "lowerLength": 0.2733,
+              "elbowBelowShoulder": 0.2814,
+              "upperHorizontal": 0.1293,
+              "dropRatio": 0.9087,
+              "handWorld": [
+                -1.022,
+                1.172,
+                -0.05
+              ]
+            },
+            "Right": {
+              "upperLength": 0.3097,
+              "lowerLength": 0.2733,
+              "elbowBelowShoulder": 0.0862,
+              "upperHorizontal": 0.2975,
+              "dropRatio": 0.2782,
+              "handWorld": [
+                -1.128,
+                1.504,
+                0.48
+              ]
+            }
+          }
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": {
+          "lean": 0.20519453114554692,
+          "upperTwist": -0.13988944609597379,
+          "lift": 0
+        },
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "originalSource": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 903
+    },
+    {
+      "type": "real-next-turn",
+      "round": 3,
+      "energy": {
+        "player": 4,
+        "ai": 0
+      },
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "hand": [
+        "E01",
+        "E01",
+        "T04",
+        "G04",
+        "E02",
+        "T04"
+      ],
+      "events": [
+        {
+          "serial": 1,
+          "type": "start",
+          "side": "player",
+          "seed": 3
+        },
+        {
+          "serial": 2,
+          "type": "turn_start",
+          "side": "ai",
+          "round": 1
+        },
+        {
+          "serial": 3,
+          "type": "card_play",
+          "side": "ai",
+          "card": "T02",
+          "lane": 0
+        },
+        {
+          "serial": 4,
+          "type": "turn_start",
+          "side": "player",
+          "round": 2
+        },
+        {
+          "serial": 5,
+          "type": "card_play",
+          "side": "player",
+          "card": "M01",
+          "lane": 0
+        },
+        {
+          "serial": 6,
+          "type": "turn_start",
+          "side": "ai",
+          "round": 2
+        },
+        {
+          "serial": 7,
+          "type": "card_play",
+          "side": "ai",
+          "card": "T03",
+          "lane": 0
+        },
+        {
+          "serial": 8,
+          "type": "exchange",
+          "side": "ai",
+          "lane": 0,
+          "from": "T02",
+          "to": "M01",
+          "damage": 2,
+          "blocked": 0,
+          "retaliation": 2,
+          "retaliation_blocked": 0,
+          "target_uid": "U5",
+          "attacker_uid": "U3",
+          "target_defeated": false,
+          "attacker_defeated": false,
+          "target_hp_after": 3,
+          "attacker_hp_after": 1
+        },
+        {
+          "serial": 9,
+          "type": "turn_start",
+          "side": "player",
+          "round": 3
+        }
+      ],
+      "board": {
+        "player": [
+          [
+            {
+              "uid": "U5",
+              "id": "M01",
+              "style": "tide",
+              "attack": 2,
+              "hp": 3,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 2
+            }
+          ]
+        ],
+        "ai": [
+          [
+            {
+              "uid": "U3",
+              "id": "T02",
+              "style": "tide",
+              "attack": 2,
+              "hp": 1,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 1
+            },
+            {
+              "uid": "U7",
+              "id": "T03",
+              "style": "tide",
+              "attack": 3,
+              "hp": 3,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 2
+            }
+          ]
+        ]
+      },
+      "m01": {
+        "side": "player",
+        "uid": "U5",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.560825,
+        "metrics": {
+          "width": 0.999,
+          "height": 2.061,
+          "depth": 0.884,
+          "minY": -0.006,
+          "maxY": 2.054,
+          "coverageWidth": 0.075,
+          "coverageHeight": 0.235,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.288,
+            "right": -0.138,
+            "top": 0.204,
+            "bottom": -0.265
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 3,
+        "attack": 2,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.31,
+          0
+        ],
+        "position": [
+          -1.75,
+          -0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 131,
+          "maxRealJointAngle": 1.4119242832307326,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": true,
+          "mode": "idle",
+          "phase": "preparation",
+          "time": 2.284,
+          "observedStages": [
+            "conducting",
+            "conductor-windup",
+            "fortissimo-strike",
+            "conductor-windup",
+            "shocked-guard",
+            "preparation"
+          ],
+          "originalSkinnedMeshes": 10,
+          "sourceMeshesStillBound": 10,
+          "originalSourceBones": 31,
+          "armFrames": 131,
+          "totalCorrected": 524,
+          "maxAppliedSourceJointAngle": 1.36,
+          "peakWristMotion": 0.5096,
+          "sourceGeometryReplaced": false,
+          "sourceMaterialReplaced": false,
+          "externalAssets": 0,
+          "newRenderPasses": 0,
+          "arms": {
+            "Left": {
+              "upperLength": 0.3097,
+              "lowerLength": 0.2733,
+              "elbowBelowShoulder": 0.2787,
+              "upperHorizontal": 0.1352,
+              "dropRatio": 0.8997,
+              "handWorld": [
+                -1.342,
+                1.205,
+                -0.208
+              ]
+            },
+            "Right": {
+              "upperLength": 0.3097,
+              "lowerLength": 0.2733,
+              "elbowBelowShoulder": 0.2396,
+              "upperHorizontal": 0.1962,
+              "dropRatio": 0.7737,
+              "handWorld": [
+                -1.465,
+                1.341,
+                0.37
+              ]
+            }
+          }
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "originalSource": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 882
+    },
+    {
+      "type": "real-authoritative-m01-attacks",
+      "round": 4,
+      "energy": {
+        "player": 5,
+        "ai": 0
+      },
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "hand": [
+        "E01",
+        "E01",
+        "T04",
+        "G04",
+        "E02",
+        "T04",
+        "G01"
+      ],
+      "events": [
+        {
+          "serial": 1,
+          "type": "start",
+          "side": "player",
+          "seed": 3
+        },
+        {
+          "serial": 2,
+          "type": "turn_start",
+          "side": "ai",
+          "round": 1
+        },
+        {
+          "serial": 3,
+          "type": "card_play",
+          "side": "ai",
+          "card": "T02",
+          "lane": 0
+        },
+        {
+          "serial": 4,
+          "type": "turn_start",
+          "side": "player",
+          "round": 2
+        },
+        {
+          "serial": 5,
+          "type": "card_play",
+          "side": "player",
+          "card": "M01",
+          "lane": 0
+        },
+        {
+          "serial": 6,
+          "type": "turn_start",
+          "side": "ai",
+          "round": 2
+        },
+        {
+          "serial": 7,
+          "type": "card_play",
+          "side": "ai",
+          "card": "T03",
+          "lane": 0
+        },
+        {
+          "serial": 8,
+          "type": "exchange",
+          "side": "ai",
+          "lane": 0,
+          "from": "T02",
+          "to": "M01",
+          "damage": 2,
+          "blocked": 0,
+          "retaliation": 2,
+          "retaliation_blocked": 0,
+          "target_uid": "U5",
+          "attacker_uid": "U3",
+          "target_defeated": false,
+          "attacker_defeated": false,
+          "target_hp_after": 3,
+          "attacker_hp_after": 1
+        },
+        {
+          "serial": 9,
+          "type": "turn_start",
+          "side": "player",
+          "round": 3
+        },
+        {
+          "serial": 10,
+          "type": "exchange",
+          "side": "player",
+          "lane": 0,
+          "from": "M01",
+          "to": "T02",
+          "damage": 2,
+          "blocked": 0,
+          "retaliation": 2,
+          "retaliation_blocked": 0,
+          "target_uid": "U3",
+          "attacker_uid": "U5",
+          "target_defeated": true,
+          "attacker_defeated": false,
+          "target_hp_after": 0,
+          "attacker_hp_after": 1
+        },
+        {
+          "serial": 11,
+          "type": "turn_start",
+          "side": "ai",
+          "round": 3
+        },
+        {
+          "serial": 12,
+          "type": "card_play",
+          "side": "ai",
+          "card": "M02",
+          "lane": 0
+        },
+        {
+          "serial": 13,
+          "type": "card_play",
+          "side": "ai",
+          "card": "E01",
+          "lane": 0
+        },
+        {
+          "serial": 14,
+          "type": "combo",
+          "side": "ai",
+          "comboSerial": 1,
+          "styles": [
+            "tide",
+            "ember"
+          ],
+          "refund": 1,
+          "lane": 0
+        },
+        {
+          "serial": 15,
+          "type": "combo_effect",
+          "side": "ai",
+          "lane": 0,
+          "effect": "broadcast_draw",
+          "draw": 1
+        },
+        {
+          "serial": 16,
+          "type": "card_play",
+          "side": "ai",
+          "card": "T01",
+          "lane": 0
+        },
+        {
+          "serial": 17,
+          "type": "exchange",
+          "side": "ai",
+          "lane": 0,
+          "from": "T03",
+          "to": "M01",
+          "damage": 3,
+          "blocked": 0,
+          "retaliation": 2,
+          "retaliation_blocked": 0,
+          "target_uid": "U5",
+          "attacker_uid": "U7",
+          "target_defeated": true,
+          "attacker_defeated": false,
+          "target_hp_after": 0,
+          "attacker_hp_after": 1
+        },
+        {
+          "serial": 18,
+          "type": "turn_start",
+          "side": "player",
+          "round": 4
+        }
+      ],
+      "board": {
+        "player": [
+          []
+        ],
+        "ai": [
+          [
+            {
+              "uid": "U7",
+              "id": "T03",
+              "style": "tide",
+              "attack": 3,
+              "hp": 1,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 2
+            },
+            {
+              "uid": "U12",
+              "id": "M02",
+              "style": "tide",
+              "attack": 3,
+              "hp": 4,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 3
+            },
+            {
+              "uid": "U13",
+              "id": "E01",
+              "style": "ember",
+              "attack": 1,
+              "hp": 2,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 3
+            },
+            {
+              "uid": "U16",
+              "id": "T01",
+              "style": "tide",
+              "attack": 1,
+              "hp": 2,
+              "buff": 0,
+              "shield": 0,
+              "summonedAt": 3
+            }
+          ]
+        ]
+      },
+      "m01": {
+        "side": "player",
+        "uid": "U5",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 1.062,
+          "height": 2.092,
+          "depth": 0.942,
+          "minY": -0.047,
+          "maxY": 2.045,
+          "coverageWidth": 0.08,
+          "coverageHeight": 0.241,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.301,
+            "right": -0.14,
+            "top": 0.2,
+            "bottom": -0.282
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 3,
+        "attack": 2,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.83,
+          2.31,
+          0
+        ],
+        "position": [
+          -1.83,
+          -0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.23,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Order"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 155,
+          "maxRealJointAngle": 1.529082983374236,
+          "current": "attack"
+        },
+        "r206Conductor": {
+          "enabled": true,
+          "mode": "attack",
+          "phase": "fortissimo-strike",
+          "time": 2.791,
+          "observedStages": [
+            "conducting",
+            "conductor-windup",
+            "fortissimo-strike",
+            "conductor-windup",
+            "shocked-guard",
+            "preparation",
+            "conducting",
+            "fortissimo-strike"
+          ],
+          "originalSkinnedMeshes": 10,
+          "sourceMeshesStillBound": 10,
+          "originalSourceBones": 31,
+          "armFrames": 155,
+          "totalCorrected": 620,
+          "maxAppliedSourceJointAngle": 1.36,
+          "peakWristMotion": 0.5096,
+          "sourceGeometryReplaced": false,
+          "sourceMaterialReplaced": false,
+          "externalAssets": 0,
+          "newRenderPasses": 0,
+          "arms": {
+            "Left": {
+              "upperLength": 0.3097,
+              "lowerLength": 0.2733,
+              "elbowBelowShoulder": 0.2094,
+              "upperHorizontal": 0.2282,
+              "dropRatio": 0.6761,
+              "handWorld": [
+                -1.325,
+                1.401,
+                -0.073
+              ]
+            },
+            "Right": {
+              "upperLength": 0.3097,
+              "lowerLength": 0.2733,
+              "elbowBelowShoulder": 0.0799,
+              "upperHorizontal": 0.2992,
+              "dropRatio": 0.2581,
+              "handWorld": [
+                -1.429,
+                1.561,
+                0.448
+              ]
+            }
+          }
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "originalSource": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 1015
+    }
+  ],
+  "summary": {
+    "originalGlb": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+    "authenticCardPlayed": true,
+    "authenticManaAtPlay": 3,
+    "sourceSkinnedMeshes": 10,
+    "bodyBones": 31,
+    "atLeastNaturalPoseAfterRealTurn": true,
+    "noAutoCloseups": true,
+    "errors": []
+  }
+}
