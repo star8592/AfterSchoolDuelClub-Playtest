@@ -5,6 +5,7 @@
  */
 import {GUIDED_LINES} from './guided-tutorial.mjs';
 import {R207_IDLE_LINES} from './r207-idle-chatter.mjs';
+import {r209CanDelayHurt,r209DropStaleVoice} from './r209-voice-director.mjs';
 const SOUNDS=Object.freeze({
  select:'select.ogg',cast:'cast.ogg',enemy_cast:'enemy_cast.ogg',
  turn:'turn.ogg',attack:'attack.ogg',hit:'hit.ogg',
@@ -116,10 +117,12 @@ function savedVolume(){
  }catch{return {...defaults}}
 }
 
-export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
+export function createDuelAudio({onVoiceLine,onVoiceStop,voiceDirector=false}={}){
  let requested=savedSoundIntent(),enabled=false,ctx=null,decoded=new Map(),
 
-  voiceManifest={clips:{}},paManifest={clips:{}},tutorialManifest={clips:{}},crowdManifest={clips:{}},propPAManifest={clips:{}},teacherManifest={clips:{}},voiceAudio=null,crowdAudio=null;
+  voiceManifest={clips:{}},paManifest={clips:{}},tutorialManifest={clips:{}},crowdManifest={clips:{}},propPAManifest={clips:{}},teacherManifest={clips:{}},gaspManifest={clips:{}},voiceAudio=null,crowdAudio=null,gaspAudio=null;
+ let lastImpactGasp=null,lastImpactGaspAt=-Infinity;
+ const directorQA={deferredHits:0,immediateGasps:0,blockedLongDelay:0,staleVoicesCleared:0,gaspErrors:0};
  let crowdVoicePlays=0,lastCrowdVoice=null,teacherVoiceQueued=0,lastTeacherOrderAt=-Infinity;
  let pendingBleacherPA=null,pendingCrowdYelp=null,pendingTeacherOrder=null,bleacherEpoch=0;
  let lastPAAt=-Infinity,lastPropPAAt=-Infinity,propPAPlays=0,finaleVoiceGuard=false;
@@ -131,10 +134,10 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
  let fadingMusic=null,fadeRatio=1,musicTransitionToken=0;
  let musicCycle=0,openingSeed=0,lastBattleMusicKey='',lastMusicChangeAt=-Infinity;
  const musicHistory=[],voiceVariantHistory=[],variantBags=new Map(),lastVoiceVariant=new Map(),recentVariants=new Map();
- const speechHistory=[],comicBeatHistory=[];
+ const speechHistory=[],comicBeatHistory=[],voiceCompletionHistory=[];
  let lastSpoken=null;
 
- let activeSfx=0,voiceQueue=[],currentVoiceKey=null,voiceSerial=0;
+ let activeSfx=0,voiceQueue=[],currentVoiceKey=null,currentVoiceExpectedSeconds=0,voiceSerial=0;
  const recentVoiceKeys=new Map();
  const volume=savedVolume();
  const counters={cue:0,voice:0,voiceMissing:0,voiceDropped:0,voiceInterrupted:0,unlock:0,musicStart:0,errors:0};
@@ -250,6 +253,23 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
    teacherManifest=json;
   }catch(e){counters.errors++;log('teacher-manifest-error',String(e))}
  }
+ async function loadGaspManifest(){
+  if(!voiceDirector)return;
+  try{
+   const response=await fetch(base+'r209-impact-gasp-manifest.json',{cache:'no-cache'});
+   if(!response.ok)throw Error('R209 original impact voice HTTP '+response.status);
+   const json=await response.json(),clips=json.clips||{};
+   if(json.provider!=='Qwen3-TTS'||!['HOST_PLAYER','HOST_AI'].every(id=>{
+    const c=clips[id];
+    return c?.ready===true&&c.file===id+'-r209-impact-gasp.ogg'&&
+     typeof c.text==='string'&&c.text.length>=2&&c.text.length<25&&
+     /^[a-f0-9]{64}$/.test(c.sha256)&&
+     Number.isFinite(c.duration_seconds)&&
+     c.duration_seconds>.4&&c.duration_seconds<5;
+   }))throw Error('R209 original gasp manifest invalid');
+   gaspManifest=json;
+  }catch(e){directorQA.gaspErrors++;log('r209-gasp-manifest-error',String(e))}
+ }
  async function preloadCues(){
   if(!ctx)return;
   await Promise.all(Object.entries(SOUNDS).map(async([key,file])=>{
@@ -291,7 +311,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   });
   // Decode while suspended. First card selection must not wait for network.
 
-  assetsLoading=Promise.all([loadManifest(),loadPAManifest(),loadTutorialManifest(),loadCrowdManifest(),loadPropPAManifest(),loadTeacherManifest(),preloadCues()]).then(()=>{
+  assetsLoading=Promise.all([loadManifest(),loadPAManifest(),loadTutorialManifest(),loadCrowdManifest(),loadPropPAManifest(),loadTeacherManifest(),loadGaspManifest(),preloadCues()]).then(()=>{
 
     assetsReady=true;flushPending();
     log('prepared','sound files ready; playback follows browser policy');
@@ -355,6 +375,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   musicAudio?.pause();fadingMusic?.pause();fadingMusic=null;fadeRatio=1;musicTransitionToken++;
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
   crowdAudio?.pause();crowdAudio=null;
+  gaspAudio?.pause();gaspAudio=null;
   musicDucked=false;
   void ctx?.suspend().catch(()=>{});
   log('muted','explicit user preference');
@@ -368,8 +389,9 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   if(!Object.hasOwn(volume,channel))return;
   volume[channel]=clamp(value);store();
   if(channel==='music')updateMusicVolume();
-  if(channel==='voice'&&voiceAudio)voiceAudio.volume=volume.voice;
+  if(channel==='voice'&&voiceAudio)voiceAudio.volume=volume.voice*(gaspAudio?.paused===false?.72:1);
   if(channel==='voice'&&crowdAudio)crowdAudio.volume=volume.voice*.76;
+  if(channel==='voice'&&gaspAudio)gaspAudio.volume=volume.voice*.40;
   log('volume',channel+':'+volume[channel]);
  }
  function playCue(key,side='center',{rate=1,delay=0,gainScale=1}={}){
@@ -457,12 +479,18 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
 
   const a=new Audio(base+(source==='pa'?'pa/':source==='tutorial'?'tutorial/':source==='bleacher'?'crowd/':'voices/')+file+'?mix=r124');
 
-  voiceAudio=a;currentVoiceKey=id+':'+kind;
+  voiceAudio=a;currentVoiceKey=id+':'+kind;currentVoiceExpectedSeconds=Number(duration_seconds)||0;
   const serial=++voiceSerial;
   let speechActuallyStarted=false,speechStopNotified=false;
   const signalStop=reason=>{
    if(!speechActuallyStarted||speechStopNotified)return;
    speechStopNotified=true;
+   const playbackSeconds=Number.isFinite(a.currentTime)?a.currentTime:0;
+   voiceCompletionHistory.push({id,kind,serial,reason,
+    naturallyEnded:a.ended===true,
+    playbackSeconds:+playbackSeconds.toFixed(3),
+    expectedSeconds:duration_seconds});
+   if(voiceCompletionHistory.length>65)voiceCompletionHistory.shift();
    if(typeof onVoiceStop==='function')try{
     onVoiceStop({id,kind,serial,reason});
    }catch(e){log('voice-stop-callback-error',String(e))}
@@ -476,7 +504,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   const done=()=>{
    signalStop('finished');
    if(voiceAudio!==a)return;
-   voiceAudio=null;currentVoiceKey=null;
+   voiceAudio=null;currentVoiceKey=null;currentVoiceExpectedSeconds=0;
    if(enabled&&voiceQueue.length)playQueuedVoice();
    else{musicDucked=false;updateMusicVolume()}
   };
@@ -500,6 +528,40 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
    });
   }catch(e){counters.errors++;log('voice-init-error',String(e));done()}
  }
+ // A short genuine gasp belongs to the actual collision moment, while the
+ // full recorded victim retort follows the caster's last audible syllable.
+ // This is a separate LOW-volume lane and cannot impersonate an R208 line.
+ function playImmediateGasp(id){
+  if(!voiceDirector||!requested||!enabled||finaleVoiceGuard||
+    volume.voice<=0||performance.now()-lastImpactGaspAt<450)return false;
+  const c=gaspManifest.clips?.[id];
+  if(!c?.ready||c.file!==id+'-r209-impact-gasp.ogg')return false;
+  const a=new Audio(base+'voices/'+c.file+'?mix=r209');
+  a.preload='auto';a.volume=volume.voice*.40;
+  a.playbackRate=1.12;
+  if(gaspAudio){gaspAudio.pause();gaspAudio=null}
+  gaspAudio=a;lastImpactGaspAt=performance.now();
+  // During the short gasp, the finishing spell remains fully audible
+  // but steps down for half a second. This avoids two equally loud voices.
+  const finishingCaster=voiceAudio;
+  if(finishingCaster)finishingCaster.volume=volume.voice*.72;
+  const done=()=>{
+   if(gaspAudio===a)gaspAudio=null;
+   if(finishingCaster===voiceAudio)finishingCaster.volume=volume.voice;
+  };
+  a.addEventListener('ended',done,{once:true});
+  a.addEventListener('error',()=>{directorQA.gaspErrors++;done()},{once:true});
+  try{
+   a.play().then(()=>{
+    if(gaspAudio!==a)return;
+    directorQA.immediateGasps++;
+    lastImpactGasp={id,text:c.text,duration_seconds:c.duration_seconds,
+      at:performance.now(),file:c.file};
+    log('r209-impact-gasp',id);
+   }).catch(e=>{directorQA.gaspErrors++;log('r209-gasp-play-error',String(e));done()});
+  }catch(e){directorQA.gaspErrors++;log('r209-gasp-start-error',String(e));done()}
+  return true;
+ }
  function playCharacter(id,kind='enter'){
   // Delayed impact callbacks from the last strike must never steal the
   // microphone from the real winner announcement.
@@ -507,6 +569,15 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   if(!enabled||!assetsReady){
     if(pendingVoices.length<3)pendingVoices.push({id,kind});
     return true;
+  }
+  // One actual spell may report the same victim via two legitimate scene
+  // paths. Never let the second callback cut the nearly finished caster.
+  if(voiceDirector&&currentVoiceKey?.includes(':r208_')&&
+    /^(?:hurt|r202_[A-Z][0-9]{2}|r203_[A-Z][0-9]{2})$/.test(kind)&&
+    voiceQueue.some(q=>q.id===id&&
+     /^(?:hurt|r202_[A-Z][0-9]{2}|r203_[A-Z][0-9]{2})$/.test(q.kind))){
+   log('r209-duplicate-victim-reaction-merged',id+':'+kind);
+   return true;
   }
   const clip=chooseVoiceVariant(id,kind);
   if(!clip?.file){counters.voiceMissing++;return false}
@@ -518,6 +589,30 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   if(recentVoiceKeys.size>45)recentVoiceKeys.clear();
   const item={id,kind,file:clip.file,variant:clip.variant,text:clip.text,duration_seconds:clip.duration_seconds};
   if(kind==='attack'||kind==='hurt'||kind==='cast'||/^r202_(E06|Q05|K01|K07|P07)$/.test(kind)||/^r203_(K04|S08|P03|X05|Q07)$/.test(kind)){
+   // R209: real physical contact is still immediate (body pose + impact
+   // Foley + gasp). But a 2.8s voice must not be cut at 1.05s by the
+   // opposite character's full retort. Keep ONE bounded priority response.
+   const originalCastActive=voiceDirector&&currentVoiceKey?.includes(':r208_');
+   const castTime=voiceAudio?.currentTime??0;
+   const canDefer=voiceDirector&&r209CanDelayHurt({
+    activeKey:currentVoiceKey,activeDuration:currentVoiceExpectedSeconds,
+    position:castTime,hitId:id,hitKind:kind});
+   if(canDefer){
+    const before=voiceQueue.length;
+    voiceQueue=voiceQueue.filter(item=>!r209DropStaleVoice(item));
+    directorQA.staleVoicesCleared+=before-voiceQueue.length;
+    if(voiceQueue.some(item=>item.id===id&&item.kind===kind))return false;
+    voiceQueue.unshift(item);
+    if(voiceQueue.length>3)voiceQueue.length=3;
+    directorQA.deferredHits++;
+    playImmediateGasp(id);
+    log('r209-hurt-deferred',id+':'+kind+'+'+
+     (currentVoiceExpectedSeconds-castTime).toFixed(2)+'s');
+    return true;
+   }
+   if(originalCastActive&&['HOST_PLAYER','HOST_AI'].includes(id)&&
+     (kind==='hurt'||kind.startsWith('r202_')||kind.startsWith('r203_')))
+    directorQA.blockedLongDelay++;
    // Attack VO must accompany the actual animation; cancel the old line,
    // leaving pending entrances behind this higher priority combat call.
    if(voiceAudio){voiceAudio.pause();voiceAudio=null;currentVoiceKey=null;counters.voiceInterrupted++;}
@@ -769,12 +864,14 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   if(finaleTimer!==null){clearTimeout(finaleTimer);finaleTimer=null;}
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
   crowdAudio?.pause();crowdAudio=null;
+  gaspAudio?.pause();gaspAudio=null;
   musicDucked=false;updateMusicVolume();
  }
  function gameFinished(winner){
   pendingBleacherPA=null;pendingCrowdYelp=null;pendingTeacherOrder=null;bleacherEpoch++;
   finaleVoiceGuard=true;
   crowdAudio?.pause();crowdAudio=null;
+  gaspAudio?.pause();gaspAudio=null;
   voiceQueue=[];voiceAudio?.pause();voiceAudio=null;currentVoiceKey=null;
   musicDucked=false;
   // Do not kill the auditorium soundtrack when the winning cast starts dancing.
@@ -794,6 +891,8 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   log('finished',winner);
  }
  function status(){return {provider:VOICE_MODEL,enabled,requested,
+  voiceDirector,voiceDirectorQA:{...directorQA},
+  lastImpactGasp:lastImpactGasp?{...lastImpactGasp}:null,gaspPlaying:!!gaspAudio,
   activationPending:requested&&!enabled,assetsReady,
   audioContextState:ctx?.state||'none',
   pendingCues:pendingCues.length,pendingVoices:pendingVoices.length,
@@ -810,7 +909,7 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
 
   finaleVoiceGuard,
   musicHistory:[...musicHistory],voiceVariantHistory:[...voiceVariantHistory],
-  lastSpoken:lastSpoken?{...lastSpoken}:null,speechHistory:[...speechHistory],comicBeatHistory:[...comicBeatHistory],
+  lastSpoken:lastSpoken?{...lastSpoken}:null,speechHistory:[...speechHistory],voiceCompletionHistory:[...voiceCompletionHistory],comicBeatHistory:[...comicBeatHistory],
   voicePlaying:!!voiceAudio,currentVoiceKey,
   voiceQueue:voiceQueue.map(x=>x.id+':'+x.kind),decodedCues:decoded.size,voiceClipCount:Object.keys(voiceManifest.clips||{}).length,
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
