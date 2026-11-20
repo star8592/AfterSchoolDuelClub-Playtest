@@ -1,0 +1,9 @@
+# External model references remain Z890 local; do not duplicate assets in Git.
+assets/wealth_chef.glb
+assets/wealth_teen.glb
+assets/dandao_healer.glb
+assets/kaykit_general.glb
+# Failed/temporary Playwright raw recordings; commit curated MP4 only.
+evidence/page@*.webm
+# Blender automatic backups: keep only the final editable .blend file.
+source/*.blend1

@@ -1,0 +1,562 @@
+{
+  "summary": {
+    "modelCount": 16,
+    "onlyMorphIds": [
+      "E03",
+      "E04",
+      "G02",
+      "G03",
+      "G04",
+      "T03",
+      "T04"
+    ],
+    "withNativeBoneRotations": [
+      "E02",
+      "M01",
+      "M02",
+      "T02"
+    ],
+    "warning": "This counts source glTF animation tracks only. Runtime-generated/additive source-bone clips may still exist and are not disproven by this report."
+  },
+  "models": {
+    "E02": {
+      "path": "assets/summons/E02-R60-PhotoPaper-WingFlex-STUDY.glb",
+      "bytes": 1116092,
+      "sha256": "904ab9930af985af752095718966b265b1c96b1efc73fa74beadae722f135a90",
+      "meshCount": 17,
+      "skins": 0,
+      "skinJointRefs": 0,
+      "nodeCount": 18,
+      "animations": [
+        {
+          "name": "Idle_Glide",
+          "totalTracks": 4,
+          "rotation": 1,
+          "translation": 1,
+          "scale": 0,
+          "weights": 2
+        },
+        {
+          "name": "Bank_Left",
+          "totalTracks": 4,
+          "rotation": 1,
+          "translation": 1,
+          "scale": 0,
+          "weights": 2
+        },
+        {
+          "name": "Bank_Right",
+          "totalTracks": 4,
+          "rotation": 1,
+          "translation": 1,
+          "scale": 0,
+          "weights": 2
+        },
+        {
+          "name": "Attack_Dart",
+          "totalTracks": 4,
+          "rotation": 1,
+          "translation": 1,
+          "scale": 0,
+          "weights": 2
+        },
+        {
+          "name": "Hit_Recoil",
+          "totalTracks": 4,
+          "rotation": 1,
+          "translation": 1,
+          "scale": 0,
+          "weights": 2
+        }
+      ],
+      "onlyMorphAnimations": false
+    },
+    "E03": {
+      "path": "assets/summons/E03-Ellie-Landing-R97.glb",
+      "bytes": 6307700,
+      "sha256": "889d4c737af16725fb4d10f8226e191230683930ecbdac3fc225f4a29e7c0fdf",
+      "meshCount": 35,
+      "skins": 1,
+      "skinJointRefs": 1887,
+      "nodeCount": 1928,
+      "animations": [
+        {
+          "name": "Idle",
+          "totalTracks": 3,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 3
+        },
+        {
+          "name": "Attack",
+          "totalTracks": 10,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 10
+        },
+        {
+          "name": "Hit",
+          "totalTracks": 10,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 10
+        }
+      ],
+      "onlyMorphAnimations": true
+    },
+    "E04": {
+      "path": "assets/summons/E04-Phil-Landing-R97.glb",
+      "bytes": 2706072,
+      "sha256": "2e9069fc0fa58dff49abac3433c9dcc77475a02817f807c4f87b75c4a6d40900",
+      "meshCount": 17,
+      "skins": 1,
+      "skinJointRefs": 1383,
+      "nodeCount": 1407,
+      "animations": [
+        {
+          "name": "Idle",
+          "totalTracks": 4,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 4
+        },
+        {
+          "name": "Attack",
+          "totalTracks": 8,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 8
+        },
+        {
+          "name": "Hit",
+          "totalTracks": 12,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 12
+        }
+      ],
+      "onlyMorphAnimations": true
+    },
+    "G02": {
+      "path": "assets/summons/G02-Snow-Landing-R97.glb",
+      "bytes": 8435660,
+      "sha256": "b73370e82a9adeab8161c66e51d5d4c2b6a8c331d464b974d73fd346d6dc912e",
+      "meshCount": 19,
+      "skins": 1,
+      "skinJointRefs": 1494,
+      "nodeCount": 1514,
+      "animations": [
+        {
+          "name": "Idle",
+          "totalTracks": 2,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 2
+        },
+        {
+          "name": "Attack",
+          "totalTracks": 17,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 17
+        },
+        {
+          "name": "Hit",
+          "totalTracks": 17,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 17
+        }
+      ],
+      "onlyMorphAnimations": true
+    },
+    "G03": {
+      "path": "assets/summons/G03-Jay-Landing-R97.glb",
+      "bytes": 4573352,
+      "sha256": "04af676079ca7306091dd074ffeead251dbf3e53b86dba5df273a432ee565a03",
+      "meshCount": 22,
+      "skins": 1,
+      "skinJointRefs": 1605,
+      "nodeCount": 1633,
+      "animations": [
+        {
+          "name": "Idle",
+          "totalTracks": 2,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 2
+        },
+        {
+          "name": "Attack",
+          "totalTracks": 6,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 6
+        },
+        {
+          "name": "Hit",
+          "totalTracks": 6,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 6
+        }
+      ],
+      "onlyMorphAnimations": true
+    },
+    "G04": {
+      "path": "assets/summons/G04-Victoria-Landing-R97.glb",
+      "bytes": 6541032,
+      "sha256": "84f621a36293a59b5cd014093453bab2cd3af2583cc044be9005dd19f4173a81",
+      "meshCount": 21,
+      "skins": 1,
+      "skinJointRefs": 1618,
+      "nodeCount": 1656,
+      "animations": [
+        {
+          "name": "Attack",
+          "totalTracks": 35,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 35
+        },
+        {
+          "name": "Hit",
+          "totalTracks": 35,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 35
+        },
+        {
+          "name": "Idle",
+          "totalTracks": 3,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 3
+        }
+      ],
+      "onlyMorphAnimations": true
+    },
+    "M01": {
+      "path": "assets/summons/M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+      "bytes": 423112,
+      "sha256": "cb4b14e7f4a5e0b11e24f178bd2a0fe3b401bf9c9869bc9a5b0b1e415dbc86c3",
+      "meshCount": 10,
+      "skins": 10,
+      "skinJointRefs": 310,
+      "nodeCount": 53,
+      "animations": [
+        {
+          "name": "Idle",
+          "totalTracks": 23,
+          "rotation": 22,
+          "translation": 1,
+          "scale": 0,
+          "weights": 0
+        },
+        {
+          "name": "Walk",
+          "totalTracks": 23,
+          "rotation": 22,
+          "translation": 1,
+          "scale": 0,
+          "weights": 0
+        },
+        {
+          "name": "Run",
+          "totalTracks": 23,
+          "rotation": 22,
+          "translation": 1,
+          "scale": 0,
+          "weights": 0
+        }
+      ],
+      "onlyMorphAnimations": false
+    },
+    "M02": {
+      "path": "assets/summons/M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+      "bytes": 2329612,
+      "sha256": "438d5f0209e7851ff4a68faa94462a807ee77cd2b2efb0cb3e2d12357711a690",
+      "meshCount": 13,
+      "skins": 1,
+      "skinJointRefs": 24,
+      "nodeCount": 38,
+      "animations": [
+        {
+          "name": "Angry_Stomp",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        },
+        {
+          "name": "Big_Wave_Hello",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        },
+        {
+          "name": "Cheer_with_Both_Hands_Up",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        },
+        {
+          "name": "Confused_Scratch",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        },
+        {
+          "name": "FunnyDancing_01",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        },
+        {
+          "name": "Grip_and_Throw_Down",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        },
+        {
+          "name": "Idle",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        },
+        {
+          "name": "Jazz_Hands",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        },
+        {
+          "name": "Shrug",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        },
+        {
+          "name": "Victory_Cheer",
+          "totalTracks": 72,
+          "rotation": 24,
+          "translation": 24,
+          "scale": 24,
+          "weights": 0
+        }
+      ],
+      "onlyMorphAnimations": false
+    },
+    "T01": {
+      "path": "assets/summons/T01-Owl-Innerscene-R84.glb",
+      "bytes": 12317072,
+      "sha256": "96dc576cdc56bd14b030826818b7bbd7d3c26e074145304898ffc17f91520872",
+      "meshCount": 129,
+      "skins": 0,
+      "skinJointRefs": 0,
+      "nodeCount": 130,
+      "animations": [],
+      "onlyMorphAnimations": false
+    },
+    "T02": {
+      "path": "assets/summons/T02-LivingMenu-R59.glb",
+      "bytes": 1751256,
+      "sha256": "3ecc67403d7c7521563d526b9c78f5894f94a48f3a3dbaa6724978ffa16a0fd7",
+      "meshCount": 43,
+      "skins": 0,
+      "skinJointRefs": 0,
+      "nodeCount": 48,
+      "animations": [
+        {
+          "name": "Idle_Menu_Breath",
+          "totalTracks": 5,
+          "rotation": 4,
+          "translation": 1,
+          "scale": 0,
+          "weights": 0
+        },
+        {
+          "name": "Walk_Small_Steps",
+          "totalTracks": 5,
+          "rotation": 4,
+          "translation": 1,
+          "scale": 0,
+          "weights": 0
+        },
+        {
+          "name": "Attack_Flip_Menu",
+          "totalTracks": 5,
+          "rotation": 4,
+          "translation": 1,
+          "scale": 0,
+          "weights": 0
+        },
+        {
+          "name": "Defend_Opening_Menu",
+          "totalTracks": 2,
+          "rotation": 2,
+          "translation": 0,
+          "scale": 0,
+          "weights": 0
+        },
+        {
+          "name": "Hit_Retreat",
+          "totalTracks": 5,
+          "rotation": 4,
+          "translation": 1,
+          "scale": 0,
+          "weights": 0
+        }
+      ],
+      "onlyMorphAnimations": false
+    },
+    "T03": {
+      "path": "assets/summons/T03-Rain-Landing-R97.glb",
+      "bytes": 7306420,
+      "sha256": "701e92115b469ccbfb27ede9f06c9a7f0db95a4ed3870f333cf7daf1b4553ab6",
+      "meshCount": 18,
+      "skins": 1,
+      "skinJointRefs": 2166,
+      "nodeCount": 2185,
+      "animations": [
+        {
+          "name": "Idle",
+          "totalTracks": 3,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 3
+        },
+        {
+          "name": "Attack",
+          "totalTracks": 5,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 5
+        },
+        {
+          "name": "Hit",
+          "totalTracks": 5,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 5
+        }
+      ],
+      "onlyMorphAnimations": true
+    },
+    "T04": {
+      "path": "assets/summons/T04-Rex-Landing-R97.glb",
+      "bytes": 5236624,
+      "sha256": "71512e13b065a2075e2259841fc058a77341068f1f6738838db265ddc11229d2",
+      "meshCount": 25,
+      "skins": 1,
+      "skinJointRefs": 1556,
+      "nodeCount": 1588,
+      "animations": [
+        {
+          "name": "Idle",
+          "totalTracks": 3,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 3
+        },
+        {
+          "name": "Attack",
+          "totalTracks": 7,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 7
+        },
+        {
+          "name": "Hit",
+          "totalTracks": 9,
+          "rotation": 0,
+          "translation": 0,
+          "scale": 0,
+          "weights": 9
+        }
+      ],
+      "onlyMorphAnimations": true
+    },
+    "E01": {
+      "path": "assets/model/Shino-original-CC0.vrm",
+      "bytes": 6613012,
+      "sha256": "d9926b9d52d9d878cd280c329f309a56f426dd328d36236985133b8359a8d3d7",
+      "meshCount": 3,
+      "skins": 3,
+      "skinJointRefs": 444,
+      "nodeCount": 153,
+      "animations": [],
+      "onlyMorphAnimations": false
+    },
+    "G01": {
+      "path": "assets/model/Fumiriya-original-CC0.vrm",
+      "bytes": 8469128,
+      "sha256": "2ce7469d31bffbec84e4b24f917c84fcd80c71a541684d8903a6df6dec1ee0b5",
+      "meshCount": 3,
+      "skins": 3,
+      "skinJointRefs": 321,
+      "nodeCount": 112,
+      "animations": [],
+      "onlyMorphAnimations": false
+    },
+    "HOST_E01": {
+      "path": "assets/model/Host-HairSample_Female-CC0.vrm",
+      "bytes": 7665836,
+      "sha256": "f53d697fcb855e1143490ffc6f210aab272254473217cd1c21a9ce243b54bdb9",
+      "meshCount": 3,
+      "skins": 3,
+      "skinJointRefs": 357,
+      "nodeCount": 124,
+      "animations": [],
+      "onlyMorphAnimations": false
+    },
+    "HOST_G01": {
+      "path": "assets/model/Host-HairSample_Male-CC0.vrm",
+      "bytes": 7918884,
+      "sha256": "dbcd44fa4ea697e62279ad9aa6847cc77b3e7433783d030de8d02a4ae49d517a",
+      "meshCount": 3,
+      "skins": 3,
+      "skinJointRefs": 273,
+      "nodeCount": 96,
+      "animations": [],
+      "onlyMorphAnimations": false
+    }
+  }
+}
