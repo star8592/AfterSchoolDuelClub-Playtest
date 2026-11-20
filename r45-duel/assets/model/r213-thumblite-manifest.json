@@ -1,0 +1,73 @@
+{
+  "version": "R213",
+  "method": "metadata-only-thumbnail-binary-repack",
+  "originalVisibleMeshDataIdentical": true,
+  "originalAnimationDataIdentical": true,
+  "originalRuntimeMaterialTextureBytesIdentical": true,
+  "entries": [
+    {
+      "file": "Fumiriya-original-CC0.vrm",
+      "optimized": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+      "sourceBytes": 8469128,
+      "optimizedBytes": 7074648,
+      "oldThumbnailBytes": 1408326,
+      "newThumbnailBytes": 13846,
+      "originalSha256": "2ce7469d31bffbec84e4b24f917c84fcd80c71a541684d8903a6df6dec1ee0b5",
+      "optimizedSha256": "00bfb831da3d14b90375db67a5b687810d4f7c23429290d9cc41c2cc937e1f6a",
+      "thumbnailDimensions": [
+        256,
+        256
+      ],
+      "otherBufferViewsVerified": 227,
+      "originalRuntimeDataIdentical": true
+    },
+    {
+      "file": "Host-HairSample_Female-CC0.vrm",
+      "optimized": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+      "sourceBytes": 7665836,
+      "optimizedBytes": 6421300,
+      "oldThumbnailBytes": 1255798,
+      "newThumbnailBytes": 11264,
+      "originalSha256": "f53d697fcb855e1143490ffc6f210aab272254473217cd1c21a9ce243b54bdb9",
+      "optimizedSha256": "ce0b5199c8be1a832f0c407b4535ae8541ed6e9ac312749907234d38faaf3cae",
+      "thumbnailDimensions": [
+        256,
+        256
+      ],
+      "otherBufferViewsVerified": 248,
+      "originalRuntimeDataIdentical": true
+    },
+    {
+      "file": "Host-HairSample_Male-CC0.vrm",
+      "optimized": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+      "sourceBytes": 7918884,
+      "optimizedBytes": 6704432,
+      "oldThumbnailBytes": 1226302,
+      "newThumbnailBytes": 11852,
+      "originalSha256": "dbcd44fa4ea697e62279ad9aa6847cc77b3e7433783d030de8d02a4ae49d517a",
+      "optimizedSha256": "ca6e5f49e1ddd745b0d21337ef1f570ea1211954f4508c507bcb7e5a9df6ef2a",
+      "thumbnailDimensions": [
+        256,
+        256
+      ],
+      "otherBufferViewsVerified": 251,
+      "originalRuntimeDataIdentical": true
+    },
+    {
+      "file": "Shino-original-CC0.vrm",
+      "optimized": "Shino-original-CC0-R213-ThumbLite.vrm",
+      "sourceBytes": 6613012,
+      "optimizedBytes": 5343812,
+      "oldThumbnailBytes": 1282326,
+      "newThumbnailBytes": 13126,
+      "originalSha256": "d9926b9d52d9d878cd280c329f309a56f426dd328d36236985133b8359a8d3d7",
+      "optimizedSha256": "c5823b7918f77f1892f891fa07db5e054b3bf1846f2da21cbd980b02d22fd70d",
+      "thumbnailDimensions": [
+        256,
+        256
+      ],
+      "otherBufferViewsVerified": 196,
+      "originalRuntimeDataIdentical": true
+    }
+  ]
+}

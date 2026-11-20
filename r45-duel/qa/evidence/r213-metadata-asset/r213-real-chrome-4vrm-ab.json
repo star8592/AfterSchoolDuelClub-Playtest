@@ -1,0 +1,199 @@
+{
+  "ok": true,
+  "benchmark": "Z890 Chrome GPU, two separate fresh page contexts, 16/16 asset readiness",
+  "cases": [
+    {
+      "name": "original",
+      "readyMs": 3622,
+      "assets": {
+        "enabled": false,
+        "loadedModels": 4,
+        "verifiedSources": [
+          {
+            "id": "E01",
+            "original": "Shino-original-CC0.vrm",
+            "transport": "Shino-original-CC0.vrm",
+            "bones": 148,
+            "skins": 67
+          },
+          {
+            "id": "G01",
+            "original": "Fumiriya-original-CC0.vrm",
+            "transport": "Fumiriya-original-CC0.vrm",
+            "bones": 107,
+            "skins": 102
+          },
+          {
+            "id": "E01",
+            "original": "Host-HairSample_Female-CC0.vrm",
+            "transport": "Host-HairSample_Female-CC0.vrm",
+            "bones": 119,
+            "skins": 124
+          },
+          {
+            "id": "G01",
+            "original": "Host-HairSample_Male-CC0.vrm",
+            "transport": "Host-HairSample_Male-CC0.vrm",
+            "bones": 91,
+            "skins": 131
+          }
+        ]
+      },
+      "roles": [
+        {
+          "id": "E01",
+          "asset": "Shino-original-CC0.vrm",
+          "bones": 148,
+          "skins": 67
+        },
+        {
+          "id": "G01",
+          "asset": "Fumiriya-original-CC0.vrm",
+          "bones": 107,
+          "skins": 102
+        }
+      ],
+      "hosts": [
+        {
+          "id": "E01",
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "bones": 119,
+          "skins": 124
+        },
+        {
+          "id": "G01",
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "bones": 91,
+          "skins": 131
+        }
+      ],
+      "seatBanks": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      },
+      "stadium": 8,
+      "drawCalls": 649,
+      "load": {
+        "modelsVerified": 16,
+        "modelReadyMs": 1558,
+        "firstFrameReadyMs": 2761,
+        "downloadedBytes": 75569762,
+        "knownTotalBytes": 75569762
+      },
+      "actualAssetUrls": [
+        "Host-HairSample_Female-CC0.vrm",
+        "Fumiriya-original-CC0.vrm",
+        "Shino-original-CC0.vrm",
+        "Host-HairSample_Male-CC0.vrm"
+      ],
+      "screenshot": "r45-duel/qa/evidence/r213-metadata-asset/r213-original-real-chrome.png"
+    },
+    {
+      "name": "thumblite",
+      "readyMs": 2967,
+      "assets": {
+        "enabled": true,
+        "loadedModels": 4,
+        "verifiedSources": [
+          {
+            "id": "E01",
+            "original": "Shino-original-CC0.vrm",
+            "transport": "Shino-original-CC0-R213-ThumbLite.vrm",
+            "bones": 148,
+            "skins": 67
+          },
+          {
+            "id": "G01",
+            "original": "Fumiriya-original-CC0.vrm",
+            "transport": "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+            "bones": 107,
+            "skins": 102
+          },
+          {
+            "id": "E01",
+            "original": "Host-HairSample_Female-CC0.vrm",
+            "transport": "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+            "bones": 119,
+            "skins": 124
+          },
+          {
+            "id": "G01",
+            "original": "Host-HairSample_Male-CC0.vrm",
+            "transport": "Host-HairSample_Male-CC0-R213-ThumbLite.vrm",
+            "bones": 91,
+            "skins": 131
+          }
+        ]
+      },
+      "roles": [
+        {
+          "id": "E01",
+          "asset": "Shino-original-CC0.vrm",
+          "bones": 148,
+          "skins": 67
+        },
+        {
+          "id": "G01",
+          "asset": "Fumiriya-original-CC0.vrm",
+          "bones": 107,
+          "skins": 102
+        }
+      ],
+      "hosts": [
+        {
+          "id": "E01",
+          "modelSource": "Host-HairSample_Female-CC0.vrm",
+          "bones": 119,
+          "skins": 124
+        },
+        {
+          "id": "G01",
+          "modelSource": "Host-HairSample_Male-CC0.vrm",
+          "bones": 91,
+          "skins": 131
+        }
+      ],
+      "seatBanks": {
+        "front": {
+          "cushionZ": -6.36,
+          "backrestZ": -6.69,
+          "seatCount": 198,
+          "visible": true
+        },
+        "reverse": {
+          "cushionZ": 6.36,
+          "backrestZ": 6.69,
+          "seatCount": 198,
+          "visible": false
+        }
+      },
+      "stadium": 8,
+      "drawCalls": 649,
+      "load": {
+        "modelsVerified": 16,
+        "modelReadyMs": 1430,
+        "firstFrameReadyMs": 2284,
+        "downloadedBytes": 70447094,
+        "knownTotalBytes": 70447094
+      },
+      "actualAssetUrls": [
+        "Fumiriya-original-CC0-R213-ThumbLite.vrm",
+        "Host-HairSample_Female-CC0-R213-ThumbLite.vrm",
+        "Shino-original-CC0-R213-ThumbLite.vrm",
+        "Host-HairSample_Male-CC0-R213-ThumbLite.vrm"
+      ],
+      "screenshot": "r45-duel/qa/evidence/r213-metadata-asset/r213-thumblite-real-chrome.png"
+    }
+  ],
+  "errors": []
+}
