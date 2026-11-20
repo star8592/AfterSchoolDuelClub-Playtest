@@ -546,6 +546,31 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   playQueuedVoice();
   return true;
  }
+ // R208 named campus spells: pre-recorded Chinese original actress/actor
+ // voices, matched to the exact 46 R169 original text lines at the REAL
+ // source-GLB cast cue. No text-only synthetic voice or extra sound lane.
+ // Only one line at once; genuine injury has higher priority.
+ function playSpellCastLine(side,card,text){
+  if(!['player','ai'].includes(side)||!(/^[A-Z][0-9]{2}$/).test(card)||
+    !requested||!enabled||!assetsReady||finaleVoiceGuard||
+    volume.voice===0||typeof text!=='string'||text.length<6)return false;
+  const id=side==='player'?'HOST_PLAYER':'HOST_AI';
+  const key='r208_'+card,clip=voiceManifest.clips?.[id]?.[key];
+  if(!clip?.ready||clip.text!==text||
+    clip.file!==id+'-'+key+'.ogg'||
+    !Number.isFinite(clip.duration_seconds)||clip.duration_seconds<.5||
+    clip.duration_seconds>13)return false;
+  // A spontaneous idle whisper may yield to the spell being cast;
+  // an injury, tutorial or announcer never gets interrupted by this.
+  if(voiceAudio&&currentVoiceKey?.endsWith(':idle')){
+   voiceAudio.pause();voiceAudio=null;currentVoiceKey=null;
+   counters.voiceInterrupted++;
+  }
+  if(voiceAudio||voiceQueue.length>0)return false;
+  voiceQueue.push({id,kind:key,file:clip.file,variant:key,
+   text:clip.text,duration_seconds:clip.duration_seconds});
+  playQueuedVoice();return true;
+ }
  // Stadium PA is a real offline Qwen3 Opus recording; never browser TTS.
  // A named exact text mapping is essential for truthful subtitles and
  // avoiding a speaker's voice coming from the wrong character.
@@ -791,6 +816,6 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
  return {prepare,unlock,turnOn,stop,setVolume,playCue,playComicBeat,
 
-  playCharacter,playIdleCharacter,playPA,playSocialLine,playTutorialLine,playCrowdYelp,playPropPA,playTeacherOrder,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
+  playCharacter,playIdleCharacter,playSpellCastLine,playPA,playSocialLine,playTutorialLine,playCrowdYelp,playPropPA,playTeacherOrder,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
 
 }

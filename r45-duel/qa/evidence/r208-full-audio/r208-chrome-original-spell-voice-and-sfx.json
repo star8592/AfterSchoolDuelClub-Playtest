@@ -1,0 +1,25 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "kind": "Q05-real-card-3d-source-cast-host-Qwen-voice",
+      "voiceFile": "HOST_PLAYER-r208_Q05.ogg",
+      "text": "下面由粉笔回答提问！",
+      "realCardSerial": 2,
+      "microphoneAccent": true,
+      "castConsumesRealEnergy": true,
+      "cameraWide": true
+    },
+    {
+      "kind": "Q05-real-AI-card-3d-source-cast-male-Qwen-voice",
+      "voiceFile": "HOST_AI-r208_Q05.ogg",
+      "recorded": true,
+      "microphoneAccent": true
+    },
+    {
+      "kind": "R208-disabled-on-stable-flag-free-link",
+      "pass": true
+    }
+  ],
+  "errors": []
+}
