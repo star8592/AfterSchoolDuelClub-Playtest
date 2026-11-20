@@ -1,0 +1,26 @@
+{
+  "provider": "Qwen3-TTS",
+  "version": "R209",
+  "source": "original-Qwen3-TTS-1.7B-CustomVoice",
+  "review_status": "pending-human-listening",
+  "clips": {
+    "HOST_PLAYER": {
+      "file": "HOST_PLAYER-r209-impact-gasp.ogg",
+      "speaker": "serena",
+      "text": "哎哟！",
+      "duration_seconds": 0.73,
+      "sha256": "cb963dcb0de80e305977819932594ca35799c6d7e54610d8e356af1c271ddd9a",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    },
+    "HOST_AI": {
+      "file": "HOST_AI-r209-impact-gasp.ogg",
+      "speaker": "dylan",
+      "text": "哎呀！",
+      "duration_seconds": 0.57,
+      "sha256": "a43ef93452c4257b7d3cebce8fd4e7dd23e3d19a5b72e9d50455b1cd25630dc5",
+      "ready": true,
+      "review_status": "pending-human-listening"
+    }
+  }
+}

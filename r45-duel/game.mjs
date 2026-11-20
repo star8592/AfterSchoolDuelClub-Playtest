@@ -26,6 +26,7 @@ const R202_BODY_HIT=R199_REAL_MAGIC&&params.get('r202BodyHit')==='on';
 const R203_BODY_HIT=R202_BODY_HIT&&params.get('r203BodyHit')==='on';
 const R207_IDLE_CHATTER=params.get('r207Chatter')==='on';
 const R208_FULL_AUDIO=R199_REAL_MAGIC&&params.get('r208Audio')==='on';
+const R209_VOICE_DIRECTOR=R208_FULL_AUDIO&&params.get('r209VoiceDirector')==='on';
 const R203_FIVE_IDS=Object.freeze(['K04','S08','P03','X05','Q07']);
 const r203VoiceKind=id=>R203_BODY_HIT&&R203_FIVE_IDS.includes(id)?
  'r203_'+id:R202_BODY_HIT&&['E06','Q05','K01','K07','P07'].includes(id)?
@@ -119,7 +120,7 @@ function realVoiceStopped(entry){
   sendScene({type:'ASDC_R122_VOICE_STOP',actor:entry.id,
    serial:entry.serial});
 }
-const audio=createDuelAudio({onVoiceLine:realVoiceStarted,onVoiceStop:realVoiceStopped});
+const audio=createDuelAudio({onVoiceLine:realVoiceStarted,onVoiceStop:realVoiceStopped,voiceDirector:R209_VOICE_DIRECTOR});
 audio.setOpeningMusic(seed);
 // R207 is strictly experimental, off in the public build and tutorials.
 // A single low-frequency timer checks real current units/turns; no per-frame

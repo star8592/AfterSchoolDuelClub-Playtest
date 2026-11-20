@@ -1,0 +1,394 @@
+{
+  "id": "S08",
+  "deck": "science",
+  "seed": 1,
+  "pass": true,
+  "errors": [],
+  "before": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "round": 1,
+    "events": [],
+    "audio": {
+      "ready": true,
+      "voiceVariants": [],
+      "speechHistory": [],
+      "playedCount": 0
+    },
+    "actor": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "r202BodyHit": true,
+      "r203BodyHit": true,
+      "signatureBodies": [
+        "E06",
+        "Q05",
+        "K01",
+        "K07",
+        "P07",
+        "K04",
+        "S08",
+        "P03",
+        "X05",
+        "Q07"
+      ],
+      "loadedRealAssets": 0,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0,
+        "urgentWaiting": [],
+        "backgroundWaiting": [],
+        "promotions": 0,
+        "completed": 0,
+        "failed": 0
+      },
+      "pendingUnrenderedContacts": 0,
+      "synchronisedContacts": 0,
+      "casts": 0,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "r202BodyImpact": true,
+        "r203BodyImpact": true,
+        "gracefulRetirements": 0,
+        "signatureImpactIds": [
+          "E06",
+          "Q05",
+          "K01",
+          "K07",
+          "P07",
+          "K04",
+          "S08",
+          "P03",
+          "X05",
+          "Q07"
+        ],
+        "originalDetachedProjectiles": [],
+        "physicalFlights": 0,
+        "actualBodyContacts": 0,
+        "previewBodyContacts": 0,
+        "physicalConsequences": {
+          "spawned": 0,
+          "expired": 0,
+          "active": 0,
+          "peak": 0,
+          "physicalKinds": [],
+          "oneMeshDrawPerPhysicalMaterial": true,
+          "addedPointLights": 0,
+          "addedGlowRings": 0,
+          "addedSprites": 0
+        },
+        "activeBodyFlights": [],
+        "authoredHighDetailAssets": [],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 0,
+        "expired": 0,
+        "rejected": 0,
+        "active": 0,
+        "peakObjects": 0,
+        "peakDraws": 0,
+        "uniqueRenderedProps": 0,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": null,
+          "ai": null
+        },
+        "activeIds": []
+      },
+      "loadedReceipts": [],
+      "loadedAssetDetails": []
+    },
+    "body": {
+      "player": null,
+      "ai": null
+    },
+    "contactReceipts": 0,
+    "oldLight": 0,
+    "oldImpact": 0,
+    "closeup": false,
+    "inset": 0
+  },
+  "after": {
+    "hp": {
+      "player": 20,
+      "ai": 18
+    },
+    "round": 1,
+    "events": [
+      {
+        "serial": 2,
+        "type": "card_play",
+        "side": "player",
+        "card": "S08",
+        "lane": 0,
+        "spellOutcome": {
+          "effect": "blast",
+          "directDamage": 2,
+          "unitDamage": 0,
+          "targetUids": [],
+          "healed": 0,
+          "allyHeal": 0,
+          "cardDraw": 0
+        }
+      }
+    ],
+    "audio": {
+      "ready": true,
+      "voiceVariants": [
+        {
+          "id": "HOST_AI",
+          "kind": "r203_S08",
+          "variant": "r203_S08"
+        }
+      ],
+      "speechHistory": [
+        {
+          "id": "HOST_PLAYER",
+          "kind": "r208_S08",
+          "variant": "r208_S08",
+          "text": "别生气！我这就投币！",
+          "duration_seconds": 2.81,
+          "serial": 1
+        },
+        {
+          "id": "HOST_AI",
+          "kind": "r203_S08",
+          "variant": "r203_S08",
+          "text": "哎哟！售货机怎么把汽水罐当炮弹啦！",
+          "duration_seconds": 3.41,
+          "serial": 2
+        }
+      ],
+      "playedCount": 2
+    },
+    "actor": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "r202BodyHit": true,
+      "r203BodyHit": true,
+      "signatureBodies": [
+        "E06",
+        "Q05",
+        "K01",
+        "K07",
+        "P07",
+        "K04",
+        "S08",
+        "P03",
+        "X05",
+        "Q07"
+      ],
+      "loadedRealAssets": 1,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [
+        "S08"
+      ],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0,
+        "urgentWaiting": [],
+        "backgroundWaiting": [],
+        "promotions": 0,
+        "completed": 1,
+        "failed": 0
+      },
+      "pendingUnrenderedContacts": 0,
+      "synchronisedContacts": 1,
+      "casts": 1,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "r202BodyImpact": true,
+        "r203BodyImpact": true,
+        "gracefulRetirements": 0,
+        "signatureImpactIds": [
+          "E06",
+          "Q05",
+          "K01",
+          "K07",
+          "P07",
+          "K04",
+          "S08",
+          "P03",
+          "X05",
+          "Q07"
+        ],
+        "originalDetachedProjectiles": [
+          {
+            "id": "S08",
+            "names": [
+              "S08_FLYING_CAN_ACTOR"
+            ],
+            "meshCount": 4,
+            "originalMeshSource": true
+          }
+        ],
+        "physicalFlights": 1,
+        "actualBodyContacts": 1,
+        "previewBodyContacts": 0,
+        "physicalConsequences": {
+          "spawned": 1,
+          "expired": 0,
+          "active": 1,
+          "peak": 1,
+          "physicalKinds": [
+            "soda"
+          ],
+          "oneMeshDrawPerPhysicalMaterial": true,
+          "addedPointLights": 0,
+          "addedGlowRings": 0,
+          "addedSprites": 0
+        },
+        "activeBodyFlights": [
+          {
+            "id": "S08",
+            "serial": 2,
+            "preview": false,
+            "enemy": true,
+            "propWorld": [
+              -2.8,
+              0.18,
+              -0.44
+            ],
+            "bodyHitWorld": [
+              5.335,
+              2.155,
+              0.947
+            ],
+            "originalVisibleMeshCenter": [
+              5.307,
+              2.158,
+              0.948
+            ],
+            "actualMeshToBodyMeters": 0.028
+          }
+        ],
+        "authoredHighDetailAssets": [
+          "S08"
+        ],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 1,
+        "expired": 0,
+        "rejected": 0,
+        "active": 1,
+        "peakObjects": 14,
+        "peakDraws": 14,
+        "uniqueRenderedProps": 1,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 1,
+        "lastBySide": {
+          "player": "S08",
+          "ai": null
+        },
+        "activeIds": [
+          "S08"
+        ]
+      },
+      "loadedReceipts": [
+        {
+          "id": "S08",
+          "source": "real-blender-glb",
+          "file": "S08_Angry_Campus_Vending_Machine.glb",
+          "meshes": 14,
+          "triangles": 40552,
+          "texturedVariant": false,
+          "priority": "urgent",
+          "readyMs": 94.1
+        }
+      ],
+      "loadedAssetDetails": [
+        {
+          "id": "S08",
+          "source": "real-blender-glb",
+          "file": "S08_Angry_Campus_Vending_Machine.glb",
+          "meshes": 14,
+          "triangles": 40552,
+          "texturedVariant": false,
+          "priority": "urgent",
+          "readyMs": 94.1
+        }
+      ]
+    },
+    "body": {
+      "player": null,
+      "ai": {
+        "id": "S08",
+        "time": 1.4775,
+        "serial": 2,
+        "preview": false
+      }
+    },
+    "contactReceipts": 1,
+    "oldLight": 0,
+    "oldImpact": 0,
+    "closeup": false,
+    "inset": 0
+  },
+  "voiceStops": [
+    {
+      "id": "HOST_PLAYER",
+      "kind": "r208_S08",
+      "serial": 1,
+      "reason": "pause",
+      "playbackSeconds": 1.051,
+      "expectedSeconds": 2.81
+    }
+  ],
+  "voiceEvents": [
+    {
+      "type": "voice-variant",
+      "detail": "HOST_PLAYER:r208_S08=r208_S08",
+      "at": 3039
+    },
+    {
+      "type": "voice",
+      "detail": "HOST_PLAYER:r208_S08",
+      "at": 3062
+    },
+    {
+      "type": "voice-variant",
+      "detail": "HOST_AI:r203_S08=r203_S08",
+      "at": 4174
+    },
+    {
+      "type": "voice",
+      "detail": "HOST_AI:r203_S08",
+      "at": 4179
+    }
+  ]
+}
