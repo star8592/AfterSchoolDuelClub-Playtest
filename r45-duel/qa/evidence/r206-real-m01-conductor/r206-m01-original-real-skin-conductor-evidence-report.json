@@ -1,0 +1,104 @@
+{
+  "release": "R206 M01 original high-quality source skin, isolated Draft NO-GO",
+  "date": "2026-11-20",
+  "sourceModel": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+  "originalGLBSHA256": "cb4b14e7f4a5e0b11e24f178bd2a0fe3b401bf9c9869bc9a5b0b1e415dbc86c3",
+  "sourceIntegrity": {
+    "unchangedGLBBinary": true,
+    "originalSkinBindings": 10,
+    "originalSkeletonBones": 31,
+    "originalGLTFIdleWalkRunClips": 3,
+    "originalIdleSkeletonChannels": 23,
+    "realR126ExistingGesturesPreserved": 4,
+    "noMeshOrMaterialSubstitution": true
+  },
+  "originalTArmIssue": "Source Idle has widely extended shoulders. Previous R126 additive conducting angles animate joints but do not correct original wide idle.",
+  "newRealActorPosture": {
+    "idleFramesSampled": 10,
+    "leftElbowDropRatioRange": [
+      0.899,
+      0.9209
+    ],
+    "rightElbowDropRatioRange": [
+      0.6007,
+      0.838
+    ],
+    "rightWristWorldHeightRangeMeters": 0.107,
+    "originalRightWrist3DMotionMaxMeters": 0.2566,
+    "distinctVisualPhases": [
+      "conducting",
+      "downbeat",
+      "conducting",
+      "preparation",
+      "conducting",
+      "downbeat",
+      "conducting",
+      "preparation",
+      "conducting",
+      "downbeat",
+      "fortissimo-strike",
+      "conductor-windup",
+      "shocked-guard",
+      "preparation",
+      "conducting",
+      "downbeat"
+    ],
+    "sourceBoneAngleAdjustmentCapRadians": 1.36,
+    "nativeAttackRightArmDropRatio": 0.2466,
+    "nativeHitGuardLeftArmDropRatio": 0.5343,
+    "idleRestoredAfterAttackAndHit": true,
+    "actualMeshStillSkinned": true,
+    "automaticallyZoomed": false
+  },
+  "realAuthoritativeDuel": {
+    "seed": 3,
+    "deck": "classic",
+    "card": "M01",
+    "actualCost": 3,
+    "roundAtRealSummon": 2,
+    "originalHandHadM01": true,
+    "realManaAtSummon": 3,
+    "realUnitAddedToRuleBoard": true,
+    "realSubsequentEnemyHitObserved": true,
+    "realM01AttackReceivedByRuleEngine": true,
+    "realM01AttackExchangeCount": 1,
+    "realAttackDamageEvents": [
+      2
+    ],
+    "sourceOriginalPoseEnteredDuringRealCombat": true,
+    "noRuleBalanceOrEnergyOverride": true
+  },
+  "sourcePCGPU": {
+    "model": "Z890 RTX5070Ti Chrome WebGL2 Vulkan",
+    "baselineMedianDrawCalls": 757,
+    "enhancedMedianDrawCalls": 757,
+    "newMaterialsOrRenderPasses": 0,
+    "fpsNotMeasured": true,
+    "coldLoadNotMeasured": true
+  },
+  "safety": {
+    "R206Flag": "r206MusicTeacher=on",
+    "defaultFlagOff": true,
+    "M02ChefOriginalNativeAnimationsNotModified": true,
+    "R205FourteenOriginalCharactersRegression": true,
+    "R204TrueDuelistCasterRegression": true,
+    "R198OriginalMainWideStableRegression": true,
+    "productionMainChanged": false
+  },
+  "authenticVisualEvidence": {
+    "comparisonSilentVideo": "r206-before-and-after-real-music-teacher-wide-silent.mp4",
+    "videoSeconds": 21.889,
+    "videoHasAudio": false,
+    "sixOriginalBrowserFrames": "r206-m01-original-skin-before-after-six-real-moments.jpg",
+    "realMatchScreenshot": "r206-M01-actual-rules-combat-attack.png",
+    "beforeScreenshot": "r206-baseline-M01-idle-3.png",
+    "afterScreenshot": "r206-new-M01-idle-3.png"
+  },
+  "limits": [
+    "Human aesthetic acceptance of music teacher stance, face and finger/hand movement is still needed.",
+    "The original Polyfork 3D adult model and camera composition may remain somewhat simplistic even with corrected pose.",
+    "Actual FPS and frame-time not benchmarked. XPS cold-cache first load from R204 remains unresolved.",
+    "Only M01 actor changed; other cast members continue prior R205/earlier behavior.",
+    "PR is Draft on R205 dependency stack, not a production release."
+  ]
+}

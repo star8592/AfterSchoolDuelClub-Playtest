@@ -1,0 +1,1868 @@
+{
+  "pass": true,
+  "enabled": false,
+  "errors": [],
+  "samples": [
+    {
+      "step": 0,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 779,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.902,
+          "height": 2.061,
+          "depth": 1.914,
+          "minY": 0.005,
+          "maxY": 2.066,
+          "coverageWidth": 0.078,
+          "coverageHeight": 0.265,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.3,
+            "right": -0.143,
+            "top": 0.228,
+            "bottom": -0.302
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.33,
+          0
+        ],
+        "position": [
+          -1.75,
+          0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 20,
+          "maxRealJointAngle": 0.7944687880479743,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.028,
+          "height": 2.521,
+          "depth": 1.546,
+          "minY": 0.007,
+          "maxY": 2.528,
+          "coverageWidth": 0.08,
+          "coverageHeight": 0.29,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.122,
+            "right": 0.282,
+            "top": 0.326,
+            "bottom": -0.254
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.6,
+          0
+        ],
+        "position": [
+          1.75,
+          0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Idle"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    },
+    {
+      "step": 1,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 757,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.915,
+          "height": 2.058,
+          "depth": 1.897,
+          "minY": 0.006,
+          "maxY": 2.064,
+          "coverageWidth": 0.079,
+          "coverageHeight": 0.264,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.303,
+            "right": -0.145,
+            "top": 0.228,
+            "bottom": -0.3
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.33,
+          0
+        ],
+        "position": [
+          -1.75,
+          0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 53,
+          "maxRealJointAngle": 0.7944687880479743,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.073,
+          "height": 2.492,
+          "depth": 1.47,
+          "minY": 0.009,
+          "maxY": 2.501,
+          "coverageWidth": 0.084,
+          "coverageHeight": 0.289,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.123,
+            "right": 0.29,
+            "top": 0.315,
+            "bottom": -0.263
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.6,
+          0
+        ],
+        "position": [
+          1.75,
+          0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Idle"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 757,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.891,
+          "height": 2.063,
+          "depth": 1.914,
+          "minY": 0.003,
+          "maxY": 2.066,
+          "coverageWidth": 0.078,
+          "coverageHeight": 0.265,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.3,
+            "right": -0.145,
+            "top": 0.227,
+            "bottom": -0.304
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 74,
+          "maxRealJointAngle": 0.7944687880479743,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.391,
+          "height": 2.511,
+          "depth": 0.919,
+          "minY": 0.001,
+          "maxY": 2.513,
+          "coverageWidth": 0.102,
+          "coverageHeight": 0.28,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.128,
+            "right": 0.332,
+            "top": 0.303,
+            "bottom": -0.257
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.59,
+          0
+        ],
+        "position": [
+          1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Idle"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 757,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.9,
+          "height": 2.065,
+          "depth": 1.917,
+          "minY": -0.003,
+          "maxY": 2.062,
+          "coverageWidth": 0.078,
+          "coverageHeight": 0.265,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.302,
+            "right": -0.145,
+            "top": 0.227,
+            "bottom": -0.304
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 95,
+          "maxRealJointAngle": 0.7944687880479743,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.492,
+          "height": 2.527,
+          "depth": 0.951,
+          "minY": -0.005,
+          "maxY": 2.522,
+          "coverageWidth": 0.109,
+          "coverageHeight": 0.282,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.128,
+            "right": 0.345,
+            "top": 0.306,
+            "bottom": -0.258
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.59,
+          0
+        ],
+        "position": [
+          1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Idle"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 757,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.901,
+          "height": 2.063,
+          "depth": 1.927,
+          "minY": -0.008,
+          "maxY": 2.055,
+          "coverageWidth": 0.078,
+          "coverageHeight": 0.266,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.3,
+            "right": -0.144,
+            "top": 0.226,
+            "bottom": -0.306
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.31,
+          0
+        ],
+        "position": [
+          -1.75,
+          -0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 127,
+          "maxRealJointAngle": 0.7945509562889971,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.008,
+          "height": 2.529,
+          "depth": 1.522,
+          "minY": -0.008,
+          "maxY": 2.521,
+          "coverageWidth": 0.079,
+          "coverageHeight": 0.291,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.122,
+            "right": 0.28,
+            "top": 0.324,
+            "bottom": -0.258
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.58,
+          0
+        ],
+        "position": [
+          1.75,
+          -0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Idle"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 757,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.906,
+          "height": 2.064,
+          "depth": 1.903,
+          "minY": -0.005,
+          "maxY": 2.058,
+          "coverageWidth": 0.078,
+          "coverageHeight": 0.265,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.302,
+            "right": -0.145,
+            "top": 0.226,
+            "bottom": -0.303
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.31,
+          0
+        ],
+        "position": [
+          -1.75,
+          -0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 149,
+          "maxRealJointAngle": 0.7945509562889971,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.041,
+          "height": 2.549,
+          "depth": 1.125,
+          "minY": 0.041,
+          "maxY": 2.59,
+          "coverageWidth": 0.079,
+          "coverageHeight": 0.285,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.133,
+            "right": 0.292,
+            "top": 0.328,
+            "bottom": -0.243
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.58,
+          0
+        ],
+        "position": [
+          1.75,
+          -0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Jazz_Hands"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 757,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.892,
+          "height": 2.055,
+          "depth": 1.874,
+          "minY": 0,
+          "maxY": 2.055,
+          "coverageWidth": 0.077,
+          "coverageHeight": 0.263,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.298,
+            "right": -0.145,
+            "top": 0.225,
+            "bottom": -0.3
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 171,
+          "maxRealJointAngle": 0.7945509562889971,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.226,
+          "height": 2.426,
+          "depth": 1.13,
+          "minY": 0.012,
+          "maxY": 2.438,
+          "coverageWidth": 0.089,
+          "coverageHeight": 0.279,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.079,
+            "right": 0.258,
+            "top": 0.288,
+            "bottom": -0.27
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.59,
+          0
+        ],
+        "position": [
+          1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Jazz_Hands"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 757,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.901,
+          "height": 2.067,
+          "depth": 1.896,
+          "minY": 0.008,
+          "maxY": 2.074,
+          "coverageWidth": 0.078,
+          "coverageHeight": 0.265,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.302,
+            "right": -0.145,
+            "top": 0.229,
+            "bottom": -0.302
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.33,
+          0
+        ],
+        "position": [
+          -1.75,
+          0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 203,
+          "maxRealJointAngle": 0.7945509562889971,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.285,
+          "height": 2.588,
+          "depth": 1.125,
+          "minY": 0.012,
+          "maxY": 2.6,
+          "coverageWidth": 0.089,
+          "coverageHeight": 0.289,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.049,
+            "right": 0.228,
+            "top": 0.33,
+            "bottom": -0.249
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.6,
+          0
+        ],
+        "position": [
+          1.75,
+          0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Jazz_Hands"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    },
+    {
+      "step": 8,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 757,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.895,
+          "height": 2.06,
+          "depth": 1.922,
+          "minY": 0.007,
+          "maxY": 2.067,
+          "coverageWidth": 0.078,
+          "coverageHeight": 0.265,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.3,
+            "right": -0.144,
+            "top": 0.228,
+            "bottom": -0.303
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.33,
+          0
+        ],
+        "position": [
+          -1.75,
+          0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 225,
+          "maxRealJointAngle": 0.7946303262597987,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.096,
+          "height": 2.447,
+          "depth": 0.939,
+          "minY": 0.032,
+          "maxY": 2.479,
+          "coverageWidth": 0.073,
+          "coverageHeight": 0.273,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": 0.001,
+            "right": 0.148,
+            "top": 0.298,
+            "bottom": -0.248
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.6,
+          0
+        ],
+        "position": [
+          1.75,
+          0.01,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Jazz_Hands"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "hp": {
+        "player": 20,
+        "ai": 20
+      },
+      "round": 1,
+      "events": 1,
+      "camera": false,
+      "inset": 0,
+      "drawCalls": 757,
+      "teacher": {
+        "side": "player",
+        "uid": "U20601",
+        "id": "M01",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": 1.570796,
+        "metrics": {
+          "width": 0.904,
+          "height": 2.065,
+          "depth": 1.929,
+          "minY": 0.004,
+          "maxY": 2.069,
+          "coverageWidth": 0.079,
+          "coverageHeight": 0.266,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.302,
+            "right": -0.145,
+            "top": 0.228,
+            "bottom": -0.303
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          -1.75,
+          2.32,
+          0
+        ],
+        "position": [
+          -1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          -0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 10,
+        "clips": 3,
+        "playingClips": [
+          "Idle",
+          "R126_M01_Conduct"
+        ],
+        "r205TrueVRMSource": null,
+        "r126TeacherMotion": {
+          "sourceSkinnedMeshes": 10,
+          "sourceBones": 31,
+          "trackedJoints": 19,
+          "boneFrames": 246,
+          "maxRealJointAngle": 0.7946303262597987,
+          "current": "idle"
+        },
+        "r206Conductor": {
+          "enabled": false
+        },
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "chef": {
+        "side": "ai",
+        "uid": "U20602",
+        "id": "M02",
+        "kind": "gltf-instance",
+        "visible": true,
+        "trueWorldYaw": -1.570796,
+        "metrics": {
+          "width": 1.263,
+          "height": 2.504,
+          "depth": 1.472,
+          "minY": 0.096,
+          "maxY": 2.6,
+          "coverageWidth": 0.084,
+          "coverageHeight": 0.286,
+          "withinFrame": true,
+          "ndcBounds": {
+            "left": -0.043,
+            "right": 0.125,
+            "top": 0.34,
+            "bottom": -0.233
+          },
+          "frontDot": 1
+        },
+        "wingMorph": null,
+        "hp": 5,
+        "attack": 3,
+        "shield": 0,
+        "hpTag": true,
+        "hpTagPosition": [
+          1.75,
+          2.59,
+          0
+        ],
+        "position": [
+          1.75,
+          0,
+          0
+        ],
+        "inView": true,
+        "screen": [
+          0.22,
+          -0.03
+        ],
+        "skins": 1,
+        "meshes": 13,
+        "clips": 10,
+        "playingClips": [
+          "Jazz_Hands"
+        ],
+        "r205TrueVRMSource": null,
+        "r131Arms": null,
+        "r143SourceTrunk": null,
+        "r144OriginalPelvis": null,
+        "r133ShoeContact": null,
+        "r134JayStage": null,
+        "r135PairStage": null,
+        "r136CastStage": null,
+        "r136OriginalFoot": null,
+        "r140OriginalFace": null,
+        "r90Pose": null,
+        "r90ClipRate": 1,
+        "artApproved": false
+      },
+      "models": [
+        {
+          "id": "M01",
+          "file": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "baselineFile": "M01-MusicTeacher-PolyforkSchoolTeacher.glb",
+          "meshes": 10,
+          "clips": 3,
+          "scale": 1.2145548303491536,
+          "measured": {
+            "width": 1.7198226432418822,
+            "height": 1.7125616300106048,
+            "depth": 0.34595575991321004,
+            "scaledHeight": 2.08,
+            "scaledWidth": 2.088818898693277,
+            "scaledDepth": 0.42018223928970133
+          }
+        },
+        {
+          "id": "M02",
+          "file": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "baselineFile": "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb",
+          "meshes": 13,
+          "clips": 10,
+          "scale": 1.207605590818463,
+          "measured": {
+            "width": 1.3318469087349012,
+            "height": 1.9459996027405533,
+            "depth": 0.7072997859928739,
+            "scaledHeight": 2.35,
+            "scaledWidth": 1.608345773102554,
+            "scaledDepth": 0.854139175949697
+          }
+        }
+      ]
+    }
+  ],
+  "source": "real Chrome WebGL2 original M01 skinned Polyfork teacher"
+}
