@@ -1,0 +1,71 @@
+{
+  "ok": true,
+  "profiles": [
+    "E06",
+    "T05",
+    "S08"
+  ],
+  "previewsOnly": true,
+  "sourceGLBContactRequired": true,
+  "errors": [],
+  "snapshots": [
+    "r45-duel/qa/evidence/r211-cinematic-vfx/r211-real-chrome-hero-fire-water-electric-qa.png"
+  ],
+  "flags": {
+    "r211": true,
+    "r210": true
+  },
+  "drawCallsBefore": 733,
+  "drawCallsWithThree": 748,
+  "r211": {
+    "enabled": true,
+    "spawned": 3,
+    "expired": 0,
+    "rejected": 0,
+    "active": 3,
+    "peak": 3,
+    "qaPreviews": 3,
+    "textureReady": {
+      "fire": true,
+      "water": true
+    },
+    "observedCards": {
+      "E06": 1,
+      "T05": 1,
+      "S08": 1
+    },
+    "maximumSimultaneous": 3,
+    "maxDrawCallsPerEvent": 3,
+    "originalR199ContactOnly": true,
+    "gameplayMutations": 0,
+    "addedGlobalLights": 0,
+    "addedScreenPasses": 0,
+    "addedGenericHalos": 0
+  },
+  "r210": {
+    "enabled": true,
+    "spawned": 0,
+    "expired": 0,
+    "rejected": 0,
+    "qaPreviews": 0,
+    "active": 0,
+    "peak": 0,
+    "maxActiveInstances": 0,
+    "instancesPerEffect": 29,
+    "maximumSimultaneousEffects": 3,
+    "maxDrawCalls": 6,
+    "observedElements": {},
+    "last": null,
+    "addedGenericHalos": 0,
+    "addedPointLights": 0,
+    "addedCustomShaders": 0,
+    "sharedGeometries": 21,
+    "realSourceContactOnly": true,
+    "gameplayMutations": 0
+  },
+  "video": {
+    "path": "r45-duel/qa/evidence/r211-cinematic-vfx/r211-original-chrome-three-hero-vfx-qa-silent.mp4",
+    "duration": "5.520000",
+    "size": "186694"
+  }
+}

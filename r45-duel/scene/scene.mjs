@@ -28,6 +28,7 @@ import {createSpectatorChaosFX} from './spectator-chaos-fx.mjs';
 import {createBleacherPropComedy,resolveSpectatorProp} from './bleacher-prop-comedy.mjs';
 import {createElementalVfx} from './elemental-vfx.mjs';
 import {createR210PhysicalElements,R210_ELEMENT_PROFILES} from './campus-r210-material-elements.mjs';
+import {createR211CinematicVfx,R211_HERO_CARDS} from './campus-r211-cinematic-vfx.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
@@ -67,6 +68,8 @@ const R204_CASTER=R199_PHYSICAL_MAGIC&&r200Flag('r204Caster');
 // Opt-in R210: the R199 original source-GLB stage stays; its physical
 // impact gains 15 real-material signatures instead of stacked halo systems.
 const R210_PHYSICAL_ELEMENTS=R199_PHYSICAL_MAGIC&&r200Flag('r210Elements');
+// Isolated visual experiment: replace just 3 high-quality contact effects.
+const R211_CINEMATIC_VFX=R210_PHYSICAL_ELEMENTS&&r200Flag('r211CinematicVfx');
 const R203_NEW_IDS=Object.freeze(['K04','S08','P03','X05','Q07']);
 let r199Magic=null,r199MagicModule=null;
 
@@ -288,6 +291,7 @@ let comedySpectacle=null;
 let liveScoreboard=null;
 let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null,spectatorChaosFX=null,bleacherProps=null;
 let r210MaterialElements=null;
+let r211CinematicVfx=null;
 const r210ComboLegacyTori=[];
 const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
@@ -321,13 +325,21 @@ function checkIncoming(payload){
   Number.isInteger(e.serial)&&e.serial>0&&[e.damage,e.blocked,e.retaliation,e.retaliation_blocked].every(x=>Number.isInteger(x)&&x>=0&&x<=99)&&
   payload.noRulesMutation===true;
 }
+function r211ContactOrR210(d,anchor,options){
+ if(R211_CINEMATIC_VFX&&R211_HERO_CARDS[d.id]){
+  const caster=duelistHosts.find(h=>h.side===d.caster);
+  const sourcePoint=caster?.pivot?.getWorldPosition(new THREE.Vector3())||null;
+  if(r211CinematicVfx?.spawn(d,anchor,absoluteSeconds,{...options,sourcePoint}))return true;
+ }
+ return r210MaterialElements?.spawn(d,anchor,absoluteSeconds,options);
+}
 function r201ApplyResolvedContact(d){
   const targets=d.unitDamage>0?
    summonPresence?.spellWorldAnchors?.(d.victim,d.targetUids)||[]:[];
   if(d.unitDamage>0&&d.targetUids.length){
    summonPresence?.reactToSpell?.(d.victim,d.targetUids,absoluteSeconds,d.element);
    for(const t of targets){
-    if(R210_PHYSICAL_ELEMENTS)r210MaterialElements?.spawn(d,t,absoluteSeconds,{kind:'unit'});
+    if(R210_PHYSICAL_ELEMENTS)r211ContactOrR210(d,t,{kind:'unit'});
     else if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
    }
   }
@@ -340,7 +352,7 @@ function r201ApplyResolvedContact(d){
    const host=duelistHosts.find(h=>h.side===d.victim);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    if(R210_PHYSICAL_ELEMENTS)r210MaterialElements?.spawn(d,p,absoluteSeconds,{kind:'host'});
+    if(R210_PHYSICAL_ELEMENTS)r211ContactOrR210(d,p,{kind:'host'});
     else if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }else if(!d.damaging){
@@ -348,7 +360,7 @@ function r201ApplyResolvedContact(d){
    const host=duelistHosts.find(h=>h.side===d.caster);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    if(R210_PHYSICAL_ELEMENTS)r210MaterialElements?.spawn(d,p,absoluteSeconds,{kind:'host'});
+    if(R210_PHYSICAL_ELEMENTS)r211ContactOrR210(d,p,{kind:'host'});
     else if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }
@@ -496,6 +508,8 @@ function makeScene(){
   elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
  if(R210_PHYSICAL_ELEMENTS)
   r210MaterialElements=createR210PhysicalElements(THREE,scene,{reducedMotion:reduced});
+ if(R211_CINEMATIC_VFX)
+  r211CinematicVfx=createR211CinematicVfx(THREE,scene,{camera,reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
  if(R210_PHYSICAL_ELEMENTS){
   // The stadium's actual playing boundary stays; only the surplus
@@ -1140,6 +1154,7 @@ function loop(){
  // Original unit-summoning effects remain unaffected by spell replacement.
  elementalVfx?.update(absoluteSeconds);
  r210MaterialElements?.update(absoluteSeconds);
+ r211CinematicVfx?.update(absoluteSeconds);
  if(!R199_PHYSICAL_MAGIC)spellContactFX?.update(absoluteSeconds);
  if(!R199_PHYSICAL_MAGIC)spectatorChaosFX?.update(absoluteSeconds);
  bleacherProps?.update(absoluteSeconds);
@@ -1566,11 +1581,16 @@ function exposeQA(){
    ids.forEach((id,i)=>{
     const p={x:(i-(ids.length-1)/2)*2.10,
      y:.45,z:1.15};
-    r210MaterialElements?.spawn(SPELL_SIGNATURES[id],p,absoluteSeconds,
-      {kind:'unit',qaPreview:true});
+    r211ContactOrR210(SPELL_SIGNATURES[id],p,{kind:'unit',qaPreview:true});
    });
    return true;
   },
+  get r211CinematicVfx(){return{
+   enabled:R211_CINEMATIC_VFX,
+   heroCards:Object.keys(R211_HERO_CARDS),
+   material:r211CinematicVfx?.stats||null,
+   actualDamageUnmodified:true
+  }},
   get r210Elements(){return {
    enabled:R210_PHYSICAL_ELEMENTS,
    profiles:Object.keys(R210_ELEMENT_PROFILES).length,
