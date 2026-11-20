@@ -13,7 +13,7 @@ try{
   const context=await browser.newContext({viewport:{width:1280,height:720},serviceWorkers:'block'});
   const page=await context.newPage();
   page.on('pageerror',e=>result.errors.push(name+' '+e.message));
-  const url='http://127.0.0.1:18691/r45-duel/?qa=1&seed=1&deck=science&r199PhysicalMagic=on&r200Pbr=on&r200Readable=on&r202BodyHit=on&r203BodyHit=on&r210Elements=on'+(name==='R211'?'&r211CinematicVfx=on':'');
+  const url='http://10.10.10.138:18692/r45-duel/?qa=1&seed=1&deck=science&r199PhysicalMagic=on&r200Pbr=on&r200Readable=on&r202BodyHit=on&r203BodyHit=on&r210Elements=on'+(name==='R211'?'&r211CinematicVfx=on':'');
   const start=Date.now();await page.goto(url,{waitUntil:'domcontentloaded',timeout:75000});
   await page.waitForFunction(()=>window.__r45QA?.sceneReady===true,null,{timeout:130000});
   await page.waitForTimeout(550);

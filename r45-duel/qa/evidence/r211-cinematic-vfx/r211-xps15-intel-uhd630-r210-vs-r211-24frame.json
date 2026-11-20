@@ -1,0 +1,38 @@
+{
+  "platform": "XPS 15 7590 GTX1650 4GB / Chrome155 native CDP",
+  "cases": [
+    {
+      "name": "R210",
+      "coldSceneReadySec": 32.65,
+      "renderer": "ANGLE (Intel, Mesa Intel(R) UHD Graphics 630 (CFL GT2), OpenGL ES 3.2)",
+      "vendor": "Google Inc. (Intel)",
+      "drawCallsBefore": 733,
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 45.14,
+      "p95FrameIntervalMs": 50.1,
+      "p99FrameIntervalMs": 50.1,
+      "frameCount": 24,
+      "drawCallsAtEnd": 739,
+      "activeR210AtEnd": 3,
+      "activeR211AtEnd": null,
+      "screenshot": "/tmp/asdc-xps-native-r210.jpg"
+    },
+    {
+      "name": "R211",
+      "coldSceneReadySec": 40.94,
+      "renderer": "ANGLE (Intel, Mesa Intel(R) UHD Graphics 630 (CFL GT2), OpenGL ES 3.2)",
+      "vendor": "Google Inc. (Intel)",
+      "drawCallsBefore": 733,
+      "qaAccepted": true,
+      "meanFrameIntervalMs": 42.36,
+      "p95FrameIntervalMs": 50.1,
+      "p99FrameIntervalMs": 50.1,
+      "frameCount": 24,
+      "drawCallsAtEnd": 743,
+      "activeR210AtEnd": 0,
+      "activeR211AtEnd": 2,
+      "screenshot": "/tmp/asdc-xps-native-r211.jpg"
+    }
+  ],
+  "note": "One fresh XPS headless Chrome; 24-frame active FX sampling, --use-angle=gl --enable-unsafe-swiftshader, may use software fallback. Not certified GTX1650 frame time."
+}

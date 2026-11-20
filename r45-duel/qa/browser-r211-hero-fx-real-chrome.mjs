@@ -11,15 +11,15 @@ const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/goog
   args:['--no-sandbox','--enable-webgl','--use-angle=vulkan',
    '--enable-features=Vulkan,DefaultANGLEVulkan',
    '--disable-software-rasterizer','--disable-dev-shm-usage']});
-const ctx=await browser.newContext({viewport:{width:1365,height:768},
-  recordVideo:{dir:'/tmp/asdc-r211-video',size:{width:1365,height:768}},
+const ctx=await browser.newContext({viewport:{width:1364,height:768},
+  recordVideo:{dir:'/tmp/asdc-r211-video',size:{width:1364,height:768}},
   serviceWorkers:'block'});
 const page=await ctx.newPage(),video=page.video();
 page.on('pageerror',e=>result.errors.push('JS '+e.message));
 page.on('response',r=>{if(r.status()>=400&&r.url().includes(':18691/'))
  result.errors.push('HTTP '+r.status()+' '+r.url())});
 try{
- const url='http://127.0.0.1:18691/r45-duel/?qa=1&seed=1&deck=science&r199PhysicalMagic=on&r200Pbr=on&r200Readable=on&r202BodyHit=on&r203BodyHit=on&r210Elements=on&r211CinematicVfx=on';
+ const url='http://10.10.10.138:18692/r45-duel/?qa=1&seed=1&deck=science&r199PhysicalMagic=on&r200Pbr=on&r200Readable=on&r202BodyHit=on&r203BodyHit=on&r210Elements=on&r211CinematicVfx=on';
  await page.goto(url,{waitUntil:'domcontentloaded',timeout:75000});
  await page.waitForFunction(()=>window.__r45QA?.sceneReady===true,null,{timeout:135000});
  await page.waitForFunction(()=>{

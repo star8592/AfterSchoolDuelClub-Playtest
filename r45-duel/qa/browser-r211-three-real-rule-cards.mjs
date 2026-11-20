@@ -18,7 +18,7 @@ page.on('pageerror',e=>log.errors.push('JS '+e.message));
 page.on('response',r=>{if(r.status()>=400&&r.url().includes(':18691/'))log.errors.push('HTTP '+r.status()+' '+r.url())});
 try{
  for(const c of cases){
-  const url='http://127.0.0.1:18691/r45-duel/?qa=1&seed='+c.seed+
+  const url='http://10.10.10.138:18692/r45-duel/?qa=1&seed='+c.seed+
     '&deck='+c.deck+'&r199PhysicalMagic=on&r200Pbr=on&r200Readable=on'+
     '&r202BodyHit=on&r203BodyHit=on&r210Elements=on&r211CinematicVfx=on';
   await page.goto(url,{waitUntil:'domcontentloaded',timeout:75000});

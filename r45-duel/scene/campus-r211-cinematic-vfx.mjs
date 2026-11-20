@@ -49,7 +49,7 @@ export function createR211CinematicVfx(THREE,scene,{camera,reducedMotion=false}=
   const mesh=entry.sparks;if(!mesh)return;
   const dummy=entry.dummy,n=mesh.userData.count,s=mesh.userData.seed;
   for(let i=0;i<n;i++){
-   const a=hash(s,i)*Math.PI*2,r=(.18+.88*hash(s,i+21))*pulse(t,0,.48);
+   const a=hash(s,i)*Math.PI*2,r=(.12+.52*hash(s,i+21))*pulse(t,0,.48);
    dummy.position.set(Math.cos(a)*r,(hash(s,i+9)-.15)*1.3*t-
      (entry.element==='water'?.73*t*t:-.35*t),Math.sin(a)*r*.70);
    dummy.rotation.set(t*9+i,t*5+i*.4,t*13+i*.3);
@@ -68,15 +68,15 @@ export function createR211CinematicVfx(THREE,scene,{camera,reducedMotion=false}=
   const mesh=new THREE.Mesh(geo,mat);mesh.frustumCulled=false;return mesh;
  }
  function poseArcs(entry,t){
-  const spin=Math.floor(t*25),phases=[[[-1.12,-.47],[.70,.48]],[[-.67,.24],[.73,-.37]],[[-.20,-.65],[.66,.83]]];
+  const spin=Math.floor(t*31),phases=[[[0,0],[.34,.30]],[[0,0],[-.33,.23]],[[0,0],[.17,-.35]]];
   for(const [layer,mesh] of entry.arcs.entries()){
-   const width=layer===0?.125:.043,buf=mesh.geometry.attributes.position.array;
+   const width=layer===0?.027:.012,buf=mesh.geometry.attributes.position.array;
    let j=0;
    for(let b=0;b<3;b++){
     const [st,en]=phases[b];
     let prev=null;
     for(let k=0;k<=11;k++){
-     const q=k/11,amp=Math.sin(Math.PI*q)*(layer===0?.16:.18);
+     const q=k/11,amp=Math.sin(Math.PI*q)*(layer===0?.075:.09);
      const jig=(hash(entry.seed+b*151+spin,k)-.5)*amp*2;
      const p=[st[0]+(en[0]-st[0])*q+jig,
       st[1]+(en[1]-st[1])*q+(hash(entry.seed+spin,k+b*9)-.5)*amp,0];
@@ -92,7 +92,7 @@ export function createR211CinematicVfx(THREE,scene,{camera,reducedMotion=false}=
     }
    }
    mesh.geometry.attributes.position.needsUpdate=true;
-   mesh.material.opacity=Math.max(0,1-pulse(t,.60,1))*(layer===0?.45:.94);
+   mesh.material.opacity=Math.max(0,1-pulse(t,.58,1))*(layer===0?.38:.92);
   }
  }
  function spawn(signature,anchor,now,{kind='host',qaPreview=false,sourcePoint=null}={}){
@@ -117,10 +117,10 @@ export function createR211CinematicVfx(THREE,scene,{camera,reducedMotion=false}=
     const geo=spriteGeometry.clone();tileUV(geo,0);
     const mat=new THREE.MeshBasicMaterial({map:tex,side:THREE.DoubleSide,
      transparent:true,opacity:1,depthWrite:false,alphaTest:.018,
-     blending:element==='fire'?THREE.AdditiveBlending:THREE.NormalBlending});
+     blending:element==='fire'&&layer===1?THREE.AdditiveBlending:THREE.NormalBlending});
     const mesh=new THREE.Mesh(geo,mat);
-    mesh.position.set(layer?.25:0,layer?.13:0,layer?-.08:0);
-    mesh.scale.setScalar(layer?.66:1);
+    mesh.position.set(layer?.13:0,layer?.08:0,layer?-.07:0);
+    mesh.scale.setScalar((element==='fire'?.72:.84)*(layer?.66:1));
     mesh.frustumCulled=false;group.add(mesh);entry.planes.push(mesh);
    }
   }else{
@@ -128,7 +128,7 @@ export function createR211CinematicVfx(THREE,scene,{camera,reducedMotion=false}=
    const origin=sourcePoint&&[sourcePoint.x,sourcePoint.z].every(Number.isFinite)?
     sourcePoint:null;
    entry.direction=origin?Math.atan2(anchor.z-origin.z,anchor.x-origin.x):0;
-   for(const [width,color] of [[.13,0x715bc8],[.045,0xd9f5ff]]){
+   for(const [width,color] of [[.027,0x58a9f7],[.012,0xe4f9ff]]){
     const mesh=arcMesh(width,color);group.add(mesh);entry.arcs.push(mesh);
    }
   }
@@ -148,16 +148,17 @@ export function createR211CinematicVfx(THREE,scene,{camera,reducedMotion=false}=
   for(const [index,mesh] of entry.planes.entries()){
    const f=Math.min(15,Math.floor(t*16)+(index?3:0));
    if(mesh.userData.frame!==f){tileUV(mesh.geometry,f);mesh.userData.frame=f;}
-   mesh.material.opacity=rise*fade*(index?.53:.85);
-   mesh.scale.setScalar((index?.66:1)*(entry.element==='fire'?1+.35*t:1+.12*t));
+   mesh.material.opacity=rise*fade*(index?.44:entry.element==='water'?.96:.82);
+   mesh.scale.setScalar((entry.element==='fire'?.72:.84)*(index?.66:1)*
+     (entry.element==='fire'?1+.18*t:1+.10*t));
    if(camera)mesh.quaternion.copy(camera.quaternion);
-   if(index===1)mesh.rotateZ(.26+Math.sin(t*9)*.08);
+   if(index===1)mesh.rotateZ(.17+Math.sin(t*7)*.07);
   }
   if(entry.arcs.length){
    poseArcs(entry,t);
    if(camera)for(const mesh of entry.arcs)mesh.quaternion.copy(camera.quaternion);
    // Align the arc's horizontal bearing to actual caster->hit, when known.
-   if(entry.sourcePoint)for(const mesh of entry.arcs)mesh.rotateZ(-entry.direction*.15);
+   // Keep electroshock localized at actual contact, not a screen-spanning arch.
   }
   poseSparks(entry,t);
   entry.sparks.material.opacity=fade*(entry.element==='electric'?.98:.75);

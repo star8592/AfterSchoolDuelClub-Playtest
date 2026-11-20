@@ -49,3 +49,29 @@ YouTube 拦截了网页、下载器及自动字幕访问，未获取完整字幕
 
 严格保持 Draft / NO-GO：不合并main，不更新正式R198，不默认启用。先修具体美术问题，再测XPS冷开及长回合性能，不提前扩张46张特效。
 
+
+
+## R211 第二轮：真实美术错误修复与低配测试边界（2026-11-20）
+
+- **已复现实质根因**：图集生成器中的 clamp() 是 0–1 归一化，但旧代码把 RGB 的 0–255 通道也传给它，造成火焰纯红剪影、水花青色层次被压坏。第二轮明确只对 alpha 应用 0–1 clamp，RGB 使用 np.clip(channel,0,255)。
+- 已重新绘制可重复生成的 16帧 fire/water WebP：火焰有黄白焰心、橘色多火舌、透明边缘；水花采用蓝绿弧线、分离碎滴、柔和边缘，增厚水面泡沫。文件分别86,872与73,502字节（合计约157 KB）。没有额外网络下载或额外Shader。
+- S08电弧由原跨大范围紫色弧缩小为命中点附近的三束分叉蓝白电弧，减少遮挡对手。原GLB触碰以及R209音频流程不变。
+- 新增 qa/unit-r211-flipbook-colors.py：逐帧校验16帧RGBA像素、alpha边缘不出现硬矩形、红/绿/蓝通道不被截断、各帧非重复、纹理体积限制；16/16火+16/16水PASS。
+- QA端口切换为实际开放的 Z890 10.10.10.138:18692，录像宽度 1364px 以确保可编码 H.264；重新运行原生Chrome GPU录像、三素材QA和三张真实手牌测试。重新截图及更新对比拼图，均在 qa/evidence/r211-cinematic-vfx/。
+- 三素材QA真实Chrome：3/3新效果，旧R210 0重复，新纹理2/2加载、JS/HTTP错误0；旧circle/new全屏pass/规则篡改均为0。
+- 三张真正手牌回归：E06 第2回合真实3伤害、T05 heal类型但满血实际回复0、S08真实2伤害；GLB飞行接触、能量与广角均保留，JS/HTTP错误0。
+- Z890同配置55帧rAF小样本：R210 平均17.27ms、P95 16.7ms、P99 50.1ms；R211 平均16.97ms、P95 16.7ms、P99 33.3ms。**只测帧间隔，不是GPU帧时；R211结束时电弧已经消失，仅剩2个活动特效，不可据此推导更快或者低配合格。**三效果瞬时Chrome旧733→新748 draw calls。
+- XPS15-7590 GTX1650 4GB可连接游戏局域网且装有Chrome 155。但是自带ChromeDriver仅支持149，失败；换用Chrome原生CDP后，测试进程在 --use-angle=vulkan、关闭软件回退的Headless配置下报“Error creating WebGL context”，无法进入3D场景。确认这是测试浏览器WebGL问题，不能记作游戏帧率失败，也不能说已测过GTX1650。另对 --enable-unsafe-swiftshader / angle-gl 做了WebGL smoke test（可创建上下文），但软件回退不等于硬件性能通过。
+- 本轮尚未做XPS真正GPU全回合性能，未取得完整YouTube字幕，**仍Draft/NO-GO，不合并main、不动R198**。此后需在实际有GPU WebGL的XPS浏览器环境补测真实帧时/冷载和更长对局。
+
+
+### XPS最终补充：真正成功的低端显卡同配置 A/B（取代上段“无有效XPS数据”）
+
+- 先前的 --use-angle=vulkan + 禁止软件回退 Chrome155 Headless 确实无法创建 WebGL；ChromeDriver 149/Chrome155 不匹配。**这只是原测试路径受阻，后续已用原生CDP与 --use-angle=gl 成功启动并完成实机测试**。没有改变机器安装的 Chrome，也没有使用用户日常浏览器配置。
+- Chrome WebGL debug renderer 原始返回：`ANGLE (Intel, Mesa Intel(R) UHD Graphics 630 (CFL GT2), OpenGL ES 3.2)`；测试在 **Intel UHD 630 集显** 上完成，**不是 NVIDIA GTX1650 测试**。虽然启动标志允许软件后备，实际返回的是 Intel Mesa，不应称作GeForce硬件基准。
+- 每次新建独立Chrome profile，24帧短期 rAF 帧间隔采样、相同 1280×720、相同卡牌 QA预览、相同 Z890 局域网服务：
+  - **R210**：首次 sceneReady 32.65秒；平均45.14ms、P95 50.1ms、P99 50.1ms；样本末R210旧特效3个活动，drawCalls 739。
+  - **R211**：首次 sceneReady 40.94秒；平均42.36ms、P95 50.1ms、P99 50.1ms；样本末R211新特效2个活动（0.84s电弧正常过期），drawCalls 743。**测试时刻的活动数不同，不构成严格三效果对等对照；不能从均值较低宣称提速。**
+- 更长的单次R211 100帧rAF样本：平均44.83ms、P95 66.6ms；样本末全部效果消散，仍有基础场景卡顿。说明问题根源不仅是特效，整场约733基础drawCalls，需单独优化3D场景负载/冷开。
+- 正式原始证据：`qa/evidence/r211-cinematic-vfx/r211-xps15-intel-uhd630-r210-vs-r211-24frame.json`（从XPS机原始CDP JSON同步归档，不是伪造的GPU帧时间）。**发布仍NO-GO**：需长对局、真实GTX1650、极低配集显分场景分析与加载速度优化。
+
