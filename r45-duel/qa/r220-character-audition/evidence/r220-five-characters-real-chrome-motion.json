@@ -1,0 +1,88 @@
+{
+  "ok": true,
+  "url": "http://10.10.10.138:18720/r45-duel/qa/r220-character-audition/",
+  "errors": [],
+  "frames": [
+    {
+      "kind": "idle",
+      "oldJay": {
+        "clip": "Idle",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Idle_Breathe",
+        "bones": 24,
+        "activeBones": 0,
+        "maxAngleRad": 0.025
+      },
+      "drawCalls": 11,
+      "screenshot": "r220-five-character-idle-real-chrome.png"
+    },
+    {
+      "kind": "draw",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_DrawCard",
+        "bones": 24,
+        "activeBones": 13,
+        "maxAngleRad": 1.164
+      },
+      "drawCalls": 74,
+      "screenshot": "r220-five-character-draw-real-chrome.png"
+    },
+    {
+      "kind": "attack",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_ThrowCard",
+        "bones": 24,
+        "activeBones": 11,
+        "maxAngleRad": 1.712
+      },
+      "drawCalls": 74,
+      "screenshot": "r220-five-character-attack-real-chrome.png"
+    },
+    {
+      "kind": "hit",
+      "oldJay": {
+        "clip": "Hit",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Recoil",
+        "bones": 24,
+        "activeBones": 5,
+        "maxAngleRad": 0.754
+      },
+      "drawCalls": 74,
+      "screenshot": "r220-five-character-hit-real-chrome.png"
+    },
+    {
+      "kind": "victory",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Victory",
+        "bones": 24,
+        "activeBones": 9,
+        "maxAngleRad": 1.693
+      },
+      "drawCalls": 74,
+      "screenshot": "r220-five-character-victory-real-chrome.png"
+    }
+  ],
+  "sourceKind": "real-webgl-gltf-render"
+}
