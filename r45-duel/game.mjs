@@ -6,6 +6,7 @@
 import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legalMoves} from './engine.mjs';
 import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
+import {createR207IdleChatter} from './r207-idle-chatter.mjs';
 import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
 import {chooseCrowdAccident} from './scene/spectator-chaos-contract.mjs';
 import {resolveSpectatorProp} from './scene/bleacher-prop-comedy.mjs';
@@ -22,6 +23,7 @@ const R199_REAL_MAGIC=params.get('r199PhysicalMagic')==='on';
 const R199_SHOWCASE=R199_REAL_MAGIC&&params.get('r199Showcase')==='on';
 const R202_BODY_HIT=R199_REAL_MAGIC&&params.get('r202BodyHit')==='on';
 const R203_BODY_HIT=R202_BODY_HIT&&params.get('r203BodyHit')==='on';
+const R207_IDLE_CHATTER=params.get('r207Chatter')==='on';
 const R203_FIVE_IDS=Object.freeze(['K04','S08','P03','X05','Q07']);
 const r203VoiceKind=id=>R203_BODY_HIT&&R203_FIVE_IDS.includes(id)?
  'r203_'+id:R202_BODY_HIT&&['E06','Q05','K01','K07','P07'].includes(id)?
@@ -73,8 +75,12 @@ function showSpokenLine(entry){
   SPECTATOR_2:'右前排观众',SPECTATOR_3:'右后排观众'})[entry.id]||entry.id;
  speaker.textContent=name+' · Qwen3 角色配音';
  words.textContent=entry.text;
+ // A summoned actor can belong to either side. Never attribute the AI
+ // character's spontaneous line to the player's portrait by default.
+ const aiOnlySpeaker=g.board?.ai?.[0]?.some(x=>x.id===entry.id&&x.hp>0)&&
+  !g.board?.player?.[0]?.some(x=>x.id===entry.id&&x.hp>0);
  node.dataset.side=entry.id==='STADIUM_PA'||String(entry.id).startsWith('SPECTATOR_')?'center':
-  entry.id==='HOST_AI'?'ai':'player';
+  entry.id==='HOST_AI'||aiOnlySpeaker?'ai':'player';
  node.hidden=false;spokenSubtitleCount++;
  lastQwenSubtitle={...entry,name};
  const serial=++speechSeq;
@@ -113,6 +119,29 @@ function realVoiceStopped(entry){
 }
 const audio=createDuelAudio({onVoiceLine:realVoiceStarted,onVoiceStop:realVoiceStopped});
 audio.setOpeningMusic(seed);
+// R207 is strictly experimental, off in the public build and tutorials.
+// A single low-frequency timer checks real current units/turns; no per-frame
+// TTS, requests, new render passes, audio overlaps or gameplay events.
+const r207Chatter=R207_IDLE_CHATTER?createR207IdleChatter(seed,{
+ quick:params.get('qa')==='1'&&params.get('r207Quick')==='on'
+}):null;
+if(r207Chatter)setInterval(()=>{
+ if(document.hidden||!sceneReady||sceneError||guidedMode||tutorialMode||
+   g.phase!=='playing')return;
+ const a=audio.status();
+ if(!a.enabled||!a.requested||!a.assetsReady||a.volume.voice===0||
+   a.voicePlaying||a.voiceQueue.length||a.finaleVoiceGuard)return;
+ const present=['HOST_PLAYER','HOST_AI'];
+ for(const side of ['player','ai']){
+  for(const unit of g.board[side]?.[0]||[]){
+   if(unit?.hp>0&&unit.id)present.push(unit.id);
+  }
+ }
+ const now=performance.now();
+ const proposal=r207Chatter.propose(now,present,g.serial);
+ if(proposal)r207Chatter.settle(proposal,now,audio.playIdleCharacter(proposal.id));
+},950);
+
 const hostSpeechTurn={player:-1,ai:-1};
 function sayHostOnce(side){
  if(!['player','ai'].includes(side)||hostSpeechTurn[side]===g.round)return false;
@@ -1321,6 +1350,8 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get selected(){return selected},
   get lastFightSerial(){return lastFightSerial},
   get audio(){return audio.status()},
+  get r207Chatter(){return r207Chatter?.inspect()||{enabled:false}},
+  r207VoiceSample(id){return R207_IDLE_CHATTER?audio.playIdleCharacter(id):false},
   get comedy(){return{lastQwenSubtitle,spokenSubtitleCount,
     asideHistory:[...asideHistory],allTextLines:
       Object.values(COMIC_ASIDE_LINES).reduce((n,lines)=>n+lines.length,0)}},
