@@ -7,6 +7,7 @@ import {BY_ID,CARDS,DECK_PRESETS,MAX_HP,createGame,playCard,endTurn,aiTurn,legal
 import {cardArtURL,cardArtStatus} from './card-art.mjs';
 import {createDuelAudio} from './audio-engine.mjs';
 import {createR207IdleChatter} from './r207-idle-chatter.mjs';
+import {r208SpellAccent} from './r208-audio-coverage.mjs';
 import {CARD_ELEMENTS,ELEMENTS} from './scene/spell-response-contract.mjs';
 import {chooseCrowdAccident} from './scene/spectator-chaos-contract.mjs';
 import {resolveSpectatorProp} from './scene/bleacher-prop-comedy.mjs';
@@ -24,6 +25,7 @@ const R199_SHOWCASE=R199_REAL_MAGIC&&params.get('r199Showcase')==='on';
 const R202_BODY_HIT=R199_REAL_MAGIC&&params.get('r202BodyHit')==='on';
 const R203_BODY_HIT=R202_BODY_HIT&&params.get('r203BodyHit')==='on';
 const R207_IDLE_CHATTER=params.get('r207Chatter')==='on';
+const R208_FULL_AUDIO=R199_REAL_MAGIC&&params.get('r208Audio')==='on';
 const R203_FIVE_IDS=Object.freeze(['K04','S08','P03','X05','Q07']);
 const r203VoiceKind=id=>R203_BODY_HIT&&R203_FIVE_IDS.includes(id)?
  'r203_'+id:R202_BODY_HIT&&['E06','Q05','K01','K07','P07'].includes(id)?
@@ -143,7 +145,10 @@ if(r207Chatter)setInterval(()=>{
 },950);
 
 const hostSpeechTurn={player:-1,ai:-1};
-function sayHostOnce(side){
+function sayHostOnce(side,cardId=null){
+ // R208: a real magic prop now has its own precise recorded shout at the
+ // THREE source-GLB cast event; do not drown it out with generic 'cast'.
+ if(R208_FULL_AUDIO&&BY_ID[cardId]?.kind==='spell')return false;
  if(!['player','ai'].includes(side)||hostSpeechTurn[side]===g.round)return false;
  const round=g.round,battle=g;
  hostSpeechTurn[side]=round;
@@ -838,10 +843,13 @@ $('play').addEventListener('click',()=>{
  if(c.kind==='unit'||!R199_REAL_MAGIC)
   audio.playComicBeat(c.kind==='unit'?'summon_'+c.style:
    'spell_'+c.effect,'player',played.serial);
- audio.playCue('card_flip','player');
+ // R208 removes a genuine duplicate: R199 physical spell already played
+ // the illustrated 3D card-flip cue two lines above, not twice at one tick.
+ if(!(R208_FULL_AUDIO&&c.kind==='spell'))
+  audio.playCue('card_flip','player');
  // The host announces once per turn, then the freshly summoned unit gets a
  // distinct entrance sentence. Previously host cast cut off every unit voice.
- sayHostOnce('player');
+ sayHostOnce('player',id);
  if(c.kind==='unit')summonSpeaksAfterGesture(id,played.serial);
  if(c.kind==='spell'&&!R199_REAL_MAGIC){
   const sound={blast:'meteor_impact',confuse:'sonic_wave',buff:'spell_charge',
@@ -919,7 +927,7 @@ $('end').addEventListener('click',()=>{
     comedyScript.forCard(event.card,event.serial,'ai'):
     comedyScript.forSpell(event.card,event.serial,'ai'));
   if(!guidedMode){
-   sayHostOnce('ai');
+   sayHostOnce('ai',event.card);
    if(enemyCard?.kind==='unit')summonSpeaksAfterGesture(event.card,event.serial);
   }
   if(enemyCard?.kind==='spell'&&!R199_REAL_MAGIC) {
@@ -1075,6 +1083,18 @@ window.addEventListener('message',event=>{
    // Authored foley #1 belongs to the actual prop entrance, not the rule
    // settlement frame (which can precede the original GLB load).
    audio.playCue(magic.foley[0],d.side,{gainScale:.73});
+   if(R208_FULL_AUDIO&&!d.preview){
+    // Only an authoritative card_play can unlock a spoken line. This
+    // protects the real card rules from QA-only gallery previews.
+    const genuine=g.events.some(e=>e.type==='card_play'&&
+     e.serial===d.serial&&e.card===d.id&&e.side===d.side&&
+     !!e.spellOutcome);
+    if(genuine&&!guidedMode){
+     audio.playSpellCastLine(d.side,d.id,magic.lines.cast);
+     const accent=r208SpellAccent(d.id,'cast');
+     if(accent)audio.playCue(accent.cue,d.side,accent);
+    }
+   }
    if(d.preview&&!R202_BODY_HIT)
     // Original preview mode has no staged hit event.
     audio.playCue(magic.foley[1],d.side,{gainScale:.75,delay:.45});
@@ -1097,6 +1117,10 @@ window.addEventListener('message',event=>{
    if(genuine){
     const magic=r199MagicBible[d.id];
     audio.playCue(magic.foley[1],d.side,{gainScale:.76});
+    if(R208_FULL_AUDIO){
+     const accent=r208SpellAccent(d.id,'contact');
+     if(accent)audio.playCue(accent.cue,d.side,accent);
+    }
     if((d.directDamage>0||d.unitDamage>0)&&!R202_BODY_HIT)
      showComedyAside({text:magic.lines.hit,
       side:d.victim,speaker:'校园魔法命中 · '+BY_ID[d.id].name});
@@ -1350,6 +1374,9 @@ if(new URLSearchParams(location.search).get('qa')==='1'){
   get selected(){return selected},
   get lastFightSerial(){return lastFightSerial},
   get audio(){return audio.status()},
+  get r208Audio(){return{enabled:R208_FULL_AUDIO}},
+  r208SpellVoiceSample(side,id,text){return R208_FULL_AUDIO?
+   audio.playSpellCastLine(side,id,text):false},
   get r207Chatter(){return r207Chatter?.inspect()||{enabled:false}},
   r207VoiceSample(id){return R207_IDLE_CHATTER?audio.playIdleCharacter(id):false},
   get comedy(){return{lastQwenSubtitle,spokenSubtitleCount,
