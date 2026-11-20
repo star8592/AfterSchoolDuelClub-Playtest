@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "assumptions": "Single Z890 Chrome session; indicative frame intervals, not standardized FPS or cold start",
+  "cases": [
+    {
+      "name": "R210",
+      "loadedMs": 3470,
+      "drawCallsBefore": 733,
+      "drawCallsWithEffects": 739,
+      "avgFrameMs": 17.27,
+      "p95Ms": 16.7,
+      "p99Ms": 50.1,
+      "frames": 55,
+      "r211Active": 0,
+      "r210Active": 3
+    },
+    {
+      "name": "R211",
+      "loadedMs": 2922,
+      "drawCallsBefore": 733,
+      "drawCallsWithEffects": 743,
+      "avgFrameMs": 16.97,
+      "p95Ms": 16.7,
+      "p99Ms": 33.3,
+      "frames": 55,
+      "r211Active": 2,
+      "r210Active": 0
+    }
+  ],
+  "errors": []
+}
