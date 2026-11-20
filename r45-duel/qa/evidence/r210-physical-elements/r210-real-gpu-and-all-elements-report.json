@@ -1,0 +1,299 @@
+{
+  "pass": true,
+  "baseline": {
+    "hp": {
+      "player": 20,
+      "ai": 20
+    },
+    "round": 1,
+    "phase": "playing",
+    "events": [
+      {
+        "serial": 1,
+        "type": "start",
+        "side": "player",
+        "seed": 1
+      }
+    ],
+    "hand": [
+      "E01",
+      "S08",
+      "T02",
+      "E02",
+      "T01"
+    ],
+    "energy": {
+      "player": 2,
+      "ai": 0
+    },
+    "r210": {
+      "enabled": false,
+      "profiles": 15,
+      "material": null,
+      "oldDuelCircleLayerVisible": true,
+      "oldSummonCircleLayerPresent": true,
+      "oldComicHaloFree": false,
+      "comboGenericHalosSuppressed": 0,
+      "originalR199PropsEnabled": true
+    },
+    "score": {
+      "updates": 2,
+      "errors": 0,
+      "data": {
+        "player": 20,
+        "ai": 20,
+        "round": 1,
+        "turn": "player",
+        "comboPlayer": 0,
+        "comboAi": 0,
+        "energy": 2,
+        "type": "ASDC_R81_SCORE"
+      },
+      "size": [
+        1536,
+        288
+      ],
+      "physical": true,
+      "hitFlashCount": 0,
+      "visible": true
+    },
+    "originalProps": {
+      "enabled": true,
+      "originalCatalog": 46,
+      "r200Pbr": true,
+      "r200Readable": true,
+      "r202BodyHit": true,
+      "r203BodyHit": true,
+      "signatureBodies": [
+        "E06",
+        "Q05",
+        "K01",
+        "K07",
+        "P07",
+        "K04",
+        "S08",
+        "P03",
+        "X05",
+        "Q07"
+      ],
+      "loadedRealAssets": 0,
+      "cacheMax": 8,
+      "evictions": 0,
+      "loadedIds": [],
+      "failedIds": [],
+      "inflight": [],
+      "queue": {
+        "running": 0,
+        "pending": 0,
+        "urgentWaiting": [],
+        "backgroundWaiting": [],
+        "promotions": 0,
+        "completed": 0,
+        "failed": 0
+      },
+      "pendingUnrenderedContacts": 0,
+      "synchronisedContacts": 0,
+      "casts": 0,
+      "previews": 0,
+      "stage": {
+        "enabled": true,
+        "totalIdentities": 46,
+        "r200Readable": true,
+        "r202BodyImpact": true,
+        "r203BodyImpact": true,
+        "gracefulRetirements": 0,
+        "signatureImpactIds": [
+          "E06",
+          "Q05",
+          "K01",
+          "K07",
+          "P07",
+          "K04",
+          "S08",
+          "P03",
+          "X05",
+          "Q07"
+        ],
+        "originalDetachedProjectiles": [],
+        "physicalFlights": 0,
+        "actualBodyContacts": 0,
+        "previewBodyContacts": 0,
+        "physicalConsequences": {
+          "spawned": 0,
+          "expired": 0,
+          "active": 0,
+          "peak": 0,
+          "physicalKinds": [],
+          "oneMeshDrawPerPhysicalMaterial": true,
+          "addedPointLights": 0,
+          "addedGlowRings": 0,
+          "addedSprites": 0
+        },
+        "activeBodyFlights": [],
+        "authoredHighDetailAssets": [],
+        "collateralLaunched": 0,
+        "collateralExpired": 0,
+        "collateralActive": 0,
+        "played": 0,
+        "expired": 0,
+        "rejected": 0,
+        "active": 0,
+        "peakObjects": 0,
+        "peakDraws": 0,
+        "uniqueRenderedProps": 0,
+        "shaderPointLights": 0,
+        "cacheGeometries": 0,
+        "cacheMaterials": 0,
+        "staticBatch": {
+          "enabled": false
+        },
+        "decalTextures": 0,
+        "hitAnimations": 0,
+        "lastBySide": {
+          "player": null,
+          "ai": null
+        },
+        "activeIds": []
+      },
+      "loadedReceipts": [],
+      "loadedAssetDetails": []
+    },
+    "comedy": {
+      "layer": "R102_ORIGINAL_3D_COMIC_PARTICLES",
+      "played": 0,
+      "completed": 0,
+      "active": 0,
+      "maxActive": 0,
+      "visibleFrames": 0,
+      "typesSeen": [],
+      "last": null,
+      "activeShots": [],
+      "availableTypes": 16,
+      "geometryKinds": 5,
+      "haloFree": false,
+      "authorizedByRealEventsOnly": true
+    },
+    "closeup": false,
+    "inset": 0,
+    "drawCalls": 732
+  },
+  "gallery": [
+    {
+      "cards": [
+        "E06",
+        "T05",
+        "K06"
+      ],
+      "source": "QA visual preview, no game rules",
+      "element": "earth",
+      "instances": 29,
+      "drawCalls": 737,
+      "path": "r45-duel/qa/evidence/r210-physical-elements/r210-02-QA-three-material-elements.png"
+    },
+    {
+      "cards": [
+        "S04",
+        "P07",
+        "Q05"
+      ],
+      "source": "QA visual preview, no game rules",
+      "element": "wind",
+      "instances": 29,
+      "drawCalls": 737,
+      "path": "r45-duel/qa/evidence/r210-physical-elements/r210-03-QA-three-material-elements.png"
+    },
+    {
+      "cards": [
+        "K03",
+        "G05",
+        "E05"
+      ],
+      "source": "QA visual preview, no game rules",
+      "element": "light",
+      "instances": 29,
+      "drawCalls": 737,
+      "path": "r45-duel/qa/evidence/r210-physical-elements/r210-04-QA-three-material-elements.png"
+    },
+    {
+      "cards": [
+        "Q07",
+        "Q03",
+        "Q04"
+      ],
+      "source": "QA visual preview, no game rules",
+      "element": "sound",
+      "instances": 29,
+      "drawCalls": 737,
+      "path": "r45-duel/qa/evidence/r210-physical-elements/r210-05-QA-three-material-elements.png"
+    },
+    {
+      "cards": [
+        "S01",
+        "S07",
+        "K01"
+      ],
+      "source": "QA visual preview, no game rules",
+      "element": "absurd",
+      "instances": 29,
+      "drawCalls": 737,
+      "path": "r45-duel/qa/evidence/r210-physical-elements/r210-06-QA-three-material-elements.png"
+    }
+  ],
+  "realCards": [
+    {
+      "id": "S08",
+      "element": "electric",
+      "serial": 2,
+      "rule": {
+        "effect": "blast",
+        "directDamage": 2,
+        "unitDamage": 0,
+        "targetUids": [],
+        "healed": 0,
+        "allyHeal": 0,
+        "cardDraw": 0
+      },
+      "source": "real player hand/GLB",
+      "physicalEffects": 1,
+      "cameraWide": true,
+      "image": "r45-duel/qa/evidence/r210-physical-elements/r210-real-S08-electric.png"
+    },
+    {
+      "id": "Q05",
+      "element": "wind",
+      "serial": 2,
+      "rule": {
+        "effect": "blast",
+        "directDamage": 2,
+        "unitDamage": 0,
+        "targetUids": [],
+        "healed": 0,
+        "allyHeal": 0,
+        "cardDraw": 0
+      },
+      "source": "real player hand/GLB",
+      "physicalEffects": 1,
+      "cameraWide": true,
+      "image": "r45-duel/qa/evidence/r210-physical-elements/r210-real-Q05-wind.png"
+    },
+    {
+      "id": "T05",
+      "element": "water",
+      "serial": 2,
+      "rule": {
+        "effect": "heal",
+        "directDamage": 0,
+        "unitDamage": 0,
+        "targetUids": [],
+        "healed": 0,
+        "allyHeal": 0,
+        "cardDraw": 0
+      },
+      "source": "real player hand/GLB",
+      "physicalEffects": 1,
+      "cameraWide": true,
+      "image": "r45-duel/qa/evidence/r210-physical-elements/r210-real-T05-water.png"
+    }
+  ],
+  "errors": []
+}

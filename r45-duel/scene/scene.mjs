@@ -21,12 +21,13 @@ import {BY_ID} from '../engine.mjs';
 import {createLiveStadiumScoreboard} from './live-scoreboard.mjs';
 import {createSpellImpact} from './spell-impact.mjs';
 import {createMagicArsenal} from './magic-arsenal.mjs';
-import {describeSpellContact} from './spell-response-contract.mjs';
+import {describeSpellContact,SPELL_SIGNATURES} from './spell-response-contract.mjs';
 import {createSpellContactFX} from './spell-contact-fx.mjs';
 import {chooseCrowdAccident} from './spectator-chaos-contract.mjs';
 import {createSpectatorChaosFX} from './spectator-chaos-fx.mjs';
 import {createBleacherPropComedy,resolveSpectatorProp} from './bleacher-prop-comedy.mjs';
 import {createElementalVfx} from './elemental-vfx.mjs';
+import {createR210PhysicalElements,R210_ELEMENT_PROFILES} from './campus-r210-material-elements.mjs';
 import {createCardHolograms} from './card-holograms.mjs';
 import {createHandPlayCards} from './hand-play-cards.mjs';
 import {createSummonPresence} from './summon-presence.mjs';
@@ -63,6 +64,9 @@ const R200_READABLE=R199_PHYSICAL_MAGIC&&r200Flag('r200Readable');
 const R202_BODY_HIT=R199_PHYSICAL_MAGIC&&r200Flag('r202BodyHit');
 const R203_BODY_HIT=R202_BODY_HIT&&r200Flag('r203BodyHit');
 const R204_CASTER=R199_PHYSICAL_MAGIC&&r200Flag('r204Caster');
+// Opt-in R210: the R199 original source-GLB stage stays; its physical
+// impact gains 15 real-material signatures instead of stacked halo systems.
+const R210_PHYSICAL_ELEMENTS=R199_PHYSICAL_MAGIC&&r200Flag('r210Elements');
 const R203_NEW_IDS=Object.freeze(['K04','S08','P03','X05','Q07']);
 let r199Magic=null,r199MagicModule=null;
 
@@ -283,6 +287,8 @@ let comboDirector=null;
 let comedySpectacle=null;
 let liveScoreboard=null;
 let spellImpact=null,magicArsenal=null,elementalVfx=null,spellContactFX=null,spectatorChaosFX=null,bleacherProps=null;
+let r210MaterialElements=null;
+const r210ComboLegacyTori=[];
 const spellSerials=new Set();
 const hostHits={player:{time:-100,damage:0},ai:{time:-100,damage:0}};
 const r202HostHit={player:null,ai:null};
@@ -320,7 +326,10 @@ function r201ApplyResolvedContact(d){
    summonPresence?.spellWorldAnchors?.(d.victim,d.targetUids)||[]:[];
   if(d.unitDamage>0&&d.targetUids.length){
    summonPresence?.reactToSpell?.(d.victim,d.targetUids,absoluteSeconds,d.element);
-   for(const t of targets)if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
+   for(const t of targets){
+    if(R210_PHYSICAL_ELEMENTS)r210MaterialElements?.spawn(d,t,absoluteSeconds,{kind:'unit'});
+    else if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,t,absoluteSeconds,{kind:'unit'});
+   }
   }
   if(d.directDamage>0){
    hostHits[d.victim]={time:absoluteSeconds,damage:d.directDamage,element:d.element};
@@ -331,14 +340,16 @@ function r201ApplyResolvedContact(d){
    const host=duelistHosts.find(h=>h.side===d.victim);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(R210_PHYSICAL_ELEMENTS)r210MaterialElements?.spawn(d,p,absoluteSeconds,{kind:'host'});
+    else if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }else if(!d.damaging){
    // Healing and buffs are self-side effects, not pretend enemy damage.
    const host=duelistHosts.find(h=>h.side===d.caster);
    if(host?.pivot){
     const p=host.pivot.getWorldPosition(new THREE.Vector3());
-    if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
+    if(R210_PHYSICAL_ELEMENTS)r210MaterialElements?.spawn(d,p,absoluteSeconds,{kind:'host'});
+    else if(!R199_PHYSICAL_MAGIC)spellContactFX?.play(d,p,absoluteSeconds,{kind:'host'});
    }
   }
   if(R202_BODY_HIT&&(['E06','Q05','K01','K07','P07'].includes(d.id)||
@@ -383,12 +394,24 @@ function makeScene(){
  // Fully volumetric gymnasium: no 2D painted scene behind the fighters.
  stadiumEvidence=createStadium(THREE,scene,{detail:'medium',lifeWorld:arenaLife});
  duelEffects=createDuelEffects(THREE,scene);
+ if(R210_PHYSICAL_ELEMENTS)
+  // Source of the permanent blue/gold circles on every visible actor.
+  // The actual high-resolution avatars, stadium and combat still render.
+  duelEffects.root.visible=false;
  // The R100 director uses only validated real engine.combo_effect payloads.
  // The 3D stadium, summoners, permanent VRMs and canonical rules stay intact.
  comboDirector=createComboDirector(THREE,scene,{
   caption:$('combo-caption'),skipButton:$('skip-combo')
  });
- comedySpectacle=createComedySpectacle(THREE,scene);
+ if(R210_PHYSICAL_ELEMENTS){
+  // Other generic torus halos used in combo celebrations must not defeat
+  // the no-halo look. Preserve visible physical combo props and text.
+  comboDirector.root.traverse(o=>{
+   if(o.isMesh&&o.geometry?.type==='TorusGeometry')
+    r210ComboLegacyTori.push(o);
+  });
+ }
+ comedySpectacle=createComedySpectacle(THREE,scene,{noHalos:R210_PHYSICAL_ELEMENTS});
  $('skip-combo').addEventListener('click',()=>{
   summonPresence?.clearComicCombo();
   comedySpectacle?.clear();
@@ -466,8 +489,20 @@ function makeScene(){
    }
   });
  }
- elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
+ // Legacy R79 summons make THREE colored ground circles and a portal
+ // ring for every single actor. R210 uses the R102 instanced comedy
+ // fragments without the rings, keeping original summon GLBs untouched.
+ if(!R210_PHYSICAL_ELEMENTS)
+  elementalVfx=createElementalVfx(THREE,scene,{reducedMotion:reduced});
+ if(R210_PHYSICAL_ELEMENTS)
+  r210MaterialElements=createR210PhysicalElements(THREE,scene,{reducedMotion:reduced});
  spellContactFX=createSpellContactFX(THREE,scene,{reducedMotion:reduced});
+ if(R210_PHYSICAL_ELEMENTS){
+  // The stadium's actual playing boundary stays; only the surplus
+  // glowing conjuration ring at the arena center is removed.
+  const ring=scene.getObjectByName('Conjuration_Aura_Ring');
+  if(ring)ring.visible=false;
+ }
  spectatorChaosFX=createSpectatorChaosFX(THREE,scene,{reducedMotion:reduced});
  bleacherProps=createBleacherPropComedy(THREE,scene,{reducedMotion:reduced});
  podiumCards=createCardHolograms(THREE,scene);
@@ -1104,11 +1139,14 @@ function loop(){
  r199Magic?.update(absoluteSeconds);
  // Original unit-summoning effects remain unaffected by spell replacement.
  elementalVfx?.update(absoluteSeconds);
+ r210MaterialElements?.update(absoluteSeconds);
  if(!R199_PHYSICAL_MAGIC)spellContactFX?.update(absoluteSeconds);
  if(!R199_PHYSICAL_MAGIC)spectatorChaosFX?.update(absoluteSeconds);
  bleacherProps?.update(absoluteSeconds);
  // All props update inside the 3D arena; 3 phases, then remove cleanly.
  comboDirector?.update(absoluteSeconds,reduced);
+ if(R210_PHYSICAL_ELEMENTS)
+  for(const ring of r210ComboLegacyTori)ring.visible=false;
  comedySpectacle?.update(absoluteSeconds,reduced);
  const impactCombo=comboDirector?.drainImpact();
  if(impactCombo){
@@ -1172,9 +1210,10 @@ function loop(){
  arenaLife.tick(absoluteSeconds,{quiet:playing});
  actors.forEach(a=>reactActor(a,t,absoluteSeconds));
  updateDuelistHosts(absoluteSeconds);
- duelEffects?.update({absoluteSec:absoluteSeconds,fightTime:t,playing,
-   visible:actors.map(a=>a.pivot.visible),
-   reducedMotion:reduced});
+ if(!R210_PHYSICAL_ELEMENTS)duelEffects?.update({
+  absoluteSec:absoluteSeconds,fightTime:t,playing,
+  visible:actors.map(a=>a.pivot.visible),reducedMotion:reduced
+ });
  podiumCards?.update(absoluteSeconds,playing,camera.aspect<.95);
  handCards?.update(absoluteSeconds,camera);
  summonPresence?.update(absoluteSeconds,camera,{cinematic:playing});
@@ -1431,7 +1470,8 @@ function onMessage(ev){
    stadiumEvidence?.reactAudience?.('card',msg.side,absoluteSeconds);
    if(card.kind==='unit'){
     summonPresence?.reactToSummon(msg.side,msg.id,msg.serial,absoluteSeconds);
-    // R79 recovered 3D portal effect on existing summoned characters.
+    // R210 removes the three identical floor/portal rings. Summoned
+    // original GLB still gets the R102 real instanced particle reaction.
     elementalVfx?.playCard(msg,absoluteSeconds);
     comedySpectacle?.trigger('summon_'+card.style,
       msg.side,msg.serial,absoluteSeconds,{reduced});
@@ -1516,6 +1556,31 @@ function exposeQA(){
   get r200MagicBounds(){return r199Magic?.visibleStageBounds()||[]},
   get elementalVfx(){return elementalVfx?.stats||null},
   get spellContactFX(){return spellContactFX?.stats||null},
+  previewR210CardElements(ids){
+   // QA-only visualization: uses authoritative card->element mappings but
+   // DOES NOT call playCard, create damage, mutate game state, or pretend
+   // a preview was a real physical hit. Test photos must say QA preview.
+   if(!R131_IS_QA()||!R210_PHYSICAL_ELEMENTS||
+     !Array.isArray(ids)||!ids.length||ids.length>3||
+     ids.some(id=>typeof id!=='string'||!SPELL_SIGNATURES[id]))return false;
+   ids.forEach((id,i)=>{
+    const p={x:(i-(ids.length-1)/2)*2.10,
+     y:.45,z:1.15};
+    r210MaterialElements?.spawn(SPELL_SIGNATURES[id],p,absoluteSeconds,
+      {kind:'unit',qaPreview:true});
+   });
+   return true;
+  },
+  get r210Elements(){return {
+   enabled:R210_PHYSICAL_ELEMENTS,
+   profiles:Object.keys(R210_ELEMENT_PROFILES).length,
+   material:r210MaterialElements?.stats||null,
+   oldDuelCircleLayerVisible:duelEffects?.root?.visible??null,
+   oldSummonCircleLayerPresent:!!elementalVfx,
+   oldComicHaloFree:comedySpectacle?.stats?.haloFree===true,
+   comboGenericHalosSuppressed:r210ComboLegacyTori.length,
+   originalR199PropsEnabled:!!r199Magic
+  }},
   get r121ContactReceipts(){return r121ContactReceipts},
   get r122AccidentReceipts(){return r122AccidentReceipts},
   get registeredSpellSerials(){return spellSerials.size},

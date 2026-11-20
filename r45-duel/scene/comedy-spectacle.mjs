@@ -22,7 +22,7 @@ export const R102_SPECTACLES=Object.freeze({
  actual_exchange:{color:'#fff0aa',shape:'star',motion:'burst'},
  direct_hit:{color:'#f8a79b',shape:'star',motion:'burst'}
 });
-export function createComedySpectacle(THREE,scene){
+export function createComedySpectacle(THREE,scene,{noHalos=false}={}){
  const root=new THREE.Group();
  root.name='R102_Real_3D_Schoolyard_Spectacle';
  scene.add(root);
@@ -117,6 +117,9 @@ export function createComedySpectacle(THREE,scene){
    const arrive=ease(p/.15),depart=1-ease((p-.67)/.33);
    const alpha=arrive*depart;
    const {mesh,ring,inner,style}=s;
+   // R210: retain actual 3D InstancedMesh comedy fragments but no twin
+   // generic TorusGeometry shockwave rings on every summon or combo.
+   ring.visible=!noHalos;inner.visible=!noHalos;
    const spin=(style.motion==='swirl'?7.2:style.motion==='spiral'?4.5:2.0);
    const count=reduced?8:s.count;
    mesh.count=count;
@@ -161,7 +164,7 @@ export function createComedySpectacle(THREE,scene){
   activeShots:shots.map(x=>({type:x.type,side:x.side,serial:x.serial,
    instances:x.mesh.count,age:Math.round((lastTime-x.start)*10)/10})),
   availableTypes:Object.keys(R102_SPECTACLES).length,
-  geometryKinds:Object.keys(geometries).length,
+  geometryKinds:Object.keys(geometries).length,haloFree:noHalos,
   authorizedByRealEventsOnly:true
  }}};
 }
