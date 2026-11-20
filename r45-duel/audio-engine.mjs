@@ -4,6 +4,7 @@
  * Completely presentation-only: cannot mutate the rules engine/HP.
  */
 import {GUIDED_LINES} from './guided-tutorial.mjs';
+import {R207_IDLE_LINES} from './r207-idle-chatter.mjs';
 const SOUNDS=Object.freeze({
  select:'select.ogg',cast:'cast.ogg',enemy_cast:'enemy_cast.ogg',
  turn:'turn.ogg',attack:'attack.ogg',hit:'hit.ogg',
@@ -528,6 +529,23 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   if(!voiceAudio)playQueuedVoice();
   return true;
  }
+ // R207: lowest-priority occasional idle chatter from the existing
+ // authentic Qwen voice lane. No queues, no synthetic browser speech, no
+ // text-only masquerading as audio. Battle calls preempt these naturally.
+ function playIdleCharacter(id){
+  if(!R207_IDLE_LINES[id]||!requested||!enabled||!assetsReady||
+    finaleVoiceGuard||volume.voice===0||voiceAudio||voiceQueue.length||
+    (crowdAudio&&!crowdAudio.ended))return false;
+  const clip=chooseVoiceVariant(id,'idle');
+  if(!clip?.ready||!R207_IDLE_LINES[id].includes(clip.text)||
+    !/^[a-zA-Z0-9_-]+\.ogg$/.test(clip.file)||
+    !Number.isFinite(clip.duration_seconds)||clip.duration_seconds<.5||
+    clip.duration_seconds>13)return false;
+  voiceQueue.push({id,kind:'idle',file:clip.file,variant:clip.variant,
+   text:clip.text,duration_seconds:clip.duration_seconds});
+  playQueuedVoice();
+  return true;
+ }
  // Stadium PA is a real offline Qwen3 Opus recording; never browser TTS.
  // A named exact text mapping is essential for truthful subtitles and
  // avoiding a speaker's voice coming from the wrong character.
@@ -773,6 +791,6 @@ export function createDuelAudio({onVoiceLine,onVoiceStop}={}){
   volume:{...volume},counters:{...counters},events:[...debugEvents]}}
  return {prepare,unlock,turnOn,stop,setVolume,playCue,playComicBeat,
 
-  playCharacter,playPA,playSocialLine,playTutorialLine,playCrowdYelp,playPropPA,playTeacherOrder,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
+  playCharacter,playIdleCharacter,playPA,playSocialLine,playTutorialLine,playCrowdYelp,playPropPA,playTeacherOrder,switchMusic,setOpeningMusic,musicForBattle,resetMatch,gameFinished,status};
 
 }

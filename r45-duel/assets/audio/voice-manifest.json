@@ -92,6 +92,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "E01-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "铃还没响呢，我先喘口气。",
+        "duration_seconds": 5.61,
+        "sha256": "211aa3f2c419feba06518ffc487e1a095fd2221ae65c6563b62d0f92bec509c4",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "E01-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "谁把秒针调成冲刺模式了？",
+        "duration_seconds": 2.01,
+        "sha256": "291fe48f03db8503ad35d0e0706604f3f2039b5326c9e017214c8be1fcccd624",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "G01": {
@@ -179,6 +201,28 @@
         "text": "不好！橡皮筋要断啦！",
         "duration_seconds": 2.01,
         "sha256": "4dc9c8a3ff30b0056e9d35111be6ad8c71f22552bb5d1641f8e03cf857dbb3b5",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "G01-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "我再拉一下，应该不会弹到校长吧？",
+        "duration_seconds": 2.57,
+        "sha256": "b701c31f17fb204849b67022ea9f36f24c0442123087063d9a5d7db49e510c8b",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "G01-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "这不是歪，是建筑学里的情绪曲线。",
+        "duration_seconds": 2.57,
+        "sha256": "9fa8df6ec76419d71a44661a5ae71f6b62784e6967ff57ff7f722292f0c8f6d6",
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
@@ -272,6 +316,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "E03-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "都精神点！连板凳都在给咱们加油！",
+        "duration_seconds": 2.97,
+        "sha256": "875a51e35e191d5d16f0e96b6b18d2e12eeaf0e7b0490b1d8165b446c3f593c1",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "E03-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "刚才那叫热身，真正的口号还没喊呢！",
+        "duration_seconds": 3.61,
+        "sha256": "277275ce43512fd5f639cc06c85a4ea89a7e88a166a4b12e5180f2b515729fc0",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "E04": {
@@ -359,6 +425,28 @@
         "text": "别碰我的饭盒！那是热的！",
         "duration_seconds": 2.41,
         "sha256": "84a609de061bbe13bc98e6f0b55d83b38294005db938a212900e58a34e3ae8d9",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "E04-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "我跑得快，是怕食堂的排骨卖完！",
+        "duration_seconds": 2.49,
+        "sha256": "4f796e4363fcb786d7214bdba2643703c2061ac350ab255e53edaf756cb13454",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "E04-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "接力棒哪儿去了？谁给我一根法棍？",
+        "duration_seconds": 2.49,
+        "sha256": "6f074ad6d5b3e4a36022ebd13552c4b5803395b8775068178ba36baef58242c9",
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
@@ -452,6 +540,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "G02-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "黑板上那行字，不是作业，是我的密码。",
+        "duration_seconds": 3.91,
+        "sha256": "0191d6acfefcf01b786dfed63213241b91fd6a7324daa45740d76321751f2df9",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "G02-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "别擦！那是我算了三节课的结果！",
+        "duration_seconds": 2.89,
+        "sha256": "9d247eb4727cf96450dfbd5a19260304dafd2e29865cc3d6fd5cdfb5eef8a514",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "G03": {
@@ -539,6 +649,28 @@
         "text": "等等，实验报告里没有这一项！",
         "duration_seconds": 3.11,
         "sha256": "89c3b78cdcfe6a23cb83feaa6dde6ab3e950a99c8d896ff00b79da429852ca2c",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "G03-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "实验报告我写好了，实验对象还在逃跑。",
+        "duration_seconds": 3.31,
+        "sha256": "7f4de0527b58bcef0ffc1ff9a0afe551bb93750b811e736963ce8b34d2cb7e51",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "G03-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "别碰这个瓶子，碰了今天就提前放学。",
+        "duration_seconds": 3.61,
+        "sha256": "a5f65c2c07ce9d5e05721c9924f4925df87520e0b00e84e2423d3da3cd576860",
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
@@ -632,6 +764,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "G04-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "请不要打断，混乱也需要排日程。",
+        "duration_seconds": 4.81,
+        "sha256": "b5861bf53f6002b8c09701e11a25dfb5efb9bff06f29e1c898c9acb23be1df7d",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "G04-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "我的计划只有一个漏洞：你们全不按计划来。",
+        "duration_seconds": 4.81,
+        "sha256": "662b439e605a83190570b5ad3e762ec7fcfa4d57fdc32b46828f04362a92d50a",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "T01": {
@@ -719,6 +873,28 @@
         "text": "紧急插播！本台主持人遭到袭击！",
         "duration_seconds": 3.41,
         "sha256": "500693bf9262f850e4ec41738e2134611138573caf9ae2335365220fb8ac4de0",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "T01-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "咕？我不是熬夜，我是夜班班长！",
+        "duration_seconds": 4.51,
+        "sha256": "cee6beff588ee997372fc38eddb939b779f6972be4182901ed233b956a44b0e4",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "T01-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "eric",
+        "text": "我要声明，猫头鹰也有早八恐惧。",
+        "duration_seconds": 2.57,
+        "sha256": "1f971af01eaf64dd20b47377401d40f1ce02a852dbcbe43189198d7699c66a60",
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
@@ -812,6 +988,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "T03-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "有你一封急件……哎呀，寄给隔壁班了。",
+        "duration_seconds": 5.01,
+        "sha256": "44d367acd4f3295dcfb3ddf6192158601e2d7eb146bb5650b2caa7967e977252",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "T03-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "收到请回复，尤其是欠我橡皮的那位。",
+        "duration_seconds": 4.91,
+        "sha256": "de818d53266d33ebf00e744ffba3ed54c2d93a4b43824268fc96f5d26da1921e",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "T04": {
@@ -899,6 +1097,28 @@
         "text": "警告！禁止在门口乱丢魔法！",
         "duration_seconds": 3.61,
         "sha256": "38fcff7ce507270d02d817af7c280284d7e06d799be5315559c83521059a022b",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "T04-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "活动室门口禁止追逐，魔法可以慢点飞吗？",
+        "duration_seconds": 5.21,
+        "sha256": "9e8e4635063d8f5ad8d89d0ffd304d068fcb0f68b0a77e88e50b4c4313fde7bc",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "T04-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "今天值班第一条，谁的板擦飞出去谁捡。",
+        "duration_seconds": 4.71,
+        "sha256": "389405175f9281c695900c36ff8dda8585848deb4fd94168ac1b8645ae08c749",
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
@@ -992,6 +1212,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "M01-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "一二三四……谁把第四拍偷吃了？",
+        "duration_seconds": 3.41,
+        "sha256": "aaca6df26e676a66da7b64dcfc88a470ef88c45af564a8539d34c51f707a0900",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "M01-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "uncle_fu",
+        "text": "你们先别打，我的指挥棒还没找到节奏。",
+        "duration_seconds": 4.81,
+        "sha256": "25dff61aa3b660280f6cc896e17ecfd4e8534694f3aeaa0754087eafdda77b86",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "T02": {
@@ -1082,6 +1324,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "T02-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "本菜单郑重声明，茄子炒香蕉不是我写的！",
+        "duration_seconds": 4.31,
+        "sha256": "bcc2df2c70d198311586ac090deb4fd07fa1334339f1152d7e3a10b8ae04052e",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "T02-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "别翻我！今天的招牌菜还没决定要不要逃跑。",
+        "duration_seconds": 4.41,
+        "sha256": "406d9b362de02bf8ba2f096fa6d9b4a1140ab0ea66a046bd6ca2fac2932b4edc",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "M02": {
@@ -1169,6 +1433,28 @@
         "text": "谁把我的锅盖当飞盘啦！",
         "duration_seconds": 1.93,
         "sha256": "c2d0bbb410b8c38784a2326305e067626dd01cfca8f76377e5b4edff4f41f92b",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "M02-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "今天的隐藏菜单叫：少废话，多吃饭！",
+        "duration_seconds": 3.41,
+        "sha256": "d7d6bb18b51d211cca534736e02aeced34f4d5f47e7df9226020f850a2f54543",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "M02-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "谁在这里扔香蕉？我还没批准这道菜！",
+        "duration_seconds": 3.21,
+        "sha256": "5f20b07562c8bdf4721df9302e947bfa7c48c77358fe83ad731c90faf3c4d5f9",
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
@@ -1361,6 +1647,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "HOST_PLAYER-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "喂，对面那位，你的牌怎么一股食堂味儿？",
+        "duration_seconds": 3.91,
+        "sha256": "4110a196c7fd160deb818e17d3b6e17456a8fc3a1c0959e33f3b6a18631ecb13",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "HOST_PLAYER-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "serena",
+        "text": "等一下，我不是紧张，我是在等一个很帅的出场。",
+        "duration_seconds": 3.31,
+        "sha256": "585081be6059cbafe075364738bc32ec9b6322ed94b7184448d78852b9ada9df",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "HOST_AI": {
@@ -1550,6 +1858,28 @@
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "HOST_AI-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "我只是战略性发呆，别催。",
+        "duration_seconds": 2.25,
+        "sha256": "17ec627e45d3a4f13509a943a447a56cf62f315308917bedf9a79e67a917c006",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "HOST_AI-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "dylan",
+        "text": "这张牌再不争气，我申请换个同桌。",
+        "duration_seconds": 3.41,
+        "sha256": "9426b573386c24bc275110745466ac352db3fa4c3194b4627abac1f0a117571a",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
       }
     },
     "E02": {
@@ -1637,6 +1967,28 @@
         "text": "纸飞机！快来帮我挡一下！",
         "duration_seconds": 2.17,
         "sha256": "7c972f1af179857238242d9210d9e162f116555762bee6cc265a2d349b51b565",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle": {
+        "file": "E02-r207_idle.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "别折我机翼，今天飞行证刚办好。",
+        "duration_seconds": 3.61,
+        "sha256": "e3061397417acff8e1fa5d742687bdc9cb50a819a5fa99bbe2a474afeeaa8027",
+        "ready": true,
+        "review_status": "pending-human-listening",
+        "license": "project-original-fictional-performance"
+      },
+      "idle_v2": {
+        "file": "E02-r207_idle_v2.ogg",
+        "model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+        "speaker": "vivian",
+        "text": "我绕一圈回来，作业就算交了吗？",
+        "duration_seconds": 2.49,
+        "sha256": "6887644842a1730a4de4129005dc8e5618515d7b9167527a23c23bd02f8a3458",
         "ready": true,
         "review_status": "pending-human-listening",
         "license": "project-original-fictional-performance"

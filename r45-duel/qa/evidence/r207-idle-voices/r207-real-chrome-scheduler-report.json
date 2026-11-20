@@ -1,0 +1,30 @@
+{
+  "pass": true,
+  "errors": [],
+  "checks": [
+    {
+      "kind": "real-scheduled-idle-speaking",
+      "id": "HOST_PLAYER",
+      "text": "喂，对面那位，你的牌怎么一股食堂味儿？",
+      "variant": "idle",
+      "duration": 3.91
+    },
+    {
+      "kind": "no-rules-mutation-while-idle",
+      "round": 1,
+      "transcriptCount": 2,
+      "uniqueSpeakerCount": 2
+    },
+    {
+      "kind": "original-m01-voice-and-caption",
+      "text": "你们先别打，我的指挥棒还没找到节奏。",
+      "variant": "idle_v2"
+    },
+    {
+      "kind": "default-production-off",
+      "pass": true
+    }
+  ],
+  "clips": [],
+  "source": "real Chrome WebGL2/Qwen3 local Opus"
+}
