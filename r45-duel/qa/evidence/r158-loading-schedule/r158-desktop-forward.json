@@ -1,0 +1,257 @@
+{
+  "date": "2026-11-17T19:20:23.475Z",
+  "device": "desktop",
+  "throttle": true,
+  "rateBytesPerSecond": 10000000,
+  "cpuSlowdown": 2,
+  "scenarios": [
+    {
+      "schedule": "canonical",
+      "concurrency": 4,
+      "pass": true,
+      "elapsedMs": 41665,
+      "errors": [],
+      "downloadedBytes": 75569762,
+      "firstFrameReadyMs": 10128,
+      "allModelsReadyMs": 8754,
+      "completion": [
+        {
+          "id": "E02",
+          "elapsedMs": 597
+        },
+        {
+          "id": "E04",
+          "elapsedMs": 1632
+        },
+        {
+          "id": "E03",
+          "elapsedMs": 2496
+        },
+        {
+          "id": "M01",
+          "elapsedMs": 4445
+        },
+        {
+          "id": "G02",
+          "elapsedMs": 5706
+        },
+        {
+          "id": "M02",
+          "elapsedMs": 5748
+        },
+        {
+          "id": "G03",
+          "elapsedMs": 5846
+        },
+        {
+          "id": "T02",
+          "elapsedMs": 6267
+        },
+        {
+          "id": "G04",
+          "elapsedMs": 6347
+        },
+        {
+          "id": "T04",
+          "elapsedMs": 7451
+        },
+        {
+          "id": "T03",
+          "elapsedMs": 7669
+        },
+        {
+          "id": "T01",
+          "elapsedMs": 8560
+        }
+      ],
+      "renderCalls": 734,
+      "combat": true
+    },
+    {
+      "schedule": "largest-first",
+      "concurrency": 4,
+      "pass": true,
+      "elapsedMs": 41019,
+      "errors": [],
+      "downloadedBytes": 75569762,
+      "firstFrameReadyMs": 9597,
+      "allModelsReadyMs": 8362,
+      "completion": [
+        {
+          "id": "G02",
+          "elapsedMs": 4777
+        },
+        {
+          "id": "G04",
+          "elapsedMs": 6696
+        },
+        {
+          "id": "T03",
+          "elapsedMs": 7068
+        },
+        {
+          "id": "T01",
+          "elapsedMs": 7087
+        },
+        {
+          "id": "E03",
+          "elapsedMs": 7169
+        },
+        {
+          "id": "T04",
+          "elapsedMs": 7739
+        },
+        {
+          "id": "E04",
+          "elapsedMs": 7891
+        },
+        {
+          "id": "M02",
+          "elapsedMs": 7918
+        },
+        {
+          "id": "M01",
+          "elapsedMs": 8021
+        },
+        {
+          "id": "G03",
+          "elapsedMs": 8160
+        },
+        {
+          "id": "E02",
+          "elapsedMs": 8203
+        },
+        {
+          "id": "T02",
+          "elapsedMs": 8213
+        }
+      ],
+      "renderCalls": 734,
+      "combat": true
+    },
+    {
+      "schedule": "largest-first",
+      "concurrency": 6,
+      "pass": true,
+      "elapsedMs": 41066,
+      "errors": [],
+      "downloadedBytes": 75569762,
+      "firstFrameReadyMs": 9637,
+      "allModelsReadyMs": 8431,
+      "completion": [
+        {
+          "id": "G02",
+          "elapsedMs": 4774
+        },
+        {
+          "id": "T04",
+          "elapsedMs": 6794
+        },
+        {
+          "id": "E03",
+          "elapsedMs": 6877
+        },
+        {
+          "id": "G04",
+          "elapsedMs": 7186
+        },
+        {
+          "id": "T03",
+          "elapsedMs": 7454
+        },
+        {
+          "id": "T01",
+          "elapsedMs": 7522
+        },
+        {
+          "id": "M01",
+          "elapsedMs": 7902
+        },
+        {
+          "id": "E04",
+          "elapsedMs": 7943
+        },
+        {
+          "id": "T02",
+          "elapsedMs": 8003
+        },
+        {
+          "id": "E02",
+          "elapsedMs": 8050
+        },
+        {
+          "id": "M02",
+          "elapsedMs": 8061
+        },
+        {
+          "id": "G03",
+          "elapsedMs": 8268
+        }
+      ],
+      "renderCalls": 734,
+      "combat": true
+    },
+    {
+      "schedule": "canonical",
+      "concurrency": 6,
+      "pass": true,
+      "elapsedMs": 41309,
+      "errors": [],
+      "downloadedBytes": 75569762,
+      "firstFrameReadyMs": 9888,
+      "allModelsReadyMs": 8693,
+      "completion": [
+        {
+          "id": "E02",
+          "elapsedMs": 598
+        },
+        {
+          "id": "E04",
+          "elapsedMs": 1626
+        },
+        {
+          "id": "E03",
+          "elapsedMs": 2498
+        },
+        {
+          "id": "G03",
+          "elapsedMs": 4393
+        },
+        {
+          "id": "M01",
+          "elapsedMs": 5904
+        },
+        {
+          "id": "G04",
+          "elapsedMs": 5986
+        },
+        {
+          "id": "T02",
+          "elapsedMs": 6060
+        },
+        {
+          "id": "G02",
+          "elapsedMs": 6108
+        },
+        {
+          "id": "M02",
+          "elapsedMs": 6330
+        },
+        {
+          "id": "T04",
+          "elapsedMs": 7325
+        },
+        {
+          "id": "T03",
+          "elapsedMs": 7765
+        },
+        {
+          "id": "T01",
+          "elapsedMs": 8549
+        }
+      ],
+      "renderCalls": 734,
+      "combat": true
+    }
+  ]
+}

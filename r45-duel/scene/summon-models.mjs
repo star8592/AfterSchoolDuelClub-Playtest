@@ -295,6 +295,23 @@ function r124PackedDisabled(){
  return forced;
 }
 export const UNIT_MODEL_IDS=Object.freeze(Object.keys(UNIT_MODEL_SPECS));
+// R158: QA-only scheduling A/B; default gameplay retains the canonical order.
+// Estimates are from the 12 current R147 immutable compressed GLB assets.
+const R158_QA_SIZES=Object.freeze({
+ E02:848499,E03:3934280,E04:1623043,G02:7426296,
+ G03:2974249,G04:4242248,M01:152870,M02:1845155,
+ T01:11755466,T02:1184305,T03:5373780,T04:3542711
+});
+function r158QASchedule(){
+ const own=new URLSearchParams(location.search);
+ const parent=(()=>{try{return window.parent!==window?
+   new URLSearchParams(window.parent.location.search):null}
+   catch{return null}})();
+ const qa=own.get('qa')==='1'||parent?.get('qa')==='1';
+ const value=own.get('r158Schedule')??parent?.get('r158Schedule');
+ return qa&&value==='largest-first'?'largest-first':'canonical';
+}
+export const R158_QA_SCHEDULE=r158QASchedule();
 export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,concurrency=4}={}){
  // Bound GLB requests and parser work instead of firing 12 large models at once.
  // Keep the original full 12/12 readiness and per-model validation contract.
@@ -347,7 +364,9 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
    return await loader.loadAsync(url,event=>onTransfer?.(url,event));
   }finally{active--;pending.shift()?.();}
  }
- const loaded=await Promise.all(UNIT_MODEL_IDS.map(async id=>{
+ const loadIDs=R158_QA_SCHEDULE==='largest-first'?
+  [...UNIT_MODEL_IDS].sort((a,b)=>R158_QA_SIZES[b]-R158_QA_SIZES[a]):UNIT_MODEL_IDS;
+ const loaded=await Promise.all(loadIDs.map(async id=>{
   const baseSpec=UNIT_MODEL_SPECS[id];
   const spec=id==='T02'&&isT02DuoStudy?
    {...baseSpec,targetHeight:1.58,maxWidth:2.32,maxDepth:1.75,hover:0,kind:'duo'}:
@@ -413,7 +432,10 @@ export async function preloadSummonModels(THREE,loader,{onLoaded,onTransfer,conc
     scaledHeight:size.y*scale,scaledWidth:size.x*scale,scaledDepth:size.z*scale},
    center:new THREE.Vector3(center.x,bounds.min.y,center.z),meshes,url:url.pathname}];
  }));
- const models=new Map(loaded);
+ const byId=new Map(loaded);
+ // Preserve the original model map iteration order even when download
+ // scheduling changes: animation, identity and per-card rules see no reorder.
+ const models=new Map(UNIT_MODEL_IDS.map(id=>[id,byId.get(id)]));
  if(models.size!==12)throw Error('R61 expected exactly 12 independently sourced summoned GLBs');
  return models;
 }
