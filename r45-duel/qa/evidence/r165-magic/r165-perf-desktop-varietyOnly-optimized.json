@@ -1,0 +1,281 @@
+{
+  "date": "2026-11-18T00:50:39.064Z",
+  "device": "desktop",
+  "cpuRate": 2,
+  "modes": [
+    "varietyOnly",
+    "optimized"
+  ],
+  "cards": [
+    "S04",
+    "P04"
+  ],
+  "experiments": [
+    {
+      "variant": "varietyOnly",
+      "pass": true,
+      "errors": [],
+      "casts": [
+        {
+          "card": "S04",
+          "serial": 165101,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 33.4,
+            "over33": 3,
+            "over50": 1,
+            "max": 200
+          },
+          "tasks": [
+            {
+              "start": 4887.3,
+              "duration": 329
+            },
+            {
+              "start": 5244.8,
+              "duration": 212
+            }
+          ],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 976,
+          "played": 1
+        },
+        {
+          "card": "P04",
+          "serial": 165102,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 16.8,
+            "p99": 33.3,
+            "over33": 1,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [
+            {
+              "start": 6986.8,
+              "duration": 645
+            }
+          ],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 973,
+          "played": 2
+        },
+        {
+          "card": "S04",
+          "serial": 165103,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 16.8,
+            "p99": 33.3,
+            "over33": 1,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 844,
+          "played": 3
+        },
+        {
+          "card": "P04",
+          "serial": 165104,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 16.7,
+            "p99": 16.7,
+            "over33": 0,
+            "over50": 0,
+            "max": 16.8
+          },
+          "tasks": [
+            {
+              "start": 10278.6,
+              "duration": 905
+            }
+          ],
+          "cacheHits": 0,
+          "cached": 0,
+          "drawCalls": 816,
+          "played": 4
+        }
+      ],
+      "final": {
+        "assets": 16,
+        "assetBytes": 75569762,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true,
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 40,
+          "played": 4,
+          "expired": 3,
+          "rejected": 0,
+          "active": 1,
+          "activeMotifs": [
+            "speaker-wall"
+          ],
+          "lastBySide": {
+            "player": "P04",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 24,
+          "totalMeshes": 40,
+          "ruleMutations": 0,
+          "poolEnabled": false,
+          "cachedGeometries": 0,
+          "geometryCacheHits": 0,
+          "geometryCacheMisses": 0
+        }
+      }
+    },
+    {
+      "variant": "optimized",
+      "pass": true,
+      "errors": [],
+      "casts": [
+        {
+          "card": "S04",
+          "serial": 165101,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 50,
+            "over33": 4,
+            "over50": 1,
+            "max": 99.9
+          },
+          "tasks": [
+            {
+              "start": 4636.1,
+              "duration": 314
+            },
+            {
+              "start": 4982.8,
+              "duration": 115
+            }
+          ],
+          "cacheHits": 5,
+          "cached": 2,
+          "drawCalls": 976,
+          "played": 1
+        },
+        {
+          "card": "P04",
+          "serial": 165102,
+          "repeat": 0,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 33.4,
+            "over33": 2,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [
+            {
+              "start": 6572.1,
+              "duration": 212
+            }
+          ],
+          "cacheHits": 8,
+          "cached": 7,
+          "drawCalls": 973,
+          "played": 2
+        },
+        {
+          "card": "S04",
+          "serial": 165103,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.4,
+            "p99": 33.4,
+            "over33": 8,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [
+            {
+              "start": 8151.9,
+              "duration": 124
+            }
+          ],
+          "cacheHits": 15,
+          "cached": 7,
+          "drawCalls": 844,
+          "played": 3
+        },
+        {
+          "card": "P04",
+          "serial": 165104,
+          "repeat": 1,
+          "raf": {
+            "n": 70,
+            "p50": 16.7,
+            "p95": 33.3,
+            "p99": 33.4,
+            "over33": 2,
+            "over50": 0,
+            "max": 33.4
+          },
+          "tasks": [],
+          "cacheHits": 23,
+          "cached": 7,
+          "drawCalls": 936,
+          "played": 4
+        }
+      ],
+      "final": {
+        "assets": 16,
+        "assetBytes": 75569762,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true,
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 40,
+          "played": 4,
+          "expired": 3,
+          "rejected": 0,
+          "active": 1,
+          "activeMotifs": [
+            "speaker-wall"
+          ],
+          "lastBySide": {
+            "player": "P04",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 24,
+          "totalMeshes": 40,
+          "ruleMutations": 0,
+          "poolEnabled": true,
+          "cachedGeometries": 7,
+          "geometryCacheHits": 23,
+          "geometryCacheMisses": 7
+        }
+      }
+    }
+  ]
+}

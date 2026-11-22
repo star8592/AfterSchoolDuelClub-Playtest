@@ -1,0 +1,765 @@
+{
+  "createdAt": "2026-11-18T00:42:55.955Z",
+  "variants": [
+    {
+      "variant": "off",
+      "data": {
+        "spells": 46,
+        "motifs": 32,
+        "signatures": {
+          "E05": {
+            "element": "light",
+            "reaction": "dazzled",
+            "sound": "r121_light",
+            "accent": 16770979,
+            "cardName": "超速呐喊",
+            "motif": "aurora"
+          },
+          "E06": {
+            "element": "fire",
+            "reaction": "burn",
+            "sound": "r121_fire",
+            "accent": 16746824,
+            "cardName": "飞来的巨大黑板擦",
+            "motif": "meteor"
+          },
+          "G05": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "课桌紧急修补",
+            "motif": "crystal"
+          },
+          "G06": {
+            "element": "mind",
+            "reaction": "dizzy",
+            "sound": "r121_mind",
+            "accent": 15971817,
+            "cardName": "翻到第二页的方案",
+            "motif": "runes"
+          },
+          "T05": {
+            "element": "water",
+            "reaction": "splash",
+            "sound": "r121_water",
+            "accent": 7723002,
+            "cardName": "食堂暖心加餐",
+            "motif": "tidal"
+          },
+          "T06": {
+            "element": "electric",
+            "reaction": "twitch",
+            "sound": "r121_electric",
+            "accent": 13020415,
+            "cardName": "误播的放学广播",
+            "motif": "lightning"
+          },
+          "K01": {
+            "element": "absurd",
+            "reaction": "comic_bounce",
+            "sound": "r121_absurd",
+            "accent": 16767360,
+            "cardName": "茄子炒香蕉",
+            "motif": "banana"
+          },
+          "K02": {
+            "element": "light",
+            "reaction": "dazzled",
+            "sound": "r121_light",
+            "accent": 16770979,
+            "cardName": "西瓜炖橡皮",
+            "motif": "shield"
+          },
+          "K03": {
+            "element": "wood",
+            "reaction": "entangle",
+            "sound": "r121_wood",
+            "accent": 6937482,
+            "cardName": "玉米炒葡萄",
+            "motif": "fruit"
+          },
+          "K04": {
+            "element": "fire",
+            "reaction": "burn",
+            "sound": "r121_fire",
+            "accent": 16746824,
+            "cardName": "辣椒炒月饼",
+            "motif": "chili"
+          },
+          "K05": {
+            "element": "ice",
+            "reaction": "shiver",
+            "sound": "r121_ice",
+            "accent": 13104127,
+            "cardName": "校长秘制空气汤",
+            "motif": "steam"
+          },
+          "K06": {
+            "element": "earth",
+            "reaction": "stagger",
+            "sound": "r121_earth",
+            "accent": 12886903,
+            "cardName": "火山辣椒奶茶",
+            "motif": "volcano"
+          },
+          "K07": {
+            "element": "absurd",
+            "reaction": "comic_bounce",
+            "sound": "r121_absurd",
+            "accent": 16767360,
+            "cardName": "蛤蟆布丁警报",
+            "motif": "frog"
+          },
+          "K08": {
+            "element": "absurd",
+            "reaction": "comic_bounce",
+            "sound": "r121_absurd",
+            "accent": 16767360,
+            "cardName": "披甲巧克力香蕉",
+            "motif": "chocolate"
+          },
+          "Q01": {
+            "element": "earth",
+            "reaction": "stagger",
+            "sound": "r121_earth",
+            "accent": 12886903,
+            "cardName": "会写检讨的橡皮",
+            "motif": "eraser"
+          },
+          "Q02": {
+            "element": "wood",
+            "reaction": "entangle",
+            "sound": "r121_wood",
+            "accent": 6937482,
+            "cardName": "神兽返校通知书",
+            "motif": "beasts"
+          },
+          "Q03": {
+            "element": "mind",
+            "reaction": "dizzy",
+            "sound": "r121_mind",
+            "accent": 15971817,
+            "cardName": "会做梦的黑板",
+            "motif": "dream"
+          },
+          "Q04": {
+            "element": "sound",
+            "reaction": "cover_ears",
+            "sound": "r121_sound",
+            "accent": 9886975,
+            "cardName": "全寝室公开播放",
+            "motif": "broadcast"
+          },
+          "Q05": {
+            "element": "wind",
+            "reaction": "blown",
+            "sound": "r121_wind",
+            "accent": 12052963,
+            "cardName": "粉笔开记者会",
+            "motif": "papers"
+          },
+          "Q06": {
+            "element": "light",
+            "reaction": "dazzled",
+            "sound": "r121_light",
+            "accent": 16770979,
+            "cardName": "要按三次才亮的台灯",
+            "motif": "lamp"
+          },
+          "Q07": {
+            "element": "shadow",
+            "reaction": "cower",
+            "sound": "r121_shadow",
+            "accent": 9729996,
+            "cardName": "教室里的第二个月亮",
+            "motif": "moons"
+          },
+          "Q08": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "粉笔画地为牢",
+            "motif": "chalk"
+          },
+          "S01": {
+            "element": "time",
+            "reaction": "stunned",
+            "sound": "r121_time",
+            "accent": 16305569,
+            "cardName": "时间倒流的闹钟",
+            "motif": "clock"
+          },
+          "S02": {
+            "element": "wood",
+            "reaction": "entangle",
+            "sound": "r121_wood",
+            "accent": 6937482,
+            "cardName": "只能装一根笔的文具盒",
+            "motif": "pencil"
+          },
+          "S03": {
+            "element": "wind",
+            "reaction": "blown",
+            "sound": "r121_wind",
+            "accent": 12052963,
+            "cardName": "反重力大扫把",
+            "motif": "tornado"
+          },
+          "S04": {
+            "element": "electric",
+            "reaction": "twitch",
+            "sound": "r121_electric",
+            "accent": 13020415,
+            "cardName": "错误答案发电机",
+            "motif": "lightning"
+          },
+          "S05": {
+            "element": "electric",
+            "reaction": "twitch",
+            "sound": "r121_electric",
+            "accent": 13020415,
+            "cardName": "乌龙机器人班长",
+            "motif": "robot"
+          },
+          "S06": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "量子橡皮筋",
+            "motif": "elastic"
+          },
+          "S07": {
+            "element": "space",
+            "reaction": "displaced",
+            "sound": "r121_space",
+            "accent": 10336767,
+            "cardName": "放学铃声虫洞",
+            "motif": "portal"
+          },
+          "S08": {
+            "element": "electric",
+            "reaction": "twitch",
+            "sound": "r121_electric",
+            "accent": 13020415,
+            "cardName": "会生气的自动售货机",
+            "motif": "vending"
+          },
+          "P01": {
+            "element": "wind",
+            "reaction": "blown",
+            "sound": "r121_wind",
+            "accent": 12052963,
+            "cardName": "狂风炸毛超人",
+            "motif": "tornado"
+          },
+          "P02": {
+            "element": "earth",
+            "reaction": "stagger",
+            "sound": "r121_earth",
+            "accent": 12886903,
+            "cardName": "一百年没进球的墙球赛",
+            "motif": "ball"
+          },
+          "P03": {
+            "element": "mind",
+            "reaction": "dizzy",
+            "sound": "r121_mind",
+            "accent": 15971817,
+            "cardName": "纸箱恐龙运动员",
+            "motif": "beasts"
+          },
+          "P04": {
+            "element": "sound",
+            "reaction": "cover_ears",
+            "sound": "r121_sound",
+            "accent": 9886975,
+            "cardName": "体育老师超级口哨",
+            "motif": "broadcast"
+          },
+          "P05": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "排球误入篮筐",
+            "motif": "ball"
+          },
+          "P06": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "反向跑步机",
+            "motif": "elastic"
+          },
+          "P07": {
+            "element": "ice",
+            "reaction": "shiver",
+            "sound": "r121_ice",
+            "accent": 13104127,
+            "cardName": "黑天鹅冰面慢动作",
+            "motif": "tidal"
+          },
+          "P08": {
+            "element": "fire",
+            "reaction": "burn",
+            "sound": "r121_fire",
+            "accent": 16746824,
+            "cardName": "运动会掉下的流星",
+            "motif": "meteor"
+          },
+          "X01": {
+            "element": "time",
+            "reaction": "stunned",
+            "sound": "r121_time",
+            "accent": 16305569,
+            "cardName": "倒退一小时的校钟",
+            "motif": "clock"
+          },
+          "X02": {
+            "element": "space",
+            "reaction": "displaced",
+            "sound": "r121_space",
+            "accent": 10336767,
+            "cardName": "能穿墙的校服",
+            "motif": "portal"
+          },
+          "X03": {
+            "element": "fire",
+            "reaction": "burn",
+            "sound": "r121_fire",
+            "accent": 16746824,
+            "cardName": "屋顶违停的教务车",
+            "motif": "meteor"
+          },
+          "X04": {
+            "element": "mind",
+            "reaction": "dizzy",
+            "sound": "r121_mind",
+            "accent": 15971817,
+            "cardName": "会预言的午休枕头",
+            "motif": "dream"
+          },
+          "X05": {
+            "element": "space",
+            "reaction": "displaced",
+            "sound": "r121_space",
+            "accent": 10336767,
+            "cardName": "作业本宇宙大战",
+            "motif": "cosmic"
+          },
+          "X06": {
+            "element": "sound",
+            "reaction": "cover_ears",
+            "sound": "r121_sound",
+            "accent": 9886975,
+            "cardName": "早读时间复制器",
+            "motif": "echo"
+          },
+          "X07": {
+            "element": "time",
+            "reaction": "stunned",
+            "sound": "r121_time",
+            "accent": 16305569,
+            "cardName": "消失的最后一节课",
+            "motif": "eraser"
+          },
+          "X08": {
+            "element": "space",
+            "reaction": "displaced",
+            "sound": "r121_space",
+            "accent": 10336767,
+            "cardName": "校门口时空保安",
+            "motif": "portal"
+          }
+        },
+        "errors": []
+      },
+      "errors": []
+    },
+    {
+      "variant": "on",
+      "data": {
+        "spells": 46,
+        "motifs": 40,
+        "signatures": {
+          "E05": {
+            "element": "light",
+            "reaction": "dazzled",
+            "sound": "r121_light",
+            "accent": 16770979,
+            "cardName": "超速呐喊",
+            "motif": "aurora"
+          },
+          "E06": {
+            "element": "fire",
+            "reaction": "burn",
+            "sound": "r121_fire",
+            "accent": 16746824,
+            "cardName": "飞来的巨大黑板擦",
+            "motif": "meteor"
+          },
+          "G05": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "课桌紧急修补",
+            "motif": "crystal"
+          },
+          "G06": {
+            "element": "mind",
+            "reaction": "dizzy",
+            "sound": "r121_mind",
+            "accent": 15971817,
+            "cardName": "翻到第二页的方案",
+            "motif": "runes"
+          },
+          "T05": {
+            "element": "water",
+            "reaction": "splash",
+            "sound": "r121_water",
+            "accent": 7723002,
+            "cardName": "食堂暖心加餐",
+            "motif": "tidal"
+          },
+          "T06": {
+            "element": "electric",
+            "reaction": "twitch",
+            "sound": "r121_electric",
+            "accent": 13020415,
+            "cardName": "误播的放学广播",
+            "motif": "lightning"
+          },
+          "K01": {
+            "element": "absurd",
+            "reaction": "comic_bounce",
+            "sound": "r121_absurd",
+            "accent": 16767360,
+            "cardName": "茄子炒香蕉",
+            "motif": "banana"
+          },
+          "K02": {
+            "element": "light",
+            "reaction": "dazzled",
+            "sound": "r121_light",
+            "accent": 16770979,
+            "cardName": "西瓜炖橡皮",
+            "motif": "shield"
+          },
+          "K03": {
+            "element": "wood",
+            "reaction": "entangle",
+            "sound": "r121_wood",
+            "accent": 6937482,
+            "cardName": "玉米炒葡萄",
+            "motif": "fruit"
+          },
+          "K04": {
+            "element": "fire",
+            "reaction": "burn",
+            "sound": "r121_fire",
+            "accent": 16746824,
+            "cardName": "辣椒炒月饼",
+            "motif": "chili"
+          },
+          "K05": {
+            "element": "ice",
+            "reaction": "shiver",
+            "sound": "r121_ice",
+            "accent": 13104127,
+            "cardName": "校长秘制空气汤",
+            "motif": "steam"
+          },
+          "K06": {
+            "element": "earth",
+            "reaction": "stagger",
+            "sound": "r121_earth",
+            "accent": 12886903,
+            "cardName": "火山辣椒奶茶",
+            "motif": "volcano"
+          },
+          "K07": {
+            "element": "absurd",
+            "reaction": "comic_bounce",
+            "sound": "r121_absurd",
+            "accent": 16767360,
+            "cardName": "蛤蟆布丁警报",
+            "motif": "frog"
+          },
+          "K08": {
+            "element": "absurd",
+            "reaction": "comic_bounce",
+            "sound": "r121_absurd",
+            "accent": 16767360,
+            "cardName": "披甲巧克力香蕉",
+            "motif": "chocolate"
+          },
+          "Q01": {
+            "element": "earth",
+            "reaction": "stagger",
+            "sound": "r121_earth",
+            "accent": 12886903,
+            "cardName": "会写检讨的橡皮",
+            "motif": "eraser"
+          },
+          "Q02": {
+            "element": "wood",
+            "reaction": "entangle",
+            "sound": "r121_wood",
+            "accent": 6937482,
+            "cardName": "神兽返校通知书",
+            "motif": "beasts"
+          },
+          "Q03": {
+            "element": "mind",
+            "reaction": "dizzy",
+            "sound": "r121_mind",
+            "accent": 15971817,
+            "cardName": "会做梦的黑板",
+            "motif": "dream"
+          },
+          "Q04": {
+            "element": "sound",
+            "reaction": "cover_ears",
+            "sound": "r121_sound",
+            "accent": 9886975,
+            "cardName": "全寝室公开播放",
+            "motif": "broadcast"
+          },
+          "Q05": {
+            "element": "wind",
+            "reaction": "blown",
+            "sound": "r121_wind",
+            "accent": 12052963,
+            "cardName": "粉笔开记者会",
+            "motif": "papers"
+          },
+          "Q06": {
+            "element": "light",
+            "reaction": "dazzled",
+            "sound": "r121_light",
+            "accent": 16770979,
+            "cardName": "要按三次才亮的台灯",
+            "motif": "lamp"
+          },
+          "Q07": {
+            "element": "shadow",
+            "reaction": "cower",
+            "sound": "r121_shadow",
+            "accent": 9729996,
+            "cardName": "教室里的第二个月亮",
+            "motif": "moons"
+          },
+          "Q08": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "粉笔画地为牢",
+            "motif": "chalk"
+          },
+          "S01": {
+            "element": "time",
+            "reaction": "stunned",
+            "sound": "r121_time",
+            "accent": 16305569,
+            "cardName": "时间倒流的闹钟",
+            "motif": "clock"
+          },
+          "S02": {
+            "element": "wood",
+            "reaction": "entangle",
+            "sound": "r121_wood",
+            "accent": 6937482,
+            "cardName": "只能装一根笔的文具盒",
+            "motif": "pencil"
+          },
+          "S03": {
+            "element": "wind",
+            "reaction": "blown",
+            "sound": "r121_wind",
+            "accent": 12052963,
+            "cardName": "反重力大扫把",
+            "motif": "tornado"
+          },
+          "S04": {
+            "element": "electric",
+            "reaction": "twitch",
+            "sound": "r121_electric",
+            "accent": 13020415,
+            "cardName": "错误答案发电机",
+            "motif": "thunder-grid"
+          },
+          "S05": {
+            "element": "electric",
+            "reaction": "twitch",
+            "sound": "r121_electric",
+            "accent": 13020415,
+            "cardName": "乌龙机器人班长",
+            "motif": "robot"
+          },
+          "S06": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "量子橡皮筋",
+            "motif": "elastic"
+          },
+          "S07": {
+            "element": "space",
+            "reaction": "displaced",
+            "sound": "r121_space",
+            "accent": 10336767,
+            "cardName": "放学铃声虫洞",
+            "motif": "portal"
+          },
+          "S08": {
+            "element": "electric",
+            "reaction": "twitch",
+            "sound": "r121_electric",
+            "accent": 13020415,
+            "cardName": "会生气的自动售货机",
+            "motif": "vending"
+          },
+          "P01": {
+            "element": "wind",
+            "reaction": "blown",
+            "sound": "r121_wind",
+            "accent": 12052963,
+            "cardName": "狂风炸毛超人",
+            "motif": "paper-cyclone"
+          },
+          "P02": {
+            "element": "earth",
+            "reaction": "stagger",
+            "sound": "r121_earth",
+            "accent": 12886903,
+            "cardName": "一百年没进球的墙球赛",
+            "motif": "ball"
+          },
+          "P03": {
+            "element": "mind",
+            "reaction": "dizzy",
+            "sound": "r121_mind",
+            "accent": 15971817,
+            "cardName": "纸箱恐龙运动员",
+            "motif": "beasts"
+          },
+          "P04": {
+            "element": "sound",
+            "reaction": "cover_ears",
+            "sound": "r121_sound",
+            "accent": 9886975,
+            "cardName": "体育老师超级口哨",
+            "motif": "speaker-wall"
+          },
+          "P05": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "排球误入篮筐",
+            "motif": "ball"
+          },
+          "P06": {
+            "element": "metal",
+            "reaction": "clang",
+            "sound": "r121_metal",
+            "accent": 15327678,
+            "cardName": "反向跑步机",
+            "motif": "elastic"
+          },
+          "P07": {
+            "element": "ice",
+            "reaction": "shiver",
+            "sound": "r121_ice",
+            "accent": 13104127,
+            "cardName": "黑天鹅冰面慢动作",
+            "motif": "tidal-gate"
+          },
+          "P08": {
+            "element": "fire",
+            "reaction": "burn",
+            "sound": "r121_fire",
+            "accent": 16746824,
+            "cardName": "运动会掉下的流星",
+            "motif": "comet-rain"
+          },
+          "X01": {
+            "element": "time",
+            "reaction": "stunned",
+            "sound": "r121_time",
+            "accent": 16305569,
+            "cardName": "倒退一小时的校钟",
+            "motif": "clock"
+          },
+          "X02": {
+            "element": "space",
+            "reaction": "displaced",
+            "sound": "r121_space",
+            "accent": 10336767,
+            "cardName": "能穿墙的校服",
+            "motif": "portal"
+          },
+          "X03": {
+            "element": "fire",
+            "reaction": "burn",
+            "sound": "r121_fire",
+            "accent": 16746824,
+            "cardName": "屋顶违停的教务车",
+            "motif": "meteor-shower"
+          },
+          "X04": {
+            "element": "mind",
+            "reaction": "dizzy",
+            "sound": "r121_mind",
+            "accent": 15971817,
+            "cardName": "会预言的午休枕头",
+            "motif": "dream"
+          },
+          "X05": {
+            "element": "space",
+            "reaction": "displaced",
+            "sound": "r121_space",
+            "accent": 10336767,
+            "cardName": "作业本宇宙大战",
+            "motif": "cosmic"
+          },
+          "X06": {
+            "element": "sound",
+            "reaction": "cover_ears",
+            "sound": "r121_sound",
+            "accent": 9886975,
+            "cardName": "早读时间复制器",
+            "motif": "echo"
+          },
+          "X07": {
+            "element": "time",
+            "reaction": "stunned",
+            "sound": "r121_time",
+            "accent": 16305569,
+            "cardName": "消失的最后一节课",
+            "motif": "blackboard-rupture"
+          },
+          "X08": {
+            "element": "space",
+            "reaction": "displaced",
+            "sound": "r121_space",
+            "accent": 10336767,
+            "cardName": "校门口时空保安",
+            "motif": "mirror-door"
+          }
+        },
+        "errors": []
+      },
+      "errors": []
+    }
+  ],
+  "alteredGameplaySemantics": [],
+  "passed": true
+}

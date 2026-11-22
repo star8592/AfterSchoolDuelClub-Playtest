@@ -1,0 +1,688 @@
+{
+  "date": "2026-11-18T00:48:37.080Z",
+  "device": "mobile",
+  "order": [
+    "optimized",
+    "original"
+  ],
+  "cases": [
+    {
+      "variant": "optimized",
+      "pass": true,
+      "errors": [],
+      "state": {
+        "models": 16,
+        "download": 75569762,
+        "cards": 60,
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 40,
+          "played": 8,
+          "expired": 4,
+          "rejected": 0,
+          "active": 4,
+          "activeMotifs": [
+            "comet-rain",
+            "meteor-shower",
+            "blackboard-rupture",
+            "mirror-door"
+          ],
+          "lastBySide": {
+            "player": "X08",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 71,
+          "totalMeshes": 91,
+          "ruleMutations": 0,
+          "poolEnabled": true,
+          "cachedGeometries": 32,
+          "geometryCacheHits": 54,
+          "geometryCacheMisses": 32
+        },
+        "impact": {
+          "played": 8,
+          "hits": 8,
+          "noHit": 0,
+          "expired": 4,
+          "active": 4,
+          "activeKinds": [
+            "eraser",
+            "eraser",
+            "pages",
+            "sonic"
+          ],
+          "ruleMutations": 0
+        },
+        "sourceIdentity": true,
+        "cameraSafe": true,
+        "drawCalls": 886,
+        "init": {
+          "motifs": 40,
+          "cards": 60,
+          "effectMap": {
+            "S04": "splash",
+            "P01": "buff",
+            "P04": "chaos",
+            "P07": "chaos",
+            "P08": "blast",
+            "X03": "blast",
+            "X07": "reroute",
+            "X08": "eclipse"
+          },
+          "initial": 0,
+          "assets": 16,
+          "bytes": 75569762
+        },
+        "events": [
+          {
+            "card": "S04",
+            "serial": 165001,
+            "played": 1,
+            "impact": 1,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 40,
+              "played": 1,
+              "expired": 0,
+              "rejected": 0,
+              "active": 1,
+              "activeMotifs": [
+                "thunder-grid"
+              ],
+              "lastBySide": {
+                "player": "S04",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 14,
+              "totalMeshes": 12,
+              "ruleMutations": 0,
+              "poolEnabled": true,
+              "cachedGeometries": 2,
+              "geometryCacheHits": 5,
+              "geometryCacheMisses": 2
+            },
+            "drawCalls": 996
+          },
+          {
+            "card": "P01",
+            "serial": 165002,
+            "played": 2,
+            "impact": 2,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 40,
+              "played": 2,
+              "expired": 0,
+              "rejected": 0,
+              "active": 2,
+              "activeMotifs": [
+                "thunder-grid",
+                "paper-cyclone"
+              ],
+              "lastBySide": {
+                "player": "P01",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 29,
+              "totalMeshes": 25,
+              "ruleMutations": 0,
+              "poolEnabled": true,
+              "cachedGeometries": 5,
+              "geometryCacheHits": 15,
+              "geometryCacheMisses": 5
+            },
+            "drawCalls": 1060
+          },
+          {
+            "card": "P04",
+            "serial": 165003,
+            "played": 3,
+            "impact": 3,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 40,
+              "played": 3,
+              "expired": 0,
+              "rejected": 0,
+              "active": 3,
+              "activeMotifs": [
+                "thunder-grid",
+                "paper-cyclone",
+                "speaker-wall"
+              ],
+              "lastBySide": {
+                "player": "P04",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 39,
+              "totalMeshes": 33,
+              "ruleMutations": 0,
+              "poolEnabled": true,
+              "cachedGeometries": 10,
+              "geometryCacheHits": 18,
+              "geometryCacheMisses": 10
+            },
+            "drawCalls": 1133
+          },
+          {
+            "card": "P07",
+            "serial": 165004,
+            "played": 4,
+            "impact": 4,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 40,
+              "played": 4,
+              "expired": 0,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "thunder-grid",
+                "paper-cyclone",
+                "speaker-wall",
+                "tidal-gate"
+              ],
+              "lastBySide": {
+                "player": "P07",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 52,
+              "totalMeshes": 44,
+              "ruleMutations": 0,
+              "poolEnabled": true,
+              "cachedGeometries": 15,
+              "geometryCacheHits": 24,
+              "geometryCacheMisses": 15
+            },
+            "drawCalls": 914
+          },
+          {
+            "card": "P08",
+            "serial": 165005,
+            "played": 5,
+            "impact": 5,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 40,
+              "played": 5,
+              "expired": 1,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "paper-cyclone",
+                "speaker-wall",
+                "tidal-gate",
+                "comet-rain"
+              ],
+              "lastBySide": {
+                "player": "P08",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 68,
+              "totalMeshes": 58,
+              "ruleMutations": 0,
+              "poolEnabled": true,
+              "cachedGeometries": 19,
+              "geometryCacheHits": 34,
+              "geometryCacheMisses": 19
+            },
+            "drawCalls": 838
+          },
+          {
+            "card": "X03",
+            "serial": 165006,
+            "played": 6,
+            "impact": 6,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 40,
+              "played": 6,
+              "expired": 2,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "speaker-wall",
+                "tidal-gate",
+                "comet-rain",
+                "meteor-shower"
+              ],
+              "lastBySide": {
+                "player": "X03",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 69,
+              "totalMeshes": 71,
+              "ruleMutations": 0,
+              "poolEnabled": true,
+              "cachedGeometries": 24,
+              "geometryCacheHits": 42,
+              "geometryCacheMisses": 24
+            },
+            "drawCalls": 840
+          },
+          {
+            "card": "X07",
+            "serial": 165007,
+            "played": 7,
+            "impact": 7,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 40,
+              "played": 7,
+              "expired": 3,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "tidal-gate",
+                "comet-rain",
+                "meteor-shower",
+                "blackboard-rupture"
+              ],
+              "lastBySide": {
+                "player": "X07",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 71,
+              "totalMeshes": 86,
+              "ruleMutations": 0,
+              "poolEnabled": true,
+              "cachedGeometries": 29,
+              "geometryCacheHits": 52,
+              "geometryCacheMisses": 29
+            },
+            "drawCalls": 801
+          },
+          {
+            "card": "X08",
+            "serial": 165008,
+            "played": 8,
+            "impact": 8,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 40,
+              "played": 8,
+              "expired": 4,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "comet-rain",
+                "meteor-shower",
+                "blackboard-rupture",
+                "mirror-door"
+              ],
+              "lastBySide": {
+                "player": "X08",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 71,
+              "totalMeshes": 91,
+              "ruleMutations": 0,
+              "poolEnabled": true,
+              "cachedGeometries": 32,
+              "geometryCacheHits": 54,
+              "geometryCacheMisses": 32
+            },
+            "drawCalls": 801
+          }
+        ]
+      }
+    },
+    {
+      "variant": "original",
+      "pass": true,
+      "errors": [],
+      "state": {
+        "models": 16,
+        "download": 75569762,
+        "cards": 60,
+        "magic": {
+          "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+          "playableSpellCoverage": 46,
+          "motifCount": 32,
+          "played": 8,
+          "expired": 4,
+          "rejected": 0,
+          "active": 4,
+          "activeMotifs": [
+            "meteor",
+            "meteor",
+            "eraser",
+            "portal"
+          ],
+          "lastBySide": {
+            "player": "X08",
+            "ai": null
+          },
+          "maxActive": 4,
+          "peakMeshes": 77,
+          "totalMeshes": 92,
+          "ruleMutations": 0,
+          "poolEnabled": false,
+          "cachedGeometries": 0,
+          "geometryCacheHits": 0,
+          "geometryCacheMisses": 0
+        },
+        "impact": {
+          "played": 8,
+          "hits": 8,
+          "noHit": 0,
+          "expired": 4,
+          "active": 4,
+          "activeKinds": [
+            "eraser",
+            "eraser",
+            "pages",
+            "sonic"
+          ],
+          "ruleMutations": 0
+        },
+        "sourceIdentity": true,
+        "cameraSafe": true,
+        "drawCalls": 835,
+        "init": {
+          "motifs": 32,
+          "cards": 60,
+          "effectMap": {
+            "S04": "splash",
+            "P01": "buff",
+            "P04": "chaos",
+            "P07": "chaos",
+            "P08": "blast",
+            "X03": "blast",
+            "X07": "reroute",
+            "X08": "eclipse"
+          },
+          "initial": 0,
+          "assets": 16,
+          "bytes": 75569762
+        },
+        "events": [
+          {
+            "card": "S04",
+            "serial": 165001,
+            "played": 1,
+            "impact": 1,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 1,
+              "expired": 0,
+              "rejected": 0,
+              "active": 1,
+              "activeMotifs": [
+                "lightning"
+              ],
+              "lastBySide": {
+                "player": "S04",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 18,
+              "totalMeshes": 16,
+              "ruleMutations": 0,
+              "poolEnabled": false,
+              "cachedGeometries": 0,
+              "geometryCacheHits": 0,
+              "geometryCacheMisses": 0
+            },
+            "drawCalls": 1004
+          },
+          {
+            "card": "P01",
+            "serial": 165002,
+            "played": 2,
+            "impact": 2,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 2,
+              "expired": 0,
+              "rejected": 0,
+              "active": 2,
+              "activeMotifs": [
+                "lightning",
+                "tornado"
+              ],
+              "lastBySide": {
+                "player": "P01",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 24,
+              "totalMeshes": 20,
+              "ruleMutations": 0,
+              "poolEnabled": false,
+              "cachedGeometries": 0,
+              "geometryCacheHits": 0,
+              "geometryCacheMisses": 0
+            },
+            "drawCalls": 1050
+          },
+          {
+            "card": "P04",
+            "serial": 165003,
+            "played": 3,
+            "impact": 3,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 3,
+              "expired": 0,
+              "rejected": 0,
+              "active": 3,
+              "activeMotifs": [
+                "lightning",
+                "tornado",
+                "broadcast"
+              ],
+              "lastBySide": {
+                "player": "P04",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 33,
+              "totalMeshes": 27,
+              "ruleMutations": 0,
+              "poolEnabled": false,
+              "cachedGeometries": 0,
+              "geometryCacheHits": 0,
+              "geometryCacheMisses": 0
+            },
+            "drawCalls": 1075
+          },
+          {
+            "card": "P07",
+            "serial": 165004,
+            "played": 4,
+            "impact": 4,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 4,
+              "expired": 0,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "lightning",
+                "tornado",
+                "broadcast",
+                "tidal"
+              ],
+              "lastBySide": {
+                "player": "P07",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 48,
+              "totalMeshes": 40,
+              "ruleMutations": 0,
+              "poolEnabled": false,
+              "cachedGeometries": 0,
+              "geometryCacheHits": 0,
+              "geometryCacheMisses": 0
+            },
+            "drawCalls": 859
+          },
+          {
+            "card": "P08",
+            "serial": 165005,
+            "played": 5,
+            "impact": 5,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 5,
+              "expired": 1,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "tornado",
+                "broadcast",
+                "tidal",
+                "meteor"
+              ],
+              "lastBySide": {
+                "player": "P08",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 65,
+              "totalMeshes": 55,
+              "ruleMutations": 0,
+              "poolEnabled": false,
+              "cachedGeometries": 0,
+              "geometryCacheHits": 0,
+              "geometryCacheMisses": 0
+            },
+            "drawCalls": 838
+          },
+          {
+            "card": "X03",
+            "serial": 165006,
+            "played": 6,
+            "impact": 6,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 6,
+              "expired": 2,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "broadcast",
+                "tidal",
+                "meteor",
+                "meteor"
+              ],
+              "lastBySide": {
+                "player": "X03",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 65,
+              "totalMeshes": 70,
+              "ruleMutations": 0,
+              "poolEnabled": false,
+              "cachedGeometries": 0,
+              "geometryCacheHits": 0,
+              "geometryCacheMisses": 0
+            },
+            "drawCalls": 838
+          },
+          {
+            "card": "X07",
+            "serial": 165007,
+            "played": 7,
+            "impact": 7,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 7,
+              "expired": 3,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "tidal",
+                "meteor",
+                "meteor",
+                "eraser"
+              ],
+              "lastBySide": {
+                "player": "X07",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 77,
+              "totalMeshes": 87,
+              "ruleMutations": 0,
+              "poolEnabled": false,
+              "cachedGeometries": 0,
+              "geometryCacheHits": 0,
+              "geometryCacheMisses": 0
+            },
+            "drawCalls": 802
+          },
+          {
+            "card": "X08",
+            "serial": 165008,
+            "played": 8,
+            "impact": 8,
+            "stats": {
+              "name": "R111_ORIGINAL_WEBGL2_CAMPUS_MAGIC",
+              "playableSpellCoverage": 46,
+              "motifCount": 32,
+              "played": 8,
+              "expired": 4,
+              "rejected": 0,
+              "active": 4,
+              "activeMotifs": [
+                "meteor",
+                "meteor",
+                "eraser",
+                "portal"
+              ],
+              "lastBySide": {
+                "player": "X08",
+                "ai": null
+              },
+              "maxActive": 4,
+              "peakMeshes": 77,
+              "totalMeshes": 92,
+              "ruleMutations": 0,
+              "poolEnabled": false,
+              "cachedGeometries": 0,
+              "geometryCacheHits": 0,
+              "geometryCacheMisses": 0
+            },
+            "drawCalls": 801
+          }
+        ]
+      }
+    }
+  ]
+}
