@@ -1,0 +1,177 @@
+{
+  "results": [
+    {
+      "kind": "baseline",
+      "viewport": "1280x720@1",
+      "pass": true,
+      "elapsedMs": 3881,
+      "errors": [],
+      "stats": {
+        "cards": 60,
+        "sceneReady": true,
+        "data": {
+          "modelsVerified": 16,
+          "modelReadyMs": 1652,
+          "firstFrameReadyMs": 2556,
+          "downloadedBytes": 75569762,
+          "knownTotalBytes": 75569762
+        },
+        "summonModels": 12,
+        "sourceMatchesR22": true,
+        "cameraSafe": true,
+        "sampleDrawCalls": 734,
+        "cacheKeys": [
+          "E02-R60-PhotoPaper-WingFlex-STUDY.glb.gz",
+          "E04-Phil-Landing-R97.glb.gz",
+          "E03-Ellie-Landing-R97.glb.gz",
+          "Shino-original-CC0.vrm",
+          "Host-HairSample_Female-CC0.vrm",
+          "Host-HairSample_Male-CC0.vrm",
+          "Fumiriya-original-CC0.vrm",
+          "G02-Snow-Landing-R97.glb.gz",
+          "G03-Jay-Landing-R97.glb.gz",
+          "M01-MusicTeacher-PolyforkSchoolTeacher.glb.gz",
+          "G04-Victoria-Landing-R97.glb.gz",
+          "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb.gz",
+          "T01-Owl-Innerscene-R84.glb.gz",
+          "T02-LivingMenu-R59.glb.gz",
+          "T03-Rain-Landing-R97.glb.gz",
+          "T04-Rex-Landing-R97.glb.gz"
+        ]
+      },
+      "gzipRequests": 12,
+      "combat": true,
+      "backfill": true
+    },
+    {
+      "kind": "optimized",
+      "viewport": "1280x720@1",
+      "pass": true,
+      "elapsedMs": 3455,
+      "errors": [],
+      "stats": {
+        "cards": 60,
+        "sceneReady": true,
+        "data": {
+          "modelsVerified": 16,
+          "modelReadyMs": 1617,
+          "firstFrameReadyMs": 2468,
+          "downloadedBytes": 74869174,
+          "knownTotalBytes": 74869174
+        },
+        "summonModels": 12,
+        "sourceMatchesR22": true,
+        "cameraSafe": true,
+        "sampleDrawCalls": 734,
+        "cacheKeys": [
+          "E02-R60-PhotoPaper-WingFlex-STUDY.glb.gz",
+          "E04-Phil-Landing-R97.glb.gz",
+          "E03-Ellie-Landing-R97.glb.gz",
+          "Shino-original-CC0.vrm",
+          "Host-HairSample_Female-CC0.vrm",
+          "Host-HairSample_Male-CC0.vrm",
+          "G03-Jay-Landing-R97.glb.gz",
+          "Fumiriya-original-CC0.vrm",
+          "G02-Snow-Landing-R97.glb.gz",
+          "G04-Victoria-Landing-R97.glb.gz",
+          "M01-MusicTeacher-PolyforkSchoolTeacher.glb.gz",
+          "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb.gz",
+          "T02-LivingMenu-R59.glb.gz",
+          "T01-Owl-Innerscene-R84.glb.gz",
+          "T03-Rain-Landing-R97.glb.gz",
+          "T04-Rex-Landing-R97.glb.gz"
+        ]
+      },
+      "gzipRequests": 12,
+      "combat": true,
+      "backfill": true
+    },
+    {
+      "kind": "baseline",
+      "viewport": "430x900@2",
+      "pass": true,
+      "elapsedMs": 3523,
+      "errors": [],
+      "stats": {
+        "cards": 60,
+        "sceneReady": true,
+        "data": {
+          "modelsVerified": 16,
+          "modelReadyMs": 1622,
+          "firstFrameReadyMs": 2480,
+          "downloadedBytes": 75569762,
+          "knownTotalBytes": 75569762
+        },
+        "summonModels": 12,
+        "sourceMatchesR22": true,
+        "cameraSafe": true,
+        "sampleDrawCalls": 732,
+        "cacheKeys": [
+          "E02-R60-PhotoPaper-WingFlex-STUDY.glb.gz",
+          "E04-Phil-Landing-R97.glb.gz",
+          "E03-Ellie-Landing-R97.glb.gz",
+          "Shino-original-CC0.vrm",
+          "Host-HairSample_Female-CC0.vrm",
+          "Host-HairSample_Male-CC0.vrm",
+          "Fumiriya-original-CC0.vrm",
+          "G02-Snow-Landing-R97.glb.gz",
+          "G03-Jay-Landing-R97.glb.gz",
+          "G04-Victoria-Landing-R97.glb.gz",
+          "M01-MusicTeacher-PolyforkSchoolTeacher.glb.gz",
+          "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb.gz",
+          "T02-LivingMenu-R59.glb.gz",
+          "T01-Owl-Innerscene-R84.glb.gz",
+          "T03-Rain-Landing-R97.glb.gz",
+          "T04-Rex-Landing-R97.glb.gz"
+        ]
+      },
+      "gzipRequests": 12,
+      "combat": true,
+      "backfill": true
+    },
+    {
+      "kind": "optimized",
+      "viewport": "430x900@2",
+      "pass": true,
+      "elapsedMs": 3238,
+      "errors": [],
+      "stats": {
+        "cards": 60,
+        "sceneReady": true,
+        "data": {
+          "modelsVerified": 16,
+          "modelReadyMs": 1587,
+          "firstFrameReadyMs": 2452,
+          "downloadedBytes": 74869174,
+          "knownTotalBytes": 74869174
+        },
+        "summonModels": 12,
+        "sourceMatchesR22": true,
+        "cameraSafe": true,
+        "sampleDrawCalls": 732,
+        "cacheKeys": [
+          "E02-R60-PhotoPaper-WingFlex-STUDY.glb.gz",
+          "E04-Phil-Landing-R97.glb.gz",
+          "E03-Ellie-Landing-R97.glb.gz",
+          "Shino-original-CC0.vrm",
+          "Host-HairSample_Female-CC0.vrm",
+          "Host-HairSample_Male-CC0.vrm",
+          "Fumiriya-original-CC0.vrm",
+          "G02-Snow-Landing-R97.glb.gz",
+          "G03-Jay-Landing-R97.glb.gz",
+          "G04-Victoria-Landing-R97.glb.gz",
+          "M01-MusicTeacher-PolyforkSchoolTeacher.glb.gz",
+          "M02-CafeteriaAunt-ChefHat-Ladle-R114.glb.gz",
+          "T01-Owl-Innerscene-R84.glb.gz",
+          "T02-LivingMenu-R59.glb.gz",
+          "T03-Rain-Landing-R97.glb.gz",
+          "T04-Rex-Landing-R97.glb.gz"
+        ]
+      },
+      "gzipRequests": 12,
+      "combat": true,
+      "backfill": true
+    }
+  ],
+  "losslessShaGuarantee": true
+}

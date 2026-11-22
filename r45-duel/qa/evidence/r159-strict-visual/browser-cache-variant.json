@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "lite": false,
+      "backfill": true,
+      "ok": true,
+      "errors": [],
+      "safety": {
+        "cards": 60,
+        "r147Cam": false,
+        "sourceIdentity": true,
+        "combat": true
+      },
+      "metrics": {
+        "modelCount": 12,
+        "bytes": 74869174,
+        "cached": 16,
+        "originalVRMs": 4,
+        "runtimeVRMs": 0
+      }
+    },
+    {
+      "lite": true,
+      "backfill": true,
+      "ok": true,
+      "errors": [],
+      "safety": {
+        "cards": 60,
+        "r147Cam": false,
+        "sourceIdentity": true,
+        "combat": true
+      },
+      "metrics": {
+        "modelCount": 12,
+        "bytes": 69695902,
+        "cached": 16,
+        "originalVRMs": 0,
+        "runtimeVRMs": 4
+      }
+    }
+  ]
+}

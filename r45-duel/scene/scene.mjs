@@ -462,8 +462,19 @@ function styleHostAvatar(source,id){
  });
  return{recolored,accessories:0,palette};
 }
+// R159: visual-safe VRM runtime trim, removing ONLY the editor's embedded
+// preview thumbnail; no material texture, avatar expression or mesh changes.
+// Default remains the original R147 model until separate visual approval.
+const R159_RUNTIME_VRM=(()=>{
+ const direct=PARAMS.get('r155VrmLite');
+ if(direct==='on'||direct==='off')return direct==='on';
+ try{return window.parent!==window&&
+  new URLSearchParams(window.parent.location.search).get('r155VrmLite')==='on'}
+ catch{return false}
+})();
 async function loadActor(spec,idx,onTransfer){
- const url=r125VersionedAssetURL(new URL('../assets/model/'+spec.source,location.href)).href;
+ const filename=R159_RUNTIME_VRM?spec.source.replace(/\.vrm$/,'-R155-Runtime.vrm'):spec.source;
+ const url=r125VersionedAssetURL(new URL('../assets/model/'+filename,location.href)).href;
  const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(
   url,event=>onTransfer?.(url,event));
  const original=gltf.scene;
@@ -1276,6 +1287,7 @@ function exposeQA(){
   get frameCount(){return frames},
   get actionFrameCount(){return actionFrames},
   get impactFrames(){return impactFrames},
+  get runtimeVrmLite(){return R159_RUNTIME_VRM},
   get drawCalls(){return drawCount},
   get seconds(){return time},
   get mode(){return mode},
@@ -1416,7 +1428,8 @@ try{
  $('loading').hidden=true;
  ready=true;
  reply('ASDC_R45_SCENE_READY',{originalVRMRigs:actors.length,independentHostVRMRigs:hostSourceActors.length,
-  loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false});
+  loadedSummonGlbs:summonModels.size,unit3dKinds:14,finalArtApproved:false,
+  runtimeVrmLite:R159_RUNTIME_VRM});
  broadcastCamera();
  requestAnimationFrame(loop);
  if(PARAMS.get('preview')==='1')window.__r45SceneQA.playDemo();
