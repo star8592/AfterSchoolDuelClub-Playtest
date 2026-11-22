@@ -1,0 +1,210 @@
+{
+  "created": "2026-11-18T02:39:44.216Z",
+  "cases": [
+    {
+      "view": "desktop",
+      "mode": "on",
+      "pass": true,
+      "errors": [],
+      "initial": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true,
+        "stage": {
+          "enabled": true,
+          "totalIdentities": 46,
+          "played": 0,
+          "expired": 0,
+          "rejected": 0,
+          "active": 0,
+          "peakObjects": 0,
+          "peakDraws": 0,
+          "uniqueRenderedProps": 0,
+          "shaderPointLights": 0,
+          "cacheGeometries": 0,
+          "cacheMaterials": 0,
+          "decalTextures": 0,
+          "hitAnimations": 0,
+          "lastBySide": {
+            "player": null,
+            "ai": null
+          },
+          "activeIds": []
+        },
+        "legacyImpact": 0,
+        "legacyArsenal": 0,
+        "customFoley": 46,
+        "screenplay": 46
+      },
+      "after": {
+        "stage": {
+          "enabled": true,
+          "totalIdentities": 46,
+          "played": 9,
+          "expired": 5,
+          "rejected": 0,
+          "active": 4,
+          "peakObjects": 8,
+          "peakDraws": 8,
+          "uniqueRenderedProps": 9,
+          "shaderPointLights": 0,
+          "cacheGeometries": 27,
+          "cacheMaterials": 29,
+          "decalTextures": 9,
+          "hitAnimations": 8,
+          "lastBySide": {
+            "player": "X07",
+            "ai": null
+          },
+          "activeIds": [
+            "P04",
+            "P05",
+            "X03",
+            "X07"
+          ]
+        },
+        "legacyImpact": 0,
+        "legacyArsenal": 0,
+        "contactReceipts": 8,
+        "cameraSafe": true
+      },
+      "idle": {
+        "n": 50,
+        "p50": 16.7,
+        "p95": 16.8,
+        "max": 233.3
+      },
+      "cast": {
+        "n": 75,
+        "p50": 16.7,
+        "p95": 16.7,
+        "max": 16.8
+      }
+    },
+    {
+      "view": "mobile",
+      "mode": "on",
+      "pass": true,
+      "errors": [],
+      "initial": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true,
+        "stage": {
+          "enabled": true,
+          "totalIdentities": 46,
+          "played": 0,
+          "expired": 0,
+          "rejected": 0,
+          "active": 0,
+          "peakObjects": 0,
+          "peakDraws": 0,
+          "uniqueRenderedProps": 0,
+          "shaderPointLights": 0,
+          "cacheGeometries": 0,
+          "cacheMaterials": 0,
+          "decalTextures": 0,
+          "hitAnimations": 0,
+          "lastBySide": {
+            "player": null,
+            "ai": null
+          },
+          "activeIds": []
+        },
+        "legacyImpact": 0,
+        "legacyArsenal": 0,
+        "customFoley": 46,
+        "screenplay": 46
+      },
+      "after": {
+        "stage": {
+          "enabled": true,
+          "totalIdentities": 46,
+          "played": 9,
+          "expired": 5,
+          "rejected": 0,
+          "active": 4,
+          "peakObjects": 8,
+          "peakDraws": 8,
+          "uniqueRenderedProps": 9,
+          "shaderPointLights": 0,
+          "cacheGeometries": 27,
+          "cacheMaterials": 29,
+          "decalTextures": 9,
+          "hitAnimations": 8,
+          "lastBySide": {
+            "player": "X07",
+            "ai": null
+          },
+          "activeIds": [
+            "P04",
+            "P05",
+            "X03",
+            "X07"
+          ]
+        },
+        "legacyImpact": 0,
+        "legacyArsenal": 0,
+        "contactReceipts": 8,
+        "cameraSafe": true
+      },
+      "idle": {
+        "n": 50,
+        "p50": 16.7,
+        "p95": 16.8,
+        "max": 200
+      },
+      "cast": {
+        "n": 75,
+        "p50": 16.7,
+        "p95": 16.8,
+        "max": 16.8
+      }
+    },
+    {
+      "view": "desktop",
+      "mode": "off",
+      "pass": true,
+      "errors": [],
+      "initial": {
+        "models": 16,
+        "bytes": 75569762,
+        "cards": 60,
+        "source": true,
+        "cameraSafe": true,
+        "stage": {
+          "enabled": false
+        },
+        "legacyImpact": 0,
+        "legacyArsenal": 0,
+        "customFoley": 46,
+        "screenplay": 46
+      },
+      "after": {
+        "stage": {
+          "enabled": false
+        },
+        "legacyImpact": 9,
+        "legacyArsenal": 9,
+        "contactReceipts": 9,
+        "cameraSafe": true
+      },
+      "idle": {
+        "n": 50,
+        "p50": 16.7,
+        "p95": 16.8,
+        "max": 183.3
+      },
+      "cast": {
+        "n": 75,
+        "p50": 16.7,
+        "p95": 16.8,
+        "max": 183.3
+      }
+    }
+  ]
+}
