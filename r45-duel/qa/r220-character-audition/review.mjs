@@ -15,13 +15,19 @@ const key=new THREE.DirectionalLight(0xffefdc,3.25);key.position.set(-3,7,9);key
 key.shadow.mapSize.set(2048,2048);key.shadow.camera.left=-12;key.shadow.camera.right=12;key.shadow.camera.top=12;key.shadow.camera.bottom=-12;
 scene.add(key);
 const rim=new THREE.DirectionalLight(0x95d8ff,2);rim.position.set(4,5,-8);scene.add(rim);
+const revision=new URLSearchParams(location.search).get('revision')==='r221'?'r221':'r220';
+const viewAngle=new URLSearchParams(location.search).get('camera')||'front';
 const focusJay=new URLSearchParams(location.search).get('focus')==='jay';
 const motionMode=new URLSearchParams(location.search).get('motion');
 const kaykitLocal=motionMode==='kaykitLocal';
 const kaykitTrial=motionMode==='kaykit'||kaykitLocal;
 if(focusJay)document.body.classList.add('focus-jay');
+if(viewAngle==='profile')document.body.classList.add('profile-view');
+if(revision==='r221')document.querySelector('h1').textContent='R221｜Jay 手部正向动作 · 真实3D验收';
 const camera=new THREE.PerspectiveCamera(focusJay?37:39,1,.1,80);
-if(focusJay){camera.position.set(0,2.4,5.7);camera.lookAt(0,1.3,0)}
+if(focusJay&&viewAngle==='profile'){
+ camera.position.set(5.8,2.13,.95);camera.lookAt(1.6,1.26,0);
+}else if(focusJay){camera.position.set(0,2.4,5.7);camera.lookAt(0,1.3,0)}
 else{camera.position.set(0,3.1,18);camera.lookAt(0,1.45,0)}
 const ground=new THREE.Mesh(new THREE.PlaneGeometry(26,15),new THREE.MeshStandardMaterial({color:0x293a49,roughness:.89,metalness:.08}));
 ground.rotation.x=-Math.PI/2;ground.position.y=-.17;ground.receiveShadow=true;scene.add(ground);
@@ -40,7 +46,9 @@ const entries=[
   map:{idle:'idle',draw:'talk',attack:'examine',hit:'talk',victory:'walk'}},
  {id:'old_jay',file:'../../assets/summons/G03-Jay-Landing-R97.glb',name:'决斗社·旧Jay',
   map:{idle:'Idle',draw:'Attack',attack:'Attack',hit:'Hit',victory:'Attack'}},
- {id:'new_jay',file:'./assets/jay-teen-duel-v01.glb',name:'决斗社·新Jay试演',
+ {id:'new_jay',
+  file:revision==='r221'?'./assets/jay-teen-duel-v02-forward.glb':'./assets/jay-teen-duel-v01.glb',
+  name:revision==='r221'?'决斗社·新Jay 正向修正版':'决斗社·新Jay V01反向错误版',
   map:{idle:'Duel_Idle_LookAround',draw:'Duel_DrawCard',attack:'Duel_ThrowCard',hit:'Duel_Recoil',victory:'Duel_Victory'}}
 ];
 const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),actors=[],errors=[];
@@ -91,7 +99,7 @@ const ready=Promise.all(entries.map(async(c,i)=>{
  if(!Number.isFinite(size.y)||size.y<.3)throw Error('Invalid GLB '+c.id);
  const anchor=new THREE.Group();anchor.name='STAGE_'+c.id;
  anchor.position.x=focusJay?(i===3?-1.6:i===4?1.6:(i-2)*3):(i-2)*3;
- anchor.visible=!focusJay||i>=3;
+ anchor.visible=(!focusJay||i>=3)&&!(focusJay&&viewAngle==='profile'&&i===3);
  const scale=2.43/size.y;
  obj.scale.setScalar(scale);
  obj.position.set(-(box.min.x+box.max.x)/2*scale,-box.min.y*scale,-(box.min.z+box.max.z)/2*scale);
@@ -173,6 +181,13 @@ const ready=Promise.all(entries.map(async(c,i)=>{
  }
  setPhase('idle');status.textContent='5/5 真实GLB已加载 · 点击动作进行同镜头对照';
  window.__r220Ready=true;
+ if(revision==='r221'){
+  document.querySelector('.actor.new b').textContent='新 Jay · R221 正向修正版';
+  document.querySelector('.actor.new span').textContent='Blender 肩/肘轴修正 · 11套骨骼动画';
+ }else{
+  document.querySelector('.actor.new b').textContent='新 Jay · R220 方向错误基线';
+ }
+
 }).catch(e=>{
  errors.push(String(e));status.textContent='资源加载失败 '+String(e);window.__r220Ready=false;
 });
@@ -185,15 +200,31 @@ function metrics(){
   }
   const clip=a.clips.find(c=>c.name===a.current);
   const channels=clip?.tracks?.length??0;
+  // Authoritative browser-side world-space geometry proof; positive Z is forward
+  // after Blender (-Y) -> glTF(+Z) conversion.
+  a.anchor.updateMatrixWorld(true);
+  const depth={};
+  for(const side of ['Left','Right']){
+   const sh=a.bones.find(b=>b.name===side+'Arm'),
+    elbow=a.bones.find(b=>b.name===side+'ForeArm'),
+    hand=a.bones.find(b=>b.name===side+'Hand');
+   if(sh&&elbow&&hand){
+    const vSh=sh.getWorldPosition(new THREE.Vector3()),
+     vEl=elbow.getWorldPosition(new THREE.Vector3()),
+     vHand=hand.getWorldPosition(new THREE.Vector3());
+    depth[side.toLowerCase()+'HandForwardM']=+(vHand.z-vSh.z).toFixed(3);
+    depth[side.toLowerCase()+'ElbowForwardM']=+(vEl.z-vSh.z).toFixed(3);
+   }
+  }
   return {id:a.config.id,name:a.config.name,clip:a.current,
    clips:a.clips.map(c=>c.name),bones:a.bones.length,
    activeBones,maxAngleRad:+maxAngle.toFixed(3),
-   animationTracks:channels,skinnedMeshes:a.skinMeshes,
+   animationTracks:channels,handDepth:depth,skinnedMeshes:a.skinMeshes,
    skinDimensions:a.bbox};
  });
 }
 window.__r220QA={
- setPhase,
+ revision,viewAngle,setPhase,
  get ready(){return window.__r220Ready===true},
  get current(){return phase},
  get state(){return {actors:metrics(),errors,drawCalls:renderer.info.render.calls,

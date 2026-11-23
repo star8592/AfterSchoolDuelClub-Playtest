@@ -4,6 +4,6 @@ assets/wealth_teen.glb
 assets/dandao_healer.glb
 assets/kaykit_general.glb
 # Failed/temporary Playwright raw recordings; commit curated MP4 only.
-evidence/page@*.webm
+evidence/*.webm
 # Blender automatic backups: keep only the final editable .blend file.
 source/*.blend1

@@ -9,7 +9,7 @@ h1{font-size:22px;margin:0 0 6px}p{margin:0;color:#a9b9ca;font-size:13px;line-he
 header small{font-size:12px;color:#88f5c4;white-space:nowrap}
 nav{display:flex;gap:9px;flex-wrap:wrap;margin:0 27px 15px}
 button{font-size:14px;font-weight:600;background:#24384c;color:#edf7ff;border:1px solid #547088;border-radius:9px;padding:9px 13px;cursor:pointer}
-button.active{background:#1f765d;border-color:#78e6bd}
+button.active{background:#1f765d;border-color:#78e6bd}a.version{color:#d9f2ff;font-size:12px;text-decoration:none;background:#183a49;border:1px solid #355c70;border-radius:9px;padding:10px 9px}a.version:hover{background:#287363}
 #stage{height:min(62vh,620px);min-height:420px;position:relative;overflow:hidden;border-top:1px solid #2b4154;border-bottom:1px solid #2b4154}
 #screen{display:block;width:100%;height:100%}
 #labels{position:absolute;inset:auto 0 5px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));pointer-events:none}
@@ -18,11 +18,14 @@ button.active{background:#1f765d;border-color:#78e6bd}
 .actor.new{border-color:#56e4ad;background:#123c36d9}.actor.new b{color:#b6ffd5}
 #info{padding:10px 24px;display:flex;gap:20px;align-items:center;color:#aacee7;font-size:12px;justify-content:space-between}
 #readout{white-space:pre-wrap}#status{font-weight:700;color:#b9fbe3}
-body.focus-jay #labels{grid-template-columns:repeat(2,minmax(0,1fr));width:60%;left:20%}body.focus-jay #labels .actor:nth-child(-n+3){display:none}body.focus-jay #labels .actor{font-size:15px;min-height:68px}</style></head>
+body.focus-jay #labels{grid-template-columns:repeat(2,minmax(0,1fr));width:60%;left:20%}body.focus-jay #labels .actor:nth-child(-n+3){display:none}body.focus-jay #labels .actor{font-size:15px;min-height:68px}body.profile-view #labels{width:38%;left:31%}body.profile-view #labels .actor:nth-child(4){display:none}</style></head>
 <body>
 <header><div><h1>R220｜真实人物动作对照试验场</h1><p>财富小镇成熟角色 → 丹道洛青荇 → 决斗社 Jay 原模型 vs Blender 重新制作的骨骼动作候选。全部是真实 GLB 和 AnimationMixer，未替换正式游戏。</p></div><small>Draft · 不上线</small></header>
 <nav>
 <button data-mode="idle">站姿 / 呼吸</button><button data-mode="draw">抽牌 / 日常手势</button><button data-mode="attack">甩牌 / 交互动作</button><button data-mode="hit">受击 / 应对动作</button><button data-mode="victory">胜利 / 打招呼</button><button id="autoplay">▶ 循环查看动作</button>
+<a class="version" href="?focus=jay&revision=r220&camera=profile">旧R220：手往后（对照）</a>
+<a class="version" href="?focus=jay&revision=r221&camera=profile">新R221：侧面确认向前</a>
+<a class="version" href="?focus=jay&revision=r221">新R221：正面动作</a>
 </nav>
 <div id="stage"><canvas id="screen"></canvas>
 <div id="labels">
