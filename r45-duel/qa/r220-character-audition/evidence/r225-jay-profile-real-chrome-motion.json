@@ -1,0 +1,188 @@
+{
+  "ok": true,
+  "url": "http://10.10.10.138:18720/r45-duel/qa/r220-character-audition/?focus=jay&revision=r225&camera=profile",
+  "errors": [],
+  "frames": [
+    {
+      "kind": "idle",
+      "oldJay": {
+        "clip": "Idle",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Idle_LookAround",
+        "bones": 24,
+        "activeBones": 5,
+        "maxAngleRad": 0.148,
+        "handDepth": {
+          "leftHandForwardM": 0.177,
+          "leftElbowForwardM": 0.045,
+          "leftHandHeightM": 1.386,
+          "leftFootHeightM": 0.225,
+          "leftFootWorldXYZ": [
+            1.831,
+            0.225,
+            -0.097
+          ],
+          "rightHandForwardM": 0.143,
+          "rightElbowForwardM": 0.03,
+          "rightHandHeightM": 1.469,
+          "rightFootHeightM": 0.212,
+          "rightFootWorldXYZ": [
+            1.362,
+            0.212,
+            -0.004
+          ]
+        }
+      },
+      "drawCalls": 17,
+      "screenshot": "r225-jay-profile-idle-real-chrome.png"
+    },
+    {
+      "kind": "draw",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_DrawCard",
+        "bones": 24,
+        "activeBones": 7,
+        "maxAngleRad": 0.974,
+        "handDepth": {
+          "leftHandForwardM": 0.272,
+          "leftElbowForwardM": 0.058,
+          "leftHandHeightM": 1.684,
+          "leftFootHeightM": 0.221,
+          "leftFootWorldXYZ": [
+            1.829,
+            0.221,
+            -0.074
+          ],
+          "rightHandForwardM": 0.542,
+          "rightElbowForwardM": 0.259,
+          "rightHandHeightM": 1.876,
+          "rightFootHeightM": 0.209,
+          "rightFootWorldXYZ": [
+            1.362,
+            0.209,
+            0.007
+          ]
+        }
+      },
+      "drawCalls": 19,
+      "screenshot": "r225-jay-profile-draw-real-chrome.png"
+    },
+    {
+      "kind": "attack",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_ThrowCard",
+        "bones": 24,
+        "activeBones": 7,
+        "maxAngleRad": 0.824,
+        "handDepth": {
+          "leftHandForwardM": 0.23,
+          "leftElbowForwardM": 0.041,
+          "leftHandHeightM": 1.745,
+          "leftFootHeightM": 0.219,
+          "leftFootWorldXYZ": [
+            1.826,
+            0.219,
+            -0.042
+          ],
+          "rightHandForwardM": 0.537,
+          "rightElbowForwardM": 0.239,
+          "rightHandHeightM": 1.707,
+          "rightFootHeightM": 0.21,
+          "rightFootWorldXYZ": [
+            1.359,
+            0.21,
+            -0.024
+          ]
+        }
+      },
+      "drawCalls": 19,
+      "screenshot": "r225-jay-profile-attack-real-chrome.png"
+    },
+    {
+      "kind": "hit",
+      "oldJay": {
+        "clip": "Hit",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Recoil",
+        "bones": 24,
+        "activeBones": 7,
+        "maxAngleRad": 0.952,
+        "handDepth": {
+          "leftHandForwardM": 0.449,
+          "leftElbowForwardM": 0.123,
+          "leftHandHeightM": 1.729,
+          "leftFootHeightM": 0.218,
+          "leftFootWorldXYZ": [
+            1.822,
+            0.218,
+            0.008
+          ],
+          "rightHandForwardM": 0.45,
+          "rightElbowForwardM": 0.13,
+          "rightHandHeightM": 1.658,
+          "rightFootHeightM": 0.211,
+          "rightFootWorldXYZ": [
+            1.354,
+            0.211,
+            -0.052
+          ]
+        }
+      },
+      "drawCalls": 17,
+      "screenshot": "r225-jay-profile-hit-real-chrome.png"
+    },
+    {
+      "kind": "victory",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Victory",
+        "bones": 24,
+        "activeBones": 9,
+        "maxAngleRad": 1.319,
+        "handDepth": {
+          "leftHandForwardM": 0.316,
+          "leftElbowForwardM": 0.079,
+          "leftHandHeightM": 1.487,
+          "leftFootHeightM": 0.218,
+          "leftFootWorldXYZ": [
+            1.822,
+            0.218,
+            -0.004
+          ],
+          "rightHandForwardM": 0.514,
+          "rightElbowForwardM": 0.296,
+          "rightHandHeightM": 2.158,
+          "rightFootHeightM": 0.212,
+          "rightFootWorldXYZ": [
+            1.355,
+            0.212,
+            -0.064
+          ]
+        }
+      },
+      "drawCalls": 17,
+      "screenshot": "r225-jay-profile-victory-real-chrome.png"
+    }
+  ],
+  "sourceKind": "real-webgl-gltf-render"
+}

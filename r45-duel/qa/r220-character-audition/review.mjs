@@ -16,7 +16,7 @@ key.shadow.mapSize.set(2048,2048);key.shadow.camera.left=-12;key.shadow.camera.r
 scene.add(key);
 const rim=new THREE.DirectionalLight(0x95d8ff,2);rim.position.set(4,5,-8);scene.add(rim);
 const requestedRevision=new URLSearchParams(location.search).get('revision');
-const revision=['r220','r221','r222','r223','r224'].includes(requestedRevision)?requestedRevision:'r220';
+const revision=['r220','r221','r222','r223','r224','r225'].includes(requestedRevision)?requestedRevision:'r220';
 const viewAngle=new URLSearchParams(location.search).get('camera')||'front';
 const focusJay=new URLSearchParams(location.search).get('focus')==='jay';
 const motionMode=new URLSearchParams(location.search).get('motion');
@@ -28,6 +28,7 @@ if(revision==='r221')document.querySelector('h1').textContent='R221｜Jay 手部
 if(revision==='r222')document.querySelector('h1').textContent='R222｜Jay 抽牌、蓄力、前掷、收势 · 真实动作实验';
 if(revision==='r223')document.querySelector('h1').textContent='R223｜Jay 单手甩牌、左手护胸、迅速收势 · 真实3D验收';
 if(revision==='r224')document.querySelector('h1').textContent='R224｜Jay 方向正确、单手出牌、脚部防滑 · 真实3D验收';
+if(revision==='r225')document.querySelector('h1').textContent='R225｜Jay 校服、骨骼绑定细节 · 真实3D美术试验';
 const camera=new THREE.PerspectiveCamera(focusJay?37:39,1,.1,80);
 if(focusJay&&viewAngle==='profile'){
  camera.position.set(5.8,2.13,.95);camera.lookAt(1.6,1.26,0);
@@ -51,12 +52,14 @@ const entries=[
  {id:'old_jay',file:'../../assets/summons/G03-Jay-Landing-R97.glb',name:'决斗社·旧Jay',
   map:{idle:'Idle',draw:'Attack',attack:'Attack',hit:'Hit',victory:'Attack'}},
  {id:'new_jay',
-  file:revision==='r224'?'./assets/jay-teen-duel-v05-footlock.glb':
+  file:revision==='r225'?'./assets/jay-teen-duel-v06-school.glb':
+       revision==='r224'?'./assets/jay-teen-duel-v05-footlock.glb':
        revision==='r223'?'./assets/jay-teen-duel-v04-onehand.glb':
        revision==='r222'?'./assets/jay-teen-duel-v03-staged.glb':
        revision==='r221'?'./assets/jay-teen-duel-v02-forward.glb':
        './assets/jay-teen-duel-v01.glb',
-  name:revision==='r224'?'决斗社·Jay R224脚部锁定':
+  name:revision==='r225'?'决斗社·Jay R225校服候选':
+       revision==='r224'?'决斗社·Jay R224脚部锁定':
        revision==='r223'?'决斗社·Jay R223单手出牌':
        revision==='r222'?'决斗社·Jay R222分段表演':
        revision==='r221'?'决斗社·新Jay 正向修正版':'决斗社·新Jay V01反向错误版',
@@ -192,7 +195,10 @@ const ready=Promise.all(entries.map(async(c,i)=>{
  }
  setPhase('idle');status.textContent='5/5 真实GLB已加载 · 点击动作进行同镜头对照';
  window.__r220Ready=true;
- if(revision==='r224'){
+ if(revision==='r225'){
+  document.querySelector('.actor.new b').textContent='Jay · R225 校服测试';
+  document.querySelector('.actor.new span').textContent='Blender新增真正骨骼加权材质/服装 · 动作来自R224';
+ }else if(revision==='r224'){
   document.querySelector('.actor.new b').textContent='Jay · R224 稳定双脚';
   document.querySelector('.actor.new span').textContent='Blender 双脚位置约束 · 前向单手出牌 · 躯干独立旋转';
  }else if(revision==='r223'){
@@ -260,23 +266,34 @@ window.__r220QA={
   if(!this.ready||!phases.includes(kind))return null;
   setPhase(kind);auto=false;qaPaused=true;
   const t=Math.max(0,Math.min(2.5,Number(timeSec)||0));
-  const releaseAt=['r222','r223','r224'].includes(revision)?.73:.68;
+  const releaseAt=['r222','r223','r224','r225'].includes(revision)?.73:.68;
   if(kind==='attack'&&t>=releaseAt){
    for(const actor of actors)actor.mixer.setTime(releaseAt);
    actors[4].anchor.updateMatrixWorld(true);
    const hand=actors[4].bones.find(b=>b.name==='RightHand');
    hand.getWorldPosition(cardRelease);
    cardRelease.y+=.04;cardRelease.z+=.06;
+   if(revision==='r225')cardRelease.x-=.08;
    cardReleased=true;
   }
   for(const actor of actors)actor.mixer.setTime(t);
   phaseElapsed=t;updateLiveCard();renderer.render(scene,camera);
-  return {actors:metrics(),card:{released:cardReleased,visible:heldCard.visible,
-    position:heldCard.position.toArray().map(x=>+x.toFixed(3))},timeSec:t};
+  return {actors:metrics(),card:this.state.card,timeSec:t};
  },
  get state(){return {actors:metrics(),errors,
   card:{visible:heldCard.visible,released:cardReleased,
    position:heldCard.position.toArray().map(v=>+v.toFixed(3)),
+   screen:(()=>{
+    const hero=actors[4],head=hero?.bones.find(b=>b.name==='Head');
+    if(!head)return null;
+    hero.anchor.updateMatrixWorld(true);
+    const h=head.getWorldPosition(new THREE.Vector3());h.y+=.11;
+    const c=heldCard.position.clone().project(camera),q=h.project(camera);
+    const px=(v)=>[+(stage.clientWidth*(v.x+1)/2).toFixed(1),
+      +(stage.clientHeight*(1-v.y)/2).toFixed(1)];
+    const ca=px(c),he=px(q);
+    return {cardPx:ca,headPx:he,centerDistancePx:+Math.hypot(ca[0]-he[0],ca[1]-he[1]).toFixed(1)};
+   })(),
    phaseElapsed:+phaseElapsed.toFixed(3)},
   drawCalls:renderer.info.render.calls,
  triangles:renderer.info.render.triangles,loaded:actors.filter(Boolean).length}}
@@ -294,16 +311,27 @@ function updateLiveCard(){
  if(!hand){heldCard.visible=false;return}
  actor.anchor.updateMatrixWorld(true);hand.getWorldPosition(cardHome);
  cardHome.y+=.04;cardHome.z+=.06;
- const releaseAt=['r222','r223','r224'].includes(revision)?.73:.68;
+ if(revision==='r225')cardHome.x-=.08;
+ const releaseAt=['r222','r223','r224','r225'].includes(revision)?.73:.68;
  if(phase==='draw'||phaseElapsed<releaseAt){
   heldCard.position.copy(cardHome);cardReleased=false;
   heldCard.material.opacity=1;heldCard.visible=true;
  }else{
   if(!cardReleased){cardRelease.copy(cardHome);cardReleased=true}
   const t=Math.min(1,(phaseElapsed-releaseAt)/.65);
-  if(['r222','r223','r224'].includes(revision)){
-   // The actor's calibrated forward axis is +Z. Do not throw sideways to the
-   // old-Jay comparison mannequin at X=-1.6, which isn't his combat target.
+  if(revision==='r225'){
+   // Keep the original release X on the right-hand side of the face.
+   // R224 converged to the root center X, so the flying card crossed
+   // Jay's head in the frontal camera and covered his expression.
+   cardTarget.copy(cardRelease);
+   // Screen-space parallax: when a card approaches the camera, a fixed
+   // world-space X converges over Jay's face. Shift toward the open left
+   // fighting lane while moving forward +Z; the right palm is not occluded.
+   cardTarget.x-=1.45;
+   cardTarget.y-=.12;
+   cardTarget.z+=2.7;
+  }else if(['r222','r223','r224'].includes(revision)){
+   // Historical wrong crossing trajectory intentionally retained for A/B.
    cardTarget.copy(actor.anchor.position);
    cardTarget.y=1.45;cardTarget.z+=2.7;
   }else{

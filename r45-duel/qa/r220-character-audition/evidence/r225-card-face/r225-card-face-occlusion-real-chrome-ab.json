@@ -1,0 +1,185 @@
+{
+  "ok": true,
+  "cases": [
+    {
+      "revision": "r224",
+      "rows": [
+        {
+          "time": 0.79,
+          "centerDistancePx": 49.3,
+          "position": [
+            1.088,
+            1.974,
+            0.617
+          ],
+          "screen": {
+            "cardPx": [
+              978.3,
+              188.7
+            ],
+            "headPx": [
+              1017.7,
+              159
+            ],
+            "centerDistancePx": 49.3
+          },
+          "frame": "r224-front-cast-079.jpg"
+        },
+        {
+          "time": 0.9,
+          "centerDistancePx": 15.9,
+          "position": [
+            1.164,
+            2.165,
+            0.928
+          ],
+          "screen": {
+            "cardPx": [
+              1004.5,
+              159.7
+            ],
+            "headPx": [
+              1020.3,
+              158.1
+            ],
+            "centerDistancePx": 15.9
+          },
+          "frame": "r224-front-cast-090.jpg"
+        },
+        {
+          "time": 1.03,
+          "centerDistancePx": 35.4,
+          "position": [
+            1.308,
+            2.205,
+            1.51
+          ],
+          "screen": {
+            "cardPx": [
+              1061.7,
+              157.3
+            ],
+            "headPx": [
+              1026.3,
+              156.8
+            ],
+            "centerDistancePx": 35.4
+          },
+          "frame": "r224-front-cast-103.jpg"
+        },
+        {
+          "time": 1.17,
+          "centerDistancePx": 125,
+          "position": [
+            1.471,
+            2.01,
+            2.176
+          ],
+          "screen": {
+            "cardPx": [
+              1145.8,
+              211.1
+            ],
+            "headPx": [
+              1033.3,
+              156.7
+            ],
+            "centerDistancePx": 125
+          },
+          "frame": "r224-front-cast-117.jpg"
+        }
+      ]
+    },
+    {
+      "revision": "r225",
+      "rows": [
+        {
+          "time": 0.79,
+          "centerDistancePx": 66.4,
+          "position": [
+            0.961,
+            1.98,
+            0.631
+          ],
+          "screen": {
+            "cardPx": [
+              957.9,
+              187.9
+            ],
+            "headPx": [
+              1017.7,
+              159
+            ],
+            "centerDistancePx": 66.4
+          },
+          "frame": "r225-front-cast-079.jpg"
+        },
+        {
+          "time": 0.9,
+          "centerDistancePx": 85.9,
+          "position": [
+            0.75,
+            2.208,
+            1.024
+          ],
+          "screen": {
+            "cardPx": [
+              934.6,
+              152.7
+            ],
+            "headPx": [
+              1020.3,
+              158.1
+            ],
+            "centerDistancePx": 85.9
+          },
+          "frame": "r225-front-cast-090.jpg"
+        },
+        {
+          "time": 1.03,
+          "centerDistancePx": 152.1,
+          "position": [
+            0.354,
+            2.319,
+            1.761
+          ],
+          "screen": {
+            "cardPx": [
+              875.7,
+              135.4
+            ],
+            "headPx": [
+              1026.3,
+              156.8
+            ],
+            "centerDistancePx": 152.1
+          },
+          "frame": "r225-front-cast-103.jpg"
+        },
+        {
+          "time": 1.17,
+          "centerDistancePx": 260.3,
+          "position": [
+            -0.098,
+            2.202,
+            2.603
+          ],
+          "screen": {
+            "cardPx": [
+              773.5,
+              172
+            ],
+            "headPx": [
+              1033.3,
+              156.7
+            ],
+            "centerDistancePx": 260.3
+          },
+          "frame": "r225-front-cast-117.jpg"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "source": "REAL Chrome WebGL position and screenshot"
+}
