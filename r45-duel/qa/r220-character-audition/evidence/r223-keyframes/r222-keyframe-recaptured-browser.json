@@ -1,0 +1,204 @@
+{
+  "ok": true,
+  "environment": "Z890 Chrome WebGL2 real GLB keyframes, R222 and R223, profile camera",
+  "cases": [
+    {
+      "revision": "r222",
+      "handDiffAt092M": 0.188,
+      "footVerticalSpreadM": 0.061,
+      "cardTravelZ": 1.361,
+      "frames": [
+        {
+          "time": 0.08,
+          "rightForwardM": 0.536,
+          "leftForwardM": 0.367,
+          "rightHandHeightM": 1.901,
+          "leftHandHeightM": 1.723,
+          "footL": [
+            1.742,
+            0.206,
+            -0.073
+          ],
+          "footR": [
+            1.276,
+            0.23,
+            0.007
+          ],
+          "card": {
+            "released": false,
+            "visible": true,
+            "position": [
+              1.144,
+              1.941,
+              0.528
+            ]
+          },
+          "file": "r222-cast-008.jpg"
+        },
+        {
+          "time": 0.38,
+          "rightForwardM": 0.449,
+          "leftForwardM": 0.379,
+          "rightHandHeightM": 2.011,
+          "leftHandHeightM": 1.424,
+          "footL": [
+            1.668,
+            0.198,
+            -0.058
+          ],
+          "footR": [
+            1.206,
+            0.252,
+            0.007
+          ],
+          "card": {
+            "released": false,
+            "visible": true,
+            "position": [
+              1.318,
+              2.051,
+              0.449
+            ]
+          },
+          "file": "r222-cast-038.jpg"
+        },
+        {
+          "time": 0.65,
+          "rightForwardM": 0.558,
+          "leftForwardM": 0.409,
+          "rightHandHeightM": 1.849,
+          "leftHandHeightM": 1.877,
+          "footL": [
+            1.869,
+            0.229,
+            -0.056
+          ],
+          "footR": [
+            1.405,
+            0.201,
+            0.007
+          ],
+          "card": {
+            "released": false,
+            "visible": true,
+            "position": [
+              1.08,
+              1.889,
+              0.547
+            ]
+          },
+          "file": "r222-cast-065.jpg"
+        },
+        {
+          "time": 0.77,
+          "rightForwardM": 0.58,
+          "leftForwardM": 0.417,
+          "rightHandHeightM": 1.758,
+          "leftHandHeightM": 2.032,
+          "footL": [
+            1.944,
+            0.25,
+            -0.055
+          ],
+          "footR": [
+            1.482,
+            0.191,
+            0.006
+          ],
+          "card": {
+            "released": true,
+            "visible": true,
+            "position": [
+              1.034,
+              1.909,
+              0.587
+            ]
+          },
+          "file": "r222-cast-077.jpg"
+        },
+        {
+          "time": 0.92,
+          "rightForwardM": 0.586,
+          "leftForwardM": 0.398,
+          "rightHandHeightM": 1.767,
+          "leftHandHeightM": 1.927,
+          "footL": [
+            1.928,
+            0.245,
+            -0.043
+          ],
+          "footR": [
+            1.464,
+            0.193,
+            -0.019
+          ],
+          "card": {
+            "released": true,
+            "visible": true,
+            "position": [
+              1.146,
+              2.171,
+              1.005
+            ]
+          },
+          "file": "r222-cast-092.jpg"
+        },
+        {
+          "time": 1.12,
+          "rightForwardM": 0.531,
+          "leftForwardM": 0.338,
+          "rightHandHeightM": 1.71,
+          "leftHandHeightM": 1.742,
+          "footL": [
+            1.845,
+            0.223,
+            -0.052
+          ],
+          "footR": [
+            1.378,
+            0.206,
+            -0.015
+          ],
+          "card": {
+            "released": true,
+            "visible": true,
+            "position": [
+              1.399,
+              2.099,
+              1.948
+            ]
+          },
+          "file": "r222-cast-112.jpg"
+        },
+        {
+          "time": 1.32,
+          "rightForwardM": 0.394,
+          "leftForwardM": 0.272,
+          "rightHandHeightM": 1.645,
+          "leftHandHeightM": 1.63,
+          "footL": [
+            1.79,
+            0.214,
+            -0.074
+          ],
+          "footR": [
+            1.323,
+            0.218,
+            0.006
+          ],
+          "card": {
+            "released": true,
+            "visible": true,
+            "position": [
+              1.586,
+              1.616,
+              2.649
+            ]
+          },
+          "file": "r222-cast-132.jpg"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -15,7 +15,8 @@ const key=new THREE.DirectionalLight(0xffefdc,3.25);key.position.set(-3,7,9);key
 key.shadow.mapSize.set(2048,2048);key.shadow.camera.left=-12;key.shadow.camera.right=12;key.shadow.camera.top=12;key.shadow.camera.bottom=-12;
 scene.add(key);
 const rim=new THREE.DirectionalLight(0x95d8ff,2);rim.position.set(4,5,-8);scene.add(rim);
-const revision=new URLSearchParams(location.search).get('revision')==='r221'?'r221':'r220';
+const requestedRevision=new URLSearchParams(location.search).get('revision');
+const revision=['r220','r221','r222','r223','r224'].includes(requestedRevision)?requestedRevision:'r220';
 const viewAngle=new URLSearchParams(location.search).get('camera')||'front';
 const focusJay=new URLSearchParams(location.search).get('focus')==='jay';
 const motionMode=new URLSearchParams(location.search).get('motion');
@@ -24,6 +25,9 @@ const kaykitTrial=motionMode==='kaykit'||kaykitLocal;
 if(focusJay)document.body.classList.add('focus-jay');
 if(viewAngle==='profile')document.body.classList.add('profile-view');
 if(revision==='r221')document.querySelector('h1').textContent='R221｜Jay 手部正向动作 · 真实3D验收';
+if(revision==='r222')document.querySelector('h1').textContent='R222｜Jay 抽牌、蓄力、前掷、收势 · 真实动作实验';
+if(revision==='r223')document.querySelector('h1').textContent='R223｜Jay 单手甩牌、左手护胸、迅速收势 · 真实3D验收';
+if(revision==='r224')document.querySelector('h1').textContent='R224｜Jay 方向正确、单手出牌、脚部防滑 · 真实3D验收';
 const camera=new THREE.PerspectiveCamera(focusJay?37:39,1,.1,80);
 if(focusJay&&viewAngle==='profile'){
  camera.position.set(5.8,2.13,.95);camera.lookAt(1.6,1.26,0);
@@ -47,8 +51,15 @@ const entries=[
  {id:'old_jay',file:'../../assets/summons/G03-Jay-Landing-R97.glb',name:'决斗社·旧Jay',
   map:{idle:'Idle',draw:'Attack',attack:'Attack',hit:'Hit',victory:'Attack'}},
  {id:'new_jay',
-  file:revision==='r221'?'./assets/jay-teen-duel-v02-forward.glb':'./assets/jay-teen-duel-v01.glb',
-  name:revision==='r221'?'决斗社·新Jay 正向修正版':'决斗社·新Jay V01反向错误版',
+  file:revision==='r224'?'./assets/jay-teen-duel-v05-footlock.glb':
+       revision==='r223'?'./assets/jay-teen-duel-v04-onehand.glb':
+       revision==='r222'?'./assets/jay-teen-duel-v03-staged.glb':
+       revision==='r221'?'./assets/jay-teen-duel-v02-forward.glb':
+       './assets/jay-teen-duel-v01.glb',
+  name:revision==='r224'?'决斗社·Jay R224脚部锁定':
+       revision==='r223'?'决斗社·Jay R223单手出牌':
+       revision==='r222'?'决斗社·Jay R222分段表演':
+       revision==='r221'?'决斗社·新Jay 正向修正版':'决斗社·新Jay V01反向错误版',
   map:{idle:'Duel_Idle_LookAround',draw:'Duel_DrawCard',attack:'Duel_ThrowCard',hit:'Duel_Recoil',victory:'Duel_Victory'}}
 ];
 const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder),actors=[],errors=[];
@@ -64,7 +75,7 @@ heldCard.renderOrder=2;scene.add(heldCard);
 const cardHome=new THREE.Vector3(),cardRelease=new THREE.Vector3(),cardTarget=new THREE.Vector3();
 let cardReleased=false;
 
-let phase='idle',auto=false,phaseElapsed=0,animationClock=new THREE.Clock(),accumulated=0;
+let phase='idle',auto=false,phaseElapsed=0,animationClock=new THREE.Clock(),accumulated=0,qaPaused=false;
 const phases=['idle','draw','attack','hit','victory'];
 function resize(){
  const width=Math.max(640,stage.clientWidth),height=Math.max(300,stage.clientHeight);
@@ -181,7 +192,16 @@ const ready=Promise.all(entries.map(async(c,i)=>{
  }
  setPhase('idle');status.textContent='5/5 真实GLB已加载 · 点击动作进行同镜头对照';
  window.__r220Ready=true;
- if(revision==='r221'){
+ if(revision==='r224'){
+  document.querySelector('.actor.new b').textContent='Jay · R224 稳定双脚';
+  document.querySelector('.actor.new span').textContent='Blender 双脚位置约束 · 前向单手出牌 · 躯干独立旋转';
+ }else if(revision==='r223'){
+  document.querySelector('.actor.new b').textContent='Jay · R223 单手甩牌';
+  document.querySelector('.actor.new span').textContent='真实Blender：右手攻击·左手护胸·收势·脚部稳定';
+ }else if(revision==='r222'){
+  document.querySelector('.actor.new b').textContent='Jay · R222 分段动作';
+  document.querySelector('.actor.new span').textContent='真实Blender GLB · 出牌前后分段与脚部稳定实验';
+ }else if(revision==='r221'){
   document.querySelector('.actor.new b').textContent='新 Jay · R221 正向修正版';
   document.querySelector('.actor.new span').textContent='Blender 肩/肘轴修正 · 11套骨骼动画';
  }else{
@@ -214,6 +234,13 @@ function metrics(){
      vHand=hand.getWorldPosition(new THREE.Vector3());
     depth[side.toLowerCase()+'HandForwardM']=+(vHand.z-vSh.z).toFixed(3);
     depth[side.toLowerCase()+'ElbowForwardM']=+(vEl.z-vSh.z).toFixed(3);
+    depth[side.toLowerCase()+'HandHeightM']=+vHand.y.toFixed(3);
+    const foot=a.bones.find(b=>b.name===side+'Foot');
+    if(foot){
+     const f=foot.getWorldPosition(new THREE.Vector3());
+     depth[side.toLowerCase()+'FootHeightM']=+f.y.toFixed(3);
+     depth[side.toLowerCase()+'FootWorldXYZ']=f.toArray().map(x=>+x.toFixed(3));
+    }
    }
   }
   return {id:a.config.id,name:a.config.name,clip:a.current,
@@ -227,14 +254,38 @@ window.__r220QA={
  revision,viewAngle,setPhase,
  get ready(){return window.__r220Ready===true},
  get current(){return phase},
- get state(){return {actors:metrics(),errors,drawCalls:renderer.info.render.calls,
+ // Deterministic QA-only playhead, independently tests real GLB bone clips
+ // at an exact playback time without racing with a headless 60Hz rAF loop.
+ seekPhase(kind,timeSec){
+  if(!this.ready||!phases.includes(kind))return null;
+  setPhase(kind);auto=false;qaPaused=true;
+  const t=Math.max(0,Math.min(2.5,Number(timeSec)||0));
+  const releaseAt=['r222','r223','r224'].includes(revision)?.73:.68;
+  if(kind==='attack'&&t>=releaseAt){
+   for(const actor of actors)actor.mixer.setTime(releaseAt);
+   actors[4].anchor.updateMatrixWorld(true);
+   const hand=actors[4].bones.find(b=>b.name==='RightHand');
+   hand.getWorldPosition(cardRelease);
+   cardRelease.y+=.04;cardRelease.z+=.06;
+   cardReleased=true;
+  }
+  for(const actor of actors)actor.mixer.setTime(t);
+  phaseElapsed=t;updateLiveCard();renderer.render(scene,camera);
+  return {actors:metrics(),card:{released:cardReleased,visible:heldCard.visible,
+    position:heldCard.position.toArray().map(x=>+x.toFixed(3))},timeSec:t};
+ },
+ get state(){return {actors:metrics(),errors,
+  card:{visible:heldCard.visible,released:cardReleased,
+   position:heldCard.position.toArray().map(v=>+v.toFixed(3)),
+   phaseElapsed:+phaseElapsed.toFixed(3)},
+  drawCalls:renderer.info.render.calls,
  triangles:renderer.info.render.triangles,loaded:actors.filter(Boolean).length}}
 };
 document.querySelectorAll('button[data-mode]').forEach(b=>b.addEventListener('click',()=>{
- auto=false;document.querySelector('#autoplay').classList.remove('active');setPhase(b.dataset.mode);
+ auto=false;qaPaused=false;document.querySelector('#autoplay').classList.remove('active');setPhase(b.dataset.mode);
 }));
 document.querySelector('#autoplay').addEventListener('click',e=>{
- auto=!auto;e.target.classList.toggle('active',auto);if(auto)setPhase('draw');
+ auto=!auto;qaPaused=false;e.target.classList.toggle('active',auto);if(auto)setPhase('draw');
 });
 function updateLiveCard(){
  const actor=actors[4];
@@ -243,14 +294,22 @@ function updateLiveCard(){
  if(!hand){heldCard.visible=false;return}
  actor.anchor.updateMatrixWorld(true);hand.getWorldPosition(cardHome);
  cardHome.y+=.04;cardHome.z+=.06;
- if(phase==='draw'||phaseElapsed<.68){
+ const releaseAt=['r222','r223','r224'].includes(revision)?.73:.68;
+ if(phase==='draw'||phaseElapsed<releaseAt){
   heldCard.position.copy(cardHome);cardReleased=false;
   heldCard.material.opacity=1;heldCard.visible=true;
  }else{
   if(!cardReleased){cardRelease.copy(cardHome);cardReleased=true}
-  const t=Math.min(1,(phaseElapsed-.68)/.65);
-  cardTarget.copy(actors[3]?.anchor.position||new THREE.Vector3(-1.6,0,0));
-  cardTarget.y=1.46;cardTarget.z=.15;
+  const t=Math.min(1,(phaseElapsed-releaseAt)/.65);
+  if(['r222','r223','r224'].includes(revision)){
+   // The actor's calibrated forward axis is +Z. Do not throw sideways to the
+   // old-Jay comparison mannequin at X=-1.6, which isn't his combat target.
+   cardTarget.copy(actor.anchor.position);
+   cardTarget.y=1.45;cardTarget.z+=2.7;
+  }else{
+   cardTarget.copy(actors[3]?.anchor.position||new THREE.Vector3(-1.6,0,0));
+   cardTarget.y=1.46;cardTarget.z=.15;
+  }
   const e=t*t*(3-2*t);
   heldCard.position.copy(cardRelease).lerp(cardTarget,e);
   heldCard.position.y+=.55*Math.sin(t*Math.PI);
@@ -263,8 +322,10 @@ function updateLiveCard(){
 function render(){
  requestAnimationFrame(render);
  const dt=Math.min(.05,animationClock.getDelta());
- phaseElapsed+=dt;
- for(const a of actors.filter(Boolean)){a.mixer.update(dt);a.kaykitMixer?.update(dt)}
+ if(!qaPaused){
+  phaseElapsed+=dt;
+  for(const a of actors.filter(Boolean)){a.mixer.update(dt);a.kaykitMixer?.update(dt)}
+ }
  if(auto){if(phaseElapsed>2.6)setPhase(phases[(phases.indexOf(phase)+1)%phases.length])}
  updateLiveCard();
  renderer.render(scene,camera);
