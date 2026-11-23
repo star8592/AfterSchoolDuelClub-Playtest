@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "sourceRigJoints": 24,
+  "animations": 11,
+  "oldGLBBytes": 5194764,
+  "r225GLBBytes": 5413268,
+  "sizeIncreaseBytes": 218504,
+  "r225NewAccessoryMeshPrimitives": 4,
+  "totalMeshPrimitives": 8,
+  "capturedViews": [
+    "profile",
+    "front"
+  ],
+  "fiveActionsEach": true,
+  "videoSeconds": 10.44,
+  "realCardFaceDistancesPx": [
+    {
+      "timeSec": 0.79,
+      "r224HeadGapPx": 49.3,
+      "r225HeadGapPx": 66.4
+    },
+    {
+      "timeSec": 0.9,
+      "r224HeadGapPx": 15.9,
+      "r225HeadGapPx": 85.9
+    },
+    {
+      "timeSec": 1.03,
+      "r224HeadGapPx": 35.4,
+      "r225HeadGapPx": 152.1
+    },
+    {
+      "timeSec": 1.17,
+      "r224HeadGapPx": 125,
+      "r225HeadGapPx": 260.3
+    }
+  ],
+  "caveats": [
+    "24-bone rig has no finger joints",
+    "not a production FPS benchmark",
+    "art direction and original body license not yet signed off",
+    "Draft only"
+  ]
+}

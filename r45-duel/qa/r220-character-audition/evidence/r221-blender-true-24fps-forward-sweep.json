@@ -1,0 +1,266 @@
+{
+  "jay-teen-duel-v01.glb": {
+    "Duel_DrawCard": {
+      "RightWristM": {
+        "min": -0.3374,
+        "max": 0.0743,
+        "framesBehind10cm": 23,
+        "sampleCount": 35
+      },
+      "RightElbowM": {
+        "min": -0.1436,
+        "max": 0.0142,
+        "framesBehind10cm": 18,
+        "sampleCount": 35
+      },
+      "LeftWristM": {
+        "min": -0.3419,
+        "max": 0.0727,
+        "framesBehind10cm": 27,
+        "sampleCount": 35
+      },
+      "LeftElbowM": {
+        "min": -0.1264,
+        "max": 0.0143,
+        "framesBehind10cm": 8,
+        "sampleCount": 35
+      }
+    },
+    "Duel_ThrowCard": {
+      "RightWristM": {
+        "min": -0.4167,
+        "max": 0.0743,
+        "framesBehind10cm": 29,
+        "sampleCount": 38
+      },
+      "RightElbowM": {
+        "min": -0.2261,
+        "max": 0.0142,
+        "framesBehind10cm": 27,
+        "sampleCount": 38
+      },
+      "LeftWristM": {
+        "min": -0.3005,
+        "max": 0.0729,
+        "framesBehind10cm": 19,
+        "sampleCount": 38
+      },
+      "LeftElbowM": {
+        "min": -0.1023,
+        "max": 0.0145,
+        "framesBehind10cm": 7,
+        "sampleCount": 38
+      }
+    },
+    "Duel_Recoil": {
+      "RightWristM": {
+        "min": -0.4311,
+        "max": 0.0743,
+        "framesBehind10cm": 24,
+        "sampleCount": 31
+      },
+      "RightElbowM": {
+        "min": -0.2367,
+        "max": 0.0142,
+        "framesBehind10cm": 22,
+        "sampleCount": 31
+      },
+      "LeftWristM": {
+        "min": -0.4168,
+        "max": 0.0727,
+        "framesBehind10cm": 24,
+        "sampleCount": 31
+      },
+      "LeftElbowM": {
+        "min": -0.22,
+        "max": 0.0143,
+        "framesBehind10cm": 21,
+        "sampleCount": 31
+      }
+    },
+    "Duel_Victory": {
+      "RightWristM": {
+        "min": -0.44,
+        "max": 0.0743,
+        "framesBehind10cm": 34,
+        "sampleCount": 42
+      },
+      "RightElbowM": {
+        "min": -0.2254,
+        "max": 0.0142,
+        "framesBehind10cm": 31,
+        "sampleCount": 42
+      },
+      "LeftWristM": {
+        "min": -0.4309,
+        "max": 0.0727,
+        "framesBehind10cm": 34,
+        "sampleCount": 42
+      },
+      "LeftElbowM": {
+        "min": -0.2103,
+        "max": 0.0143,
+        "framesBehind10cm": 31,
+        "sampleCount": 42
+      }
+    },
+    "Duel_Idle_LookAround": {
+      "RightWristM": {
+        "min": -0.0808,
+        "max": 0.0743,
+        "framesBehind10cm": 0,
+        "sampleCount": 144
+      },
+      "RightElbowM": {
+        "min": -0.0454,
+        "max": 0.0142,
+        "framesBehind10cm": 0,
+        "sampleCount": 144
+      },
+      "LeftWristM": {
+        "min": -0.0092,
+        "max": 0.0727,
+        "framesBehind10cm": 0,
+        "sampleCount": 144
+      },
+      "LeftElbowM": {
+        "min": -0.0178,
+        "max": 0.0143,
+        "framesBehind10cm": 0,
+        "sampleCount": 144
+      }
+    }
+  },
+  "jay-teen-duel-v02-forward.glb": {
+    "Duel_DrawCard": {
+      "RightWristM": {
+        "min": 0.0743,
+        "max": 0.3409,
+        "framesBehind10cm": 0,
+        "sampleCount": 35
+      },
+      "RightElbowM": {
+        "min": 0.0113,
+        "max": 0.1414,
+        "framesBehind10cm": 0,
+        "sampleCount": 35
+      },
+      "LeftWristM": {
+        "min": 0.0727,
+        "max": 0.2846,
+        "framesBehind10cm": 0,
+        "sampleCount": 35
+      },
+      "LeftElbowM": {
+        "min": 0.0143,
+        "max": 0.0897,
+        "framesBehind10cm": 0,
+        "sampleCount": 35
+      }
+    },
+    "Duel_ThrowCard": {
+      "RightWristM": {
+        "min": 0.0743,
+        "max": 0.3755,
+        "framesBehind10cm": 0,
+        "sampleCount": 38
+      },
+      "RightElbowM": {
+        "min": 0.0142,
+        "max": 0.2255,
+        "framesBehind10cm": 0,
+        "sampleCount": 38
+      },
+      "LeftWristM": {
+        "min": 0.0727,
+        "max": 0.2888,
+        "framesBehind10cm": 0,
+        "sampleCount": 38
+      },
+      "LeftElbowM": {
+        "min": 0.0143,
+        "max": 0.1223,
+        "framesBehind10cm": 0,
+        "sampleCount": 38
+      }
+    },
+    "Duel_Recoil": {
+      "RightWristM": {
+        "min": 0.0743,
+        "max": 0.3593,
+        "framesBehind10cm": 0,
+        "sampleCount": 31
+      },
+      "RightElbowM": {
+        "min": 0.0142,
+        "max": 0.1493,
+        "framesBehind10cm": 0,
+        "sampleCount": 31
+      },
+      "LeftWristM": {
+        "min": 0.0727,
+        "max": 0.3573,
+        "framesBehind10cm": 0,
+        "sampleCount": 31
+      },
+      "LeftElbowM": {
+        "min": 0.0143,
+        "max": 0.139,
+        "framesBehind10cm": 0,
+        "sampleCount": 31
+      }
+    },
+    "Duel_Victory": {
+      "RightWristM": {
+        "min": 0.0743,
+        "max": 0.3927,
+        "framesBehind10cm": 0,
+        "sampleCount": 42
+      },
+      "RightElbowM": {
+        "min": 0.0142,
+        "max": 0.215,
+        "framesBehind10cm": 0,
+        "sampleCount": 42
+      },
+      "LeftWristM": {
+        "min": 0.0727,
+        "max": 0.3799,
+        "framesBehind10cm": 0,
+        "sampleCount": 42
+      },
+      "LeftElbowM": {
+        "min": 0.0143,
+        "max": 0.1994,
+        "framesBehind10cm": 0,
+        "sampleCount": 42
+      }
+    },
+    "Duel_Idle_LookAround": {
+      "RightWristM": {
+        "min": 0.0743,
+        "max": 0.209,
+        "framesBehind10cm": 0,
+        "sampleCount": 144
+      },
+      "RightElbowM": {
+        "min": 0.0142,
+        "max": 0.05,
+        "framesBehind10cm": 0,
+        "sampleCount": 144
+      },
+      "LeftWristM": {
+        "min": 0.0727,
+        "max": 0.1378,
+        "framesBehind10cm": 0,
+        "sampleCount": 144
+      },
+      "LeftElbowM": {
+        "min": 0.011,
+        "max": 0.0384,
+        "framesBehind10cm": 0,
+        "sampleCount": 144
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "ok": true,
+  "url": "http://10.10.10.138:18720/r45-duel/qa/r220-character-audition/?focus=jay&motion=kaykit",
+  "errors": [],
+  "frames": [
+    {
+      "kind": "idle",
+      "oldJay": {
+        "clip": "Idle",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "KayKit_Idle_A",
+        "bones": 24,
+        "activeBones": 16,
+        "maxAngleRad": 1.001
+      },
+      "drawCalls": 11,
+      "screenshot": "r220-kaykit-retarget-idle-real-chrome.png"
+    },
+    {
+      "kind": "draw",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "KayKit_Interact",
+        "bones": 24,
+        "activeBones": 17,
+        "maxAngleRad": 1.636
+      },
+      "drawCalls": 52,
+      "screenshot": "r220-kaykit-retarget-draw-real-chrome.png"
+    },
+    {
+      "kind": "attack",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "KayKit_Throw",
+        "bones": 24,
+        "activeBones": 18,
+        "maxAngleRad": 1.288
+      },
+      "drawCalls": 52,
+      "screenshot": "r220-kaykit-retarget-attack-real-chrome.png"
+    },
+    {
+      "kind": "hit",
+      "oldJay": {
+        "clip": "Hit",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "KayKit_Hit_A",
+        "bones": 24,
+        "activeBones": 15,
+        "maxAngleRad": 1.241
+      },
+      "drawCalls": 52,
+      "screenshot": "r220-kaykit-retarget-hit-real-chrome.png"
+    },
+    {
+      "kind": "victory",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "KayKit_Interact",
+        "bones": 24,
+        "activeBones": 17,
+        "maxAngleRad": 1.636
+      },
+      "drawCalls": 52,
+      "screenshot": "r220-kaykit-retarget-victory-real-chrome.png"
+    }
+  ],
+  "sourceKind": "real-webgl-gltf-render"
+}

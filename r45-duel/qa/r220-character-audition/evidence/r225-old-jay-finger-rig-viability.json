@@ -1,0 +1,169 @@
+{
+  "Jay_R97_high_detail": {
+    "file": "G03-Jay-Landing-R97.glb",
+    "bytes": 4573352,
+    "skinJointCount": 1605,
+    "fingerJointReferences": 220,
+    "representativeFingerBones": [
+      "FK-Finger_Index_Carpal.L",
+      "FK-Finger_Index1.L",
+      "FK-Finger_Index2.L",
+      "FK-Finger_Index3.L",
+      "FK-Finger_Middle_Carpal.L",
+      "FK-Finger_Middle1.L",
+      "FK-Finger_Middle2.L",
+      "FK-Finger_Middle3.L",
+      "FK-Finger_Pinky_Carpal.L",
+      "FK-Finger_Pinky1.L",
+      "FK-Finger_Pinky2.L",
+      "FK-Finger_Pinky3.L",
+      "FK-Finger_Ring_Carpal.L",
+      "FK-Finger_Ring1.L",
+      "FK-Finger_Ring2.L",
+      "FK-Finger_Ring3.L",
+      "FK-Finger_Thumb1.L",
+      "FK-Finger_Thumb2.L",
+      "FK-Finger_Thumb3.L",
+      "ORG-Finger_Index_Carpal.L",
+      "ORG-Finger_Index1.L",
+      "ORG-Finger_Index2.L",
+      "ORG-Finger_Index3.L",
+      "ORG-TIP-Finger_Index3.L",
+      "STR-TIP-Finger_Index3.L",
+      "STR-TIP-TAN-Finger_Index3.L",
+      "STR-Finger_Index3.L",
+      "DEF-Finger_Index3.L",
+      "STR-TAN-Finger_Index3.L",
+      "STR-Finger_Index2.L",
+      "DEF-Finger_Index2.L",
+      "STR-TAN-Finger_Index2.L"
+    ],
+    "animations": [
+      {
+        "name": "Idle",
+        "channels": {
+          "rotation": 0,
+          "translation": 0,
+          "weights": 2
+        }
+      },
+      {
+        "name": "Attack",
+        "channels": {
+          "rotation": 0,
+          "translation": 0,
+          "weights": 6
+        }
+      },
+      {
+        "name": "Hit",
+        "channels": {
+          "rotation": 0,
+          "translation": 0,
+          "weights": 6
+        }
+      }
+    ],
+    "meshCount": 22,
+    "meshesWithSkinWeight": 0
+  },
+  "Jay_R225_wealth_boy": {
+    "file": "jay-teen-duel-v06-school.glb",
+    "bytes": 5413268,
+    "skinJointCount": 24,
+    "fingerJointReferences": 0,
+    "representativeFingerBones": [],
+    "animations": [
+      {
+        "name": "Receive_Cup",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "Give_Cup",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "Make_Juice",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "walk",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "run",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "Idle_Breathe",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "Duel_DrawCard",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "Duel_ThrowCard",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "Duel_Recoil",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "Duel_Victory",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      },
+      {
+        "name": "Duel_Idle_LookAround",
+        "channels": {
+          "rotation": 24,
+          "translation": 24,
+          "weights": 0
+        }
+      }
+    ],
+    "meshCount": 2,
+    "meshesWithSkinWeight": 2
+  }
+}

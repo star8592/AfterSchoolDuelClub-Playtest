@@ -1,0 +1,88 @@
+{
+  "ok": true,
+  "url": "http://10.10.10.138:18720/r45-duel/qa/r220-character-audition/?focus=jay",
+  "errors": [],
+  "frames": [
+    {
+      "kind": "idle",
+      "oldJay": {
+        "clip": "Idle",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Idle_LookAround",
+        "bones": 24,
+        "activeBones": 5,
+        "maxAngleRad": 0.147
+      },
+      "drawCalls": 11,
+      "screenshot": "r220-jay-close-idle-real-chrome.png"
+    },
+    {
+      "kind": "draw",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_DrawCard",
+        "bones": 24,
+        "activeBones": 13,
+        "maxAngleRad": 1.164
+      },
+      "drawCalls": 54,
+      "screenshot": "r220-jay-close-draw-real-chrome.png"
+    },
+    {
+      "kind": "attack",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_ThrowCard",
+        "bones": 24,
+        "activeBones": 12,
+        "maxAngleRad": 1.782
+      },
+      "drawCalls": 54,
+      "screenshot": "r220-jay-close-attack-real-chrome.png"
+    },
+    {
+      "kind": "hit",
+      "oldJay": {
+        "clip": "Hit",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Recoil",
+        "bones": 24,
+        "activeBones": 5,
+        "maxAngleRad": 0.739
+      },
+      "drawCalls": 52,
+      "screenshot": "r220-jay-close-hit-real-chrome.png"
+    },
+    {
+      "kind": "victory",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Victory",
+        "bones": 24,
+        "activeBones": 9,
+        "maxAngleRad": 1.707
+      },
+      "drawCalls": 52,
+      "screenshot": "r220-jay-close-victory-real-chrome.png"
+    }
+  ],
+  "sourceKind": "real-webgl-gltf-render"
+}

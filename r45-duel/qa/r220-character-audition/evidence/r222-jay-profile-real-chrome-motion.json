@@ -1,0 +1,118 @@
+{
+  "ok": true,
+  "url": "http://10.10.10.138:18720/r45-duel/qa/r220-character-audition/?focus=jay&revision=r222&camera=profile",
+  "errors": [],
+  "frames": [
+    {
+      "kind": "idle",
+      "oldJay": {
+        "clip": "Idle",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Idle_LookAround",
+        "bones": 24,
+        "activeBones": 5,
+        "maxAngleRad": 0.148,
+        "handDepth": {
+          "leftHandForwardM": 0.177,
+          "leftElbowForwardM": 0.045,
+          "rightHandForwardM": 0.143,
+          "rightElbowForwardM": 0.029
+        }
+      },
+      "drawCalls": 9,
+      "screenshot": "r222-jay-profile-idle-real-chrome.png"
+    },
+    {
+      "kind": "draw",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_DrawCard",
+        "bones": 24,
+        "activeBones": 8,
+        "maxAngleRad": 0.972,
+        "handDepth": {
+          "leftHandForwardM": 0.365,
+          "leftElbowForwardM": 0.089,
+          "rightHandForwardM": 0.541,
+          "rightElbowForwardM": 0.259
+        }
+      },
+      "drawCalls": 12,
+      "screenshot": "r222-jay-profile-draw-real-chrome.png"
+    },
+    {
+      "kind": "attack",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_ThrowCard",
+        "bones": 24,
+        "activeBones": 8,
+        "maxAngleRad": 1.111,
+        "handDepth": {
+          "leftHandForwardM": 0.386,
+          "leftElbowForwardM": 0.102,
+          "rightHandForwardM": 0.584,
+          "rightElbowForwardM": 0.288
+        }
+      },
+      "drawCalls": 12,
+      "screenshot": "r222-jay-profile-attack-real-chrome.png"
+    },
+    {
+      "kind": "hit",
+      "oldJay": {
+        "clip": "Hit",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Recoil",
+        "bones": 24,
+        "activeBones": 7,
+        "maxAngleRad": 0.952,
+        "handDepth": {
+          "leftHandForwardM": 0.452,
+          "leftElbowForwardM": 0.127,
+          "rightHandForwardM": 0.455,
+          "rightElbowForwardM": 0.135
+        }
+      },
+      "drawCalls": 10,
+      "screenshot": "r222-jay-profile-hit-real-chrome.png"
+    },
+    {
+      "kind": "victory",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Victory",
+        "bones": 24,
+        "activeBones": 10,
+        "maxAngleRad": 1.319,
+        "handDepth": {
+          "leftHandForwardM": 0.443,
+          "leftElbowForwardM": 0.154,
+          "rightHandForwardM": 0.514,
+          "rightElbowForwardM": 0.295
+        }
+      },
+      "drawCalls": 10,
+      "screenshot": "r222-jay-profile-victory-real-chrome.png"
+    }
+  ],
+  "sourceKind": "real-webgl-gltf-render"
+}

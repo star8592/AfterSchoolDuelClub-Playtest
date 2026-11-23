@@ -1,0 +1,5618 @@
+{
+  "jay-teen-duel-v06-school.glb": {
+    "Duel_DrawCard": {
+      "frames": [
+        {
+          "frame": 7,
+          "RightWristInsideElbowM": -0.038,
+          "RightWristForwardFromShoulderM": 0.2803,
+          "RightElbowAngleDeg": 70.88,
+          "RightWristWorldXYZ": [
+            -0.3687,
+            -0.2479,
+            1.127
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1763,
+          "LeftWristForwardFromShoulderM": 0.1292,
+          "LeftElbowAngleDeg": 36.99,
+          "LeftWristWorldXYZ": [
+            0.4944,
+            -0.0988,
+            1.0749
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 8,
+          "RightWristInsideElbowM": -0.0212,
+          "RightWristForwardFromShoulderM": 0.295,
+          "RightElbowAngleDeg": 73.58,
+          "RightWristWorldXYZ": [
+            -0.3518,
+            -0.2621,
+            1.1508
+          ],
+          "RightFootWorldXYZ": [
+            -0.1616,
+            -0.0041,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1745,
+          "LeftWristForwardFromShoulderM": 0.1363,
+          "LeftElbowAngleDeg": 37.94,
+          "LeftWristWorldXYZ": [
+            0.4932,
+            -0.1056,
+            1.0849
+          ],
+          "LeftFootWorldXYZ": [
+            0.156,
+            0.0544,
+            0.1505
+          ]
+        },
+        {
+          "frame": 9,
+          "RightWristInsideElbowM": -0.0077,
+          "RightWristForwardFromShoulderM": 0.3052,
+          "RightElbowAngleDeg": 75.52,
+          "RightWristWorldXYZ": [
+            -0.338,
+            -0.2712,
+            1.1721
+          ],
+          "RightFootWorldXYZ": [
+            -0.1618,
+            -0.0024,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.173,
+          "LeftWristForwardFromShoulderM": 0.1428,
+          "LeftElbowAngleDeg": 38.62,
+          "LeftWristWorldXYZ": [
+            0.4921,
+            -0.1111,
+            1.0929
+          ],
+          "LeftFootWorldXYZ": [
+            0.1563,
+            0.0573,
+            0.1508
+          ]
+        },
+        {
+          "frame": 10,
+          "RightWristInsideElbowM": 0.0027,
+          "RightWristForwardFromShoulderM": 0.3124,
+          "RightElbowAngleDeg": 76.82,
+          "RightWristWorldXYZ": [
+            -0.3269,
+            -0.2769,
+            1.1912
+          ],
+          "RightFootWorldXYZ": [
+            -0.162,
+            -0.0,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1719,
+          "LeftWristForwardFromShoulderM": 0.1488,
+          "LeftElbowAngleDeg": 39.06,
+          "LeftWristWorldXYZ": [
+            0.4912,
+            -0.1156,
+            1.0992
+          ],
+          "LeftFootWorldXYZ": [
+            0.1565,
+            0.0594,
+            0.151
+          ]
+        },
+        {
+          "frame": 11,
+          "RightWristInsideElbowM": 0.0108,
+          "RightWristForwardFromShoulderM": 0.3175,
+          "RightElbowAngleDeg": 77.6,
+          "RightWristWorldXYZ": [
+            -0.3181,
+            -0.2804,
+            1.2086
+          ],
+          "RightFootWorldXYZ": [
+            -0.1623,
+            0.0025,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.171,
+          "LeftWristForwardFromShoulderM": 0.1542,
+          "LeftElbowAngleDeg": 39.32,
+          "LeftWristWorldXYZ": [
+            0.4905,
+            -0.1193,
+            1.1042
+          ],
+          "LeftFootWorldXYZ": [
+            0.1566,
+            0.0609,
+            0.1511
+          ]
+        },
+        {
+          "frame": 12,
+          "RightWristInsideElbowM": 0.0171,
+          "RightWristForwardFromShoulderM": 0.3214,
+          "RightElbowAngleDeg": 78.0,
+          "RightWristWorldXYZ": [
+            -0.311,
+            -0.2824,
+            1.2244
+          ],
+          "RightFootWorldXYZ": [
+            -0.1626,
+            0.0049,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": -0.1705,
+          "LeftWristForwardFromShoulderM": 0.1592,
+          "LeftElbowAngleDeg": 39.46,
+          "LeftWristWorldXYZ": [
+            0.49,
+            -0.1222,
+            1.1084
+          ],
+          "LeftFootWorldXYZ": [
+            0.1567,
+            0.0618,
+            0.1512
+          ]
+        },
+        {
+          "frame": 13,
+          "RightWristInsideElbowM": 0.0221,
+          "RightWristForwardFromShoulderM": 0.3243,
+          "RightElbowAngleDeg": 78.15,
+          "RightWristWorldXYZ": [
+            -0.305,
+            -0.2835,
+            1.2391
+          ],
+          "RightFootWorldXYZ": [
+            -0.1628,
+            0.0066,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": -0.1701,
+          "LeftWristForwardFromShoulderM": 0.1637,
+          "LeftElbowAngleDeg": 39.53,
+          "LeftWristWorldXYZ": [
+            0.4896,
+            -0.1247,
+            1.1122
+          ],
+          "LeftFootWorldXYZ": [
+            0.1568,
+            0.0622,
+            0.1513
+          ]
+        },
+        {
+          "frame": 14,
+          "RightWristInsideElbowM": 0.0266,
+          "RightWristForwardFromShoulderM": 0.3264,
+          "RightElbowAngleDeg": 78.17,
+          "RightWristWorldXYZ": [
+            -0.2996,
+            -0.284,
+            1.2528
+          ],
+          "RightFootWorldXYZ": [
+            -0.1628,
+            0.0073,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": -0.1698,
+          "LeftWristForwardFromShoulderM": 0.1677,
+          "LeftElbowAngleDeg": 39.59,
+          "LeftWristWorldXYZ": [
+            0.4894,
+            -0.127,
+            1.1159
+          ],
+          "LeftFootWorldXYZ": [
+            0.1568,
+            0.0623,
+            0.1513
+          ]
+        },
+        {
+          "frame": 15,
+          "RightWristInsideElbowM": 0.028,
+          "RightWristForwardFromShoulderM": 0.3294,
+          "RightElbowAngleDeg": 77.25,
+          "RightWristWorldXYZ": [
+            -0.2968,
+            -0.2856,
+            1.2644
+          ],
+          "RightFootWorldXYZ": [
+            -0.1628,
+            0.0069,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": -0.1694,
+          "LeftWristForwardFromShoulderM": 0.1713,
+          "LeftElbowAngleDeg": 39.67,
+          "LeftWristWorldXYZ": [
+            0.4892,
+            -0.1291,
+            1.1199
+          ],
+          "LeftFootWorldXYZ": [
+            0.1567,
+            0.0619,
+            0.1512
+          ]
+        },
+        {
+          "frame": 16,
+          "RightWristInsideElbowM": 0.0245,
+          "RightWristForwardFromShoulderM": 0.3344,
+          "RightElbowAngleDeg": 74.77,
+          "RightWristWorldXYZ": [
+            -0.2988,
+            -0.2895,
+            1.2726
+          ],
+          "RightFootWorldXYZ": [
+            -0.1627,
+            0.0057,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": -0.1691,
+          "LeftWristForwardFromShoulderM": 0.1744,
+          "LeftElbowAngleDeg": 39.77,
+          "LeftWristWorldXYZ": [
+            0.489,
+            -0.131,
+            1.1241
+          ],
+          "LeftFootWorldXYZ": [
+            0.1566,
+            0.0609,
+            0.1511
+          ]
+        },
+        {
+          "frame": 17,
+          "RightWristInsideElbowM": 0.0174,
+          "RightWristForwardFromShoulderM": 0.3407,
+          "RightElbowAngleDeg": 71.17,
+          "RightWristWorldXYZ": [
+            -0.3042,
+            -0.295,
+            1.2778
+          ],
+          "RightFootWorldXYZ": [
+            -0.1625,
+            0.0041,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1687,
+          "LeftWristForwardFromShoulderM": 0.1771,
+          "LeftElbowAngleDeg": 39.9,
+          "LeftWristWorldXYZ": [
+            0.4888,
+            -0.1328,
+            1.1283
+          ],
+          "LeftFootWorldXYZ": [
+            0.1565,
+            0.0593,
+            0.151
+          ]
+        },
+        {
+          "frame": 18,
+          "RightWristInsideElbowM": 0.0079,
+          "RightWristForwardFromShoulderM": 0.3476,
+          "RightElbowAngleDeg": 66.87,
+          "RightWristWorldXYZ": [
+            -0.312,
+            -0.3013,
+            1.2804
+          ],
+          "RightFootWorldXYZ": [
+            -0.1623,
+            0.0023,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1683,
+          "LeftWristForwardFromShoulderM": 0.1793,
+          "LeftElbowAngleDeg": 40.03,
+          "LeftWristWorldXYZ": [
+            0.4886,
+            -0.1343,
+            1.1322
+          ],
+          "LeftFootWorldXYZ": [
+            0.1563,
+            0.0574,
+            0.1508
+          ]
+        },
+        {
+          "frame": 19,
+          "RightWristInsideElbowM": -0.0025,
+          "RightWristForwardFromShoulderM": 0.3542,
+          "RightElbowAngleDeg": 62.34,
+          "RightWristWorldXYZ": [
+            -0.3209,
+            -0.3075,
+            1.2806
+          ],
+          "RightFootWorldXYZ": [
+            -0.1621,
+            0.0003,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1679,
+          "LeftWristForwardFromShoulderM": 0.1812,
+          "LeftElbowAngleDeg": 40.16,
+          "LeftWristWorldXYZ": [
+            0.4884,
+            -0.1357,
+            1.1359
+          ],
+          "LeftFootWorldXYZ": [
+            0.1561,
+            0.0554,
+            0.1506
+          ]
+        },
+        {
+          "frame": 20,
+          "RightWristInsideElbowM": -0.0126,
+          "RightWristForwardFromShoulderM": 0.3599,
+          "RightElbowAngleDeg": 58.03,
+          "RightWristWorldXYZ": [
+            -0.3295,
+            -0.3128,
+            1.2792
+          ],
+          "RightFootWorldXYZ": [
+            -0.1618,
+            -0.0016,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1676,
+          "LeftWristForwardFromShoulderM": 0.1826,
+          "LeftElbowAngleDeg": 40.28,
+          "LeftWristWorldXYZ": [
+            0.4882,
+            -0.1368,
+            1.139
+          ],
+          "LeftFootWorldXYZ": [
+            0.1559,
+            0.0536,
+            0.1504
+          ]
+        },
+        {
+          "frame": 21,
+          "RightWristInsideElbowM": -0.0212,
+          "RightWristForwardFromShoulderM": 0.3643,
+          "RightElbowAngleDeg": 54.41,
+          "RightWristWorldXYZ": [
+            -0.3369,
+            -0.317,
+            1.2769
+          ],
+          "RightFootWorldXYZ": [
+            -0.1617,
+            -0.0032,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1673,
+          "LeftWristForwardFromShoulderM": 0.1836,
+          "LeftElbowAngleDeg": 40.37,
+          "LeftWristWorldXYZ": [
+            0.4881,
+            -0.1376,
+            1.1414
+          ],
+          "LeftFootWorldXYZ": [
+            0.1557,
+            0.052,
+            0.1503
+          ]
+        },
+        {
+          "frame": 22,
+          "RightWristInsideElbowM": -0.027,
+          "RightWristForwardFromShoulderM": 0.367,
+          "RightElbowAngleDeg": 51.92,
+          "RightWristWorldXYZ": [
+            -0.342,
+            -0.3197,
+            1.2747
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0043,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1671,
+          "LeftWristForwardFromShoulderM": 0.1842,
+          "LeftElbowAngleDeg": 40.44,
+          "LeftWristWorldXYZ": [
+            0.488,
+            -0.1381,
+            1.143
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0509,
+            0.1502
+          ]
+        },
+        {
+          "frame": 23,
+          "RightWristInsideElbowM": -0.0292,
+          "RightWristForwardFromShoulderM": 0.368,
+          "RightElbowAngleDeg": 50.99,
+          "RightWristWorldXYZ": [
+            -0.3439,
+            -0.3206,
+            1.2738
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1671,
+          "LeftWristForwardFromShoulderM": 0.1844,
+          "LeftElbowAngleDeg": 40.46,
+          "LeftWristWorldXYZ": [
+            0.4879,
+            -0.1383,
+            1.1436
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 24,
+          "RightWristInsideElbowM": -0.0292,
+          "RightWristForwardFromShoulderM": 0.368,
+          "RightElbowAngleDeg": 50.99,
+          "RightWristWorldXYZ": [
+            -0.3439,
+            -0.3206,
+            1.2738
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1671,
+          "LeftWristForwardFromShoulderM": 0.1844,
+          "LeftElbowAngleDeg": 40.46,
+          "LeftWristWorldXYZ": [
+            0.4879,
+            -0.1383,
+            1.1436
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 25,
+          "RightWristInsideElbowM": -0.0292,
+          "RightWristForwardFromShoulderM": 0.368,
+          "RightElbowAngleDeg": 50.99,
+          "RightWristWorldXYZ": [
+            -0.3439,
+            -0.3206,
+            1.2738
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1671,
+          "LeftWristForwardFromShoulderM": 0.1844,
+          "LeftElbowAngleDeg": 40.46,
+          "LeftWristWorldXYZ": [
+            0.4879,
+            -0.1383,
+            1.1436
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 26,
+          "RightWristInsideElbowM": -0.0292,
+          "RightWristForwardFromShoulderM": 0.368,
+          "RightElbowAngleDeg": 50.99,
+          "RightWristWorldXYZ": [
+            -0.3439,
+            -0.3206,
+            1.2738
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1671,
+          "LeftWristForwardFromShoulderM": 0.1844,
+          "LeftElbowAngleDeg": 40.46,
+          "LeftWristWorldXYZ": [
+            0.4879,
+            -0.1383,
+            1.1436
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 27,
+          "RightWristInsideElbowM": -0.0292,
+          "RightWristForwardFromShoulderM": 0.368,
+          "RightElbowAngleDeg": 50.99,
+          "RightWristWorldXYZ": [
+            -0.3439,
+            -0.3206,
+            1.2738
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1671,
+          "LeftWristForwardFromShoulderM": 0.1844,
+          "LeftElbowAngleDeg": 40.46,
+          "LeftWristWorldXYZ": [
+            0.4879,
+            -0.1383,
+            1.1436
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 28,
+          "RightWristInsideElbowM": -0.0292,
+          "RightWristForwardFromShoulderM": 0.368,
+          "RightElbowAngleDeg": 50.99,
+          "RightWristWorldXYZ": [
+            -0.3439,
+            -0.3206,
+            1.2738
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1671,
+          "LeftWristForwardFromShoulderM": 0.1844,
+          "LeftElbowAngleDeg": 40.46,
+          "LeftWristWorldXYZ": [
+            0.4879,
+            -0.1383,
+            1.1436
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        }
+      ],
+      "stats": {
+        "Right": {
+          "minimumInwardM": -0.038,
+          "countOutsideByMoreThan2cm": 10,
+          "minimumForwardM": 0.2803,
+          "angleMin": 50.99,
+          "angleMax": 78.17
+        },
+        "Left": {
+          "minimumInwardM": -0.1763,
+          "countOutsideByMoreThan2cm": 22,
+          "minimumForwardM": 0.1292,
+          "angleMin": 36.99,
+          "angleMax": 40.46
+        }
+      }
+    },
+    "Duel_ThrowCard": {
+      "frames": [
+        {
+          "frame": 6,
+          "RightWristInsideElbowM": 0.0797,
+          "RightWristForwardFromShoulderM": 0.3049,
+          "RightElbowAngleDeg": 86.39,
+          "RightWristWorldXYZ": [
+            -0.2415,
+            -0.2645,
+            1.3612
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1076,
+          "LeftWristForwardFromShoulderM": 0.1848,
+          "LeftElbowAngleDeg": 41.99,
+          "LeftWristWorldXYZ": [
+            0.3376,
+            -0.1425,
+            0.8608
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 7,
+          "RightWristInsideElbowM": 0.0797,
+          "RightWristForwardFromShoulderM": 0.3049,
+          "RightElbowAngleDeg": 86.39,
+          "RightWristWorldXYZ": [
+            -0.2415,
+            -0.2645,
+            1.3612
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1076,
+          "LeftWristForwardFromShoulderM": 0.1848,
+          "LeftElbowAngleDeg": 41.99,
+          "LeftWristWorldXYZ": [
+            0.3376,
+            -0.1425,
+            0.8608
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 8,
+          "RightWristInsideElbowM": 0.0797,
+          "RightWristForwardFromShoulderM": 0.3049,
+          "RightElbowAngleDeg": 86.39,
+          "RightWristWorldXYZ": [
+            -0.2415,
+            -0.2645,
+            1.3612
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1076,
+          "LeftWristForwardFromShoulderM": 0.1848,
+          "LeftElbowAngleDeg": 41.99,
+          "LeftWristWorldXYZ": [
+            0.3376,
+            -0.1425,
+            0.8608
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 9,
+          "RightWristInsideElbowM": 0.0797,
+          "RightWristForwardFromShoulderM": 0.3049,
+          "RightElbowAngleDeg": 86.39,
+          "RightWristWorldXYZ": [
+            -0.2415,
+            -0.2645,
+            1.3612
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1076,
+          "LeftWristForwardFromShoulderM": 0.1848,
+          "LeftElbowAngleDeg": 41.99,
+          "LeftWristWorldXYZ": [
+            0.3376,
+            -0.1425,
+            0.8608
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 10,
+          "RightWristInsideElbowM": 0.0797,
+          "RightWristForwardFromShoulderM": 0.3049,
+          "RightElbowAngleDeg": 86.39,
+          "RightWristWorldXYZ": [
+            -0.2415,
+            -0.2645,
+            1.3612
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1076,
+          "LeftWristForwardFromShoulderM": 0.1848,
+          "LeftElbowAngleDeg": 41.99,
+          "LeftWristWorldXYZ": [
+            0.3376,
+            -0.1425,
+            0.8608
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 11,
+          "RightWristInsideElbowM": 0.0797,
+          "RightWristForwardFromShoulderM": 0.3049,
+          "RightElbowAngleDeg": 86.39,
+          "RightWristWorldXYZ": [
+            -0.2415,
+            -0.2645,
+            1.3612
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1076,
+          "LeftWristForwardFromShoulderM": 0.1848,
+          "LeftElbowAngleDeg": 41.99,
+          "LeftWristWorldXYZ": [
+            0.3376,
+            -0.1425,
+            0.8608
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 12,
+          "RightWristInsideElbowM": 0.0717,
+          "RightWristForwardFromShoulderM": 0.3124,
+          "RightElbowAngleDeg": 83.32,
+          "RightWristWorldXYZ": [
+            -0.2506,
+            -0.271,
+            1.3552
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1138,
+          "LeftWristForwardFromShoulderM": 0.184,
+          "LeftElbowAngleDeg": 41.58,
+          "LeftWristWorldXYZ": [
+            0.3546,
+            -0.1417,
+            0.8763
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 13,
+          "RightWristInsideElbowM": 0.0493,
+          "RightWristForwardFromShoulderM": 0.3305,
+          "RightElbowAngleDeg": 75.22,
+          "RightWristWorldXYZ": [
+            -0.2732,
+            -0.287,
+            1.3385
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1291,
+          "LeftWristForwardFromShoulderM": 0.1814,
+          "LeftElbowAngleDeg": 40.53,
+          "LeftWristWorldXYZ": [
+            0.3954,
+            -0.139,
+            0.9209
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 14,
+          "RightWristInsideElbowM": 0.0156,
+          "RightWristForwardFromShoulderM": 0.3523,
+          "RightElbowAngleDeg": 63.83,
+          "RightWristWorldXYZ": [
+            -0.3016,
+            -0.3064,
+            1.312
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1481,
+          "LeftWristForwardFromShoulderM": 0.177,
+          "LeftElbowAngleDeg": 39.1,
+          "LeftWristWorldXYZ": [
+            0.4426,
+            -0.1339,
+            0.9912
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 15,
+          "RightWristInsideElbowM": -0.0219,
+          "RightWristForwardFromShoulderM": 0.3714,
+          "RightElbowAngleDeg": 51.28,
+          "RightWristWorldXYZ": [
+            -0.3279,
+            -0.3237,
+            1.2786
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1651,
+          "LeftWristForwardFromShoulderM": 0.1708,
+          "LeftElbowAngleDeg": 37.55,
+          "LeftWristWorldXYZ": [
+            0.4801,
+            -0.126,
+            1.0776
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 16,
+          "RightWristInsideElbowM": -0.0533,
+          "RightWristForwardFromShoulderM": 0.3842,
+          "RightElbowAngleDeg": 39.87,
+          "RightWristWorldXYZ": [
+            -0.3462,
+            -0.3357,
+            1.2446
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1766,
+          "LeftWristForwardFromShoulderM": 0.1633,
+          "LeftElbowAngleDeg": 36.15,
+          "LeftWristWorldXYZ": [
+            0.4999,
+            -0.1163,
+            1.163
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 17,
+          "RightWristInsideElbowM": -0.0726,
+          "RightWristForwardFromShoulderM": 0.3909,
+          "RightElbowAngleDeg": 31.71,
+          "RightWristWorldXYZ": [
+            -0.3552,
+            -0.3422,
+            1.2182
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.182,
+          "LeftWristForwardFromShoulderM": 0.1568,
+          "LeftElbowAngleDeg": 35.12,
+          "LeftWristWorldXYZ": [
+            0.505,
+            -0.1076,
+            1.2272
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 18,
+          "RightWristInsideElbowM": -0.0783,
+          "RightWristForwardFromShoulderM": 0.3934,
+          "RightElbowAngleDeg": 28.55,
+          "RightWristWorldXYZ": [
+            -0.357,
+            -0.3448,
+            1.2074
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1834,
+          "LeftWristForwardFromShoulderM": 0.1539,
+          "LeftElbowAngleDeg": 34.73,
+          "LeftWristWorldXYZ": [
+            0.5048,
+            -0.1039,
+            1.2522
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 19,
+          "RightWristInsideElbowM": -0.0747,
+          "RightWristForwardFromShoulderM": 0.3931,
+          "RightElbowAngleDeg": 30.31,
+          "RightWristWorldXYZ": [
+            -0.354,
+            -0.3445,
+            1.2038
+          ],
+          "RightFootWorldXYZ": [
+            -0.1617,
+            -0.003,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1832,
+          "LeftWristForwardFromShoulderM": 0.1542,
+          "LeftElbowAngleDeg": 34.8,
+          "LeftWristWorldXYZ": [
+            0.5051,
+            -0.1041,
+            1.2485
+          ],
+          "LeftFootWorldXYZ": [
+            0.1542,
+            0.0377,
+            0.1492
+          ]
+        },
+        {
+          "frame": 20,
+          "RightWristInsideElbowM": -0.0673,
+          "RightWristForwardFromShoulderM": 0.3904,
+          "RightElbowAngleDeg": 35.08,
+          "RightWristWorldXYZ": [
+            -0.3484,
+            -0.342,
+            1.1953
+          ],
+          "RightFootWorldXYZ": [
+            -0.1622,
+            0.0015,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1829,
+          "LeftWristForwardFromShoulderM": 0.1547,
+          "LeftElbowAngleDeg": 34.96,
+          "LeftWristWorldXYZ": [
+            0.5058,
+            -0.1049,
+            1.2382
+          ],
+          "LeftFootWorldXYZ": [
+            0.154,
+            0.0355,
+            0.1491
+          ]
+        },
+        {
+          "frame": 21,
+          "RightWristInsideElbowM": -0.0575,
+          "RightWristForwardFromShoulderM": 0.3841,
+          "RightElbowAngleDeg": 41.79,
+          "RightWristWorldXYZ": [
+            -0.3413,
+            -0.336,
+            1.1833
+          ],
+          "RightFootWorldXYZ": [
+            -0.1628,
+            0.0073,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": -0.1822,
+          "LeftWristForwardFromShoulderM": 0.1554,
+          "LeftElbowAngleDeg": 35.17,
+          "LeftWristWorldXYZ": [
+            0.5064,
+            -0.1062,
+            1.2222
+          ],
+          "LeftFootWorldXYZ": [
+            0.1537,
+            0.0327,
+            0.1489
+          ]
+        },
+        {
+          "frame": 22,
+          "RightWristInsideElbowM": -0.0469,
+          "RightWristForwardFromShoulderM": 0.3738,
+          "RightElbowAngleDeg": 49.3,
+          "RightWristWorldXYZ": [
+            -0.334,
+            -0.3262,
+            1.1694
+          ],
+          "RightFootWorldXYZ": [
+            -0.1635,
+            0.013,
+            0.1422
+          ],
+          "LeftWristInsideElbowM": -0.1812,
+          "LeftWristForwardFromShoulderM": 0.1559,
+          "LeftElbowAngleDeg": 35.38,
+          "LeftWristWorldXYZ": [
+            0.5063,
+            -0.1079,
+            1.2019
+          ],
+          "LeftFootWorldXYZ": [
+            0.1534,
+            0.0298,
+            0.1488
+          ]
+        },
+        {
+          "frame": 23,
+          "RightWristInsideElbowM": -0.037,
+          "RightWristForwardFromShoulderM": 0.3601,
+          "RightElbowAngleDeg": 56.42,
+          "RightWristWorldXYZ": [
+            -0.3282,
+            -0.3135,
+            1.1554
+          ],
+          "RightFootWorldXYZ": [
+            -0.164,
+            0.0175,
+            0.1424
+          ],
+          "LeftWristInsideElbowM": -0.1797,
+          "LeftWristForwardFromShoulderM": 0.1558,
+          "LeftElbowAngleDeg": 35.55,
+          "LeftWristWorldXYZ": [
+            0.505,
+            -0.1097,
+            1.1781
+          ],
+          "LeftFootWorldXYZ": [
+            0.1532,
+            0.0276,
+            0.1487
+          ]
+        },
+        {
+          "frame": 24,
+          "RightWristInsideElbowM": -0.0291,
+          "RightWristForwardFromShoulderM": 0.3452,
+          "RightElbowAngleDeg": 62.04,
+          "RightWristWorldXYZ": [
+            -0.3256,
+            -0.3001,
+            1.1424
+          ],
+          "RightFootWorldXYZ": [
+            -0.1642,
+            0.0193,
+            0.1424
+          ],
+          "LeftWristInsideElbowM": -0.1778,
+          "LeftWristForwardFromShoulderM": 0.1546,
+          "LeftElbowAngleDeg": 35.62,
+          "LeftWristWorldXYZ": [
+            0.5021,
+            -0.1113,
+            1.152
+          ],
+          "LeftFootWorldXYZ": [
+            0.1531,
+            0.0267,
+            0.1486
+          ]
+        },
+        {
+          "frame": 25,
+          "RightWristInsideElbowM": -0.0254,
+          "RightWristForwardFromShoulderM": 0.3301,
+          "RightElbowAngleDeg": 65.81,
+          "RightWristWorldXYZ": [
+            -0.3294,
+            -0.2873,
+            1.1337
+          ],
+          "RightFootWorldXYZ": [
+            -0.1639,
+            0.0168,
+            0.1424
+          ],
+          "LeftWristInsideElbowM": -0.1764,
+          "LeftWristForwardFromShoulderM": 0.1508,
+          "LeftElbowAngleDeg": 35.76,
+          "LeftWristWorldXYZ": [
+            0.4991,
+            -0.111,
+            1.1275
+          ],
+          "LeftFootWorldXYZ": [
+            0.1533,
+            0.0292,
+            0.1487
+          ]
+        },
+        {
+          "frame": 26,
+          "RightWristInsideElbowM": -0.0259,
+          "RightWristForwardFromShoulderM": 0.3151,
+          "RightElbowAngleDeg": 68.31,
+          "RightWristWorldXYZ": [
+            -0.3388,
+            -0.2754,
+            1.1306
+          ],
+          "RightFootWorldXYZ": [
+            -0.1632,
+            0.0108,
+            0.1422
+          ],
+          "LeftWristInsideElbowM": -0.1759,
+          "LeftWristForwardFromShoulderM": 0.1445,
+          "LeftElbowAngleDeg": 36.09,
+          "LeftWristWorldXYZ": [
+            0.4972,
+            -0.1082,
+            1.1077
+          ],
+          "LeftFootWorldXYZ": [
+            0.154,
+            0.0351,
+            0.1491
+          ]
+        },
+        {
+          "frame": 27,
+          "RightWristInsideElbowM": -0.0289,
+          "RightWristForwardFromShoulderM": 0.3014,
+          "RightElbowAngleDeg": 69.84,
+          "RightWristWorldXYZ": [
+            -0.3502,
+            -0.2651,
+            1.1307
+          ],
+          "RightFootWorldXYZ": [
+            -0.1624,
+            0.0037,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1761,
+          "LeftWristForwardFromShoulderM": 0.1375,
+          "LeftElbowAngleDeg": 36.5,
+          "LeftWristWorldXYZ": [
+            0.4961,
+            -0.1043,
+            1.0925
+          ],
+          "LeftFootWorldXYZ": [
+            0.1547,
+            0.0421,
+            0.1495
+          ]
+        },
+        {
+          "frame": 28,
+          "RightWristInsideElbowM": -0.0332,
+          "RightWristForwardFromShoulderM": 0.2898,
+          "RightElbowAngleDeg": 70.65,
+          "RightWristWorldXYZ": [
+            -0.3609,
+            -0.2561,
+            1.1309
+          ],
+          "RightFootWorldXYZ": [
+            -0.1618,
+            -0.0023,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1764,
+          "LeftWristForwardFromShoulderM": 0.1318,
+          "LeftElbowAngleDeg": 36.85,
+          "LeftWristWorldXYZ": [
+            0.4953,
+            -0.1007,
+            1.0816
+          ],
+          "LeftFootWorldXYZ": [
+            0.1553,
+            0.048,
+            0.15
+          ]
+        },
+        {
+          "frame": 29,
+          "RightWristInsideElbowM": -0.038,
+          "RightWristForwardFromShoulderM": 0.2803,
+          "RightElbowAngleDeg": 70.88,
+          "RightWristWorldXYZ": [
+            -0.3687,
+            -0.2479,
+            1.127
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": -0.1763,
+          "LeftWristForwardFromShoulderM": 0.1292,
+          "LeftElbowAngleDeg": 36.99,
+          "LeftWristWorldXYZ": [
+            0.4944,
+            -0.0988,
+            1.0749
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        }
+      ],
+      "stats": {
+        "Right": {
+          "minimumInwardM": -0.0783,
+          "countOutsideByMoreThan2cm": 15,
+          "minimumForwardM": 0.2803,
+          "angleMin": 28.55,
+          "angleMax": 86.39
+        },
+        "Left": {
+          "minimumInwardM": -0.1834,
+          "countOutsideByMoreThan2cm": 24,
+          "minimumForwardM": 0.1292,
+          "angleMin": 34.73,
+          "angleMax": 41.99
+        }
+      }
+    },
+    "Duel_Recoil": {
+      "frames": [
+        {
+          "frame": 5,
+          "RightWristInsideElbowM": 0.0344,
+          "RightWristForwardFromShoulderM": 0.3007,
+          "RightElbowAngleDeg": 75.05,
+          "RightWristWorldXYZ": [
+            -0.2962,
+            -0.2749,
+            1.1365
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0245,
+          "LeftWristForwardFromShoulderM": 0.3074,
+          "LeftElbowAngleDeg": 71.19,
+          "LeftWristWorldXYZ": [
+            0.316,
+            -0.2855,
+            1.1587
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 6,
+          "RightWristInsideElbowM": 0.0344,
+          "RightWristForwardFromShoulderM": 0.3007,
+          "RightElbowAngleDeg": 75.05,
+          "RightWristWorldXYZ": [
+            -0.2962,
+            -0.2749,
+            1.1365
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0245,
+          "LeftWristForwardFromShoulderM": 0.3074,
+          "LeftElbowAngleDeg": 71.19,
+          "LeftWristWorldXYZ": [
+            0.316,
+            -0.2855,
+            1.1587
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 7,
+          "RightWristInsideElbowM": 0.0344,
+          "RightWristForwardFromShoulderM": 0.3007,
+          "RightElbowAngleDeg": 75.05,
+          "RightWristWorldXYZ": [
+            -0.2962,
+            -0.2749,
+            1.1365
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0245,
+          "LeftWristForwardFromShoulderM": 0.3074,
+          "LeftElbowAngleDeg": 71.19,
+          "LeftWristWorldXYZ": [
+            0.316,
+            -0.2855,
+            1.1587
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 8,
+          "RightWristInsideElbowM": 0.0344,
+          "RightWristForwardFromShoulderM": 0.3007,
+          "RightElbowAngleDeg": 75.05,
+          "RightWristWorldXYZ": [
+            -0.2962,
+            -0.2749,
+            1.1365
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0245,
+          "LeftWristForwardFromShoulderM": 0.3074,
+          "LeftElbowAngleDeg": 71.19,
+          "LeftWristWorldXYZ": [
+            0.316,
+            -0.2855,
+            1.1587
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 9,
+          "RightWristInsideElbowM": 0.0344,
+          "RightWristForwardFromShoulderM": 0.3007,
+          "RightElbowAngleDeg": 75.05,
+          "RightWristWorldXYZ": [
+            -0.2962,
+            -0.2749,
+            1.1365
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0245,
+          "LeftWristForwardFromShoulderM": 0.3074,
+          "LeftElbowAngleDeg": 71.19,
+          "LeftWristWorldXYZ": [
+            0.316,
+            -0.2855,
+            1.1587
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 10,
+          "RightWristInsideElbowM": 0.0344,
+          "RightWristForwardFromShoulderM": 0.3007,
+          "RightElbowAngleDeg": 75.05,
+          "RightWristWorldXYZ": [
+            -0.2962,
+            -0.2749,
+            1.1365
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0245,
+          "LeftWristForwardFromShoulderM": 0.3074,
+          "LeftElbowAngleDeg": 71.19,
+          "LeftWristWorldXYZ": [
+            0.316,
+            -0.2855,
+            1.1587
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 11,
+          "RightWristInsideElbowM": 0.0344,
+          "RightWristForwardFromShoulderM": 0.3007,
+          "RightElbowAngleDeg": 75.05,
+          "RightWristWorldXYZ": [
+            -0.2962,
+            -0.2749,
+            1.1365
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0245,
+          "LeftWristForwardFromShoulderM": 0.3074,
+          "LeftElbowAngleDeg": 71.19,
+          "LeftWristWorldXYZ": [
+            0.316,
+            -0.2855,
+            1.1587
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 12,
+          "RightWristInsideElbowM": 0.0344,
+          "RightWristForwardFromShoulderM": 0.3007,
+          "RightElbowAngleDeg": 75.05,
+          "RightWristWorldXYZ": [
+            -0.2962,
+            -0.2749,
+            1.1365
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0245,
+          "LeftWristForwardFromShoulderM": 0.3074,
+          "LeftElbowAngleDeg": 71.19,
+          "LeftWristWorldXYZ": [
+            0.316,
+            -0.2855,
+            1.1587
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 13,
+          "RightWristInsideElbowM": 0.0316,
+          "RightWristForwardFromShoulderM": 0.3013,
+          "RightElbowAngleDeg": 74.51,
+          "RightWristWorldXYZ": [
+            -0.2992,
+            -0.2748,
+            1.136
+          ],
+          "RightFootWorldXYZ": [
+            -0.169,
+            0.0537,
+            0.1454
+          ],
+          "LeftWristInsideElbowM": 0.0212,
+          "LeftWristForwardFromShoulderM": 0.3074,
+          "LeftElbowAngleDeg": 70.68,
+          "LeftWristWorldXYZ": [
+            0.3188,
+            -0.2847,
+            1.16
+          ],
+          "LeftFootWorldXYZ": [
+            0.1494,
+            -0.0144,
+            0.1491
+          ]
+        },
+        {
+          "frame": 14,
+          "RightWristInsideElbowM": 0.0243,
+          "RightWristForwardFromShoulderM": 0.3025,
+          "RightElbowAngleDeg": 73.17,
+          "RightWristWorldXYZ": [
+            -0.3064,
+            -0.2743,
+            1.1345
+          ],
+          "RightFootWorldXYZ": [
+            -0.1685,
+            0.05,
+            0.145
+          ],
+          "LeftWristInsideElbowM": 0.013,
+          "LeftWristForwardFromShoulderM": 0.3072,
+          "LeftElbowAngleDeg": 69.39,
+          "LeftWristWorldXYZ": [
+            0.3256,
+            -0.2824,
+            1.1632
+          ],
+          "LeftFootWorldXYZ": [
+            0.1496,
+            -0.0125,
+            0.1488
+          ]
+        },
+        {
+          "frame": 15,
+          "RightWristInsideElbowM": 0.0148,
+          "RightWristForwardFromShoulderM": 0.3038,
+          "RightElbowAngleDeg": 71.44,
+          "RightWristWorldXYZ": [
+            -0.3157,
+            -0.2735,
+            1.1321
+          ],
+          "RightFootWorldXYZ": [
+            -0.168,
+            0.0452,
+            0.1444
+          ],
+          "LeftWristInsideElbowM": 0.0026,
+          "LeftWristForwardFromShoulderM": 0.3067,
+          "LeftElbowAngleDeg": 67.71,
+          "LeftWristWorldXYZ": [
+            0.3342,
+            -0.2793,
+            1.167
+          ],
+          "LeftFootWorldXYZ": [
+            0.1499,
+            -0.0101,
+            0.1485
+          ]
+        },
+        {
+          "frame": 16,
+          "RightWristInsideElbowM": 0.0053,
+          "RightWristForwardFromShoulderM": 0.3047,
+          "RightElbowAngleDeg": 69.72,
+          "RightWristWorldXYZ": [
+            -0.3248,
+            -0.2723,
+            1.1293
+          ],
+          "RightFootWorldXYZ": [
+            -0.1674,
+            0.0404,
+            0.1439
+          ],
+          "LeftWristInsideElbowM": -0.0076,
+          "LeftWristForwardFromShoulderM": 0.3058,
+          "LeftElbowAngleDeg": 66.05,
+          "LeftWristWorldXYZ": [
+            0.3424,
+            -0.2758,
+            1.1705
+          ],
+          "LeftFootWorldXYZ": [
+            0.1502,
+            -0.0077,
+            0.1482
+          ]
+        },
+        {
+          "frame": 17,
+          "RightWristInsideElbowM": -0.002,
+          "RightWristForwardFromShoulderM": 0.3053,
+          "RightElbowAngleDeg": 68.4,
+          "RightWristWorldXYZ": [
+            -0.3316,
+            -0.2712,
+            1.1269
+          ],
+          "RightFootWorldXYZ": [
+            -0.167,
+            0.0367,
+            0.1435
+          ],
+          "LeftWristInsideElbowM": -0.0153,
+          "LeftWristForwardFromShoulderM": 0.305,
+          "LeftElbowAngleDeg": 64.76,
+          "LeftWristWorldXYZ": [
+            0.3485,
+            -0.273,
+            1.173
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0058,
+            0.148
+          ]
+        },
+        {
+          "frame": 18,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 19,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 20,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 21,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 22,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 23,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 24,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 25,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 26,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 27,
+          "RightWristInsideElbowM": -0.0049,
+          "RightWristForwardFromShoulderM": 0.3054,
+          "RightElbowAngleDeg": 67.88,
+          "RightWristWorldXYZ": [
+            -0.3344,
+            -0.2707,
+            1.1258
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": -0.0184,
+          "LeftWristForwardFromShoulderM": 0.3046,
+          "LeftElbowAngleDeg": 64.25,
+          "LeftWristWorldXYZ": [
+            0.3509,
+            -0.2718,
+            1.1739
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        }
+      ],
+      "stats": {
+        "Right": {
+          "minimumInwardM": -0.0049,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.3007,
+          "angleMin": 67.88,
+          "angleMax": 75.05
+        },
+        "Left": {
+          "minimumInwardM": -0.0184,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.3046,
+          "angleMin": 64.25,
+          "angleMax": 71.19
+        }
+      }
+    },
+    "Duel_Victory": {
+      "frames": [
+        {
+          "frame": 7,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 8,
+          "RightWristInsideElbowM": 0.1092,
+          "RightWristForwardFromShoulderM": 0.3439,
+          "RightElbowAngleDeg": 59.36,
+          "RightWristWorldXYZ": [
+            -0.125,
+            -0.2919,
+            1.4768
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1445,
+          "LeftWristForwardFromShoulderM": 0.2167,
+          "LeftElbowAngleDeg": 44.31,
+          "LeftWristWorldXYZ": [
+            0.4478,
+            -0.1661,
+            1.0072
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 9,
+          "RightWristInsideElbowM": 0.1106,
+          "RightWristForwardFromShoulderM": 0.3417,
+          "RightElbowAngleDeg": 58.06,
+          "RightWristWorldXYZ": [
+            -0.1153,
+            -0.2898,
+            1.4861
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1435,
+          "LeftWristForwardFromShoulderM": 0.2185,
+          "LeftElbowAngleDeg": 44.54,
+          "LeftWristWorldXYZ": [
+            0.4466,
+            -0.1679,
+            1.0056
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 10,
+          "RightWristInsideElbowM": 0.1083,
+          "RightWristForwardFromShoulderM": 0.3419,
+          "RightElbowAngleDeg": 56.16,
+          "RightWristWorldXYZ": [
+            -0.1115,
+            -0.29,
+            1.4932
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1428,
+          "LeftWristForwardFromShoulderM": 0.2197,
+          "LeftElbowAngleDeg": 44.7,
+          "LeftWristWorldXYZ": [
+            0.4458,
+            -0.1691,
+            1.0047
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 11,
+          "RightWristInsideElbowM": 0.1034,
+          "RightWristForwardFromShoulderM": 0.3437,
+          "RightElbowAngleDeg": 53.94,
+          "RightWristWorldXYZ": [
+            -0.1121,
+            -0.2918,
+            1.4984
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1424,
+          "LeftWristForwardFromShoulderM": 0.2206,
+          "LeftElbowAngleDeg": 44.8,
+          "LeftWristWorldXYZ": [
+            0.4455,
+            -0.1699,
+            1.0044
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 12,
+          "RightWristInsideElbowM": 0.0973,
+          "RightWristForwardFromShoulderM": 0.3464,
+          "RightElbowAngleDeg": 51.72,
+          "RightWristWorldXYZ": [
+            -0.1155,
+            -0.2945,
+            1.5019
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1421,
+          "LeftWristForwardFromShoulderM": 0.2211,
+          "LeftElbowAngleDeg": 44.87,
+          "LeftWristWorldXYZ": [
+            0.4454,
+            -0.1704,
+            1.0044
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 13,
+          "RightWristInsideElbowM": 0.0911,
+          "RightWristForwardFromShoulderM": 0.3491,
+          "RightElbowAngleDeg": 49.77,
+          "RightWristWorldXYZ": [
+            -0.1202,
+            -0.2973,
+            1.504
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.142,
+          "LeftWristForwardFromShoulderM": 0.2213,
+          "LeftElbowAngleDeg": 44.9,
+          "LeftWristWorldXYZ": [
+            0.4455,
+            -0.1706,
+            1.0047
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 14,
+          "RightWristInsideElbowM": 0.0864,
+          "RightWristForwardFromShoulderM": 0.3513,
+          "RightElbowAngleDeg": 48.39,
+          "RightWristWorldXYZ": [
+            -0.1243,
+            -0.2994,
+            1.5049
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.142,
+          "LeftWristForwardFromShoulderM": 0.2214,
+          "LeftElbowAngleDeg": 44.91,
+          "LeftWristWorldXYZ": [
+            0.4456,
+            -0.1707,
+            1.0049
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 15,
+          "RightWristInsideElbowM": 0.0845,
+          "RightWristForwardFromShoulderM": 0.3521,
+          "RightElbowAngleDeg": 47.86,
+          "RightWristWorldXYZ": [
+            -0.1261,
+            -0.3003,
+            1.5051
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.142,
+          "LeftWristForwardFromShoulderM": 0.2214,
+          "LeftElbowAngleDeg": 44.91,
+          "LeftWristWorldXYZ": [
+            0.4457,
+            -0.1707,
+            1.0051
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 16,
+          "RightWristInsideElbowM": 0.0853,
+          "RightWristForwardFromShoulderM": 0.3521,
+          "RightElbowAngleDeg": 48.36,
+          "RightWristWorldXYZ": [
+            -0.1268,
+            -0.3003,
+            1.5035
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1422,
+          "LeftWristForwardFromShoulderM": 0.2211,
+          "LeftElbowAngleDeg": 44.87,
+          "LeftWristWorldXYZ": [
+            0.4458,
+            -0.1704,
+            1.0053
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 17,
+          "RightWristInsideElbowM": 0.0874,
+          "RightWristForwardFromShoulderM": 0.3521,
+          "RightElbowAngleDeg": 49.68,
+          "RightWristWorldXYZ": [
+            -0.1287,
+            -0.3003,
+            1.499
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1426,
+          "LeftWristForwardFromShoulderM": 0.2203,
+          "LeftElbowAngleDeg": 44.77,
+          "LeftWristWorldXYZ": [
+            0.4463,
+            -0.1697,
+            1.0058
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 18,
+          "RightWristInsideElbowM": 0.0903,
+          "RightWristForwardFromShoulderM": 0.3519,
+          "RightElbowAngleDeg": 51.55,
+          "RightWristWorldXYZ": [
+            -0.1313,
+            -0.3,
+            1.4927
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1432,
+          "LeftWristForwardFromShoulderM": 0.2192,
+          "LeftElbowAngleDeg": 44.63,
+          "LeftWristWorldXYZ": [
+            0.4469,
+            -0.1686,
+            1.0065
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 19,
+          "RightWristInsideElbowM": 0.0937,
+          "RightWristForwardFromShoulderM": 0.3514,
+          "RightElbowAngleDeg": 53.73,
+          "RightWristWorldXYZ": [
+            -0.1343,
+            -0.2995,
+            1.4853
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1439,
+          "LeftWristForwardFromShoulderM": 0.2179,
+          "LeftElbowAngleDeg": 44.46,
+          "LeftWristWorldXYZ": [
+            0.4477,
+            -0.1673,
+            1.0074
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 20,
+          "RightWristInsideElbowM": 0.097,
+          "RightWristForwardFromShoulderM": 0.3507,
+          "RightElbowAngleDeg": 55.93,
+          "RightWristWorldXYZ": [
+            -0.1372,
+            -0.2988,
+            1.4778
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1446,
+          "LeftWristForwardFromShoulderM": 0.2166,
+          "LeftElbowAngleDeg": 44.3,
+          "LeftWristWorldXYZ": [
+            0.4484,
+            -0.166,
+            1.0082
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 21,
+          "RightWristInsideElbowM": 0.0999,
+          "RightWristForwardFromShoulderM": 0.3499,
+          "RightElbowAngleDeg": 57.86,
+          "RightWristWorldXYZ": [
+            -0.1396,
+            -0.2979,
+            1.4712
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1452,
+          "LeftWristForwardFromShoulderM": 0.2155,
+          "LeftElbowAngleDeg": 44.15,
+          "LeftWristWorldXYZ": [
+            0.449,
+            -0.1649,
+            1.009
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 22,
+          "RightWristInsideElbowM": 0.1019,
+          "RightWristForwardFromShoulderM": 0.3491,
+          "RightElbowAngleDeg": 59.23,
+          "RightWristWorldXYZ": [
+            -0.1414,
+            -0.2972,
+            1.4665
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1456,
+          "LeftWristForwardFromShoulderM": 0.2147,
+          "LeftElbowAngleDeg": 44.05,
+          "LeftWristWorldXYZ": [
+            0.4495,
+            -0.1641,
+            1.0095
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 23,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 24,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 25,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 26,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 27,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 28,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 29,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 30,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 31,
+          "RightWristInsideElbowM": 0.1027,
+          "RightWristForwardFromShoulderM": 0.3488,
+          "RightElbowAngleDeg": 59.75,
+          "RightWristWorldXYZ": [
+            -0.142,
+            -0.2969,
+            1.4647
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": -0.1458,
+          "LeftWristForwardFromShoulderM": 0.2144,
+          "LeftElbowAngleDeg": 44.01,
+          "LeftWristWorldXYZ": [
+            0.4496,
+            -0.1638,
+            1.0097
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        }
+      ],
+      "stats": {
+        "Right": {
+          "minimumInwardM": 0.0845,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.3417,
+          "angleMin": 47.86,
+          "angleMax": 59.75
+        },
+        "Left": {
+          "minimumInwardM": -0.1458,
+          "countOutsideByMoreThan2cm": 25,
+          "minimumForwardM": 0.2144,
+          "angleMin": 44.01,
+          "angleMax": 44.91
+        }
+      }
+    }
+  },
+  "jay-teen-duel-v07-elbow-inward.glb": {
+    "Duel_DrawCard": {
+      "frames": [
+        {
+          "frame": 7,
+          "RightWristInsideElbowM": 0.0396,
+          "RightWristForwardFromShoulderM": 0.2787,
+          "RightElbowAngleDeg": 75.34,
+          "RightWristWorldXYZ": [
+            -0.2911,
+            -0.2462,
+            1.0657
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0284,
+          "LeftWristForwardFromShoulderM": 0.1996,
+          "LeftElbowAngleDeg": 60.07,
+          "LeftWristWorldXYZ": [
+            0.2959,
+            -0.1691,
+            0.9837
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 8,
+          "RightWristInsideElbowM": 0.0507,
+          "RightWristForwardFromShoulderM": 0.2945,
+          "RightElbowAngleDeg": 77.48,
+          "RightWristWorldXYZ": [
+            -0.2799,
+            -0.2615,
+            1.0914
+          ],
+          "RightFootWorldXYZ": [
+            -0.1616,
+            -0.0041,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.028,
+          "LeftWristForwardFromShoulderM": 0.2037,
+          "LeftElbowAngleDeg": 60.66,
+          "LeftWristWorldXYZ": [
+            0.2963,
+            -0.173,
+            0.9911
+          ],
+          "LeftFootWorldXYZ": [
+            0.156,
+            0.0544,
+            0.1505
+          ]
+        },
+        {
+          "frame": 9,
+          "RightWristInsideElbowM": 0.0542,
+          "RightWristForwardFromShoulderM": 0.3074,
+          "RightElbowAngleDeg": 78.21,
+          "RightWristWorldXYZ": [
+            -0.276,
+            -0.2734,
+            1.1167
+          ],
+          "RightFootWorldXYZ": [
+            -0.1618,
+            -0.0024,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0278,
+          "LeftWristForwardFromShoulderM": 0.2088,
+          "LeftElbowAngleDeg": 61.07,
+          "LeftWristWorldXYZ": [
+            0.2964,
+            -0.1771,
+            0.9977
+          ],
+          "LeftFootWorldXYZ": [
+            0.1563,
+            0.0573,
+            0.1508
+          ]
+        },
+        {
+          "frame": 10,
+          "RightWristInsideElbowM": 0.0528,
+          "RightWristForwardFromShoulderM": 0.3177,
+          "RightElbowAngleDeg": 78.19,
+          "RightWristWorldXYZ": [
+            -0.2768,
+            -0.2823,
+            1.1423
+          ],
+          "RightFootWorldXYZ": [
+            -0.162,
+            -0.0,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0276,
+          "LeftWristForwardFromShoulderM": 0.2145,
+          "LeftElbowAngleDeg": 61.32,
+          "LeftWristWorldXYZ": [
+            0.2964,
+            -0.1813,
+            1.0036
+          ],
+          "LeftFootWorldXYZ": [
+            0.1565,
+            0.0594,
+            0.151
+          ]
+        },
+        {
+          "frame": 11,
+          "RightWristInsideElbowM": 0.049,
+          "RightWristForwardFromShoulderM": 0.3253,
+          "RightElbowAngleDeg": 77.88,
+          "RightWristWorldXYZ": [
+            -0.2799,
+            -0.2881,
+            1.1677
+          ],
+          "RightFootWorldXYZ": [
+            -0.1623,
+            0.0025,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0275,
+          "LeftWristForwardFromShoulderM": 0.2205,
+          "LeftElbowAngleDeg": 61.46,
+          "LeftWristWorldXYZ": [
+            0.2963,
+            -0.1855,
+            1.0089
+          ],
+          "LeftFootWorldXYZ": [
+            0.1566,
+            0.0609,
+            0.1511
+          ]
+        },
+        {
+          "frame": 12,
+          "RightWristInsideElbowM": 0.0449,
+          "RightWristForwardFromShoulderM": 0.3302,
+          "RightElbowAngleDeg": 77.55,
+          "RightWristWorldXYZ": [
+            -0.2831,
+            -0.2912,
+            1.1918
+          ],
+          "RightFootWorldXYZ": [
+            -0.1626,
+            0.0049,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": 0.0275,
+          "LeftWristForwardFromShoulderM": 0.2266,
+          "LeftElbowAngleDeg": 61.51,
+          "LeftWristWorldXYZ": [
+            0.2962,
+            -0.1896,
+            1.0139
+          ],
+          "LeftFootWorldXYZ": [
+            0.1567,
+            0.0618,
+            0.1512
+          ]
+        },
+        {
+          "frame": 13,
+          "RightWristInsideElbowM": 0.0425,
+          "RightWristForwardFromShoulderM": 0.3333,
+          "RightElbowAngleDeg": 77.25,
+          "RightWristWorldXYZ": [
+            -0.2846,
+            -0.2925,
+            1.2128
+          ],
+          "RightFootWorldXYZ": [
+            -0.1628,
+            0.0066,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": 0.0274,
+          "LeftWristForwardFromShoulderM": 0.2325,
+          "LeftElbowAngleDeg": 61.53,
+          "LeftWristWorldXYZ": [
+            0.2962,
+            -0.1935,
+            1.0187
+          ],
+          "LeftFootWorldXYZ": [
+            0.1568,
+            0.0622,
+            0.1513
+          ]
+        },
+        {
+          "frame": 14,
+          "RightWristInsideElbowM": 0.0433,
+          "RightWristForwardFromShoulderM": 0.3361,
+          "RightElbowAngleDeg": 76.86,
+          "RightWristWorldXYZ": [
+            -0.2828,
+            -0.2937,
+            1.2287
+          ],
+          "RightFootWorldXYZ": [
+            -0.1628,
+            0.0073,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": 0.0273,
+          "LeftWristForwardFromShoulderM": 0.2379,
+          "LeftElbowAngleDeg": 61.53,
+          "LeftWristWorldXYZ": [
+            0.2962,
+            -0.1971,
+            1.0233
+          ],
+          "LeftFootWorldXYZ": [
+            0.1568,
+            0.0623,
+            0.1513
+          ]
+        },
+        {
+          "frame": 15,
+          "RightWristInsideElbowM": 0.0452,
+          "RightWristForwardFromShoulderM": 0.3407,
+          "RightElbowAngleDeg": 75.61,
+          "RightWristWorldXYZ": [
+            -0.2797,
+            -0.2969,
+            1.2381
+          ],
+          "RightFootWorldXYZ": [
+            -0.1628,
+            0.0069,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": 0.0271,
+          "LeftWristForwardFromShoulderM": 0.2426,
+          "LeftElbowAngleDeg": 61.57,
+          "LeftWristWorldXYZ": [
+            0.2963,
+            -0.2003,
+            1.0279
+          ],
+          "LeftFootWorldXYZ": [
+            0.1567,
+            0.0619,
+            0.1512
+          ]
+        },
+        {
+          "frame": 16,
+          "RightWristInsideElbowM": 0.0455,
+          "RightWristForwardFromShoulderM": 0.3478,
+          "RightElbowAngleDeg": 73.06,
+          "RightWristWorldXYZ": [
+            -0.2778,
+            -0.3029,
+            1.2415
+          ],
+          "RightFootWorldXYZ": [
+            -0.1627,
+            0.0057,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": 0.0269,
+          "LeftWristForwardFromShoulderM": 0.2466,
+          "LeftElbowAngleDeg": 61.62,
+          "LeftWristWorldXYZ": [
+            0.2965,
+            -0.2032,
+            1.0324
+          ],
+          "LeftFootWorldXYZ": [
+            0.1566,
+            0.0609,
+            0.1511
+          ]
+        },
+        {
+          "frame": 17,
+          "RightWristInsideElbowM": 0.0449,
+          "RightWristForwardFromShoulderM": 0.3564,
+          "RightElbowAngleDeg": 69.66,
+          "RightWristWorldXYZ": [
+            -0.2767,
+            -0.3107,
+            1.24
+          ],
+          "RightFootWorldXYZ": [
+            -0.1625,
+            0.0041,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0266,
+          "LeftWristForwardFromShoulderM": 0.25,
+          "LeftElbowAngleDeg": 61.69,
+          "LeftWristWorldXYZ": [
+            0.2967,
+            -0.2057,
+            1.0366
+          ],
+          "LeftFootWorldXYZ": [
+            0.1565,
+            0.0593,
+            0.151
+          ]
+        },
+        {
+          "frame": 18,
+          "RightWristInsideElbowM": 0.0439,
+          "RightWristForwardFromShoulderM": 0.3654,
+          "RightElbowAngleDeg": 65.88,
+          "RightWristWorldXYZ": [
+            -0.276,
+            -0.319,
+            1.2344
+          ],
+          "RightFootWorldXYZ": [
+            -0.1623,
+            0.0023,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0263,
+          "LeftWristForwardFromShoulderM": 0.2527,
+          "LeftElbowAngleDeg": 61.77,
+          "LeftWristWorldXYZ": [
+            0.297,
+            -0.2077,
+            1.0405
+          ],
+          "LeftFootWorldXYZ": [
+            0.1563,
+            0.0574,
+            0.1508
+          ]
+        },
+        {
+          "frame": 19,
+          "RightWristInsideElbowM": 0.0431,
+          "RightWristForwardFromShoulderM": 0.3736,
+          "RightElbowAngleDeg": 62.21,
+          "RightWristWorldXYZ": [
+            -0.2753,
+            -0.3268,
+            1.2262
+          ],
+          "RightFootWorldXYZ": [
+            -0.1621,
+            0.0003,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.026,
+          "LeftWristForwardFromShoulderM": 0.2549,
+          "LeftElbowAngleDeg": 61.85,
+          "LeftWristWorldXYZ": [
+            0.2972,
+            -0.2094,
+            1.0439
+          ],
+          "LeftFootWorldXYZ": [
+            0.1561,
+            0.0554,
+            0.1506
+          ]
+        },
+        {
+          "frame": 20,
+          "RightWristInsideElbowM": 0.0425,
+          "RightWristForwardFromShoulderM": 0.3801,
+          "RightElbowAngleDeg": 59.04,
+          "RightWristWorldXYZ": [
+            -0.2744,
+            -0.333,
+            1.2167
+          ],
+          "RightFootWorldXYZ": [
+            -0.1618,
+            -0.0016,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0258,
+          "LeftWristForwardFromShoulderM": 0.2566,
+          "LeftElbowAngleDeg": 61.92,
+          "LeftWristWorldXYZ": [
+            0.2975,
+            -0.2108,
+            1.0467
+          ],
+          "LeftFootWorldXYZ": [
+            0.1559,
+            0.0536,
+            0.1504
+          ]
+        },
+        {
+          "frame": 21,
+          "RightWristInsideElbowM": 0.0423,
+          "RightWristForwardFromShoulderM": 0.3847,
+          "RightElbowAngleDeg": 56.65,
+          "RightWristWorldXYZ": [
+            -0.2734,
+            -0.3374,
+            1.2078
+          ],
+          "RightFootWorldXYZ": [
+            -0.1617,
+            -0.0032,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0256,
+          "LeftWristForwardFromShoulderM": 0.2578,
+          "LeftElbowAngleDeg": 61.98,
+          "LeftWristWorldXYZ": [
+            0.2976,
+            -0.2118,
+            1.0488
+          ],
+          "LeftFootWorldXYZ": [
+            0.1557,
+            0.052,
+            0.1503
+          ]
+        },
+        {
+          "frame": 22,
+          "RightWristInsideElbowM": 0.0424,
+          "RightWristForwardFromShoulderM": 0.3873,
+          "RightElbowAngleDeg": 55.17,
+          "RightWristWorldXYZ": [
+            -0.2726,
+            -0.34,
+            1.2012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0043,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0254,
+          "LeftWristForwardFromShoulderM": 0.2584,
+          "LeftElbowAngleDeg": 62.02,
+          "LeftWristWorldXYZ": [
+            0.2978,
+            -0.2123,
+            1.0502
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0509,
+            0.1502
+          ]
+        },
+        {
+          "frame": 23,
+          "RightWristInsideElbowM": 0.0424,
+          "RightWristForwardFromShoulderM": 0.3882,
+          "RightElbowAngleDeg": 54.66,
+          "RightWristWorldXYZ": [
+            -0.2723,
+            -0.3408,
+            1.1986
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0254,
+          "LeftWristForwardFromShoulderM": 0.2587,
+          "LeftElbowAngleDeg": 62.04,
+          "LeftWristWorldXYZ": [
+            0.2978,
+            -0.2125,
+            1.0507
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 24,
+          "RightWristInsideElbowM": 0.0424,
+          "RightWristForwardFromShoulderM": 0.3882,
+          "RightElbowAngleDeg": 54.66,
+          "RightWristWorldXYZ": [
+            -0.2723,
+            -0.3408,
+            1.1986
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0254,
+          "LeftWristForwardFromShoulderM": 0.2587,
+          "LeftElbowAngleDeg": 62.04,
+          "LeftWristWorldXYZ": [
+            0.2978,
+            -0.2125,
+            1.0507
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 25,
+          "RightWristInsideElbowM": 0.0424,
+          "RightWristForwardFromShoulderM": 0.3882,
+          "RightElbowAngleDeg": 54.66,
+          "RightWristWorldXYZ": [
+            -0.2723,
+            -0.3408,
+            1.1986
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0254,
+          "LeftWristForwardFromShoulderM": 0.2587,
+          "LeftElbowAngleDeg": 62.04,
+          "LeftWristWorldXYZ": [
+            0.2978,
+            -0.2125,
+            1.0507
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 26,
+          "RightWristInsideElbowM": 0.0424,
+          "RightWristForwardFromShoulderM": 0.3882,
+          "RightElbowAngleDeg": 54.66,
+          "RightWristWorldXYZ": [
+            -0.2723,
+            -0.3408,
+            1.1986
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0254,
+          "LeftWristForwardFromShoulderM": 0.2587,
+          "LeftElbowAngleDeg": 62.04,
+          "LeftWristWorldXYZ": [
+            0.2978,
+            -0.2125,
+            1.0507
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 27,
+          "RightWristInsideElbowM": 0.0424,
+          "RightWristForwardFromShoulderM": 0.3882,
+          "RightElbowAngleDeg": 54.66,
+          "RightWristWorldXYZ": [
+            -0.2723,
+            -0.3408,
+            1.1986
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0254,
+          "LeftWristForwardFromShoulderM": 0.2587,
+          "LeftElbowAngleDeg": 62.04,
+          "LeftWristWorldXYZ": [
+            0.2978,
+            -0.2125,
+            1.0507
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        },
+        {
+          "frame": 28,
+          "RightWristInsideElbowM": 0.0424,
+          "RightWristForwardFromShoulderM": 0.3882,
+          "RightElbowAngleDeg": 54.66,
+          "RightWristWorldXYZ": [
+            -0.2723,
+            -0.3408,
+            1.1986
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0254,
+          "LeftWristForwardFromShoulderM": 0.2587,
+          "LeftElbowAngleDeg": 62.04,
+          "LeftWristWorldXYZ": [
+            0.2978,
+            -0.2125,
+            1.0507
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        }
+      ],
+      "stats": {
+        "Right": {
+          "minimumInwardM": 0.0396,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.2787,
+          "angleMin": 54.66,
+          "angleMax": 78.21
+        },
+        "Left": {
+          "minimumInwardM": 0.0254,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.1996,
+          "angleMin": 60.07,
+          "angleMax": 62.04
+        }
+      }
+    },
+    "Duel_ThrowCard": {
+      "frames": [
+        {
+          "frame": 6,
+          "RightWristInsideElbowM": 0.0796,
+          "RightWristForwardFromShoulderM": 0.3042,
+          "RightElbowAngleDeg": 86.55,
+          "RightWristWorldXYZ": [
+            -0.2416,
+            -0.2637,
+            1.3634
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0308,
+          "LeftWristForwardFromShoulderM": 0.2725,
+          "LeftElbowAngleDeg": 47.44,
+          "LeftWristWorldXYZ": [
+            0.2193,
+            -0.2302,
+            0.8916
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 7,
+          "RightWristInsideElbowM": 0.0796,
+          "RightWristForwardFromShoulderM": 0.3042,
+          "RightElbowAngleDeg": 86.55,
+          "RightWristWorldXYZ": [
+            -0.2416,
+            -0.2637,
+            1.3634
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0308,
+          "LeftWristForwardFromShoulderM": 0.2725,
+          "LeftElbowAngleDeg": 47.44,
+          "LeftWristWorldXYZ": [
+            0.2193,
+            -0.2302,
+            0.8916
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 8,
+          "RightWristInsideElbowM": 0.0796,
+          "RightWristForwardFromShoulderM": 0.3042,
+          "RightElbowAngleDeg": 86.55,
+          "RightWristWorldXYZ": [
+            -0.2416,
+            -0.2637,
+            1.3634
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0308,
+          "LeftWristForwardFromShoulderM": 0.2725,
+          "LeftElbowAngleDeg": 47.44,
+          "LeftWristWorldXYZ": [
+            0.2193,
+            -0.2302,
+            0.8916
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 9,
+          "RightWristInsideElbowM": 0.0796,
+          "RightWristForwardFromShoulderM": 0.3042,
+          "RightElbowAngleDeg": 86.55,
+          "RightWristWorldXYZ": [
+            -0.2416,
+            -0.2637,
+            1.3634
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0308,
+          "LeftWristForwardFromShoulderM": 0.2725,
+          "LeftElbowAngleDeg": 47.44,
+          "LeftWristWorldXYZ": [
+            0.2193,
+            -0.2302,
+            0.8916
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 10,
+          "RightWristInsideElbowM": 0.0796,
+          "RightWristForwardFromShoulderM": 0.3042,
+          "RightElbowAngleDeg": 86.55,
+          "RightWristWorldXYZ": [
+            -0.2416,
+            -0.2637,
+            1.3634
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0308,
+          "LeftWristForwardFromShoulderM": 0.2725,
+          "LeftElbowAngleDeg": 47.44,
+          "LeftWristWorldXYZ": [
+            0.2193,
+            -0.2302,
+            0.8916
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 11,
+          "RightWristInsideElbowM": 0.0796,
+          "RightWristForwardFromShoulderM": 0.3042,
+          "RightElbowAngleDeg": 86.55,
+          "RightWristWorldXYZ": [
+            -0.2416,
+            -0.2637,
+            1.3634
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0308,
+          "LeftWristForwardFromShoulderM": 0.2725,
+          "LeftElbowAngleDeg": 47.44,
+          "LeftWristWorldXYZ": [
+            0.2193,
+            -0.2302,
+            0.8916
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 12,
+          "RightWristInsideElbowM": 0.073,
+          "RightWristForwardFromShoulderM": 0.3134,
+          "RightElbowAngleDeg": 83.3,
+          "RightWristWorldXYZ": [
+            -0.2492,
+            -0.2721,
+            1.3511
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0325,
+          "LeftWristForwardFromShoulderM": 0.2725,
+          "LeftElbowAngleDeg": 48.32,
+          "LeftWristWorldXYZ": [
+            0.2277,
+            -0.2302,
+            0.9026
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 13,
+          "RightWristInsideElbowM": 0.0575,
+          "RightWristForwardFromShoulderM": 0.3366,
+          "RightElbowAngleDeg": 74.84,
+          "RightWristWorldXYZ": [
+            -0.265,
+            -0.293,
+            1.3172
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0362,
+          "LeftWristForwardFromShoulderM": 0.2714,
+          "LeftElbowAngleDeg": 50.93,
+          "LeftWristWorldXYZ": [
+            0.2472,
+            -0.229,
+            0.9327
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 14,
+          "RightWristInsideElbowM": 0.0413,
+          "RightWristForwardFromShoulderM": 0.365,
+          "RightElbowAngleDeg": 63.59,
+          "RightWristWorldXYZ": [
+            -0.2759,
+            -0.319,
+            1.2672
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0387,
+          "LeftWristForwardFromShoulderM": 0.2678,
+          "LeftElbowAngleDeg": 55.19,
+          "LeftWristWorldXYZ": [
+            0.2687,
+            -0.2247,
+            0.977
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 15,
+          "RightWristInsideElbowM": 0.0335,
+          "RightWristForwardFromShoulderM": 0.3895,
+          "RightElbowAngleDeg": 52.94,
+          "RightWristWorldXYZ": [
+            -0.2726,
+            -0.3419,
+            1.2133
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0373,
+          "LeftWristForwardFromShoulderM": 0.2611,
+          "LeftElbowAngleDeg": 60.56,
+          "LeftWristWorldXYZ": [
+            0.2846,
+            -0.2163,
+            1.028
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 16,
+          "RightWristInsideElbowM": 0.036,
+          "RightWristForwardFromShoulderM": 0.405,
+          "RightElbowAngleDeg": 46.1,
+          "RightWristWorldXYZ": [
+            -0.2569,
+            -0.3564,
+            1.17
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0318,
+          "LeftWristForwardFromShoulderM": 0.2526,
+          "LeftElbowAngleDeg": 65.96,
+          "LeftWristWorldXYZ": [
+            0.2919,
+            -0.2055,
+            1.0762
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 17,
+          "RightWristInsideElbowM": 0.0429,
+          "RightWristForwardFromShoulderM": 0.4117,
+          "RightElbowAngleDeg": 43.66,
+          "RightWristWorldXYZ": [
+            -0.2397,
+            -0.3631,
+            1.1449
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0252,
+          "LeftWristForwardFromShoulderM": 0.2451,
+          "LeftElbowAngleDeg": 70.09,
+          "LeftWristWorldXYZ": [
+            0.2928,
+            -0.1959,
+            1.1114
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 18,
+          "RightWristInsideElbowM": 0.0468,
+          "RightWristForwardFromShoulderM": 0.4134,
+          "RightElbowAngleDeg": 43.46,
+          "RightWristWorldXYZ": [
+            -0.2319,
+            -0.3648,
+            1.1383
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0221,
+          "LeftWristForwardFromShoulderM": 0.2419,
+          "LeftElbowAngleDeg": 71.72,
+          "LeftWristWorldXYZ": [
+            0.2921,
+            -0.1918,
+            1.1249
+          ],
+          "LeftFootWorldXYZ": [
+            0.1543,
+            0.0386,
+            0.1493
+          ]
+        },
+        {
+          "frame": 19,
+          "RightWristInsideElbowM": 0.0473,
+          "RightWristForwardFromShoulderM": 0.4118,
+          "RightElbowAngleDeg": 44.49,
+          "RightWristWorldXYZ": [
+            -0.232,
+            -0.3632,
+            1.1391
+          ],
+          "RightFootWorldXYZ": [
+            -0.1617,
+            -0.003,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0216,
+          "LeftWristForwardFromShoulderM": 0.2427,
+          "LeftElbowAngleDeg": 71.24,
+          "LeftWristWorldXYZ": [
+            0.2934,
+            -0.1927,
+            1.1233
+          ],
+          "LeftFootWorldXYZ": [
+            0.1542,
+            0.0377,
+            0.1492
+          ]
+        },
+        {
+          "frame": 20,
+          "RightWristInsideElbowM": 0.0478,
+          "RightWristForwardFromShoulderM": 0.4068,
+          "RightElbowAngleDeg": 47.12,
+          "RightWristWorldXYZ": [
+            -0.2333,
+            -0.3583,
+            1.1367
+          ],
+          "RightFootWorldXYZ": [
+            -0.1622,
+            0.0015,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0207,
+          "LeftWristForwardFromShoulderM": 0.2446,
+          "LeftElbowAngleDeg": 69.99,
+          "LeftWristWorldXYZ": [
+            0.2964,
+            -0.1948,
+            1.1182
+          ],
+          "LeftFootWorldXYZ": [
+            0.154,
+            0.0355,
+            0.1491
+          ]
+        },
+        {
+          "frame": 21,
+          "RightWristInsideElbowM": 0.0474,
+          "RightWristForwardFromShoulderM": 0.3977,
+          "RightElbowAngleDeg": 51.32,
+          "RightWristWorldXYZ": [
+            -0.2364,
+            -0.3496,
+            1.1315
+          ],
+          "RightFootWorldXYZ": [
+            -0.1628,
+            0.0073,
+            0.1421
+          ],
+          "LeftWristInsideElbowM": 0.0198,
+          "LeftWristForwardFromShoulderM": 0.2465,
+          "LeftElbowAngleDeg": 68.28,
+          "LeftWristWorldXYZ": [
+            0.3001,
+            -0.1973,
+            1.1096
+          ],
+          "LeftFootWorldXYZ": [
+            0.1537,
+            0.0327,
+            0.1489
+          ]
+        },
+        {
+          "frame": 22,
+          "RightWristInsideElbowM": 0.046,
+          "RightWristForwardFromShoulderM": 0.3844,
+          "RightElbowAngleDeg": 56.6,
+          "RightWristWorldXYZ": [
+            -0.2411,
+            -0.3369,
+            1.1239
+          ],
+          "RightFootWorldXYZ": [
+            -0.1635,
+            0.013,
+            0.1422
+          ],
+          "LeftWristInsideElbowM": 0.0193,
+          "LeftWristForwardFromShoulderM": 0.2474,
+          "LeftElbowAngleDeg": 66.42,
+          "LeftWristWorldXYZ": [
+            0.3032,
+            -0.1994,
+            1.0976
+          ],
+          "LeftFootWorldXYZ": [
+            0.1534,
+            0.0298,
+            0.1488
+          ]
+        },
+        {
+          "frame": 23,
+          "RightWristInsideElbowM": 0.0443,
+          "RightWristForwardFromShoulderM": 0.3681,
+          "RightElbowAngleDeg": 62.05,
+          "RightWristWorldXYZ": [
+            -0.2469,
+            -0.3214,
+            1.1145
+          ],
+          "RightFootWorldXYZ": [
+            -0.164,
+            0.0175,
+            0.1424
+          ],
+          "LeftWristInsideElbowM": 0.0201,
+          "LeftWristForwardFromShoulderM": 0.2463,
+          "LeftElbowAngleDeg": 64.71,
+          "LeftWristWorldXYZ": [
+            0.3046,
+            -0.2002,
+            1.0819
+          ],
+          "LeftFootWorldXYZ": [
+            0.1532,
+            0.0276,
+            0.1487
+          ]
+        },
+        {
+          "frame": 24,
+          "RightWristInsideElbowM": 0.0435,
+          "RightWristForwardFromShoulderM": 0.3506,
+          "RightElbowAngleDeg": 66.6,
+          "RightWristWorldXYZ": [
+            -0.253,
+            -0.3055,
+            1.1033
+          ],
+          "RightFootWorldXYZ": [
+            -0.1642,
+            0.0193,
+            0.1424
+          ],
+          "LeftWristInsideElbowM": 0.0228,
+          "LeftWristForwardFromShoulderM": 0.2421,
+          "LeftElbowAngleDeg": 63.43,
+          "LeftWristWorldXYZ": [
+            0.3028,
+            -0.1988,
+            1.0627
+          ],
+          "LeftFootWorldXYZ": [
+            0.1531,
+            0.0267,
+            0.1486
+          ]
+        },
+        {
+          "frame": 25,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.3333,
+          "RightElbowAngleDeg": 69.9,
+          "RightWristWorldXYZ": [
+            -0.26,
+            -0.2906,
+            1.0925
+          ],
+          "RightFootWorldXYZ": [
+            -0.1639,
+            0.0168,
+            0.1424
+          ],
+          "LeftWristInsideElbowM": 0.0268,
+          "LeftWristForwardFromShoulderM": 0.2337,
+          "LeftElbowAngleDeg": 62.76,
+          "LeftWristWorldXYZ": [
+            0.299,
+            -0.1938,
+            1.0414
+          ],
+          "LeftFootWorldXYZ": [
+            0.1533,
+            0.0292,
+            0.1487
+          ]
+        },
+        {
+          "frame": 26,
+          "RightWristInsideElbowM": 0.0446,
+          "RightWristForwardFromShoulderM": 0.3167,
+          "RightElbowAngleDeg": 72.36,
+          "RightWristWorldXYZ": [
+            -0.2683,
+            -0.2771,
+            1.0843
+          ],
+          "RightFootWorldXYZ": [
+            -0.1632,
+            0.0108,
+            0.1422
+          ],
+          "LeftWristInsideElbowM": 0.0303,
+          "LeftWristForwardFromShoulderM": 0.222,
+          "LeftElbowAngleDeg": 62.45,
+          "LeftWristWorldXYZ": [
+            0.2954,
+            -0.1858,
+            1.0206
+          ],
+          "LeftFootWorldXYZ": [
+            0.154,
+            0.0351,
+            0.1491
+          ]
+        },
+        {
+          "frame": 27,
+          "RightWristInsideElbowM": 0.0445,
+          "RightWristForwardFromShoulderM": 0.3016,
+          "RightElbowAngleDeg": 74.04,
+          "RightWristWorldXYZ": [
+            -0.2768,
+            -0.2652,
+            1.0778
+          ],
+          "RightFootWorldXYZ": [
+            -0.1624,
+            0.0037,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0325,
+          "LeftWristForwardFromShoulderM": 0.2102,
+          "LeftElbowAngleDeg": 62.14,
+          "LeftWristWorldXYZ": [
+            0.2928,
+            -0.177,
+            1.0028
+          ],
+          "LeftFootWorldXYZ": [
+            0.1547,
+            0.0421,
+            0.1495
+          ]
+        },
+        {
+          "frame": 28,
+          "RightWristInsideElbowM": 0.0431,
+          "RightWristForwardFromShoulderM": 0.2887,
+          "RightElbowAngleDeg": 75.02,
+          "RightWristWorldXYZ": [
+            -0.2847,
+            -0.255,
+            1.072
+          ],
+          "RightFootWorldXYZ": [
+            -0.1618,
+            -0.0023,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0323,
+          "LeftWristForwardFromShoulderM": 0.2016,
+          "LeftElbowAngleDeg": 61.47,
+          "LeftWristWorldXYZ": [
+            0.2926,
+            -0.1705,
+            0.9899
+          ],
+          "LeftFootWorldXYZ": [
+            0.1553,
+            0.048,
+            0.15
+          ]
+        },
+        {
+          "frame": 29,
+          "RightWristInsideElbowM": 0.0396,
+          "RightWristForwardFromShoulderM": 0.2787,
+          "RightElbowAngleDeg": 75.34,
+          "RightWristWorldXYZ": [
+            -0.2911,
+            -0.2462,
+            1.0657
+          ],
+          "RightFootWorldXYZ": [
+            -0.1615,
+            -0.0048,
+            0.142
+          ],
+          "LeftWristInsideElbowM": 0.0284,
+          "LeftWristForwardFromShoulderM": 0.1996,
+          "LeftElbowAngleDeg": 60.07,
+          "LeftWristWorldXYZ": [
+            0.2959,
+            -0.1691,
+            0.9837
+          ],
+          "LeftFootWorldXYZ": [
+            0.1556,
+            0.0505,
+            0.1502
+          ]
+        }
+      ],
+      "stats": {
+        "Right": {
+          "minimumInwardM": 0.0335,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.2787,
+          "angleMin": 43.46,
+          "angleMax": 86.55
+        },
+        "Left": {
+          "minimumInwardM": 0.0193,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.1996,
+          "angleMin": 47.44,
+          "angleMax": 71.72
+        }
+      }
+    },
+    "Duel_Recoil": {
+      "frames": [
+        {
+          "frame": 5,
+          "RightWristInsideElbowM": 0.0481,
+          "RightWristForwardFromShoulderM": 0.297,
+          "RightElbowAngleDeg": 76.18,
+          "RightWristWorldXYZ": [
+            -0.2826,
+            -0.2712,
+            1.1221
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0313,
+          "LeftWristForwardFromShoulderM": 0.3054,
+          "LeftElbowAngleDeg": 71.32,
+          "LeftWristWorldXYZ": [
+            0.3092,
+            -0.2836,
+            1.1462
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 6,
+          "RightWristInsideElbowM": 0.0481,
+          "RightWristForwardFromShoulderM": 0.297,
+          "RightElbowAngleDeg": 76.18,
+          "RightWristWorldXYZ": [
+            -0.2826,
+            -0.2712,
+            1.1221
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0313,
+          "LeftWristForwardFromShoulderM": 0.3054,
+          "LeftElbowAngleDeg": 71.32,
+          "LeftWristWorldXYZ": [
+            0.3092,
+            -0.2836,
+            1.1462
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 7,
+          "RightWristInsideElbowM": 0.0481,
+          "RightWristForwardFromShoulderM": 0.297,
+          "RightElbowAngleDeg": 76.18,
+          "RightWristWorldXYZ": [
+            -0.2826,
+            -0.2712,
+            1.1221
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0313,
+          "LeftWristForwardFromShoulderM": 0.3054,
+          "LeftElbowAngleDeg": 71.32,
+          "LeftWristWorldXYZ": [
+            0.3092,
+            -0.2836,
+            1.1462
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 8,
+          "RightWristInsideElbowM": 0.0481,
+          "RightWristForwardFromShoulderM": 0.297,
+          "RightElbowAngleDeg": 76.18,
+          "RightWristWorldXYZ": [
+            -0.2826,
+            -0.2712,
+            1.1221
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0313,
+          "LeftWristForwardFromShoulderM": 0.3054,
+          "LeftElbowAngleDeg": 71.32,
+          "LeftWristWorldXYZ": [
+            0.3092,
+            -0.2836,
+            1.1462
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 9,
+          "RightWristInsideElbowM": 0.0481,
+          "RightWristForwardFromShoulderM": 0.297,
+          "RightElbowAngleDeg": 76.18,
+          "RightWristWorldXYZ": [
+            -0.2826,
+            -0.2712,
+            1.1221
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0313,
+          "LeftWristForwardFromShoulderM": 0.3054,
+          "LeftElbowAngleDeg": 71.32,
+          "LeftWristWorldXYZ": [
+            0.3092,
+            -0.2836,
+            1.1462
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 10,
+          "RightWristInsideElbowM": 0.0481,
+          "RightWristForwardFromShoulderM": 0.297,
+          "RightElbowAngleDeg": 76.18,
+          "RightWristWorldXYZ": [
+            -0.2826,
+            -0.2712,
+            1.1221
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0313,
+          "LeftWristForwardFromShoulderM": 0.3054,
+          "LeftElbowAngleDeg": 71.32,
+          "LeftWristWorldXYZ": [
+            0.3092,
+            -0.2836,
+            1.1462
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 11,
+          "RightWristInsideElbowM": 0.0481,
+          "RightWristForwardFromShoulderM": 0.297,
+          "RightElbowAngleDeg": 76.18,
+          "RightWristWorldXYZ": [
+            -0.2826,
+            -0.2712,
+            1.1221
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0313,
+          "LeftWristForwardFromShoulderM": 0.3054,
+          "LeftElbowAngleDeg": 71.32,
+          "LeftWristWorldXYZ": [
+            0.3092,
+            -0.2836,
+            1.1462
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 12,
+          "RightWristInsideElbowM": 0.0481,
+          "RightWristForwardFromShoulderM": 0.297,
+          "RightElbowAngleDeg": 76.18,
+          "RightWristWorldXYZ": [
+            -0.2826,
+            -0.2712,
+            1.1221
+          ],
+          "RightFootWorldXYZ": [
+            -0.1691,
+            0.0552,
+            0.1456
+          ],
+          "LeftWristInsideElbowM": 0.0313,
+          "LeftWristForwardFromShoulderM": 0.3054,
+          "LeftElbowAngleDeg": 71.32,
+          "LeftWristWorldXYZ": [
+            0.3092,
+            -0.2836,
+            1.1462
+          ],
+          "LeftFootWorldXYZ": [
+            0.1493,
+            -0.0151,
+            0.1492
+          ]
+        },
+        {
+          "frame": 13,
+          "RightWristInsideElbowM": 0.0474,
+          "RightWristForwardFromShoulderM": 0.2972,
+          "RightElbowAngleDeg": 75.84,
+          "RightWristWorldXYZ": [
+            -0.2833,
+            -0.2707,
+            1.1197
+          ],
+          "RightFootWorldXYZ": [
+            -0.169,
+            0.0537,
+            0.1454
+          ],
+          "LeftWristInsideElbowM": 0.0303,
+          "LeftWristForwardFromShoulderM": 0.3049,
+          "LeftElbowAngleDeg": 70.92,
+          "LeftWristWorldXYZ": [
+            0.3097,
+            -0.2822,
+            1.144
+          ],
+          "LeftFootWorldXYZ": [
+            0.1494,
+            -0.0144,
+            0.1491
+          ]
+        },
+        {
+          "frame": 14,
+          "RightWristInsideElbowM": 0.0459,
+          "RightWristForwardFromShoulderM": 0.2975,
+          "RightElbowAngleDeg": 75.03,
+          "RightWristWorldXYZ": [
+            -0.2848,
+            -0.2693,
+            1.1135
+          ],
+          "RightFootWorldXYZ": [
+            -0.1685,
+            0.05,
+            0.145
+          ],
+          "LeftWristInsideElbowM": 0.0283,
+          "LeftWristForwardFromShoulderM": 0.3033,
+          "LeftElbowAngleDeg": 70.05,
+          "LeftWristWorldXYZ": [
+            0.3103,
+            -0.2786,
+            1.1385
+          ],
+          "LeftFootWorldXYZ": [
+            0.1496,
+            -0.0125,
+            0.1488
+          ]
+        },
+        {
+          "frame": 15,
+          "RightWristInsideElbowM": 0.0446,
+          "RightWristForwardFromShoulderM": 0.2978,
+          "RightElbowAngleDeg": 74.06,
+          "RightWristWorldXYZ": [
+            -0.2859,
+            -0.2675,
+            1.1055
+          ],
+          "RightFootWorldXYZ": [
+            -0.168,
+            0.0452,
+            0.1444
+          ],
+          "LeftWristInsideElbowM": 0.0271,
+          "LeftWristForwardFromShoulderM": 0.3011,
+          "LeftElbowAngleDeg": 69.2,
+          "LeftWristWorldXYZ": [
+            0.3097,
+            -0.2737,
+            1.1313
+          ],
+          "LeftFootWorldXYZ": [
+            0.1499,
+            -0.0101,
+            0.1485
+          ]
+        },
+        {
+          "frame": 16,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2982,
+          "RightElbowAngleDeg": 73.21,
+          "RightWristWorldXYZ": [
+            -0.2862,
+            -0.2657,
+            1.0973
+          ],
+          "RightFootWorldXYZ": [
+            -0.1674,
+            0.0404,
+            0.1439
+          ],
+          "LeftWristInsideElbowM": 0.0273,
+          "LeftWristForwardFromShoulderM": 0.2988,
+          "LeftElbowAngleDeg": 68.68,
+          "LeftWristWorldXYZ": [
+            0.3075,
+            -0.2687,
+            1.1242
+          ],
+          "LeftFootWorldXYZ": [
+            0.1502,
+            -0.0077,
+            0.1482
+          ]
+        },
+        {
+          "frame": 17,
+          "RightWristInsideElbowM": 0.0439,
+          "RightWristForwardFromShoulderM": 0.2984,
+          "RightElbowAngleDeg": 72.64,
+          "RightWristWorldXYZ": [
+            -0.2858,
+            -0.2643,
+            1.0911
+          ],
+          "RightFootWorldXYZ": [
+            -0.167,
+            0.0367,
+            0.1435
+          ],
+          "LeftWristInsideElbowM": 0.0285,
+          "LeftWristForwardFromShoulderM": 0.2969,
+          "LeftElbowAngleDeg": 68.52,
+          "LeftWristWorldXYZ": [
+            0.3047,
+            -0.2648,
+            1.119
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0058,
+            0.148
+          ]
+        },
+        {
+          "frame": 18,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 19,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 20,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 21,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 22,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 23,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 24,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 25,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 26,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        },
+        {
+          "frame": 27,
+          "RightWristInsideElbowM": 0.044,
+          "RightWristForwardFromShoulderM": 0.2985,
+          "RightElbowAngleDeg": 72.43,
+          "RightWristWorldXYZ": [
+            -0.2854,
+            -0.2637,
+            1.0886
+          ],
+          "RightFootWorldXYZ": [
+            -0.1668,
+            0.0352,
+            0.1434
+          ],
+          "LeftWristInsideElbowM": 0.0292,
+          "LeftWristForwardFromShoulderM": 0.2961,
+          "LeftElbowAngleDeg": 68.51,
+          "LeftWristWorldXYZ": [
+            0.3033,
+            -0.2633,
+            1.117
+          ],
+          "LeftFootWorldXYZ": [
+            0.1504,
+            -0.0051,
+            0.1479
+          ]
+        }
+      ],
+      "stats": {
+        "Right": {
+          "minimumInwardM": 0.0439,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.297,
+          "angleMin": 72.43,
+          "angleMax": 76.18
+        },
+        "Left": {
+          "minimumInwardM": 0.0271,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.2961,
+          "angleMin": 68.51,
+          "angleMax": 71.32
+        }
+      }
+    },
+    "Duel_Victory": {
+      "frames": [
+        {
+          "frame": 7,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 8,
+          "RightWristInsideElbowM": 0.1034,
+          "RightWristForwardFromShoulderM": 0.3056,
+          "RightElbowAngleDeg": 65.14,
+          "RightWristWorldXYZ": [
+            -0.1308,
+            -0.2536,
+            1.5139
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0264,
+          "LeftWristForwardFromShoulderM": 0.2923,
+          "LeftElbowAngleDeg": 54.45,
+          "LeftWristWorldXYZ": [
+            0.2879,
+            -0.2417,
+            0.9836
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 9,
+          "RightWristInsideElbowM": 0.1045,
+          "RightWristForwardFromShoulderM": 0.3004,
+          "RightElbowAngleDeg": 64.41,
+          "RightWristWorldXYZ": [
+            -0.1215,
+            -0.2485,
+            1.5239
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0273,
+          "LeftWristForwardFromShoulderM": 0.2927,
+          "LeftElbowAngleDeg": 54.63,
+          "LeftWristWorldXYZ": [
+            0.2866,
+            -0.2421,
+            0.9821
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 10,
+          "RightWristInsideElbowM": 0.1017,
+          "RightWristForwardFromShoulderM": 0.2981,
+          "RightElbowAngleDeg": 63.06,
+          "RightWristWorldXYZ": [
+            -0.1181,
+            -0.2462,
+            1.5317
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.028,
+          "LeftWristForwardFromShoulderM": 0.2929,
+          "LeftElbowAngleDeg": 54.75,
+          "LeftWristWorldXYZ": [
+            0.2859,
+            -0.2423,
+            0.9813
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 11,
+          "RightWristInsideElbowM": 0.0964,
+          "RightWristForwardFromShoulderM": 0.298,
+          "RightElbowAngleDeg": 61.36,
+          "RightWristWorldXYZ": [
+            -0.1191,
+            -0.2461,
+            1.5377
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0283,
+          "LeftWristForwardFromShoulderM": 0.2931,
+          "LeftElbowAngleDeg": 54.83,
+          "LeftWristWorldXYZ": [
+            0.2856,
+            -0.2425,
+            0.9809
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 12,
+          "RightWristInsideElbowM": 0.0898,
+          "RightWristForwardFromShoulderM": 0.2993,
+          "RightElbowAngleDeg": 59.59,
+          "RightWristWorldXYZ": [
+            -0.123,
+            -0.2474,
+            1.5419
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0284,
+          "LeftWristForwardFromShoulderM": 0.2932,
+          "LeftElbowAngleDeg": 54.88,
+          "LeftWristWorldXYZ": [
+            0.2855,
+            -0.2426,
+            0.9808
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 13,
+          "RightWristInsideElbowM": 0.0834,
+          "RightWristForwardFromShoulderM": 0.3011,
+          "RightElbowAngleDeg": 58.0,
+          "RightWristWorldXYZ": [
+            -0.1279,
+            -0.2493,
+            1.5445
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0284,
+          "LeftWristForwardFromShoulderM": 0.2933,
+          "LeftElbowAngleDeg": 54.89,
+          "LeftWristWorldXYZ": [
+            0.2857,
+            -0.2426,
+            0.9809
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 14,
+          "RightWristInsideElbowM": 0.0785,
+          "RightWristForwardFromShoulderM": 0.3028,
+          "RightElbowAngleDeg": 56.85,
+          "RightWristWorldXYZ": [
+            -0.1322,
+            -0.251,
+            1.5458
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0283,
+          "LeftWristForwardFromShoulderM": 0.2933,
+          "LeftElbowAngleDeg": 54.9,
+          "LeftWristWorldXYZ": [
+            0.2859,
+            -0.2426,
+            0.981
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 15,
+          "RightWristInsideElbowM": 0.0766,
+          "RightWristForwardFromShoulderM": 0.3036,
+          "RightElbowAngleDeg": 56.41,
+          "RightWristWorldXYZ": [
+            -0.134,
+            -0.2517,
+            1.5461
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0283,
+          "LeftWristForwardFromShoulderM": 0.2933,
+          "LeftElbowAngleDeg": 54.9,
+          "LeftWristWorldXYZ": [
+            0.286,
+            -0.2426,
+            0.9811
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 16,
+          "RightWristInsideElbowM": 0.0775,
+          "RightWristForwardFromShoulderM": 0.3042,
+          "RightElbowAngleDeg": 56.75,
+          "RightWristWorldXYZ": [
+            -0.1346,
+            -0.2523,
+            1.5443
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0281,
+          "LeftWristForwardFromShoulderM": 0.2932,
+          "LeftElbowAngleDeg": 54.87,
+          "LeftWristWorldXYZ": [
+            0.2861,
+            -0.2426,
+            0.9813
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 17,
+          "RightWristInsideElbowM": 0.0799,
+          "RightWristForwardFromShoulderM": 0.3056,
+          "RightElbowAngleDeg": 57.64,
+          "RightWristWorldXYZ": [
+            -0.1362,
+            -0.2538,
+            1.5396
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0278,
+          "LeftWristForwardFromShoulderM": 0.2931,
+          "LeftElbowAngleDeg": 54.79,
+          "LeftWristWorldXYZ": [
+            0.2866,
+            -0.2424,
+            0.9818
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 18,
+          "RightWristInsideElbowM": 0.0833,
+          "RightWristForwardFromShoulderM": 0.3076,
+          "RightElbowAngleDeg": 58.95,
+          "RightWristWorldXYZ": [
+            -0.1383,
+            -0.2557,
+            1.5327
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0272,
+          "LeftWristForwardFromShoulderM": 0.2928,
+          "LeftElbowAngleDeg": 54.68,
+          "LeftWristWorldXYZ": [
+            0.2872,
+            -0.2422,
+            0.9825
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 19,
+          "RightWristInsideElbowM": 0.0872,
+          "RightWristForwardFromShoulderM": 0.3096,
+          "RightElbowAngleDeg": 60.5,
+          "RightWristWorldXYZ": [
+            -0.1408,
+            -0.2577,
+            1.5245
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0266,
+          "LeftWristForwardFromShoulderM": 0.2926,
+          "LeftElbowAngleDeg": 54.55,
+          "LeftWristWorldXYZ": [
+            0.2879,
+            -0.242,
+            0.9834
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 20,
+          "RightWristInsideElbowM": 0.0909,
+          "RightWristForwardFromShoulderM": 0.3114,
+          "RightElbowAngleDeg": 62.1,
+          "RightWristWorldXYZ": [
+            -0.1433,
+            -0.2595,
+            1.5161
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.026,
+          "LeftWristForwardFromShoulderM": 0.2923,
+          "LeftElbowAngleDeg": 54.43,
+          "LeftWristWorldXYZ": [
+            0.2886,
+            -0.2417,
+            0.9842
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 21,
+          "RightWristInsideElbowM": 0.0941,
+          "RightWristForwardFromShoulderM": 0.3128,
+          "RightElbowAngleDeg": 63.53,
+          "RightWristWorldXYZ": [
+            -0.1454,
+            -0.2609,
+            1.5086
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0254,
+          "LeftWristForwardFromShoulderM": 0.2921,
+          "LeftElbowAngleDeg": 54.32,
+          "LeftWristWorldXYZ": [
+            0.2893,
+            -0.2415,
+            0.985
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 22,
+          "RightWristInsideElbowM": 0.0964,
+          "RightWristForwardFromShoulderM": 0.3137,
+          "RightElbowAngleDeg": 64.56,
+          "RightWristWorldXYZ": [
+            -0.1469,
+            -0.2617,
+            1.5032
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.025,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.24,
+          "LeftWristWorldXYZ": [
+            0.2897,
+            -0.2413,
+            0.9855
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 23,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 24,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 25,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 26,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 27,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 28,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 29,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 30,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        },
+        {
+          "frame": 31,
+          "RightWristInsideElbowM": 0.0972,
+          "RightWristForwardFromShoulderM": 0.314,
+          "RightElbowAngleDeg": 64.96,
+          "RightWristWorldXYZ": [
+            -0.1475,
+            -0.262,
+            1.5012
+          ],
+          "RightFootWorldXYZ": [
+            -0.1667,
+            0.0433,
+            0.1438
+          ],
+          "LeftWristInsideElbowM": 0.0249,
+          "LeftWristForwardFromShoulderM": 0.2919,
+          "LeftElbowAngleDeg": 54.21,
+          "LeftWristWorldXYZ": [
+            0.2899,
+            -0.2413,
+            0.9857
+          ],
+          "LeftFootWorldXYZ": [
+            0.1505,
+            0.003,
+            0.1479
+          ]
+        }
+      ],
+      "stats": {
+        "Right": {
+          "minimumInwardM": 0.0766,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.298,
+          "angleMin": 56.41,
+          "angleMax": 65.14
+        },
+        "Left": {
+          "minimumInwardM": 0.0249,
+          "countOutsideByMoreThan2cm": 0,
+          "minimumForwardM": 0.2919,
+          "angleMin": 54.21,
+          "angleMax": 54.9
+        }
+      }
+    }
+  }
+}

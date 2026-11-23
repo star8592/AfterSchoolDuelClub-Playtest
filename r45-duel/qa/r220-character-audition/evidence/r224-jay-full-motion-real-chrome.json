@@ -1,0 +1,131 @@
+{
+  "ok": true,
+  "errors": [],
+  "scenes": [
+    {
+      "kind": "draw",
+      "seconds": 1.7,
+      "clip": "Duel_DrawCard",
+      "card": {
+        "visible": true,
+        "released": false,
+        "position": [
+          0.945,
+          1.407,
+          0.104
+        ],
+        "phaseElapsed": 1.717
+      },
+      "footL": [
+        1.826,
+        0.219,
+        -0.039
+      ],
+      "footR": [
+        1.358,
+        0.21,
+        -0.028
+      ]
+    },
+    {
+      "kind": "attack",
+      "seconds": 2.05,
+      "clip": "Duel_ThrowCard",
+      "card": {
+        "visible": false,
+        "released": true,
+        "position": [
+          1.6,
+          1.45,
+          2.7
+        ],
+        "phaseElapsed": 2.05
+      },
+      "footL": [
+        1.826,
+        0.219,
+        -0.039
+      ],
+      "footR": [
+        1.358,
+        0.21,
+        -0.028
+      ]
+    },
+    {
+      "kind": "hit",
+      "seconds": 1.55,
+      "clip": "Duel_Recoil",
+      "card": {
+        "visible": false,
+        "released": false,
+        "position": [
+          1.6,
+          1.45,
+          2.7
+        ],
+        "phaseElapsed": 1.567
+      },
+      "footL": [
+        1.826,
+        0.219,
+        -0.039
+      ],
+      "footR": [
+        1.358,
+        0.21,
+        -0.028
+      ]
+    },
+    {
+      "kind": "victory",
+      "seconds": 1.85,
+      "clip": "Duel_Victory",
+      "card": {
+        "visible": false,
+        "released": false,
+        "position": [
+          1.6,
+          1.45,
+          2.7
+        ],
+        "phaseElapsed": 1.85
+      },
+      "footL": [
+        1.826,
+        0.219,
+        -0.039
+      ],
+      "footR": [
+        1.358,
+        0.21,
+        -0.028
+      ]
+    },
+    {
+      "kind": "idle",
+      "seconds": 1.25,
+      "clip": "Duel_Idle_LookAround",
+      "card": {
+        "visible": false,
+        "released": false,
+        "position": [
+          1.6,
+          1.45,
+          2.7
+        ],
+        "phaseElapsed": 1.266
+      },
+      "footL": [
+        1.831,
+        0.225,
+        -0.1
+      ],
+      "footR": [
+        1.362,
+        0.212,
+        -0.002
+      ]
+    }
+  ]
+}

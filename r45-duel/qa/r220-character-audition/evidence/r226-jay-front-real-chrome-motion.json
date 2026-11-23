@@ -1,0 +1,208 @@
+{
+  "ok": true,
+  "url": "http://10.10.10.138:18720/r45-duel/qa/r220-character-audition/?focus=jay&revision=r226&camera=front",
+  "errors": [],
+  "frames": [
+    {
+      "kind": "idle",
+      "oldJay": {
+        "clip": "Idle",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Idle_LookAround",
+        "bones": 24,
+        "activeBones": 5,
+        "maxAngleRad": 0.148,
+        "handDepth": {
+          "leftHandForwardM": 0.177,
+          "leftElbowForwardM": 0.045,
+          "leftWristInsideElbowM": -0.2351,
+          "leftActualElbowBendDeg": 21.72,
+          "leftHandHeightM": 1.386,
+          "leftFootHeightM": 0.225,
+          "leftFootWorldXYZ": [
+            1.831,
+            0.225,
+            -0.097
+          ],
+          "rightHandForwardM": 0.143,
+          "rightElbowForwardM": 0.03,
+          "rightWristInsideElbowM": -0.2508,
+          "rightActualElbowBendDeg": 19.42,
+          "rightHandHeightM": 1.469,
+          "rightFootHeightM": 0.212,
+          "rightFootWorldXYZ": [
+            1.362,
+            0.212,
+            -0.004
+          ]
+        }
+      },
+      "drawCalls": 59,
+      "screenshot": "r226-jay-front-idle-real-chrome.png"
+    },
+    {
+      "kind": "draw",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_DrawCard",
+        "bones": 24,
+        "activeBones": 7,
+        "maxAngleRad": 1.147,
+        "handDepth": {
+          "leftHandForwardM": 0.381,
+          "leftElbowForwardM": 0.13,
+          "leftWristInsideElbowM": 0.0374,
+          "leftActualElbowBendDeg": 62.04,
+          "leftHandHeightM": 1.547,
+          "leftFootHeightM": 0.221,
+          "leftFootWorldXYZ": [
+            1.829,
+            0.221,
+            -0.074
+          ],
+          "rightHandForwardM": 0.572,
+          "rightElbowForwardM": 0.259,
+          "rightWristInsideElbowM": 0.0625,
+          "rightActualElbowBendDeg": 54.66,
+          "rightHandHeightM": 1.765,
+          "rightFootHeightM": 0.209,
+          "rightFootWorldXYZ": [
+            1.362,
+            0.209,
+            0.007
+          ]
+        }
+      },
+      "drawCalls": 61,
+      "screenshot": "r226-jay-front-draw-real-chrome.png"
+    },
+    {
+      "kind": "attack",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_ThrowCard",
+        "bones": 24,
+        "activeBones": 7,
+        "maxAngleRad": 1.23,
+        "handDepth": {
+          "leftHandForwardM": 0.363,
+          "leftElbowForwardM": 0.137,
+          "leftWristInsideElbowM": 0.0293,
+          "leftActualElbowBendDeg": 65.25,
+          "leftHandHeightM": 1.601,
+          "leftFootHeightM": 0.219,
+          "leftFootWorldXYZ": [
+            1.826,
+            0.219,
+            -0.042
+          ],
+          "rightHandForwardM": 0.55,
+          "rightElbowForwardM": 0.239,
+          "rightWristInsideElbowM": 0.0663,
+          "rightActualElbowBendDeg": 60.31,
+          "rightHandHeightM": 1.645,
+          "rightFootHeightM": 0.21,
+          "rightFootWorldXYZ": [
+            1.359,
+            0.21,
+            -0.024
+          ]
+        }
+      },
+      "drawCalls": 61,
+      "screenshot": "r226-jay-front-attack-real-chrome.png"
+    },
+    {
+      "kind": "hit",
+      "oldJay": {
+        "clip": "Hit",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Recoil",
+        "bones": 24,
+        "activeBones": 7,
+        "maxAngleRad": 1.119,
+        "handDepth": {
+          "leftHandForwardM": 0.436,
+          "leftElbowForwardM": 0.123,
+          "leftWristInsideElbowM": 0.0429,
+          "leftActualElbowBendDeg": 68.51,
+          "leftHandHeightM": 1.645,
+          "leftFootHeightM": 0.218,
+          "leftFootWorldXYZ": [
+            1.822,
+            0.218,
+            0.008
+          ],
+          "rightHandForwardM": 0.44,
+          "rightElbowForwardM": 0.13,
+          "rightWristInsideElbowM": 0.0648,
+          "rightActualElbowBendDeg": 72.43,
+          "rightHandHeightM": 1.603,
+          "rightFootHeightM": 0.211,
+          "rightFootWorldXYZ": [
+            1.354,
+            0.211,
+            -0.052
+          ]
+        }
+      },
+      "drawCalls": 59,
+      "screenshot": "r226-jay-front-hit-real-chrome.png"
+    },
+    {
+      "kind": "victory",
+      "oldJay": {
+        "clip": "Attack",
+        "bones": 0,
+        "activeBones": 0
+      },
+      "newJay": {
+        "clip": "Duel_Victory",
+        "bones": 24,
+        "activeBones": 9,
+        "maxAngleRad": 1.317,
+        "handDepth": {
+          "leftHandForwardM": 0.43,
+          "leftElbowForwardM": 0.139,
+          "leftWristInsideElbowM": 0.0367,
+          "leftActualElbowBendDeg": 54.21,
+          "leftHandHeightM": 1.452,
+          "leftFootHeightM": 0.218,
+          "leftFootWorldXYZ": [
+            1.822,
+            0.218,
+            -0.004
+          ],
+          "rightHandForwardM": 0.462,
+          "rightElbowForwardM": 0.296,
+          "rightWristInsideElbowM": 0.1431,
+          "rightActualElbowBendDeg": 64.96,
+          "rightHandHeightM": 2.211,
+          "rightFootHeightM": 0.212,
+          "rightFootWorldXYZ": [
+            1.355,
+            0.212,
+            -0.064
+          ]
+        }
+      },
+      "drawCalls": 59,
+      "screenshot": "r226-jay-front-victory-real-chrome.png"
+    }
+  ],
+  "sourceKind": "real-webgl-gltf-render"
+}
